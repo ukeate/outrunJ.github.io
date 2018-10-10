@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>算法分析 - outrunJ笔记</title>
+  <meta property="og:title" content="算法分析 - outrunJ笔记" />
+  <meta name="twitter:title" content="算法分析 - outrunJ笔记" />
+  <meta name="description" content="时间复杂度 概念 time complexity O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N)) N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位 ## 假设不存在如矩阵求逆或排序这样的单位操作 1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么 T1(N) &#43; T2(N) = O(f(N) &#43; g(N)), 或写成 max(O(f(N)), O(g(N))) T1(N) * T2(N) = O(f(N) * g(N)) 2.">
+  <meta property="og:description" content="时间复杂度 概念 time complexity O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N)) N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位 ## 假设不存在如矩阵求逆或排序这样的单位操作 1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么 T1(N) &#43; T2(N) = O(f(N) &#43; g(N)), 或写成 max(O(f(N)), O(g(N))) T1(N) * T2(N) = O(f(N) * g(N)) 2.">
+  <meta name="twitter:description" content="时间复杂度 概念 time complexity O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N)) N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) …">
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/algorithm/analysis/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">算法分析</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 8, 2018</time></li>
+      </ul>
+      
+      
+
+<h1 id="时间复杂度">时间复杂度</h1>
+
+<pre><code>概念
+        time complexity
+        O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O()
+                N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N))
+                N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N))
+                T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N))
+        上界(upper bound)
+        下界(lower bound)
+        法则
+                # 约定, 不存在特定的时间单位
+                # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位
+                ## 假设不存在如矩阵求逆或排序这样的单位操作
+                1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么
+                        T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N)))
+                        T1(N) * T2(N) = O(f(N) * g(N))
+                2. 如果T(N)是一个k次多项式, 则T(N) = Θ(N^k)
+                3. 对任意常数k, (logk) * N = O(N)
+                        # 对数增长得非常缓慢
+        一般法则
+                1. for 循环时间, 为内部语句的运行时间 * 迭代次数
+                2. 嵌套for 循环, 内部语句时间 * 迭代次数n次方
+                3. 顺序语句, 各语句时间求和
+                4. if(S1)/else(S2), 判断的运行时间加 S1和S2中时间长者
+        相对增长率(relative rate of growth)
+                lim(N-&gt;∞)f(N)/g(N)来确定两个函数的相对增长率
+                        1. 极限是0, 则f(N) = o(g(N))
+                        2. 极限是c&lt;&gt;0, 则f(N) = Θ(g(N))
+                        3. 极限是∞, 则g(N) = o(f(N))
+                        4. 极限摆动，则f(N)与g(N)无关
+                洛必达法则
+                        lim(N-&gt;∞)f(N) = ∞, 且lim(N-&gt;∞)g(N) = ∞ 时, lim(N-&gt;∞)f(N)/g(N) = lim(N-&gt;∞)f'(N)/g'(N)
+        多项式时间算法
+                O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3)
+        指数时间算法
+                O(2^n) &lt; O(n!) &lt; O(n^n)
+</code></pre>
+
+<p><img src="/series/algorithm/p1.jpg" alt="时间复杂度" /></p>
+
+<pre><code>递归分析
+        1. 如求factorial(阶乘)的简单for循环, 则为O(N)
+        2. 求解一个递推关系, 如fabonacii, return fib(n - 1) + fib(n - 2)
+                T(N) = T(N - 1) + T(N - 2) + 2, 又fib(N) = fib(N - 1) + fib(N - 2), 由归纳法得T(N) &gt;= fib(N)
+                又fib(N) &lt; (5/3)^N, 可知时间指数增长
+                        # 该算法大量重复计算, 违反递归的合成效益法则
+        3. 对于T(N) = aT(N / b) + Θ(N^k), 解为
+                O(N^(log(b)(a))), 若 a &gt; b^k
+                O(N^k * logN), 若 a = b^k
+                O(N^k), 若 a &lt; b^k
+影响性能的其它因素
+        程序实现方法和语言
+        数据读入
+</code></pre>
+
+<h1 id="空间复杂度">空间复杂度</h1>
+
+<pre><code>概念
+        space complexity
+Space(N) = Heap(N) + Stack(N), 忽略低次项、系数
+        # Heap表示额外申请堆内存空间大小, Stack表示函数栈的最大深度
+</code></pre>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="http://shenwenqing.com/series/algorithm/analysis/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/series/algorithm/algorithm/" data-toggle="tooltip" data-placement="top" title="算法分类">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/series/algorithm/thought/" data-toggle="tooltip" data-placement="top" title="算法思想">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on outrunJ笔记</title>
+    <link>http://shenwenqing.com/post/</link>
+    <description>Recent content in Posts on outrunJ笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy; Copyright 2017 outrunJ</copyright>
+    <lastBuildDate>Sun, 07 Oct 2018 12:46:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenwenqing.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>http://shenwenqing.com/post/blog/</link>
+      <pubDate>Sun, 07 Oct 2018 12:46:46 +0800</pubDate>
+      
+      <guid>http://shenwenqing.com/post/blog/</guid>
+      <description> 为什么写blog  为别人分享。 激励学习、完善、总结、反思。 写了才是自己的。听说读写，写是落实，写才能管理和进取。 同道交流。 展示自己。  写blog的原则  写大不写小，写实不虚构。 骨架清晰，言简意赅。 事事写为什么。 对内容负责。  分层还是标签 分层严格，适合wiki。 标签易管理和搜索，适合blog。 分层适合笔记，但管理很痛苦，所以用标签代替。严谨的笔记还是要分层。 为了统一，我把笔记逐步搬上blog，严谨的部分将用专题来分层写。  其它工具  myBase。擅长做内容分层管理，最终会被在线，开放，功能定制的blog赶超 有道云笔记。现在功能比较完善了，是个不错的选择。  </description>
+    </item>
+    
+    <item>
+      <title>Hugo简易</title>
+      <link>http://shenwenqing.com/post/hugo/</link>
+      <pubDate>Sun, 07 Oct 2018 09:24:16 +0800</pubDate>
+      
+      <guid>http://shenwenqing.com/post/hugo/</guid>
+      <description>简介 hugo由go编写，开源，特点为编译快 本文基于hugo0.49  help hugo help hugo help server # server代表任何子命令  生成站点 hugo new site blog1 # 站点命令在blog1中执行  生成文章 hugo new about.md hugo new post/first.md  主题 git clone https://github.com/spf13/hyde.git themes/hyde # 更多主题在https://themes.gohugo.io  本地服务器 hugo server --theme=hyde --buildDrafts # 默认端口1313, 自带watch  发布 hugo --theme=hyde --baseUrl=&amp;quot;https://outrunJ.github.io&amp;quot;  文章内容  开头
+--- 用YAML写内容 --- # +++标记可写TOML Description = &amp;quot;&amp;quot; Categories = [&amp;quot;a1&amp;quot;, &amp;quot;a2&amp;quot;] Tags = [&amp;quot;b1&amp;quot;,&amp;quot;b2&amp;quot;] draft = true # 文章隐藏 menu = &amp;quot;&amp;quot; title = &amp;quot;a&amp;quot; # 文章标题   配置 打开config.</description>
+    </item>
+    
+  </channel>
+</rss>
