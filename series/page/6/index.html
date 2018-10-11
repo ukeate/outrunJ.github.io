@@ -42,339 +42,192 @@
   <div class="main" role="main">
     <section class="list section-list">
       <article class="article">
-        <a href="/series/pl/clojure/" class="article-titles">
-          <h2 class="article-title">Clojure</h2>
+        <a href="/series/backend/hibernate/" class="article-titles">
+          <h2 class="article-title">Hibernate</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 9, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          介绍  是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如+是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur  语法  s-expressions (max 3 5) (+ 1 (* 2 3)) (def meaning-of-life 42) (if (&lt; meaning-of-life 0) &quot;negative&quot; &quot;non-negative&quot;) (def droids [&quot;Huey&quot; &quot;Dewey&quot; &quot;Louie&quot;]) (count droids) (droids 0) (def me {:name &quot;Paul&quot; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10)  并发 o-&gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap!
+          基本概念：  o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  优点  1.完全面向对象编程思想，无sql 2.减少代码 3.控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 4.hibernate具有独立性（访问层随时可以更换）  特性  不写hbm.xml映射文件，而是基于注解的验证 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准）  目录  . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件  加载顺序  后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置  使用 1.导入核心包(10 + 1个) hibernate3.
         </div>
-        <div class="article-readmore"><a href="/series/pl/clojure/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/hibernate/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/js/" class="article-titles">
-          <h2 class="article-title">JS</h2>
+        <a href="/series/backend/socketio/" class="article-titles">
+          <h2 class="article-title">Socketio</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 9, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          commonJs规范下的javascript node.js mongoDB ringojs  特性 面向对象 动态语言(已超出脚本语言的范畴) 语法源自java first-class function的思想来自Scheme语言 prototype-based的思想来自Self语言  机制 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义  历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript # ECMAScript 3(ES3) 作为标准广泛使用 ## ECMAScript 5(ES5) 定义了新的语言标准 # JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 ## JavaScript1.8 # JavaScript解释器或引擎(engine)也有版本号, Google的叫做V8(现在是4.0) 微软改动并取名Jscript  v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化  语法 api不包括输入输出功能 # 输入输出由宿主环境提供, 如web浏览器或node.js调用工具的控制台 html中js执行顺序 当页面载入时，会执行位于 body 部分的 JavaScript。 当被调用时，位于 head 部分的 JavaScript 才会被执行。 对象参数 arguments # 当前函数的所有参数数组 arguments.
+          介绍  socket.io: 基于任何浏览器, mobile设备的&quot;webSocket&quot;  安装  npm install socket.io  使用  var socketIo = require('socket.io'); socketIo.listen(app).on('connection', function (socket) { # require('socket.io')(app); ## var io = require('socket.io')(80); socket.emit('news', { hello: 'world' }); socket.on('my other event', function (data) { console.log(data); }); });  api server io.on('connection', function(socket){}); io.on('disconnect', function(){}); socket.on('message', function(msg){}); client-js socket = io.connect(url); socket.on('', function(json){}); socket.send(json); io on('connection', function(socket){}); # disconnect socket on('disconnect', function(){ }); socket.on('say to someone', function(id, msg){ socket.
         </div>
-        <div class="article-readmore"><a href="/series/pl/js/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/socketio/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/java/" class="article-titles">
-          <h2 class="article-title">Java</h2>
+        <a href="/series/backend/tornado/" class="article-titles">
+          <h2 class="article-title">Tornado</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 9, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          打包  建立一个文件夹叫jnb 将编译好的标签处理类连同包一起拷贝到jnb中 在jnb目录下创建META-INF目录 在META-INF中存储tld文件，修改tld文件添加http:# www.xxx.com jar cvf jnb.jar *   bin目录命令 javac # 编译器 java # 解释器 appletviewer # 小程序浏览器，执行HTML文件上java小程序类 javadoc # 生成HTML格式的帮助文档 jdb # java调试器 javah # 反编译成c头文件 javap # 反编译成java文件 jar # 打包工具 htmlconverter # 不明 native2ascii # 转换为unicode编码 serialver # 返回指定类的序列化号serialverUID  java类型占字节数 byte 1个字节 short 2个字节 char 2个字节 int 4个字节 long 8个字节 float 4个字节 double 8个字节 boolean 1-4字节  命令 javac # 编译器 java # 解释器 appletviewer # 小程序浏览器，执行HTML文件上java小程序类 javadoc # 生成HTML格式的帮助文档 jdb # java调试器 javah # 反编译成c头文件 javap # 反编译成java文件 jar # 打包工具 htmlconverter # 不明 native2ascii # 转换为unicode编码 serialver # 返回指定类的序列化号serialverUID jar cvfm ul.
+          
         </div>
-        <div class="article-readmore"><a href="/series/pl/java/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/tornado/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/javaweb/" class="article-titles">
-          <h2 class="article-title">JavaWeb</h2>
+        <a href="/series/backend/nodejs/" class="article-titles">
+          <h2 class="article-title">Nodejs</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 9, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          分层 示意 层 |视图层 --&gt; | 控制层（） --&gt; |业务层 --&gt; |dao数据访问层对象 --&gt; |数据库 技术 |jsp(c:forEach) |servlet获取list域 |service过滤数据 |封装对象List | 对象 |bean销毁 | | |创建bean | 业务 |web服务器tomcat | | | |存储过程（银行） java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  框架 spring site # 整合框架 tapestry # 基于servlet的mvc框架 titles # apache的标签库 jersey # restful服务 guice # google的ioc轻量框架 ehcache # 缓存 httpclient httpComponents ejb # 会话bean, 实体bean, 消息驱动bean proguard # 混淆 i18n  监听器 启动顺序 先启动监听器，再启动过滤器 ServletContextListener ServletContextAttributeListener HttpSessionListener HttpSessionAttributeListener HttpSessionActivationListener web.
+          特点  commonJs规范 # 用于构建模块 javascript书写(v8引擎) # 关键字1 # 原因1: 成熟的事件驱动模式 ## 原因2: 没有i/o库, 没有历史包袱 ## 原因3: v8性能好 # js设计之初就可以运行在后端 单线程 # 关键字2 非阻塞io(non-blocking i/o model) # 关键字3 ## io与数据处理分离（所以必须异步） ## 线程池结合event-driven实现 事件驱动(event-driven) # 关键字4 ## event loop[while(true)] -&gt; watcher -&gt; handles ### event loop每一周询问多个watcher是否有事件 ### http模块就是启动了一个watcher,所以执行后进程不结束 # 注: event loop中没有watcher时进程退出 ### 其它watcher有 timer, fs, udp/req, process ### watcher产生事件后, event loop取到并执行其handle(回调函数) ## 不同操作系统中event driven的实现: ### windows: IOCP, Linux: epoll, Mac:kqueue 异步操作 # 书写难度的解决 ## go语言有协程(coroutine)而node.
         </div>
-        <div class="article-readmore"><a href="/series/pl/javaweb/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/nodejs/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/language/" class="article-titles">
-          <h2 class="article-title">pl语言</h2>
+        <a href="/series/backend/hadoop/" class="article-titles">
+          <h2 class="article-title">Hadoop</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          <p>elixir
-.net
-lua
-objective-c
-swift
-erlang
-R
-groovy
-        # 基于jvm，结合python, ruby, smalltalk的特性</p>
-
-<p>dart
-        # 谷歌发布的基于javascript的编程语言
-hack
-        # facebook开发的基于HHVM，可与PHP无缝对接
-        特点
-                结合了PHP开发高效性同时，有了静态语言的报错特性
-                支持lambda表达式和强制返回等流行特性
-roy
-        # 可编译到js
-elm
-        # 可编译到js
-jujia
-        # 动态语言，用于科学和数值计算</p>
-
-<p>Fortran
-        # 最早出现的高级语言，用于工程计算领域
-ML
-        # meta language, 非纯函数式编程,允许副作用和指令式编程
-lisp
-haskell
-prolog
-OCaml
-        # 在caml上加上oo, 源于ML
-simula
-        # 专注于仿真的语言，由类创建的对象会在协调的多线程模式下，像erlang的进程一样并行处理</p>
-
+          发展 google gfs mapReduce # 并行计算框架 big-table hadoop1.0 hdfs mapReduce hadoop2.0 hdfs # Hadoop Distributed File System　yarn # Yet Another Resource Negotiator资源管理调度系统 # 在hdfs上运行计算框架(如mapReduce, storm, spark)  原理 hdfs 模块 client nameNode # 用于注册文件 ## 2.0后可以有多个nameNode metadata # 数据的描述信息 dataNode # 数据在dataNode间水平传递 关系 client rpc nameNode 结构 metadata /test/a.log, 3, {blk_1,blk_2}, [{blk_1:[h0,h1,h3]},{blk_2:[h0,h2,h4]}] mapReduce Map: 切分，并行计算 Reduce: 从map中取多个计算结果，进行合并  组件 ambari # 安装、部署、配置和管理 hdfs # 分布式文件系统 hive # 数据仓库 pig # 数据流处理 mahout # 数据挖掘 mapreduce flume # 日志收集 hbase # 实时分布式, bigtable数据库 sqoop # etl zookeeper  框架 CDH cloudera HDP hortonworks data platform 应用框架 sqoop 在hdfs(hive)与关系型数据库之间数据相互转移 phoenix 介绍 打造更快的sql查询，面向hbase与hdfs之上的其它nosql数据库 特征 通过jdbc进行交互 shark 介绍 hive on spark 特点 并行job处理比mapReduce快100倍 ganglia 分布式监控系统，用于监视和显示集群中节点的各种状态信息，如cpu, mem, 硬盘利用率, i/o负载, 网络流量等，历史数据生成曲线图，通过php页面显现。 存储框架 hive 功能 将结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能，可以将sql语句转换为mapReduce运行。 缺点 底层使用mapReduce引擎，是一个批处理过程，难以满足查询的交互性 hbase 特征 分布式的，面向列的开源nosql数据库，列可以动态增加 基于hadoop的bigTable 不同于一般关系数据库，是一个适合于非结构化数据存储的数据库 自动切分数据 并发读写 缺点 只能按照row key来查询 master宕机，整个系统挂掉 计算框架 mr 离线计算框架 spark 介绍 内存计算框架 apache托管UC Berkeley AMP lab开源的类hadoop 通用并行框架 mapreduce中间输出结果可以保存在内存中，不再需要读写hdfs 是scala语言实现的 特点 准实时，收集成rdd后处理 不支持事务 技术 spark rdd spark streaming spark sql drill google dremel 的开源版本 storm 介绍 实时视图计算框架 纯实时 支持事务 特点 结合kafka impala 介绍 实时视图计算框架 纯实时 支持事务 特点 结合kafka  部署 本地模式 伪分布模式(学习用) 集群模式 例子 软件结构 0 jdk, hadoop NameNode, DFSZKFailoverController 1 jdk, hadoop NameNode, DFSZKFailoverController 2 jdk, hadoop ResourceManager 3 jdk, hadoop, zookeeper DataNode, NodeManager, JournalNode, QuorumPeerMain 4 jdk, hadoop, zookeeper DataNode, NodeManager, JournalNode, QuorumPeerMain 5 jdk, hadoop, zookeeper DataNode, NodeManager, JournalNode, QuorumPeerMain zookeeper 配置conf/zoo.
         </div>
-        <div class="article-readmore"><a href="/series/pl/language/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/hadoop/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/parser/" class="article-titles">
-          <h2 class="article-title">编译</h2>
+        <a href="/series/backend/elasticsearch/" class="article-titles">
+          <h2 class="article-title">Elasticsearch</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          
-
-<h1 id="流程">流程</h1>
-
-<pre><code>    词法分析，语法分析，语义分析，中间代码生成，中间代码优化，目标代码生成，表格管理，错误处理
-    语义分析 -&gt; 类型检查/推导 -&gt; 代码优化 -&gt; 机器码生成
-            # 中间数据结构, 比如AST
-    预处理，连接程序，装入程序，调试程序
-</code></pre>
-
-<h1 id="文法">文法</h1>
-
-<pre><code>    G = (Vn, Vt, S, P)
-            # 终极符号, 非终级符号, 一个特殊非终级符号，产生式
-    类型
-            短语(0), 对应图灵机(TM)
-            上下文相关(1), 对应线性有界自动机(LBA)
-            上下文无关(2), 对应下推自动机(PDA)
-            线性文法、正则文法、正规文法，对应有限自动机(FA)
-                    # 无法控制自返数
-</code></pre>
-
-<h1 id="状态机-fa">状态机(FA)</h1>
-
-<pre><code>    确定状态机(DFA)
-    非确定状态机(NFA)
-            # 同状态可多种转移
-    DFA与NFA互相转换
-</code></pre>
-
-<h1 id="词法分析">词法分析</h1>
-
-<pre><code>    状态转换矩阵法
-</code></pre>
-
-<h1 id="语法分析">语法分析</h1>
-
-<pre><code>    自顶向下
-            # 最左推导建立语法树
-            # first集，follow集，predict集
-            不回溯方法
-            递归下降
-            LL(1)
-                    # 从左输入符号、产生左推导、每次读一个字符。LL(k)特例
-    自底向上
-            # 从左读, 从右向前归约
-            简单优先关系
-                    # 运算符优先关系矩阵
-            LR(k)
-                    # 从左输入，最右推导
-                    LR(0)
-                            # 只看栈顶状态，有分析动作冲突
-                    SLR(1)
-                            # LR(0)加向前看展望符，不能分析所有文法
-                    LR(1)
-                            # LR(0)的每个推导加一个向前搜索符，状态太多
-                    LALR(1)
-                            # LR(1)中同向前搜索符的状态合并
-</code></pre>
-
-<h1 id="语义分析">语义分析</h1>
-
-<pre><code>    抽象语法树
-    符号表
-            # 动态规划记录变量的综合信息
-    局部化处理
-            # 压栈变量作用域
-</code></pre>
-
-<h1 id="中间代码生成">中间代码生成</h1>
-
-<pre><code>    后缀式(逆波兰式)
-    三地址
-            # 操作符两变量地址，结果地址
-    四元式操作符
-            # 地址加，赋值，过程调用，类型转换，算术、逻辑、关系运算的存储
-    语法制导
-            # 中间代码产生式后拼上语义程序，在语法分析中遇到动作马上处理
-    类型检查
-    下标变量
-            # 如数组下标，同上全用四元式表示
-</code></pre>
-
-<h1 id="中间代码优化">中间代码优化</h1>
-
-<pre><code>    常量表达式
-            a = 1, b = 2, c = a + b, 则只记c = 3
-    公共表达式
-            a = b * c, d = b * c, 则只记a
-    循环不变式外提
-            while k &lt; 0 do b * c, 则b * c外提只计算一次
-    基本块
-            # 一块语句要么全执行，要么全不执行
-    消减运算强度
-            如加法代替乘法
-    复写传播
-            a = b, 后a, b不再变值，用a替代b
-    无用代码消除
-    数学优化（恒等变换）
-            如a + 0 = a, a * 1 = a, a ^ 2 = a * a, a / 1 = a, 0 / a = 0
-    窥孔优化
-            对目标代码中短指令序列局部改进，如删除重复，控制流优化，代数化简，使用特殊指令等
-    全局优化
-            对整个程序控制流和数据分析再优化，如常量表达式全局优化
-</code></pre>
-
-<h1 id="运行时时空管理">运行时时空管理</h1>
-
-<pre><code>    内存划分
-            存储
-                    引用的库的代码
-                    目标代码
-                    静态变量
-                    栈区
-                            # 函数调用，中断现场
-                    堆区
-            存储策略
-                    静态分配
-                            #编译时分配固定存储单元
-                    动态分配
-                            栈
-                            堆
-            活动记录
-                    保存局部变量，中间结果，临时变量，过程调用，控制信息等
-                    专用寄存器
-                    调用链
-                            # 保存下一个调用的起始地址
-                    动态链
-                            # 保存前一个调用的起始地址
-            访问环境
-                    # 记录闭包起始地址
-                    display表
-                            # 过程需要的所有非局部数据所在的过程活动记录的起始地址
-                    全局display表
-                    静态链
-                            # 指向外层过程的活动记录的地址地址
-</code></pre>
-
-<h1 id="目标代码生成">目标代码生成</h1>
-
-<pre><code>    生成的语言
-            机器语言
-            可重定位的机器语言
-                    # 由连接器装配后生成机器语言
-                    # 多数用这种，如c语言
-            汇编语言
-    指令选择
-    虚拟机
-    寄存器分配
-    四元式翻译
-</code></pre>
-
+          介绍  分布式实时lucene  使用  ./bin/elasticsearch curl http://localhost:9200  命令  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &quot;*&quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.tcp.port: 9300 network.host: 0.0.0.0 # 修改es监听地址，别的机器也可以访问。同时设置bind_host和publish_host # 需要设置transport.
         </div>
-        <div class="article-readmore"><a href="/series/pl/parser/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/backend/elasticsearch/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/pl/principle/" class="article-titles">
-          <h2 class="article-title">pl原理</h2>
+        <a href="/series/backend/lucene/" class="article-titles">
+          <h2 class="article-title">Lucene</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B+树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀词块 倒排表 正向文件 # 行式存储，原始文档 doc-values # 列式存储，文档号到值的映射 文件指纹  概念  index # 一个倒排表，对应一个目录 segment # index的存储单元，包含多个文档 document # 创建单位 field # 文档里的键值对 term # 分词后的字符串 analyzer tokenizer # 切分文本到索引单元 tokenfilter # 对token预处理  常识  特性 索引 高亮 命中率排序 分词 与数据库的区别：数据库注重存储、全文检索注重查询 其它搜索：多媒体搜索 索引库(文件夹 或 内存中)： 只存储了商品的基本信息 索引库与数据库定时同步 索引库 -&gt; document -&gt; field # field是键值对,值只能存数据 同步 IndexWriter:addDocumnet(),delteDocument(),updateDocument() 查询 IndexSearch:search(),get() Field的内部结构 # 不存不索引会报错 Store:控制此Field字段是否存储到索引库中 Index:是否建立索引（索引不区分大小写,过滤词不创建索引） NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到 NOT_ANALYZED:建立索引，但是不分词 ANALYZEd:建立索引又分词  使用到的对象  Directory Analyzer TokenStream tokenStream = analyzer.
+        </div>
+        <div class="article-readmore"><a href="/series/backend/lucene/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/pl/lua/" class="article-titles">
+          <h2 class="article-title">Lua</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
           
 
-<h1 id="gc">gc</h1>
+<h1 id="介绍">介绍</h1>
 
-<pre><code>分类
-        mark-and-sweep
-        reference-counting
-        arc
-                # automatic reference counting
+<pre><code>    lua语言，来实现逻辑。 c/c++来实现功能
+    eclipse ldt 来开发（cdt 再安装 ldt 使用更方便）
+</code></pre>
+
+<h1 id="使用">使用</h1>
+
+<pre><code>    lua Hello.lua                # 执行脚本
+    luac Hello.lua                # 编译字节码
+    #-&gt; lua luac.out
+</code></pre>
+
+<h1 id="语法">语法</h1>
+
+<pre><code>    --                # 注释
+    num = 10                # 定义
 </code></pre>
 
         </div>
-        <div class="article-readmore"><a href="/series/pl/principle/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/pl/lua/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/algorithm/algorithm/" class="article-titles">
-          <h2 class="article-title">算法分类</h2>
+        <a href="/series/frontend/cocos2dx/" class="article-titles">
+          <h2 class="article-title">Cocos2dx</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          加密 签名 公钥 dsa ecdsa rsa  资源 token bucket # 令牌桶 通过多少流量，删除多少令牌 突发流量 丢弃 排队 特殊标记发送，网络过载时丢弃加标记的包 过程 产生令牌 消耗令牌 判断数据包是否通过 作用 限制平均传输速率，允许突发传输 leaky bucket # 漏桶 作用 强行限制数据传输速率 max-min fairness # 加权分配资源 dominant resource fairness (DRF) # 一种 max-min fairness实现，可以多资源分配  NP问题 介绍 polynomial problem(p问题), 可以在多项式时间内解决的问题 non-deterministic polynomial problem(np, 非确定性多项式问题)，指可以在多项式时间内得到一个解的问题 non-deterministic polynomial hard problem(np-hard, np-hard问题)很难找到多项式时间算法的问题 non-deterministic polynomial complete problem(npc，np完全问题)很难找到多项式时间算法的np问题, 包含np-hard  hash 介绍 将任意长度二进制值映射到较短固定长度二进制值。改一个值会生成不同的哈希 同一个哈希(散列)的二进制值是不存在的 常见的有: md5, sha, sha1, sha256, sha512, RSA-SHA  排序 插入排序 冒泡排序 选择排序  希尔排序 概念 shellsort diminishing increment sort(缩减增量排序) increment sequence(增量序列)  桶排序 介绍 bucket sort 将数据分到有限数量的桶子里，每个桶分别排序(可能再使用别的排序办法) 当数据均匀分配时，时间复杂度是O(n), 不受O(nlogn)下限的影响 适用于小范围、独立均匀分布的整数数据。可以计算数据量大，符合线性期望时间的排序 步骤 # 排序7, 36, 65, 56, 33, 60, 110, 42, 42, 94, 59, 22, 83, 84, 63, 77, 67, 101 1.
+          
+
+<h1 id="使用">使用</h1>
+
+<pre><code>    ./create_project.py -project Hello -package com.plter.hello -language lua
+            # 生成多种平台的项目
+    换ldt来开发，删除Resources下面除fonts文件夹的所有文件，修改入口为main.lua
+</code></pre>
+
+<h1 id="目录结构">目录结构</h1>
+
+<pre><code>    Classes/AppDelegate.cpp中有加载 Hello.lua 作为入口
+    Resources/hello.lua 来运行
+</code></pre>
+
         </div>
-        <div class="article-readmore"><a href="/series/algorithm/algorithm/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/frontend/cocos2dx/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/algorithm/analysis/" class="article-titles">
-          <h2 class="article-title">算法分析</h2>
+        <a href="/series/frontend/extjs/" class="article-titles">
+          <h2 class="article-title">Extjs</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          时间复杂度 概念 time complexity O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N)) N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位 ## 假设不存在如矩阵求逆或排序这样的单位操作 1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么 T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N))) T1(N) * T2(N) = O(f(N) * g(N)) 2.
-        </div>
-        <div class="article-readmore"><a href="/series/algorithm/analysis/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/algorithm/thought/" class="article-titles">
-          <h2 class="article-title">算法思想</h2>
           
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 8, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          口诀 难题首选动归 受阻贪心暴力 考虑分治思想 配合排序哈希  递归 介绍 recursion 利用递归，把状态的管理责任推给运行时 递归转迭代 可加上memory做优化  分治 介绍 divide and conquer 广义分治法 例子 二分检索 找最大/最小元素 归并分类 快速分类 选择问题 斯特拉森矩阵乘法  贪心 介绍 greedy 案例 Dijkstra最短路径 最小生成树Prim, Kruskal 背包问题 作业排序 最优归并模式  动态规划 介绍 dynamic planning 方法 常用滚动数组降低空间复杂度 案例 多段图 结点间最短路径 最优二叉检索树 0/1背包问题 可靠性设计 货郎担问题(旅行商问题) 流水线调度问题  检索与周游 介绍 retrieval/travel 案例 深度优先检索 广度优先检索 与/或图 对策树  回溯 介绍 backtracking 案例 8皇后问题 图的着色 哈密顿环 背包问题  暴力 介绍 分支限界条件加快效率 例子 DFS, BFS   分支-限界
+
+<h1 id="介绍">介绍</h1>
+
+<pre><code>    2.0之前是免费的，但有内在泄漏总是
+    GPLv3版本后收费
+</code></pre>
+
+<h1 id="sencha">Sencha</h1>
+
+<pre><code>    1.是ExtJS、jQTouch(一个用于手机浏览器的jquery插件) 以及 Raphael（一个网页上绘制矢量图形的js库） 三个项目合并而成的一个开源项目。
+    2.Sencha Touch 是全球领先的应用程序开发框架，其设计旨在充分
+            利用HTML5、CSS3 和Javascript 来实现最高级别的功能、灵活性和优化。
+            Sencha Touch 是针对下一代具有触摸屏设备的跨平台框架。
+</code></pre>
+
         </div>
-        <div class="article-readmore"><a href="/series/algorithm/thought/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/frontend/extjs/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>
@@ -468,12 +321,79 @@ simula
     <li class="page-item"><a class="page-link" href="/series/page/7/">7</a></li>
     
     
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/14/">14</a></li>
+    
+    
     <li class="page-item">
     <a href="/series/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="/series/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/series/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

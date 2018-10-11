@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Lvs - outrunJ笔记</title>
+  <meta property="og:title" content="Lvs - outrunJ笔记" />
+  <meta name="twitter:title" content="Lvs - outrunJ笔记" />
+  <meta name="description" content="介绍 第四层开始负载(可以建立到三层负载) 第四层负载 socket进必须连lvs  模式  tun # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户 net # 请求和应答都经过lvs dr # 不要隧道结构的tun  使用 DR模式 centos6 yum install-y gcc gcc-c&#43;&#43; makepcre pcre-devel kernel-devel openssl-devel libnl-devel popt-devel modprobe -l |grep ipvs # 检查内核是否集成 echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward # 开启路由转发 安装ipvsadm http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.26.tar.gz 安装keepalived http://www.keepalived.org/software/keepalived-1.2.7.tar.gz ./configure --prefix=/usr/local/keepalived cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/init.d/ cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig/ mkdir /etc/keepalived/ cp /usr/local/keepalived/etc/keepalived/keepalived.conf /etc/keepalived/ cp /usr/local/keepalived/sbin/keepalived /usr/sbin/ o-&gt; 配置文件/etc/keepalived/keepalived.conf ! Configuration File forkeepalived global_defs { notification_email { test@sina.">
+  <meta property="og:description" content="介绍 第四层开始负载(可以建立到三层负载) 第四层负载 socket进必须连lvs  模式  tun # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户 net # 请求和应答都经过lvs dr # 不要隧道结构的tun  使用 DR模式 centos6 yum install-y gcc gcc-c&#43;&#43; makepcre pcre-devel kernel-devel openssl-devel libnl-devel popt-devel modprobe -l |grep ipvs # 检查内核是否集成 echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward # 开启路由转发 安装ipvsadm http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.26.tar.gz 安装keepalived http://www.keepalived.org/software/keepalived-1.2.7.tar.gz ./configure --prefix=/usr/local/keepalived cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/init.d/ cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig/ mkdir /etc/keepalived/ cp /usr/local/keepalived/etc/keepalived/keepalived.conf /etc/keepalived/ cp /usr/local/keepalived/sbin/keepalived /usr/sbin/ o-&gt; 配置文件/etc/keepalived/keepalived.conf ! Configuration File forkeepalived global_defs { notification_email { test@sina.">
+  <meta name="twitter:description" content="介绍 第四层开始负载(可以建立到三层负载) 第四层负载 socket进必须连lvs  模式  tun # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户 net # 请求和应答都经过lvs dr # 不要隧道结构的tun  使用 DR模式 centos6 yum install-y gcc gcc-c&#43;&#43; makepcre pcre-devel kernel-devel …">
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/architecture/lvs/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Lvs</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 11, 2018</time></li>
+      </ul>
+      
+      
+
+<h1 id="介绍">介绍</h1>
+
+<pre><code>第四层开始负载(可以建立到三层负载)
+
+第四层负载
+        socket进必须连lvs
+</code></pre>
+
+<h1 id="模式">模式</h1>
+
+<pre><code>    tun
+            # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户
+    net
+            # 请求和应答都经过lvs
+    dr
+            # 不要隧道结构的tun
+</code></pre>
+
+<h1 id="使用">使用</h1>
+
+<pre><code>DR模式 centos6
+
+        yum install-y gcc gcc-c++ makepcre pcre-devel kernel-devel openssl-devel libnl-devel popt-devel
+        modprobe -l |grep ipvs
+                # 检查内核是否集成
+        echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward
+                # 开启路由转发
+        安装ipvsadm
+                http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.26.tar.gz
+        安装keepalived
+                http://www.keepalived.org/software/keepalived-1.2.7.tar.gz
+                ./configure --prefix=/usr/local/keepalived
+
+                cp  /usr/local/keepalived/etc/rc.d/init.d/keepalived        /etc/init.d/
+                cp /usr/local/keepalived/etc/sysconfig/keepalived        /etc/sysconfig/
+                mkdir /etc/keepalived/
+                cp /usr/local/keepalived/etc/keepalived/keepalived.conf        /etc/keepalived/
+                cp /usr/local/keepalived/sbin/keepalived        /usr/sbin/
+
+                o-&gt; 配置文件/etc/keepalived/keepalived.conf
+                ! Configuration File forkeepalived
+                global_defs {
+                notification_email {
+                test@sina.com    #故障接受联系人
+                }
+                notification_email_from admin@test.com  #故障发送人
+                smtp_server 127.0.0.1  #本机发送邮件
+                smtp_connect_timeout 30
+                router_id LVS_MASTER  #BACKUP上修改为LVS_BACKUP
+                }
+                vrrp_instance VI_1 {
+                state MASTER    #BACKUP上修改为BACKUP
+                interface eth0
+                virtual_router_id 51  #虚拟路由标识，主从相同
+                priority 100  #BACKUP上修改为90
+                advert_int 1
+                authentication {
+                auth_type PASS
+                auth_pass 1111  #主从认证密码必须一致
+                }
+                virtual_ipaddress {    #Web虚拟IP（VTP）
+                172.0.0.10
+                }
+                }
+                virtual_server 172.0.0.10 80 { #定义虚拟IP和端口
+                delay_loop 6    #检查真实服务器时间，单位秒
+                lb_algo rr      #设置负载调度算法，rr为轮训
+                lb_kind DR      #设置LVS负载均衡DR模式
+                persistence_timeout 50 #同一IP的连接60秒内被分配到同一台真实服务器
+                protocol TCP    #使用TCP协议检查realserver状态
+                real_server 172.0.0.13 80 {  #第一个web服务器
+                weight 3          #节点权重值
+                TCP_CHECK {      #健康检查方式
+                connect_timeout 3 #连接超时
+                nb_get_retry 3    #重试次数
+                delay_before_retry 3  #重试间隔/S
+                }
+                }
+                real_server 172.0.0.14 80 {  #第二个web服务器
+                weight 3
+                TCP_CHECK {
+                connect_timeout 3
+                nb_get_retry 3
+                delay_before_retry 3
+                    }
+                }
+                }
+
+                service keepalived restart
+
+        启动脚本 /etc/init.d/real.sh
+                #description : start realserver
+                VIP=172.0.0.10
+                . /etc/init.d/functions
+                case &quot;$1&quot; in
+                start)
+                /sbin/ifconfig lo:0 $VIP broadcast $VIP netmask 255.255.255.255 up
+                echo &quot;1&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore
+                echo &quot;2&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_announce
+                echo &quot;1&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_ignore
+                echo &quot;2&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+                echo &quot;LVS RealServer Start OK&quot;
+                ;;
+                stop)
+                /sbin/ifconfig lo:0 down
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_announce
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_ignore
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+                echo &quot;LVS RealServer Stoped OK&quot;
+                ;;
+                *)
+                echo &quot;Usage: $0 {start|stop}&quot;
+                exit 1
+                esac
+
+        o-&gt; 开机启动
+                chmod +x /etc/init.d/real.sh
+                /etc/init.d/real.sh start
+                echo &quot;/etc/init.d/real.sh start&quot; &gt;&gt; /etc/rc.local
+        o-&gt; 测试
+                service httpd start
+                echo &quot;1&quot; &gt; /var/www/html/index.html
+                service iptables stop
+                setenforce 0
+                        # 关闭selinux
+        o-&gt; 其他命令
+                ipvsadm -ln
+                        # 集群中服务器ip信息
+                ip addr
+                        # 显示VIP当前绑定的服务器
+                tail -f /var/log/messages
+                        # 日志
+</code></pre>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="http://shenwenqing.com/series/architecture/lvs/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/series/architecture/heartbeat/" data-toggle="tooltip" data-placement="top" title="Heartbeat">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/series/architecture/iscsi/" data-toggle="tooltip" data-placement="top" title="Iscsi">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

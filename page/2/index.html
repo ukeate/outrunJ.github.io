@@ -39,379 +39,291 @@
   <div class="main" role="main">
     <section class="list home-list">
       <article class="article">
-        <a href="/series/design/code/" class="article-titles">
-          <h2 class="article-title">设计-代码</h2>
+        <a href="/series/ops/pm2/" class="article-titles">
+          <h2 class="article-title">PM2</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          思想 todo: 待统一 原则 替换 子类继承超类的所有 单一职则 一个类负责一个功能 开闭 对扩展开放，对修改关闭，如接口 最小功能隔离 顺序依赖 低层依赖高层，具体依赖抽象 non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 创建 factory, abstract factory builder prototype # 原型复制来产生对象 singleton 结构 adapter bridge # 抽象与实现分离 composite # 抽取公共行为 decorator facade # 外观描述 flyweight # 享元 proxy 行为 interpreter template method 责任链 command iterator mediator # 消息传递中介 memento # 保存，恢复状态 observer state # 不同状态下不同行为 strategy # 同行为的不同算法，替换算法 visitor # 抽象行为本身，不同对象不同行为  单例 单例模式 单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 如 # 大多有资源管理器的功能 线程池 缓存 日志对象 对话框 打印机 显卡驱动程序 java反射机制会使所有单例失效：私有构造方法可以被访问 例子 public class Singleton{ private static Singleton uniqueInstance = null; private Singleton(){} public static Singleton getInstance(){ if(uniqueInstance == null){ uniqueInstance = new Singleton(); } return uniqueInstance; } } 三种单例 // 饿汉式单例类.
-        </div>
-        <div class="article-readmore"><a href="/series/design/code/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/design/project/" class="article-titles">
-          <h2 class="article-title">设计-工程</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
           
 
-<h1 id="评价">评价</h1>
+<h1 id="介绍">介绍</h1>
 
-<pre><code>必要分析
-        tracing
-        log, 监控, 告警
-        极限性能，当前负载情况        
-        降级方案
-        下游依赖
-        数据修复脚本
-集成性
-        integration, 整体各部分间有机协调工作，发挥集体效益
-        信息系统的集成性
-                系统之间相互通信和相互协作的能力
-        扩展性以集成性为前提
-可复用性
-        可提高可扩展性
-扩展性
-        评估
-                方便添加新功能
-                扩展后，新旧功能集成性
-                扩展后，满足性能: 及时性、可靠性
-                安全
-                低成本
-        方式
-                应用分离
-                正确管理依赖项
-        类型
-                自动代码生成
-                动态编译
-                元模型
-                        自描述文件
-                        语言互用性
-                        自定义属性(元数据)
-                基于元模型的反射
-                可扩展标记语言(xml)
-                插件
-                        # 设计得当的一个软件几乎全部可以利用插件来完成
-                        组件开发
-                                功能固定
-                                考虑兼容性、可重用性
-                        难点
-                                接口设计
-可成长性
-        组成成分可不断增加
-        可扩展性是可成长性的基础
-可代谢性
-        组成部分可以更新
+<pre><code>    带有负载均衡功能的node应用进程管理器
+    内建负载均衡(使用node cluster模块)
+    后台运行
+    热重载
+    停止不稳定进程，如无限循环
 </code></pre>
 
-<h1 id="工程">工程</h1>
+<h1 id="安装">安装</h1>
 
-<pre><code>软件发展的阶段
-        程序设计阶段1946-1955  节省空间
-        软件设计阶段1956-1970  硬件发展，软件危机
-        软件工程阶段1970-今    组件化
-迭代开发
-    迭代周期
-        一个迭代周期中不新添加需求
-        一个迭代周期中包含多次迭代
-        一个阶段的结束称之为里程碑
-    初始化阶段增量
-        项目启动
-        建立业务模型
-        定义业务问题域
-        找出主要风险因素
-        定义项目需求的外延
-        创建业务问题域的相关说明文档
-    细代阶段增量
-        高层的分析与设计
-        建立项目的基础框架
-        监督主要的风险因素
-        制订达成项目目标的创建计划
-    构建阶段增量
-        代码及功能的实现
-    移交阶段增量
-        向用户发布产品
-        beta测试(alpha测试是内部测试， beta测试是用户测试)
-        执行性能调优，用户培训和接收测试
-瀑布模型
-        #每一次执行工作流的深度不同
-        # 80/20原则
-        可行性分析
-                实现会不会复杂，尽量简单
-        需求分析
-                分类
-                        生存点
-                        痒点
-                        兴奋点
-                # 不会按时交付（只完成主要，然后延期，用户测试）
-                客户沟通，同类产品比较，行业标准
-                功能
-                        正确, 可行, 必要, 有序, 明确, 一致
-                性能
-                完善, 简短
-        分析
-        设计
-                先出成果再优化
-                任务分配(进度条)
-                命名标准
-                文档
-                可移植、可维护易扩展
-                排期
-        实现
-        测试
-        运维           
-螺旋模型（模块化）
-        # 边分析边开发边交付（一环一环向目标实现）
-团队
-        运维
-        设计
-    开发
-        测试人员
-    分析师
-    技术总监
-    架构师（软件 数据库）
-    项目经理（技术、人员【人员离职问题】、软件）
-公司问题
-        人员流动
-        代码维护
+<pre><code>    npm install -g pm2
 </code></pre>
 
-<h1 id="uml">uml</h1>
+<h1 id="命令">命令</h1>
 
-<pre><code>Unified Modeling Languag
-静态模型
-        用例图(需求分析):客户看           # 项级图(突出重点)，一级图，二级图，三级图
-                参与者(泛化)
-                (关联)
-                用例(包含，扩展【继承】)                # 是动词，表示功能模块
-                注释
-        类图：类结构、类关系（可以自动生成java类）
-                继承
-                实现
-                关联（全局变量）【导航性：一对多关系等】【聚合(所有引用)，组合（生命周期相同，如int类型属性）】
-                    # spring 中的依赖注入是关联
-                依赖（局部变量）
-        实体关系图ER
-动态模型
-        时序图：可以根据时序图写代码
-                #　rose工具中时序图中加入参与者：用例图中创建参与者，拖入时序图中
+<pre><code>    pm2 start app.js
+    pm2 stop
+    pm2 restart
+    pm2 status
+    pm2 info 1
+    pm2 logs 1
 </code></pre>
 
         </div>
-        <div class="article-readmore"><a href="/series/design/project/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/pm2/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/ops/ops/" class="article-titles">
-          <h2 class="article-title">运维</h2>
+        <a href="/series/ops/git/" class="article-titles">
+          <h2 class="article-title">Git</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 操作系统 windows linux chrome os mac os fushsia # goolge os  套件 jira # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。 teambition redmine # ror开发的项目管理web，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起 gerrit # code review 工具 jenkins # java实现的持续集成工具 ansible # python实现的自动化部署工具 gradle # 自动化构建 jumpserver saltstack # 自动化运维工具 zabbix # 分布式监控 nagios # 监控 puppet # 自动化运维 selenium # 自动化运维 tty.
+          目录结构 .git branches config # 存放版本库git地址  规定 HEAD # HEAD的版本号, HEAD^^ 表示HEAD之前两个的版本, HEAD~n 表示之前n个版本 buffered stage branch head # buffered表示当前修改所在的版本，stage是buffered中文件add之后到的版本，branch是stage commit后到的分支(版本)，head是远程仓库的最新版本  命令 git [command] --help git help submodule  仓库 clone checkout # 切换到分支。检出原有文件替换 -b # 创建并切换到分支 branch # 创建并切换到分支 -r # 指定操作远程分支 -r origin/dev -a # 本地远程所有分支 dev ef71 # 从ef71创建分支dev dev -d dev # 删除 -D dev # 强制删除 remote remove origin show # 显示仓库 prune origin # 删除远程没有而本地缓存的远程分支 add origin git@bitbucket.
         </div>
-        <div class="article-readmore"><a href="/series/ops/ops/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/git/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/performance/" class="article-titles">
-          <h2 class="article-title">架构-性能</h2>
+        <a href="/series/ops/maven/" class="article-titles">
+          <h2 class="article-title">Maven</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          <pre><code>qps
-latency
-through put
+          
 
-io
-        磁盘
-                iops: 2k
-        网络
-                带宽
-                iops: 3w
+<h1 id="repository包依赖关系网站">repository包依赖关系网站</h1>
 
-bottle-nect
+<pre><code>    mvnrepository.com
+</code></pre>
+
+<h1 id="命令">命令</h1>
+
+<pre><code>pom.xml生成项目命令        
+        mvn
+        mvn compile                        # mvn compile exec:java
+eclipse插件
+        m2e
+得到jar包
+        mvn dependency:copy-dependencies
+生成eclipse工程
+        mvn eclipse:eclipse 
+jetty-plugin下运行
+        mvn jetty:run
+版本
+        mvn -version
+</code></pre>
+
+<h1 id="方案">方案</h1>
+
+<pre><code>ojdbc14本地加载
+                ＃ oracle是收费的，所以不能直接下载到驱动
+        o-&gt; mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.4.0 -Dpackaging=jar -Dfile=ojdbc14-10.2.0.4.0.jar
+        o-&gt; 把ojdbc14-10.2.0.4.0.jar复制到目录下: /home/outrun/.m2/repository/com/oracle/ojdbc14/10.2.0.4.0/
+        o-&gt; /home/outrun/.m2/repository/com/oracle/ojdbc14/下会产生maven-metadata-local.xml文件存放maven引入依赖
+        o-&gt; 项目中引入本地依赖
+                &lt;dependency&gt;
+                        &lt;groupId&gt;com.oracle&lt;/groupId&gt;
+                        &lt;artifactId&gt;ojdbc14&lt;/artifactId&gt;
+                        &lt;version&gt;10.2.0.4.0&lt;/version&gt;
+                        &lt;/dependency&gt;
 </code></pre>
 
         </div>
-        <div class="article-readmore"><a href="/series/architecture/performance/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/maven/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/tool/" class="article-titles">
-          <h2 class="article-title">架构-工具</h2>
+        <a href="/series/ops/ant/" class="article-titles">
+          <h2 class="article-title">Ant</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          <p>datastudio
-        # ibm数据库连接工具
-plsql
-oracle sql developer
-navicat
-        # ios的数据库操作gui
-cmder
-        # windows命令行工具
-wireshark
-charlet</p>
-
-        </div>
-        <div class="article-readmore"><a href="/series/architecture/tool/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/architecture/store/" class="article-titles">
-          <h2 class="article-title">存储</h2>
           
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          <pre><code>fastdfs
-        # 开源分布式文件系统
 
-squid
-varnish
-        # 反向代理，web缓存
+<h1 id="功能">功能</h1>
+
+<pre><code>js压缩
+自动发布
+</code></pre>
+
+<h1 id="build-xml">build.xml</h1>
+
+<pre><code>示例
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project default=&quot;execute&quot;&gt;
+        &lt;target name=&quot;compile&quot;&gt;
+                &lt;javac destdir=&quot;.&quot; srcdir=&quot;.&quot;/&gt;
+        &lt;/target&gt;
+
+        &lt;target name=&quot;execute&quot; depends=&quot;compile&quot;&gt;
+                &lt;java classpath=&quot;.&quot; classname=&quot;HelloWorld&quot;/&gt;
+        &lt;/target&gt;
+&lt;/project&gt;
 </code></pre>
 
         </div>
-        <div class="article-readmore"><a href="/series/architecture/store/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/ant/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/server/" class="article-titles">
-          <h2 class="article-title">服务器</h2>
+        <a href="/series/ops/svn/" class="article-titles">
+          <h2 class="article-title">Svn</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          <pre><code>nginx
-netty
-tomcat
-jetty
-tengine
-        # 淘宝基于nginx修改，添加了功能
-        监控
-                /upstream_status 
-openresty
-        # 基于nginx, luaJit 的web平台
-meteor
-        # 包装node
-ringojs
-        # jvm上commonJs规范的服务器
-mina
-        apache提供， 由Trustin Lee开发，比netty更早
-tomcat native
-        # 基于apr(apache portable runtime)技术，让tomcat在操作系统级别的交互上做的更好
-tinyHttpd
-resin
-        # 收费, 类似tomcat的java容器，性能提升 
-uwsgi
-        # 一个web服务器，实现了wsgi, uwsgi, http等协议
-weblogic
-        # oracle
-was
-        # ibm服务器
-gunicon
-        # python wsgi http server
-</code></pre>
-
+          svn linux下移植的版本控制器 默认端口: 3690  目录结构 conf:配置文件 db:数据库 hooks:勾子（自定义功能） locks:文件锁  命令 服务器 svn --version svnadmin create c:\svn # 创建仓库 ## hooks勾子 locks锁 conf db svnserve -h svnserve -d -r c:\svn # 启动服务(-d是后台运行，windows不支持，需要创建服务) ## --listen-port 3691 指定监听端口 windows 下注册服务 sc create 服务名 binPath= &quot;d:/suversion/bin/svnserve --service -r c:\svn&quot; displayName= &quot;显示名&quot; # 注意双引号前面要有空格 sc delete 服务名 使用多个仓库 svnadmin create d:\svn2 创建仓库以后 svnserve -d -r d:\svn2 --listen-port 3691 配置用另一个服务端口启动该仓库 # svn默认启动端口是3690 svn://192.168.10.3:3691 来访问该仓库  客户端 添加项目 svn add test/ svn ci -m &quot;first&quot; # svn commit -m &quot;fisrt&quot; ## ci是checkin 检出 svn checkout svn://192.
         </div>
-        <div class="article-readmore"><a href="/series/architecture/server/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/svn/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/ha/" class="article-titles">
-          <h2 class="article-title">架构-高可用</h2>
+        <a href="/series/ops/docker/" class="article-titles">
+          <h2 class="article-title">Docker</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          high-availability linux 目标  reliability: 可靠性 availability: 可用性 serviceability: 可服务性 ras: remote access service(远程服务访问)  术语  节点(node): 唯一主节点，多个备用节点 资源(resource): 是节点可控制的实体，主节点发生故障时，可以被其它节点接管 例如: 磁盘分区 文件系统 ip地址 应用程序服务 nfs文件系统 事件(event): 集群中可能发生的事件 例如: 系统故障 网络连通故障 网卡故障 应用程序故障 动作(action): 事件发生时ha的响应方式 例如: 用shell 脚本对资源进行转移  心跳 heartbeat keepalived vrrp # virtual router redundancy protocol 虚拟路由器冗余协议 # 解决静态路由出现的闪单点故障问题，它能够保证网络的不间断．稳定运行  负载 方法 dns轮循 java nio erlang语言 linux epoll bsd kqueue 消息队列、事件通知 c/c++下ace, boost.asio, libev(libevent) 服务器mina, jetty, node.
+          介绍  基于linux LXC，可以实现虚拟化  镜象网站  https://hub.docker.com/  命令 docker -h search mysql pull centos:7 centos:latest outrun11/test:nginx1 images centos # 本地镜象列表 ps -a # 容器列表 rmi centos:latest # 删除镜象 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 kill 026e restart 026e start 026 # 启动已建立的进程 cp 026e:/docker/file /local/file login build -t=&quot;nginx/test&quot; . # 用当前目录Dockerfile创建新镜像 tag nginx/test:test1 outrun11/test:nginx1 # 要求docker网站中创建了名为test的repository push outrun11/test:nginx1 logs beae3392 run # 从镜像建立进程 # id可以只输入前几位 # -t 伪tty, -i 交互的 # -rm=true执行完后删除 # -v /etc/:/opt/etc/ 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc # -p 1234:80 端口映射本机1234端口到容器80 # --volumes-from etc_share 使用另一个容器对外共享的磁盘 # -d 后台运行 # --link redis_server:redis 连接容器的redis命令 # -w /var/node 当前工作目录 # -e NODE_ENV='' 环境变量 -t -i centos /bin/bash # 启动容器, 执行bash b15 /bin/echo 'hello' # 启动容器 --rm=true -i -t --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -i -t -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 --rm=true -i -t --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享  配置 /etc/sysconfig/docker # /etc/init.
         </div>
-        <div class="article-readmore"><a href="/series/architecture/ha/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/docker/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/communication/" class="article-titles">
-          <h2 class="article-title">架构-通信</h2>
+        <a href="/series/ops/kvm/" class="article-titles">
+          <h2 class="article-title">Kvm</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
           
 
-<h1 id="系统">系统</h1>
+<h1 id="介绍">介绍</h1>
 
-<pre><code>elk
-        # elasticsearch, logstash, kibana
-log.io
+<pre><code>kernel-based virtual machine, 使用linux自身的调度器进行管理,所以代码较少
+        # 又叫qemu-system或qemu-kvm
+虚拟化需要硬件支持(如 intel VT技术或AMD V技术)，是基于硬件的完全虚拟化
 </code></pre>
 
-<h1 id="mq">mq</h1>
+<h1 id="原理">原理</h1>
 
-<pre><code>rabbitMQ
-kafaka
-jafka
-nsq
-memcacheQ
-zeroMQ
-activeMQ
-beanstalkd
-mqtt
-        # 最早由ibm提供的，二进制消息的mq
+<pre><code>包含一个可加载的内核模块kvm.ko, 由于集成在linux内核中，比其他虚拟机软件高效
 </code></pre>
 
-<h1 id="任务">任务</h1>
+<h1 id="使用">使用</h1>
 
-<pre><code>quartz
-        # java
-celery
-        # python
-rundeck
-        # java
+<pre><code>检查系统是否支持硬件虚拟化
+        egrep '(vmx|svm)' --color=always /proc/cpuinfo
 </code></pre>
 
         </div>
-        <div class="article-readmore"><a href="/series/architecture/communication/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/kvm/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/series/architecture/governance/" class="article-titles">
-          <h2 class="article-title">架构-治理</h2>
+        <a href="/series/ops/vmware/" class="article-titles">
+          <h2 class="article-title">Vmware</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>October 10, 2018</time></li>
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
         </ul>
         <div class="article-content">
-          功能  服务 注册 发现 性能/ha 区域感知load balance 故障切换 故障注入 熔断 健康检查 流量拆分和推出 策略 quota 网络数据 api调用 服务准入条件 路由规则 容错 访问策略 安全 服务间认证(auth) tls 细粒度权限控制 配置 啮合层 # 服务与网络间加入透明层，用来功能配置 查看 服务网可视化 monitor log tracing 迭代 部署 版本控制 平台支持 # 如aws, k8s, mesos 通讯能力 # http/1.1 http/2 grpc tcp  rmi # java远程调用功能 hessian
-soa eai # Enterprise Application Integration 建立底层结构将异构应用集成 esb # Enterprise Service Bus 企业服务总线， 是连接中枢  rpc hsf # 高速服务框架 (socket直连) protobuf thrift Dubbo spring cloud  paas cloudStack # 托管在apache的开源、高可用、高扩展性的云计算平台 # 支持主流hypervisors # 一个开源云计算解决方案，可以加速iaaS的部署、管理、配置 kubernetes # google开源的，在docker技术上，为容器化应用提供: 作用 资源调度 部署运行 服务发现 扩容缩容 cloudfoundry # 根据应用模板，动态生成很多tomcat, mysql, nosql, 动态控制这些实例的启停。 openstack # 云操作系统，管理虚拟资源 hsf # high-speed service framework 特点 不增加中间点(稳定，高度可伸缩) 结构 注册服务信息，推送服务地址 基于osgi  mesh lstio #google IBM, lyft开源，基于envoy 组成 数据面板 控制面板 linkerd # buoyant出品 fingle # twitter出品 envoy # lyft出品 nginmesh # nginx推出  粘合层 zookeeper # 服务发现 exhibitor # supervisor for zk gearman # 把工作委派给其他机器 etcd # k8s中用到的服务发现仓库 mesos # apache开源的分布式资源管理框架  monitor spy.
+          
+
+<h1 id="安装">安装</h1>
+
+<pre><code>    安装后会创建两个虚拟网卡
+</code></pre>
+
+<h1 id="设置">设置</h1>
+
+<pre><code>    edit -&gt; preferences -&gt; Hot Keys 设置退出快捷键
+</code></pre>
+
+<h1 id="网络连接方式">网络连接方式</h1>
+
+<pre><code>    1.vm9自带的virtual network editor中选择桥接到有线网卡
+    2.vm -&gt; setting -&gt; network adapter选项设置
+            bridged（桥接）:与主机平等，可以设置为同一个网段相互访问
+            nat:通过虚拟网卡连接主机，共享网络
+            host-only:单机模式
+</code></pre>
+
         </div>
-        <div class="article-readmore"><a href="/series/architecture/governance/">Read more...</a></div>
+        <div class="article-readmore"><a href="/series/ops/vmware/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/ops/virtualbox/" class="article-titles">
+          <h2 class="article-title">Virtualbox</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          
+
+<h1 id="方案">方案</h1>
+
+<pre><code>linux安装增强iso
+        iso位置
+                /usr/share/virtualbox
+        编译环境
+                kernel-devel
+                gcc
+
+
+共享剪切板与拖拽文件
+        虚拟机启动后devices下设置
+共享文件夹
+    linux下挂载
+            mount -t vboxsf 共享名 /mnt/share
+    windows下挂载
+            我的电脑 右键 映射网络驱动器
+clone
+    clone 时选择更新mac,并在虚拟机中网络连接设置中重写mac与ip
+
+    配置主机间ssh免登录，远程ssh与所有主机免登录
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/ops/virtualbox/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/ops/vsftp/" class="article-titles">
+          <h2 class="article-title">Vsftp</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 11, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          介绍  默认端口21 匿名用户登陆名为ftp或anonymous, 目录在/var/ftp, 只能下载不能上传 本地用户用户名和密码与本地用户相同，目录为该用户的登录目录  文件  /usr/sbin/vsftpd # VSFTPD的主程序 /etc/rc.d/init.d/vsftpd # initd启动脚本 /etc/vsftpd/vsftpd.conf # 主配置文件 /etc/pam.d/vsftpd # PAM认证文件 /etc/vsftpd.ftpusers # 禁止使用VSFTPD的用户列表文件 /etc/vsftpd.user_list # 禁止或允许使用VSFTPD的用户列表文件 /var/ftp # 匿名用户主目录 /var/ftp/pub # 匿名用户的下载目录  默认用户与组  用户 adduser -d /var/ftp -g ftp -s /sbin/nologin ftp 组 ftp  命令  systemctl start vsftpd  配置 /etc/vsftpd/vsftpd.conf文件中 anonymous_enable=YES local_enable=YES write_enable=YES chroot_local_user=YES allow_writeable_chroot=YES local_root=/ # local_root表示使用本地用户登录到ftp时的默认目录 anon_root=/ # anon_root表示匿名用户登录到ftp时的默认目录 chroot_list_file=/etc/vsftpd/chroot_list 编辑/etc/vsftpd/chroot_list 在这里面输入用户名字，一行写一个用户名。 重启vsftpd 打开tcp, udp端口21, 20 root 登录 /etc/vsftpd/vsftpd.
+        </div>
+        <div class="article-readmore"><a href="/series/ops/vsftp/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>
@@ -498,7 +410,70 @@ soa eai # Enterprise Application Integration 建立底层结构将异构应用�
         
     
     
-    <li class="page-item"><a class="page-link" href="/page/7/">7</a></li>
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -506,7 +481,7 @@ soa eai # Enterprise Application Integration 建立底层结构将异构应用�
     </li>
     
     <li class="page-item">
-        <a href="/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

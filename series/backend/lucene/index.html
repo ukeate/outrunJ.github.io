@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Lucene - outrunJ笔记</title>
+  <meta property="og:title" content="Lucene - outrunJ笔记" />
+  <meta name="twitter:title" content="Lucene - outrunJ笔记" />
+  <meta name="description" content="原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B&#43;树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀词块 倒排表 正向文件 # 行式存储，原始文档 doc-values # 列式存储，文档号到值的映射 文件指纹  概念  index # 一个倒排表，对应一个目录 segment # index的存储单元，包含多个文档 document # 创建单位 field # 文档里的键值对 term # 分词后的字符串 analyzer tokenizer # 切分文本到索引单元 tokenfilter # 对token预处理  常识  特性 索引 高亮 命中率排序 分词 与数据库的区别：数据库注重存储、全文检索注重查询 其它搜索：多媒体搜索 索引库(文件夹 或 内存中)： 只存储了商品的基本信息 索引库与数据库定时同步 索引库 -&gt; document -&gt; field # field是键值对,值只能存数据 同步 IndexWriter:addDocumnet(),delteDocument(),updateDocument() 查询 IndexSearch:search(),get() Field的内部结构 # 不存不索引会报错 Store:控制此Field字段是否存储到索引库中 Index:是否建立索引（索引不区分大小写,过滤词不创建索引） NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到 NOT_ANALYZED:建立索引，但是不分词 ANALYZEd:建立索引又分词  使用到的对象  Directory Analyzer TokenStream tokenStream = analyzer.">
+  <meta property="og:description" content="原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B&#43;树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀词块 倒排表 正向文件 # 行式存储，原始文档 doc-values # 列式存储，文档号到值的映射 文件指纹  概念  index # 一个倒排表，对应一个目录 segment # index的存储单元，包含多个文档 document # 创建单位 field # 文档里的键值对 term # 分词后的字符串 analyzer tokenizer # 切分文本到索引单元 tokenfilter # 对token预处理  常识  特性 索引 高亮 命中率排序 分词 与数据库的区别：数据库注重存储、全文检索注重查询 其它搜索：多媒体搜索 索引库(文件夹 或 内存中)： 只存储了商品的基本信息 索引库与数据库定时同步 索引库 -&gt; document -&gt; field # field是键值对,值只能存数据 同步 IndexWriter:addDocumnet(),delteDocument(),updateDocument() 查询 IndexSearch:search(),get() Field的内部结构 # 不存不索引会报错 Store:控制此Field字段是否存储到索引库中 Index:是否建立索引（索引不区分大小写,过滤词不创建索引） NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到 NOT_ANALYZED:建立索引，但是不分词 ANALYZEd:建立索引又分词  使用到的对象  Directory Analyzer TokenStream tokenStream = analyzer.">
+  <meta name="twitter:description" content="原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B&#43;树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀 …">
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/backend/lucene/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Lucene</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 11, 2018</time></li>
+      </ul>
+      
+      
+
+<h1 id="原理">原理</h1>
+
+<pre><code>block k-d tree
+倒排索引
+        词典
+                排序数组
+                        # 为了二分查找
+                        # 实现简单，性能差
+                哈希表
+                        # 性能好，占内存大
+                跳跃表
+                        # 内存小且可调节, 模糊查询不好
+                B/B+树
+                        # 磁盘索引 ，更新方便，检索慢
+                trie树
+                        # 效率与字符串长度有关，只适合做英文词典
+                dat
+                        # 可做中文词典，内存占用小
+                fst
+                        # 共享前缀，内存占用小，要求输入有序，不易更新
+                        内存存前缀索引、磁盘存后缀词块
+        倒排表
+        正向文件
+                # 行式存储，原始文档
+        doc-values
+                # 列式存储，文档号到值的映射
+文件指纹
+</code></pre>
+
+<h1 id="概念">概念</h1>
+
+<pre><code>    index
+            # 一个倒排表，对应一个目录
+    segment
+            # index的存储单元，包含多个文档
+    document
+            # 创建单位
+    field
+            # 文档里的键值对
+    term
+            # 分词后的字符串
+    analyzer
+            tokenizer
+                    # 切分文本到索引单元
+            tokenfilter
+                    # 对token预处理
+</code></pre>
+
+<h1 id="常识">常识</h1>
+
+<pre><code>    特性
+            索引
+            高亮
+            命中率排序
+            分词
+    与数据库的区别：数据库注重存储、全文检索注重查询
+    其它搜索：多媒体搜索
+    索引库(文件夹 或 内存中)：
+            只存储了商品的基本信息
+             索引库与数据库定时同步
+            索引库 -&gt; document -&gt; field                # field是键值对,值只能存数据
+                    同步
+            IndexWriter:addDocumnet(),delteDocument(),updateDocument()
+                    查询
+                            IndexSearch:search(),get()
+            Field的内部结构
+                        # 不存不索引会报错
+        Store:控制此Field字段是否存储到索引库中
+        Index:是否建立索引（索引不区分大小写,过滤词不创建索引）
+            NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到
+            NOT_ANALYZED:建立索引，但是不分词
+            ANALYZEd:建立索引又分词
+</code></pre>
+
+<h1 id="使用到的对象">使用到的对象</h1>
+
+<pre><code>    Directory
+    Analyzer
+            TokenStream tokenStream = analyzer.tokenStream(&quot;eldName&quot;,new StringReader(&quot;测试字符串&quot;))
+            while(tokenStream.incrementToken()){
+                    TermAttribute termAttribute = tokenStream.getAttribute(TermAttribute.class);
+                    System.out.println(termAttribute.term());
+            }                # 使用分词器测试分词
+    Document
+            add(Field)
+            document = indexSearcher.doc(ScoreDoc)
+            get(String)                # 通过key查找value
+    IndexWriter
+            IndexWriter(directory,analyzer,MaxFieldLength.LIMITED);       # LIMITED限定Field的数量(源码中规定默认值)
+            addDocument(Document)
+            commit()
+            close()                        # 自带commit()
+            rollback()
+    IndexSearcher
+    QueryParser
+            QueryParser(Version.LUCENE_30,&quot;name&quot;,analyzer)
+    Query
+            query = parser.parse(用户传递的字符串);
+            query = parser.parseMultiField(String [], 用户传递的字符串);
+    TopDocs
+            topDocs = indexSearcher.search(query, 10);                # 10是期望的结果数
+                                                                                                            ## 最终查询到的结果数是：期望结果数与实际结果数的最小值
+            totalHits                # 命中的结果数
+    ScoreDoc
+            ScoreDoc [] scoreDocs = topDocs.scoreDocs;
+            scoreDoc.score                # 命中率积分
+            scoreDoc.doc                # 命中文档编号，该编号由lucene自动生成
+    Term                # 索引项
+            Term(&quot;field中的key&quot;,&quot;field中value解析出的关键字&quot;)
+</code></pre>
+
+<h1 id="索引的结构">索引的结构</h1>
+
+<pre><code>    Term(&quot;key&quot;,&quot;value&quot;)[0,3,4]                        # key 为对应的field中的&quot;key&quot;,value对应的是解析field的&quot;value&quot;出的关键字
+                                                                            ## []中的内容为匹配的文档编号，该编号为系统自动生成的
+</code></pre>
+
+<h1 id="注意">注意</h1>
+
+<pre><code>    lucene创建索引时field的key都可以重复，没有主键方面的限制。但是实际应用时要求我们为document有唯一的标识“主键”field,便于对每个document进行更新与删除                        
+</code></pre>
+
+<h1 id="使用">使用</h1>
+
+<pre><code>    包：IKAnalyzer,lucence-analyzer(英文分词，不需要),memory,core,highlighter
+    工具：lukeAll 用来查看索引库
+    添加、查询、删除、修改
+    抽取配置类（构造方法私有化）
+            Configuration
+                    维护了directory与analyzer
+            DocumentUtil
+                    goodsToDocument(Goods)
+                    documentToGoods(Document)
+            LuceneUtil
+                    维护了indexWriter与indexSearcher
+                    注意
+                            1.indexWriter在static代码块中初始化
+                            2.getIndexWriter
+            LuceneService
+                    用indexWriter与indexSearcher处理业务逻辑
+                    添加
+                            indexWriter.addDocument(Document)
+                            indexWriter.rollback()
+                    删除
+                            indexWriter.deleteDocument(Term)
+                            indexWriter.optimize()                # 删除document的时候同步索引库，没有设置的话只是删除document，但是索引中还是可以查到
+                    更新
+                            indexWriter.updateDocument(Term,Document)
+                            indexWriter.optimize()                # 更新是先删除再添加（所以如果updateDocument(Term,Document)中匹配多个Document时，会出现删除了多个Document,而添加了一个Document的情况）
+                    查询
+                            QueryParser parser = new QueryParser(Version.LUCENE_30, &quot;field中的key&quot;, analyzer);
+                            Query query = IKQueryParser.parseMultiField(new String[]{&quot;name&quot;,&quot;remark&quot;}, &quot;ee&quot;);                # 多字段查询，IKAnalyzer特有
+                                            #　多字段查询到的第二个字段的结果，在转换高管时（调用getBestFragment时）只会对该方法指定的一个字段进行匹配，如果该字段不匹配时（但是第二个字段匹配），则会返回空。
+                                            ## 针对这一个bug,在getBestFragment处理匹配的结果返回空时，不使用空而直接返回没有高亮的字符串即可。
+                            parser.parse(用户传递的字符串);
+                            TopDocs topDocs = indexSearcher.search(query, 3);        # 3是期望结果数
+                            ScoreDoc [] scoreDocs = topDocs.scoreDocs;
+                            Document document = indexSearcher.doc(scoreDoc.doc);                scoreDoc.doc得到文档编号
+                            分页查询：
+                                    传递当前页码与一页记录数
+                                    利用topDocs.totalHits得到总记录数
+                                    查询本页与前面所有页的期望数据量，然后只截取本页的文档编号，得到document并返回数据
+</code></pre>
+
+<h1 id="分词器">分词器</h1>
+
+<pre><code>    IKAnalyzer
+            配置文件
+                    src/IKAnalyzer.cfg.xml中配置
+                            &lt;properties&gt;  
+                                    &lt;entry key=&quot;ext_dict&quot;&gt;/mydict.dic&lt;/entry&gt;                 # 配置自己的字典（不分词）
+                                    &lt;entry key=&quot;ext_stopwords&quot;&gt;/ext_stopword.dic&lt;/entry&gt;                 # 配置跳过的字
+                            &lt;/properties&gt;
+            Query query = IKQueryParser.parse(&quot;name&quot;,name);                # IKAnalyzer特有
+</code></pre>
+
+<h1 id="排序">排序</h1>
+
+<pre><code>    Directory directory = FSDirectory.open(new File(&quot;d:/lucene&quot;));
+    IndexSearcher indexSearcher = new IndexSearcher(directory);
+    Query query = IKQueryParser.parse(&quot;name&quot;,&quot;cc&quot;);
+    Sort sort = new Sort(new SortField(&quot;id&quot;, SortField.INT,true));                # 这里可以排序多个字段
+            # 参数1：&quot;id&quot;是排序的field字段,参数2：是字段内容的类型,参数3 true代表降序排列
+            ## 此时命中率不再计算（因为不按命中率排序）
+            ## 排序的field必须建立索引
+    indexSearcher.search(query, null,10,sort);
+</code></pre>
+
+<h1 id="高亮">高亮</h1>
+
+<pre><code>    导入包:highlight与memory
+    Highlighter highlighter = new Highlighter(new SimpleHTMLFormatter(&quot;&lt;font color='red'&quot;,&quot;&lt;/font&gt;&quot;),new QueryScorer(query));
+    highlighter.setTextFragmenter(new SimpleFragmenter(10));                # 限制字符长度
+    ..
+    String result = highlighter.getBastFragment(analyzer,&quot;name&quot;,doc.get(&quot;name&quot;));
+            # 返回高亮处理字符串
+            ## 参数1：解析用户输入词的分词器,参数2：是要查询的field的key(没有用)，参数3：field的value
+</code></pre>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="http://shenwenqing.com/series/backend/lucene/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/series/backend/elasticsearch/" data-toggle="tooltip" data-placement="top" title="Elasticsearch">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/series/pl/lua/" data-toggle="tooltip" data-placement="top" title="Lua">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

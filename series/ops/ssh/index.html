@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>SSH - outrunJ笔记</title>
+  <meta property="og:title" content="SSH - outrunJ笔记" />
+  <meta name="twitter:title" content="SSH - outrunJ笔记" />
+  <meta name="description" content="ssh（secure shell）：特点  1.加密和压缩：http与ftp都是明文传输 2.ssh有很多子协议，实现不同功能：如sftp,scp 3.端口:22  配置  修改ip地址： 有虚拟机时：先设置虚拟机的连接方式是桥接 图形界面直接修改（或重启到root用户的图形界面修改） 命令修改 /etc/network/interfaces auto eth0 iface eth0 inet static address ip地址 netmask 子网掩码 gateway 网关 broadcast 广播地址 dns-nameservers DNS 重启网络服务：/etc/init.d/networking restart， /etc/ssh/sshd_config PasswordAuthentication no # 关闭密码登录 PermitRootLogin no # 关闭root登录  命令  ssh outrun@10.1.1.1 # -p 22 端口 # PubkeyAuthentication=no 不公钥登录  免登录 1&gt; ssh-keygen -t rsa # 一直回车，生成~/.ssh/id_rsa 与 id_rsa.pub两个文件 2&gt; ssh-copy-id -i 192.168.56.11 # 这样就可以免登录访问192.168.56.11了 ## ssh-copy-id -i localhost　免登录自己 或 把A机下的1中生成的id_rsa.">
+  <meta property="og:description" content="ssh（secure shell）：特点  1.加密和压缩：http与ftp都是明文传输 2.ssh有很多子协议，实现不同功能：如sftp,scp 3.端口:22  配置  修改ip地址： 有虚拟机时：先设置虚拟机的连接方式是桥接 图形界面直接修改（或重启到root用户的图形界面修改） 命令修改 /etc/network/interfaces auto eth0 iface eth0 inet static address ip地址 netmask 子网掩码 gateway 网关 broadcast 广播地址 dns-nameservers DNS 重启网络服务：/etc/init.d/networking restart， /etc/ssh/sshd_config PasswordAuthentication no # 关闭密码登录 PermitRootLogin no # 关闭root登录  命令  ssh outrun@10.1.1.1 # -p 22 端口 # PubkeyAuthentication=no 不公钥登录  免登录 1&gt; ssh-keygen -t rsa # 一直回车，生成~/.ssh/id_rsa 与 id_rsa.pub两个文件 2&gt; ssh-copy-id -i 192.168.56.11 # 这样就可以免登录访问192.168.56.11了 ## ssh-copy-id -i localhost　免登录自己 或 把A机下的1中生成的id_rsa.">
+  <meta name="twitter:description" content="ssh（secure shell）：特点  1.加密和压缩：http与ftp都是明文传输 2.ssh有很多子协议，实现不同功能：如sftp,scp 3.端口:22  配置  修改ip地址： 有虚拟机时：先设置虚拟机的连接方式是桥接 图形界面直接修改（或重启到root用户的图形界面修改） 命令修改 /etc/network/interfaces auto eth0 iface eth0 inet …">
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/ops/ssh/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">SSH</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 11, 2018</time></li>
+      </ul>
+      
+      
+
+<h1 id="ssh-secure-shell-特点">ssh（secure shell）：特点</h1>
+
+<pre><code>    1.加密和压缩：http与ftp都是明文传输
+    2.ssh有很多子协议，实现不同功能：如sftp,scp
+    3.端口:22
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<pre><code>    修改ip地址：
+            有虚拟机时：先设置虚拟机的连接方式是桥接
+            图形界面直接修改（或重启到root用户的图形界面修改）
+            命令修改
+                    /etc/network/interfaces
+                            auto eth0
+                            iface eth0 inet static
+                            address ip地址
+                            netmask  子网掩码
+                            gateway  网关
+                            broadcast 广播地址
+                            dns-nameservers DNS
+                    重启网络服务：/etc/init.d/networking restart，
+    /etc/ssh/sshd_config
+            PasswordAuthentication no
+                    # 关闭密码登录
+            PermitRootLogin no
+                    # 关闭root登录
+</code></pre>
+
+<h1 id="命令">命令</h1>
+
+<pre><code>    ssh outrun@10.1.1.1
+            # -p 22 端口
+            # PubkeyAuthentication=no 不公钥登录
+</code></pre>
+
+<h1 id="免登录">免登录</h1>
+
+<pre><code>1&gt; 
+        ssh-keygen -t rsa                        # 一直回车，生成~/.ssh/id_rsa 与 id_rsa.pub两个文件
+2&gt; 
+        ssh-copy-id -i 192.168.56.11                # 这样就可以免登录访问192.168.56.11了
+                                                ## ssh-copy-id -i localhost　免登录自己
+
+        或
+        把A机下的1中生成的id_rsa.pub的内容复制到B机下，在B机的.ssh/authorized_keys文件里，这样可以多个主机对B机进行免登录
+</code></pre>
+
+<h1 id="sshpass">sshpass</h1>
+
+<pre><code>介绍
+        命令行密码登录
+命令
+        sshpass  -p zlycare@123 ssh zlycare@10.162.201.58
+</code></pre>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="http://shenwenqing.com/series/ops/ssh/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/series/ops/cron/" data-toggle="tooltip" data-placement="top" title="Cron">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/series/architecture/nsq/" data-toggle="tooltip" data-placement="top" title="Nsq">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

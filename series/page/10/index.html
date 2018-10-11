@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Series - outrunJ笔记</title>
+  <meta property="og:title" content="Series - outrunJ笔记" />
+  <meta name="twitter:title" content="Series - outrunJ笔记" />
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link href="/series/index.xml" rel="alternate" type="application/rss+xml" title="outrunJ笔记" />
+  <link href="/series/index.xml" rel="feed" type="application/rss+xml" title="outrunJ笔记" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="breadcrumb">
+    Series
+  </div>
+  <div class="main" role="main">
+    <section class="list section-list">
+      <article class="article">
+        <a href="/series/architecture/communication/" class="article-titles">
+          <h2 class="article-title">架构-通信</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          
+
+<h1 id="系统">系统</h1>
+
+<pre><code>elk
+        # elasticsearch, logstash, kibana
+log.io
+</code></pre>
+
+<h1 id="mq">mq</h1>
+
+<pre><code>rabbitMQ
+kafaka
+jafka
+nsq
+memcacheQ
+zeroMQ
+activeMQ
+beanstalkd
+mqtt
+        # 最早由ibm提供的，二进制消息的mq
+</code></pre>
+
+<h1 id="任务">任务</h1>
+
+<pre><code>quartz
+        # java
+celery
+        # python
+rundeck
+        # java
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/architecture/communication/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/architecture/governance/" class="article-titles">
+          <h2 class="article-title">架构-治理</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          功能  服务 注册 发现 性能/ha 区域感知load balance 故障切换 故障注入 熔断 健康检查 流量拆分和推出 策略 quota 网络数据 api调用 服务准入条件 路由规则 容错 访问策略 安全 服务间认证(auth) tls 细粒度权限控制 配置 啮合层 # 服务与网络间加入透明层，用来功能配置 查看 服务网可视化 monitor log tracing 迭代 部署 版本控制 平台支持 # 如aws, k8s, mesos 通讯能力 # http/1.1 http/2 grpc tcp  rmi # java远程调用功能 hessian
+soa eai # Enterprise Application Integration 建立底层结构将异构应用集成 esb # Enterprise Service Bus 企业服务总线， 是连接中枢  rpc hsf # 高速服务框架 (socket直连) protobuf thrift Dubbo spring cloud  paas cloudStack # 托管在apache的开源、高可用、高扩展性的云计算平台 # 支持主流hypervisors # 一个开源云计算解决方案，可以加速iaaS的部署、管理、配置 kubernetes # google开源的，在docker技术上，为容器化应用提供: 作用 资源调度 部署运行 服务发现 扩容缩容 cloudfoundry # 根据应用模板，动态生成很多tomcat, mysql, nosql, 动态控制这些实例的启停。 openstack # 云操作系统，管理虚拟资源 hsf # high-speed service framework 特点 不增加中间点(稳定，高度可伸缩) 结构 注册服务信息，推送服务地址 基于osgi  mesh lstio #google IBM, lyft开源，基于envoy 组成 数据面板 控制面板 linkerd # buoyant出品 fingle # twitter出品 envoy # lyft出品 nginmesh # nginx推出  粘合层 zookeeper # 服务发现 exhibitor # supervisor for zk gearman # 把工作委派给其他机器 etcd # k8s中用到的服务发现仓库 mesos # apache开源的分布式资源管理框架  monitor spy.
+        </div>
+        <div class="article-readmore"><a href="/series/architecture/governance/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/test/data/" class="article-titles">
+          <h2 class="article-title">架构-数据</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          流量 小米论坛 pv 2000w 热门并发300 20k/页面 300k/图片(未压缩) 70k/无图帖子 500k-3M/有图帖子 动态服务器最小带宽: 48Mbps 静态服务器最小带宽: 1440Mbps 实际购买带宽: 800M 带宽费用: 8.7w/month 糗事百科 pv 1000w 热门并发150 10k/页面 70k/图 4图/页 90k-400k/综合页 动态服务器带宽: 12Mbps 静态服务器带宽: 336Mbps  带宽 建议 热门并发1.5倍到2倍购买 价格 静态IP企业宽带 5M 10M 50M 100M 200M 盛大云 华东双线 216/月 396 1836 3636 7236 盛大云 华北BGP 318 618 3018 6018 12018 阿里云 BGP 100/兆/月 5k 1w 2w Amazon EC2 流量计费 $3313 idcexpert.cn 1.5w 10w linkcloud.cn 双线 也可流量计费 168 480 3300 6600  cdn 介绍 流量不大时带宽比cdn便宜, 流量大时cdn便宜。 界限为250Mbps左右，价格在9k/month 价格 50TB/月 100TB/月 阿里云 3.
+        </div>
+        <div class="article-readmore"><a href="/series/test/data/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/architecture/solution/" class="article-titles">
+          <h2 class="article-title">构架-方案</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          
+
+<h1 id="数据迁移">数据迁移</h1>
+
+<pre><code>去掉约束
+排序（中断继续）
+</code></pre>
+
+<h1 id="数据存储">数据存储</h1>
+
+<pre><code>缓存
+        queue + map
+                # queue存储、限量, map查询，指向queue中元素 
+</code></pre>
+
+<h1 id="直播">直播</h1>
+
+<pre><code>《关于直播，所有的技术细节都在这里了》
+</code></pre>
+
+<h1 id="并发">并发</h1>
+
+<pre><code>异步事件
+    tornado + celery + rabbitmq + 优先级
+</code></pre>
+
+<h1 id="缓存">缓存</h1>
+
+<pre><code>queue + map
+        # queue存储、限量, map查询，指向queue中元素 
+</code></pre>
+
+<h1 id="前端模板">前端模板</h1>
+
+<pre><code>layout
+        layout service
+                # 缓存layout到redis
+                crud layout功能
+        layout对象
+                index
+                        # 缩略信息
+                plugins
+                        components
+                                table
+                        layout
+                                # 组合方式
+                                水平，垂直，tab
+</code></pre>
+
+<h1 id="游戏">游戏</h1>
+
+<pre><code>进程
+        gateway进程组
+                # 对外api
+        function进程组
+                # 注册玩家全局信息
+        session进程组
+                # 玩家状态
+        dbserver进程组
+                # 数据
+        多word进程组
+                # 不同地图的信息、逻辑
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/architecture/solution/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/architecture/principle/" class="article-titles">
+          <h2 class="article-title">架构-原理</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          微机 并行架构 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 乱序执行 猜测执行 数据级, 单指令多数据(SIMD)架构 # 图像处理 任务级(task-level) # 多处理器 # 超线程, 虽只有4个核，但可用核返回8 共享内存模型 分布式内存模型 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 并发: 一个时间段有多个程序在运行，在同一个处理机上。 # 伪并发是单核处理器并发，真并发是多核处理器并发 # 可处理时间点i/o的数目来衡量 互斥: 程序(进程)间不使用临界资源 同步: 程序间依赖，有等待关系 同步的其它意思: 1. os开发中指进程协作 2. 数据异步复制(如同步歌曲) 并行: 多处理器才并行，单处理器叫交替执行 多线程 异步: 与同步相对。多线程是实现异步的一种手段 进程 线程 一个进程下的轻量进程 协程 单线程下事件并行(就是仿cpu时间调度) 事件(非阻塞) 介绍 就是回调 事件模型 原理 队列存事件, 单进程检测事件是否回调 工具 epoll(select, poll) libev(libevent) dma direct memory access 不依赖cpu的内存存取 长连接 socket连接  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 # 显卡在pci总线上 ## 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 ### 内存到显存数据传输最花费时间。  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.
+        </div>
+        <div class="article-readmore"><a href="/series/architecture/principle/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/architecture/term/" class="article-titles">
+          <h2 class="article-title">架构-术语</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          <pre><code>Alb        automaticLoopBack 自动回环，虚拟接口
+sdn        software defined network 软件定义网络
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/architecture/term/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/media/media/" class="article-titles">
+          <h2 class="article-title">媒体</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          原理 硬件 CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer's hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d 分形 介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华.
+        </div>
+        <div class="article-readmore"><a href="/series/media/media/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/backend/tool/" class="article-titles">
+          <h2 class="article-title">开发工具</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          <pre><code>source insight
+gerrit
+        # 查看代码
+hsandbox
+        # repl
+paraview
+        # 数据可视化
+finreport
+        # 数据可视化
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/backend/tool/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/backend/hardware/" class="article-titles">
+          <h2 class="article-title">硬件</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          
+
+<h1 id="树莓派">树莓派</h1>
+
+<h1 id="arduino">arduino</h1>
+
+        </div>
+        <div class="article-readmore"><a href="/series/backend/hardware/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/frontend/frontend/" class="article-titles">
+          <h2 class="article-title">前端</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 10, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          套餐 web bootstrap extjs jquery ui dojo # 语法较难用 easy ui dwz # 国产较难用，卖文档 wijmo # 收费 vaadin # apache webkit foundation # 响应式，移动优先 boilerplate # h5模板 meteor # 融合前后端, 后端node knockout # mvvm, 利于单页应用  mobile jingle vux # vue手机组件 ionic # angular手机框架 framework7 # ios(兼容android)组件 mui zui # 类bootstrap 移动端 frozenui  组件 写法 介绍 框架的作用就是统一编程风格 react jquery angular prototype mootools # 浏览器原生对象扩展 underscore # 函数式 underscore-contrib # 扩展underscore ramda # 函数式，较正确 lodash # 函数式 functional javascript bilby # 函数式库，包含dispatch, 蹦床, monadic, validator等 allong.
+        </div>
+        <div class="article-readmore"><a href="/series/frontend/frontend/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+    </section>
+    
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/series/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/series/page/9/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/9/">9</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/series/page/10/">10</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/11/">11</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/14/">14</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/series/page/11/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/series/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+  </div>
+
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-rsslink">
+      <a href="/series/index.xml" type="application/rss+xml" target="_blank" title="RSS">
+        <i class="fas fa-rss"></i>
+      </a>
+    </li>
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Nginx - outrunJ笔记</title>
+  <meta property="og:title" content="Nginx - outrunJ笔记" />
+  <meta name="twitter:title" content="Nginx - outrunJ笔记" />
+  <meta name="description" content="结构  一个主进程(root权限运行)和多个工作进程(普通权限运行)  模块  handler filter upstream load-balance  功能  http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理  命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.conf] # 检查配置文件是否正确 nginx -h # 查看帮助 ## -? pkill -9 nginx kill -HUP `nginx.">
+  <meta property="og:description" content="结构  一个主进程(root权限运行)和多个工作进程(普通权限运行)  模块  handler filter upstream load-balance  功能  http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理  命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.conf] # 检查配置文件是否正确 nginx -h # 查看帮助 ## -? pkill -9 nginx kill -HUP `nginx.">
+  <meta name="twitter:description" content="结构  一个主进程(root权限运行)和多个工作进程(普通权限运行)  模块  handler filter upstream load-balance  功能  http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, …">
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/architecture/nginx/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Nginx</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>October 11, 2018</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#结构">结构</a></li>
+<li><a href="#模块">模块</a></li>
+<li><a href="#功能">功能</a></li>
+<li><a href="#命令">命令</a></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#httplimitreqmodul">HttpLimitReqModul</a></li>
+<li><a href="#httplimitzonemodul">HttpLimitZoneModul</a></li>
+<li><a href="#httplimitconnmodul">HttpLimitConnModul</a></li>
+</ul></li>
+<li><a href="#例子">例子</a>
+<ul>
+<li><a href="#代理">代理</a></li>
+<li><a href="#反向代理">反向代理</a></li>
+</ul></li>
+<li><a href="#openresty">openresty</a></li>
+</ul>
+</nav>
+</aside>
+      
+
+<h1 id="结构">结构</h1>
+
+<pre><code>    一个主进程(root权限运行)和多个工作进程(普通权限运行)
+</code></pre>
+
+<h1 id="模块">模块</h1>
+
+<pre><code>    handler
+    filter
+    upstream
+    load-balance
+</code></pre>
+
+<h1 id="功能">功能</h1>
+
+<pre><code>    http
+           可以保持session， 相同的ip分配到同一个服务器上
+           缓存静态页面到内存，建立索引与自动索引
+            反向代理
+            负载均衡
+            模块化
+                    过滤器
+                            gzipping, byte ranges, chunked responses, SSI-filter
+            支持SSL与TLS SNI
+    imap/pop3代理
+</code></pre>
+
+<h1 id="命令">命令</h1>
+
+<pre><code>nginx -c /etc/nginx/nginx.conf
+nginx -s quit
+nginx -s stop
+nginx -s reload
+        # 重载设置
+        ## service nginx reload
+nginx -v
+        # 查看版本
+        ## -V
+nginx -t [-c nginx.conf]
+        # 检查配置文件是否正确
+nginx -h
+        # 查看帮助
+        ## -?
+
+pkill -9 nginx
+kill -HUP `nginx.pid`
+        # 平滑重启。尝试解析配置文件，成功时应用新配置(否则继续使用旧配置)，运行新的工作进程并从容关闭旧工作进程
+        ## 继续为当前连接客户提供服务
+        # 支持 QUIT TERM INT USR1(重新打开日志文件，切割日志时用) USR2(平滑升级可执行程序) WINCH(从容关闭工作进程)
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<pre><code>http://nginx.org/en/docs/dirindex.html
+域
+        main http server location
+
+worker_rlimit_nofile 51200;
+        # worker最大打开文件数的限制, 不设时为系统限制
+pid        /var/run/nginx.pid;
+        # nginx.pid文件中存储当前nginx主进程的pid
+</code></pre>
+
+<h2 id="httplimitreqmodul">HttpLimitReqModul</h2>
+
+<pre><code>介绍
+        限制单个ip一段时间的连接数
+http{
+        limit_req_zone $binary_remote_addr zone=allips:10m rate=20r/s;
+                # 
+        server {
+                location {
+                        limit_req zone=allips burst=5 nodelay;
+                                # 
+                }
+        }
+}
+</code></pre>
+
+<h2 id="httplimitzonemodul">HttpLimitZoneModul</h2>
+
+<pre><code>介绍
+        限制ip连接内存大小
+
+http {
+        limit_conn_zone $binary_remote_addr zone=namea:10m;
+                # $binary_remote_addr 同一客户端ip地址
+                # 1.1.18前是limit_zone
+        limit_conn_zone $server_name zone=nameb:10m;
+                # $server_name 同一server的名字
+        server {
+                location {
+                        limit_conn  namea 20;
+                        limit_conn nameb 20;
+                                # 并发连接数
+                        limit_rate 100k;
+                                # 下载速度
+                }
+        }
+}
+</code></pre>
+
+<h2 id="httplimitconnmodul">HttpLimitConnModul</h2>
+
+<pre><code>介绍
+        限制单个ip的并发连接数
+</code></pre>
+
+<h1 id="例子">例子</h1>
+
+<pre><code>user www-data;
+worker_processes 4;
+pid /run/nginx.pid;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        types_hash_max_size 2048;
+        # server_tokens off;
+
+        server_names_hash_bucket_size 64;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ##
+        # Gzip Settings
+        ##
+        gzip on;
+        gzip_disable &quot;msie6&quot;;
+
+        # gzip_vary on;
+        # gzip_proxied any;
+        # gzip_comp_level 6;
+        # gzip_buffers 16 8k;
+        # gzip_http_version 1.1;
+        # gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+        ##
+        # nginx-naxsi config
+        ##
+        # Uncomment it if you installed nginx-naxsi
+        ##
+
+        #include /etc/nginx/naxsi_core.rules;
+
+        ##
+        # nginx-passenger config
+        ##
+        # Uncomment it if you installed nginx-passenger
+        ##
+
+        #passenger_root /usr;
+        #passenger_ruby /usr/bin/ruby;
+
+        ##
+        # Virtual Host Configs
+        ##
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+}
+
+#mail {
+#      # See sample authentication script at:
+#      # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#
+#      # auth_http localhost/auth.php;
+#      # pop3_capabilities &quot;TOP&quot; &quot;USER&quot;;
+#      # imap_capabilities &quot;IMAP4rev1&quot; &quot;UIDPLUS&quot;;
+#
+#      server {
+#              listen    localhost:110;
+#              protocol  pop3;
+#              proxy      on;
+#      }
+#
+#      server {
+#              listen    localhost:143;
+#              protocol  imap;
+#              proxy      on;
+#      }
+#}
+
+
+o-&gt; app.zlycare.com
+server {
+        listen 80; 
+        listen [::]:80;
+
+        server_name app-test.zlycare.com www.app-test.zlycare.com;
+
+        # access log file
+        access_log /home/zlycare/data/app-zlycare-com.log;
+
+        location / { 
+                gzip on; 
+                default_type text/plain;
+                charset utf-8;
+                root /home/zlycare/app/zlydoc-cloud/public;
+                index index.html;
+        }   
+
+}
+
+o-&gt; web.zlycare.com
+server {
+        listen 80; 
+        listen [::]:80;
+
+        server_name web-test.zlycare.com www.web-test.zlycare.com;
+
+        # access log file
+        access_log /home/zlycare/data/web.zlycare.log;
+
+        location / { 
+                proxy_pass http://127.0.0.1:8082;    
+                #proxy_redirect off;
+                proxy_set_header Host $host;  
+                proxy_set_header X-Real-IP $remote_addr;  
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  
+        }   
+}
+
+o-&gt; sdk.com
+server {
+        listen 80; 
+
+        server_name 10.162.201.58;
+
+        # access log file
+        access_log /home/zlycare/data/app-zlycare-com.log;
+
+        location / { 
+                gzip on; 
+                default_type text/plain;
+                charset utf-8;
+                root /opt/sdk/nginx;
+                index index.html;
+        }   
+
+}
+</code></pre>
+
+<h2 id="代理">代理</h2>
+
+<pre><code>配置
+    server{
+            resolver x.x.x.x;
+            listen 82; 
+            location / { 
+                    proxy_pass http://$http_host$request_uri;
+            }
+    }   
+
+    注意项：
+    1. 不能有hostname
+    2. 必须有resolver, 即dns，即上面的x.x.x.x，换成你们的DNS服务器ip即可
+    3 . $http_host和$request_uri是nginx系统变量，不要想着替换他们，保持原样就OK。
+
+    查看dns方法
+    cat /etc/resolv.conf
+
+在需要访问外网的机器上执行以下操作之一即可：
+    1. export http_proxy=http://yourproxyaddress：proxyport
+    2. gedit ~/.bashrc  
+        export http_proxy=http://yourproxyaddress：proxyport
+    注  
+        yourproxyaddress也就是你的Nginx服务器的ip了，proxyport就是上面配置中的82，可以根据自己的需要修改
+</code></pre>
+
+<h2 id="反向代理">反向代理</h2>
+
+<pre><code>o-&gt; conf/nginx.conf
+    server{
+            location / {
+                    proxy_pass http://127.0;
+                    proxy_redirect default;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection $http_connection;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+            }
+    }
+
+o-&gt; default.conf
+    server {
+        listen      80;
+        #server_name  qipinmofang.com www.qipinmofang.com;
+        server_name  epinkr.com www.epinkr.com;
+        #server_name  localhost;
+        if ( $host != 'www.epinkr.com' )
+        {
+            rewrite ^/(.*)$ http://www.epinkr.com/$1 permanent;
+        }
+        #root    /home/qipin/deploy;
+        #index  index.html index.htm index.php;
+        index  index.php index.html index.htm;
+
+        #charset koi8-r;
+        #access_log  /var/log/nginx/log/host.access.log  main;
+
+        location = / {
+            root  /home/qipin/deploy;
+        #    index  index.html index.htm;
+            fastcgi_pass  127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root/index.php;
+            include        fastcgi_params;
+        }
+
+        location / {
+            root  /home/qipin/deploy;
+            index  index.html index.htm;
+        }
+
+        location /photo {
+            root  /home/qipin/data;
+        #    return 402;
+        #    rewrite ^\/yuepin\/(.*) /$1 last;
+        }
+
+        location ~ ^\/(\w+)\/css\/ {
+            root  /home/qipin/deploy;
+            rewrite ^\/(\w+)\/css\/(.*)  /css/$2 last;
+        }
+
+        location ~ ^\/(\w+)\/img\/ {
+            root  /home/qipin/deploy;
+            rewrite ^\/(\w+)\/img\/(.*)  /img/$2 last;
+        }
+
+        location ~ ^\/(\w+)\/js\/ {
+            root  /home/qipin/deploy;
+            rewrite ^\/(\w+)\/js\/(.*)  /js/$2 last;
+        }
+
+        location ~ ^\/user\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #    return 402;
+            rewrite ^\/user\/(\w+)  /php/user/user_$1.php last;
+        }
+
+        location ~ ^\/company\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #    return 402;
+            rewrite ^\/company\/(\w+)  /php/company/company_$1.php last;
+        }
+
+        location ~ ^\/vendor\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #    return 402;
+            rewrite ^\/vendor\/(\w+)  /php/vendor/vendor_$1.php last;
+        }
+
+        location ~ ^\/person\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #    return 402;
+            rewrite ^\/person\/(\w+)  /php/person/person_$1.php last;
+        }
+
+        location ~ ^\/get\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #    return 402;
+            rewrite ^\/get\/(\w+)  /php/yp_$1.php last;
+        }
+
+        location ~ ^\/(\w+)$ {
+            root  /home/qipin/deploy;
+        #  return 402;
+            rewrite ^\/(\w+)$  /php/$1.php last;
+        }
+
+        location ~ ^\/php\/(\w*\.php)$ {
+            root  /home/qipin/deploy;
+        #    return 403;
+            fastcgi_pass  127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root/php/$1;
+            include        fastcgi_params;
+        }
+
+        location ~ ^\/php\/(\w+)\/(\w*\.php)$ {
+            root  /home/qipin/deploy;
+        #    return 403;
+        #    try_files $uri =404;
+            fastcgi_pass  127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root/php/$1/$2;
+            include        fastcgi_params;
+        }
+
+        #location /qipin/ {
+        #    root  /home/qipin/deploy;
+        #    return 402;
+        #    index  index.html;
+        #    rewrite ^\/qipin\/(.*) /$1 last;
+        #}
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page  500 502 503 504  /50x.html;
+        location = /50x.html {
+            root  /usr/share/nginx/html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass  http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root          html;
+        #    fastcgi_pass  127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+o-&gt; ssl.conf
+    # HTTPS server
+    #
+    #server {
+    #    listen      443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      /etc/nginx/cert.pem;
+    #    ssl_certificate_key  /etc/nginx/cert.key;
+
+    #    ssl_session_cache shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root  /usr/share/nginx/html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+</code></pre>
+
+<h1 id="openresty">openresty</h1>
+
+<pre><code>安装
+        yum install -y gcc gcc-c++ kernel-devel readline-devel pcre-devel openssl-devel openssl zlib zlib-devel pcre-devel
+        wget openresty-1.9.15.1.tar.gz
+        ./configure --prefix=/opt/openresty --with-pcre-jit --with-ipv6 --without-http_redis2_module --with-http_iconv_module -j2
+        make &amp;&amp; make install
+        ln -s /opt/openresty/nginx/sbin/nginx /usr/sbin
+        /opt/openresty/nginx/conf/nginx.conf
+</code></pre>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="http://shenwenqing.com/series/architecture/nginx/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/series/architecture/netty/" data-toggle="tooltip" data-placement="top" title="Netty">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/series/architecture/squid/" data-toggle="tooltip" data-placement="top" title="Squid">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

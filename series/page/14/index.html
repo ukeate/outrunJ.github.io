@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Series - outrunJ笔记</title>
+  <meta property="og:title" content="Series - outrunJ笔记" />
+  <meta name="twitter:title" content="Series - outrunJ笔记" />
+  <meta name="author" content="outrunJ"/>
+  <meta property="og:site_name" content="outrunJ笔记" />
+  <meta property="og:url" content="http://shenwenqing.com/series/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.49-DEV" />
+  <link href="/series/index.xml" rel="alternate" type="application/rss+xml" title="outrunJ笔记" />
+  <link href="/series/index.xml" rel="feed" type="application/rss+xml" title="outrunJ笔记" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="breadcrumb">
+    Series
+  </div>
+  <div class="main" role="main">
+    <section class="list section-list">
+      <article class="article">
+        <a href="/series/algorithm/analysis/" class="article-titles">
+          <h2 class="article-title">算法分析</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 8, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          时间复杂度 概念 time complexity O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N)) N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位 ## 假设不存在如矩阵求逆或排序这样的单位操作 1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么 T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N))) T1(N) * T2(N) = O(f(N) * g(N)) 2.
+        </div>
+        <div class="article-readmore"><a href="/series/algorithm/analysis/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/algorithm/thought/" class="article-titles">
+          <h2 class="article-title">算法思想</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 8, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          口诀 难题首选动归 受阻贪心暴力 考虑分治思想 配合排序哈希  递归 介绍 recursion 利用递归，把状态的管理责任推给运行时 递归转迭代 可加上memory做优化  分治 介绍 divide and conquer 广义分治法 例子 二分检索 找最大/最小元素 归并分类 快速分类 选择问题 斯特拉森矩阵乘法  贪心 介绍 greedy 案例 Dijkstra最短路径 最小生成树Prim, Kruskal 背包问题 作业排序 最优归并模式  动态规划 介绍 dynamic planning 方法 常用滚动数组降低空间复杂度 案例 多段图 结点间最短路径 最优二叉检索树 0/1背包问题 可靠性设计 货郎担问题(旅行商问题) 流水线调度问题  检索与周游 介绍 retrieval/travel 案例 深度优先检索 广度优先检索 与/或图 对策树  回溯 介绍 backtracking 案例 8皇后问题 图的着色 哈密顿环 背包问题  暴力 介绍 分支限界条件加快效率 例子 DFS, BFS   分支-限界
+        </div>
+        <div class="article-readmore"><a href="/series/algorithm/thought/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/ops/archlinux/" class="article-titles">
+          <h2 class="article-title">Archlinux安装</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 8, 2018</time></li>
+          <li class="article-meta-categories">
+            <a href="/categories/%E6%9E%B6%E6%9E%84/">
+              <i class="fas fa-folder"></i>
+              架构
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/linux/">
+              <i class="fas fa-tag"></i>
+              linux
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          设置  ahci, secure boot, post behavious thorough  源  vim /etc/pacman.d/mirrorlist pacman -Syy  依赖  base-devel  分区  # mount -t efivarfs efivarfs /sys/firmware/efi/efivars # 判断efi cfdisk mkfs.vfat -F32 /dev/nvme0n1p1 # 或直接使用windows的uefi分区 mkfs.ext4 /dev/nvme0n1p2 mkswap /dev/nvme0n1p3 swapon /dev/nvme0n1p3 mount /dev/nvme0n1p2 /mnt mkdir -p /mnt/boot/EFI mount /dev/nvme0n1p1 /mnt/boot/EFI  配置  pacstrap -i /mnt base genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab arch-chroot /mnt /bin/bash pacman -S dialog wpa_supplicant vim vim /etc/locale.
+        </div>
+        <div class="article-readmore"><a href="/series/ops/archlinux/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/pl/markup_language/markdown/" class="article-titles">
+          <h2 class="article-title">Markdown</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 7, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          
+
+<h1 id="标题">标题</h1>
+
+<pre><code># 到 ######开头    # 分别表示一号 到 六号 标题
+</code></pre>
+
+<h1 id="字体">字体</h1>
+
+<pre><code>**a**或__a__   # 加粗
+*a*或_a_ # 斜体
+***a***或___a___ # 加粗斜体
+~~a~~   # 删除线
+</code></pre>
+
+<h1 id="引用">引用</h1>
+
+<pre><code>&gt;a
+&gt;&gt;b # 不断增加&gt;来多层引用
+</code></pre>
+
+<h1 id="分割线">分割线</h1>
+
+<pre><code>--- # 三个及以上
+*** # 三个及以上，与---显示无分别
+</code></pre>
+
+<h1 id="图片">图片</h1>
+
+<pre><code>![alt内容](url &quot;title内容&quot;) # alt显示在图片下，title在鼠标悬停时显示
+</code></pre>
+
+<h1 id="超链接">超链接</h1>
+
+<pre><code>[文本](url)
+&lt;a href=&quot;url&quot; target=&quot;_blank&quot;&gt;文本&lt;/a&gt;    # 可以用a标签指定target，在新页面显示
+</code></pre>
+
+<h1 id="列表">列表</h1>
+
+<pre><code>-或+或*开头 # 无序列表- 
+数字加点开头  # 有序列表，行数自动
+多空格（至少两个）加列表开头  # 嵌套列表
+</code></pre>
+
+<h1 id="表格">表格</h1>
+
+<pre><code>标题1|标题2|标题3 # 默认居中对齐
+-|-|-   # -可以多个，:-控制标题和内容左对齐，:-:居中，-:右对齐
+1|2|3   ＃ 默认左对齐
+</code></pre>
+
+<h1 id="代码">代码</h1>
+
+<pre><code>`a + b;`    # 单选代码
+```
+function a(){
+}
+``` # 多行代码
+    # tab开头
+</code></pre>
+
+<h1 id="流程图">流程图</h1>
+
+<pre><code>略
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/pl/markup_language/markdown/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/algorithm/data_structure/" class="article-titles">
+          <h2 class="article-title">数据结构</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 7, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          树 概念 tree free tree(自由树)，连通无回路的图 full tree(满树)，所有节点要么是树叶，要么是两个儿子 forest(森林)，无回路但不一定连通的图 root rooted tree(有根树)，确定根的树，常简称为树 node ancestor(祖先)，顶点本身也作为自己的祖先 proper ancestor(真祖先)，除了自己的祖先 parent(父母) child(子女) sibling(兄弟) leaf(叶节点), 没有子女的顶点 parental(父节点)，至少有一个子女的顶点 descendant(子孙)，以v为祖先的所有节点，包含v proper descendant(真子孙)，不包含本身 subtree(子树) depth(深度)，从根到v简单路径的长度 height depth 树中结点的最大级数 rank(秩) # 子女数 height(高度)，从根到叶节点最长简单路径的长度 # 按树的层的数量定义时，高度增加1 degree(度，一个节点子树的数目) level(root为1级, 结点为p级时，儿子在p+1级) state-space tree(状态空间树)，可用于分析回溯和分支界限 ordered tree(有序树)，有根树的每个顶点，所有子女有序 first child-next sibling representation(先子女后兄弟表示法) # 子女数不定，父节点只存第一个子女，该子女存兄弟链表 ## 以一种高效方式将有序树改造成关联二叉树 ## 关联二叉树中，左指针表示下层，右指针表示兄弟节点 binary tree(二叉树)，属于有序树 left child(左子女) right child(右子女) 左(右)子树 # 二叉树可以递归定义，所有可以用递归算法 binary search tree(二叉查找树)，父母顶点比左子树中所有数字大，右子树中小 效率，多取决于高度 logn &lt;= h &lt;= n - 1 # h 为高度, n为顶点数 multiway search tree(多路查找树) B树, B+树, B-树 边 树向边 回边 前向边 # 顶点到非子孙 交叉边 # 非前三都是交叉边 性质 |E| = |V| - 1 # 树的边数总比顶点数小1 # 图变树的必要不充分条件，连通图变树的必要充分条件 任意两个顶点间总存在简单路径，任选顶点可作根  二叉树 介绍 binary tree 常用顺序表或链表存储 概念 full binary tree(满二叉树) # 满子节点，且子节点在同一层上 heap(堆) # 根向下从大到小排序 binary search tree(二分检索树) # 左子节点小于父节点小于右子节点 left child(左子女) right child(右子女) 左(右)子树 # 二叉树可以递归定义，所有可以用递归算法 complete binary tree(完全二叉树) # 只有最大层节点不满且连续集中在左边 高是logN 可以用数组实现(从index = 1开始存储) 左儿子在2i, 右儿子在2i + 1, 父亲在i / 2 perfect binary tree(理想二叉树) # 满节点二叉树 full binary tree(满二叉树) # 同理想二叉树 skewed tree(斜树) # 一个节点不断左斜是左斜树，相反为右斜树 binary search tree(二叉查找树) # 父母顶点比左子树中所有数字大，右子树中小 AVL tree(Adelson-Velskii-Landis tree) # 带有平衡条件(balance condition)的二叉查找树 平衡条件: 左右子树最多差1 # 节点中存储高度信息 splay tree(伸展树) # 分析树的一种 效率，多取决于高度 logn &lt;= h &lt;= n - 1 # h 为高度, n为顶点数 树转换二叉树  堆 概念 binary heap(二叉堆、堆) # 一棵完全二叉树 结构性 heap-order property(堆序性) heap-order tree(堆序树) 已证明，平均一次插入需要2.
+        </div>
+        <div class="article-readmore"><a href="/series/algorithm/data_structure/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/algorithm/math/" class="article-titles">
+          <h2 class="article-title">算法常用数学</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 7, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          指数 X^A * X^B = X^(A + B) X^A / X^B = X^(A - B) (X^A)^B = X^(A * B) X^N + X^N = 2X^N &lt;&gt; X^(2N) 2^N + 2^N = 2^(N + 1)  对数 约定 计算机科学中, log默认为log(2) X^A = B, log(X)(B) = A log(A)(B) = log(C)(B)/log(C)(A) logAB = logA + logB  级数 ∑(i=0)(N)2^i = 2^(N + 1) - 1 ∑(i=0)(N)A^i = (A^(N + 1) - 1) / (A - 1) 如果0 &lt; A &lt; 1, 则 &lt;= 1 / (1 - A) ∑(i=1)(∞)i/2^i = 2 ∑(i=1)(N)i = N(N + 1) / 2 ≈ N^2 / 2 ∑(i=1)(N)i^2 = N(N + 1)(2N + 1) / 6 ≈ N^3 / 3 ∑(i=1)(N)i^k ≈ N^(k + 1) / |k + 1| k &lt;&gt; -1 k = -1时, Hn = ∑(i=1)(N)1 / i ≈ log(e)(N), Hn是调和级数 该近似式误差趋向于 λ ≈ 0.
+        </div>
+        <div class="article-readmore"><a href="/series/algorithm/math/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/series/algorithm/term/" class="article-titles">
+          <h2 class="article-title">算法常用术语</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 7, 2018</time></li>
+        </ul>
+        <div class="article-content">
+          <pre><code>graph        图
+TSP        traveling salesman problem        旅行商问题
+graph-coloring-problem        图填色问题
+combinatorial problems        组合问题
+geometric algorithm        几何问题
+closest-pair problem        最近对时间
+convex-hull problem        凸包问题
+numerical problem        数值问题
+lexicographic order        字典序
+on-line algorithm                联机算法
+ADT abstract data type        抽象数据类型
+activation record        活动记录
+        # 递归栈所存的信息
+stack frame        栈桢
+        # 同 activation record
+circular array        循环数组
+amoritzed        摊还
+biased deletion        偏删除
+        # 二叉树删除节点引起平衡不足问题的删除
+symbol table        符号表
+        # 编译器用
+tranposition table        变换表
+        # 游戏用
+tick        滴答
+        # 模拟的一份时间
+external sorting        外部排序
+comparison-based sorting        基于比较的排序
+transposition table
+        # 置换表
+</code></pre>
+
+        </div>
+        <div class="article-readmore"><a href="/series/algorithm/term/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+    </section>
+    
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/series/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/series/page/13/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/series/page/13/">13</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/series/page/14/">14</a></li>
+    
+    
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/series/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+  </div>
+
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-rsslink">
+      <a href="/series/index.xml" type="application/rss+xml" target="_blank" title="RSS">
+        <i class="fas fa-rss"></i>
+      </a>
+    </li>
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>
