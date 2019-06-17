@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    Redis
+  
+ | Hugo Book</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">Hugo Book</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f db\2fredis\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/term">名词</a></li>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+<li><a href="/docs/algorithm/algorithm">算法</a></li>
+<li><a href="/docs/algorithm/analysis">分析</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/term">名词</a></li>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/communication">通信</a></li>
+<li><a href="/docs/architecture/governance">治理</a></li>
+<li><a href="/docs/architecture/ha">高可用</a></li>
+<li><a href="/docs/architecture/server">服务器</a></li>
+<li><a href="/docs/architecture/store">存储</a></li>
+<li><a href="/docs/architecture/heartbeat">heartbeat</a></li>
+<li><a href="/docs/architecture/iscsi">iscsi</a></li>
+<li><a href="/docs/architecture/jetty">jetty</a></li>
+<li><a href="/docs/architecture/kafka">kafka</a></li>
+<li><a href="/docs/architecture/lvs">lvs</a></li>
+<li><a href="/docs/architecture/netty">netty</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nsq">nsq</a></li>
+<li><a href="/docs/architecture/protobuf">protobuf</a></li>
+<li><a href="/docs/architecture/rabbitmq">rabbitmq</a></li>
+<li><a href="/docs/architecture/squid">squid</a></li>
+<li><a href="/docs/architecture/tomcat">tomcat</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/term">名词</a></li>
+<li><a href="/docs/backend/backend">归纳</a></li>
+<li><a href="/docs/backend/hardware">硬件</a></li>
+<li><a href="/docs/backend/cxf">cxf</a></li>
+<li><a href="/docs/backend/dwr">dwr</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/hexo">hexo</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hugo">hugo</a></li>
+<li><a href="/docs/backend/jbpm">jbpm</a></li>
+<li><a href="/docs/backend/jekyll">jekyll</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/socketio">socketio</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/tornado">tornado</a></li>
+<li><a href="/docs/backend/interview">面试</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mycat">mycat</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/neo4j">neo4j</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">postgre sql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/language">语言</a></li>
+<li><a href="/docs/design/media">媒体</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/standard">规定</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/frontend">归纳</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/bigpipe">bigpipe</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/cocos2dx">cocos2dx</a></li>
+<li><a href="/docs/frontend/createjs">createjs</a></li>
+<li><a href="/docs/frontend/d3">d3</a></li>
+<li><a href="/docs/frontend/extjs">extjs</a></li>
+<li><a href="/docs/frontend/fis">fis</a></li>
+<li><a href="/docs/frontend/grunt">grunt</a></li>
+<li><a href="/docs/frontend/gulp">gulp</a></li>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+<li><a href="/docs/frontend/webpack">webpack</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/ops">运维</a></li>
+<li><a href="/docs/ops/ant">ant</a></li>
+<li><a href="/docs/ops/archlinux">archlinux</a></li>
+<li><a href="/docs/ops/cron">cron</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+<li><a href="/docs/ops/git">git</a></li>
+<li><a href="/docs/ops/kvm">kvm</a></li>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/maven">maven</a></li>
+<li><a href="/docs/ops/pm2">pm2</a></li>
+<li><a href="/docs/ops/ssh">ssh</a></li>
+<li><a href="/docs/ops/svn">svn</a></li>
+<li><a href="/docs/ops/virtualbox">virtualbox</a></li>
+<li><a href="/docs/ops/vmware">vmware</a></li>
+<li><a href="/docs/ops/vsftp">vsftp</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/language">归纳</a></li>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/parser">编译</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/lisp">lisp</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/c">c</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/cpp">cpp</a></li>
+<li><a href="/docs/pl/elixir">elixir</a></li>
+<li><a href="/docs/pl/erlang">erlang</a></li>
+<li><a href="/docs/pl/lua">lua</a></li>
+<li><a href="/docs/pl/perl">perl</a></li>
+<li><a href="/docs/pl/php">php</a></li>
+<li><a href="/docs/pl/prolog">prolog</a></li>
+<li><a href="/docs/pl/r">r</a></li>
+<li><a href="/docs/pl/ruby">ruby</a></li>
+<li><a href="/docs/pl/rust">rust</a></li>
+<li><a href="/docs/pl/scala">scala</a></li>
+<li><a href="/docs/pl/scheme">scheme</a></li>
+<li><strong><em>标记语言</em></strong>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/markdown">markdown</a></li>
+<li><a href="/docs/pl/markup_language/ml">ml</a></li>
+<li><a href="/docs/pl/markup_language/plantUML">plantUML</a></li>
+<li><a href="/docs/pl/markup_language/xml">xml</a></li>
+<li><a href="/docs/pl/markup_language/schema">schema</a></li>
+<li><a href="/docs/pl/markup_language/dtd">dtd</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+
+<ul>
+<li><a href="/docs/test/test">测试</a></li>
+</ul></li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/tool">归纳</a></li>
+<li><a href="/docs/tool/windows">windows</a></li>
+<li><a href="/docs/tool/chrome">chrome</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/firefox">firefox</a></li>
+<li><a href="/docs/tool/intellij_idea">intellij idea</a></li>
+<li><a href="/docs/tool/loadrunner">loadrunner</a></li>
+<li><a href="/docs/tool/sublime">sublime</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    Redis
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="特点">特点</h1>
+
+<pre><code>    单线程
+            # emecache多线程
+    no-sql 
+    内存
+            # 请求不经过parser和optimizer(memcache也可以，但不支持排行榜和浮点数)
+    key-value 
+            # memcache只有字符串，append字符串, blacklist删除麻烦
+            # key的命令上一般用:来分隔命名空间
+            string
+                    整个或一部分操作
+                    整数、浮点数自增自减
+            list
+                    两边推入或弹出
+                    偏移量trim
+                    读单个多个元素
+                    值查找移除元素
+            set
+                    增删查单个元素
+                    单个元素是否存在
+                    交集、并集、差集
+                    随机取元素
+            hash
+                    增删查单个键值对
+                    获取所有键值对
+            zset
+                    # 有序集合, 排序根据score, score为双精度浮点数
+                    增删查单个元素
+                     根据range或成员获取元素
+    c 编写
+    复制
+    持久化
+            # memcache不能持久化
+            point-in-time dump
+                    # 指定时间段内有指定数量的写操作时执行
+                    dump-to-disk二条命令
+            append-only文件
+                    从不同步
+                    每秒同步一次
+                    一命令同步一次
+    客户端分片
+    不完全事务
+</code></pre>
+
+<h1 id="应用">应用</h1>
+
+<pre><code>    primary storage(主存储)
+    secondary storage(二级存储)
+</code></pre>
+
+<h1 id="命令">命令</h1>
+
+<pre><code>文件命令
+        redis-server
+                # 端口为6379
+                redis-server /etc/redis.conf  来加载配置文件
+        redis-cli
+        redis-benchmark
+                # 性能测试工具
+
+redis-cli命令
+        ping
+                # 成功时返回 PONG
+        shutdown
+                # 关闭redis-server服务
+                -p 端口号
+        quit
+</code></pre>
+
+<h2 id="数据">数据</h2>
+
+<pre><code>set mykey somvalue
+get mykey
+del mykey
+incr
+decr
+incrby
+decrby
+incrbyfloat
+append
+getrange
+setrange
+getbit
+setbit
+bitcount
+        # 二进制位串位为1的数量
+bitop
+        # 二进制位串执行and, or, xor, not
+
+rpush list-key item
+lpush
+lrange list-key 0 -1
+        # -1为结束索引
+lindex list-key 1
+rpop
+lpop list-key
+lrange
+ltrim
+        # 修剪
+blpop
+        # timeout秒内阻塞并等待弹出元素
+brpop
+rpoplpush
+        # 一个列表中右弹元素推入另一个列表左端，最后返回这个元素
+brpoplpush
+
+sadd set-key item
+smembers set-key
+sismember set-key item
+srem set-key item
+        # 删除，返回删除的数量
+scard
+        # 元素数
+srandmember
+        # 随机返回一个或多个元素。count正数时，返回的元素不重复, 负数时可重复
+spop
+        # 随机移除一个元素
+smove
+        # 一个集合中移除，并在一个集合中添加。返回移除的数量
+sdiff
+        # 差集
+sdiffstore
+        # 差集生成集合
+sinter
+        # 交集
+sinterstore
+sunion
+        # 并集
+sunionstore
+
+hset hash-key sub-key value
+hget hash-key sub-key
+hdel hash-key sub-key
+hlen
+hexists hash-key sub-key
+hkeys hash-key
+hvals
+hgetall hash-key
+hincrbyfloat
+hincrby hash-key field -1
+hmget
+hmset hash-key field1 &quot;foo&quot; field2 &quot;bar&quot;
+
+zadd zset-key 728 member
+zrange zset-key 0 -1 withscores
+zrevrange zset-key 0 -1 withscores
+zrangebyscore zset-key 0 800 withscores
+        # 根据score范围查找
+zrevrangebyscore
+zrem zset-key member
+zremrangebyrank
+zremrangebyscore
+zincrby
+zinterstore sum 3 sub1 sub2 sub3
+        # 生成交集, 重复值score相加, 3 指定可变参数的数量
+zunionstore
+        # 并集
+zcard
+        # 成员数量
+zcount        
+        # 分值之间的成员数量
+zrank
+        # 返回排名
+zrevrank
+zscore
+        # 返回分值
+</code></pre>
+
+<h2 id="功能">功能</h2>
+
+<pre><code>发布订阅
+        subscribe
+        psubscribe
+                # 订阅给定模式匹配的所有频道
+        unsubscribe
+        punsubscribe
+        publish
+
+        sort
+                # 列表、集合、有序集合排序，返回结果或生成存储
+
+过期
+        persist
+                # 移除键过期时间
+        ttl
+                # 键距离过期时间还有多少秒
+        pttl                                
+                # 多少毫秒
+        expire
+                # 给定键指定数秒后过期
+        pexpire
+                # 指定的毫秒后过期
+        expireat
+                # unix时间戳过期
+        pexpireat
+                # 毫秒unix时间戳
+
+事务
+                # 事务期其他客户端命令阻塞
+        multi
+                # 创建事务队列，开始记录命令
+        exec
+                # 提交事务队列
+        watch
+                # 对键加锁
+        unwatch
+        discard        
+                # 取消事务
+持久化
+        bgsave
+                # fork线程创建快照, windows不支持
+        save
+                # 停止响应创建快照
+        sync
+                # 向主服务器要求复制时，主服务器bgsave，非刚bgsave过
+        bgrewriteaof
+                # 重写aof文件使它缩小
+复制 
+        slaveof
+</code></pre>
+
+<h1 id="java-client">java client</h1>
+
+<pre><code>jedis
+    介绍
+            支持redis sharding, 即ShardedJedis结合ShardedJedisPool
+
+    Jedis jedis = new Jedis(&quot;localhost&quot;);                        # 连接redis数据库
+    jedis.set(&quot;name&quot;, &quot;aa&quot;);                                                # 添加、覆盖
+    jedis.append(&quot;name&quot;, &quot;bb&quot;);                                                # 追加，结果为 name=aabb
+    jedis.get(&quot;name&quot;);                                                                # 取值
+    jedis.del(&quot;name&quot;);                                                                # 删除
+    jedis.mset(&quot;name1&quot;, &quot;aa&quot;, &quot;name2&quot;, &quot;bb&quot;);                # 批量添加、覆盖
+    jedis.mget(&quot;name1&quot;, &quot;name2&quot;)                                        # 批量取值
+</code></pre>
+
+<h1 id="分布式">分布式</h1>
+
+<pre><code>redisCluster
+twemProxy
+    # twitter开发的redis集群代理
+redisMonitor
+redisSentinel
+    # 主从复制，高可用
+codis
+    # 豌豆荚开发的redis集群代理
+</code></pre>
+
+<h1 id="持久化">持久化</h1>
+
+<pre><code>配置
+        save 60 1000
+                # 60秒内有1000次写入时，自动save
+        stop-writes-on-bgsave-error no
+        rdbcompression yes
+        dbfilename dump.rdb
+
+        appendonly no
+                # 打开AOF
+        appendfsync everysec
+                always
+                        # 每个写命令都马上同步
+                everysec
+                        # 每秒
+                no
+                        # 操作系统决定
+        no-appendfsync-on-rewrite no
+        auto-aof-rewrite-percentage 100
+        auto-aof-rewrite-min-size 64mb
+
+        dir ./
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/blog-hugo/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/blog-hugo/tree/master/content/docs/db/redis.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#特点">特点</a></li>
+<li><a href="#应用">应用</a></li>
+<li><a href="#命令">命令</a>
+<ul>
+<li><a href="#数据">数据</a></li>
+<li><a href="#功能">功能</a></li>
+</ul></li>
+<li><a href="#java-client">java client</a></li>
+<li><a href="#分布式">分布式</a></li>
+<li><a href="#持久化">持久化</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

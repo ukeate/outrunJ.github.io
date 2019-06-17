@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    Lvs
+  
+ | Hugo Book</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">Hugo Book</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f architecture\2flvs\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/term">名词</a></li>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+<li><a href="/docs/algorithm/algorithm">算法</a></li>
+<li><a href="/docs/algorithm/analysis">分析</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/term">名词</a></li>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/communication">通信</a></li>
+<li><a href="/docs/architecture/governance">治理</a></li>
+<li><a href="/docs/architecture/ha">高可用</a></li>
+<li><a href="/docs/architecture/server">服务器</a></li>
+<li><a href="/docs/architecture/store">存储</a></li>
+<li><a href="/docs/architecture/heartbeat">heartbeat</a></li>
+<li><a href="/docs/architecture/iscsi">iscsi</a></li>
+<li><a href="/docs/architecture/jetty">jetty</a></li>
+<li><a href="/docs/architecture/kafka">kafka</a></li>
+<li><a href="/docs/architecture/lvs">lvs</a></li>
+<li><a href="/docs/architecture/netty">netty</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nsq">nsq</a></li>
+<li><a href="/docs/architecture/protobuf">protobuf</a></li>
+<li><a href="/docs/architecture/rabbitmq">rabbitmq</a></li>
+<li><a href="/docs/architecture/squid">squid</a></li>
+<li><a href="/docs/architecture/tomcat">tomcat</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/term">名词</a></li>
+<li><a href="/docs/backend/backend">归纳</a></li>
+<li><a href="/docs/backend/hardware">硬件</a></li>
+<li><a href="/docs/backend/cxf">cxf</a></li>
+<li><a href="/docs/backend/dwr">dwr</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/hexo">hexo</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hugo">hugo</a></li>
+<li><a href="/docs/backend/jbpm">jbpm</a></li>
+<li><a href="/docs/backend/jekyll">jekyll</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/socketio">socketio</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/tornado">tornado</a></li>
+<li><a href="/docs/backend/interview">面试</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mycat">mycat</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/neo4j">neo4j</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">postgre sql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/language">语言</a></li>
+<li><a href="/docs/design/media">媒体</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/standard">规定</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/frontend">归纳</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/bigpipe">bigpipe</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/cocos2dx">cocos2dx</a></li>
+<li><a href="/docs/frontend/createjs">createjs</a></li>
+<li><a href="/docs/frontend/d3">d3</a></li>
+<li><a href="/docs/frontend/extjs">extjs</a></li>
+<li><a href="/docs/frontend/fis">fis</a></li>
+<li><a href="/docs/frontend/grunt">grunt</a></li>
+<li><a href="/docs/frontend/gulp">gulp</a></li>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+<li><a href="/docs/frontend/webpack">webpack</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/ops">运维</a></li>
+<li><a href="/docs/ops/ant">ant</a></li>
+<li><a href="/docs/ops/archlinux">archlinux</a></li>
+<li><a href="/docs/ops/cron">cron</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+<li><a href="/docs/ops/git">git</a></li>
+<li><a href="/docs/ops/kvm">kvm</a></li>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/maven">maven</a></li>
+<li><a href="/docs/ops/pm2">pm2</a></li>
+<li><a href="/docs/ops/ssh">ssh</a></li>
+<li><a href="/docs/ops/svn">svn</a></li>
+<li><a href="/docs/ops/virtualbox">virtualbox</a></li>
+<li><a href="/docs/ops/vmware">vmware</a></li>
+<li><a href="/docs/ops/vsftp">vsftp</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/language">归纳</a></li>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/parser">编译</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/lisp">lisp</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/c">c</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/cpp">cpp</a></li>
+<li><a href="/docs/pl/elixir">elixir</a></li>
+<li><a href="/docs/pl/erlang">erlang</a></li>
+<li><a href="/docs/pl/lua">lua</a></li>
+<li><a href="/docs/pl/perl">perl</a></li>
+<li><a href="/docs/pl/php">php</a></li>
+<li><a href="/docs/pl/prolog">prolog</a></li>
+<li><a href="/docs/pl/r">r</a></li>
+<li><a href="/docs/pl/ruby">ruby</a></li>
+<li><a href="/docs/pl/rust">rust</a></li>
+<li><a href="/docs/pl/scala">scala</a></li>
+<li><a href="/docs/pl/scheme">scheme</a></li>
+<li><strong><em>标记语言</em></strong>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/markdown">markdown</a></li>
+<li><a href="/docs/pl/markup_language/ml">ml</a></li>
+<li><a href="/docs/pl/markup_language/plantUML">plantUML</a></li>
+<li><a href="/docs/pl/markup_language/xml">xml</a></li>
+<li><a href="/docs/pl/markup_language/schema">schema</a></li>
+<li><a href="/docs/pl/markup_language/dtd">dtd</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+
+<ul>
+<li><a href="/docs/test/test">测试</a></li>
+</ul></li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/tool">归纳</a></li>
+<li><a href="/docs/tool/windows">windows</a></li>
+<li><a href="/docs/tool/chrome">chrome</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/firefox">firefox</a></li>
+<li><a href="/docs/tool/intellij_idea">intellij idea</a></li>
+<li><a href="/docs/tool/loadrunner">loadrunner</a></li>
+<li><a href="/docs/tool/sublime">sublime</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    Lvs
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="介绍">介绍</h1>
+
+<pre><code>第四层开始负载(可以建立到三层负载)
+
+第四层负载
+        socket进必须连lvs
+</code></pre>
+
+<h1 id="模式">模式</h1>
+
+<pre><code>    tun
+            # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户
+    net
+            # 请求和应答都经过lvs
+    dr
+            # 不要隧道结构的tun
+</code></pre>
+
+<h1 id="使用">使用</h1>
+
+<pre><code>DR模式 centos6
+
+        yum install-y gcc gcc-c++ makepcre pcre-devel kernel-devel openssl-devel libnl-devel popt-devel
+        modprobe -l |grep ipvs
+                # 检查内核是否集成
+        echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward
+                # 开启路由转发
+        安装ipvsadm
+                http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.26.tar.gz
+        安装keepalived
+                http://www.keepalived.org/software/keepalived-1.2.7.tar.gz
+                ./configure --prefix=/usr/local/keepalived
+
+                cp  /usr/local/keepalived/etc/rc.d/init.d/keepalived        /etc/init.d/
+                cp /usr/local/keepalived/etc/sysconfig/keepalived        /etc/sysconfig/
+                mkdir /etc/keepalived/
+                cp /usr/local/keepalived/etc/keepalived/keepalived.conf        /etc/keepalived/
+                cp /usr/local/keepalived/sbin/keepalived        /usr/sbin/
+
+                o-&gt; 配置文件/etc/keepalived/keepalived.conf
+                ! Configuration File forkeepalived
+                global_defs {
+                notification_email {
+                test@sina.com    #故障接受联系人
+                }
+                notification_email_from admin@test.com  #故障发送人
+                smtp_server 127.0.0.1  #本机发送邮件
+                smtp_connect_timeout 30
+                router_id LVS_MASTER  #BACKUP上修改为LVS_BACKUP
+                }
+                vrrp_instance VI_1 {
+                state MASTER    #BACKUP上修改为BACKUP
+                interface eth0
+                virtual_router_id 51  #虚拟路由标识，主从相同
+                priority 100  #BACKUP上修改为90
+                advert_int 1
+                authentication {
+                auth_type PASS
+                auth_pass 1111  #主从认证密码必须一致
+                }
+                virtual_ipaddress {    #Web虚拟IP（VTP）
+                172.0.0.10
+                }
+                }
+                virtual_server 172.0.0.10 80 { #定义虚拟IP和端口
+                delay_loop 6    #检查真实服务器时间，单位秒
+                lb_algo rr      #设置负载调度算法，rr为轮训
+                lb_kind DR      #设置LVS负载均衡DR模式
+                persistence_timeout 50 #同一IP的连接60秒内被分配到同一台真实服务器
+                protocol TCP    #使用TCP协议检查realserver状态
+                real_server 172.0.0.13 80 {  #第一个web服务器
+                weight 3          #节点权重值
+                TCP_CHECK {      #健康检查方式
+                connect_timeout 3 #连接超时
+                nb_get_retry 3    #重试次数
+                delay_before_retry 3  #重试间隔/S
+                }
+                }
+                real_server 172.0.0.14 80 {  #第二个web服务器
+                weight 3
+                TCP_CHECK {
+                connect_timeout 3
+                nb_get_retry 3
+                delay_before_retry 3
+                    }
+                }
+                }
+
+                service keepalived restart
+
+        启动脚本 /etc/init.d/real.sh
+                #description : start realserver
+                VIP=172.0.0.10
+                . /etc/init.d/functions
+                case &quot;$1&quot; in
+                start)
+                /sbin/ifconfig lo:0 $VIP broadcast $VIP netmask 255.255.255.255 up
+                echo &quot;1&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore
+                echo &quot;2&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_announce
+                echo &quot;1&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_ignore
+                echo &quot;2&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+                echo &quot;LVS RealServer Start OK&quot;
+                ;;
+                stop)
+                /sbin/ifconfig lo:0 down
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/lo/arp_announce
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_ignore
+                echo &quot;0&quot; &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+                echo &quot;LVS RealServer Stoped OK&quot;
+                ;;
+                *)
+                echo &quot;Usage: $0 {start|stop}&quot;
+                exit 1
+                esac
+
+        o-&gt; 开机启动
+                chmod +x /etc/init.d/real.sh
+                /etc/init.d/real.sh start
+                echo &quot;/etc/init.d/real.sh start&quot; &gt;&gt; /etc/rc.local
+        o-&gt; 测试
+                service httpd start
+                echo &quot;1&quot; &gt; /var/www/html/index.html
+                service iptables stop
+                setenforce 0
+                        # 关闭selinux
+        o-&gt; 其他命令
+                ipvsadm -ln
+                        # 集群中服务器ip信息
+                ip addr
+                        # 显示VIP当前绑定的服务器
+                tail -f /var/log/messages
+                        # 日志
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/blog-hugo/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/blog-hugo/tree/master/content/docs/architecture/lvs.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#模式">模式</a></li>
+<li><a href="#使用">使用</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

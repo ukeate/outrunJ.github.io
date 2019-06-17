@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    Struts2
+  
+ | Hugo Book</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">Hugo Book</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f backend\2fstruts2\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/term">名词</a></li>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+<li><a href="/docs/algorithm/algorithm">算法</a></li>
+<li><a href="/docs/algorithm/analysis">分析</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/term">名词</a></li>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/communication">通信</a></li>
+<li><a href="/docs/architecture/governance">治理</a></li>
+<li><a href="/docs/architecture/ha">高可用</a></li>
+<li><a href="/docs/architecture/server">服务器</a></li>
+<li><a href="/docs/architecture/store">存储</a></li>
+<li><a href="/docs/architecture/heartbeat">heartbeat</a></li>
+<li><a href="/docs/architecture/iscsi">iscsi</a></li>
+<li><a href="/docs/architecture/jetty">jetty</a></li>
+<li><a href="/docs/architecture/kafka">kafka</a></li>
+<li><a href="/docs/architecture/lvs">lvs</a></li>
+<li><a href="/docs/architecture/netty">netty</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nsq">nsq</a></li>
+<li><a href="/docs/architecture/protobuf">protobuf</a></li>
+<li><a href="/docs/architecture/rabbitmq">rabbitmq</a></li>
+<li><a href="/docs/architecture/squid">squid</a></li>
+<li><a href="/docs/architecture/tomcat">tomcat</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/term">名词</a></li>
+<li><a href="/docs/backend/backend">归纳</a></li>
+<li><a href="/docs/backend/hardware">硬件</a></li>
+<li><a href="/docs/backend/cxf">cxf</a></li>
+<li><a href="/docs/backend/dwr">dwr</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/hexo">hexo</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hugo">hugo</a></li>
+<li><a href="/docs/backend/jbpm">jbpm</a></li>
+<li><a href="/docs/backend/jekyll">jekyll</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/socketio">socketio</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/tornado">tornado</a></li>
+<li><a href="/docs/backend/interview">面试</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mycat">mycat</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/neo4j">neo4j</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">postgre sql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/language">语言</a></li>
+<li><a href="/docs/design/media">媒体</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/standard">规定</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/frontend">归纳</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/bigpipe">bigpipe</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/cocos2dx">cocos2dx</a></li>
+<li><a href="/docs/frontend/createjs">createjs</a></li>
+<li><a href="/docs/frontend/d3">d3</a></li>
+<li><a href="/docs/frontend/extjs">extjs</a></li>
+<li><a href="/docs/frontend/fis">fis</a></li>
+<li><a href="/docs/frontend/grunt">grunt</a></li>
+<li><a href="/docs/frontend/gulp">gulp</a></li>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+<li><a href="/docs/frontend/webpack">webpack</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/ops">运维</a></li>
+<li><a href="/docs/ops/ant">ant</a></li>
+<li><a href="/docs/ops/archlinux">archlinux</a></li>
+<li><a href="/docs/ops/cron">cron</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+<li><a href="/docs/ops/git">git</a></li>
+<li><a href="/docs/ops/kvm">kvm</a></li>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/maven">maven</a></li>
+<li><a href="/docs/ops/pm2">pm2</a></li>
+<li><a href="/docs/ops/ssh">ssh</a></li>
+<li><a href="/docs/ops/svn">svn</a></li>
+<li><a href="/docs/ops/virtualbox">virtualbox</a></li>
+<li><a href="/docs/ops/vmware">vmware</a></li>
+<li><a href="/docs/ops/vsftp">vsftp</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/language">归纳</a></li>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/parser">编译</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/lisp">lisp</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/c">c</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/cpp">cpp</a></li>
+<li><a href="/docs/pl/elixir">elixir</a></li>
+<li><a href="/docs/pl/erlang">erlang</a></li>
+<li><a href="/docs/pl/lua">lua</a></li>
+<li><a href="/docs/pl/perl">perl</a></li>
+<li><a href="/docs/pl/php">php</a></li>
+<li><a href="/docs/pl/prolog">prolog</a></li>
+<li><a href="/docs/pl/r">r</a></li>
+<li><a href="/docs/pl/ruby">ruby</a></li>
+<li><a href="/docs/pl/rust">rust</a></li>
+<li><a href="/docs/pl/scala">scala</a></li>
+<li><a href="/docs/pl/scheme">scheme</a></li>
+<li><strong><em>标记语言</em></strong>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/markdown">markdown</a></li>
+<li><a href="/docs/pl/markup_language/ml">ml</a></li>
+<li><a href="/docs/pl/markup_language/plantUML">plantUML</a></li>
+<li><a href="/docs/pl/markup_language/xml">xml</a></li>
+<li><a href="/docs/pl/markup_language/schema">schema</a></li>
+<li><a href="/docs/pl/markup_language/dtd">dtd</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+
+<ul>
+<li><a href="/docs/test/test">测试</a></li>
+</ul></li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/tool">归纳</a></li>
+<li><a href="/docs/tool/windows">windows</a></li>
+<li><a href="/docs/tool/chrome">chrome</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/firefox">firefox</a></li>
+<li><a href="/docs/tool/intellij_idea">intellij idea</a></li>
+<li><a href="/docs/tool/loadrunner">loadrunner</a></li>
+<li><a href="/docs/tool/sublime">sublime</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    Struts2
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="介绍">介绍</h1>
+
+<pre><code>就是一个利用filter拦截所有请求，利用反射转发请求与响应数据的过滤器。它通过配置文件来设置请求地址与处理类之间的数据流转
+struts2中处理请求的类（Action类）是非单例的，所以效率比较低
+</code></pre>
+
+<h1 id="思想">思想</h1>
+
+<pre><code>Action类中的无侵入设计（新技术中不出现旧技术）：map代替了作用域
+        ActionContext actionContext = actionContext.getContext()
+        actionContext.getApplication()
+        actionContext.getSession()
+
+        好处
+                map是java中的api，不出现旧技术
+                测试方便（ servlet不能测试，只能发布测试）
+                        # 注意：Action类中用到作用域map的方法也不能测试
+</code></pre>
+
+<h1 id="结构">结构</h1>
+
+<pre><code>apps: 例子程序
+docs:帮助文件
+lib:程序包
+src:源码
+</code></pre>
+
+<h1 id="使用">使用</h1>
+
+<pre><code>要求
+    jdk5
+    jsp2
+    servlet api2.4
+1.导入核心的8个包
+        struts2-core-2.3.1.1.jar        # struts的过滤器
+        xwork-core-2.3.1.1.jar                # 验证工具
+        freemarker-2.3.18.jar                # 标签
+        javassist-3.11.0.GA.jar                # 动态代理
+        commons-fileupload-1.2.2.jar                
+        commons-io-2.0.1.jar                # 文件处理
+        commons-lang-2.5.jar                # 基础包
+        ognl-3.0.3.jar                                # 表达式语言
+2.web.xml文件中配置过滤器
+        &lt;filter&gt;
+                &lt;filter-name&gt;struts&lt;/filter-name&gt;
+                &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+        &lt;/filter&gt;
+        &lt;filter-mapping&gt;
+                &lt;filter-name&gt;struts&lt;/filter-name&gt;
+                &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/filter-mapping&gt;
+3.写jsp页面，get或post路径为struts2的名称空间、扩展名，被配置的struts2过滤器处理
+3.写Action类（继承ActionSupport类）
+4.配置src/struts.xml文件与src/struts.properties文件，映射类、方法等到请求路径，映射返回字符串到任何方式 
+</code></pre>
+
+<h1 id="核心包-8个">核心包：8个</h1>
+
+<pre><code>struts2-core-2.3.1.1.jar        # struts的过滤器
+xwork-core-2.3.1.1.jar                # 验证工具
+freemarker-2.3.18.jar                # 标签
+javassist-3.11.0.GA.jar                # 动态代理
+commons-fileupload-1.2.2.jar                
+commons-io-2.0.1.jar                # 文件处理
+commons-lang-2.5.jar                # 基础包
+ognl-3.0.3.jar                                # 表达式语言
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<pre><code>struts2以包的形式管理action 包名必须唯一，包里的每个action唯一
+使用步骤
+        1.导入lib包
+        2.写jsp
+        3.编写Action方法
+        4.web.xml中配置
+                &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+                &lt;url-pattern&gt;/*
+        5.  ../xx_struts.xml中配置请求响应
+        6.src/struts.xml 中引入配置文件
+                &lt;include file=&quot;cn/itcast/javaee/cal/cal_struts.xml&quot;/&gt;
+
+配置文件（配置包）路径
+        重要路径：4个
+                1./struts-default.xml[框架]
+                        # 是框架自带的abstract包（包括上传，下载，验证等），继承它以后可以用其中的功能
+                2./org/apache/struts2/default.properties[框架]
+                3.src/struts.xml # 必有
+                4.src/struts.properties # 可选
+        验证返回消息的配置文件
+                struts2-core-2.3.1.1.jar包中的
+                        /org/apache/struts2/struts-messages.properties文件
+
+xml 中配置的简化
+        * 
+                o-&gt; 只能在name 中写*_* 等
+                o-&gt; 引用第一个* 用{1}        引用第二个用{2} 以此类推                 
+
+
+类路径
+        com.opensymphony.xwork2.ActionSupport  默认关联到的类
+
+处理请求的扩展名配置
+                # 扩展名配置只有一个会生效
+        1./org/apache/struts2/default.properties
+                struts.action.extension=action,,
+                # 框架中初始的默认扩展名，最后的','代表了无扩展名
+        2.src/struts.xml中
+                &lt;constant name=&quot;struts.action.extension&quot; value=&quot;do,,&quot;&gt; 
+                        # 必需配置
+        3.src/struts.properties中
+                        struts.action.extension=xx,yy        
+                        # 选择配置，优先级高
+
+默认配置
+        struts2内置了请求字符串与基本类型的相互转换，不用手工转换
+
+        /org/apache/struts2/default.properties文件中
+                struts.i18n.encoding=UTF-8        # post方式请求响应的编码方式
+                                                                        ## get方式的没有默认值，需要自己转码
+                struts.action.extension=action,,  # 框架中初始的默认扩展名,最后的','代表了无扩展名
+
+        每个&lt;package&gt;标签中配置
+        &lt;interceptor-ref name=&quot;defaultStack&quot;&gt;&lt;/interceptor-ref&gt; 为默认的拦截器
+
+src/struts.xml配置文件
+
+src/struts.properties配置文件
+</code></pre>
+
+<h1 id="原理流程">原理流程</h1>
+
+<pre><code>请求/qq.action -&gt; StrutsPreparedAndExecuteFilter（核心过滤器）-&gt; 匹配扩展名 -&gt; 匹配命名空间
+        #（ 全限定名：org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.class）
+                        -&gt; src/struts.xml                -&gt; name                
+                                                                            class
+                                                                            method
+                                                                        -&gt; name 
+                                                                            type
+                                                                                内容
+                                                                                    -&gt; 响应
+                        -&gt; 拦截器 -&gt; ConfigAction类
+
+        # 1.部署时读取src/struts.xml和src/struts.properties文件，形成JavaBean对象
+                # 两个文件同时存在时src/struts.properties文件为准
+        ## 2.请求/*路径时，StrutsPreparedAndExecuteFilter过滤
+        ## 3.获取JavaBean中的actionName ,actionClass, actionMethod, 执行方法
+        ## 4.执行的返回值与resultName, resultType, resultContent进行比较
+        ## 5.按resultType类型返回resultContent（路径和内容）
+</code></pre>
+
+<h1 id="缺点">缺点</h1>
+
+<pre><code>8个jar包，慢，servlet 快
+配置繁琐
+</code></pre>
+
+<h1 id="编码">编码</h1>
+
+<pre><code>struts2默认编码方式:utf-8
+
+返回的图片相对路径中有中文时设置tomcat 
+        tomcat/conf/server.xml
+            &lt;Connector port=&quot;8080&quot; .. URIEncoding=&quot;utf-8&quot;/&gt;
+
+        这时点击下载的请求路径中有中文时在以post方式提交 ,struts自动转码。若以get方式提交，需要在Action类的相应的get方法中转换url编码（iso8859-1）到u8
+
+        原理
+                改了tomcat的内部编码以后，struts中的编码是u8，放在session 中，jsp支持u8,解释后发送的html中的编码没问题，查看没问题。
+                下载post发送请求，浏览器请求的是url编码的u8,struts中也是u8执行下载
+
+                如果不改编码，struts 中是u8,如果以List方式放入session的话,session存储的是u8
+                如果直接放入数据的话,session中存储的是8859-1,jsp取出数据需要转码为u8并设置自己的编码是u8,再发送给浏览器。
+                浏览器这时获取图片正常,post方式提交的是u8,经过tomcat转换为8859-1,struts中自动转换编码到u8
+                如果是以get方式提交请求，get中的中文在浏览器时进行url编码到8859-1,经过tomcat，再到struts,struts不对get方式的请自动进行转码
+                向action类中注入参数时是8859-1编码,需要手动在action类中的属性的get方法中进行8859-1到u8的转码操作
+</code></pre>
+
+<h1 id="内置对象">内置对象</h1>
+
+<pre><code>struts中的6个内置对象
+                # request请求进入struts中时创建，request请求结束时销毁。
+        requestMap
+        sessionMap
+        applicationMap
+        parameters
+        attr                        # page -&gt; request -&gt; session -&gt; application 的顺序查找
+        valueStack                # 定义实例变量，直接放入valueStack的 list（栈） 中,map（值）很少向内存储数据 
+                                                # 定义的实例变量必须提供相应的get方法,否则ognl标签中取其数据时没有方法调用，就得不到它的值
+                                        # list 中的值优先访问 ，但是map 中的值起决定作用
+                                        # map中存放着一个大map,其中注入了所有页面的请求信息
+                # requestMap sessionMap applicationMap 并不是真正的域对象，但最后通过拦截器放入到域对象中
+</code></pre>
+
+<h1 id="异常处理">异常处理</h1>
+
+<pre><code>配置src/strut.xml 文件
+        &lt;global-results&gt; 全局结果（用来跳转全局异常等）
+        &lt;global-exception-mappings&gt; 全局异常
+        &lt;exception-mapping result=&quot;nullJsp&quot;        exception=&quot;java.lang.NullPointerException&quot; /&gt;
+                # &lt;action&gt;标签中的局部异常
+                ## &lt;action&gt;捕获标签中的实例运行抛出的异常,然后改为 返回执行结果为&quot;nullJsp&quot;的字符串交给本&lt;action&gt;标签中相应的&lt;result&gt;标签来处理
+
+
+处理机制
+        o-&gt; 多个异常时走子异常，父异常被忽略
+        o-&gt; 先处理小范围异常，大范围忽略
+        o-&gt;  如果异常没有处理，抛出到web服务器处理,web.xml的&lt;error-page&gt;&lt;error-code&gt;&lt;location&gt;
+全局异常
+    xml文件中
+            &lt;global-results&gt;
+                    &lt;result name=&quot;error&quot;&gt;
+                            /error.jsp
+                    &lt;/result&gt;
+            &lt;/global-results&gt;
+            &lt;global-exception-mappings&gt;
+                    &lt;exception-mapping result=&quot;error&quot; exception=&quot;java.lang.Exception&quot;/&gt;
+            &lt;/global-exception-mappings&gt;
+    error.jsp页面中
+            &lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot; %&gt;
+            异常信息：&lt;s:property value=&quot;exception.message&quot;/&gt;&lt;br/&gt;
+            详细信息：&lt;s:property value=&quot;exceptionStack&quot;/&gt;&lt;br/&gt;
+</code></pre>
+
+<h1 id="转递方式">转递方式</h1>
+
+<pre><code>chain                        # action类之间转发
+dispatcher                # 转发到jsp
+freemarker                
+httpheader
+redirect                # 重定向到页面
+redirectAction        # action 类之间重定向
+stream                        # 返回 InputStream流
+velocity
+xslt
+plainText
+</code></pre>
+
+<h1 id="action类">Action类</h1>
+
+<pre><code>注意
+        1.所有Action类都要继承ActionSupport类，否则execute方法返回的字符串不会回到struts拦截器再根据xml文件的配置进行转发
+        2.action类是非单例的。        # 所有多实例的对象全部是因为有私有属性，否则全部应该是单例的
+        3.action类放在栈的顶端，用于注入数据
+
+传统方式得到request,response,servletContext,pageContext
+        ServletActionContext.getPageContext()
+        HttpServletRequest request = ServletActionContext.getRequest()
+        ServletActionContext.getResponse()
+        ServletActionContext.getServletContext();
+
+优势
+        实现与servlet的解耦
+
+验证
+        验证分类 
+                前台验证：javascript等
+                后台验证：服务器
+        struts2验证
+                    后台验证
+            1.代码式验证
+            2.声明式验证:xml文件
+
+ActionContext类
+
+                调用方法
+                ActionContext actionContext = ActionContext.getContext();
+                得到内置对象        # 这几种得到作用域的方法均可以得到作用域中原有的值，也可以放入值 
+                request
+                        actionContext.put(&quot;&quot;,&quot;&quot;);
+                application
+                        Map&lt;String,Object&gt; applicationMap = actionContext.getApplication();
+                session
+                        Map&lt;String,Object&gt; sessionMap = actionContext.getSession();
+                                # 或 actionContext.get(&quot;session&quot;)得到，因为actionContext中存储着大map
+                parameters
+                        Map&lt;String,Object&gt; parametersMap = actionContext.getParameters();
+                valueStack
+                        ValueStack valueStack = actionContext.getValueStack()
+                        valueStack.getRoot()                        # 得到当前值栈的顺序
+
+参数
+        1.action类中可以直接创建属性与其get方法得到客户端get方法或post表单请求的参数(由struts2自动注入)
+        2.action类中可以创建 JavaBean的属性来接收struts注入的参数，这时用户请求的参数名字要写成JavaBean名.JavaBean中的属性名（这样struts2会自动调用JavaBean的set方法来注入其中相应的参数 ）
+</code></pre>
+
+<h2 id="baseaction">BaseAction</h2>
+
+<pre><code>作用
+        权限管理
+        存放常驻内存数据
+        抽取常用的方法
+</code></pre>
+
+<h1 id="web-xml配置">web.xml配置</h1>
+
+<pre><code>&lt;filter&gt;
+        &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+        &lt;filter-class&gt; org.apache.struts2.dispatcher.FilterDispatcher &lt;/filter-class&gt;
+        &lt;init-param&gt;        
+                &lt;param-name&gt;struts.action.extension&lt;/param-name&gt;
+                &lt;param-value&gt;do&lt;/param-value&gt;
+        &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+        &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+        &lt;url-pattern&gt;*.json&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+        # 设置全局过滤器，并且修改过滤扩展名
+</code></pre>
+
+<h1 id="default-properties">default.properties</h1>
+
+<pre><code>src/struts.properties配置文件
+        struts.custom.i18n.resources=struts    # 使自己的普通配置生效。如：/org/apache/struts2/struts-messages.properties文件的
+                                                                                        ## struts.messages.error.content.type.not.allowed=Content-Type not allowed: {0} &quot;{1}&quot; &quot;{2}&quot; {3}  属性，&quot;{1}&quot; &quot;{2}&quot; &quot;{3}&quot;是显示消息的占位符
+                                                                                        ## struts.action.extension=action,,可以不配置
+                # 由于只加载properties文件，所以省略.properties   
+        ## =后面的是相对于src目录的文件
+</code></pre>
+
+<h1 id="ognl标签">ognl标签</h1>
+
+<pre><code>注意
+        # jquery中不能定位ognl标签，而要用标签自己生成的id定位（看源码得到）
+
+使用：
+        &lt;%@ taglib uri=&quot;/struts-tags&quot; prefix=&quot;s&quot; %&gt;
+        tld映射文件路径 
+                struts2-core-2.3.1.1.jar包中
+                /META-INF/struts-tags.tld
+
+'#'出现的地方
+        o-&gt; 除ValueStack 之外的所有struts内置对象的取值前面都要加
+        o-&gt; 取JavaBean中的属性时要加 '#'，如&quot;#user.username&quot;,ValueStack中也不例外
+        o-&gt; 构造Map对象，Map：#{'male':'[男]','female':'[女]'}，构造radio和select标签，如
+                        # &lt;s:radio list=&quot;#{'male':'aa','bb':'cc'}&quot; name=&quot;gender2&quot; /&gt;
+        o-&gt; 迭代数组或list集合
+                        集合的投影：userList.{username}
+                        集合的过滤：userList.{?#this.age&gt;22}
+
+主题与模板
+        主题：为多个模板提供风格
+                struts2-core-2.3.1.1.jar包中
+                        template中的四个主题
+                                archive                # 其中是.vm文件，其它是.ftl文件。vm与ftl是两种视图技术
+                                        ajax        # 除此之外其它都不支持ajax
+                                        simple
+                                        xhtml                
+                                xhtml                # 默认主题,default.properties配置文件中定义
+                                css_xhtml
+                                simple
+                修改主题
+                        1.struts.properties 中修改
+                struts.ui.theme=simple          # 针对当前webapp
+                        2.&lt;s:form theme=&quot;xhtml&quot;&gt;            # 只针对当前表单
+                        3.&lt;s:textfield name=&quot;username&quot; theme=&quot;simple&quot;&gt;  # 修改某个标签的属性
+        模板：为标签提供样式
+                做模板的技术freemarker  
+
+ognl标签的优点：自动排版、验证数据回显、国际化
+
+所有标签：
+        逻辑标签
+                对 Map 集合的迭代：
+                &lt;s:iterator value=&quot;#session.fileMap&quot; var=&quot;entry&quot; status=&quot;stat&quot;&gt;
+                    &lt;s:property value=&quot;#entry.key&quot;/&gt;
+                &lt;s:if test=&quot;#stat.count%4==0&quot;&gt;&lt;/s:if&gt;
+            &lt;/s:iterator&gt;
+                对 List 集合的迭代  List&lt;User&gt; userList 
+                    普通迭代
+                    &lt;s:iterator var=&quot;user&quot; value=&quot;userList&quot;&gt;      # 投影语法List&lt;user&gt;中的所有username
+                &lt;s:property value=&quot;#user.username&quot;/&gt;
+                        投影语法
+                    &lt;s:iterator var=&quot;username&quot; value=&quot;userList.{username}&quot;&gt; 
+                            &lt;s:property/&gt;                        # 这里不用写属性value=&quot;username&quot;就可以对page域中的username进行显示
+                    过滤语法
+                        &lt;s:iterator var=&quot;user&quot; value=&quot;userList.{?#this.age&gt;9}&quot;&gt;
+                                        # this代表当前被迭代的元素 ?#是所有 ^#是第一个 $#是最后一个  ?#...[0]按标记取
+                                &lt;s:property value=&quot;#user.username&quot; /&gt;
+        显示标签（UI标签）
+                普通字符串中使用ognl
+                        jsp中用%{}      xml中用${}
+                        例如
+                        jsp中：&lt;s:textfield label=&quot;%{#attr.testValueStack}&quot;/&gt;
+                        xml中：&lt;param name=&quot;min&quot;&gt;4000&lt;/param&gt;
+                                                &lt;message&gt;${min}&lt;/message&gt;
+                普通信息
+                        &lt;s:text name=&quot;&quot;/&gt;
+                输出值
+                        迭代器中
+                                &lt;s:property/&gt;        # 直接输出被迭代的内容（简单）
+                                &lt;s:property value=&quot;aa&quot;/&gt;
+                                &lt;s:property value=&quot;#aa&quot;/&gt;
+                        普通        
+                                &lt;s:property value=&quot;username&quot;/&gt;      # 输出标签,得到valueStack中属性
+                                &lt;s:property value=&quot;#request.name&quot;/&gt;                # 得到request域对象中的值
+                                        # request #session #application #parameters #attr
+                                        # '#attr'优先级：page,request,valueStack,session,application
+                显示验证拦截器的验证信息集合中的数据：
+                        &lt;s:fielderror/&gt;                                                        # 显示所有错误信息
+                        &lt;s:fielderror fieldName=&quot;&quot;/&gt;                        # 显示验证返回的错误信息
+                单选
+                        &lt;s:radio list=&quot;#{'male':'男','female':'女'}&quot; name=&quot;gender2&quot; value='男'&gt;
+                                        # 自动加class id &lt;label for=&quot;gender2male&quot;&gt;等
+                                        # list键值对中male是实际值,男是显示值 
+                                        # name是&lt;input radio &gt;的name属性
+                                        # value中是选中的项
+                多选
+                        &lt;s:select multiple=&quot;true&quot; list=&quot;#{'bj':'北京','sh':'上海','gz':'广州'}&quot; name=&quot;select1&quot; value=&quot;{'sh','bj'}&quot;/&gt;
+                表单                        # 在ognl的标签中， struts的验证消息自动回显，不用加&lt;s:fielderror/&gt;标签
+                        &lt;s:form action=&quot;&quot;&gt;                # 默认中加上了 method=&quot;post&quot; action中加上了当前网站了contextPath路径
+                                &lt;s:textfield label=&quot;用户名&quot; name=&quot;username&quot; /&gt;
+                                &lt;s:password label=&quot;密码&quot; name=&quot;password&quot; /&gt;
+                                &lt;s:submit value=&quot;登录&quot; /&gt;
+                国际化                # 国际化一般放在整个网站的最后写
+                                        ##　伪国际化：将不同语言的页面放在不同文件夹中分别访问
+                                # 国际化是通过i18n拦截器实现的
+                        1.创建国际化信息文件
+                                message_zh_CH.properties      # 基名_语言名_国家名.properties
+                                        username=xxx
+                                        password=xxxx
+                                        submit=xx
+                                message_en_US.properties 
+                                ..
+                                message.properties                # 默认的显示语言
+                                        # 找伊拉克没有的话找本地区语言，本地语言没有的话找其它(默认的或美国等)
+                        2.struts.properties中引入国际化配置的属性文件
+                                struts.custom,i18n.resources=struts2/tag/i18n/message        # 从src文件夹路径开始，只写基名 
+                        3.验证消息国际化
+                                message.properties文件中配置属性validationRequiredUsername=用户名错误
+                                validation.xml文件中
+                                &lt;message key=&quot;validationRequiredUsername&quot;&gt;&lt;/message&gt;
+                        4.jsp文件中用key属性代替 label属性(或其它在页面上显示信息的属性),key中写国际化信息文件中的key
+                                &lt;s:form action=&quot;taglogin&quot;&gt;
+                                        &lt;s:textfield key=&quot;username&quot; name=&quot;username&quot; /&gt;
+                                        &lt;s:password key=&quot;password&quot; name=&quot;password&quot; /&gt;
+                                        &lt;s:submit key=&quot;submit&quot;/&gt;
+                                &lt;/s:form&gt;
+                        5.普通信息的国际化
+                                message.properties中配置属性 normalMessage:普通信息
+                                jsp中&lt;s:text name=&quot;normalMessage&quot;/&gt;
+                        6.测试
+                                intername选项 -- 语言 改地区访问
+
+xml文件中的ognl标签
+        o-&gt; ${aa}
+                1.调用转到该标签类的getAa()方法得到aa的值替换${aa}
+                2.本标签中name=&quot;aa&quot;的标签的文本节点的内容
+        o-&gt; {1}{2}{3}..{n}
+                匹配本标签中name=&quot;*a*&quot; 中的第n个‘*’,用于通配传递过来的参数的一部分的值
+</code></pre>
+
+<h1 id="ognl表达式">ognl表达式</h1>
+
+<pre><code>ognl 开源，java写的免费标签,是struts2特有的
+
+
+xml文件中
+        ${Xxx}                取值栈中栈中的东西，如action类中的属性
+        ${#Xxx}                取值栈中值的东西，如request,session域中的数据（其实就是老师说的内置对象【valueStack就是值栈】）
+
+jsp文件中
+        &lt;s:iterator value=&quot;#session.fileMap&quot; var=&quot;entry&quot; status=&quot;stat&quot;&gt;
+            &lt;s:property value=&quot;#entry.key&quot;/&gt;
+            &lt;s:if test=&quot;#stat.count%4==0&quot;&gt;&lt;/s:if&gt;
+    &lt;/s:iterator&gt;
+</code></pre>
+
+<h1 id="strut-xml配置">strut.xml配置</h1>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC 
+        &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;
+        &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;
+
+&lt;struts&gt;
+        &lt;constant name=&quot;&quot; value=&quot;&quot;&gt;&lt;/constant&gt;
+        &lt;include file=&quot;&quot;&gt;&lt;/include&gt;
+        &lt;package name=&quot;&quot;&gt;
+                &lt;interceptors&gt;
+                        &lt;interceptor name=&quot;&quot; class=&quot;&quot;&gt;&lt;/interceptor&gt;
+                        &lt;interceptor-stack name=&quot;&quot;&gt;
+                                &lt;interceptor-ref name=&quot;&quot;&gt;&lt;/interceptor-ref&gt;
+                        &lt;/interceptor-stack&gt;
+                &lt;/interceptors&gt;
+                &lt;default-interceptor-ref name=&quot;&quot;&gt;&lt;/default-interceptor-ref&gt;  
+                &lt;global-results&gt;
+                        &lt;result name=&quot;&quot;&gt;&lt;/result&gt;
+                &lt;/global-results&gt;
+                &lt;global-exception-mappings&gt;
+                        &lt;exception-mapping result=&quot;&quot; exception=&quot;&quot;/&gt;
+                &lt;/global-exception-mappings&gt;
+                &lt;action name=&quot;&quot;&gt;
+                        &lt;param name=&quot;&quot;&gt;&lt;/param&gt;
+                        &lt;result&gt;&lt;/result&gt;
+                        &lt;result name=&quot;input&quot;&gt;&lt;/result&gt;
+                        &lt;exception-mapping result=&quot;&quot; exception=&quot;&quot;/&gt;
+                        &lt;interceptor-ref name=&quot;&quot;&gt;&lt;/interceptor-ref&gt;
+                &lt;/action&gt;
+        &lt;/package&gt;
+&lt;/struts&gt;
+
+设置
+        &lt;constant name=&quot;struts.devMode&quot; value=&quot;true&quot;/&gt;                # 开启debug模式
+                                                                # debug模式，不用重启调试(添加新的方法要重启，方法中改代码不用重启)
+        &lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;utf-8&quot;/&gt;
+                                                                # 配置struts的编码
+        &lt;constant name=&quot;struts.configuration.xml.reload&quot; value=&quot;true&quot;/&gt;
+                                                                # 配置本属性，可以使得改动struts配置文件不用重启应用服务器
+        &lt;constant name=&quot;struts.multipart.saveDir&quot; value=&quot;/upload&quot;/&gt;
+                                                                # 配置上传存储路径
+        &lt;constant name=&quot;struts.action.extension&quot; value=&quot;action,do&quot; /&gt;
+                                                                # 配置过滤路径
+详细解释
+        o-&gt; 存放路径src/
+        o-&gt; 可以在struts-2.3.15.1的src\apps\blank\src\main\resources\struts.xml中参考配置文件
+        o-&gt; &lt;include file=&quot;struts2/cal/cal_struts.xml&quot;/&gt;标签包含其它路径的xml配置文件
+                        #　被include的文件不能再include其它文件
+        o-&gt; &lt;constant name=&quot;struts.action.extension&quot; value=&quot;do,,&quot;&gt;
+                默认值
+                        default.properties中配置了默扩展名：struts.action.extension=action,,
+                # 配置匹配到框架处理的扩展名，空逗号代表匹配没有扩展名
+        o-&gt; &lt;package name=&quot;xxPackage&quot; extends=&quot;struts-default&quot; namespace=&quot;/xx/&quot;&gt;
+                默认值
+                        namespace=&quot;/&quot;
+                        extends=&quot;struts-default&quot;        # 不可省略
+                # name是包的唯一标识，不可以写路径
+                ## namespace 访问路径如/xx/a.do会匹配到该包执行其中的映射，按照域命名空间链的方式匹配，如：
+                                                        /xx/yy/a.do也会匹配到该包，但是它优先匹配到/xx/yy的命名空间
+                                                        /a.do 不会匹配到该包
+                        注意：匹配/sys/*的名称空间是/sys 而非 /sys/
+                ## struts的包有抽象包，普通包两种，通过继承可以加入包内容，相当于复制、粘贴
+                ## 继承的包是struts-default，其路径是/struts-default.xml
+                ## ，它定义了核心的bean和拦截器
+        o-&gt; &lt;interceptors&gt;
+                        &lt;interceptor name=&quot;&quot; class=&quot;&quot;/&gt;
+                        &lt;interceptor-stack name=&quot;&quot;&gt;
+                                &lt;interceptor-ref name=&quot;/&quot;&gt;
+                                # 定义拦截器、定义拦截器栈（加入拦截器）
+                                ## 拦截器栈中可以加栈
+        o-&gt; &lt;default-interceptor-ref name=&quot;&quot;&gt; 默认拦截器（可以用于验证用户登录）
+        o-&gt; &lt;global-results&gt; 全局结果（用来跳转全局异常等）
+        o-&gt; &lt;global-exception-mappings&gt; 全局异常
+        o-&gt; &lt;action name=&quot;&quot; class=&quot;&quot; method=&quot;&quot;&gt;
+                默认值
+                        class=&quot;com.opensymphony.xwork2.ActionSupport&quot;
+                        method=&quot;execute&quot;
+                # name=&quot;aa&quot;时 .../aa.do的请求匹配到该方法执行
+                ## class 是类字节码路径，method是其中的方法名
+        o-&gt; &lt;param name=&quot;aaa&quot;&gt;bbb&lt;/param&gt;
+                调用 &lt;action&gt;标签中对象的实例的方法：setAaa(&quot;bbb&quot;);
+        o-&gt; &lt;result name=&quot;&quot; type=&quot;&quot;&gt;/ok.jsp
+                默认值
+                        name=&quot;success&quot;
+                        type=&quot;dispatcher&quot;
+                # name=&quot;success&quot;时，映射的method返回&quot;success&quot;时进入该result处理
+                ## type是返回方式 ，如dispatcher redirect等
+                        type的返回类型
+                                dispatcher : 转发到jsp页面
+                                redirect : 重定向到 jsp html 等页面
+                                chain : Action 类之间的转发
+                                redirectAction : Action 类之间的重定向
+                                stream : 以 inputStream 的数据类型返回
+                                        stream的参数                        # 可以从struts-default.xml文件中对应的stream参数对应的类的源码中查看其中的set方法找到要写参数的名称
+                                                &lt;param name=&quot;contentType&quot;&gt;image/pjpeg&lt;/param&gt;                # 下载文件的类型                  另外如text/html; charset=utf-8返回给ajax异步数据
+                                                &lt;param name=&quot;bufferSize&quot;&gt;2048&lt;/param&gt;                # 缓冲byte[]的大小，单位字节
+                                                &lt;param name=&quot;contentDisposition&quot;&gt;attachment;filename=${uuidFileName}&lt;/param&gt;                # 设置下载响应头，只的下载时才设置。${uuidFileName}是一个OGNL表达式
+                                                &lt;param name=&quot;inputName&quot;&gt;imageStream&lt;/param&gt;        # 框架调用传递给result标签结果字符串的对象中的getImageStream()方法，来获取InputStream流对象
+                                                # 返回stream类型不指定返回的路径
+                ## 标签间的内容：/ok.jsp 是响应的路径
+        o-&gt; &lt;result name=&quot;input&quot; type=&quot;&quot;&gt;/ok.jsp
+                type中的参数                        # 可以从struts-default.xml配置文件中查到
+                        dispatcher        # 转发
+                        redirect        # 重定向
+                        chain                # Action类之间转发，需要加参数，参数的名字
+                                                ## ：struts-default.xml文件中找到&quot;chain&quot;对应的类，按快捷键ctrl + shift + T 关联类的源码文件，查找set方法改名即可
+                                &lt;param name=&quot;actionName&quot;&gt;to&lt;/param&gt;
+                                        # action标签的 name属性值
+                                &lt;param name=&quot;namespace&quot;&gt;/&lt;/param&gt;
+                                        # action的名称空间 
+                        redirectAction                # Action类之间重定向
+
+                # 各种拦截器不通过时默认的返回input，同时向request作用域中加入了相关错误信息供struts2的jsp标签进行显示
+                ## 处理 返回值是input的返回信息跳转，就是处理拦截器拦截后的信息跳转
+        o-&gt; &lt;exception-mapping result=&quot;nullJsp&quot;        exception=&quot;java.lang.NullPointerException&quot; /&gt;
+                # &lt;action&gt;标签中的局部异常
+                ## &lt;action&gt;捕获标签中的实例运行抛出的异常,然后改为 返回执行结果为&quot;nullJsp&quot;的字符串交给本&lt;action&gt;标签中相应的&lt;result&gt;标签来处理
+        o-&gt; &lt;interceptor-ref name=&quot;loginInterceptor&quot;/&gt;
+                默认值
+                        name=&quot;defaultStack&quot;
+                # 指定在本&lt;action&gt;标签中使用的拦截器或拦截器栈
+                ## 当指定了拦截器或拦截器栈以后，默认的defaultStack将会没有,此时defaultStack中的18个拦截器将不再执行
+
+使用：OGNL对象图导航语言对标签中的路径进行动态设置
+</code></pre>
+
+<h1 id="验证">验证</h1>
+
+<pre><code>struts2验证 
+    1.代码式: validate(),validateXxx()方法
+                    # 单个验证与全部验证都存在时先单个验证，再全部验证，验证信息都加入验证信息集合
+    2.声明式: Action类名-validation.xml
+                            Action类名-&lt;action标签的name属性&gt;-validation.xml
+                        # 单个验证与全部验证都存在时先全部验证，再单个验证，验证信息都加入验证信息集合
+                # 先声明验证，后代码验证
+参数驱动
+        1.属性驱动: action中用属性收集表单参数
+        2.模型驱动: javaBean收集参数
+
+代码式（属性驱动）：
+        步骤
+        1.需要验证的Action类  继承 ActionSupport 类
+                        # ActionSupport 类 实现了Validateable接口，该接口是验证接口
+
+        2.写验证方法
+                1&gt; public void validate()
+                                # 方法重写（通用验证方法，本类中的所有其它方法执行前都执行）
+
+                2&gt; public void validateXxxMethod()
+                                # 或者自定义专用验证方法 xxxMethod为要验证的方法名，首字母要大写
+
+                        # 注意，通用、专用验证方法同时存在时，先执行专用验证方法，再执行通用验证方法
+                        ## ，但是通用验证方法的错误消息无法加入到返回的错误集合中
+
+                3&gt; this.addFieldError(&quot;password&quot;,&quot;密码必填&quot;);
+
+                        # 验证方法中添加错误信息到错误信息集合
+                        ## addFieldError(&quot;&quot;,&quot;&quot;)是从ActionSupport父类中继承的方法
+
+        3.jsp文件中通过验证标签：
+                        &lt;%@ taglib uri=&quot;/struts-tags&quot; prefix=&quot;s&quot;%&gt;
+                        &lt;s:fielderror/&gt;                # 显示所有错误信息
+                        &lt;s:fielderror fieldName=&quot;password&quot;/&gt;
+                显示验证出错信息
+
+        4.xml配置
+            &lt;!-- 验证错误信息处理 --&gt;
+                &lt;result name=&quot;input&quot; type=&quot;dispatcher&quot;&gt;
+                        /error.jsp
+                &lt;/result&gt;
+                        # 写在需要验证的方法对应的标签中，验证错误时验证方法会优先返回&quot;input&quot;字符串
+
+
+声明式（属性驱动）：
+        1.验证Action类继承ActionSupport
+        2.验证Action类目录下配置文件
+                Action类名-validation.xml
+            Action类名-&lt;action标签的name属性&gt;-validation.xml
+                            # 放入此名字的配置文件就相当于加了验证，不需要做其它事情
+                            ## ，相当于分别向Actioin类中加入了validate()validateXxx()方法进行了相应验证
+                    文件内容
+                    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+                        &lt;!DOCTYPE validators PUBLIC
+                        &quot;-//Apache Struts//XWork Validator 1.0.3//EN&quot;
+                        &quot;http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd&quot;&gt;
+                        &lt;validators&gt;
+                                &lt;field name=&quot;username&quot;&gt;                # 要验证的属性
+                                        &lt;field-validator type=&quot;requiredstring&quot;&gt;
+                                                &lt;message&gt;用户名必填&lt;/message&gt;
+                                        &lt;/field-validator&gt;
+                                &lt;/field&gt;
+                                &lt;field-validator type=&quot;regex&quot;&gt;
+                                        &lt;param name=&quot;expression&quot;&gt;^[\u3447-\uFA29]+$&lt;/param&gt;
+                                        &lt;message&gt;UserAction2-validation==&gt;必须写中文&lt;/message&gt;
+                                &lt;/field-validator&gt;
+                        &lt;/validators&gt;
+
+                                # xml文件的头在 xwork-core-2.3.1.1.jar包的
+                                        xwork-validator-1.0.3.dtd中复制
+                                ## 关联约束在
+                                        \struts-2.3.15.1\src\xwork-core\src\main\resources\xwork-validator-1.0.3.dtd文件
+                                ## &lt;field-validator type=&quot;&quot;&gt;的约束类型在xwork-core-2.3.1.1.jar包的
+                                                /com/opensymphony/xwork2/validator/validators/default.xml文件中
+                                                        # 16个规则
+                                                        ## type=&quot;regex&quot;相当于调用了default.xml文件中配置的
+                                                        ## RegexFieldValidator类的 setExpression方法
+        3.jsp文件中通过验证标签（同上）
+        4.xml配置（同上）
+
+                # 出错信息
+                        1.验证文件名写错，无提示，不验证
+                        2.&lt;field-validator type=&quot;&quot;&gt;写错，有明显提示
+                        2.&lt;field name=&quot;salaryy&quot;&gt;写错，获取的salaryy为空。
+
+声明式（模型驱动）
+        1.创建bean对象，bean对象中封装属性
+        2.验证Action类继承ActionSupport类，声明bean对象实例
+        3.action类同目录 中  ：Action类名-&lt;action标签的name属性&gt;-validation.xml
+                        # &lt;field-validator type=&quot;visitor&quot;&gt;
+                # bean类同目录中：bean类名-validation.xml配置验证文件
+        4.jsp文件请求参数改为：action类中bean对象名.bean对象封装的属性名。用&lt;s:fielderror/&gt;标签得到返回的错误信息
+        5.xml配置（同上）
+
+原理
+StrutsPreparedAndExecuteFilter
+    1.注入参数
+            setUsername()
+        setPassword()
+    2.验证方法：validate()或validateXxx()
+                    验证配置文件中验证：Action类名-validation.xml
+    3.转发：根据验证成功或失败返回消息
+                    验证集合无错误消息成功Action --&gt; execute或同签名的方法
+                    验证集合有错误消息失败&lt;result name = &quot;input&quot; type=&quot;dispatcher&quot;
+                                        register.jsp/login.jsp
+</code></pre>
+
+<h1 id="过滤器">过滤器</h1>
+
+<pre><code>StrutsPrepareAndExecuteFilter
+        中查看Dispathcer类，从中找到配置struts-default.xml,struts-plugin.xml,struts.xml值的属性DEFAULT_CONFIGURATION_PATHS
+        查找引用该属性的方法为init_TraditionalXmlConfigurations
+        查看引用该方法的方法为init
+        回头看StrutsPrepareAndExecuteFilter中初始化dispatcher对象的方法initDispatcher
+                其中调用了dispatcher.init();方法来配置dispatcher
+        由此可以知道struts在启动时加载了struts-default.xml,struts-plugin.xml,struts.xml配置文件
+</code></pre>
+
+<h1 id="拦截器">拦截器</h1>
+
+<pre><code>struts-core-2.3.1.1.jar包中的
+        struts-default.xml文件中
+                定义了32个interceptor（拦截器）
+                        i18n    # 国际化
+            token  # 表单重复提交
+            validation  # 验证
+            params  # 参数拦截器,向Action类中注入参数
+            cookie
+        interceptor-tack    # 拦截栈
+                # 拦截栈中的拦截器的先后顺序有影响
+                basicStack
+            defaultStack    # 每个http请求都会经过该拦截栈 
+                            ## 其中的18个拦截器, &lt;default-interceptor-ref&gt;中定义
+原理
+        拦截器仿照过滤器建立，内部实现原理是完全相同的
+执行流程
+        拦截器构构造函数 -&gt; action构造函数 -&gt; 拦截器1 in -&gt; 拦截器2 in -&gt; demo -&gt; 拦截器2 out -&gt; 拦截器1 out
+    exception拦截器最先进，最后出
+自定义拦截器
+        1.定义Action类，继承Interceptor接口，重写生命周期方法
+                public LoginInterceptor() {
+                }
+                public void destroy() {
+                }
+                public void init() {
+                }
+                public String intercept(ActionInvocation invocation)  {
+                }
+        2.配置struts.xml文件
+                1&gt; 定义拦截器、拦截器栈
+                        &lt;interceptors&gt;
+                                &lt;interceptor name=&quot;loginInterceptor&quot; class=&quot;interceptor.LoginInterceptor&quot;/&gt;
+                                &lt;interceptor name=&quot;roleInterceptor&quot; class=&quot;interceptor.RoleInterceptor&quot;/&gt;
+                                &lt;interceptor-stack name=&quot;crmStack&quot;&gt;
+                                        &lt;interceptor-ref name=&quot;loginInterceptor&quot;&gt;&lt;/interceptor-ref&gt;
+                                        &lt;interceptor-ref name=&quot;roleInterceptor&quot;&gt;&lt;/interceptor-ref&gt;
+                                &lt;/interceptor-stack&gt;
+                        &lt;/interceptors&gt;
+                2&gt; &lt;action&gt;标签中声明用到的拦截器或拦截器栈
+                        &lt;interceptor-ref name=&quot;loginInterceptor&quot; /&gt;                # 此时默认的defaultStack拦截器栈会被替代掉
+自定义方法过滤拦截器
+                # MethodFilterInterceptor继承AbstractInterceptor继承Interceptor，前两个是struts自己实现的自己的包装类
+                ## 原理：自己实现intercept方法，实现对方法名的过滤。如果符合通过条件，则执行自己的doIntercept方法。所以要求用户重写doIntercept方法实现业务逻辑
+        &lt;interceptor name=&quot;aloginInterceptor&quot; class=&quot;cn.it.shop.interceptor.AloginInterceptor&quot;&gt;
+                &lt;param name=&quot;excludeMethods&quot;&gt;*$&lt;/param&gt;                # 除了*$匹配的方法都执行此拦截器
+                                                                                                        ## includeMethods为包含匹配的方法执行拦截器
+        &lt;/interceptor&gt;
+生命周期
+        部署时初始化，每次符合&lt;action&gt;的请求时，执行拦截器
+拦截器Action 类
+        o-&gt; 继承Interceptor 接口
+        o-&gt; 重写生命周期方法
+                String intercept(ActionInvocation invocation)方法中调用
+                        invocation.invoke() 放行
+                        invocation.getAction()得到当前的Action类
+                        invocation.getStack()得到值栈中的栈
+                                # invocation用于调试18个拦截器
+具体拦截器
+        struts-default.xml 文件中定义了32种拦截器
+                alias 
+        autowiring 
+        chain                                         
+        conversionError 
+        cookie 
+        clearSession 
+        createSession 
+        debugging 
+        execAndWait 
+        exception 
+        fileUpload                                # 只用来验证已经注入的文件是否合格，合格则通过，不合格则不执行action类中对应请求的方法
+        i18n 
+        logger 
+        modelDriven                                # 用于检查action类是否实现ModelDriven&lt;T&gt;接口，然后调用getModel()方法注入得到的对象到栈的项端。
+        scopedModelDriven 
+        params                                        # 注入参数用，包括注入文件（级联注入文件的ContentType与FileName）
+        actionMappingParams 
+        prepare 
+        staticParams 
+        scope 
+        servletConfig                                # 向自定义的实现RequestAware等接口的Action类（一般是BaseAction类）中注入request等相应的map对象 
+        timer 
+        token                                                # 防止重复提交
+        tokenSession 
+        validation                                # 验证
+        workflow 
+        store 
+        checkbox 
+        profiling 
+        roles 
+        annotationWorkflow 
+        multiselect
+数据传递
+        o-&gt; 拦截器不会向其它拦截器中注入参数，所以自定义拦截器中了参数要从request中获取
+        o-&gt; 如果想 显式的引用了自己的拦截栈，默认的拦截栈就不引用了，要自己引用，其中的注入参数拦截器向action类中注入参数 
+技巧
+&lt;interceptor-stack name=&quot;defaultStack&quot;&gt;    # 对defaultStack进行替换，在它前面添加自定义的拦截器
+    &lt;interceptor-ref name=&quot;aloginInterceptor&quot;/&gt;
+    &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+拦截器中的ActionInvocation对象
+        可以得到ActionContext
+</code></pre>
+
+<h1 id="文件处理">文件处理</h1>
+
+<h2 id="上传">上传</h2>
+
+<pre><code>struts2文件上传步骤
+        1.编写jsp文件
+                1&gt; post方式提交
+                2&gt; &lt;input type=&quot;file&quot; name=&quot;file1&quot;/&gt; 要添加name属性
+                3&gt; post表单上传的编码方式是enctype=&quot;multipart/formdata&quot;
+        2.创建Action类，不必继承任何类(但是如果不继承ActionSupport类的话，拦截器将不会返回提示消息)
+                1&gt; 定义参数        # 如果不接收上传文件名字符串数组而从文件对象中获取文件名的话，得到的文件名将会是乱码
+                        private File[] image;                                                # 字段名
+                        private String[] imageContentType;                        # 文件类型
+                        private String[] imageFileName;                                # 文件名
+                        private String uploadPath;
+                                        # 前三个参数可以不是数组，在 struts-default.xml配置文件fileUpload拦截器对应的源码中可以找到定义规则：
+                                                &lt;li&gt;[File Name] : File - the actual File&lt;/li&gt; 
+                                                &lt;p/&gt; &lt;li&gt;[FileName]ContentType : String - the content type of the file&lt;/li&gt; 
+                                                &lt;p/&gt;&lt;li&gt;[File Name]FileName : String - the actual name of the file uploaded(not the HTML name)&lt;/li&gt;
+                                        # uploadPath是我们自定义的配置文件中注入过来的文件存储位置
+
+                2&gt; 写execute方法保存文件到路径，返回成功消息
+        3.Action类的配置文件，include到src/struts.xml文件中
+                        1&gt; &lt;action&gt;标签中配置name=&quot;input&quot;的标签&lt;result&gt;来返回出错消息
+                        2&gt; &lt;action&gt;标签中用param标签注入文件存储路径：uploadPath 底层执行setUploadPath()方法 
+                        3&gt; &lt;action&gt;标签中通过&lt;interceptor-ref name=&quot;fileUpload&quot;&gt;标签对上传文件进行参数上的限定
+                                1&gt; &lt;param name=&quot;maximumSize&quot;&gt; 单个文件的最大尺寸(字节)
+                                2&gt; &lt;param name=&quot;allowedExtensions&quot;&gt; 文件扩展名
+                                3&gt; &lt;param name=&quot;allowedTypes&quot;&gt; 文件实际类型，如image/jpeg，可从tomcat配置文件web.xml中查找
+        4.配置返回消息的信息
+                ：src/struts.properties文件中
+                        struts.custom.i18n.resources=struts                # 解锁自/org/apache/struts2/default.properties总配置文件
+                                        # 加载自己，=后面是参照src/目录的相对路径 ，省略掉.properties扩展名
+                        struts.multipart.maxSize=2097152                #  解锁自/org/apache/struts2/default.properties总配置文件
+                                        # 设置上传文件总量的大小
+                        struts.messages.error.file.too.large=\u6587\u4EF6\u592A\u5927\: {0} &quot;{1}&quot; &quot;{2}&quot; {3}
+                        struts.messages.error.content.type.not.allowed=\u6587\u4EF6\u7C7B\u578B\u4E0D\u6B63\u786E\: {0} &quot;{1}&quot; &quot;{2}&quot; {3}
+                        struts.messages.error.file.extension.not.allowed=\u6269\u5C55\u540D\u4E0D\u6B63\u786E\: {0} &quot;{1}&quot; &quot;{2}&quot; {3}
+                                        # 覆盖/org/apache/struts2/default.properties总配置文件的响应消息,=后面是中文的unicode编码的iso8859-1的表示形式，通过视图可以直接配置，也可以用java/bin目录下的native2ascii.exe工具进行转码
+
+多文件上传
+        出现有多个文件共同上传时，文件拦截器会出现一错全错的情况，这时我们利用struts的一个
+                小bug---文件拦截不成功也调用action类的setXxx方法传入文件，从set函数中对文件进行筛选和转存
+                这时文件拦截器已经形同虚设，一点作用也不起了。
+
+原理过程
+        1.上传请求经过struts2的过滤器匹配扩展名
+        2.按src/struts.xml文件中声明的配置包映射的名称空间映射到配置包
+        3.根据action标签的name属性匹配名称空间与扩展名之间的“文件名”,映射到该action标签
+                1&gt; 经过多层拦截器
+                2&gt; 用param标签注入文件存储路径
+                3&gt; 通过&lt;interceptor-ref name=&quot;fileUpload&quot;&gt;标签对上传文件进行参数上的限定
+                2&gt; 执行action标签对应类的方法，该方法返回的返回的字符串进行响应
+
+默认配置
+        1.defaultStack拦截栈中的fileUpload拦截器进行处理
+        2.default.properties配置文件中 对multipart的上传方式进行了配置
+                struts.multipart.parser=jakarta                  # struts使用了第三方的jakerta来给上传文件解码
+                struts.multipart.saveDir=                      # 缓存文件的临时目录，不填默认是
+                                                                                        ## work/catalina/localhost/web工程名/upload_.....00000..tmp
+                struts.multipart.maxSize=2097152      # 默认支持的上传文件的大小 (字节，2m)，是总大小 
+        3.多数服务器自己删除缓存文件         
+</code></pre>
+
+<h2 id="下载">下载</h2>
+
+<pre><code>用传递类型为stream 来返回要下载的文件
+
+写法
+        &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+                &lt;!-- 下载文件的类型 --&gt;
+                &lt;param name=&quot;contentType&quot;&gt;image/pjpeg&lt;/param&gt;
+                &lt;!-- byte[]的大小，单位字节 --&gt;
+                &lt;param name=&quot;bufferSize&quot;&gt;2048&lt;/param&gt;
+                &lt;!-- 设置下载响应头，${uuidFileName}是一个OGNL表达式，不是EL表达式 --&gt;
+                &lt;param name=&quot;contentDisposition&quot;&gt;attachment;filename=${uuidFileName}&lt;/param&gt;
+                &lt;!-- 框架调用getXxx()方法，来获取InputStream流对象 --&gt;
+                &lt;param name=&quot;inputName&quot;&gt;imageStream&lt;/param&gt;
+        &lt;/result&gt;
+
+                # 与其它同样，要注入的参数从stream类型对应的类中可以进行查看
+
+
+显示与下载的编码问题
+        o-&gt; 设置tomcat/conf/server.xml
+            &lt;Connector port=&quot;8080&quot; .. URIEncoding=&quot;utf-8&quot;/&gt;
+    o-&gt; 提交下载请求用post方式，struts框架自动给post请求编码解码 
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/blog-hugo/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/blog-hugo/tree/master/content/docs/backend/struts2.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#思想">思想</a></li>
+<li><a href="#结构">结构</a></li>
+<li><a href="#使用">使用</a></li>
+<li><a href="#核心包-8个">核心包：8个</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#原理流程">原理流程</a></li>
+<li><a href="#缺点">缺点</a></li>
+<li><a href="#编码">编码</a></li>
+<li><a href="#内置对象">内置对象</a></li>
+<li><a href="#异常处理">异常处理</a></li>
+<li><a href="#转递方式">转递方式</a></li>
+<li><a href="#action类">Action类</a>
+<ul>
+<li><a href="#baseaction">BaseAction</a></li>
+</ul></li>
+<li><a href="#web-xml配置">web.xml配置</a></li>
+<li><a href="#default-properties">default.properties</a></li>
+<li><a href="#ognl标签">ognl标签</a></li>
+<li><a href="#ognl表达式">ognl表达式</a></li>
+<li><a href="#strut-xml配置">strut.xml配置</a></li>
+<li><a href="#验证">验证</a></li>
+<li><a href="#过滤器">过滤器</a></li>
+<li><a href="#拦截器">拦截器</a></li>
+<li><a href="#文件处理">文件处理</a>
+<ul>
+<li><a href="#上传">上传</a></li>
+<li><a href="#下载">下载</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    Go
+  
+ | Hugo Book</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">Hugo Book</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2fpl\2fgo\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/term">名词</a></li>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+<li><a href="/docs/algorithm/algorithm">算法</a></li>
+<li><a href="/docs/algorithm/analysis">分析</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/term">名词</a></li>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/communication">通信</a></li>
+<li><a href="/docs/architecture/governance">治理</a></li>
+<li><a href="/docs/architecture/ha">高可用</a></li>
+<li><a href="/docs/architecture/server">服务器</a></li>
+<li><a href="/docs/architecture/store">存储</a></li>
+<li><a href="/docs/architecture/heartbeat">heartbeat</a></li>
+<li><a href="/docs/architecture/iscsi">iscsi</a></li>
+<li><a href="/docs/architecture/jetty">jetty</a></li>
+<li><a href="/docs/architecture/kafka">kafka</a></li>
+<li><a href="/docs/architecture/lvs">lvs</a></li>
+<li><a href="/docs/architecture/netty">netty</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nsq">nsq</a></li>
+<li><a href="/docs/architecture/protobuf">protobuf</a></li>
+<li><a href="/docs/architecture/rabbitmq">rabbitmq</a></li>
+<li><a href="/docs/architecture/squid">squid</a></li>
+<li><a href="/docs/architecture/tomcat">tomcat</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/term">名词</a></li>
+<li><a href="/docs/backend/backend">归纳</a></li>
+<li><a href="/docs/backend/hardware">硬件</a></li>
+<li><a href="/docs/backend/cxf">cxf</a></li>
+<li><a href="/docs/backend/dwr">dwr</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/hexo">hexo</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hugo">hugo</a></li>
+<li><a href="/docs/backend/jbpm">jbpm</a></li>
+<li><a href="/docs/backend/jekyll">jekyll</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/socketio">socketio</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/tornado">tornado</a></li>
+<li><a href="/docs/backend/interview">面试</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mycat">mycat</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/neo4j">neo4j</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">postgre sql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/language">语言</a></li>
+<li><a href="/docs/design/media">媒体</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/standard">规定</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/frontend">归纳</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/bigpipe">bigpipe</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/cocos2dx">cocos2dx</a></li>
+<li><a href="/docs/frontend/createjs">createjs</a></li>
+<li><a href="/docs/frontend/d3">d3</a></li>
+<li><a href="/docs/frontend/extjs">extjs</a></li>
+<li><a href="/docs/frontend/fis">fis</a></li>
+<li><a href="/docs/frontend/grunt">grunt</a></li>
+<li><a href="/docs/frontend/gulp">gulp</a></li>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+<li><a href="/docs/frontend/webpack">webpack</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/ops">运维</a></li>
+<li><a href="/docs/ops/ant">ant</a></li>
+<li><a href="/docs/ops/archlinux">archlinux</a></li>
+<li><a href="/docs/ops/cron">cron</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+<li><a href="/docs/ops/git">git</a></li>
+<li><a href="/docs/ops/kvm">kvm</a></li>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/maven">maven</a></li>
+<li><a href="/docs/ops/pm2">pm2</a></li>
+<li><a href="/docs/ops/ssh">ssh</a></li>
+<li><a href="/docs/ops/svn">svn</a></li>
+<li><a href="/docs/ops/virtualbox">virtualbox</a></li>
+<li><a href="/docs/ops/vmware">vmware</a></li>
+<li><a href="/docs/ops/vsftp">vsftp</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/language">归纳</a></li>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/parser">编译</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/lisp">lisp</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/c">c</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/cpp">cpp</a></li>
+<li><a href="/docs/pl/elixir">elixir</a></li>
+<li><a href="/docs/pl/erlang">erlang</a></li>
+<li><a href="/docs/pl/lua">lua</a></li>
+<li><a href="/docs/pl/perl">perl</a></li>
+<li><a href="/docs/pl/php">php</a></li>
+<li><a href="/docs/pl/prolog">prolog</a></li>
+<li><a href="/docs/pl/r">r</a></li>
+<li><a href="/docs/pl/ruby">ruby</a></li>
+<li><a href="/docs/pl/rust">rust</a></li>
+<li><a href="/docs/pl/scala">scala</a></li>
+<li><a href="/docs/pl/scheme">scheme</a></li>
+<li><strong><em>标记语言</em></strong>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/markdown">markdown</a></li>
+<li><a href="/docs/pl/markup_language/ml">ml</a></li>
+<li><a href="/docs/pl/markup_language/plantUML">plantUML</a></li>
+<li><a href="/docs/pl/markup_language/xml">xml</a></li>
+<li><a href="/docs/pl/markup_language/schema">schema</a></li>
+<li><a href="/docs/pl/markup_language/dtd">dtd</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+
+<ul>
+<li><a href="/docs/test/test">测试</a></li>
+</ul></li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/tool">归纳</a></li>
+<li><a href="/docs/tool/windows">windows</a></li>
+<li><a href="/docs/tool/chrome">chrome</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/firefox">firefox</a></li>
+<li><a href="/docs/tool/intellij_idea">intellij idea</a></li>
+<li><a href="/docs/tool/loadrunner">loadrunner</a></li>
+<li><a href="/docs/tool/sublime">sublime</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    Go
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="特点">特点</h1>
+
+<pre><code>    原生支持并发，编译执行的类脚本语言
+    不支持动态库，不支持重载，不支持泛型，有怪异的正则
+</code></pre>
+
+<h1 id="命令">命令</h1>
+
+<pre><code>godoc
+        -http=:6060
+                # 运行本地帮助网站
+go
+        build
+                # 编译代码包
+        install
+                # 编译安装
+        get
+                # 下载依赖
+                # 默认目录是GOPATH下的pkg
+                -u
+                        # update
+                -v
+        clean
+                # 清理build产生的文件
+                -c
+                        # 清理.test文件
+                -i
+                        # 清理生成的可执行文件
+                -r
+                        # 包括依赖包的结果文件
+        run
+                # 编译并运行
+        list
+                # 列出指定代码包的信息
+        fix
+                # 升级旧代码成新版本代码
+        vet
+                # 检查静态错误
+        test
+                # go test -cover -args -config config_it.toml -test.run &quot;TestA&quot;
+                # 执行当前目录下所有_test.go结尾的文件
+                -file
+                        # 可省略，测试单个文件, 如go test test_a.go a.go a.pb.go
+                        ## 测试单个文件需要引入原文件
+                -args
+                        # 运行时参数
+                -run TestFoo
+                        # 测单个方法，名字正则匹配，如^TestFoo
+                -v
+                        # 也显示非错误信息
+                -bench=&quot;.*&quot;
+                        # 指定运行的用例
+                -cpuprofile=cpu.prof
+                        # 生成cpu profile文件
+                -c
+                        # 生成可执行的二进制文件，名为x.test，它用来生成状态图
+
+        tool
+                pprof
+                        # 交互式访问概要文件
+                        x.test cpu.prof
+                                # 用性能测试生成cpu状态图
+                fix
+                        # 同go fix
+                vet
+                        # 同go vet
+                cgo
+                        # 生成能够调用c语言代码的go源码文件
+        doc
+        env
+                # 打印go环境信息
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<pre><code>GOROOT
+        # go安装目录
+GOPATH
+        # 包目录
+        # 默认要有go的bin目录
+GOBIN
+        # 当前bin目录
+GO15VENDOREXPERIMENT
+        # 依赖目录
+</code></pre>
+
+<h1 id="语法">语法</h1>
+
+<pre><code>min, max := 0, 100
+        # 自动引申变量类型
+var s string
+</code></pre>
+
+<h2 id="函数">函数</h2>
+
+<pre><code>defer fn
+go fn
+New
+</code></pre>
+
+<h2 id="包">包</h2>
+
+<pre><code>函数
+    init
+    main
+</code></pre>
+
+<h2 id="内置">内置</h2>
+
+<pre><code>内置常量
+        true
+        false
+内置函数
+        append
+        cap
+        close
+                # channel中用
+        complex
+        copy
+        delete
+        imag
+        len
+        make
+        new
+        panic
+        real
+        recover
+内置类型
+        ComplexType
+        FloatType
+        IntegerType
+        Type
+        Type1
+        bool
+        byte
+        complex128
+        complex64
+        error
+        float32
+        float64
+        int
+        int16
+        int32
+        int64
+        int8
+        rune
+                # int32别名
+        string
+        uint
+        uint16
+        uint32
+        uint64
+        uint8
+        uintptr
+</code></pre>
+
+<h2 id="异常">异常</h2>
+
+<pre><code>func Try(fn func(), handler func(interface{})) {
+        defer func() {
+                if err := recover(); err != nil {
+                        handler(err)
+                }
+        }()
+        fn()
+}
+
+func main() {
+        Try(func() {
+                panic(&quot;a&quot;)
+        }, func(e interface{}) {
+                print(e)
+        })
+}
+</code></pre>
+
+<h1 id="包-1">包</h1>
+
+<pre><code>fmt
+bytes
+net
+    http
+time
+template
+regexp
+gob
+json
+errors
+    New
+flag
+testing
+log
+reflect
+</code></pre>
+
+<h1 id="测试">测试</h1>
+
+<pre><code>规则
+        文件名以_test.go结尾
+        函数以Test开头
+        benchmark测试以Benchmark开头
+</code></pre>
+
+<h1 id="工具">工具</h1>
+
+<h2 id="glide">glide</h2>
+
+<pre><code>介绍
+        包管理
+目录
+        glide.yaml
+        glide.lock
+        main.go
+        subpackages
+        vendor
+命令
+        glide
+                init
+                        # 扫描代码目录，创建glide.yaml文件，记录所有依赖
+                        删除glide.yaml中自己项目本身
+                get
+                        # 安装并更新glide.yaml
+                        --all-dependencies -s -v github.com/go-redis/redis#5.0.0
+                                # --all-dependencies会更新subpackages
+                update
+                        # 下载和更新glide.yaml中的所有依赖，放到vendor下
+                        # 递归更新
+                install
+                        # 依据glide.lock与glide.yaml文件安装特定版本
+                        # glide.lock与glide.yaml不同步时，发出警告
+                up
+                        # 更新依赖树，重建glide.lock文件
+                name
+                        # 查看glide.yaml中依赖名称
+                list
+                        # 依赖列表
+                help
+                --version
+结构
+        package: .
+        import:
+        - package: github.com/go-redis/redis
+        version: 5.0.0
+        repo:git@github.com:go-redis/redis
+常见问题
+    vcs
+            glide mirror set a a --vcs git
+                    # 改~/.glide/mirrors.yaml文件
+</code></pre>
+
+<h2 id="govendor">govendor</h2>
+
+<pre><code>介绍
+        包管理
+使用
+        go get -u -v github.com/kardianos/govendor
+godev
+gv
+gvt
+</code></pre>
+
+<h2 id="gvm">gvm</h2>
+
+<pre><code>命令
+        gvm
+                install go1.5
+                use go1.5
+                list
+                listall
+                implode
+                        # 删除所有go版本和gvm本身
+</code></pre>
+
+<h2 id="gore">gore</h2>
+
+<pre><code>介绍
+        go repl
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/blog-hugo/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/blog-hugo/tree/master/content/docs/pl/go.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#特点">特点</a></li>
+<li><a href="#命令">命令</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#语法">语法</a>
+<ul>
+<li><a href="#函数">函数</a></li>
+<li><a href="#包">包</a></li>
+<li><a href="#内置">内置</a></li>
+<li><a href="#异常">异常</a></li>
+</ul></li>
+<li><a href="#包-1">包</a></li>
+<li><a href="#测试">测试</a></li>
+<li><a href="#工具">工具</a>
+<ul>
+<li><a href="#glide">glide</a></li>
+<li><a href="#govendor">govendor</a></li>
+<li><a href="#gvm">gvm</a></li>
+<li><a href="#gore">gore</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Hugo Book</title>
+    <link>https://example.com/docs/algorithm/</link>
+    <description>Recent content in 算法 on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://example.com/docs/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>算法分类</title>
+      <link>https://example.com/docs/algorithm/algorithm/</link>
+      <pubDate>Mon, 08 Oct 2018 22:40:12 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/algorithm/</guid>
+      <description>加密 签名 公钥 dsa ecdsa rsa  资源 token bucket # 令牌桶 通过多少流量，删除多少令牌 突发流量 丢弃 排队 特殊标记发送，网络过载时丢弃加标记的包 过程 产生令牌 消耗令牌 判断数据包是否通过 作用 限制平均传输速率，允许突发传输 leaky bucket # 漏桶 作用 强行限制数据传输速率 max-min fairness # 加权分配资源 dominant resource fairness (DRF) # 一种 max-min fairness实现，可以多资源分配  NP问题 介绍 polynomial problem(p问题), 可以在多项式时间内解决的问题 non-deterministic polynomial problem(np, 非确定性多项式问题)，指可以在多项式时间内得到一个解的问题 non-deterministic polynomial hard problem(np-hard, np-hard问题)很难找到多项式时间算法的问题 non-deterministic polynomial complete problem(npc，np完全问题)很难找到多项式时间算法的np问题, 包含np-hard  hash 介绍 将任意长度二进制值映射到较短固定长度二进制值。改一个值会生成不同的哈希 同一个哈希(散列)的二进制值是不存在的 常见的有: md5, sha, sha1, sha256, sha512, RSA-SHA  排序 插入排序 冒泡排序 选择排序  希尔排序 概念 shellsort diminishing increment sort(缩减增量排序) increment sequence(增量序列)  桶排序 介绍 bucket sort 将数据分到有限数量的桶子里，每个桶分别排序(可能再使用别的排序办法) 当数据均匀分配时，时间复杂度是O(n), 不受O(nlogn)下限的影响 适用于小范围、独立均匀分布的整数数据。可以计算数据量大，符合线性期望时间的排序 步骤 # 排序7, 36, 65, 56, 33, 60, 110, 42, 42, 94, 59, 22, 83, 84, 63, 77, 67, 101 1.</description>
+    </item>
+    
+    <item>
+      <title>算法分析</title>
+      <link>https://example.com/docs/algorithm/analysis/</link>
+      <pubDate>Mon, 08 Oct 2018 22:28:31 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/analysis/</guid>
+      <description>时间复杂度 概念 time complexity O()表示上界(&amp;lt;=), Ω() [omega]表示下界(&amp;gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &amp;gt;= n0时, T(N) &amp;lt;= cf(N), 记为T(N) = O(f(N)) N &amp;gt;= n0时, T(N) &amp;gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位 ## 假设不存在如矩阵求逆或排序这样的单位操作 1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么 T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N))) T1(N) * T2(N) = O(f(N) * g(N)) 2.</description>
+    </item>
+    
+    <item>
+      <title>算法思想</title>
+      <link>https://example.com/docs/algorithm/thought/</link>
+      <pubDate>Mon, 08 Oct 2018 22:21:21 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/thought/</guid>
+      <description>口诀 难题首选动归 受阻贪心暴力 考虑分治思想 配合排序哈希  递归 介绍 recursion 利用递归，把状态的管理责任推给运行时 递归转迭代 可加上memory做优化  分治 介绍 divide and conquer 广义分治法 例子 二分检索 找最大/最小元素 归并分类 快速分类 选择问题 斯特拉森矩阵乘法  贪心 介绍 greedy 案例 Dijkstra最短路径 最小生成树Prim, Kruskal 背包问题 作业排序 最优归并模式  动态规划 介绍 dynamic planning 方法 常用滚动数组降低空间复杂度 案例 多段图 结点间最短路径 最优二叉检索树 0/1背包问题 可靠性设计 货郎担问题(旅行商问题) 流水线调度问题  检索与周游 介绍 retrieval/travel 案例 深度优先检索 广度优先检索 与/或图 对策树  回溯 介绍 backtracking 案例 8皇后问题 图的着色 哈密顿环 背包问题  暴力 介绍 分支限界条件加快效率 例子 DFS, BFS   分支-限界</description>
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>https://example.com/docs/algorithm/data_structure/</link>
+      <pubDate>Sun, 07 Oct 2018 13:46:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/data_structure/</guid>
+      <description>树 概念 tree free tree(自由树)，连通无回路的图 full tree(满树)，所有节点要么是树叶，要么是两个儿子 forest(森林)，无回路但不一定连通的图 root rooted tree(有根树)，确定根的树，常简称为树 node ancestor(祖先)，顶点本身也作为自己的祖先 proper ancestor(真祖先)，除了自己的祖先 parent(父母) child(子女) sibling(兄弟) leaf(叶节点), 没有子女的顶点 parental(父节点)，至少有一个子女的顶点 descendant(子孙)，以v为祖先的所有节点，包含v proper descendant(真子孙)，不包含本身 subtree(子树) depth(深度)，从根到v简单路径的长度 height depth 树中结点的最大级数 rank(秩) # 子女数 height(高度)，从根到叶节点最长简单路径的长度 # 按树的层的数量定义时，高度增加1 degree(度，一个节点子树的数目) level(root为1级, 结点为p级时，儿子在p+1级) state-space tree(状态空间树)，可用于分析回溯和分支界限 ordered tree(有序树)，有根树的每个顶点，所有子女有序 first child-next sibling representation(先子女后兄弟表示法) # 子女数不定，父节点只存第一个子女，该子女存兄弟链表 ## 以一种高效方式将有序树改造成关联二叉树 ## 关联二叉树中，左指针表示下层，右指针表示兄弟节点 binary tree(二叉树)，属于有序树 left child(左子女) right child(右子女) 左(右)子树 # 二叉树可以递归定义，所有可以用递归算法 binary search tree(二叉查找树)，父母顶点比左子树中所有数字大，右子树中小 效率，多取决于高度 logn &amp;lt;= h &amp;lt;= n - 1 # h 为高度, n为顶点数 multiway search tree(多路查找树) B树, B+树, B-树 边 树向边 回边 前向边 # 顶点到非子孙 交叉边 # 非前三都是交叉边 性质 |E| = |V| - 1 # 树的边数总比顶点数小1 # 图变树的必要不充分条件，连通图变树的必要充分条件 任意两个顶点间总存在简单路径，任选顶点可作根  二叉树 介绍 binary tree 常用顺序表或链表存储 概念 full binary tree(满二叉树) # 满子节点，且子节点在同一层上 heap(堆) # 根向下从大到小排序 binary search tree(二分检索树) # 左子节点小于父节点小于右子节点 left child(左子女) right child(右子女) 左(右)子树 # 二叉树可以递归定义，所有可以用递归算法 complete binary tree(完全二叉树) # 只有最大层节点不满且连续集中在左边 高是logN 可以用数组实现(从index = 1开始存储) 左儿子在2i, 右儿子在2i + 1, 父亲在i / 2 perfect binary tree(理想二叉树) # 满节点二叉树 full binary tree(满二叉树) # 同理想二叉树 skewed tree(斜树) # 一个节点不断左斜是左斜树，相反为右斜树 binary search tree(二叉查找树) # 父母顶点比左子树中所有数字大，右子树中小 AVL tree(Adelson-Velskii-Landis tree) # 带有平衡条件(balance condition)的二叉查找树 平衡条件: 左右子树最多差1 # 节点中存储高度信息 splay tree(伸展树) # 分析树的一种 效率，多取决于高度 logn &amp;lt;= h &amp;lt;= n - 1 # h 为高度, n为顶点数 树转换二叉树  堆 概念 binary heap(二叉堆、堆) # 一棵完全二叉树 结构性 heap-order property(堆序性) heap-order tree(堆序树) 已证明，平均一次插入需要2.</description>
+    </item>
+    
+    <item>
+      <title>算法常用数学</title>
+      <link>https://example.com/docs/algorithm/math/</link>
+      <pubDate>Sun, 07 Oct 2018 12:46:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/math/</guid>
+      <description>指数 X^A * X^B = X^(A + B) X^A / X^B = X^(A - B) (X^A)^B = X^(A * B) X^N + X^N = 2X^N &amp;lt;&amp;gt; X^(2N) 2^N + 2^N = 2^(N + 1)  对数 约定 计算机科学中, log默认为log(2) X^A = B, log(X)(B) = A log(A)(B) = log(C)(B)/log(C)(A) logAB = logA + logB  级数 ∑(i=0)(N)2^i = 2^(N + 1) - 1 ∑(i=0)(N)A^i = (A^(N + 1) - 1) / (A - 1) 如果0 &amp;lt; A &amp;lt; 1, 则 &amp;lt;= 1 / (1 - A) ∑(i=1)(∞)i/2^i = 2 ∑(i=1)(N)i = N(N + 1) / 2 ≈ N^2 / 2 ∑(i=1)(N)i^2 = N(N + 1)(2N + 1) / 6 ≈ N^3 / 3 ∑(i=1)(N)i^k ≈ N^(k + 1) / |k + 1| k &amp;lt;&amp;gt; -1 k = -1时, Hn = ∑(i=1)(N)1 / i ≈ log(e)(N), Hn是调和级数 该近似式误差趋向于 λ ≈ 0.</description>
+    </item>
+    
+    <item>
+      <title>算法常用术语</title>
+      <link>https://example.com/docs/algorithm/term/</link>
+      <pubDate>Sun, 07 Oct 2018 11:47:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/algorithm/term/</guid>
+      <description>graph 图 TSP traveling salesman problem 旅行商问题 graph-coloring-problem 图填色问题 combinatorial problems 组合问题 geometric algorithm 几何问题 closest-pair problem 最近对时间 convex-hull problem 凸包问题 numerical problem 数值问题 lexicographic order 字典序 on-line algorithm 联机算法 ADT abstract data type 抽象数据类型 activation record 活动记录 # 递归栈所存的信息 stack frame 栈桢 # 同 activation record circular array 循环数组 amoritzed 摊还 biased deletion 偏删除 # 二叉树删除节点引起平衡不足问题的删除 symbol table 符号表 # 编译器用 tranposition table 变换表 # 游戏用 tick 滴答 # 模拟的一份时间 external sorting 外部排序 comparison-based sorting 基于比较的排序 transposition table # 置换表  </description>
+    </item>
+    
+  </channel>
+</rss>

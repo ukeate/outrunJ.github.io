@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构 on Hugo Book</title>
+    <link>https://example.com/docs/architecture/</link>
+    <description>Recent content in 架构 on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://example.com/docs/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nsq</title>
+      <link>https://example.com/docs/architecture/nsq/</link>
+      <pubDate>Thu, 11 Oct 2018 16:32:01 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/nsq/</guid>
+      <description> 介绍 go  工具 admin # 监控  </description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://example.com/docs/architecture/kafka/</link>
+      <pubDate>Thu, 11 Oct 2018 16:31:16 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/kafka/</guid>
+      <description> 介绍 scala语言编写  架构  push/pull队列架构，适合异构集群 高吞吐率 分布式 支持数据并行到hadoop  工具 manager # 监控  </description>
+    </item>
+    
+    <item>
+      <title>Rabbitmq</title>
+      <link>https://example.com/docs/architecture/rabbitmq/</link>
+      <pubDate>Thu, 11 Oct 2018 16:30:07 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/rabbitmq/</guid>
+      <description>install  yum install rabbitmq-server  命令  添加用户: rabbitmqctl add_user rainbird password 添加权限: rabbitmqctl set_permissions -p &amp;quot;/&amp;quot; rainbird &amp;quot;.*&amp;quot; &amp;quot;.*&amp;quot; &amp;quot;.*&amp;quot; 删除测试用户: rabbitmqctl delete_user guest  原理 虚拟主机 virtual host: 用户通过虚拟主机进行权限控制(如禁止A组访问B组的交换机) ＃ 默认虚拟主机为&amp;quot;/&amp;quot; 队列 queue: 由生产者(producers)通过程序建立，再通过消费者(consuming)连接取走 消息: 路由键 routing key 交换机 exchange: 负责把消息放入队列 绑定 binding(路由规则): 如指明交换机中具有路由键&amp;quot;X&amp;quot;的消息要到名为&amp;quot;Y&amp;quot;的队列中去 # 如果同一个键对应多个队列，则复制后分别发送 功能 持久化 队列和交换机创建时指定标志durable,指定队列和交换机重启生重建 ＃ 如果绑定了durable的队列和durable的交换机，该绑定自动保留 ＃ non-durable的交换机与durable的队列不能绑定 ＃ 一但创建durable标志，不能修改 消息发布到交换机时，指定标志Delivery Mode=2,这样消息会持久化  使用(原文http://adamlu.net/rabbitmq/tutorial-one-python)  安装python 与插件支持 pip python-pip git python-pika rabbitmq-server start send.</description>
+    </item>
+    
+    <item>
+      <title>Jetty</title>
+      <link>https://example.com/docs/architecture/jetty/</link>
+      <pubDate>Thu, 11 Oct 2018 16:28:22 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/jetty/</guid>
+      <description> 介绍  是开源的servlet容器，基于java, 可以给jsp和servlet提供运行环境 jetty容器可以实例化成一个对象，迅速为一些独立运行(stand-alone)的java应用提供网络和web连接  </description>
+    </item>
+    
+    <item>
+      <title>Tomcat</title>
+      <link>https://example.com/docs/architecture/tomcat/</link>
+      <pubDate>Thu, 11 Oct 2018 16:27:32 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/tomcat/</guid>
+      <description>介绍  tomcat从7开始默认就是nio的  配置 bin/startup.bat set JAVA_HOME= # 设置tomcat运行jdk context.xml &amp;lt;Loader delegate=&amp;quot;true&amp;quot;/&amp;gt; # true表示使用java加载器的代理模式 ## false代表永远先在Web应用程序中寻找 web.xml Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4 Creation-Date: 2013-08-04T19:40:08+08:00 ====== web.xml文件 ====== Created Sunday 04 August 2013 &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt; &amp;lt;load-on-startup&amp;gt;1 &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt; &amp;lt;param-value&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt; &amp;lt;welcome-file-list&amp;gt; &amp;lt;welcome-file&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt; &amp;lt;filter-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;filter-mapping&amp;gt; &amp;lt;filter-name&amp;gt; &amp;lt;url-pattern&amp;gt; &amp;lt;mime-mapping&amp;gt; &amp;lt;extension&amp;gt;bmp &amp;lt;mime-type&amp;gt;image/bmp &amp;lt;error-page&amp;gt; &amp;lt;exception-type&amp;gt;异常类的完全限定名 /&amp;lt;error-code&amp;gt;错误码 &amp;lt;location&amp;gt;以“/”开头的错误处理页面路径  启动顺序 web.xml中配置的启动顺序 监听器 过滤器 servlet load-on-startup属性值越小越先启动 tomcat的加载过程： # 分析启动日志得到 启动http协议 启动catalina 启动servlet引擎 加载xml配置文件 初始化日志配置 初始化ContextListener 初始化SessionListener 部署web项目 spring监听器，加载xml配置(开始spring自己的日志记录) 实例化bean 初始化c3p0连接池的记录显示 初始化LocalSessionFactoryBean的记录显示 application监听器(监听器按配置顺序启动) struts过滤器，加载xml配置(开始struts自己的日志记录) struts-default.</description>
+    </item>
+    
+    <item>
+      <title>Netty</title>
+      <link>https://example.com/docs/architecture/netty/</link>
+      <pubDate>Thu, 11 Oct 2018 16:25:14 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/netty/</guid>
+      <description>介绍  JBOSS提供，由Trustin Lee开发，比mina晚 java开源框架  原理  基于socket的数据流处理 # socket数据流不是a queue of packets , 而是a queue of bytes, 所以分次传输的数据会成为a bunch of bytes  例子 Handler ChannelHandler ChannelOutboundHandler ChannelOutboundHandlerAdapter # 可作Encoder MessageToByteEncoder ChannelInboundHandler # 提供可重写的事件 ChannelInboundHandlerAdapter ByteToMessageDecoder # easy to deal with fragmentation issue 事件 decode(ctx, in, out) # 内部处理过数据，堆积到了buffer(in) ## out中add了数据, 表示decode成功，则执行后抛弃in中数据 # decode会被循环调用直到有一次out中没有add东西 ReplayingDecoder 事件 channelRead() # 从client接收到数据时调用，数据的类型是ByteBuf ## ByteBuf是 reference-counted object ## 必须用ReferenceCountUtil.release(msg)或((ByteBuf) msg).release()来明确释放 exceptionCaught() # 当抛出Throwable对象时调用 channelActive() # as soon as a connection is established 方法 handlerAdded() handlerRemoved() ByteBuf 方法 buf.</description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://example.com/docs/architecture/nginx/</link>
+      <pubDate>Thu, 11 Oct 2018 16:18:58 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/nginx/</guid>
+      <description>结构  一个主进程(root权限运行)和多个工作进程(普通权限运行)  模块  handler filter upstream load-balance  功能  http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理  命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.conf] # 检查配置文件是否正确 nginx -h # 查看帮助 ## -? pkill -9 nginx kill -HUP `nginx.</description>
+    </item>
+    
+    <item>
+      <title>Squid</title>
+      <link>https://example.com/docs/architecture/squid/</link>
+      <pubDate>Thu, 11 Oct 2018 16:16:37 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/squid/</guid>
+      <description>配置文件  /etc/squid/squid.conf  代理类型  普通代理 透明代理 反向代理  缓存  动态资源 静态资源  参考资料  squid 透明代理详解  配置 # squid.conf http_port 3128 # squid服务端口 icp_port 3130 # udp端口,用来接收和发送ICP消息 cache_dir ufs /var/spool/squid # 缓存目录, 写入方式有aufs与ufs两种,aufs使用大量线程异步进行磁盘i/o操作 cache_access_log /var/log/squid/access.log cache_log /var/log/squid/cache.log cache_store_log /var/log/squid/store.log pid_filename /var/run/squid.pid # 日志文件位置 #auth_param basic children 5 #auth_param basic realm Squid proxy-caching web server #auth_param basic credentialsttl 2 hours # 关闭认证，认证一般不需要 cache_effective_user squid cache_effective_group squid cache_mgr youraccount@your.</description>
+    </item>
+    
+    <item>
+      <title>Heartbeat</title>
+      <link>https://example.com/docs/architecture/heartbeat/</link>
+      <pubDate>Thu, 11 Oct 2018 15:32:51 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/heartbeat/</guid>
+      <description> 2.0模块  heartbeat: 节点间通信检测模块 ha-logd: 集群事件日志服务 CCM(Consensus CLuster Membership): 集群成员一致性管理模块 LRM(Local Resource Manager): 本地资源管理模块 Stonith Daemon: 使出现问题的节点从集群资源中脱离 CRM(Cluster Resource management): 集群资源管理模块 Cluster policy engine: 集群策略引擎 用于实现节点与资源之间的管理与依赖关系 Cluster transition engine: 集群转移引擎  3.0拆分之后的组成部分  Heartbeat: 负责节点之间的通信 Cluster Glue: 中间层，关联Heartbeat 与 Pacemaker,包含LRM 与 stonith Resource Agent: 控制服务启停，监控服务状态脚本集合，被LRM调用 Pacemaker: 也就是曾经的CRM，包含了更多的功能 管理接口: crm shell 一个使用ajax web 的web窗口 hb_gui图形工具 DRBD-MC, 一个基于java的工具  版本差异  与1.x相比，2.1.x版本变化 保留原来所有功能 自动监控资源 对各资源组进行独立监控 同时监控系统负载 自动切换到负载低的node上  </description>
+    </item>
+    
+    <item>
+      <title>Lvs</title>
+      <link>https://example.com/docs/architecture/lvs/</link>
+      <pubDate>Thu, 11 Oct 2018 15:31:54 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/lvs/</guid>
+      <description>介绍 第四层开始负载(可以建立到三层负载) 第四层负载 socket进必须连lvs  模式  tun # lvs负载均衡器将请求包发给物理服务器，后者将应答包直接发给用户 net # 请求和应答都经过lvs dr # 不要隧道结构的tun  使用 DR模式 centos6 yum install-y gcc gcc-c++ makepcre pcre-devel kernel-devel openssl-devel libnl-devel popt-devel modprobe -l |grep ipvs # 检查内核是否集成 echo &amp;quot;1&amp;quot; &amp;gt; /proc/sys/net/ipv4/ip_forward # 开启路由转发 安装ipvsadm http://www.linuxvirtualserver.org/software/kernel-2.6/ipvsadm-1.26.tar.gz 安装keepalived http://www.keepalived.org/software/keepalived-1.2.7.tar.gz ./configure --prefix=/usr/local/keepalived cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/init.d/ cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig/ mkdir /etc/keepalived/ cp /usr/local/keepalived/etc/keepalived/keepalived.conf /etc/keepalived/ cp /usr/local/keepalived/sbin/keepalived /usr/sbin/ o-&amp;gt; 配置文件/etc/keepalived/keepalived.conf ! Configuration File forkeepalived global_defs { notification_email { test@sina.</description>
+    </item>
+    
+    <item>
+      <title>iscsi</title>
+      <link>https://example.com/docs/architecture/iscsi/</link>
+      <pubDate>Thu, 11 Oct 2018 15:31:36 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/iscsi/</guid>
+      <description> 存储的概念和术语  scsi: 小型计算机系统接口(Small Computer System Interface) fc: 光纤通道(Fibre channel) das: 直连式存储(Direct-Attached Storage) nas: 网络接入存储(Network-Attached Storage) san: 存储区域网络(Storage Area Network) 连接设备: 路由, 光纤交换机, 集线器(hub) 接口: scsi fc 通信协议: ip scsi iscsi: internet scsi 优点 可以网络传输 服务器数量无限 在线扩容．动态部署 架构 控制器架构: 专用数据传输芯片．专用RAID数据校验芯片．专用高性能cache缓存和专用嵌入式系统平台 iscsi连接桥架构: 前端协议转换设备(硬件) 后端存储(scsi磁盘阵列．fc存储设备) pc架构 存储设备搭建在pc服务器上，通过软件管理成iscsi, 通过网卡传输数据 实现 以太网卡 + initiator软件 toe网卡 + initiator软件 iscsi HBA卡 iscsi系统组成 iscsi initiator 或　iscsi hba iscsi target 以太网交换机 一台或多台服务器  </description>
+    </item>
+    
+    <item>
+      <title>Protobuf</title>
+      <link>https://example.com/docs/architecture/protobuf/</link>
+      <pubDate>Thu, 11 Oct 2018 15:21:36 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/protobuf/</guid>
+      <description> 命令  protoc -I. -I-I$GOPATH/src --go_out=plugins=grpc:. * # -I import目录 protoc --grpc-gateway_out=.  插件 安装 # go build 出protoc-gen-go后，放入go/bin下 protoc-gen-go # 编译proto文件 protoc-gen-grpc-gateway # http服务  </description>
+    </item>
+    
+    <item>
+      <title>架构-性能</title>
+      <link>https://example.com/docs/architecture/performance/</link>
+      <pubDate>Wed, 10 Oct 2018 17:20:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/performance/</guid>
+      <description>原则 qps latency through put io 磁盘 iops: 2k 网络 带宽 iops: 3w bottle-nect  流量 小米论坛 pv 2000w 热门并发300 20k/页面 300k/图片(未压缩) 70k/无图帖子 500k-3M/有图帖子 动态服务器最小带宽: 48Mbps 静态服务器最小带宽: 1440Mbps 实际购买带宽: 800M 带宽费用: 8.7w/month 糗事百科 pv 1000w 热门并发150 10k/页面 70k/图 4图/页 90k-400k/综合页 动态服务器带宽: 12Mbps 静态服务器带宽: 336Mbps  带宽 建议 热门并发1.5倍到2倍购买 价格 静态IP企业宽带 5M 10M 50M 100M 200M 盛大云 华东双线 216/月 396 1836 3636 7236 盛大云 华北BGP 318 618 3018 6018 12018 阿里云 BGP 100/兆/月 5k 1w 2w Amazon EC2 流量计费 $3313 idcexpert.</description>
+    </item>
+    
+    <item>
+      <title>存储</title>
+      <link>https://example.com/docs/architecture/store/</link>
+      <pubDate>Wed, 10 Oct 2018 17:17:05 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/store/</guid>
+      <description>fastdfs # 开源分布式文件系统 squid varnish # 反向代理，web缓存  </description>
+    </item>
+    
+    <item>
+      <title>服务器</title>
+      <link>https://example.com/docs/architecture/server/</link>
+      <pubDate>Wed, 10 Oct 2018 17:16:29 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/server/</guid>
+      <description>nginx netty tomcat jetty tengine # 淘宝基于nginx修改，添加了功能 监控 /upstream_status openresty # 基于nginx, luaJit 的web平台 meteor # 包装node ringojs # jvm上commonJs规范的服务器 mina apache提供， 由Trustin Lee开发，比netty更早 tomcat native # 基于apr(apache portable runtime)技术，让tomcat在操作系统级别的交互上做的更好 tinyHttpd resin # 收费, 类似tomcat的java容器，性能提升 uwsgi # 一个web服务器，实现了wsgi, uwsgi, http等协议 weblogic # oracle was # ibm服务器 gunicon # python wsgi http server  </description>
+    </item>
+    
+    <item>
+      <title>架构-高可用</title>
+      <link>https://example.com/docs/architecture/ha/</link>
+      <pubDate>Wed, 10 Oct 2018 17:15:05 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/ha/</guid>
+      <description>high-availability linux 目标  reliability: 可靠性 availability: 可用性 serviceability: 可服务性 ras: remote access service(远程服务访问)  术语  节点(node): 唯一主节点，多个备用节点 资源(resource): 是节点可控制的实体，主节点发生故障时，可以被其它节点接管 例如: 磁盘分区 文件系统 ip地址 应用程序服务 nfs文件系统 事件(event): 集群中可能发生的事件 例如: 系统故障 网络连通故障 网卡故障 应用程序故障 动作(action): 事件发生时ha的响应方式 例如: 用shell 脚本对资源进行转移  心跳 heartbeat keepalived vrrp # virtual router redundancy protocol 虚拟路由器冗余协议 # 解决静态路由出现的闪单点故障问题，它能够保证网络的不间断．稳定运行  负载 方法 dns轮循 java nio erlang语言 linux epoll bsd kqueue 消息队列、事件通知 c/c++下ace, boost.asio, libev(libevent) 服务器mina, jetty, node.</description>
+    </item>
+    
+    <item>
+      <title>架构-通信</title>
+      <link>https://example.com/docs/architecture/communication/</link>
+      <pubDate>Wed, 10 Oct 2018 17:13:22 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/communication/</guid>
+      <description> 系统 elk # elasticsearch, logstash, kibana log.io  mq rabbitMQ kafaka jafka nsq memcacheQ zeroMQ activeMQ beanstalkd mqtt # 最早由ibm提供的，二进制消息的mq  任务 quartz # java celery # python rundeck # java  </description>
+    </item>
+    
+    <item>
+      <title>架构-治理</title>
+      <link>https://example.com/docs/architecture/governance/</link>
+      <pubDate>Wed, 10 Oct 2018 17:10:32 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/governance/</guid>
+      <description>功能  服务 注册 发现 性能/ha 区域感知load balance 故障切换 故障注入 熔断 健康检查 流量拆分和推出 策略 quota 网络数据 api调用 服务准入条件 路由规则 容错 访问策略 安全 服务间认证(auth) tls 细粒度权限控制 配置 啮合层 # 服务与网络间加入透明层，用来功能配置 查看 服务网可视化 monitor log tracing 迭代 部署 版本控制 平台支持 # 如aws, k8s, mesos 通讯能力 # http/1.1 http/2 grpc tcp  rmi # java远程调用功能 hessian
+soa eai # Enterprise Application Integration 建立底层结构将异构应用集成 esb # Enterprise Service Bus 企业服务总线， 是连接中枢  rpc hsf # 高速服务框架 (socket直连) protobuf thrift Dubbo spring cloud  paas cloudStack # 托管在apache的开源、高可用、高扩展性的云计算平台 # 支持主流hypervisors # 一个开源云计算解决方案，可以加速iaaS的部署、管理、配置 kubernetes # google开源的，在docker技术上，为容器化应用提供: 作用 资源调度 部署运行 服务发现 扩容缩容 cloudfoundry # 根据应用模板，动态生成很多tomcat, mysql, nosql, 动态控制这些实例的启停。 openstack # 云操作系统，管理虚拟资源 hsf # high-speed service framework 特点 不增加中间点(稳定，高度可伸缩) 结构 注册服务信息，推送服务地址 基于osgi  mesh lstio #google IBM, lyft开源，基于envoy 组成 数据面板 控制面板 linkerd # buoyant出品 fingle # twitter出品 envoy # lyft出品 nginmesh # nginx推出  粘合层 zookeeper # 服务发现 exhibitor # supervisor for zk gearman # 把工作委派给其他机器 etcd # k8s中用到的服务发现仓库 mesos # apache开源的分布式资源管理框架  monitor spy.</description>
+    </item>
+    
+    <item>
+      <title>构架-方案</title>
+      <link>https://example.com/docs/architecture/solution/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/solution/</guid>
+      <description> 数据迁移 去掉约束 排序（中断继续）  数据存储 缓存 queue + map # queue存储、限量, map查询，指向queue中元素  直播 《关于直播，所有的技术细节都在这里了》  并发 异步事件 tornado + celery + rabbitmq + 优先级  缓存 queue + map # queue存储、限量, map查询，指向queue中元素  前端模板 layout layout service # 缓存layout到redis crud layout功能 layout对象 index # 缩略信息 plugins components table layout # 组合方式 水平，垂直，tab  游戏 进程 gateway进程组 # 对外api function进程组 # 注册玩家全局信息 session进程组 # 玩家状态 dbserver进程组 # 数据 多word进程组 # 不同地图的信息、逻辑  </description>
+    </item>
+    
+    <item>
+      <title>架构-原理</title>
+      <link>https://example.com/docs/architecture/principle/</link>
+      <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/principle/</guid>
+      <description>微机 并行架构 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 乱序执行 猜测执行 数据级, 单指令多数据(SIMD)架构 # 图像处理 任务级(task-level) # 多处理器 # 超线程, 虽只有4个核，但可用核返回8 共享内存模型 分布式内存模型 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 并发: 一个时间段有多个程序在运行，在同一个处理机上。 # 伪并发是单核处理器并发，真并发是多核处理器并发 # 可处理时间点i/o的数目来衡量 互斥: 程序(进程)间不使用临界资源 同步: 程序间依赖，有等待关系 同步的其它意思: 1. os开发中指进程协作 2. 数据异步复制(如同步歌曲) 并行: 多处理器才并行，单处理器叫交替执行 多线程 异步: 与同步相对。多线程是实现异步的一种手段 进程 线程 一个进程下的轻量进程 协程 单线程下事件并行(就是仿cpu时间调度) 事件(非阻塞) 介绍 就是回调 事件模型 原理 队列存事件, 单进程检测事件是否回调 工具 epoll(select, poll) libev(libevent) dma direct memory access 不依赖cpu的内存存取 长连接 socket连接  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 # 显卡在pci总线上 ## 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 ### 内存到显存数据传输最花费时间。  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
+    </item>
+    
+    <item>
+      <title>架构-术语</title>
+      <link>https://example.com/docs/architecture/term/</link>
+      <pubDate>Wed, 10 Oct 2018 15:22:16 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/term/</guid>
+      <description>Alb automaticLoopBack 自动回环，虚拟接口 sdn software defined network 软件定义网络  </description>
+    </item>
+    
+  </channel>
+</rss>

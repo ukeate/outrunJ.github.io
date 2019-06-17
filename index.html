@@ -1,532 +1,335 @@
 <!DOCTYPE html>
-<html lang="ja">
+
+
+
+
+
+<html lang="en">
+
 <head>
+	<meta name="generator" content="Hugo 0.56.0-DEV" />
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>outrunJ笔记</title>
-  <meta property="og:title" content="outrunJ笔记" />
-  <meta name="twitter:title" content="outrunJ笔记" />
-  <meta name="author" content="outrunJ"/>
-  <meta property="og:site_name" content="outrunJ笔记" />
-  <meta property="og:url" content="http://shenwenqing.com/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.49-DEV" />
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="outrunJ笔记" />
-  <link href="/index.xml" rel="feed" type="application/rss+xml" title="outrunJ笔记" />
-  <link rel="stylesheet" href="/css/style.css" media="all" />
-  <link rel="stylesheet" href="/css/syntax.css" media="all" />
-  <link rel="stylesheet" href="/css/custom.css" media="all" />
-  <script src="/js/jquery-3.3.1.min.js"></script>
-  <script defer src="/js/fontawesome.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    Introduction
+  
+ | Hugo Book</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="https://example.com/index.xml" title="Hugo Book" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
 </head>
 
 <body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
 
-<header class="site-header">
-  <nav class="site-navi">
-    <h1 class="site-title"><a href="/">outrunJ笔记</a></h1>
-    <ul class="site-navi-items">
-      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
-      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
-      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
-      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
-    </ul>
-  </nav>
-</header>
-<hr class="site-header-bottom">
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">Hugo Book</a>
+</h2>
 
-  <div class="main" role="main">
-    <section class="list home-list">
-      <article class="article">
-        <a href="/series/ops/linux/" class="article-titles">
-          <h2 class="article-title">Linux</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;T） 70年代末：AT&amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.168.0.100 # ip NETMASK=255.255.255.0 # netmask ONBOOT=yes # 系统启动时是否激活此设备 /network # 修改网关 NETWORKING=yes # 系统是否使用网络 HOSTNAME=abc # 设置本机主机名, 要与/etc/hosts中设置的主机名相同 GATEWAY=192.
-        </div>
-        <div class="article-readmore"><a href="/series/ops/linux/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/life/book/" class="article-titles">
-          <h2 class="article-title">Book</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          <pre><code>sicp        计算机程序的构造和解释
-paip        paradigms of artificial intelligence programming
-taocp        计算机程序设计艺术 
-</code></pre>
 
-        </div>
-        <div class="article-readmore"><a href="/series/life/book/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/windows/" class="article-titles">
-          <h2 class="article-title">Windows</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          方案 附件 -&gt; 系统工具 -&gt; 字符映射表 -&gt; 新宋体 中查看汉字的unicode编码 远程协助 端口：3389 1.系统属性 远程 2.附件：远程连接 # xp:单用户，远程操作时原用户无法操作 chm 不显示内容 右键 -&gt; 常规 -&gt; 解锁  命令 route print route delete route add 0.0.0.0 mask 0.0.0.0 10.0.2.2 nstsc # 运程桌面  cmd CMD 属性 cmd /c dir 是执行完dir命令后关闭命令窗口。 cmd /k dir 是执行完dir命令后不关闭命令窗口。 cmd /c start dir 会打开一个新窗口后执行dir指令，原窗口会关闭。 cmd /k start dir 会打开一个新窗口后执行dir指令，原窗口不会关闭。 语法命令 | findstr asdf # 相当于grep CMD命令 1. gpedit.msc-----组策略 2.
-        </div>
-        <div class="article-readmore"><a href="/series/tool/windows/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/loadrunner/" class="article-titles">
-          <h2 class="article-title">LoadRunner</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          
 
-<h1 id="脚本参数">脚本参数</h1>
+    
+  
+  
+  
+    
+    
+  
 
-<pre><code>get
-    web_url(&quot;login&quot;, 
-        &quot;URL=http://192.168.0.14:9081/ryx-login/sso/login&quot;, 
-        &quot;Resource=0&quot;, 
-        &quot;RecContentType=text/html&quot;, 
-        &quot;Referer=&quot;, 
-        &quot;Snapshot=t1.inf&quot;, 
-        &quot;Mode=HTML&quot;, 
-        EXTRARES, 
-        &quot;Url=../ycls/img/banner1.jpg&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/banner2.jpg&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/banner3.jpg&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/userinput.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/sawtooth.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/tip2.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/pwdinput.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/login_back.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/tip1.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/codeinput.png&quot;, ENDITEM, 
-        &quot;Url=../ycls/img/loading-small2.gif&quot;, ENDITEM, 
-        &quot;Url=/favicon.ico&quot;, &quot;Referer=&quot;, ENDITEM, 
-        LAST);
+  <style>
+  nav ul a[href="https\3a\2f\2f example.com\2f "] {
+      color: #004ed0;
+  }
+  </style>
 
-post参数
-    web_submit_data(&quot;getActivityParameter&quot;,
-        &quot;Action=http://192.168.0.14:9081/tobacco/retail/lottery/getActivityParameter?jsonp=jQuery19109862107675272699_1401335732777&quot;,
-        &quot;Method=POST&quot;,
-        &quot;RecContentType=text/html&quot;,
-        &quot;Referer=http://192.168.0.14:9081/tobacco/retail/index;jsessionid=7BBAFC6DE481FBCB1CB88D738BD7EE71&quot;,
-        &quot;Snapshot=t6.inf&quot;,
-        &quot;Mode=HTML&quot;,
-        ITEMDATA,
-        &quot;Name=requestType&quot;, &quot;Value=ajax&quot;, ENDITEM,
-        LAST);
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
 
-post直接传数据
-    web_custom_request(&quot;dataservice&quot;,
-        &quot;URL=http://202.110.222.207:7080/rtserver/rest/resource/tobacco/dataservice&quot;,
-        &quot;Method=POST&quot;,
-        &quot;Resource=0&quot;,
-        &quot;RecContentType=text/plain&quot;,
-        &quot;Referer=&quot;,
-        &quot;Snapshot=t1.inf&quot;,
-        &quot;Mode=HTML&quot;,
-        &quot;Body= {\&quot;trans_code\&quot;:\&quot;1006\&quot;,\&quot;end_date\&quot;:\&quot;20140701\&quot;,\&quot;source\&quot;:\&quot;appkey\&quot;,\&quot;data\&quot;:\&quot;eyJiZWdpbl9kYXRlIjoiMjAxNDA2MDEiLCJlbmRfZGF0ZSI6IjIwMTQwNzAxIiwicG9zX2lkIjoiODg1MDAzMTAiLCJzb3VyY2UiOiJhcHBrZXkiLCJjdXN0b21lcl9pZCI6IjM3MDExMjEwNzQ2NyIsImFjY2Vzc190b2tlbiI6IiJ9\&quot;,\&quot;begin_date\&quot;:\&quot;20140601\&quot;,\&quot;mac\&quot;:\&quot;123\&quot;,\&quot;pos_id\&quot;:\&quot;88500310\&quot;,\&quot;customer_id\&quot;:\&quot;370112107467\&quot;,\&quot;access_token\&quot;:\&quot;\&quot;}&quot;,
-        LAST);
-</code></pre>
+<ul>
+<li><a href="/docs/algorithm/term">名词</a></li>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+<li><a href="/docs/algorithm/algorithm">算法</a></li>
+<li><a href="/docs/algorithm/analysis">分析</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
 
-        </div>
-        <div class="article-readmore"><a href="/series/tool/loadrunner/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/firefox/" class="article-titles">
-          <h2 class="article-title">Firefox</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          
+<ul>
+<li><a href="/docs/architecture/term">名词</a></li>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/communication">通信</a></li>
+<li><a href="/docs/architecture/governance">治理</a></li>
+<li><a href="/docs/architecture/ha">高可用</a></li>
+<li><a href="/docs/architecture/server">服务器</a></li>
+<li><a href="/docs/architecture/store">存储</a></li>
+<li><a href="/docs/architecture/heartbeat">heartbeat</a></li>
+<li><a href="/docs/architecture/iscsi">iscsi</a></li>
+<li><a href="/docs/architecture/jetty">jetty</a></li>
+<li><a href="/docs/architecture/kafka">kafka</a></li>
+<li><a href="/docs/architecture/lvs">lvs</a></li>
+<li><a href="/docs/architecture/netty">netty</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nsq">nsq</a></li>
+<li><a href="/docs/architecture/protobuf">protobuf</a></li>
+<li><a href="/docs/architecture/rabbitmq">rabbitmq</a></li>
+<li><a href="/docs/architecture/squid">squid</a></li>
+<li><a href="/docs/architecture/tomcat">tomcat</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
 
-<h1 id="代理设置">代理设置</h1>
+<ul>
+<li><a href="/docs/backend/term">名词</a></li>
+<li><a href="/docs/backend/backend">归纳</a></li>
+<li><a href="/docs/backend/hardware">硬件</a></li>
+<li><a href="/docs/backend/cxf">cxf</a></li>
+<li><a href="/docs/backend/dwr">dwr</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/hexo">hexo</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hugo">hugo</a></li>
+<li><a href="/docs/backend/jbpm">jbpm</a></li>
+<li><a href="/docs/backend/jekyll">jekyll</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/socketio">socketio</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/tornado">tornado</a></li>
+<li><a href="/docs/backend/interview">面试</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
 
-<pre><code>“编辑”→“首选项”→“高级”→“网络”→“设置”→“手动配置代理”
-</code></pre>
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mycat">mycat</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/neo4j">neo4j</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">postgre sql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
 
-<h1 id="mozvr">mozvr</h1>
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/language">语言</a></li>
+<li><a href="/docs/design/media">媒体</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/standard">规定</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
 
-<pre><code>介绍
-        mozilla vr 虚拟现实
-        购买Oculus Rift头盔来看它的网页
-</code></pre>
+<ul>
+<li><a href="/docs/frontend/frontend">归纳</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/bigpipe">bigpipe</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/cocos2dx">cocos2dx</a></li>
+<li><a href="/docs/frontend/createjs">createjs</a></li>
+<li><a href="/docs/frontend/d3">d3</a></li>
+<li><a href="/docs/frontend/extjs">extjs</a></li>
+<li><a href="/docs/frontend/fis">fis</a></li>
+<li><a href="/docs/frontend/grunt">grunt</a></li>
+<li><a href="/docs/frontend/gulp">gulp</a></li>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+<li><a href="/docs/frontend/webpack">webpack</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
 
-        </div>
-        <div class="article-readmore"><a href="/series/tool/firefox/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/chrome/" class="article-titles">
-          <h2 class="article-title">Chrome</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          
+<ul>
+<li><a href="/docs/ops/ops">运维</a></li>
+<li><a href="/docs/ops/ant">ant</a></li>
+<li><a href="/docs/ops/archlinux">archlinux</a></li>
+<li><a href="/docs/ops/cron">cron</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+<li><a href="/docs/ops/git">git</a></li>
+<li><a href="/docs/ops/kvm">kvm</a></li>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/maven">maven</a></li>
+<li><a href="/docs/ops/pm2">pm2</a></li>
+<li><a href="/docs/ops/ssh">ssh</a></li>
+<li><a href="/docs/ops/svn">svn</a></li>
+<li><a href="/docs/ops/virtualbox">virtualbox</a></li>
+<li><a href="/docs/ops/vmware">vmware</a></li>
+<li><a href="/docs/ops/vsftp">vsftp</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
 
-<h1 id="介绍">介绍</h1>
+<ul>
+<li><a href="/docs/pl/language">归纳</a></li>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/parser">编译</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/lisp">lisp</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/c">c</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/cpp">cpp</a></li>
+<li><a href="/docs/pl/elixir">elixir</a></li>
+<li><a href="/docs/pl/erlang">erlang</a></li>
+<li><a href="/docs/pl/lua">lua</a></li>
+<li><a href="/docs/pl/perl">perl</a></li>
+<li><a href="/docs/pl/php">php</a></li>
+<li><a href="/docs/pl/prolog">prolog</a></li>
+<li><a href="/docs/pl/r">r</a></li>
+<li><a href="/docs/pl/ruby">ruby</a></li>
+<li><a href="/docs/pl/rust">rust</a></li>
+<li><a href="/docs/pl/scala">scala</a></li>
+<li><a href="/docs/pl/scheme">scheme</a></li>
+<li><strong><em>标记语言</em></strong>
 
-<pre><code>webkit: chrome firefox safari的内核，来源于kde的khtml与kjs
-</code></pre>
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/markdown">markdown</a></li>
+<li><a href="/docs/pl/markup_language/ml">ml</a></li>
+<li><a href="/docs/pl/markup_language/plantUML">plantUML</a></li>
+<li><a href="/docs/pl/markup_language/xml">xml</a></li>
+<li><a href="/docs/pl/markup_language/schema">schema</a></li>
+<li><a href="/docs/pl/markup_language/dtd">dtd</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
 
-<h1 id="f12调试模式">f12调试模式</h1>
+<ul>
+<li><a href="/docs/test/test">测试</a></li>
+</ul></li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
 
-<pre><code>    js调试
-            sources-&gt; js文件打断点调试
-                    # “{}”按钮是格式化代码，右边按钮单步调试，依次为执行， 跳过进入方法，进入方法，跳出方法，开启／停止调试，暂停
-            //# sourceURL=base.js
-    console
-            可以查看js常量，如THREE.VERSION
-</code></pre>
-
-<h1 id="设置页">设置页</h1>
-
-<pre><code>    about:about                                 # 进入查看所有设置页
-    chrome:extensions
-    chrome:flags                                # 可以开启硬件加速解码
-</code></pre>
-
-<h1 id="集成抓包工具">集成抓包工具</h1>
-
-<pre><code>    chrome://net-internals/#events
-</code></pre>
-
-<h1 id="插件">插件</h1>
-
-<pre><code>ARC Welder  # android模拟器
-</code></pre>
-
-        </div>
-        <div class="article-readmore"><a href="/series/tool/chrome/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/intellij_idea/" class="article-titles">
-          <h2 class="article-title">Intellij Idea</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          
-
-<h1 id="注意">注意</h1>
-
-<pre><code>    Project 相当于workspace, module 相当于工程
-</code></pre>
-
-<h1 id="注册服务器">注册服务器</h1>
-
-<pre><code>    # 发布网站 http://idea.lanyus.com
-    http://idea.qinxi1992.cn
-    http://idea.lianghongbo.com/licens
-    http://im.js.cn:8888
-</code></pre>
-
-<h1 id="快捷键">快捷键</h1>
-
-<pre><code>    alt + enter 改错
-</code></pre>
-
-<h1 id="webstorm">webstorm</h1>
-
-<h1 id="pycharm">pycharm</h1>
-
-<h1 id="goland">goland</h1>
-
-<h1 id="clion">clion</h1>
-
-<h1 id="phpcharm">phpCharm</h1>
-
-        </div>
-        <div class="article-readmore"><a href="/series/tool/intellij_idea/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/sublime/" class="article-titles">
-          <h2 class="article-title">Sublime</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          
-
-<h1 id="功能">功能</h1>
-
-<pre><code>    显示风格好
-    缩略图
-    热加载(不改变原文件)
-    插件
-    多文件夹查找
-    多视窗
-    命令模糊搜索下拉菜单
-    柜形选择
-    V8插件，js运行控制台
-    js校验
-    vi 操作设置
-    修改配色方案
-</code></pre>
-
-<h1 id="快捷键">快捷键</h1>
-
-<pre><code>    批量修改
-</code></pre>
-
-        </div>
-        <div class="article-readmore"><a href="/series/tool/sublime/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/eclipse/" class="article-titles">
-          <h2 class="article-title">Eclipse</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          方案 user library发布 项目右键 -&gt; properties -&gt; Deployment Assembly -&gt; add -&gt; javaBuild Path Entries中选择发布包 tomcat设置发布到外部 new server -&gt; 直接finish 右键server -&gt; open 修改server location -&gt; use Tomcat installation 修改server location -&gt; deploy path为webapps 修改TimeOuts -&gt;所有时间为1200 java版本 window -&gt; preferences -&gt; java -&gt; compiler window -&gt; preferences -&gt; java -&gt; installed JREs 编码 general -&gt; workspace Text file encoding general -&gt; content types Text -&gt; java source file defalt encoding输入UTF-8并点击update 快捷键 general -&gt; editors -&gt; keys content assist # 代码提示 word comletion # 代码补全  插件 market place http://www.
-        </div>
-        <div class="article-readmore"><a href="/series/tool/eclipse/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/series/tool/tool/" class="article-titles">
-          <h2 class="article-title">Tool</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>October 11, 2018</time></li>
-        </ul>
-        <div class="article-content">
-          <pre><code>teamviewer
-        # 远程桌面
-idle
-        # python tkinter开发的python ide
-lighttable
-        # clojure
-hbuilder
-        # h5
-komodo edit
-        # 免费跨平台，多pl
-sketch
-        # mac下轻量ui设计工具
-rose
-        # ibm uml工具
-vscode
-</code></pre>
-
-        </div>
-        <div class="article-readmore"><a href="/series/tool/tool/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-    </section>
-    
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
-    
-    
-    <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+<ul>
+<li><a href="/docs/tool/tool">归纳</a></li>
+<li><a href="/docs/tool/windows">windows</a></li>
+<li><a href="/docs/tool/chrome">chrome</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/firefox">firefox</a></li>
+<li><a href="/docs/tool/intellij_idea">intellij idea</a></li>
+<li><a href="/docs/tool/loadrunner">loadrunner</a></li>
+<li><a href="/docs/tool/sublime">sublime</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
 </ul>
 
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    Introduction
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="本站目的">本站目的</h1>
+
+<ol>
+<li>用来整理笔记</li>
+<li>分享交流</li>
+</ol>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/blog-hugo/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    </a>
   </div>
-
-
-
-<div class="site-footer">
-  <div class="copyright">&copy; Copyright 2017 outrunJ</div>
-  <ul class="site-footer-items">
-    <li class="site-footer-item-rsslink">
-      <a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS">
-        <i class="fas fa-rss"></i>
-      </a>
-    </li>
-    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
-  </ul>
-  <div class="powerdby">
-    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/blog-hugo/tree/master/content/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
   </div>
+  
 </div>
-<script src="/js/script.js"></script>
-<script src="/js/custom.js"></script>
 
 
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#本站目的">本站目的</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
 </body>
+
 </html>
