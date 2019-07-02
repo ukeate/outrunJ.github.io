@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on Hugo Book</title>
+    <title>数据库 on outrun的笔记</title>
     <link>https://example.com/docs/db/</link>
-    <description>Recent content in 数据库 on Hugo Book</description>
+    <description>Recent content in 数据库 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://example.com/docs/db/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Mycat</title>
-      <link>https://example.com/docs/db/mycat/</link>
-      <pubDate>Thu, 11 Oct 2018 16:12:35 +0800</pubDate>
-      
-      <guid>https://example.com/docs/db/mycat/</guid>
-      <description>目录结构  bin mycat # 服务器启动等 conf wrapper.conf # jvm配置参数(如分配系统资源) server.xml # 服务器参数，用户授权 schema.xml # 逻辑库，表，分片的定义．修改后要重启 log4j.xml # 配置输出到logs/mycat.log的日志 logs mycat.log # 日志（每天一个日志文件）， 可调整输出级别  默认值  默认数据端口: 8066 默认管理端口: 9066  配置 wrapper.conf # jvm配置参数(如分配系统资源) server.xml # 服务器参数，用户授权 schema.xml # 逻辑库，表，分片的定义．修改后要重启 log4j.xml # 配置输出到logs/mycat.log的日志 mysql linux版数据库设置大小写不敏感，否则会发生表找不到的问题 my.cnf [mysqld] lower_case_table_names = 1  例子 server.xml &amp;lt;mycat&amp;gt; &amp;lt;user name=&amp;quot;test&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;password&amp;quot;&amp;gt;test&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;schemas&amp;quot;&amp;gt;TESTDB&amp;lt;/property&amp;gt; &amp;lt;/user&amp;gt; &amp;lt;/mycat&amp;gt; schema.xml &amp;lt;mycat&amp;gt; &amp;lt;schema name=&amp;quot;TESTDB&amp;quot; checkSQLschema=&amp;quot;false&amp;quot; sqlMaxLimit=&amp;quot;100&amp;quot;&amp;gt; &amp;lt;table name=&amp;quot;travelrecord&amp;quot; dataNode=&amp;quot;dn1,dn2,dn3&amp;quot; rule=&amp;quot;auto-sharding-long&amp;quot; /&amp;gt; &amp;lt;table name=&amp;quot;employee&amp;quot; primaryKey=&amp;quot;ID&amp;quot; dataNode=&amp;quot;dn1,dn2&amp;quot; rule=&amp;quot;sharding-by-intfile&amp;quot; /&amp;gt; &amp;lt;table name=&amp;quot;company&amp;quot; primaryKey=&amp;quot;ID&amp;quot; type=&amp;quot;global&amp;quot; dataNode=&amp;quot;dn1,dn2,dn3&amp;quot; /&amp;gt; &amp;lt;table name=&amp;quot;goods&amp;quot; primaryKey=&amp;quot;ID&amp;quot; type=&amp;quot;global&amp;quot; dataNode=&amp;quot;dn1,dn2&amp;quot; /&amp;gt; &amp;lt;table name=&amp;quot;hotnews&amp;quot; primaryKey=&amp;quot;ID&amp;quot; dataNode=&amp;quot;dn1,dn2,dn3&amp;quot; rule=&amp;quot;mod-long&amp;quot; /&amp;gt; &amp;lt;table name=&amp;quot;customer&amp;quot; primaryKey=&amp;quot;ID&amp;quot; dataNode=&amp;quot;dn1,dn2&amp;quot; rule=&amp;quot;sharding-by-intfile&amp;quot;&amp;gt; &amp;lt;childTable name=&amp;quot;orders&amp;quot; primaryKey=&amp;quot;ID&amp;quot; joinKey=&amp;quot;customer_id&amp;quot; parentKey=&amp;quot;id&amp;quot;&amp;gt; &amp;lt;childTable name=&amp;quot;order_items&amp;quot; joinKey=&amp;quot;order_id&amp;quot; parentKey=&amp;quot;id&amp;quot; /&amp;gt; &amp;lt;/childTable&amp;gt; &amp;lt;childTable name=&amp;quot;customer_addr&amp;quot; primaryKey=&amp;quot;ID&amp;quot; joinKey=&amp;quot;customer_id&amp;quot; parentKey=&amp;quot;id&amp;quot; /&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/schema&amp;gt; &amp;lt;dataNode name=&amp;quot;dn1&amp;quot; dataHost=&amp;quot;localhost1&amp;quot; database=&amp;quot;db1&amp;quot; /&amp;gt; &amp;lt;dataNode name=&amp;quot;dn2&amp;quot; dataHost=&amp;quot;localhost1&amp;quot; database=&amp;quot;db2&amp;quot; /&amp;gt; &amp;lt;dataNode name=&amp;quot;dn3&amp;quot; dataHost=&amp;quot;localhost1&amp;quot; database=&amp;quot;db3&amp;quot; /&amp;gt; &amp;lt;dataHost name=&amp;quot;localhost1&amp;quot; maxCon=&amp;quot;1000&amp;quot; minCon=&amp;quot;10&amp;quot; balance=&amp;quot;0&amp;quot; writeType=&amp;quot;0&amp;quot; dbType=&amp;quot;mysql&amp;quot; dbDriver=&amp;quot;native&amp;quot;&amp;gt; &amp;lt;heartbeat&amp;gt;select user()&amp;lt;/heartbeat&amp;gt; &amp;lt;writeHost host=&amp;quot;hostM1&amp;quot; url=&amp;quot;centos6.</description>
-    </item>
     
     <item>
       <title>Redis</title>
@@ -34,15 +25,6 @@
       
       <guid>https://example.com/docs/db/mongodb/</guid>
       <description>特点  数据结构json(bson) 易写入，易修改 c++编写 分布式 介于关系数据库 和 非关系数据库之间 查询语句强 支持索引 bson格式  注意  document不能大于4Mb 可以非安全模式异步马上成功 每个连接用队列存储命令  数据结构定义  collection # 表 document # 记录 field(key, value) # 字段(field)与值(value) 与关系型数据库的区别 document中的field不要key俱全或一样 find()命令查询  bson的数据类型  ＃bson 是json的扩展 # 增加了数据类型 # 把json数据转换成二进制码存到文件 null boolean undefined 数组 # 如{gps: [20, 56]} 32位和64位整数 # shell中不支持 ## node.js python java等高级语言的驱动中支持 64位浮点 # shell使用的全是这种类型, 如{x:3.14} utf-8 # 字符串类型 ObjectID Date # 如{x:new Date()} 正则 # 如{x:/uspcat/i} javascript块代码 # 如{x:function(){}} ## 相当于存储过程 内嵌文档 # 如{x: {xx: &amp;quot;a&amp;quot;}} 二进制 # shell中不能使用  ObjectId  大小 12字节 显示为24个十六进制字符 # 空间换时间的思想 细节 前4字节是unix时间戳 后3字节集群machine hash 后2字节pid 后3字节inc自增计数器, 在前面都相等时全局自增  命名  数据库与集合名 不能是空字符串 特殊字符 &#39; (空格) , $ / \ \0 应该全小写 小于64字节 数据库名不与保留库名相同，如 admin, local, config 集合名 db-text合法，但不能db.</description>
-    </item>
-    
-    <item>
-      <title>Neo4j</title>
-      <link>https://example.com/docs/db/neo4j/</link>
-      <pubDate>Thu, 11 Oct 2018 15:59:29 +0800</pubDate>
-      
-      <guid>https://example.com/docs/db/neo4j/</guid>
-      <description> 介绍  使用zookeeper  特点  完全兼容ACID 主从复制 副本从节点 从节点写数据，先同步到主节点, 再由主节点分发  配置 dbms.connector.bolt.enabled=true dbms.connector.bolt.listen_address=0.0.0.0:7687 dbms.connector.http.enabled=true dbms.connector.http.listen_address=0.0.0.0:7474 # 远程访问  </description>
     </item>
     
     <item>

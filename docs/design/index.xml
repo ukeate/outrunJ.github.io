@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>设计 on Hugo Book</title>
+    <title>设计 on outrun的笔记</title>
     <link>https://example.com/docs/design/</link>
-    <description>Recent content in 设计 on Hugo Book</description>
+    <description>Recent content in 设计 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://example.com/docs/design/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>设计-格式语言</title>
-      <link>https://example.com/docs/design/language/</link>
-      <pubDate>Wed, 10 Oct 2018 17:47:53 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/language/</guid>
-      <description> org-mode markdown restructedText LaTex plantUML # xml  </description>
-    </item>
-    
-    <item>
-      <title>设计-规定</title>
-      <link>https://example.com/docs/design/standard/</link>
-      <pubDate>Wed, 10 Oct 2018 17:46:58 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/standard/</guid>
-      <description> 巴科斯范式的内容 在双引号中的字(&amp;quot;word&amp;quot;)代表着这些字符本身。而double_quote用来代表双引号。 在双引号外的字（有可能有下划线）代表着语法部分。 尖括号( &amp;lt; &amp;gt; )内包含的为必选项。 方括号( [ ] )内包含的为可选项。 大括号( { } )内包含的为可重复0至无数次的项。 竖线( | )表示在其左右两边任选一项，相当于&amp;quot;OR&amp;quot;的意思。 ::= 是“被定义为”的意思。  </description>
-    </item>
-    
-    <item>
-      <title>设计-媒体</title>
-      <link>https://example.com/docs/design/media/</link>
-      <pubDate>Wed, 10 Oct 2018 17:45:17 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/media/</guid>
-      <description> 场景控制  3CAD character camera control art direction  特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.js官网） 水滴带动整个屏幕的亮度(fate stay night) 蓝色光影交错（fate stay night） 秒针声强调时间(fate stay night) 单帧卡动画渲染气氛(fsn) 黑白画面到彩色画面(madlife 集锦[dream on]) 黑白画面彩色涟漪(冰果) 地面的雾影(fsn) 音乐重节拍时出现隐形单位/人(fsn) 转动的星空光点线加云(fsn结尾) 沙的立体塑型(秦时明月) 红辣椒的分镜  网站效果 图片向下拉，上面模糊小，下面清晰大，有一种震撼感  </description>
-    </item>
     
     <item>
       <title>设计-代码</title>
@@ -51,7 +24,7 @@
       <pubDate>Wed, 10 Oct 2018 17:39:31 +0800</pubDate>
       
       <guid>https://example.com/docs/design/project/</guid>
-      <description> 评价 必要分析 tracing log, 监控, 告警 极限性能，当前负载情况 降级方案 下游依赖 数据修复脚本 集成性 integration, 整体各部分间有机协调工作，发挥集体效益 信息系统的集成性 系统之间相互通信和相互协作的能力 扩展性以集成性为前提 可复用性 可提高可扩展性 扩展性 评估 方便添加新功能 扩展后，新旧功能集成性 扩展后，满足性能: 及时性、可靠性 安全 低成本 方式 应用分离 正确管理依赖项 类型 自动代码生成 动态编译 元模型 自描述文件 语言互用性 自定义属性(元数据) 基于元模型的反射 可扩展标记语言(xml) 插件 # 设计得当的一个软件几乎全部可以利用插件来完成 组件开发 功能固定 考虑兼容性、可重用性 难点 接口设计 可成长性 组成成分可不断增加 可扩展性是可成长性的基础 可代谢性 组成部分可以更新  工程 软件发展的阶段 程序设计阶段1946-1955 节省空间 软件设计阶段1956-1970 硬件发展，软件危机 软件工程阶段1970-今 组件化 迭代开发 迭代周期 一个迭代周期中不新添加需求 一个迭代周期中包含多次迭代 一个阶段的结束称之为里程碑 初始化阶段增量 项目启动 建立业务模型 定义业务问题域 找出主要风险因素 定义项目需求的外延 创建业务问题域的相关说明文档 细代阶段增量 高层的分析与设计 建立项目的基础框架 监督主要的风险因素 制订达成项目目标的创建计划 构建阶段增量 代码及功能的实现 移交阶段增量 向用户发布产品 beta测试(alpha测试是内部测试， beta测试是用户测试) 执行性能调优，用户培训和接收测试 瀑布模型 #每一次执行工作流的深度不同 # 80/20原则 可行性分析 实现会不会复杂，尽量简单 需求分析 分类 生存点 痒点 兴奋点 # 不会按时交付（只完成主要，然后延期，用户测试） 客户沟通，同类产品比较，行业标准 功能 正确, 可行, 必要, 有序, 明确, 一致 性能 完善, 简短 分析 设计 先出成果再优化 任务分配(进度条) 命名标准 文档 可移植、可维护易扩展 排期 实现 测试 运维 螺旋模型（模块化） # 边分析边开发边交付（一环一环向目标实现） 团队 运维 设计 开发 测试人员 分析师 技术总监 架构师（软件 数据库） 项目经理（技术、人员【人员离职问题】、软件） 公司问题 人员流动 代码维护  uml Unified Modeling Languag 静态模型 用例图(需求分析):客户看 # 项级图(突出重点)，一级图，二级图，三级图 参与者(泛化) (关联) 用例(包含，扩展【继承】) # 是动词，表示功能模块 注释 类图：类结构、类关系（可以自动生成java类） 继承 实现 关联（全局变量）【导航性：一对多关系等】【聚合(所有引用)，组合（生命周期相同，如int类型属性）】 # spring 中的依赖注入是关联 依赖（局部变量） 实体关系图ER 动态模型 时序图：可以根据时序图写代码 #　rose工具中时序图中加入参与者：用例图中创建参与者，拖入时序图中  </description>
+      <description> 评价 必要分析 tracing log, 监控, 告警 极限性能，当前负载情况 降级方案 下游依赖 数据修复脚本 集成性 integration, 整体各部分间有机协调工作，发挥集体效益 信息系统的集成性 系统之间相互通信和相互协作的能力 扩展性以集成性为前提 可复用性 可提高可扩展性 扩展性 评估 方便添加新功能 扩展后，新旧功能集成性 扩展后，满足性能: 及时性、可靠性 安全 低成本 方式 应用分离 正确管理依赖项 类型 自动代码生成 动态编译 元模型 自描述文件 语言互用性 自定义属性(元数据) 基于元模型的反射 可扩展标记语言(xml) 插件 # 设计得当的一个软件几乎全部可以利用插件来完成 组件开发 功能固定 考虑兼容性、可重用性 难点 接口设计 可成长性 组成成分可不断增加 可扩展性是可成长性的基础 可代谢性 组成部分可以更新  工程 软件发展的阶段 程序设计阶段1946-1955 节省空间 软件设计阶段1956-1970 硬件发展，软件危机 软件工程阶段1970-今 组件化 迭代开发 迭代周期 一个迭代周期中不新添加需求 一个迭代周期中包含多次迭代 一个阶段的结束称之为里程碑 初始化阶段增量 项目启动 建立业务模型 定义业务问题域 找出主要风险因素 定义项目需求的外延 创建业务问题域的相关说明文档 细代阶段增量 高层的分析与设计 建立项目的基础框架 监督主要的风险因素 制订达成项目目标的创建计划 构建阶段增量 代码及功能的实现 移交阶段增量 向用户发布产品 beta测试(alpha测试是内部测试， beta测试是用户测试) 执行性能调优，用户培训和接收测试 瀑布模型 #每一次执行工作流的深度不同 # 80/20原则 可行性分析 实现会不会复杂，尽量简单 需求分析 分类 生存点 痒点 兴奋点 # 不会按时交付（只完成主要，然后延期，用户测试） 客户沟通，同类产品比较，行业标准 功能 正确, 可行, 必要, 有序, 明确, 一致 性能 完善, 简短 分析 设计 先出成果再优化 任务分配(进度条) 命名标准 文档 可移植、可维护易扩展 排期 实现 测试 运维 螺旋模型（模块化） # 边分析边开发边交付（一环一环向目标实现） 团队 运维 设计 开发 测试人员 分析师 技术总监 架构师（软件 数据库） 项目经理（技术、人员【人员离职问题】、软件） 公司问题 人员流动 代码维护  uml Unified Modeling Languag 静态模型 用例图(需求分析):客户看 # 项级图(突出重点)，一级图，二级图，三级图 参与者(泛化) (关联) 用例(包含，扩展【继承】) # 是动词，表示功能模块 注释 类图：类结构、类关系（可以自动生成java类） 继承 实现 关联（全局变量）【导航性：一对多关系等】【聚合(所有引用)，组合（生命周期相同，如int类型属性）】 # spring 中的依赖注入是关联 依赖（局部变量） 实体关系图ER 动态模型 时序图：可以根据时序图写代码 #　rose工具中时序图中加入参与者：用例图中创建参与者，拖入时序图中  微服务 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置  </description>
     </item>
     
   </channel>

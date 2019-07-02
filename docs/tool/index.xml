@@ -1,67 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>工具 on Hugo Book</title>
+    <title>工具 on outrun的笔记</title>
     <link>https://example.com/docs/tool/</link>
-    <description>Recent content in 工具 on Hugo Book</description>
+    <description>Recent content in 工具 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://example.com/docs/tool/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Windows</title>
-      <link>https://example.com/docs/tool/windows/</link>
-      <pubDate>Thu, 11 Oct 2018 18:44:05 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/windows/</guid>
-      <description>方案 附件 -&amp;gt; 系统工具 -&amp;gt; 字符映射表 -&amp;gt; 新宋体 中查看汉字的unicode编码 远程协助 端口：3389 1.系统属性 远程 2.附件：远程连接 # xp:单用户，远程操作时原用户无法操作 chm 不显示内容 右键 -&amp;gt; 常规 -&amp;gt; 解锁  命令 route print route delete route add 0.0.0.0 mask 0.0.0.0 10.0.2.2 nstsc # 运程桌面  cmd CMD 属性 cmd /c dir 是执行完dir命令后关闭命令窗口。 cmd /k dir 是执行完dir命令后不关闭命令窗口。 cmd /c start dir 会打开一个新窗口后执行dir指令，原窗口会关闭。 cmd /k start dir 会打开一个新窗口后执行dir指令，原窗口不会关闭。 语法命令 | findstr asdf # 相当于grep CMD命令 1. gpedit.msc-----组策略 2.</description>
-    </item>
-    
-    <item>
-      <title>LoadRunner</title>
-      <link>https://example.com/docs/tool/loadrunner/</link>
-      <pubDate>Thu, 11 Oct 2018 18:42:40 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/loadrunner/</guid>
-      <description> 脚本参数 get web_url(&amp;quot;login&amp;quot;, &amp;quot;URL=http://192.168.0.14:9081/ryx-login/sso/login&amp;quot;, &amp;quot;Resource=0&amp;quot;, &amp;quot;RecContentType=text/html&amp;quot;, &amp;quot;Referer=&amp;quot;, &amp;quot;Snapshot=t1.inf&amp;quot;, &amp;quot;Mode=HTML&amp;quot;, EXTRARES, &amp;quot;Url=../ycls/img/banner1.jpg&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/banner2.jpg&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/banner3.jpg&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/userinput.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/sawtooth.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/tip2.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/pwdinput.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/login_back.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/tip1.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/codeinput.png&amp;quot;, ENDITEM, &amp;quot;Url=../ycls/img/loading-small2.gif&amp;quot;, ENDITEM, &amp;quot;Url=/favicon.ico&amp;quot;, &amp;quot;Referer=&amp;quot;, ENDITEM, LAST); post参数 web_submit_data(&amp;quot;getActivityParameter&amp;quot;, &amp;quot;Action=http://192.168.0.14:9081/tobacco/retail/lottery/getActivityParameter?jsonp=jQuery19109862107675272699_1401335732777&amp;quot;, &amp;quot;Method=POST&amp;quot;, &amp;quot;RecContentType=text/html&amp;quot;, &amp;quot;Referer=http://192.168.0.14:9081/tobacco/retail/index;jsessionid=7BBAFC6DE481FBCB1CB88D738BD7EE71&amp;quot;, &amp;quot;Snapshot=t6.inf&amp;quot;, &amp;quot;Mode=HTML&amp;quot;, ITEMDATA, &amp;quot;Name=requestType&amp;quot;, &amp;quot;Value=ajax&amp;quot;, ENDITEM, LAST); post直接传数据 web_custom_request(&amp;quot;dataservice&amp;quot;, &amp;quot;URL=http://202.110.222.207:7080/rtserver/rest/resource/tobacco/dataservice&amp;quot;, &amp;quot;Method=POST&amp;quot;, &amp;quot;Resource=0&amp;quot;, &amp;quot;RecContentType=text/plain&amp;quot;, &amp;quot;Referer=&amp;quot;, &amp;quot;Snapshot=t1.inf&amp;quot;, &amp;quot;Mode=HTML&amp;quot;, &amp;quot;Body= {\&amp;quot;trans_code\&amp;quot;:\&amp;quot;1006\&amp;quot;,\&amp;quot;end_date\&amp;quot;:\&amp;quot;20140701\&amp;quot;,\&amp;quot;source\&amp;quot;:\&amp;quot;appkey\&amp;quot;,\&amp;quot;data\&amp;quot;:\&amp;quot;eyJiZWdpbl9kYXRlIjoiMjAxNDA2MDEiLCJlbmRfZGF0ZSI6IjIwMTQwNzAxIiwicG9zX2lkIjoiODg1MDAzMTAiLCJzb3VyY2UiOiJhcHBrZXkiLCJjdXN0b21lcl9pZCI6IjM3MDExMjEwNzQ2NyIsImFjY2Vzc190b2tlbiI6IiJ9\&amp;quot;,\&amp;quot;begin_date\&amp;quot;:\&amp;quot;20140601\&amp;quot;,\&amp;quot;mac\&amp;quot;:\&amp;quot;123\&amp;quot;,\&amp;quot;pos_id\&amp;quot;:\&amp;quot;88500310\&amp;quot;,\&amp;quot;customer_id\&amp;quot;:\&amp;quot;370112107467\&amp;quot;,\&amp;quot;access_token\&amp;quot;:\&amp;quot;\&amp;quot;}&amp;quot;, LAST);  </description>
-    </item>
-    
-    <item>
-      <title>Firefox</title>
-      <link>https://example.com/docs/tool/firefox/</link>
-      <pubDate>Thu, 11 Oct 2018 18:42:03 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/firefox/</guid>
-      <description> 代理设置 “编辑”→“首选项”→“高级”→“网络”→“设置”→“手动配置代理”  mozvr 介绍 mozilla vr 虚拟现实 购买Oculus Rift头盔来看它的网页  </description>
-    </item>
-    
-    <item>
-      <title>Chrome</title>
-      <link>https://example.com/docs/tool/chrome/</link>
-      <pubDate>Thu, 11 Oct 2018 18:40:53 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/chrome/</guid>
-      <description> 介绍 webkit: chrome firefox safari的内核，来源于kde的khtml与kjs  f12调试模式  js调试 sources-&amp;gt; js文件打断点调试 # “{}”按钮是格式化代码，右边按钮单步调试，依次为执行， 跳过进入方法，进入方法，跳出方法，开启／停止调试，暂停 //# sourceURL=base.js console 可以查看js常量，如THREE.VERSION  设置页  about:about # 进入查看所有设置页 chrome:extensions chrome:flags # 可以开启硬件加速解码  集成抓包工具  chrome://net-internals/#events  插件 ARC Welder # android模拟器  </description>
-    </item>
-    
-    <item>
-      <title>Intellij Idea</title>
-      <link>https://example.com/docs/tool/intellij_idea/</link>
-      <pubDate>Thu, 11 Oct 2018 18:38:58 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/intellij_idea/</guid>
-      <description> 注意  Project 相当于workspace, module 相当于工程  注册服务器  # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888  快捷键  alt + enter 改错  webstorm pycharm goland clion phpCharm </description>
-    </item>
-    
-    <item>
-      <title>Sublime</title>
-      <link>https://example.com/docs/tool/sublime/</link>
-      <pubDate>Thu, 11 Oct 2018 18:38:31 +0800</pubDate>
-      
-      <guid>https://example.com/docs/tool/sublime/</guid>
-      <description> 功能  显示风格好 缩略图 热加载(不改变原文件) 插件 多文件夹查找 多视窗 命令模糊搜索下拉菜单 柜形选择 V8插件，js运行控制台 js校验 vi 操作设置 修改配色方案  快捷键  批量修改  </description>
-    </item>
     
     <item>
       <title>Eclipse</title>
@@ -73,12 +19,12 @@
     </item>
     
     <item>
-      <title>Tool</title>
-      <link>https://example.com/docs/tool/tool/</link>
-      <pubDate>Thu, 11 Oct 2018 18:32:38 +0800</pubDate>
+      <title>VIM</title>
+      <link>https://example.com/docs/tool/vim/</link>
+      <pubDate>Thu, 11 Oct 2018 18:31:16 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/tool/</guid>
-      <description>teamviewer # 远程桌面 idle # python tkinter开发的python ide lighttable # clojure hbuilder # h5 komodo edit # 免费跨平台，多pl sketch # mac下轻量ui设计工具 rose # ibm uml工具 vscode datastudio # ibm数据库连接工具 plsql oracle sql developer navicat # ios的数据库操作gui cmder # windows命令行工具 wireshark charlet source insight gerrit # 查看代码 hsandbox # repl paraview # 数据可视化 finreport # 数据可视化  </description>
+      <guid>https://example.com/docs/tool/vim/</guid>
+      <description>命令 vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式, -N set nocompatible，不进入vi兼容模式 # -u code/essential.vim 加载指定配置文件  编译 --with-features=tiny # 只包含最基本功能。small, normal, big, huge # :h feature-list查看  mode 普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &amp;lt;C - v&amp;gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&amp;lt;,&#39;&amp;gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &amp;lt;C - g&amp;gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate 思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl + c # 同Esc motions .</description>
     </item>
     
   </channel>

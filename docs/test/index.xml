@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>测试 on Hugo Book</title>
+    <title>测试 on outrun的笔记</title>
     <link>https://example.com/docs/test/</link>
-    <description>Recent content in 测试 on Hugo Book</description>
+    <description>Recent content in 测试 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://example.com/docs/test/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>测试</title>
-      <link>https://example.com/docs/test/test/</link>
-      <pubDate>Wed, 10 Oct 2018 14:15:04 +0800</pubDate>
-      
-      <guid>https://example.com/docs/test/test/</guid>
-      <description>分类 功能测试 黑盒 灰盒 白盒 性能测试 压力测试 负载测试 基准测试 # 统计多少时间内执行了多少次某个方法 回归测试 # 改旧代码后，保证旧代码可用 冒烟测试 # 功能验证，不一定是改旧代码  cpu性能测试 graph-frames subsecond offset  接口测试 工具 loadrunner phoenix 介绍 web自动化测试工具 特点 分布式执行 无脚本模式执行 无人值守模式执行 自定模式执行 模块 数据维护模块 部署模式 server-client 仅windows下可用 socket通信 web部署 server与client放到tomcat或webLogic下部署 http通信 web页面控制与监控client端执行 wireshark siege siege -c 200 -r 100 http://www.google.com # 200并发，发送100次请求 tcpcopy # 基于tcp packets的请求复制工具, 在线流量导入到测试系统中 ab 内网测试, apache自带的压力测试工具, 安装apache后在bin目录中找到 ab -n1000 -c100 http://www.google.com/a.html # 100并发, 发送1000次请求 locust # 外网性能测试　http_load # 压测 http_load -rate 5 -seconds 10 http://www.</description>
-    </item>
     
   </channel>
 </rss>

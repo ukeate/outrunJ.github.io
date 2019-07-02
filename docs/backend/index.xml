@@ -1,67 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>后端 on Hugo Book</title>
+    <title>后端 on outrun的笔记</title>
     <link>https://example.com/docs/backend/</link>
-    <description>Recent content in 后端 on Hugo Book</description>
+    <description>Recent content in 后端 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 14:36:50 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/docs/backend/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Hexo</title>
-      <link>https://example.com/docs/backend/hexo/</link>
-      <pubDate>Thu, 11 Oct 2018 15:20:06 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/hexo/</guid>
-      <description> 介绍  简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上  目录结构  scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量  使用  npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;amp;&amp;amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址 hexo deploy # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支 上github，点settings找到github pages, 找到自己发布的站点 无法访问静态资源 设置域名 申请域名 dnspod 中 绑定ip  </description>
-    </item>
-    
-    <item>
-      <title>Jekyll</title>
-      <link>https://example.com/docs/backend/jekyll/</link>
-      <pubDate>Thu, 11 Oct 2018 15:19:43 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/jekyll/</guid>
-      <description>介绍  ruby静态站点生成器，根据网页源码生成静态文档文件 提供模板、变量、插件等功能 生成的站点可以直接发布到github上  使用  curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem # 移动到ruby安装目录 安装devkit gem install jekyll git clone https://github.com/plusjade/jekyll-bootstrap.git jekyll # 下载jekyll-bootstrap模版 cd jekyll &amp;amp;&amp;amp; jekyll serve rake post title = &#39;Hello&#39; # 生成文章 ## 编辑_posts下面生成的文章 修改convertible.rb文件编码为utf-8 jekyll serve 发布到github github上创建新仓库 git remote set-url origin git@新仓库 git add . git commit -m &#39;new&#39; git push origin master git branch gh-pages # 新建一个分支，用于发布项目 git checkout gh-pages 修改_config.yml production_url: http://outrun.</description>
-    </item>
-    
-    <item>
-      <title>Cxf</title>
-      <link>https://example.com/docs/backend/cxf/</link>
-      <pubDate>Thu, 11 Oct 2018 15:19:10 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/cxf/</guid>
-      <description>常识  自己内部整合spring(但是不耦合)  支持的协议  soap1.1/1.2 post/http restful http  使用  导入cxf包 方法1 # 不支持注解 String address=&amp;quot;http://localhost:8888/hello&amp;quot;; ServerFactoryBean factoryBean=new ServerFactoryBean(); factoryBean.setAddress(address); factoryBean.setServiceBean(new MyWS()); factoryBean.create(); 方法2 # 支持注解,wsdl文件中类型不再单独schema文件 ServerFactoryBean factoryBean = new JaxWsServerFactoryBean # java and xml web service 日志 # 记录握手信息(访问wsdl文件) ## 看日志记录得到 soap serverFactoryBean.getInInterceptors().add(new LoggingInInterceptor()); serverFactoryBean.getOutInterceptors().add(new LoggingOutInterceptor());  整合spring  o-&amp;gt; cxf2.4.4.jar/schemas/jaxws.xsd中找到命名空间&amp;quot;http://cxf.apache.org/jaxws&amp;quot; o-&amp;gt; 配置applicationContext.xml，加入cxf的命名空间http://cxf.apache.org/jaxws,schema地址为http://cxf.apache.org/schemas/jaxws.xsd。 并且在eclipse中配置schema约束文件的路径 # 该xsd约束文件的url地址用的是包地址,不规范 o-&amp;gt; applicationContext.xml中配置 &amp;lt;bean id=&amp;quot;studentService&amp;quot; class=&amp;quot;test.spring.StudentServiceImpl&amp;quot;/&amp;gt; # 用于：自身调用，被spring引用 &amp;lt;jaxws:server serviceClass=&amp;quot;test.spring.StudentService&amp;quot; address=&amp;quot;/student&amp;quot;&amp;gt; # address配置服务的名称即可(web.</description>
-    </item>
-    
-    <item>
-      <title>Dwr</title>
-      <link>https://example.com/docs/backend/dwr/</link>
-      <pubDate>Thu, 11 Oct 2018 15:18:33 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/dwr/</guid>
-      <description>介绍  java函数通过ajax映射到前端js调用  使用 ajax框架 1.导入jar包 dwr.jar 2.web-inf/下的配置文件 web.xml文件 &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;dwr-invoker&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.directwebremoting.servlet.DwrServlet&amp;lt;/servlet-class&amp;gt; # 固定写法 &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;scriptCompressed&amp;lt;/param-name&amp;gt; # 允许在javascript中执行 &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; # web工程启动时加载 &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;dwr-invoker&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;/dwr/*&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; dwr.xml文件 &amp;lt;dwr&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;create creator=&amp;quot;new&amp;quot; javascript=&amp;quot;DWRUserAccess&amp;quot;&amp;gt; # 生成js文件的名（页面中引用） &amp;lt;param name=&amp;quot;class&amp;quot; value=&amp;quot;outrun.dwr.DWRUserAccess&amp;quot; /&amp;gt; # 曝露的类 &amp;lt;/create&amp;gt; &amp;lt;convert converter=&amp;quot;bean&amp;quot; match=&amp;quot;outrun.dwr.User&amp;quot; /&amp;gt; # 注册实体类，可以在js中进行实例化 &amp;lt;/allow&amp;gt; &amp;lt;/dwr&amp;gt; 3.写outrun.dwr.DWRUserAccess中的方法 4.页面调用 test.html &amp;lt;script src=&amp;quot;/outrun/dwr/engine.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;/outrun/dwr/util.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;/outrun/dwr/interface/DWRUserAccess.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;SCRIPT LANGUAGE=&amp;quot;JavaScript&amp;quot;&amp;gt; DWRUserAccess.方法(参数,执行完运行的js函数) # 参数可以是一个map,如 var userMap = {}; userMap.</description>
-    </item>
-    
-    <item>
-      <title>Jbpm</title>
-      <link>https://example.com/docs/backend/jbpm/</link>
-      <pubDate>Thu, 11 Oct 2018 15:17:37 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/jbpm/</guid>
-      <description>常识  适用对象：业务逻辑不复杂，业务流程会变化 # s2sh适合业务逻辑复杂，但是业务流程不会变化的项目 jbpm封装hibernate 包含对象 模型 实例（由活动组成，包括活动、箭头等） 任务（需要人办理的活动）  使用 myeclipse添加jbpm xml画图插件 MyEclipse -&amp;gt; MyEclipse Configuration Center -&amp;gt; Software -&amp;gt; Browse Software(add site) -&amp;gt; add from archive file找到jbpm-gpd-site.zip,取名为jbpm4.4 -&amp;gt; Browse Software(Personal Sites -&amp;gt; jbpm4.4下8个选项)右键add to Profile -&amp;gt; 右下角apply changes -&amp;gt; 重启myeclipse -&amp;gt; 新建文件中找到新建jbpm xml文件 画图 test.jpdl.xml文件用jbpm工具打开 打开Properties视图 配置 jbpm.hibernate.cfg.xml # mysql方言要配置InnoDB的方言（因为jbpm建表时对表指定了type=InnoDB约束） 配置hibernate的5个映射文件（导入的jbpm.jar包中有） &amp;lt;mapping resource=&amp;quot;jbpm.repository.hbm.xml&amp;quot; /&amp;gt; &amp;lt;mapping resource=&amp;quot;jbpm.execution.hbm.xml&amp;quot; /&amp;gt; &amp;lt;mapping resource=&amp;quot;jbpm.history.hbm.xml&amp;quot; /&amp;gt; &amp;lt;mapping resource=&amp;quot;jbpm.task.hbm.xml&amp;quot; /&amp;gt; &amp;lt;mapping resource=&amp;quot;jbpm.identity.hbm.xml&amp;quot; /&amp;gt; jbpm.</description>
-    </item>
-    
-    <item>
-      <title>Shiro</title>
-      <link>https://example.com/docs/backend/shiro/</link>
-      <pubDate>Thu, 11 Oct 2018 15:12:44 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/shiro/</guid>
-      <description>功能 Authenticator # SecurityManager继承Authenticator public AuthenticationInfo authenticate(AuthenticationToken authenticationToken) throws AuthenticationException; permission 概念 subject resource permission role 隐式角色 显示角色 配置 shiro.ini [users] zhang=123, role1, role2 # 用户名=密码, 角色1, 角色2 判断角色 o-&amp;gt; subject.hasRole(&amp;quot;admin&amp;quot;); o-&amp;gt; @RequiresRoles(&amp;quot;admin&amp;quot;) @RequiresRoles(value={“admin”, “user”}, logical= Logical.AND) # 表示当前Subject需要角色admin和user。 o-&amp;gt; &amp;lt;shiro:hasRole name=&amp;quot;admin&amp;quot;&amp;gt;&amp;lt;/shiro:hasRole&amp;gt; 权限注解 @RequiresAuthentication # 表示当前Subject已经通过login进行了身份验证；即Subject. isAuthenticated()返回true。 @RequiresUser # 表示当前Subject已经身份验证或者通过记住我登录的。 @RequiresGuest # 表示当前Subject没有身份验证或通过记住我登录过，即是游客身份。 @RequiresPermissions (value={“user:a”, “user:b”}, logical= Logical.OR) # 表示当前Subject需要权限user:a或user:b。 credential 散列 String str = &amp;quot;hello&amp;quot;; String salt = &amp;quot;123&amp;quot;; //内部使用MessageDigest String simpleHash 密码生成工具 //输入明文密码得到密文密码 String encryptPassword(Object plaintextPassword) throws IllegalArgumentException; //匹配用户输入的token的凭证（未加密）与系统提供的凭证（已加密） boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info); filter NameableFilter ＃根据名字找到相应的拦截器实例 OncePerRequestFilter # 控制开启、关闭拦截器实例 ShiroFilter # 安全控制 AdviceFilter # aop preHandle # 前置增强 postHandle # 后置增强 afterCompletion # 后置最终增强(异常也执行，相当于finally的概念) PathMatchingFilter # 匹配请求路径 AccessControlFilter # 允许或拒绝访问，拒绝时如何处理 jsp标签 &amp;lt;%@taglib prefix=&amp;quot;shiro&amp;quot; uri=&amp;quot;http://shiro.</description>
-    </item>
     
     <item>
       <title>Mybatis</title>
@@ -100,30 +47,12 @@
     </item>
     
     <item>
-      <title>Socketio</title>
-      <link>https://example.com/docs/backend/socketio/</link>
-      <pubDate>Thu, 11 Oct 2018 11:42:33 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/socketio/</guid>
-      <description>介绍  socket.io: 基于任何浏览器, mobile设备的&amp;quot;webSocket&amp;quot;  安装  npm install socket.io  使用  var socketIo = require(&#39;socket.io&#39;); socketIo.listen(app).on(&#39;connection&#39;, function (socket) { # require(&#39;socket.io&#39;)(app); ## var io = require(&#39;socket.io&#39;)(80); socket.emit(&#39;news&#39;, { hello: &#39;world&#39; }); socket.on(&#39;my other event&#39;, function (data) { console.log(data); }); });  api server io.on(&#39;connection&#39;, function(socket){}); io.on(&#39;disconnect&#39;, function(){}); socket.on(&#39;message&#39;, function(msg){}); client-js socket = io.connect(url); socket.on(&#39;&#39;, function(json){}); socket.send(json); io on(&#39;connection&#39;, function(socket){}); # disconnect socket on(&#39;disconnect&#39;, function(){ }); socket.on(&#39;say to someone&#39;, function(id, msg){ socket.</description>
-    </item>
-    
-    <item>
-      <title>Tornado</title>
-      <link>https://example.com/docs/backend/tornado/</link>
-      <pubDate>Thu, 11 Oct 2018 11:42:13 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/tornado/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Nodejs</title>
       <link>https://example.com/docs/backend/nodejs/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
       <guid>https://example.com/docs/backend/nodejs/</guid>
-      <description>特点  commonJs规范 # 用于构建模块 javascript书写(v8引擎) # 关键字1 # 原因1: 成熟的事件驱动模式 ## 原因2: 没有i/o库, 没有历史包袱 ## 原因3: v8性能好 # js设计之初就可以运行在后端 单线程 # 关键字2 非阻塞io(non-blocking i/o model) # 关键字3 ## io与数据处理分离（所以必须异步） ## 线程池结合event-driven实现 事件驱动(event-driven) # 关键字4 ## event loop[while(true)] -&amp;gt; watcher -&amp;gt; handles ### event loop每一周询问多个watcher是否有事件 ### http模块就是启动了一个watcher,所以执行后进程不结束 # 注: event loop中没有watcher时进程退出 ### 其它watcher有 timer, fs, udp/req, process ### watcher产生事件后, event loop取到并执行其handle(回调函数) ## 不同操作系统中event driven的实现: ### windows: IOCP, Linux: epoll, Mac:kqueue 异步操作 # 书写难度的解决 ## go语言有协程(coroutine)而node.</description>
+      <description>特点 commonJs规范 # 用于构建模块 javascript书写(v8引擎) # 关键字1 # 原因1: 成熟的事件驱动模式 ## 原因2: 没有i/o库, 没有历史包袱 ## 原因3: v8性能好 # js设计之初就可以运行在后端 单线程 # 关键字2 非阻塞io(non-blocking i/o model) # 关键字3 ## io与数据处理分离（所以必须异步） ## 线程池结合event-driven实现 事件驱动(event-driven) # 关键字4 ## event loop[while(true)] -&amp;gt; watcher -&amp;gt; handles ### event loop每一周询问多个watcher是否有事件 ### http模块就是启动了一个watcher,所以执行后进程不结束 # 注: event loop中没有watcher时进程退出 ### 其它watcher有 timer, fs, udp/req, process ### watcher产生事件后, event loop取到并执行其handle(回调函数) ## 不同操作系统中event driven的实现: ### windows: IOCP, Linux: epoll, Mac:kqueue 异步操作 # 书写难度的解决 ## go语言有协程(coroutine)而node.</description>
     </item>
     
     <item>
@@ -136,67 +65,39 @@
     </item>
     
     <item>
-      <title>Elasticsearch</title>
+      <title>服务器</title>
+      <link>https://example.com/docs/backend/server/</link>
+      <pubDate>Wed, 10 Oct 2018 17:16:29 +0800</pubDate>
+      
+      <guid>https://example.com/docs/backend/server/</guid>
+      <description>nginx 结构 一个主进程(root权限运行)和多个工作进程(普通权限运行)  模块 handler filter upstream load-balance  功能  http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理  命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.conf] # 检查配置文件是否正确 nginx -h # 查看帮助 ## -? pkill -9 nginx kill -HUP `nginx.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/backend/elasticsearch/</link>
-      <pubDate>Thu, 11 Oct 2018 10:01:22 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/backend/elasticsearch/</guid>
-      <description>介绍  分布式实时lucene  使用  ./bin/elasticsearch curl http://localhost:9200  命令  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &amp;quot;*&amp;quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.tcp.port: 9300 network.host: 0.0.0.0 # 修改es监听地址，别的机器也可以访问。同时设置bind_host和publish_host # 需要设置transport.</description>
+      <description>介绍 分布式实时lucene  使用 ./bin/elasticsearch curl http://localhost:9200  命令 elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &amp;quot;*&amp;quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.tcp.port: 9300 network.host: 0.0.0.0 # 修改es监听地址，别的机器也可以访问。同时设置bind_host和publish_host # 需要设置transport.host:localhost network.bind_host # 节点绑定ip network.</description>
     </item>
     
     <item>
-      <title>Lucene</title>
+      <title></title>
       <link>https://example.com/docs/backend/lucene/</link>
-      <pubDate>Thu, 11 Oct 2018 09:59:44 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/backend/lucene/</guid>
-      <description>原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B+树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀词块 倒排表 正向文件 # 行式存储，原始文档 doc-values # 列式存储，文档号到值的映射 文件指纹  概念  index # 一个倒排表，对应一个目录 segment # index的存储单元，包含多个文档 document # 创建单位 field # 文档里的键值对 term # 分词后的字符串 analyzer tokenizer # 切分文本到索引单元 tokenfilter # 对token预处理  常识  特性 索引 高亮 命中率排序 分词 与数据库的区别：数据库注重存储、全文检索注重查询 其它搜索：多媒体搜索 索引库(文件夹 或 内存中)： 只存储了商品的基本信息 索引库与数据库定时同步 索引库 -&amp;gt; document -&amp;gt; field # field是键值对,值只能存数据 同步 IndexWriter:addDocumnet(),delteDocument(),updateDocument() 查询 IndexSearch:search(),get() Field的内部结构 # 不存不索引会报错 Store:控制此Field字段是否存储到索引库中 Index:是否建立索引（索引不区分大小写,过滤词不创建索引） NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到 NOT_ANALYZED:建立索引，但是不分词 ANALYZEd:建立索引又分词  使用到的对象  Directory Analyzer TokenStream tokenStream = analyzer.</description>
+      <description>原理 block k-d tree 倒排索引 词典 排序数组 # 为了二分查找 # 实现简单，性能差 哈希表 # 性能好，占内存大 跳跃表 # 内存小且可调节, 模糊查询不好 B/B+树 # 磁盘索引 ，更新方便，检索慢 trie树 # 效率与字符串长度有关，只适合做英文词典 dat # 可做中文词典，内存占用小 fst # 共享前缀，内存占用小，要求输入有序，不易更新 内存存前缀索引、磁盘存后缀词块 倒排表 正向文件 # 行式存储，原始文档 doc-values # 列式存储，文档号到值的映射 文件指纹  概念 index # 一个倒排表，对应一个目录 segment # index的存储单元，包含多个文档 document # 创建单位 field # 文档里的键值对 term # 分词后的字符串 analyzer tokenizer # 切分文本到索引单元 tokenfilter # 对token预处理  常识 特性 索引 高亮 命中率排序 分词 与数据库的区别：数据库注重存储、全文检索注重查询 其它搜索：多媒体搜索 索引库(文件夹 或 内存中)： 只存储了商品的基本信息 索引库与数据库定时同步 索引库 -&amp;gt; document -&amp;gt; field # field是键值对,值只能存数据 同步 IndexWriter:addDocumnet(),delteDocument(),updateDocument() 查询 IndexSearch:search(),get() Field的内部结构 # 不存不索引会报错 Store:控制此Field字段是否存储到索引库中 Index:是否建立索引（索引不区分大小写,过滤词不创建索引） NO:不建立索引，可以通过field的key查到，但是不能通过关键字查询到 NOT_ANALYZED:建立索引，但是不分词 ANALYZEd:建立索引又分词  使用到的对象 Directory Analyzer TokenStream tokenStream = analyzer.</description>
     </item>
     
     <item>
-      <title>面试</title>
-      <link>https://example.com/docs/backend/interview/</link>
-      <pubDate>Wed, 10 Oct 2018 15:00:49 +0800</pubDate>
+      <title></title>
+      <link>https://example.com/docs/backend/shiro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/backend/interview/</guid>
-      <description> 做法 带笔记题  简历 履历 项目（个人特点，过程，学到什么） 离职原因 技能 深度技能  js o-&amp;gt; if (false) {var a = 1} o-&amp;gt; (function(){ var a = b = 3; })(); console.log(&#39;a defined?&#39; + (typeof a !== &#39;undefined&#39;)); console.log(&#39;b defined?&#39; + (typeof b !== &#39;undefined&#39;)); o-&amp;gt; function foo2() { return { mei: &#39;qia&#39; } }  算法 目标 写bug free算法 LeetCode Online Judge o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法  </description>
-    </item>
-    
-    <item>
-      <title>硬件</title>
-      <link>https://example.com/docs/backend/hardware/</link>
-      <pubDate>Wed, 10 Oct 2018 14:59:59 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/hardware/</guid>
-      <description> 树莓派 arduino </description>
-    </item>
-    
-    <item>
-      <title>后端</title>
-      <link>https://example.com/docs/backend/backend/</link>
-      <pubDate>Wed, 10 Oct 2018 14:36:50 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/backend/</guid>
-      <description>领域 erp jbpm activiti # 工作流 YAML # 工作流 bossa # 工作流引擎 azkaban # 开源oa grav # 开源cms nopCommerce # .net开源电商  游戏 pomelo # 网易开源的实时性好的游戏类服务器  展示 cleaver # 基于node幻灯片 hexo # 生成博客 jekyll # 博客 hugo # 静态网站  gis ide skylive arcGIS mapInfo mapGIS superMap 库 webglobe arcpy  搜索 分类 垂直搜索引擎 针对某一个行业的专业搜索引擎，是搜索引擎的细分和延伸，是对网页库中的某类专门的信息进行一次整合，定向分字段抽取出需要的数据进行处理后再以某种形式返回给用户。 通用搜索引擎 通过关键字的方式实现的，是语义上的搜索，返回的结果倾向于知识成果，比如文章，论文，新闻等 通用搜索引擎的信息量大、查询不准确、深度不够 通用搜索引擎的海量信息无序化 部分 １.索引 ２.分词 ３.搜索 lucene solr compass # 基于lucene nutch # 基于lucene sunspot # 基于Rsolr，以dsl结构用ruby调solr elasticsearch sphinx # 基于sql的全文检索引擎  数据 爬虫 cheerio # node解析html，如jquery scrapy-redis # python 分布式爬虫框架 phantomjs # js浏览器模拟框架 分析 pandas # python数据分析 计算 hadoop 日志 scribe facebook出品 特点 支持nfs存储 结构 scribe agent 向scribe发送数据 scribe 接收数据，不同topic 的数据发送给不同的store中 存储系统(store) file, buffer, network, bucket, null, thriftfile, multi chukwa # apache出品，hadoop系列产品 flume cloudera出品 特点 可靠性(节点故障时，日志传送到其他节点) 三种级别 end-to-end 发送前写磁盘，成功时删除 store on failure 失败返回时写磁盘 best effort 不确认数据是否成功 可扩展性 agent collector storage三层架构，每层可扩展。 agent: 将数据源数据发送给collector collector: 将多个agent数据汇总后, 加载到storage中 storge: 存储系统, 可以是file, hdfs, hive, hbase等 agent collector 由master统一 logstash # 分布式日志收集，需结合kafka  ai tensorflow # 神经网络计算 convnet.</description>
-    </item>
-    
-    <item>
-      <title>编程术语</title>
-      <link>https://example.com/docs/backend/term/</link>
-      <pubDate>Tue, 09 Oct 2018 17:00:21 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/term/</guid>
-      <description>dom 文档对象模型 dao 数据访问对象 ucs unicode character set utf ucs Transformation Format bmp Basic Multilingual plane bom Byte Order Mark asp Active Server Pages iis Internet Information services validate code 验证码 tld tag library description jsp java server page xsd XML Schemas Definition suffix 后缀 ide Integrated Development Environment RIA Rich internet Applications 富互联网应用（富客户端）C/S架构是胖客户端，B/S架构是瘦客户端。比如 flash就是ria(其它如js, SilverLight，unity3d，flash3d,adobe air,HTML5/css3，adobe Flex等) JPA Java Persistence API java持久层api JDBC Java DataBase Connectivity DHTML DynamicHTML cvs Concurrent Version System svn subversion uml UnifiedModelingLanguage AJAX Asynchronous JavaScript and XML bnf 命令书写格式规范: 巴科斯范式 desc description capacity 容量 component 组件 association 联合 aggregation 聚合 composition 组合 alpha 开端 inherit 继承 dhtml dynamic html 是 html css 客户端script 不是规范，是现有技术、标准的整合运用 css Cascading Style Sheet 级联样式表 associated 交互的 perspective 视图 adapter 适配器 jit just in time (compilation) webdav Web-based Distributed Authoring and Versioning Web 分布式创作和版本管理 (WebDAV) 扩展了 HTTP/1.</description>
-    </item>
-    
-    <item>
-      <title>Hugo简易</title>
-      <link>https://example.com/docs/backend/hugo/</link>
-      <pubDate>Sun, 07 Oct 2018 09:24:16 +0800</pubDate>
-      
-      <guid>https://example.com/docs/backend/hugo/</guid>
-      <description>简介 hugo由go编写，开源，特点为编译快 本文基于hugo0.49  help hugo help hugo help server # server代表任何子命令  生成站点 hugo new site blog1 # 站点命令在blog1中执行  生成文章 hugo new about.md hugo new post/first.md  主题 git clone https://github.com/spf13/hyde.git themes/hyde # 更多主题在https://themes.gohugo.io  本地服务器 hugo server --theme=hyde --buildDrafts # 默认端口1313, 自带watch  发布 hugo --theme=hyde --baseUrl=&amp;quot;https://outrunJ.github.io&amp;quot;  文章内容  开头
---- 用YAML写内容 --- # +++标记可写TOML Description = &amp;quot;&amp;quot; Categories = [&amp;quot;a1&amp;quot;, &amp;quot;a2&amp;quot;] Tags = [&amp;quot;b1&amp;quot;,&amp;quot;b2&amp;quot;] draft = true # 文章隐藏 menu = &amp;quot;&amp;quot; title = &amp;quot;a&amp;quot; # 文章标题   配置 打开config.</description>
+      <guid>https://example.com/docs/backend/shiro/</guid>
+      <description>shiro 功能 Authenticator # SecurityManager继承Authenticator public AuthenticationInfo authenticate(AuthenticationToken authenticationToken) throws AuthenticationException; permission 概念 subject resource permission role 隐式角色 显示角色 配置 shiro.ini [users] zhang=123, role1, role2 # 用户名=密码, 角色1, 角色2 判断角色 o-&amp;gt; subject.hasRole(&amp;quot;admin&amp;quot;); o-&amp;gt; @RequiresRoles(&amp;quot;admin&amp;quot;) @RequiresRoles(value={“admin”, “user”}, logical= Logical.AND) # 表示当前Subject需要角色admin和user。 o-&amp;gt; &amp;lt;shiro:hasRole name=&amp;quot;admin&amp;quot;&amp;gt;&amp;lt;/shiro:hasRole&amp;gt; 权限注解 @RequiresAuthentication # 表示当前Subject已经通过login进行了身份验证；即Subject. isAuthenticated()返回true。 @RequiresUser # 表示当前Subject已经身份验证或者通过记住我登录的。 @RequiresGuest # 表示当前Subject没有身份验证或通过记住我登录过，即是游客身份。 @RequiresPermissions (value={“user:a”, “user:b”}, logical= Logical.OR) # 表示当前Subject需要权限user:a或user:b。 credential 散列 String str = &amp;quot;hello&amp;quot;; String salt = &amp;quot;123&amp;quot;; //内部使用MessageDigest String simpleHash 密码生成工具 //输入明文密码得到密文密码 String encryptPassword(Object plaintextPassword) throws IllegalArgumentException; //匹配用户输入的token的凭证（未加密）与系统提供的凭证（已加密） boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info); filter NameableFilter ＃根据名字找到相应的拦截器实例 OncePerRequestFilter # 控制开启、关闭拦截器实例 ShiroFilter # 安全控制 AdviceFilter # aop preHandle # 前置增强 postHandle # 后置增强 afterCompletion # 后置最终增强(异常也执行，相当于finally的概念) PathMatchingFilter # 匹配请求路径 AccessControlFilter # 允许或拒绝访问，拒绝时如何处理 jsp标签 &amp;lt;%@taglib prefix=&amp;quot;shiro&amp;quot; uri=&amp;quot;http://shiro.</description>
     </item>
     
   </channel>

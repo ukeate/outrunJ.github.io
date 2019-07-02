@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    Markup Language
+  
+ | outrun的笔记</title>
+
+
+
+<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/pl/markup_language/index.xml" title="outrun的笔记" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">outrun的笔记</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2fpl\2fmarkup_language\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/server">服务器</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/lucene">lucene</a></li>
+<li><a href="/docs/backend/nodejs">nodejs</a></li>
+<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/struts2">struts2</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
+<li><a href="/docs/backend/mybatis">mybatis</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">pgsql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/javaweb">javaweb</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/vim">vim</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+</ul></li>
+<li><a href="/docs/management">管理</a></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/interview">题目</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+  
+<script>
+(function() {
+  var menu = document.querySelector('aside.book-menu nav')
+  addEventListener('beforeunload', function(event) {
+    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  });
+  menu.scrollTop = localStorage.getItem('menu.scrollTop')
+})()
+</script>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    Markup Language
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="xml">xml</h1>
+
+<pre><code>标签头
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+命名空间
+    &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+        # xmlns:beans=&quot;http://www.springframework.org/schema/beans&quot;  # 引用其它uri空间
+        ## jar 包中的dtd/xsd文件直接用相对路径引用即可（相当于src/目录下的文件）
+    &lt;h:table xmlns:h=&quot;http://www.w3.org/TR/html4/&quot;&gt;
+       &lt;h:tr&gt;
+       &lt;h:td&gt;Apples&lt;/h:td&gt;
+       &lt;h:td&gt;Bananas&lt;/h:td&gt;
+       &lt;/h:tr&gt;
+    &lt;/h:table&gt;
+        # 命名空间约束文件的查找
+                1.联网
+                2.myeclipse中的xml
+                3.同目录下
+                4.jar包中
+        # xmlns:只能有一个没有别名
+    注意
+        命名空间不可以分层使用，如 &lt;r:g:element&gt; 是不允许的
+    例子
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot; ?&gt;
+        &lt;c:customer xmlns:c=&quot;http://www.customer.com/&quot;&gt;
+            &lt;c:name&gt;ZhangSan&lt;/c:name&gt;
+            &lt;c:phone&gt;09098768&lt;/c:phone&gt;
+            &lt;c:host xmlns:e=&quot;http://www.employee.com/&quot;&gt;
+                &lt;e:name&gt;LiSi&lt;/e:name&gt;
+                &lt;e:phone&gt;89675412&lt;/e:phone&gt;
+            &lt;/c:host&gt;
+        &lt;/c:customer&gt;
+
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;
+        &lt;book xmlns=&quot;http://www.library.com/&quot;&gt;
+            &lt;title&gt;The C++ Standard Library&lt;/title&gt;
+            &lt;author&gt;Nicolai M.Josutis&lt;/author&gt;
+        &lt;/book&gt;
+
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;
+        &lt;customer xmlns=&quot;http://www.customer.com/&quot;
+                        xmlns:e=&quot;http://www.employee.com/&quot;&gt;
+            &lt;name&gt;ZhangSan&lt;/name&gt;
+            &lt;phone&gt;09098768&lt;/phone&gt;
+            &lt;host&gt;
+                &lt;e:name&gt;LiSi&lt;/e:name&gt;
+                &lt;e:phone&gt;89675412&lt;/e:phone&gt;
+            &lt;/host&gt;
+        &lt;/customer&gt;
+    语法
+        xmlns:[prefix]=”[URI of namespace]”
+
+
+dtd文件路径解析
+    system声明方式：根据给出URL寻找DTD?DTD通过URL显式地直接定位。
+    public声明方式：查找众所周知词汇表，应用程序自行确定从数据库中定位dtd，或是从声明的网站中下载（存入数据库缓存中）。
+            # myeclipse中通过xml Catalog选项来定位dtd约束
+
+schema文件路径解析
+    xsd文件中：targetNamespace=&quot;http://www.w3school.com.cn&quot;        # 定义自己的uri标识空间名
+    xml文件中：xsi:schemaLocation=&quot;http://www.w3school.com.cn note.xsd&quot;                # 指定约束文件的uri地址，一般是空间名加/文件名（目前只有cxf的jaxws约束文件例外【把路径换成了包名】）
+</code></pre>
+
+<h1 id="dtd">dtd</h1>
+
+<pre><code>注意
+    同名元素只能用命名空间来区分定义
+
+例子
+    &lt;?xml version='1.0' encoding='utf-8'?&gt;
+    &lt;!DOCTYPE poem[
+    &lt;!ELEMENT poem (author, title, content)&gt;
+    &lt;!ELEMENT author (#PCDATA)&gt;
+    &lt;!ELEMENT title (#PCDATA)&gt;
+    &lt;!ELEMENT content (#PCDATA)&gt;
+    ]&gt;
+
+    &lt;poem&gt;
+    &lt;author&gt;王维&lt;/author&gt;
+    &lt;title&gt;鹿柴&lt;/title&gt;
+    &lt;content&gt;空山不见人， 但闻人语声， 返景入深林，复照青苔上。&lt;/content&gt;
+    &lt;/poem&gt;
+    外部引用
+            &lt;?xml version='1.0' encoding='utf-8'?&gt;
+            &lt;!DOCTYPE poem SYSTEM &quot;outer.dtd&quot;&gt;
+
+            // outer.dtd
+            &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            &lt;!ELEMENT poem (author, title, content)&gt;
+            &lt;!ELEMENT author (#PCDATA)&gt;
+            &lt;!ELEMENT title (#PCDATA)&gt;
+            &lt;!ELEMENT content (#PCDATA)&gt;
+语法
+    &lt;!ELEMENT author (#PCDATA)&gt; 之中的两个空格必须要有
+
+元素类型
+    EMPTY                        # 可以有属性
+    ANY                                # 根元素设为ANY类型后，元素出现的次数和顺序不受限制
+    #PCDATA
+    纯元素类型
+    混合类型                        # 可以是元素与内容的混合
+        例子
+                &lt;!ELEMENT 家庭 (人+, 家电*)&gt;
+        修饰符说明
+                ()                # 用来给元素分组
+                        如
+                                (古龙|金庸|梁羽生), (王朔|余杰), 毛毛
+                ｜                # 选择一个
+                        如
+                                (男人|女人)
+                +                # 出现一或多次
+                        如
+                                (成员+)
+                *                # 出现零或多次
+                ?                # 出现零或一次
+                ,                # 对象必须按指定的顺序出现
+                        如
+                                (西瓜, 苹果, 香蕉)
+属性类型
+</code></pre>
+
+<h1 id="schema">schema</h1>
+
+<pre><code>Schema约束
+    tld文件是Schema约束的
+引入
+    根元素添加
+            文件books.xsd
+            &lt;xs:schema        xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;                                // ns  是 namespace
+                    targetNamespace=&quot;http://www.jnb.com&quot;                        // 给当前约束文件起一个名字
+                    elementFormDefault=&quot;qualified&quot;&gt;                                        // 添加属性，qualified指所有都来自xs空间
+                            可选attributeFormDefault=&quot;unqualified&quot;                                // unqualified        默认来自的空间
+            文件books.xml
+            从根元素开始约束
+            &lt;jnb:书架 xmlns:jnb=&quot;http://www.jnb.com&quot;                                        // 在被约束文件根元素添加属性，约束命名空间
+                    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;        // 找到xsi
+                    xsi:schemaLocation=&quot;http://www.jnb.com books.xsd&quot;&gt;        // 指定对应约束文件的物理地址
+                    &lt;jnb:书&gt;
+                    &lt;/jnb:书&gt;
+            &lt;/jnb:书架&gt;                                                                                                // 在被约束所有元素添加指定空间前缀
+            // 保存并检验
+语法
+    元素约束
+    &lt;xs:element name=&quot;xxx&quot; type=&quot;yy&quot; defaule=&quot;&quot; /&gt;                                                        // name 元素名 type 类型
+    元素类型
+            xs:string                // 字符串
+            xs:decimal                // big decimal 数字类型
+            xs:integer                //
+            xs:boolean
+            xs:date                        // 日期
+            xs:time                        // 时间
+    属性约束，在元素标签体里
+            &lt;xs:attribute name=&quot;&quot; type=&quot;&quot; /&gt;                                                                        // name 属性名 type 类型
+    属性类型和元素类型一样
+    属性说明
+            &lt;xs:attribute use=&quot;required&quot; /&gt;
+    限定约束
+            对值的限定
+            枚举限定
+            正则限定
+            选择限定
+            长度限定
+
+    混合内容
+            &lt;xs:complexType mixed=&quot;true&quot;&gt;                        // 只有文本和子元素，mixed可以不使用
+            &lt;/xs:complexType&gt;
+
+    指示器
+            All
+            Choice                                                                // 选择出现
+            Sequence                                                        // 按声明顺序出现
+            maxOccurs
+            minOccurs
+            Group name
+            attributeGroup name
+            &lt;xs:all&gt;                                                        // 指定以下元素随意出现
+            &lt;/xs:all&gt;
+</code></pre>
+
+<h1 id="plantuml">plantUML</h1>
+
+<pre><code>分类
+    salt
+            wireframe
+    uml
+            activity
+            class
+            component
+            sequence
+            state
+            use case
+</code></pre>
+
+<h1 id="markdown">markdown</h1>
+
+<pre><code>标题
+    # 到 ######开头    # 分别表示一号 到 六号 标题
+
+字体
+    **a**或__a__   # 加粗
+    *a*或_a_ # 斜体
+    ***a***或___a___ # 加粗斜体
+    ~~a~~   # 删除线
+
+
+引用
+    &gt;a
+    &gt;&gt;b # 不断增加&gt;来多层引用
+
+分割线
+    --- # 三个及以上
+    *** # 三个及以上，与---显示无分别
+
+图片
+    ![alt内容](url &quot;title内容&quot;) # alt显示在图片下，title在鼠标悬停时显示
+
+超链接
+    [文本](url)
+    &lt;a href=&quot;url&quot; target=&quot;_blank&quot;&gt;文本&lt;/a&gt;    # 可以用a标签指定target，在新页面显示
+
+列表
+    -或+或*开头 # 无序列表-
+    数字加点开头  # 有序列表，行数自动
+    多空格（至少两个）加列表开头  # 嵌套列表
+
+表格
+    标题1|标题2|标题3 # 默认居中对齐
+    -|-|-   # -可以多个，:-控制标题和内容左对齐，:-:居中，-:右对齐
+    1|2|3   ＃ 默认左对齐
+
+代码
+    `a + b;`    # 单选代码
+    ```
+    function a(){
+    }
+    ``` # 多行代码
+        # tab开头
+
+
+流程图
+    略
+</code></pre>
+
+<h1 id="org-mode">org-mode</h1>
+
+<h1 id="restructedtext">restructedText</h1>
+
+<h1 id="latex">LaTex</h1>
+</article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/markup_language/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#xml">xml</a></li>
+<li><a href="#dtd">dtd</a></li>
+<li><a href="#schema">schema</a></li>
+<li><a href="#plantuml">plantUML</a></li>
+<li><a href="#markdown">markdown</a></li>
+<li><a href="#org-mode">org-mode</a></li>
+<li><a href="#restructedtext">restructedText</a></li>
+<li><a href="#latex">LaTex</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

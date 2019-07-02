@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://example.com/posts/note/</loc>
+    <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/first/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <lastmod>2019-07-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -19,33 +24,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/tool/windows/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/tool/loadrunner/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/tool/firefox/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/tool/chrome/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/tool/intellij_idea/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/tool/sublime/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <loc>https://example.com/docs/ops/linux_tool/</loc>
+    <lastmod>2018-10-11T18:47:57+08:00</lastmod>
   </url>
   
   <url>
@@ -54,112 +34,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/tool/tool/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/pm2/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/git/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/maven/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/ant/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/svn/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <loc>https://example.com/docs/tool/vim/</loc>
+    <lastmod>2018-10-11T18:31:16+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/ops/docker/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/kvm/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/vmware/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/virtualbox/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/vsftp/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/cron/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/ssh/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/nsq/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/kafka/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/rabbitmq/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/jetty/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/tomcat/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/netty/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/nginx/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/squid/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/db/mycat/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -170,11 +50,6 @@
   
   <url>
     <loc>https://example.com/docs/db/mongodb/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/db/neo4j/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -190,56 +65,6 @@
   
   <url>
     <loc>https://example.com/docs/db/postgre_sql/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/heartbeat/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/lvs/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/iscsi/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/protobuf/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/hexo/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/jekyll/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/cxf/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/dwr/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/jbpm/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/shiro/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -264,16 +89,6 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/backend/socketio/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/tornado/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/backend/nodejs/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
@@ -284,72 +99,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/backend/elasticsearch/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/lucene/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/lua/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/cocos2dx/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/extjs/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/frontend/bootstrap/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/frontend/webpack/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/grunt/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/gulp/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/fis/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/d3/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/frontend/threejs/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/createjs/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/bigpipe/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -390,41 +145,6 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/pl/markup_language/ml/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/markup_language/plantUML/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/markup_language/schema/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/markup_language/dtd/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/design/language/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/design/standard/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/design/media/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/design/code/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
@@ -435,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/ops/ops/</loc>
+    <loc>https://example.com/docs/ops/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -445,28 +165,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/architecture/store/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/server/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/ha/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/communication/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/architecture/governance/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <loc>https://example.com/docs/backend/server/</loc>
+    <lastmod>2018-10-10T17:16:29+08:00</lastmod>
   </url>
   
   <url>
@@ -480,47 +180,17 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/architecture/term/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/media/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/backend/interview/</loc>
+    <loc>https://example.com/docs/frontend/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/backend/hardware/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/frontend/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/backend/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/test/test/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/term/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/prolog/</loc>
+    <loc>https://example.com/docs/backend/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -530,53 +200,9 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/pl/lisp/</loc>
+    <loc>https://example.com/docs/pl/markup_language/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/rust/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/scala/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/perl/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/markup_language/xml/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/erlang/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/r/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/ruby/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/c/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/cpp/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -586,11 +212,6 @@
   
   <url>
     <loc>https://example.com/docs/pl/css/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/php/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -606,11 +227,6 @@
   
   <url>
     <loc>https://example.com/docs/pl/python/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/scheme/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -635,42 +251,7 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/pl/language/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/parser/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/principle/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/algorithm/algorithm/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/algorithm/analysis/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/docs/algorithm/thought/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/ops/archlinux/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/pl/markup_language/markdown/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -685,12 +266,22 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/algorithm/term/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <loc>https://example.com/docs/backend/elasticsearch/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/docs/backend/hugo/</loc>
+    <loc>https://example.com/docs/backend/lucene/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://example.com/docs/backend/shiro/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://example.com/register/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -700,22 +291,7 @@
   </url>
   
   <url>
-    <loc>https://example.com/register/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/about_me/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/frontend/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/backend/</loc>
     <lastmod>2019-06-17T13:24:09+08:00</lastmod>
   </url>
   
@@ -755,8 +331,7 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/ops/</loc>
-    <lastmod>2019-06-17T13:24:09+08:00</lastmod>
+    <loc>https://example.com/docs/interview/</loc>
   </url>
   
 </urlset>

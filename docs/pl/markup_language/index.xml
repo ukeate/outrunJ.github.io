@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>outrun的笔记</title>
+    <link>https://example.com/docs/pl/markup_language/</link>
+    <description>Recent content on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Oct 2018 16:42:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/docs/pl/markup_language/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Html</title>
+      <link>https://example.com/docs/pl/markup_language/html/</link>
+      <pubDate>Tue, 09 Oct 2018 16:42:05 +0800</pubDate>
+      
+      <guid>https://example.com/docs/pl/markup_language/html/</guid>
+      <description>事件 blur change click dblclick focus keydown keypress keyup load mousedown mousemove mouseout mouseover mouseup reset select submit unload Abort # 中断图片下载时激发 AfterPrint # 打印文档后激发 AfterUpdate # 传送完数据 BeforeCopy # 复制到剪贴板前 BeforeCut # 剪切到剪贴板前 BeforeEditFocus BeforePaste BeforePrint BeforeUnload BeforeUpdate Bounce CellChange CtextMenu Copy Cut DataAvailable DatasetChanged DatasetComplete Drag DragDrop DragEnd DragEnter DragLeave DragOver DragStart Drop Error ErrorUpdate FilterChange Finish Help LoseCapture Move Paste PropertyChange ReadyStateChange Resize RowEnter RowExit RowsDelete RowsInserted Scroll SelectStart Start Stop  标签 &amp;lt;var&amp;gt; # 标识常量 &amp;lt;samp&amp;gt; # 标识输出内容的样式 &amp;lt;pre&amp;gt; # 代码块 &amp;lt;code&amp;gt; # 一段代码  属性 全局属性 # 配置所有元素共有行为 accesskey # 快捷键 ## 需要按alt + 指定的键 class contenteditable # 内容是否可修改, 如p标签 contextmenu # 定义右键菜单，未实现 dir # 文字对齐方式 draggable dropzone hidden id lang spellcheck style tabindex # tab键切换元素的顺序 title  浏览器特性 视频播放 支持vaapi, chrome 加上--enable-vaapi参数可以开启硬件加速解码  方案 &amp;lt;=================================标签========================================&amp;gt; &amp;lt;input&amp;gt;表单 单选框 &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;name&amp;quot; checked value=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;name&amp;quot; value=&amp;quot;1&amp;quot;&amp;gt; 下拉框 &amp;lt;select id=&amp;quot;mySelect&amp;quot; size=10 multiple&amp;gt; # 长度等于10 ，多选 &amp;lt;option selected=&amp;quot;selected&amp;quot;&amp;gt;Apple&amp;lt;/option&amp;gt; &amp;lt;option&amp;gt;Orange&amp;lt;/option&amp;gt; &amp;lt;/select&amp;gt; 勾选框 &amp;lt;input type=&amp;quot;checkbox&amp;quot; name=&amp;quot;&amp;quot; /&amp;gt; 按钮 &amp;lt;input type=&amp;quot;button&amp;quot;/&amp;gt; &amp;lt;button&amp;gt; # &amp;lt;button&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;搜索&amp;lt;/button&amp;gt; button之间可以加图片 &amp;lt;table&amp;gt;表格 &amp;lt;caption&amp;gt; # 标题 &amp;lt;thead&amp;gt; &amp;lt;th&amp;gt; &amp;lt;td&amp;gt;&amp;lt;td&amp;gt; &amp;lt;/th&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;&amp;lt;td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tfoot&amp;gt; 属性 &amp;lt;tr style=&amp;quot;display: none;&amp;quot;&amp;gt; # 设置属性为隐藏 &amp;lt;form&amp;gt;表单 enctype属性 application/x-www-form-urlencoded(默认) # 在发送编码所有字符（空格转换为 &amp;quot;+&amp;quot; 加号，特殊符号转换为 ASCII HEX 值） multipart/form-data # 不对字符进行编码，在上传文件时使用 text/plain # 空格转换为+，但是不对特殊字符进行编码 &amp;lt;hr&amp;gt;分割线 字体 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; .</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>前端 on Hugo Book</title>
+    <title>前端 on outrun的笔记</title>
     <link>https://example.com/docs/frontend/</link>
-    <description>Recent content in 前端 on Hugo Book</description>
+    <description>Recent content in 前端 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/docs/frontend/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Cocos2dx</title>
-      <link>https://example.com/docs/frontend/cocos2dx/</link>
-      <pubDate>Thu, 11 Oct 2018 09:49:36 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/cocos2dx/</guid>
-      <description> 使用  ./create_project.py -project Hello -package com.plter.hello -language lua # 生成多种平台的项目 换ldt来开发，删除Resources下面除fonts文件夹的所有文件，修改入口为main.lua  目录结构  Classes/AppDelegate.cpp中有加载 Hello.lua 作为入口 Resources/hello.lua 来运行  </description>
-    </item>
-    
-    <item>
-      <title>Extjs</title>
-      <link>https://example.com/docs/frontend/extjs/</link>
-      <pubDate>Thu, 11 Oct 2018 09:48:40 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/extjs/</guid>
-      <description> 介绍  2.0之前是免费的，但有内在泄漏总是 GPLv3版本后收费  Sencha  1.是ExtJS、jQTouch(一个用于手机浏览器的jquery插件) 以及 Raphael（一个网页上绘制矢量图形的js库） 三个项目合并而成的一个开源项目。 2.Sencha Touch 是全球领先的应用程序开发框架，其设计旨在充分 利用HTML5、CSS3 和Javascript 来实现最高级别的功能、灵活性和优化。 Sencha Touch 是针对下一代具有触摸屏设备的跨平台框架。  </description>
-    </item>
     
     <item>
       <title>Bootstrap</title>
@@ -37,76 +20,12 @@
     </item>
     
     <item>
-      <title>Webpack</title>
-      <link>https://example.com/docs/frontend/webpack/</link>
-      <pubDate>Thu, 11 Oct 2018 09:37:31 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/webpack/</guid>
-      <description>介绍  模块打包  命令  npm i -g webpack npm i css-loader style-loader webpack ./entry.js bundle.js # --progress # --colors # --watch # --module-bind ## jade, &#39;css=style!css&#39; webpack ./entry.js bundle.js --module-bind &#39;css=style!css&#39; webpack # use webpack.config.js npm i webpack-dev-server -g webpack-dev-server # --progress --colors # --hot 热部署 # 启动一个express在8080端口  配置 # webpack.config.js var webpack = require(&#39;webpack&#39;) var merge = require(&#39;webpack-merge&#39;) var path = require(&#39;path&#39;) var HtmlwebpackPlugin = require(&#39;html-webpack-plugin&#39;) var ROOT_PATH = path.</description>
-    </item>
-    
-    <item>
-      <title>Grunt</title>
-      <link>https://example.com/docs/frontend/grunt/</link>
-      <pubDate>Thu, 11 Oct 2018 09:37:01 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/grunt/</guid>
-      <description>介绍  压缩js代码 合并js文件 单元测试 js代码检查 监控文件修改重启任务  命令  grunt dist # 重新生成dist目录，将编译后的css,js放入 grunt watch # 监测less源码文件改动，自动重新编译为css grunt test # 运行测试用例 grunt docs # 编译并测试 grunt 重新构建所有内容并运行测试用例  安装  # grunt模块以grunt-contrib-开头 npm i -g grunt grunt-init grunt-cli  例子 o-&amp;gt; // Gruntfile.js module.exports = function (grunt) { grunt.loadNpmTasks(&#39;grunt-contrib-clean&#39;) grunt.loadNpmTasks(&#39;grunt-contrib-concat&#39;) grunt.loadNpmTasks(&#39;grunt-contrib-jshint&#39;) grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;) grunt.loadNpmTasks(&#39;grunt-replace&#39;) grunt.initConfig({ pkg: grunt.file.readJSON(&#39;package.json&#39;), jshint: { all: { src: [&#39;Gruntfile.js&#39;, &#39;src/**/*.js&#39;, &#39;test/**/*.js&#39;], options: { jshintrc: &#39;jshint.json&#39; } } }, clean: [&#39;lib&#39;], concat: { htmlhint: { src: [&#39;src/core.</description>
-    </item>
-    
-    <item>
-      <title>Gulp</title>
-      <link>https://example.com/docs/frontend/gulp/</link>
-      <pubDate>Thu, 11 Oct 2018 09:36:17 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/gulp/</guid>
-      <description> 介绍  自动化构建项目工具  使用 安装 npm install --global gulp # npm install --save-dev gulp // gulpfile.js 在项目根目录 var gulp = require(&#39;gulp&#39;); gulp.task(&#39;default&#39;, function () { // 默认任务代码 }) 命令 shell&amp;gt; gulp # gulp &amp;lt;task&amp;gt; &amp;lt;othertask&amp;gt;  插件 gulp-dom-src 合并src, 改写html gulp-if gulp-useref gulp-usemin gulp-htmlreplace google-closure-compiler gulp-add-src gulp-autoprefixer gulp-changed gulp-clean gulp-clean-css gulp-concat gulp-concat-css gulp-consolidate gulp-html-replace # 替换html内容 gulp-htmlmin gulp-imagemin gulp-less gulp-make-css-url-version gulp-minify-css gulp-rev-append gulp-uglify  </description>
-    </item>
-    
-    <item>
-      <title>Fis</title>
-      <link>https://example.com/docs/frontend/fis/</link>
-      <pubDate>Thu, 11 Oct 2018 09:32:59 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/fis/</guid>
-      <description>介绍  npm的形式发布 百度前端工具框架，为前端开发提供底层架构 所有js文件都用模块书写，一个文件一个模块 F.module(name, function(require, exports){}, deps);  安装  npm install -g fis  命令 fis install # 安装模块 fis release # 编译和发布, -h 查看帮助 ## 默认会调整资源引用的相对路径到绝对路径 ### 不想对路径做调整，可以使用spt工具https://github.com/fouber/spt ## --optimize 或 -o 压缩。--md5对不同静态资源生成版本，也可以配置时间戳 ## --dest 或 -d。指定项目发布配置，在执行编译后发布。可以远程发布、发布多个 ## --pack 开启打包处理 ## -omp 简化 --optimize --md5 --pack ## --watch 或 -w 自动监听文件修改，自动编译 ### 该监视考虑了各种嵌入关系, a.css中嵌入了b.css, b修改时会重构这两个文件 ### --live 或 -L 。在-w基础上实现，监视到修改后自动刷新浏览器页面 fis server start # 启动本地调试服务器 ## -p [port] 指定新端口 ## --type node 如果没有java, php环境，指定用node环境启动 fis server stop fis server open # 查看默认产出目录  配置 o-&amp;gt; fis.</description>
-    </item>
-    
-    <item>
-      <title>D3</title>
-      <link>https://example.com/docs/frontend/d3/</link>
-      <pubDate>Thu, 11 Oct 2018 09:32:00 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/d3/</guid>
-      <description> #介绍 数据可视化, 使用svg, css3
-使用 node npm install d3 // var d3 = require(&#39;d3&#39;), jsdom = require(&#39;jsdom&#39;); var document = jsdom.jsdom(), svg = d3.select(document.body).append(&#39;svg&#39;); web &amp;lt;script src=&amp;quot;//d3js.org/d3.v3.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt;d3.version&amp;lt;/script&amp;gt;  d3对象  // 选择器 event mouse select selectAll selection touch touches // 过渡 ease # ease对象 timer flush interpolate # interpolate对象 interpolateArray interpolateHcl interpolateHsl interpolateLab interpolateNumber interpolateObject interpolateRgb interpolateRound interpolateString interpolateTransform interpolateZoom interpolators transition // 数组 ascending bisectLeft bisector bisectRight bisect descending deviation entries extent keys map max mean median merge min nest pairs permute quantile range set shuffle sum transpose values variance zip // 数学 random transform // 请求 csv html json text tsv xhr xml // 格式化 format formatPrefix requote round // 本地化 locale // 颜色 hcl hsl lab rgb // 命名空间 ns // 内部 dispatch functor rebind // 比例尺 scale // 时间 time // 布局 layout // 地理 geo // 几何 geom // 行为 behavior  </description>
-    </item>
-    
-    <item>
       <title>Threejs</title>
       <link>https://example.com/docs/frontend/threejs/</link>
       <pubDate>Thu, 11 Oct 2018 07:58:16 +0800</pubDate>
       
       <guid>https://example.com/docs/frontend/threejs/</guid>
       <description>介绍 协调程序加载项的类库  使用 var preload = new createjs.LoadQueue(false, &amp;quot;assets/&amp;quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&amp;quot;image&amp;quot;], callback: function(src){ var id = src.toLowerCase().split(&amp;quot;/&amp;quot;).pop().split(&amp;quot;.&amp;quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &amp;quot;Autumn.png&amp;quot;, &amp;quot;BlueBird.png&amp;quot;, &amp;quot;Nepal.jpg&amp;quot;, &amp;quot;Texas.jpg&amp;quot; ]);  api 涉及dom 属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls.handleResize(); } 三大组件 场景(scene) var scene = new THREE.</description>
-    </item>
-    
-    <item>
-      <title>Createjs</title>
-      <link>https://example.com/docs/frontend/createjs/</link>
-      <pubDate>Thu, 11 Oct 2018 07:56:33 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/createjs/</guid>
-      <description>easeljs 介绍 处理canvas 使用 var stage = new createjs.Stage(&amp;quot;canvasName&amp;quot;); stage.x = 100; stage.y = 100; var text = new createjs.Text(&amp;quot;Hello&amp;quot;, &amp;quot;36px Arial&amp;quot;, &amp;quot;#777&amp;quot;); stage.addChild(text); stage.update();  tweenjs 介绍 处理动画调整和js属性 使用 var circle = new createjs.Shape(); circle.graphics.beginFill(&amp;quot;#FF0000&amp;quot;).drawCircle(0, 0, 50); stage.addChild(circle); createjs.Tween.get(circle, {loop: true}) .wait(1000) .to({scaleX: 0.2, scaleY: 0.2}) .wait(1000) .to({scaleX:1, scaleY:1}, 1000, createjs.Ease.bounceInOut) createjs.Ticker.setFPS(20); createjs.Ticker.addEventListener(&amp;quot;tick&amp;quot;, stage);  soundjs 介绍 简化处理音频 使用 var displayStatus; displayStatus = document.getElementById(&amp;quot;status&amp;quot;); var src = &amp;quot;1.mp3&amp;quot;; createjs.</description>
-    </item>
-    
-    <item>
-      <title>Bigpipe</title>
-      <link>https://example.com/docs/frontend/bigpipe/</link>
-      <pubDate>Thu, 11 Oct 2018 07:54:00 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/bigpipe/</guid>
-      <description>介绍 facebook的页面异步加载框架 不同于ajax的http调用，需要更多的网线连接。bigpipe与当前页面共用http连接  使用 前端 &amp;lt;script src=&amp;quot;jquery.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;underscore.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;bigpipe.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;div id=&amp;quot;body&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;quot;text/template&amp;quot; id=&amp;quot;tpl_body&amp;quot;&amp;gt; &amp;lt;div&amp;gt;&amp;lt;%=articles%&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; var bigpipe = new Bigpipe() bigpipe.ready(&#39;articles&#39;, function(data) { $(&#39;#body&#39;).html(_.render($(&#39;#tpl_body&#39;).html(), {articles: data})) }) &amp;lt;/script&amp;gt; 服务器端 app.get(&#39;/profile&#39;, function (req, res) { if (!cache[layout]) { cache[layout] = fs.readFileSync(path.join(VIEW_FOLDER, layout), &#39;utf8&#39;) } res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;}) res.write(render(complie(cache[layout]))) ep.all(&#39;users&#39;, &#39;articles&#39;, function () { res.end() }) ep.fail(function(err) { res.end() }) db.getData(&#39;sql1&#39;, function (err, data) { data = err ?</description>
     </item>
     
     <item>
@@ -134,15 +53,6 @@
       
       <guid>https://example.com/docs/frontend/react/</guid>
       <description>介绍 facebook推出的用于build user interfaces 的类库  使用 o-&amp;gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname + &#39;/app/main.js&#39;], output: { path: __dirname + &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname + &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.</description>
-    </item>
-    
-    <item>
-      <title>前端</title>
-      <link>https://example.com/docs/frontend/frontend/</link>
-      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
-      
-      <guid>https://example.com/docs/frontend/frontend/</guid>
-      <description>套餐 web bootstrap extjs jquery ui dojo # 语法较难用 easy ui dwz # 国产较难用，卖文档 wijmo # 收费 vaadin # apache webkit foundation # 响应式，移动优先 boilerplate # h5模板 meteor # 融合前后端, 后端node knockout # mvvm, 利于单页应用  mobile jingle vux # vue手机组件 ionic # angular手机框架 framework7 # ios(兼容android)组件 mui zui # 类bootstrap 移动端 frozenui  组件 写法 介绍 框架的作用就是统一编程风格 react jquery angular prototype mootools # 浏览器原生对象扩展 underscore # 函数式 underscore-contrib # 扩展underscore ramda # 函数式，较正确 lodash # 函数式 functional javascript bilby # 函数式库，包含dispatch, 蹦床, monadic, validator等 allong.</description>
     </item>
     
   </channel>

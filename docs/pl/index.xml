@@ -1,67 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>程序语言 on Hugo Book</title>
+    <title>程序语言 on outrun的笔记</title>
     <link>https://example.com/docs/pl/</link>
-    <description>Recent content in 程序语言 on Hugo Book</description>
+    <description>Recent content in 程序语言 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	<atom:link href="https://example.com/docs/pl/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Lua</title>
-      <link>https://example.com/docs/pl/lua/</link>
-      <pubDate>Thu, 11 Oct 2018 09:50:15 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/lua/</guid>
-      <description> 介绍  lua语言，来实现逻辑。 c/c++来实现功能 eclipse ldt 来开发（cdt 再安装 ldt 使用更方便）  使用  lua Hello.lua # 执行脚本 luac Hello.lua # 编译字节码 #-&amp;gt; lua luac.out  语法  -- # 注释 num = 10 # 定义  </description>
-    </item>
-    
-    <item>
-      <title>标记语言</title>
-      <link>https://example.com/docs/pl/markup_language/ml/</link>
-      <pubDate>Wed, 10 Oct 2018 17:59:31 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/ml/</guid>
-      <description>org-mode markdown restructedText LaTex plantUML  </description>
-    </item>
-    
-    <item>
-      <title>PlantUML</title>
-      <link>https://example.com/docs/pl/markup_language/plantUML/</link>
-      <pubDate>Wed, 10 Oct 2018 17:59:00 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/plantUML/</guid>
-      <description> 分类 salt wireframe uml activity class component sequence state use case  </description>
-    </item>
-    
-    <item>
-      <title>Schema</title>
-      <link>https://example.com/docs/pl/markup_language/schema/</link>
-      <pubDate>Wed, 10 Oct 2018 17:55:28 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/schema/</guid>
-      <description> Schema约束 tld文件是Schema约束的  引入  根元素添加 文件books.xsd &amp;lt;xs:schema xmlns:xs=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; // ns 是 namespace targetNamespace=&amp;quot;http://www.jnb.com&amp;quot; // 给当前约束文件起一个名字 elementFormDefault=&amp;quot;qualified&amp;quot;&amp;gt; // 添加属性，qualified指所有都来自xs空间 可选attributeFormDefault=&amp;quot;unqualified&amp;quot; // unqualified 默认来自的空间 文件books.xml 从根元素开始约束 &amp;lt;jnb:书架 xmlns:jnb=&amp;quot;http://www.jnb.com&amp;quot; // 在被约束文件根元素添加属性，约束命名空间 xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; // 找到xsi xsi:schemaLocation=&amp;quot;http://www.jnb.com books.xsd&amp;quot;&amp;gt; // 指定对应约束文件的物理地址 &amp;lt;jnb:书&amp;gt; &amp;lt;/jnb:书&amp;gt; &amp;lt;/jnb:书架&amp;gt; // 在被约束所有元素添加指定空间前缀 // 保存并检验  语法  元素约束 &amp;lt;xs:element name=&amp;quot;xxx&amp;quot; type=&amp;quot;yy&amp;quot; defaule=&amp;quot;&amp;quot; /&amp;gt; // name 元素名 type 类型 元素类型 xs:string // 字符串 xs:decimal // big decimal 数字类型 xs:integer // xs:boolean xs:date // 日期 xs:time // 时间 属性约束，在元素标签体里 &amp;lt;xs:attribute name=&amp;quot;&amp;quot; type=&amp;quot;&amp;quot; /&amp;gt; // name 属性名 type 类型 属性类型和元素类型一样 属性说明 &amp;lt;xs:attribute use=&amp;quot;required&amp;quot; /&amp;gt; 限定约束 对值的限定 枚举限定 正则限定 选择限定 长度限定 混合内容 &amp;lt;xs:complexType mixed=&amp;quot;true&amp;quot;&amp;gt; // 只有文本和子元素，mixed可以不使用 &amp;lt;/xs:complexType&amp;gt; 指示器 All Choice // 选择出现 Sequence // 按声明顺序出现 maxOccurs minOccurs Group name attributeGroup name &amp;lt;xs:all&amp;gt; // 指定以下元素随意出现 &amp;lt;/xs:all&amp;gt;  </description>
-    </item>
-    
-    <item>
-      <title>Dtd</title>
-      <link>https://example.com/docs/pl/markup_language/dtd/</link>
-      <pubDate>Wed, 10 Oct 2018 17:54:44 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/dtd/</guid>
-      <description>注意  同名元素只能用命名空间来区分定义  例子  &amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt; &amp;lt;!DOCTYPE poem[ &amp;lt;!ELEMENT poem (author, title, content)&amp;gt; &amp;lt;!ELEMENT author (#PCDATA)&amp;gt; &amp;lt;!ELEMENT title (#PCDATA)&amp;gt; &amp;lt;!ELEMENT content (#PCDATA)&amp;gt; ]&amp;gt; &amp;lt;poem&amp;gt; &amp;lt;author&amp;gt;王维&amp;lt;/author&amp;gt; &amp;lt;title&amp;gt;鹿柴&amp;lt;/title&amp;gt; &amp;lt;content&amp;gt;空山不见人， 但闻人语声， 返景入深林，复照青苔上。&amp;lt;/content&amp;gt; &amp;lt;/poem&amp;gt; 外部引用 &amp;lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39;?&amp;gt; &amp;lt;!DOCTYPE poem SYSTEM &amp;quot;outer.dtd&amp;quot;&amp;gt; // outer.dtd &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;!ELEMENT poem (author, title, content)&amp;gt; &amp;lt;!ELEMENT author (#PCDATA)&amp;gt; &amp;lt;!ELEMENT title (#PCDATA)&amp;gt; &amp;lt;!ELEMENT content (#PCDATA)&amp;gt;  语法  &amp;lt;!ELEMENT author (#PCDATA)&amp;gt; 之中的两个空格必须要有  元素类型  EMPTY # 可以有属性 ANY # 根元素设为ANY类型后，元素出现的次数和顺序不受限制 #PCDATA 纯元素类型 混合类型 # 可以是元素与内容的混合 例子 &amp;lt;!</description>
-    </item>
-    
-    <item>
-      <title>Prolog</title>
-      <link>https://example.com/docs/pl/prolog/</link>
-      <pubDate>Tue, 09 Oct 2018 16:58:38 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/prolog/</guid>
-      <description> 介绍 programming in logic缩写， 是一种逻辑编程语言。广泛应用于人工智能 不是真正意义上的程序，运行步骤由计算机决定。没有if, when, case, for这样的控制流程语句 很难分清哪些是程序，哪些是数据，程序就是数据，是一个智能数据库 有强大的递归功能。  </description>
-    </item>
     
     <item>
       <title>Haskell</title>
@@ -73,120 +19,12 @@
     </item>
     
     <item>
-      <title>Lisp</title>
-      <link>https://example.com/docs/pl/lisp/</link>
-      <pubDate>Tue, 09 Oct 2018 16:53:40 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/lisp/</guid>
-      <description> 介绍 为人工智能开发的函数语言 目前最主要两大方言为scheme和commonLisp。Emacs扩展语言为Lisp，有一种Emacs Lisp语言 拥有理论上最高的运算能力  编译器 sbcl # steel bank common lisp  </description>
-    </item>
-    
-    <item>
-      <title>Rust</title>
-      <link>https://example.com/docs/pl/rust/</link>
-      <pubDate>Tue, 09 Oct 2018 16:53:03 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/rust/</guid>
-      <description>介绍 mozilla开发的,注重安全, 性能, 并发的系统编程语言 js之父Brendan Eich设计</description>
-    </item>
-    
-    <item>
-      <title>Scala</title>
-      <link>https://example.com/docs/pl/scala/</link>
-      <pubDate>Tue, 09 Oct 2018 16:52:22 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/scala/</guid>
-      <description> 介绍 haskell衍生语言 集成了面向对象和函数语言的特性 可以很简单地与已有的java代码交互，只需要反java相关类导入就可以了 面向对象语言同时结合命令式和函数式编程风格  工具 sbt simple build tool  </description>
-    </item>
-    
-    <item>
-      <title>Perl</title>
-      <link>https://example.com/docs/pl/perl/</link>
-      <pubDate>Tue, 09 Oct 2018 16:51:58 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/perl/</guid>
-      <description> 标准 pcre: Perl Compatible Regular Expressions  </description>
-    </item>
-    
-    <item>
-      <title>Xml</title>
-      <link>https://example.com/docs/pl/markup_language/xml/</link>
-      <pubDate>Tue, 09 Oct 2018 16:51:29 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/xml/</guid>
-      <description>标签头  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;  命名空间  &amp;lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot; xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&amp;gt; # xmlns:beans=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; # 引用其它uri空间 ## jar 包中的dtd/xsd文件直接用相对路径引用即可（相当于src/目录下的文件） &amp;lt;h:table xmlns:h=&amp;quot;http://www.w3.org/TR/html4/&amp;quot;&amp;gt; &amp;lt;h:tr&amp;gt; &amp;lt;h:td&amp;gt;Apples&amp;lt;/h:td&amp;gt; &amp;lt;h:td&amp;gt;Bananas&amp;lt;/h:td&amp;gt; &amp;lt;/h:tr&amp;gt; &amp;lt;/h:table&amp;gt; # 命名空间约束文件的查找 1.联网 2.myeclipse中的xml 3.同目录下 4.jar包中 # xmlns:只能有一个没有别名 注意 命名空间不可以分层使用，如 &amp;lt;r:g:element&amp;gt; 是不允许的 例子 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot; ?&amp;gt; &amp;lt;c:customer xmlns:c=&amp;quot;http://www.customer.com/&amp;quot;&amp;gt; &amp;lt;c:name&amp;gt;ZhangSan&amp;lt;/c:name&amp;gt; &amp;lt;c:phone&amp;gt;09098768&amp;lt;/c:phone&amp;gt; &amp;lt;c:host xmlns:e=&amp;quot;http://www.employee.com/&amp;quot;&amp;gt; &amp;lt;e:name&amp;gt;LiSi&amp;lt;/e:name&amp;gt; &amp;lt;e:phone&amp;gt;89675412&amp;lt;/e:phone&amp;gt; &amp;lt;/c:host&amp;gt; &amp;lt;/c:customer&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot;?&amp;gt; &amp;lt;book xmlns=&amp;quot;http://www.library.com/&amp;quot;&amp;gt; &amp;lt;title&amp;gt;The C++ Standard Library&amp;lt;/title&amp;gt; &amp;lt;author&amp;gt;Nicolai M.Josutis&amp;lt;/author&amp;gt; &amp;lt;/book&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot;?&amp;gt; &amp;lt;customer xmlns=&amp;quot;http://www.customer.com/&amp;quot; xmlns:e=&amp;quot;http://www.</description>
-    </item>
-    
-    <item>
-      <title>Erlang</title>
-      <link>https://example.com/docs/pl/erlang/</link>
-      <pubDate>Tue, 09 Oct 2018 16:50:59 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/erlang/</guid>
-      <description> 特点 由爱立信所辖CS-Lab开发，目的是创造一种可以应对大规模并发活动的编程语言。易于编写分布式应用。 面向并发(concurrent-oriented) 在语言中定义了erlang进程的概念和行为，使它特别经量级(309字节)，创建和结束一个进程时间为1-3ms 该进程(绿进程)在rlang虚拟机内管理和高度，是用户态进程 进程堆栈占用233字节 erlang虚拟机支持几十万甚至更多进程 结构化，动态，函数式  </description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://example.com/docs/pl/r/</link>
-      <pubDate>Tue, 09 Oct 2018 16:50:34 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/r/</guid>
-      <description> 介绍 本身是GNU的一个开源软件 用于统计分析、绘图 是S语言的一个分支(实现)  特点 数据存储和处理 数组运算(向量、矩阵运算强大)  </description>
-    </item>
-    
-    <item>
-      <title>Ruby</title>
-      <link>https://example.com/docs/pl/ruby/</link>
-      <pubDate>Tue, 09 Oct 2018 16:50:06 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/ruby/</guid>
-      <description> 工具 gems gem update --system  </description>
-    </item>
-    
-    <item>
-      <title>C</title>
-      <link>https://example.com/docs/pl/c/</link>
-      <pubDate>Tue, 09 Oct 2018 16:49:26 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/c/</guid>
-      <description> 库 libvirt  </description>
-    </item>
-    
-    <item>
-      <title>Cpp</title>
-      <link>https://example.com/docs/pl/cpp/</link>
-      <pubDate>Tue, 09 Oct 2018 16:48:39 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/cpp/</guid>
-      <description> 问题 野指针、迷途指针 Double Free问题 智能指针 RAII资源获取就是初始化 二级指针  库 opencv iplimage # 图像处理  </description>
-    </item>
-    
-    <item>
-      <title>Html</title>
-      <link>https://example.com/docs/pl/markup_language/html/</link>
-      <pubDate>Tue, 09 Oct 2018 16:42:05 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/html/</guid>
-      <description>事件 blur change click dblclick focus keydown keypress keyup load mousedown mousemove mouseout mouseover mouseup reset select submit unload Abort # 中断图片下载时激发 AfterPrint # 打印文档后激发 AfterUpdate # 传送完数据 BeforeCopy # 复制到剪贴板前 BeforeCut # 剪切到剪贴板前 BeforeEditFocus BeforePaste BeforePrint BeforeUnload BeforeUpdate Bounce CellChange CtextMenu Copy Cut DataAvailable DatasetChanged DatasetComplete Drag DragDrop DragEnd DragEnter DragLeave DragOver DragStart Drop Error ErrorUpdate FilterChange Finish Help LoseCapture Move Paste PropertyChange ReadyStateChange Resize RowEnter RowExit RowsDelete RowsInserted Scroll SelectStart Start Stop  标签 &amp;lt;var&amp;gt; # 标识常量 &amp;lt;samp&amp;gt; # 标识输出内容的样式 &amp;lt;pre&amp;gt; # 代码块 &amp;lt;code&amp;gt; # 一段代码  属性 全局属性 # 配置所有元素共有行为 accesskey # 快捷键 ## 需要按alt + 指定的键 class contenteditable # 内容是否可修改, 如p标签 contextmenu # 定义右键菜单，未实现 dir # 文字对齐方式 draggable dropzone hidden id lang spellcheck style tabindex # tab键切换元素的顺序 title  浏览器特性 视频播放 支持vaapi, chrome 加上--enable-vaapi参数可以开启硬件加速解码  方案 &amp;lt;=================================标签========================================&amp;gt; &amp;lt;input&amp;gt;表单 单选框 &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;name&amp;quot; checked value=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;name&amp;quot; value=&amp;quot;1&amp;quot;&amp;gt; 下拉框 &amp;lt;select id=&amp;quot;mySelect&amp;quot; size=10 multiple&amp;gt; # 长度等于10 ，多选 &amp;lt;option selected=&amp;quot;selected&amp;quot;&amp;gt;Apple&amp;lt;/option&amp;gt; &amp;lt;option&amp;gt;Orange&amp;lt;/option&amp;gt; &amp;lt;/select&amp;gt; 勾选框 &amp;lt;input type=&amp;quot;checkbox&amp;quot; name=&amp;quot;&amp;quot; /&amp;gt; 按钮 &amp;lt;input type=&amp;quot;button&amp;quot;/&amp;gt; &amp;lt;button&amp;gt; # &amp;lt;button&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;搜索&amp;lt;/button&amp;gt; button之间可以加图片 &amp;lt;table&amp;gt;表格 &amp;lt;caption&amp;gt; # 标题 &amp;lt;thead&amp;gt; &amp;lt;th&amp;gt; &amp;lt;td&amp;gt;&amp;lt;td&amp;gt; &amp;lt;/th&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;&amp;lt;td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tfoot&amp;gt; 属性 &amp;lt;tr style=&amp;quot;display: none;&amp;quot;&amp;gt; # 设置属性为隐藏 &amp;lt;form&amp;gt;表单 enctype属性 application/x-www-form-urlencoded(默认) # 在发送编码所有字符（空格转换为 &amp;quot;+&amp;quot; 加号，特殊符号转换为 ASCII HEX 值） multipart/form-data # 不对字符进行编码，在上传文件时使用 text/plain # 空格转换为+，但是不对特殊字符进行编码 &amp;lt;hr&amp;gt;分割线 字体 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; .</description>
-    </item>
-    
-    <item>
       <title>Css</title>
       <link>https://example.com/docs/pl/css/</link>
       <pubDate>Tue, 09 Oct 2018 16:27:24 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/css/</guid>
       <description>介绍 cascading style sheet  层叠 # 浏览器对每个元素定义了默认的样式表 不同级 1. style属性 2. style标签 3. link标签 4. 浏览器中用户自定义样式表 5. 浏览器默认样式 !important color: black !important 同级 # 评估得出最特殊的样式 ## a-b-c值依次排序，a如id个数, b如其他属性个数, c如元素名个数 # 评分相同时，使用最后的 id值的数目 其它属性和伪类的数目 元素名和伪元素的数目  继承 部分元素继承父元素样式 元素外观继承 布局不继承 inherit # 指明使用父元素样式 border: inherit  css样式一共三种用法: 内联式 &amp;lt;div style=&amp;quot;color:#000;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; 嵌入式 &amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt; div {color:#000;} &amp;lt;/style&amp;gt; 引用式 &amp;lt;link href=&amp;quot;css.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;  @ @charset &amp;ldquo;UTF-8&amp;rdquo; # 默认UTF-8, 在import前 @import &amp;ldquo;styles.</description>
-    </item>
-    
-    <item>
-      <title>Php</title>
-      <link>https://example.com/docs/pl/php/</link>
-      <pubDate>Tue, 09 Oct 2018 16:24:33 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/php/</guid>
-      <description>安装  php, php-cgi 编译安装 yum install libxml2-devel openssl-devel bzip2-devel libmcrypt-devel -y ./configure --prefix=/opt/zly/php --with-mysql=mysqlnd --with-openssl --with-mysqli=mysqlnd --enable-mbstring --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --enable-sockets --enable-fpm --with-mcrypt --with-config-file-path=/etc --with-config-file-scan-dir=/etc/php.d --with-bz2 make make install cp php.ini-production /etc/php.ini cp sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm chmod +x /etc/rc.d/init.d/php-fpm cp /opt/zly/php/etc/php-fpm.conf.default /opt/zly/php/etc/php-fpm.conf chkconfig --add php-fpm chkconfig php-fpm on /etc/init.d/php-fpm start  命令  php -S localhost:8000 -t dir/  配置  /etc/php/php.ini date.timezone = Europe/Berlin # 时区设置 display_errors = On  框架 zend opcache # php5.</description>
     </item>
     
     <item>
@@ -204,7 +42,7 @@
       <pubDate>Tue, 09 Oct 2018 16:10:44 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/go/</guid>
-      <description>特点  原生支持并发，编译执行的类脚本语言 不支持动态库，不支持重载，不支持泛型，有怪异的正则  命令 godoc -http=:6060 # 运行本地帮助网站 go build # 编译代码包 install # 编译安装 get # 下载依赖 # 默认目录是GOPATH下的pkg -u # update -v clean # 清理build产生的文件 -c # 清理.test文件 -i # 清理生成的可执行文件 -r # 包括依赖包的结果文件 run # 编译并运行 list # 列出指定代码包的信息 fix # 升级旧代码成新版本代码 vet # 检查静态错误 test # go test -cover -args -config config_it.toml -test.run &amp;quot;TestA&amp;quot; # 执行当前目录下所有_test.go结尾的文件 -file # 可省略，测试单个文件, 如go test test_a.go a.go a.</description>
+      <description>特点 原生支持并发，编译执行的类脚本语言 不支持动态库，不支持重载，不支持泛型，有怪异的正则  命令 godoc -http=:6060 # 运行本地帮助网站 go build # 编译代码包 install # 编译安装 get # 下载依赖 # 默认目录是GOPATH下的pkg -u # update -v # 查看进度 clean # 清理build产生的文件 -c # 清理.test文件 -i # 清理生成的可执行文件 -r # 包括依赖包的结果文件 run # 编译并运行 list # 列出指定代码包的信息 fix # 升级旧代码成新版本代码 vet # 检查静态错误 test # go test -cover -args -config config_it.toml -test.run &amp;quot;TestA&amp;quot; # 执行当前目录下所有_test.go结尾的文件 -file # 可省略，测试单个文件, 如go test test_a.go a.</description>
     </item>
     
     <item>
@@ -213,16 +51,7 @@
       <pubDate>Tue, 09 Oct 2018 16:05:05 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/python/</guid>
-      <description>介绍  虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell  #! /usr/bin/python # -*- coding: utf8 -*-  语法 规范 pep8  内置函数 o-&amp;gt; input(&amp;quot;&amp;quot;) # x = int(input(&amp;quot;Please enter an integer:&amp;quot;)) print(&amp;quot;%s&amp;quot;, % s1) ## %.3s % (&amp;quot;abcdef&amp;quot;)取3字符 ## %.* s % (2, &amp;quot;abcd&amp;quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.</description>
-    </item>
-    
-    <item>
-      <title>Scheme</title>
-      <link>https://example.com/docs/pl/scheme/</link>
-      <pubDate>Tue, 09 Oct 2018 16:03:20 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/scheme/</guid>
-      <description>特点  词法定界(Lexical Scoping) 动态类型(Dynamic Typing) 良好的可扩展性 尾递归(Tail Recursive) 函数作为值返回 计算连续 传值调用(passing-by-value) 算术运算相对独立  标准  R5RS (Revised5 Report on the Algorithmic Language Scheme) Guile (GNU&#39;s extension language)  guile脚本中(.scm)  #! /usr/local/bin/guile -s !#  语法 注释 ; # 注释到行尾 #! ... !# # 标准中没有，实现中有的多行注释 类型 1 &#39;symbol &amp;quot;str&amp;quot; true, false struct empty # 表示一个空表 块(form) (define x 123) (set! x &amp;quot;abc&amp;quot;) (+ 1 2) (* (+ 2 (* 3 4)) (+ 5 6 7)) (display &amp;quot;hello world&amp;quot;) (not #f) # #t (not #t) # #f # not 后不是逻辑型，都返回#f 非精确数 (- #i1.</description>
+      <description>介绍 虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #! /usr/bin/python # -*- coding: utf8 -*-  语法 规范 pep8  内置函数 o-&amp;gt; input(&amp;quot;&amp;quot;) # x = int(input(&amp;quot;Please enter an integer:&amp;quot;)) print(&amp;quot;%s&amp;quot;, % s1) ## %.3s % (&amp;quot;abcdef&amp;quot;)取3字符 ## %.* s % (2, &amp;quot;abcd&amp;quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.3f %-10.3F 浮点数 ## 10位宽, 小数精确3位, 右对齐 # %g %G 指数(e E)或浮点数(根据显示长度决定) # %% 字符% print(&amp;quot;c is %s, e is %i&amp;quot; % (c, e) str(1) int(&amp;quot;1&amp;quot;) range(1, 10) # range(-2, -11, -3) exec(&#39;&#39;) # 执行字符串中的代码 execfile(r&#39;a.</description>
     </item>
     
     <item>
@@ -259,44 +88,6 @@
       
       <guid>https://example.com/docs/pl/javaweb/</guid>
       <description>分层 示意 层 |视图层 --&amp;gt; | 控制层（） --&amp;gt; |业务层 --&amp;gt; |dao数据访问层对象 --&amp;gt; |数据库 技术 |jsp(c:forEach) |servlet获取list域 |service过滤数据 |封装对象List | 对象 |bean销毁 | | |创建bean | 业务 |web服务器tomcat | | | |存储过程（银行） java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  框架 spring site # 整合框架 tapestry # 基于servlet的mvc框架 titles # apache的标签库 jersey # restful服务 guice # google的ioc轻量框架 ehcache # 缓存 httpclient httpComponents ejb # 会话bean, 实体bean, 消息驱动bean proguard # 混淆 i18n  监听器 启动顺序 先启动监听器，再启动过滤器 ServletContextListener ServletContextAttributeListener HttpSessionListener HttpSessionAttributeListener HttpSessionActivationListener web.</description>
-    </item>
-    
-    <item>
-      <title>pl语言</title>
-      <link>https://example.com/docs/pl/language/</link>
-      <pubDate>Mon, 08 Oct 2018 22:49:33 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/language/</guid>
-      <description>elixir .net lua objective-c swift erlang R groovy # 基于jvm，结合python, ruby, smalltalk的特性
-dart # 谷歌发布的基于javascript的编程语言 hack # facebook开发的基于HHVM，可与PHP无缝对接 特点 结合了PHP开发高效性同时，有了静态语言的报错特性 支持lambda表达式和强制返回等流行特性 roy # 可编译到js elm # 可编译到js jujia # 动态语言，用于科学和数值计算
-Fortran # 最早出现的高级语言，用于工程计算领域 ML # meta language, 非纯函数式编程,允许副作用和指令式编程 lisp haskell prolog OCaml # 在caml上加上oo, 源于ML simula # 专注于仿真的语言，由类创建的对象会在协调的多线程模式下，像erlang的进程一样并行处理</description>
-    </item>
-    
-    <item>
-      <title>编译</title>
-      <link>https://example.com/docs/pl/parser/</link>
-      <pubDate>Mon, 08 Oct 2018 22:47:30 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/parser/</guid>
-      <description> 流程  词法分析，语法分析，语义分析，中间代码生成，中间代码优化，目标代码生成，表格管理，错误处理 语义分析 -&amp;gt; 类型检查/推导 -&amp;gt; 代码优化 -&amp;gt; 机器码生成 # 中间数据结构, 比如AST 预处理，连接程序，装入程序，调试程序  文法  G = (Vn, Vt, S, P) # 终极符号, 非终级符号, 一个特殊非终级符号，产生式 类型 短语(0), 对应图灵机(TM) 上下文相关(1), 对应线性有界自动机(LBA) 上下文无关(2), 对应下推自动机(PDA) 线性文法、正则文法、正规文法，对应有限自动机(FA) # 无法控制自返数  状态机(FA)  确定状态机(DFA) 非确定状态机(NFA) # 同状态可多种转移 DFA与NFA互相转换  词法分析  状态转换矩阵法  语法分析  自顶向下 # 最左推导建立语法树 # first集，follow集，predict集 不回溯方法 递归下降 LL(1) # 从左输入符号、产生左推导、每次读一个字符。LL(k)特例 自底向上 # 从左读, 从右向前归约 简单优先关系 # 运算符优先关系矩阵 LR(k) # 从左输入，最右推导 LR(0) # 只看栈顶状态，有分析动作冲突 SLR(1) # LR(0)加向前看展望符，不能分析所有文法 LR(1) # LR(0)的每个推导加一个向前搜索符，状态太多 LALR(1) # LR(1)中同向前搜索符的状态合并  语义分析  抽象语法树 符号表 # 动态规划记录变量的综合信息 局部化处理 # 压栈变量作用域  中间代码生成  后缀式(逆波兰式) 三地址 # 操作符两变量地址，结果地址 四元式操作符 # 地址加，赋值，过程调用，类型转换，算术、逻辑、关系运算的存储 语法制导 # 中间代码产生式后拼上语义程序，在语法分析中遇到动作马上处理 类型检查 下标变量 # 如数组下标，同上全用四元式表示  中间代码优化  常量表达式 a = 1, b = 2, c = a + b, 则只记c = 3 公共表达式 a = b * c, d = b * c, 则只记a 循环不变式外提 while k &amp;lt; 0 do b * c, 则b * c外提只计算一次 基本块 # 一块语句要么全执行，要么全不执行 消减运算强度 如加法代替乘法 复写传播 a = b, 后a, b不再变值，用a替代b 无用代码消除 数学优化（恒等变换） 如a + 0 = a, a * 1 = a, a ^ 2 = a * a, a / 1 = a, 0 / a = 0 窥孔优化 对目标代码中短指令序列局部改进，如删除重复，控制流优化，代数化简，使用特殊指令等 全局优化 对整个程序控制流和数据分析再优化，如常量表达式全局优化  运行时时空管理  内存划分 存储 引用的库的代码 目标代码 静态变量 栈区 # 函数调用，中断现场 堆区 存储策略 静态分配 #编译时分配固定存储单元 动态分配 栈 堆 活动记录 保存局部变量，中间结果，临时变量，过程调用，控制信息等 专用寄存器 调用链 # 保存下一个调用的起始地址 动态链 # 保存前一个调用的起始地址 访问环境 # 记录闭包起始地址 display表 # 过程需要的所有非局部数据所在的过程活动记录的起始地址 全局display表 静态链 # 指向外层过程的活动记录的地址地址  目标代码生成  生成的语言 机器语言 可重定位的机器语言 # 由连接器装配后生成机器语言 # 多数用这种，如c语言 汇编语言 指令选择 虚拟机 寄存器分配 四元式翻译  </description>
-    </item>
-    
-    <item>
-      <title>pl原理</title>
-      <link>https://example.com/docs/pl/principle/</link>
-      <pubDate>Mon, 08 Oct 2018 22:46:50 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/principle/</guid>
-      <description> gc 分类 mark-and-sweep reference-counting arc # automatic reference counting  </description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>https://example.com/docs/pl/markup_language/markdown/</link>
-      <pubDate>Sun, 07 Oct 2018 17:10:37 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/markup_language/markdown/</guid>
-      <description> 标题 # 到 ######开头 # 分别表示一号 到 六号 标题  字体 **a**或__a__ # 加粗 *a*或_a_ # 斜体 ***a***或___a___ # 加粗斜体 ~~a~~ # 删除线  引用 &amp;gt;a &amp;gt;&amp;gt;b # 不断增加&amp;gt;来多层引用  分割线 --- # 三个及以上 *** # 三个及以上，与---显示无分别  图片 ![alt内容](url &amp;quot;title内容&amp;quot;) # alt显示在图片下，title在鼠标悬停时显示  超链接 [文本](url) &amp;lt;a href=&amp;quot;url&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;文本&amp;lt;/a&amp;gt; # 可以用a标签指定target，在新页面显示  列表 -或+或*开头 # 无序列表- 数字加点开头 # 有序列表，行数自动 多空格（至少两个）加列表开头 # 嵌套列表  表格 标题1|标题2|标题3 # 默认居中对齐 -|-|- # -可以多个，:-控制标题和内容左对齐，:-:居中，-:右对齐 1|2|3 ＃ 默认左对齐  代码 `a + b;` # 单选代码 ``` function a(){ } ``` # 多行代码 # tab开头  流程图 略  </description>
     </item>
     
   </channel>
