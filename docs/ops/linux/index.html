@@ -64,26 +64,44 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
 </ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+</ul></li>
+</ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
 
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
 <ul>
-<li><a href="/docs/backend/server">服务器</a></li>
+<li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
-<li><a href="/docs/backend/lucene">lucene</a></li>
-<li><a href="/docs/backend/nodejs">nodejs</a></li>
-<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
-<li><a href="/docs/backend/struts2">struts2</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-<li><a href="/docs/backend/hadoop">hadoop</a></li>
-<li><a href="/docs/backend/mybatis">mybatis</a></li>
 </ul></li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
 
@@ -93,12 +111,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-
-<ul>
-<li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
 </ul></li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
 
@@ -115,23 +127,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
-
-<ul>
-<li><a href="/docs/pl/go">go</a></li>
-<li><a href="/docs/pl/js">js</a></li>
-<li><a href="/docs/pl/java">java</a></li>
-<li><a href="/docs/pl/javaweb">javaweb</a></li>
-<li><a href="/docs/pl/python">python</a></li>
-<li><a href="/docs/pl/haskell">haskell</a></li>
-<li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
-<ul>
-<li><a href="/docs/pl/markup_language/html">html</a></li>
-</ul></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
@@ -280,6 +275,22 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="fstab">fstab</h2>
 
 <pre><code>/dev/sda1 /home/outrun/sda1 ntfs-3g defaults 0 0
+</code></pre>
+
+<h2 id="日志">日志</h2>
+
+<pre><code>access-log      # http传输
+acct和pacct     # 用户命令
+aculog          # modem活动
+btmp            # 失败记录
+lastlog         # 最近成功登录、最后一次不成功登录
+syslog          # 系统日志
+messages        # syslog
+sudolog         # sudo记录
+sulog           # su记录
+utmp            # 当前登录用户
+wtmp            # 用户登录登出记录
+xferlog         # ftp会话
 </code></pre>
 
 <h1 id="原理">原理</h1>
@@ -492,6 +503,8 @@ yaourt
             SigLevel = Never
             Server = http://repo.archlinux.fr/$arch
     pacman -Sy base-devel yaourt
+字体
+    wiki上找font configuration
 </code></pre>
 </article>
 
@@ -500,8 +513,8 @@ yaourt
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
     </a>
   </div>
   
@@ -529,6 +542,7 @@ yaourt
 <ul>
 <li><a href="#initd">initd</a></li>
 <li><a href="#fstab">fstab</a></li>
+<li><a href="#日志">日志</a></li>
 </ul></li>
 <li><a href="#原理">原理</a>
 <ul>

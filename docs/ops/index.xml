@@ -11,15 +11,6 @@
     
     
     <item>
-      <title>Linux</title>
-      <link>https://example.com/docs/ops/linux/</link>
-      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
-      
-      <guid>https://example.com/docs/ops/linux/</guid>
-      <description>历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.168.0.100 # ip NETMASK=255.255.255.0 # netmask ONBOOT=yes # 系统启动时是否激活此设备 /network # 修改网关 NETWORKING=yes # 系统是否使用网络 HOSTNAME=abc # 设置本机主机名, 要与/etc/hosts中设置的主机名相同 GATEWAY=192.</description>
-    </item>
-    
-    <item>
       <title>LinuxTool</title>
       <link>https://example.com/docs/ops/linux_tool/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
@@ -35,6 +26,15 @@
       
       <guid>https://example.com/docs/ops/docker/</guid>
       <description>介绍  基于linux LXC，可以实现虚拟化  镜象网站  https://hub.docker.com/  命令 docker -h search mysql pull centos:7 centos:latest outrun11/test:nginx1 images centos # 本地镜象列表 ps -a # 容器列表 rmi centos:latest # 删除镜象 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 kill 026e restart 026e start 026 # 启动已建立的进程 cp 026e:/docker/file /local/file login build -t=&amp;quot;nginx/test&amp;quot; . # 用当前目录Dockerfile创建新镜像 tag nginx/test:test1 outrun11/test:nginx1 # 要求docker网站中创建了名为test的repository push outrun11/test:nginx1 logs beae3392 run # 从镜像建立进程 # id可以只输入前几位 # -t 伪tty, -i 交互的 # -rm=true执行完后删除 # -v /etc/:/opt/etc/ 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc # -p 1234:80 端口映射本机1234端口到容器80 # --volumes-from etc_share 使用另一个容器对外共享的磁盘 # -d 后台运行 # --link redis_server:redis 连接容器的redis命令 # -w /var/node 当前工作目录 # -e NODE_ENV=&#39;&#39; 环境变量 -t -i centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 --rm=true -i -t --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -i -t -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 --rm=true -i -t --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 run # 在新容器中运行命令 --name nsqd -p 4150:4150 nsqio/nsq /nsqd  配置 /etc/sysconfig/docker # /etc/init.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/ops/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/ops/linux/</guid>
+      <description>历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.168.0.100 # ip NETMASK=255.255.255.0 # netmask ONBOOT=yes # 系统启动时是否激活此设备 /network # 修改网关 NETWORKING=yes # 系统是否使用网络 HOSTNAME=abc # 设置本机主机名, 要与/etc/hosts中设置的主机名相同 GATEWAY=192.</description>
     </item>
     
   </channel>

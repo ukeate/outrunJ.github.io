@@ -64,26 +64,44 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
 </ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+</ul></li>
+</ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
 
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
 <ul>
-<li><a href="/docs/backend/server">服务器</a></li>
+<li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
-<li><a href="/docs/backend/lucene">lucene</a></li>
-<li><a href="/docs/backend/nodejs">nodejs</a></li>
-<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
-<li><a href="/docs/backend/struts2">struts2</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-<li><a href="/docs/backend/hadoop">hadoop</a></li>
-<li><a href="/docs/backend/mybatis">mybatis</a></li>
 </ul></li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
 
@@ -93,12 +111,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-
-<ul>
-<li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
 </ul></li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
 
@@ -115,23 +127,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
-
-<ul>
-<li><a href="/docs/pl/go">go</a></li>
-<li><a href="/docs/pl/js">js</a></li>
-<li><a href="/docs/pl/java">java</a></li>
-<li><a href="/docs/pl/javaweb">javaweb</a></li>
-<li><a href="/docs/pl/python">python</a></li>
-<li><a href="/docs/pl/haskell">haskell</a></li>
-<li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
-<ul>
-<li><a href="/docs/pl/markup_language/html">html</a></li>
-</ul></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
@@ -207,6 +202,9 @@ go test -cover -args -config config.toml -test.run &quot;TestCreate&quot;
 
 <pre><code>dmesg
 journalctl
+
+快捷键
+    ctrl alt f1/f2/...
 </code></pre>
 
 <h1 id="系统配置">系统配置</h1>
@@ -281,7 +279,6 @@ opt
     robomongo
     emacs
     neoclipse
-    wps
 
     # 数据库
     elasticsearch
@@ -317,6 +314,8 @@ diy
     ~/.openvpn
     ~/.ssh
     ~/.tmux.conf
+    ~/.config/awesome
+    ~/.config/VirtualBox/VirtualBox.xml
     /opt/env
     /opt/svc
     /etc/resolv.conf
@@ -324,11 +323,19 @@ diy
     /db/mongo
     /srv/ftp
     /srv/http
+
+    # log
+    ~/VBoxSVC.log
+    ~/VirtualBox VMs/machinename/Logs
+    ~/.config/VirtualBox/selectorwindow.log
 </code></pre>
 
-<h1 id="vim常用">vim常用</h1>
+<h1 id="vim">vim</h1>
 
-<pre><code>可视模式
+<pre><code>命令
+    vim
+        --version   # 查看插件
+可视模式
     o   # 切换头尾
     gv  # 重选上次
     &lt;C - v&gt; 
@@ -379,6 +386,7 @@ shortcut key
     &lt;C - d&gt;/u   # 滚半屏
     &lt;C - f&gt;/b   # 滚一屏
     &lt;C - i&gt;/o   # 下个/上个跳动位置
+    &lt;C X&gt;   # 当前单词大小写转换
 text-object
     i&quot;  # 中间内容
         # ' ` ( ) [ ] &lt; &gt; { }
@@ -393,7 +401,8 @@ registers
         &quot;-  # 行内删除
         &quot;a  # a - z, A - Z
         &quot;=  # 只读，用于执行表达式命令
-        &quot;*  # clipboard
+        &quot;*  # clipboard，针对选中部分(selection)
+        &quot;+  # clipboard, windows下与*同，linux X11下针对复制或剪切部分(cut buffer)
         &quot;_  # black hole
         &quot;/  # 最近的搜索模式
 宏
@@ -415,22 +424,115 @@ registers
     &lt;C - w&gt; v
 </code></pre>
 
-<h1 id="awesome常用">awesome常用</h1>
+<h1 id="intellij">intellij</h1>
 
-<pre><code>帮助
-    &lt;M - w&gt;
-client
-    &lt;M - 回车&gt;
-    &lt;M - c&gt;
-        # 自定义chromium
-    &lt;M - f&gt;
-        # 全屏
-    &lt;M - shift - c&gt;
-        # 关闭
-    &lt;M - 数字&gt;
-    &lt;M - j&gt; &lt;M - k&gt;
-    &lt;M - 空格&gt;
-        # 变布局
+<pre><code>shift shift
+</code></pre>
+
+<h1 id="awesome">awesome</h1>
+
+<pre><code>快捷键
+    独立
+        &lt;M - s&gt;             # 帮助
+        &lt;M - w&gt;             # 菜单
+    client
+        &lt;M - 回车&gt;            # 终端
+        &lt;M - ctrl - r&gt;       # reload
+        &lt;M - c&gt;              # 自定义chromium
+        &lt;M - f&gt;              # 全屏
+        &lt;M - shift - c&gt;      # 关闭
+        &lt;M - 数字&gt;            # 切换到tag
+        &lt;M - j&gt; &lt;M - k&gt;      # 本tag切换client
+        &lt;M - 空格&gt;            # 变布局
+
+~/.config/awesome/rc.lua
+    # 默认在/etc/xdg/awesome/rc.lua
+
+    -- Table of layouts to cover with awful.layout.inc, order matters.
+    awful.layout.layouts = {
+        -- awful.layout.suit.floating,
+        awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        awful.layout.suit.tile.bottom,
+        awful.layout.suit.tile,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.fair,
+        -- awful.layout.suit.fair.horizontal,
+        awful.layout.suit.magnifier,
+        awful.layout.suit.corner.nw,
+        -- awful.layout.suit.corner.ne,
+        -- awful.layout.suit.corner.sw,
+        -- awful.layout.suit.corner.se,
+        awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+    }
+    -- }}}
+
+
+    -- {{{ Menu
+    mymainmenu = awful.menu({ items = { { &quot;awesome&quot;, myawesomemenu, beautiful.awesome_icon },
+        { &quot;chromium&quot;, &quot;chromium&quot; },
+        { &quot;open terminal&quot;, terminal }
+      }
+    })
+
+
+    -- {{{ Key bindings
+    -- Standard program
+        awful.key({ modkey,           }, &quot;c&quot;, function () awful.spawn(&quot;chromium&quot;) end,
+            {description = &quot;open a chromium&quot;, group = &quot;launcher&quot;}),
+
+
+    -- {{{ Rules
+    -- Floating clients.
+    {
+    rule = { class = &quot;VirtualBox&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;MyBase&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;2&quot;}
+    },
+
+
+    {
+    rule = { class = &quot;jetbrains-goland&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;Code&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;2&quot;}
+    },
+
+    {
+    rule = { class = &quot;jetbrains-webstorm&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;3&quot;}
+    },
+
+
+    -- {{{ diy auto run
+    awful.util.spawn_with_shell(&quot;~/.config/awesome/autorun.sh&quot;)
+    -- }}}
+
+~/.config/awesome/autorun.sh
+    #!/usr/bin/env bash
+
+    # nothing to use
+    function run {
+        if ! pgrep $1 ; then
+            $@&amp;
+        fi
+    }
+
+    if xrandr | grep -q 'eDP1 connected' ; then
+        run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off
+    fi
+
+    run ibus-daemon --xim
+    run nm-applet
 </code></pre>
 
 <h1 id="tmux">tmux</h1>
@@ -441,8 +543,8 @@ client
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
     </a>
   </div>
   
@@ -469,8 +571,9 @@ client
 <li><a href="#go">go</a></li>
 <li><a href="#linux">linux</a></li>
 <li><a href="#系统配置">系统配置</a></li>
-<li><a href="#vim常用">vim常用</a></li>
-<li><a href="#awesome常用">awesome常用</a></li>
+<li><a href="#vim">vim</a></li>
+<li><a href="#intellij">intellij</a></li>
+<li><a href="#awesome">awesome</a></li>
 <li><a href="#tmux">tmux</a></li>
 </ul>
 </nav>

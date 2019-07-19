@@ -64,26 +64,44 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
 </ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+</ul></li>
+</ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
 
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
 <ul>
-<li><a href="/docs/backend/server">服务器</a></li>
+<li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
-<li><a href="/docs/backend/lucene">lucene</a></li>
-<li><a href="/docs/backend/nodejs">nodejs</a></li>
-<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
-<li><a href="/docs/backend/struts2">struts2</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-<li><a href="/docs/backend/hadoop">hadoop</a></li>
-<li><a href="/docs/backend/mybatis">mybatis</a></li>
 </ul></li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
 
@@ -93,12 +111,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-
-<ul>
-<li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
 </ul></li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
 
@@ -115,23 +127,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
-
-<ul>
-<li><a href="/docs/pl/go">go</a></li>
-<li><a href="/docs/pl/js">js</a></li>
-<li><a href="/docs/pl/java">java</a></li>
-<li><a href="/docs/pl/javaweb">javaweb</a></li>
-<li><a href="/docs/pl/python">python</a></li>
-<li><a href="/docs/pl/haskell">haskell</a></li>
-<li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
-<ul>
-<li><a href="/docs/pl/markup_language/html">html</a></li>
-</ul></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
@@ -188,87 +183,126 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="基本概念">基本概念：</h1>
+<h1 id="基础">基础</h1>
 
-<pre><code>    o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题
-    o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想)
-                    DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准
-                    它们的区别在于
-                            hibernate中不写sql语句
-                            ibatis中写少量sql语句
-                            DBUtils中写sql语句
-                    它们的另一个相同点是
-                             底层全都是jdbc
-    o-&gt; 结构对应 javabean中的 类，对象，属性
-                         数据库中的            表，记录，字段
-    o-&gt; hql        hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用
-    o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
-</code></pre>
-
-<h1 id="优点">优点</h1>
-
-<pre><code>    1.完全面向对象编程思想，无sql
-    2.减少代码
-    3.控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率
-    4.hibernate具有独立性（访问层随时可以更换）
-</code></pre>
-
-<h1 id="特性">特性</h1>
-
-<pre><code>    不写hbm.xml映射文件，而是基于注解的验证
-    hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准）
-</code></pre>
-
-<h1 id="目录">目录</h1>
-
-<pre><code>    .                                        # hibernate程序包
+<pre><code>优点
+    完全面向对象编程思想，无sql
+    减少代码
+    控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率
+    hibernate具有独立性（访问层随时可以更换）
+特性
+    不写hbm.xml映射文件，而是基于注解的验证
+    对象、集合、属性的延迟加载
+        dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常
+目录
+    .                                        # hibernate程序包
     documentation                # 文档
     lib                                        # 所有依赖包
     project                                # 源码文件
+加载顺序
+    后面的覆盖前面的
+    hibernate.properties中的配置被覆盖
+        # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置   hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准）
+开发流程
+    加载配置: jdbc参数，数据库方言，hbm映射
+    创建SessionFactory    # 内有连接池
+    创建session
+    事务处理
+    关闭session
+    关闭连接池
+对象状态
+    𣊬时态     # 没有OID(持久化标识), 没有关联session
+    持久态     # 有OID, 与session关联, 事务未提交
+    脱管态     # 有OID, 没有关联session
+缓存机制
+    一级缓存(session)
+        事务级，事务结束缓存失效    # 请求同一对象，取得同一实例
+        总是打开
+    二级缓存
+        SessionFactory级别，session共享
+        缓存散装持久化实例, 有不同缓存策略
+        先设置策略，再设置过期时间与cache提供器
+    优点
+        提高速度、减小压力
+        缓存失效时，不立即查找，而是合并sql查找
+查询方式
+    HQL
+    QBC(命名查询)
+    SQL
+get与load
+    get立即加载，load延时加载
+    get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库
+        # 代理对象只存id
+    get没有时返回null, load抛异常
+检索策略            # 取关联对象
+    立即检索        # 一次全加载, select多
+    延迟检索        # 访问游离状态代理类，需要在持久化状态时已被初始化
+    迫切左外连接检索 # 用外连接取代select，全加载
 </code></pre>
 
-<h1 id="加载顺序">加载顺序</h1>
+<h1 id="优化">优化</h1>
 
-<pre><code>    后面的覆盖前面的
-    hibernate.properties中的配置被覆盖        
-            # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置
+<pre><code>数据库设计调整
+HQL优化
+api正确使用
+配置参数          # 日志、查询缓存，fetch_size, batch_size等
+映射文件优化      # id生成策略，二级缓存，延迟加载，关联优化
+一级缓存管理, 二级缓存策略
+事务控制策略
+</code></pre>
+
+<h1 id="基本概念">基本概念：</h1>
+
+<pre><code>o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题
+o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想)
+    DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准
+    它们的区别在于
+        hibernate中不写sql语句
+        ibatis中写少量sql语句
+        DBUtils中写sql语句
+    它们的另一个相同点是
+         底层全都是jdbc
+o-&gt; 结构对应 javabean中的 类，对象，属性
+         数据库中的            表，记录，字段
+o-&gt; hql        hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用
+o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
 </code></pre>
 
 <h1 id="使用">使用</h1>
 
 <pre><code>1.导入核心包(10 + 1个)
-        hibernate3.jar                                # 核心包
-        c3p0-0.9.1.jar
-        antlr-2.7.6.jar                                # 转换hql到sql
-        commons-collections-3.1.jar        # apache的集合增强包
-        dom4j-1.6.1.jar
-        javassist-3.9.0.GA.jar                # 动态代理
-        jta-1.1.jar                                        # java transaction api        处理事务用
-        slf4j-api-1.5.8.jar
-        log4j.jar
-        slf4j-log4j12.jar                        # 三个日志
-        +
-        mysql-connector-java-5.1.7.bin.jar
+    hibernate3.jar                                # 核心包
+    c3p0-0.9.1.jar
+    antlr-2.7.6.jar                                # 转换hql到sql
+    commons-collections-3.1.jar        # apache的集合增强包
+    dom4j-1.6.1.jar
+    javassist-3.9.0.GA.jar                # 动态代理
+    jta-1.1.jar                                        # java transaction api        处理事务用
+    slf4j-api-1.5.8.jar
+    log4j.jar
+    slf4j-log4j12.jar                        # 三个日志
+    +
+    mysql-connector-java-5.1.7.bin.jar
 
 2.建立目录
-        hibernate.dao
-                demo.java
-        hibernate.db
-                xx.sql
-        hibernate.domain
-                xx.java
-        hibernate.util
-                HibernateUtil.java
+    hibernate.dao
+            demo.java
+    hibernate.db
+            xx.sql
+    hibernate.domain
+            xx.java
+    hibernate.util
+            HibernateUtil.java
 3.创建映射文件
-        xx.java文件的同目录下，创建
-                xx.hbm.xml
+    xx.java文件的同目录下，创建
+            xx.hbm.xml
 4.创建配置文件
-        src/hibernate.cfg.xml        (可变)
-        src/hibernate.properties
+    src/hibernate.cfg.xml        (可变)
+    src/hibernate.properties
 5.写提供hibernate session的工具类
-        HibernateUtil
+    HibernateUtil
 6.demo中用hibernate session创建事务进行数据库操作
-        demo.java
+    demo.java
 </code></pre>
 
 <h1 id="session">session</h1>
@@ -313,25 +347,25 @@ https://github.com/alex-shpak/hugo-book
 
 session
     元素的状态
-                    # oid: object id,hibernate 的id值唯一并且与表中的数据一一对应
-                    ## hibernate中分辨数据只看oid
-            临时（new），无oid,不在session中.生成sql语句                
-                持久化（persistence object）：session.save(hero),有oid,在session中;(saveOrUpdate(hero))
-                游离：session.evict(hero),有oid,不在session中,session.update(hero)重新持久化
-                删除：sesssion.delete(hero),有oid,不在session中,不可恢复,提交后可修改数据库
-                    # 隐含将po对象转成持久化状态，并生成delete语句。提交后成delete状态，执行语句
-                    ## 临时、持久、游离都可以调用
-                    ## 临时调用delete时会删除数据库中相应id的值 ，危险
+        # oid: object id,hibernate 的id值唯一并且与表中的数据一一对应
+        ## hibernate中分辨数据只看oid
+        临时（new），无oid,不在session中.生成sql语句
+            持久化（persistence object）：session.save(hero),有oid,在session中;(saveOrUpdate(hero))
+            游离：session.evict(hero),有oid,不在session中,session.update(hero)重新持久化
+            删除：sesssion.delete(hero),有oid,不在session中,不可恢复,提交后可修改数据库
+                # 隐含将po对象转成持久化状态，并生成delete语句。提交后成delete状态，执行语句
+                ## 临时、持久、游离都可以调用
+                ## 临时调用delete时会删除数据库中相应id的值 ，危险
     函数
-            get 与 load
-                    session.get(hero.class,1),从数据库得到持久状态对象
-                        与数据库交互
-                        查到时返回po
-                        查不到时返回null
-                    session.load(hero.class,1)
-                        不与数据库交互,返回自己创建的po(只有id)
-                    访问非id值的时候，与数据库交互
-            session.clear() # session中的引用变量清空
+        get 与 load
+            session.get(hero.class,1),从数据库得到持久状态对象
+                与数据库交互
+                查到时返回po
+                查不到时返回null
+            session.load(hero.class,1)
+                不与数据库交互,返回自己创建的po(只有id)
+            访问非id值的时候，与数据库交互
+        session.clear() # session中的引用变量清空
         session.close() # clear() + 关闭session对象，回收资源，但session非空
         session.isOpen()
         session.flush() # 对session中的更改部分生成相应的sql语句,只在session中，不访问数据库
@@ -947,8 +981,8 @@ javaBean
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
     </a>
   </div>
   
@@ -971,11 +1005,9 @@ javaBean
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
+<li><a href="#基础">基础</a></li>
+<li><a href="#优化">优化</a></li>
 <li><a href="#基本概念">基本概念：</a></li>
-<li><a href="#优点">优点</a></li>
-<li><a href="#特性">特性</a></li>
-<li><a href="#目录">目录</a></li>
-<li><a href="#加载顺序">加载顺序</a></li>
 <li><a href="#使用">使用</a></li>
 <li><a href="#session">session</a></li>
 <li><a href="#hibernate-cfg-xml">hibernate.cfg.xml</a></li>

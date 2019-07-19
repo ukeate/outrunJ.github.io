@@ -64,26 +64,44 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
 </ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/css">css</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+</ul></li>
+</ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
 
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
 <ul>
-<li><a href="/docs/backend/server">服务器</a></li>
+<li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
-<li><a href="/docs/backend/lucene">lucene</a></li>
-<li><a href="/docs/backend/nodejs">nodejs</a></li>
-<li><a href="/docs/backend/shiro">shiro</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
-<li><a href="/docs/backend/struts2">struts2</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-<li><a href="/docs/backend/hadoop">hadoop</a></li>
-<li><a href="/docs/backend/mybatis">mybatis</a></li>
 </ul></li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
 
@@ -93,12 +111,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-
-<ul>
-<li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
 </ul></li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
 
@@ -115,23 +127,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
-
-<ul>
-<li><a href="/docs/pl/go">go</a></li>
-<li><a href="/docs/pl/js">js</a></li>
-<li><a href="/docs/pl/java">java</a></li>
-<li><a href="/docs/pl/javaweb">javaweb</a></li>
-<li><a href="/docs/pl/python">python</a></li>
-<li><a href="/docs/pl/haskell">haskell</a></li>
-<li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
-<ul>
-<li><a href="/docs/pl/markup_language/html">html</a></li>
-</ul></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
@@ -348,9 +343,9 @@ iconv
     -f gbk -t utf-8 -c orig.txt -o tgt.txt
         # 转码
 tar xf
-    zcvf x.tar.gz x
+    cfzv x.tar.gz x
         # 压缩
-    zxvf x.tar.gz
+    xfzv x.tar.gz
         # 解压
     --exclude=/proc
 gzip x
@@ -368,6 +363,7 @@ paste file1 file2
     -d '+'
         # 分隔符
 nano
+strings     # 打印可打印字符
 </code></pre>
 
 <h1 id="kit">kit</h1>
@@ -607,23 +603,24 @@ lvs
 
 <pre><code>pidstat
     # 进程使用资源的情况
-ps ef
-    ps auxf
+ps
+    aux     # 用在unix style中, BSD格式显示
+    ef      # 用在system v style中, 标准格式显示
 pstree
     # 进程关系
 pmap pid
     # 进程
 
 kill 1024
-    # kill - QUIT/3 1024 退出(同ctrl + \)
-    ## HUP/1 终端断线
-    ## INT/2 中断(同ctrl + c)
-    ## KILL/9 强制终止
-    ## TERM/15 终止
-    ## CONT/18 继续(与STOP相反, 同fg/bg)
-    ## STOP/19 暂停(同ctrl + z)
-kill -l
-    # 列出所有信号名称和编号
+    -9
+        # 3 QUIT 退出(同ctrl + \)
+        # 1 HUP 终端断线
+        # 2 INT 中断(同ctrl + c)
+        # 9 KILL 强制终止
+        # 15 TERM 终止
+        # 18 CONT 继续(与STOP相反, 同fg/bg)
+        # 19 STOP 暂停(同ctrl + z)
+    -l      # 列出所有信号名称和编号
 
 pkill Xorg
     # kill 所有包含
@@ -1250,7 +1247,14 @@ simplehttp
 </article>
 
       
-<div class="book-footer justify-end">
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    </a>
+  </div>
   
   
   <div>

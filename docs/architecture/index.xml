@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>架构 on outrun的笔记</title>
+    <title>outrun的笔记</title>
     <link>https://example.com/docs/architecture/</link>
-    <description>Recent content in 架构 on outrun的笔记</description>
+    <description>Recent content on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 11 Oct 2018 10:33:48 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/docs/architecture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>架构-性能</title>
-      <link>https://example.com/docs/architecture/performance/</link>
-      <pubDate>Wed, 10 Oct 2018 17:20:46 +0800</pubDate>
+      <title>Nodejs</title>
+      <link>https://example.com/docs/architecture/nodejs/</link>
+      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/architecture/performance/</guid>
-      <description>原则 qps latency through put io 磁盘 iops: 2k 网络 带宽 iops: 3w bottle-nect  流量 小米论坛 pv 2000w 热门并发300 20k/页面 300k/图片(未压缩) 70k/无图帖子 500k-3M/有图帖子 动态服务器最小带宽: 48Mbps 静态服务器最小带宽: 1440Mbps 实际购买带宽: 800M 带宽费用: 8.7w/month 糗事百科 pv 1000w 热门并发150 10k/页面 70k/图 4图/页 90k-400k/综合页 动态服务器带宽: 12Mbps 静态服务器带宽: 336Mbps  带宽 建议 热门并发1.5倍到2倍购买  cdn 介绍 流量不大时带宽比cdn便宜, 流量大时cdn便宜。 界限为250Mbps左右，价格在9k/month 价格 50TB/月 100TB/月 阿里云 3.8w/月 6.9w/月 盛大云 9k/月 1.7w/月 网宿 蓝汛  服务 teamwork confluence teambition basecamp jira testlink shimo dropbox trello itsm/erp # IT Service Management, 信息技术服务管理 salesforce servicenow workday # hr平台 pay 支付宝 易宝 财付通 cti 天润 云之讯 容联 report/olap palo idc # infomation data corporation 互联网数据中心 cdn 七牛 ws 阿里云 青云 digital ocean vultr aws Linode azure # 微软开放平台 gce # google compute engine txCloud # 云柜，数据存储和计算 首都在线 paas gae # google app engine sae # sina app engine heroku im 环信 云片 jpush im sms.</description>
+      <guid>https://example.com/docs/architecture/nodejs/</guid>
+      <description>特点 commonJs规范 # 用于构建模块 javascript书写(v8引擎) # 关键字1 # 原因1: 成熟的事件驱动模式 ## 原因2: 没有i/o库, 没有历史包袱 ## 原因3: v8性能好 # js设计之初就可以运行在后端 单线程 # 关键字2 非阻塞io(non-blocking i/o model) # 关键字3 ## io与数据处理分离（所以必须异步） ## 线程池结合event-driven实现 事件驱动(event-driven) # 关键字4 ## event loop[while(true)] -&amp;gt; watcher -&amp;gt; handles ### event loop每一周询问多个watcher是否有事件 ### http模块就是启动了一个watcher,所以执行后进程不结束 # 注: event loop中没有watcher时进程退出 ### 其它watcher有 timer, fs, udp/req, process ### watcher产生事件后, event loop取到并执行其handle(回调函数) ## 不同操作系统中event driven的实现: ### windows: IOCP, Linux: epoll, Mac:kqueue 异步操作 # 书写难度的解决 ## go语言有协程(coroutine)而node.</description>
     </item>
     
     <item>
@@ -24,7 +25,7 @@
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
       
       <guid>https://example.com/docs/architecture/solution/</guid>
-      <description> 数据迁移 去掉约束 排序（中断继续）  数据存储 缓存 queue + map # queue存储、限量, map查询，指向queue中元素  直播 《关于直播，所有的技术细节都在这里了》  并发 异步事件 tornado + celery + rabbitmq + 优先级  缓存 queue + map # queue存储、限量, map查询，指向queue中元素  前端模板 layout layout service # 缓存layout到redis crud layout功能 layout对象 index # 缩略信息 plugins components table layout # 组合方式 水平，垂直，tab  游戏 进程 gateway进程组 # 对外api function进程组 # 注册玩家全局信息 session进程组 # 玩家状态 dbserver进程组 # 数据 多word进程组 # 不同地图的信息、逻辑  </description>
+      <description>数据迁移 去掉约束 排序（中断继续）  数据存储 缓存 queue + map # queue存储、限量, map查询，指向queue中元素  直播 《关于直播，所有的技术细节都在这里了》  并发 异步事件 tornado + celery + rabbitmq + 优先级  缓存 queue + map # queue存储、限量, map查询，指向queue中元素  前端模板 layout layout service # 缓存layout到redis crud layout功能 layout对象 index # 缩略信息 plugins components table layout # 组合方式 水平，垂直，tab  游戏 进程 gateway进程组 # 对外api function进程组 # 注册玩家全局信息 session进程组 # 玩家状态 dbserver进程组 # 数据 多word进程组 # 不同地图的信息、逻辑  go高并发实时消息推送 问题 长连接 # 支持多种协议(http、tcp) server push HTTP long polling(keep-alive) 基于TCP自定义 心跳侦测 高并发 #&amp;gt;= 10,000,000 C1000K 多种发送方式 单播: 点对点聊天 多播: 定点推送 广播: 全网推送 持久/非持久 准实时 # 200ms ~ 2s gc卡顿是大问题 客户端多样性 同帐号多端接入 网络变化 电信、联通切换 wifi, 4g, 3g 断线、重连、断线、重连 系统架构 组件 room # 接入客户端 分布式全对称 一个client一个goroutine 每个server一个channel存消息队列 book记录user与server映射 统一http server收消息并将消息路由到room和server manager掌控room的服务：内部单播、多播、广播 admin负责room进程管理 center # 运营人员从后台接入 提供操纵接口给应用服务器调用 restful 长时操作，有任务概念来管理 提供统计接口 register # room和center注册 key-value的map，value是struct 记录用户连到哪个room 记录在线时长等信息 hash算法定位register进程 不直接用redis是为了添加业务逻辑 saver # room和center调用 # 使用redis 分布式全对称 提供存储接口 采用encoding/gob编码格式的rpc idgenerator # saver和center调用 全局消息id生成器, int64 分布式，每个进程负责一块id区域 后台goroutine每隔一秒写一次磁盘，记录当前id 启动时跳过一段id，防止一秒内未写入磁盘的id重复生成 存储 redis 存核心数据 db_users: zset, 存各产品用户集合 db_slots: list, 存用户离线消息队列 db_buckets: dict, 存消息id -&amp;gt; 消息体 数据 16机器，标配24硬件线程, 64g内存 linux kernel 2.</description>
     </item>
     
     <item>
@@ -33,7 +34,16 @@
       <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
       
       <guid>https://example.com/docs/architecture/principle/</guid>
-      <description>微机 并行架构 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 乱序执行 猜测执行 数据级, 单指令多数据(SIMD)架构 # 图像处理 任务级(task-level) # 多处理器 # 超线程, 虽只有4个核，但可用核返回8 共享内存模型 分布式内存模型 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 并发: 一个时间段有多个程序在运行，在同一个处理机上。 # 伪并发是单核处理器并发，真并发是多核处理器并发 # 可处理时间点i/o的数目来衡量 互斥: 程序(进程)间不使用临界资源 同步: 程序间依赖，有等待关系 同步的其它意思: 1. os开发中指进程协作 2. 数据异步复制(如同步歌曲) 并行: 多处理器才并行，单处理器叫交替执行 多线程 异步: 与同步相对。多线程是实现异步的一种手段 进程 线程 一个进程下的轻量进程 协程 单线程下事件并行(就是仿cpu时间调度) 事件(非阻塞) 介绍 就是回调 事件模型 原理 队列存事件, 单进程检测事件是否回调 工具 epoll(select, poll) libev(libevent) dma direct memory access 不依赖cpu的内存存取 长连接 socket连接  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 # 显卡在pci总线上 ## 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 ### 内存到显存数据传输最花费时间。  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
+      <description>概念 并发: 一个时间段有多个程序在运行，在同一个处理机上。 # 伪并发是单核处理器并发，真并发是多核处理器并发 # 可处理时间点i/o的数目来衡量 互斥: 程序(进程)间不使用临界资源 同步: 程序间依赖，有等待关系 同步的其它意思: 1. os开发中指进程协作 2. 数据异步复制(如同步歌曲) 并行: 多处理器才并行，单处理器叫交替执行 多线程 进程: 独有内存 线程: 共享进程内存 一个进程下的轻量进程 协程 单线程下事件并行(就是仿cpu时间调度) 事件(非阻塞) 介绍 就是回调 事件模型 原理 队列存事件, 单进程检测事件是否回调 工具 epoll(select, poll) libev(libevent) dma # direct memory access 不依赖cpu的内存存取 长连接 http1.1 CAP定理 # 当面临分区的时候，必须在一致性和可用性之间权衡 Consistency(一致性) Availability(可用性) Partition tolerance(分区容错性)  模块 服务 注册 发现 性能/ha 区域感知load balance 故障切换 故障注入 熔断 健康检查 流量拆分和推出 策略 quota 网络数据 api调用 服务准入条件 路由规则 容错 访问策略 安全 服务间认证(auth) tls 细粒度权限控制 配置 啮合层 # 服务与网络间加入透明层，用来功能配置 查看 服务网可视化 monitor log tracing 迭代 部署 版本控制 平台支持 # 如aws, k8s, mesos 通讯能力 # http/1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/architecture/performance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/architecture/performance/</guid>
+      <description>原则 qps latency through put io 磁盘 iops: 2k 网络 带宽 iops: 3w bottle-nect  流量 小米论坛 pv 2000w 热门并发300 20k/页面 300k/图片(未压缩) 70k/无图帖子 500k-3M/有图帖子 动态服务器最小带宽: 48Mbps 静态服务器最小带宽: 1440Mbps 实际购买带宽: 800M 带宽费用: 8.7w/month 糗事百科 pv 1000w 热门并发150 10k/页面 70k/图 4图/页 90k-400k/综合页 动态服务器带宽: 12Mbps 静态服务器带宽: 336Mbps  带宽 建议 热门并发1.5倍到2倍购买  cdn 介绍 流量不大时带宽比cdn便宜, 流量大时cdn便宜。 界限为250Mbps左右，价格在9k/month 价格 50TB/月 100TB/月 阿里云 3.8w/月 6.9w/月 盛大云 9k/月 1.7w/月 网宿 蓝汛  服务 teamwork confluence teambition basecamp jira testlink shimo dropbox trello itsm/erp # IT Service Management, 信息技术服务管理 salesforce servicenow workday # hr平台 pay 支付宝 易宝 财付通 cti 天润 云之讯 容联 report/olap palo idc # infomation data corporation 互联网数据中心 cdn 七牛 ws 阿里云 青云 digital ocean vultr aws Linode azure # 微软开放平台 gce # google compute engine txCloud # 云柜，数据存储和计算 首都在线 paas gae # google app engine sae # sina app engine heroku im 环信 云片 jpush im sms.</description>
     </item>
     
   </channel>
