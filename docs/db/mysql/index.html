@@ -212,11 +212,12 @@ https://github.com/alex-shpak/hugo-book
         mysql utilities        # 提供一组命令行工具用于维护和管理 MySQL 服务器
 连接参数
     root:123456@tcp(abcdefg:3306)/meiqia?
-    charset=utf8mb4,utf8&amp;
-    loc=UTC&amp;
-    interpolateParams=true&amp;
-    time_zone=%27%2B00%3A00%27&amp;
-    sql_mode=%27NO_ENGINE_SUBSTITUTION%2CSTRICT_TRANS_TABLES%27
+        charset=utf8mb4,utf8&amp;
+        characterEncoding=UTF-8&amp;
+        loc=UTC&amp;
+        interpolateParams=true&amp;
+        time_zone=%27%2B00%3A00%27&amp;
+        sql_mode=%27NO_ENGINE_SUBSTITUTION%2CSTRICT_TRANS_TABLES%27
 数据类型
     int         # int(5) zerofill
     varchar(20)     # null不占空间
@@ -350,18 +351,21 @@ date(str)                                        # 提取日期时间表达字�
 date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
 </code></pre>
 
-<h1 id="数据字典">数据字典</h1>
+<h1 id="系统库-数据字典">系统库/数据字典</h1>
 
-<pre><code>information_schema
-    # 默认内置元信息数据库
-    INNODE_TRX
-        # 当前开启的事务
-mysql
-    # 内置安全设置数据库
-selectperson
-    # 点名系统
-test
-    # 内置测试数据库
+<pre><code>系统库
+    information_schema
+        # 默认内置元信息数据库
+        INNODE_TRX
+            # 当前开启的事务
+    mysql
+        # 内置安全设置数据库
+    performance_schema
+        # 资源消耗，资源等待等情况
+    sys
+        # 5.7后，数据来源performance_schema, 降低复杂度
+    test
+        # 5.7移除，内置测试数据库
 </code></pre>
 
 <h1 id="触发器-trigger">触发器(trigger)</h1>
@@ -748,7 +752,7 @@ mysql重置密码
 <li><a href="#基础">基础</a></li>
 <li><a href="#引擎">引擎</a></li>
 <li><a href="#函数">函数</a></li>
-<li><a href="#数据字典">数据字典</a></li>
+<li><a href="#系统库-数据字典">系统库/数据字典</a></li>
 <li><a href="#触发器-trigger">触发器(trigger)</a></li>
 <li><a href="#存储过程-stored-procedure">存储过程(stored procedure)</a></li>
 <li><a href="#配置">配置</a></li>

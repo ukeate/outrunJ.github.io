@@ -237,16 +237,6 @@ sdn        software defined network 软件定义网络
 # 一个开源云计算解决方案，可以加速iaaS的部署、管理、配置
 </code></pre>
 
-<h2 id="kubernetes">kubernetes</h2>
-
-<pre><code># google开源的，在docker技术上，为容器化应用提供:
-作用
-    资源调度
-    部署运行
-    服务发现
-    扩容缩容
-</code></pre>
-
 <h2 id="cloudfoundry">cloudfoundry</h2>
 
 <pre><code># 根据应用模板，动态生成很多tomcat, mysql, nosql, 动态控制这些实例的启停。
@@ -257,9 +247,94 @@ sdn        software defined network 软件定义网络
 <pre><code># 云操作系统，管理虚拟资源
 </code></pre>
 
+<h1 id="分布式服务">分布式服务</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">dubbo</th>
+<th align="left">spring cloud</th>
+<th align="left">k8s</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">配置管理</td>
+<td align="left">-</td>
+<td align="left">config</td>
+<td align="left">k8s configMap</td>
+</tr>
+
+<tr>
+<td align="left">服务发现</td>
+<td align="left">zookeeper</td>
+<td align="left">eureka, consul, zookeeper</td>
+<td align="left">k8s services</td>
+</tr>
+
+<tr>
+<td align="left">负载均衡</td>
+<td align="left">自带</td>
+<td align="left">ribbon</td>
+<td align="left">k8s services</td>
+</tr>
+
+<tr>
+<td align="left">网关</td>
+<td align="left">-</td>
+<td align="left">zuul</td>
+<td align="left">k8s services</td>
+</tr>
+
+<tr>
+<td align="left">分布式追踪</td>
+<td align="left">-</td>
+<td align="left">spring cloud sleuth</td>
+<td align="left">open tracing</td>
+</tr>
+
+<tr>
+<td align="left">容错</td>
+<td align="left">不完善</td>
+<td align="left">hystrix</td>
+<td align="left">k8s health check</td>
+</tr>
+
+<tr>
+<td align="left">通信方式</td>
+<td align="left">rpc</td>
+<td align="left">http, message</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">安全模块</td>
+<td align="left">-</td>
+<td align="left">spring cloud security</td>
+<td align="left">-</td>
+</tr>
+
+<tr>
+<td align="left">分布式日志</td>
+<td align="left"></td>
+<td align="left">ELK</td>
+<td align="left">EFK</td>
+</tr>
+
+<tr>
+<td align="left">任务管理</td>
+<td align="left"></td>
+<td align="left">spring batch</td>
+<td align="left">k8s jobs</td>
+</tr>
+</tbody>
+</table>
+
 <h2 id="hsf">hsf</h2>
 
-<pre><code># high-speed service framework
+<pre><code># high-speed service framework, 阿里出品， socket直连
 特点
     不增加中间点(稳定，高度可伸缩)
 结构
@@ -267,26 +342,30 @@ sdn        software defined network 软件定义网络
     基于osgi
 </code></pre>
 
-<h1 id="rpc">rpc</h1>
+<h2 id="kubernetes">kubernetes</h2>
 
-<pre><code># 远程过程调用 remote procedure call
+<pre><code># google开源的，在docker技术上，为容器化应用提供:
+作用
+    资源调度
+    部署运行
+    服务发现
+    扩容缩容
 </code></pre>
-
-<h2 id="hsf-1">hsf</h2>
-
-<pre><code># 高速服务框架 (socket直连)
-</code></pre>
-
-<h2 id="thrift">thrift</h2>
 
 <h2 id="dubbo">Dubbo</h2>
 
-<pre><code>模块
-    registry
-    consumer
-    provider
-    monitor
-    container
+<pre><code>介绍
+    阿里开源，分布式服务框架，rpc方案，soa治理
+功能
+    远程通讯    # 多协议，多种长连接nio框架封装
+    集群容错    # 负载均衡，容错，地址路由，动态配置
+    自动发现    # 注册中心
+节点
+    container   # 容器
+    provider    # 提供者
+    registry    # 注册中心
+    consumer    # 消费者
+    monitor     # 监控中心
     调用关系
         容器启动提供者
         提供者注册
@@ -326,6 +405,30 @@ sdn        software defined network 软件定义网络
 注册中心
     zookeeper
 </code></pre>
+
+<h2 id="spring-cloud">spring cloud</h2>
+
+<h1 id="soa">soa</h1>
+
+<pre><code># 面向服务架构 service oriented architecture
+</code></pre>
+
+<h2 id="eai">eai</h2>
+
+<pre><code>    # Enterprise Application Integration 建立底层结构将异构应用集成
+</code></pre>
+
+<h2 id="esb">esb</h2>
+
+<pre><code>    # Enterprise Service Bus 企业服务总线， 是连接中枢
+</code></pre>
+
+<h1 id="rpc">rpc</h1>
+
+<pre><code># 远程过程调用 remote procedure call
+</code></pre>
+
+<h2 id="thrift">thrift</h2>
 
 <h2 id="cxf">cxf</h2>
 
@@ -378,8 +481,6 @@ sdn        software defined network 软件定义网络
     o-&gt; web.xml中配置spring监听器
 </code></pre>
 
-<h2 id="spring-cloud">spring cloud</h2>
-
 <h2 id="grpc">grpc</h2>
 
 <h2 id="protobuf">protobuf</h2>
@@ -421,21 +522,6 @@ sdn        software defined network 软件定义网络
 <h2 id="web-service">web service</h2>
 
 <pre><code># soap通讯
-</code></pre>
-
-<h1 id="soa">soa</h1>
-
-<pre><code># 面向服务架构 service oriented architecture
-</code></pre>
-
-<h2 id="eai">eai</h2>
-
-<pre><code>    # Enterprise Application Integration 建立底层结构将异构应用集成
-</code></pre>
-
-<h2 id="esb">esb</h2>
-
-<pre><code>    # Enterprise Service Bus 企业服务总线， 是连接中枢
 </code></pre>
 
 <h1 id="粘合层">粘合层</h1>
@@ -1915,18 +2001,25 @@ iscsi系统组成
 <li><a href="#paas">paas</a>
 <ul>
 <li><a href="#cloudstack">cloudStack</a></li>
-<li><a href="#kubernetes">kubernetes</a></li>
 <li><a href="#cloudfoundry">cloudfoundry</a></li>
 <li><a href="#openstack">openstack</a></li>
+</ul></li>
+<li><a href="#分布式服务">分布式服务</a>
+<ul>
 <li><a href="#hsf">hsf</a></li>
+<li><a href="#kubernetes">kubernetes</a></li>
+<li><a href="#dubbo">Dubbo</a></li>
+<li><a href="#spring-cloud">spring cloud</a></li>
+</ul></li>
+<li><a href="#soa">soa</a>
+<ul>
+<li><a href="#eai">eai</a></li>
+<li><a href="#esb">esb</a></li>
 </ul></li>
 <li><a href="#rpc">rpc</a>
 <ul>
-<li><a href="#hsf-1">hsf</a></li>
 <li><a href="#thrift">thrift</a></li>
-<li><a href="#dubbo">Dubbo</a></li>
 <li><a href="#cxf">cxf</a></li>
-<li><a href="#spring-cloud">spring cloud</a></li>
 <li><a href="#grpc">grpc</a></li>
 <li><a href="#protobuf">protobuf</a></li>
 </ul></li>
@@ -1936,11 +2029,6 @@ iscsi系统组成
 <li><a href="#burlap">Burlap</a></li>
 <li><a href="#httpinvoker">httpinvoker</a></li>
 <li><a href="#web-service">web service</a></li>
-</ul></li>
-<li><a href="#soa">soa</a>
-<ul>
-<li><a href="#eai">eai</a></li>
-<li><a href="#esb">esb</a></li>
 </ul></li>
 <li><a href="#粘合层">粘合层</a>
 <ul>

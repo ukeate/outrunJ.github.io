@@ -191,19 +191,17 @@ https://github.com/alex-shpak/hugo-book
 配合排序哈希
 </code></pre>
 
-<h1 id="递归">递归</h1>
+<h1 id="递归-recursion">递归(recursion)</h1>
 
 <pre><code>介绍
-    recursion
     利用递归，把状态的管理责任推给运行时
 递归转迭代
     可加上memory做优化
 </code></pre>
 
-<h1 id="分治">分治</h1>
+<h1 id="分治-divide-and-conquer">分治(divide and conquer)</h1>
 
 <pre><code>介绍
-    divide and conquer
     广义分治法
 例子
     二分检索
@@ -214,11 +212,9 @@ https://github.com/alex-shpak/hugo-book
     斯特拉森矩阵乘法
 </code></pre>
 
-<h1 id="贪心">贪心</h1>
+<h1 id="贪心-greedy">贪心(greedy)</h1>
 
-<pre><code>介绍
-    greedy
-案例
+<pre><code>案例
     Dijkstra最短路径
     最小生成树Prim, Kruskal
 
@@ -227,11 +223,9 @@ https://github.com/alex-shpak/hugo-book
     最优归并模式
 </code></pre>
 
-<h1 id="动态规划">动态规划</h1>
+<h1 id="动态规划-dynamic-planning">动态规划(dynamic planning)</h1>
 
-<pre><code>介绍
-    dynamic planning
-方法
+<pre><code>方法
     常用滚动数组降低空间复杂度
 案例
     多段图
@@ -243,29 +237,25 @@ https://github.com/alex-shpak/hugo-book
     流水线调度问题
 </code></pre>
 
-<h1 id="检索与周游">检索与周游</h1>
+<h1 id="检索与周游-retrieval-travel">检索与周游(retrieval/travel)</h1>
 
-<pre><code>介绍
-    retrieval/travel
-案例
+<pre><code>案例
     深度优先检索
     广度优先检索
     与/或图
     对策树
 </code></pre>
 
-<h1 id="回溯">回溯</h1>
+<h1 id="回溯-backtracking">回溯(backtracking)</h1>
 
-<pre><code>介绍
-    backtracking
-案例
+<pre><code>案例
     8皇后问题
     图的着色
     哈密顿环
     背包问题
 </code></pre>
 
-<h1 id="暴力">暴力</h1>
+<h1 id="暴力-brute-force">暴力(brute force)</h1>
 
 <pre><code>介绍
     分支限界条件加快效率
@@ -274,56 +264,50 @@ https://github.com/alex-shpak/hugo-book
 </code></pre>
 
 <ul>
-<li><p>分支-限界</p>
-
-<pre><code>介绍
-branch and bound
-案例
-    LC检索
-    0/1背包问题
-    货郎担问题
-</code></pre></li>
+<li>分支-限界(branch and bound)
+    案例
+        LC检索
+        0/1背包问题
+        货郎担问题</li>
 </ul>
 
 <h1 id="并行">并行</h1>
 
-<h1 id="时间复杂度">时间复杂度</h1>
+<h1 id="时间复杂度-time-complexity">时间复杂度(time complexity)</h1>
 
-<pre><code>概念
-    time complexity
-    O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O()
-        N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N))
-        N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N))
-        T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N))
-    上界(upper bound)
-    下界(lower bound)
-    法则
-        # 约定, 不存在特定的时间单位
-        # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位
-        ## 假设不存在如矩阵求逆或排序这样的单位操作
-        1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么
-            T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N)))
-            T1(N) * T2(N) = O(f(N) * g(N))
-        2. 如果T(N)是一个k次多项式, 则T(N) = Θ(N^k)
-        3. 对任意常数k, (logk) * N = O(N)
-            # 对数增长得非常缓慢
-    一般法则
-        1. for 循环时间, 为内部语句的运行时间 * 迭代次数
-        2. 嵌套for 循环, 内部语句时间 * 迭代次数n次方
-        3. 顺序语句, 各语句时间求和
-        4. if(S1)/else(S2), 判断的运行时间加 S1和S2中时间长者
-    相对增长率(relative rate of growth)
-        lim(N-&gt;∞)f(N)/g(N)来确定两个函数的相对增长率
-            1. 极限是0, 则f(N) = o(g(N))
-            2. 极限是c&lt;&gt;0, 则f(N) = Θ(g(N))
-            3. 极限是∞, 则g(N) = o(f(N))
-            4. 极限摆动，则f(N)与g(N)无关
-        洛必达法则
-            lim(N-&gt;∞)f(N) = ∞, 且lim(N-&gt;∞)g(N) = ∞ 时, lim(N-&gt;∞)f(N)/g(N) = lim(N-&gt;∞)f'(N)/g'(N)
-    多项式时间算法
-        O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3)
-    指数时间算法
-        O(2^n) &lt; O(n!) &lt; O(n^n)
+<pre><code>O()表示上界(&lt;=), Ω() [omega]表示下界(&gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O()
+    N &gt;= n0时, T(N) &lt;= cf(N), 记为T(N) = O(f(N))
+    N &gt;= n0时, T(N) &gt;= cg(N), 记为T(N) = Ω(g(N))
+    T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N))
+上界(upper bound)
+下界(lower bound)
+法则
+    # 约定, 不存在特定的时间单位
+    # 约定, 机器模型中, 1. 所有指令顺序执行。2. 任一简单的工作都恰好花费一个时间单位
+    ## 假设不存在如矩阵求逆或排序这样的单位操作
+    1. 如果T1(N) = O(f(N)), T2(N) = O(g(N)), 那么
+        T1(N) + T2(N) = O(f(N) + g(N)), 或写成 max(O(f(N)), O(g(N)))
+        T1(N) * T2(N) = O(f(N) * g(N))
+    2. 如果T(N)是一个k次多项式, 则T(N) = Θ(N^k)
+    3. 对任意常数k, (logk) * N = O(N)
+        # 对数增长得非常缓慢
+一般法则
+    1. for 循环时间, 为内部语句的运行时间 * 迭代次数
+    2. 嵌套for 循环, 内部语句时间 * 迭代次数n次方
+    3. 顺序语句, 各语句时间求和
+    4. if(S1)/else(S2), 判断的运行时间加 S1和S2中时间长者
+相对增长率(relative rate of growth)
+    lim(N-&gt;∞)f(N)/g(N)来确定两个函数的相对增长率
+        1. 极限是0, 则f(N) = o(g(N))
+        2. 极限是c&lt;&gt;0, 则f(N) = Θ(g(N))
+        3. 极限是∞, 则g(N) = o(f(N))
+        4. 极限摆动，则f(N)与g(N)无关
+    洛必达法则
+        lim(N-&gt;∞)f(N) = ∞, 且lim(N-&gt;∞)g(N) = ∞ 时, lim(N-&gt;∞)f(N)/g(N) = lim(N-&gt;∞)f'(N)/g'(N)
+多项式时间算法
+    O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3)
+指数时间算法
+    O(2^n) &lt; O(n!) &lt; O(n^n)
 </code></pre>
 
 <p><img src="/docs/algorithm/p1.jpg" alt="时间复杂度" /></p>
@@ -343,11 +327,9 @@ branch and bound
     数据读入
 </code></pre>
 
-<h1 id="空间复杂度">空间复杂度</h1>
+<h1 id="空间复杂度-space-complexity">空间复杂度(space complexity)</h1>
 
-<pre><code>概念
-    space complexity
-Space(N) = Heap(N) + Stack(N), 忽略低次项、系数
+<pre><code>Space(N) = Heap(N) + Stack(N), 忽略低次项、系数
     # Heap表示额外申请堆内存空间大小, Stack表示函数栈的最大深度
 </code></pre>
 </article>
@@ -382,16 +364,16 @@ Space(N) = Heap(N) + Stack(N), 忽略低次项、系数
     <nav id="TableOfContents">
 <ul>
 <li><a href="#口诀">口诀</a></li>
-<li><a href="#递归">递归</a></li>
-<li><a href="#分治">分治</a></li>
-<li><a href="#贪心">贪心</a></li>
-<li><a href="#动态规划">动态规划</a></li>
-<li><a href="#检索与周游">检索与周游</a></li>
-<li><a href="#回溯">回溯</a></li>
-<li><a href="#暴力">暴力</a></li>
+<li><a href="#递归-recursion">递归(recursion)</a></li>
+<li><a href="#分治-divide-and-conquer">分治(divide and conquer)</a></li>
+<li><a href="#贪心-greedy">贪心(greedy)</a></li>
+<li><a href="#动态规划-dynamic-planning">动态规划(dynamic planning)</a></li>
+<li><a href="#检索与周游-retrieval-travel">检索与周游(retrieval/travel)</a></li>
+<li><a href="#回溯-backtracking">回溯(backtracking)</a></li>
+<li><a href="#暴力-brute-force">暴力(brute force)</a></li>
 <li><a href="#并行">并行</a></li>
-<li><a href="#时间复杂度">时间复杂度</a></li>
-<li><a href="#空间复杂度">空间复杂度</a></li>
+<li><a href="#时间复杂度-time-complexity">时间复杂度(time complexity)</a></li>
+<li><a href="#空间复杂度-space-complexity">空间复杂度(space complexity)</a></li>
 </ul>
 </nav>
   </aside>

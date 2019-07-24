@@ -372,6 +372,27 @@ schema文件路径解析
             &lt;/xs:all&gt;
 </code></pre>
 
+<h1 id="uml">uml</h1>
+
+<pre><code>Unified Modeling Languag
+静态模型
+    用例图(需求分析):客户看           # 项级图(突出重点)，一级图，二级图，三级图
+        参与者(泛化)
+        (关联)
+        用例(包含，扩展【继承】)                # 是动词，表示功能模块
+        注释
+    类图：类结构、类关系（可以自动生成java类）
+        继承
+        实现
+        关联（全局变量）【导航性：一对多关系等】【聚合(所有引用)，组合（生命周期相同，如int类型属性）】
+            # spring 中的依赖注入是关联
+        依赖（局部变量）
+    实体关系图ER
+动态模型
+    时序图：可以根据时序图写代码
+        #　rose工具中时序图中加入参与者：用例图中创建参与者，拖入时序图中
+</code></pre>
+
 <h1 id="plantuml">plantUML</h1>
 
 <pre><code>分类
@@ -475,6 +496,7 @@ schema文件路径解析
 <li><a href="#xml">xml</a></li>
 <li><a href="#dtd">dtd</a></li>
 <li><a href="#schema">schema</a></li>
+<li><a href="#uml">uml</a></li>
 <li><a href="#plantuml">plantUML</a></li>
 <li><a href="#markdown">markdown</a></li>
 <li><a href="#org-mode">org-mode</a></li>

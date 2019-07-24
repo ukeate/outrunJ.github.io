@@ -966,7 +966,7 @@ java类中用spring的注解注入properties配置的属性
 SecurityManager: 安全管理器, 管理所有subject
 </code></pre>
 
-<h1 id="struts2">struts2</h1>
+<h1 id="spring-struts2">spring struts2</h1>
 
 <pre><code>原理
     tomcat启动日志：没有整合时不能加载struts-plugin.xml（spring-struts-plugin.jar包中的配置文件 ）
@@ -997,6 +997,162 @@ SecurityManager: 安全管理器, 管理所有subject
         SysStaffActionID -&gt;
         struts.xml配置中的&lt;action class=&quot;SysStaffActionID&quot;&gt;
     最后给Dao中的方法加入事务
+</code></pre>
+
+<h1 id="spring-boot">spring boot</h1>
+
+<pre><code>介绍
+    减少配置, 习惯大于配置
+基础文件
+    XxxApplication                  # 程序入口
+        @SpringBootApplication      # 类，组合@Configuration, @EnableAutoConfiguration, @ComponentScan
+            @EnableAutoConfiguration根据jar包依赖自动配置
+            扫描该注解同级下级包的Bean
+    XxxApplicationTests             # 空junit测试
+    application.properties          # 或application.yml, 放在src/main/resources或config目录下
+        server.port=8080                        # 默认8080
+        server.servlet.context-path=/hello      # uri前缀
+        xxx: 1                                  # 自定义value
+            配置文件中用&quot;${xxx}&quot;引用
+            类中用@Value(&quot;${xxx}&quot;)注入到属性
+        xx.yy: 1                                # 可用properties类管理属性
+            @Component
+            @ConfigurationProperties(prefix = &quot;xx&quot;)
+            public class XxProperties {
+                private String yy;
+                ...getter和setter...
+            }
+
+
+    pom.xml
+        &lt;parent&gt;
+            &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;             # 此父级依赖提供了spring boot的功能, 提供maven依赖, 常用包不用再设置version
+        &lt;/parent&gt;
+
+热部署
+    pom.xml
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;                                       # 热部署
+        &lt;/dependency&gt;
+    application.yml
+        spring:
+          devtools:
+            restart:
+              enabled: true
+              additional-paths: src/main/java
+注解
+    控制器
+        @RestController             # 类, 组合@Controller与@responseBody
+        @RequestMapping(&quot;/index&quot;)   # 方法, url
+    组件
+        @Component
+        @ConfigurationProperties    # 注入properties对应名称的属性
+    属性
+        @Value(&quot;${xxx}&quot;)
+        @Autowired                  # 装载bean
+jsp
+    pom.xml
+        &lt;!-- servlet依赖. --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- tomcat的支持.--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+    application.yml
+        spring:
+          mvc:
+            view:
+              prefix: /WEB-INF/views/
+              suffix: .jsp
+    controller类
+        @Controller
+        public class XxxController {
+            @RequestMapping(&quot;/xxx&quot;)
+            public String xxx(Model m) {
+                m.addAttribute(&quot;a&quot;, 1);
+                return &quot;view1&quot;;
+            }
+        }
+    src/main/webapp/WEB-INF/views/view1.jsp
+        &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot; pageEncoding=&quot;utf-8&quot;%&gt;
+        jsp ${a}
+mybatis
+    pom.xml
+        &lt;!-- mybatis --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.1.1&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- mysql --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;5.1.21&lt;/version&gt;
+        &lt;/dependency&gt;
+    application.yml
+       spring:
+          datasource:
+            url: jdbc:mysql://127.0.0.1:3306/outrun?characterEncoding=UTF-8
+            username: root
+            password: asdf
+            driver-class-name: com.mysql.jdbc.Driver
+          jpa:
+            hibernate:
+              ddl-auto: update  # 新建连接必要
+    pojo/User
+        public class User {
+            private Integer id;
+            private String telephone;
+            ...getter, setter...
+        }
+    mapper/UserMapper
+        @Mapper
+        public interface UserMapper {
+            @Select(&quot;select * from user&quot;)
+            List&lt;User&gt; findAll();
+        }
+    controller/UserController
+        @Controller
+        public class UserController {
+            @Autowired
+            UserMapper userMapper;
+
+            @RequestMapping(&quot;/listUser&quot;)
+            public String listUser(Model model) {
+                List&lt;User&gt; users = userMapper.findAll();
+                model.addAttribute(&quot;users&quot;, users);
+                return &quot;listUser&quot;;
+            }
+        }
+    webapp/WEB-INF/views/listUser.jsp
+        &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot; pageEncoding=&quot;utf-8&quot;%&gt;
+        &lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;
+        &lt;table align='center' border='1' cellspacing='0'&gt;
+            &lt;tr&gt;
+                &lt;td&gt;id&lt;/td&gt;
+                &lt;td&gt;name&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;c:forEach items=&quot;${users}&quot; var=&quot;s&quot; varStatus=&quot;st&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;${s.id}&lt;/td&gt;
+                    &lt;td&gt;${s.telephone}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:forEach&gt;
+        &lt;/table&gt;
 </code></pre>
 </article>
 
@@ -1041,7 +1197,8 @@ SecurityManager: 安全管理器, 管理所有subject
 <li><a href="#properties">properties</a></li>
 <li><a href="#jee">jee</a></li>
 <li><a href="#spring-security">spring security</a></li>
-<li><a href="#struts2">struts2</a></li>
+<li><a href="#spring-struts2">spring struts2</a></li>
+<li><a href="#spring-boot">spring boot</a></li>
 </ul>
 </nav>
   </aside>
