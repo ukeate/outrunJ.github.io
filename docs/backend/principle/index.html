@@ -183,6 +183,17 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
+<h1 id="事件">事件</h1>
+
+<pre><code># 非阻塞
+实现
+    回调
+    队列存事件, 单进程检测事件是否回调
+工具
+    epoll(select, poll)
+    libev(libevent)
+</code></pre>
+
 <h1 id="并发并行">并发并行</h1>
 
 <pre><code>并发
@@ -205,21 +216,50 @@ https://github.com/alex-shpak/hugo-book
         I/O多路复用(epoll)
         cpu&quot;多路复用&quot;(进程、线程)
         cpu机制(多发射、流水线、超标量、超线程)
-进程线程应用
-    cpu对任务的M:N处理
-    进程切换
-    线程(共用地址空间、文件描述符，通信，并行)
-为什么用户实现协程
-    进程/线程 切换开销大
-    空间资源占用大
-异步编程
-    回调(监听器), 链式(promise)，同步(async)
-异步实现
+    进程线程应用
+        cpu对任务的M:N处理
+        进程切换处理任务
+        线程(通信，并行)
+实现(异步, 并发，并行)
+    写法
+        回调(监听器), 链式(promise)，同步(async)
     事件处理器
         调度方式: 单线程循环
     协程
-        用户态，寄存器+栈, 让出
-        调度方式: 单线程调度, M:N
+        为什么用户实现协程
+            POSIX线程模型累赘
+                进程/线程 切换开销大
+                空间资源占用大
+            os调度对go模型不合理
+                go gc需要内存处理一致状态(所有线程停止), os调度时，因gc时间不确定，期间大量线程停止工作
+                    # go调度器知道什么时候内存处于一致性状态(只需正在核上运行线程)
+        本质
+            用户态，寄存器+栈, 让出
+        调度方式(线程模型)
+            N:1     # N个用户空间线程运行在1个内核空间线程
+                上下文切换快
+                无法利用多核
+            1:1
+                # POSIX(pthread), java
+                利用多核
+                上下文切换慢，每次调度都在用户态和内核态间切换
+            M:N
+                任意内核模型管理任意goroutine
+                调度复杂性大
+        go
+            M(machine)代表内核线程
+            G(goroutine)有自己的栈，程序计数器，调度信息(如正阻塞的channel)
+            P(processor)调度上下文, $GOMAXPROCS设置数量
+            P中有G队列(runqueue, 队尾添加新G)
+                当前运行一个G, 到调度点时，队列弹出另一个G
+                P周期检查全局G队列防止其中G饿死
+                P运行完，全局G队列拉取G
+                P运行完，全局G队列空，从其它P拉取一半G
+            P运行在M, M阻塞时P移到其它M, 阻塞M中保留阻塞的G
+            调度器创建足够多M跑P
+                阻塞M中G的syscall返回, M尝试偷一个P
+                没得到P时, 它的G加入全局G队列, M进线池睡眠
+
 概念
     过度竞争
         过多线程尝试同时使用一个共享资源
@@ -250,7 +290,7 @@ https://github.com/alex-shpak/hugo-book
             # 外星方法中可能包含另一把锁，要避免在持锁时调用外星方法
 </code></pre>
 
-<h2 id="线程">线程</h2>
+<h2 id="多线程">多线程</h2>
 
 <pre><code>线程池
     作用
@@ -411,8 +451,8 @@ token
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified Jul 25, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 25, 2019
     </a>
   </div>
   
@@ -435,9 +475,10 @@ token
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
+<li><a href="#事件">事件</a></li>
 <li><a href="#并发并行">并发并行</a>
 <ul>
-<li><a href="#线程">线程</a></li>
+<li><a href="#多线程">多线程</a></li>
 <li><a href="#锁">锁</a></li>
 <li><a href="#cas">CAS</a></li>
 <li><a href="#函数式">函数式</a></li>

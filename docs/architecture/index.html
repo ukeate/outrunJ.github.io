@@ -192,9 +192,14 @@ https://github.com/alex-shpak/hugo-book
 sdn        software defined network 软件定义网络
 </code></pre>
 
-<h1 id="mesh">mesh</h1>
+<h1 id="service-mesh">service mesh</h1>
 
 <pre><code># 服务网格
+</code></pre>
+
+<h2 id="service-fabric">service fabric</h2>
+
+<pre><code># 微软
 </code></pre>
 
 <h2 id="lstio">lstio</h2>
@@ -208,6 +213,11 @@ sdn        software defined network 软件定义网络
 <h2 id="linkerd">linkerd</h2>
 
 <pre><code># buoyant出品
+</code></pre>
+
+<h2 id="conduit">conduit</h2>
+
+<pre><code># 面向k8s轻量化mesh
 </code></pre>
 
 <h2 id="fingle">fingle</h2>
@@ -247,7 +257,7 @@ sdn        software defined network 软件定义网络
 <pre><code># 云操作系统，管理虚拟资源
 </code></pre>
 
-<h1 id="分布式服务">分布式服务</h1>
+<h1 id="分布式服务-容器调度编排">分布式服务(容器调度编排)</h1>
 
 <table>
 <thead>
@@ -332,24 +342,63 @@ sdn        software defined network 软件定义网络
 </tbody>
 </table>
 
-<h2 id="hsf">hsf</h2>
-
-<pre><code># high-speed service framework, 阿里出品， socket直连
-特点
-    不增加中间点(稳定，高度可伸缩)
-结构
-    注册服务信息，推送服务地址
-    基于osgi
-</code></pre>
-
 <h2 id="kubernetes">kubernetes</h2>
 
-<pre><code># google开源的，在docker技术上，为容器化应用提供:
+<pre><code># google开源的，borg的发展，在docker技术上，管理容器化应用
+特点
+    自主管理容器
+        为了让apache一直服务， 自动监控、重启、新建等
+        规划器找到服务合适的位置
+    pod运行容器
 作用
     资源调度
     部署运行
     服务发现
     扩容缩容
+架构
+    cluster
+        master
+            api server              # 对外接口
+            scheduler               # 内部资源调度
+            controller manager      # 管理控制器
+            etcd                    # 配置
+        多个node
+            pod                     # 基本操作单元，代表一个运行进程，内部封装一个(或多个紧密相关的)容器
+                service             # 一组提供相同服务pod的对外接口
+            docker                  # 创建容器
+            kubelet                 # 监视它所在node上的pod, 创建、修改、监控、删除
+            kube-proxy              # 为pod提供代理
+            fluentd                 # 日志收集、存储、查询
+            kube-dns                # 服务dns解析
+</code></pre>
+
+<h2 id="spring-cloud">spring cloud</h2>
+
+<pre><code>介绍
+    spring boot基础上构建，快速构建分布式系统
+    面向云环境架构(云原生)    # 适合在docker和paas部署
+功能
+    配置管理
+    服务发现
+    熔断
+    智能路由
+    微代理
+    控制总线
+    分布式会话
+    集群状态管理
+子项目
+    spring cloud netflix    # 对netflix oss套件整合
+        eureka     # 服务治理(注册、发现)
+        hystrix    # 容错管理
+        ribbon     # 软负载均衡(客户端)
+        feign      # 基于hystrix和ribbon，服务调用组件
+        zuul       # 网关，智能路由、访问过滤
+        archaius   # 配置
+    spring cloud config     # 应用配置外部化, 推送客户端配置
+    spring cloud bus        # 消息总线，传播集群状态变化来触发动作
+    spring cloud security   # 应用安全控制
+    spring cloud consul     # 封装consul(服务发现与配置, 与docker无缝)
+    spring cloud sleuth     # 跟踪
 </code></pre>
 
 <h2 id="dubbo">Dubbo</h2>
@@ -361,11 +410,11 @@ sdn        software defined network 软件定义网络
     集群容错    # 负载均衡，容错，地址路由，动态配置
     自动发现    # 注册中心
 节点
-    container   # 容器
-    provider    # 提供者
-    registry    # 注册中心
-    consumer    # 消费者
-    monitor     # 监控中心
+    容器(container)
+    提供者(provider)
+    消费者(consumer)
+    注册中心(registry)
+    监控中心(monitor)
     调用关系
         容器启动提供者
         提供者注册
@@ -406,7 +455,26 @@ sdn        software defined network 软件定义网络
     zookeeper
 </code></pre>
 
-<h2 id="spring-cloud">spring cloud</h2>
+<h2 id="orleans">orleans</h2>
+
+<pre><code># .NET
+</code></pre>
+
+<h2 id="hsf">hsf</h2>
+
+<pre><code># high-speed service framework, 阿里出品， socket直连
+特点
+    不增加中间点(稳定，高度可伸缩)
+结构
+    注册服务信息，推送服务地址
+    基于osgi
+组件
+    服务提供者
+    消费者
+    地址服务器
+    配置服务器               # 分布式配置
+    规则服务(diamond)       # 设置(黑白名单，认证，权重，限流)与推送
+</code></pre>
 
 <h1 id="soa">soa</h1>
 
@@ -1965,8 +2033,8 @@ iscsi系统组成
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified Jul 25, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 25, 2019
     </a>
   </div>
   
@@ -1990,10 +2058,12 @@ iscsi系统组成
     <nav id="TableOfContents">
 <ul>
 <li><a href="#名词">名词</a></li>
-<li><a href="#mesh">mesh</a>
+<li><a href="#service-mesh">service mesh</a>
 <ul>
+<li><a href="#service-fabric">service fabric</a></li>
 <li><a href="#lstio">lstio</a></li>
 <li><a href="#linkerd">linkerd</a></li>
+<li><a href="#conduit">conduit</a></li>
 <li><a href="#fingle">fingle</a></li>
 <li><a href="#envoy">envoy</a></li>
 <li><a href="#nginmesh">nginmesh</a></li>
@@ -2004,12 +2074,13 @@ iscsi系统组成
 <li><a href="#cloudfoundry">cloudfoundry</a></li>
 <li><a href="#openstack">openstack</a></li>
 </ul></li>
-<li><a href="#分布式服务">分布式服务</a>
+<li><a href="#分布式服务-容器调度编排">分布式服务(容器调度编排)</a>
 <ul>
-<li><a href="#hsf">hsf</a></li>
 <li><a href="#kubernetes">kubernetes</a></li>
-<li><a href="#dubbo">Dubbo</a></li>
 <li><a href="#spring-cloud">spring cloud</a></li>
+<li><a href="#dubbo">Dubbo</a></li>
+<li><a href="#orleans">orleans</a></li>
+<li><a href="#hsf">hsf</a></li>
 </ul></li>
 <li><a href="#soa">soa</a>
 <ul>

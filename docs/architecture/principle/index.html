@@ -183,83 +183,13 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="概念">概念</h1>
+<h1 id="基础">基础</h1>
 
-<pre><code>并发: 一个时间段有多个程序在运行，在同一个处理机上。
-    # 伪并发是单核处理器并发，真并发是多核处理器并发
-    # 可处理时间点i/o的数目来衡量
-    互斥: 程序(进程)间不使用临界资源
-    同步: 程序间依赖，有等待关系
-        同步的其它意思:
-            1. os开发中指进程协作
-            2. 数据异步复制(如同步歌曲)
-并行: 多处理器才并行，单处理器叫交替执行
-    多线程
-
-进程: 独有内存
-线程: 共享进程内存
-        一个进程下的轻量进程
-协程
-        单线程下事件并行(就是仿cpu时间调度)
-事件(非阻塞)
-    介绍
-        就是回调
-    事件模型
-        原理
-            队列存事件, 单进程检测事件是否回调
-        工具
-            epoll(select, poll)
-            libev(libevent)
-dma        
-    # direct memory access 不依赖cpu的内存存取
-长连接
-    http1.1
-CAP定理
+<pre><code>CAP定理
     # 当面临分区的时候，必须在一致性和可用性之间权衡
     Consistency(一致性)
     Availability(可用性)
     Partition tolerance(分区容错性)
-</code></pre>
-
-<h1 id="模块">模块</h1>
-
-<pre><code>服务
-    注册
-    发现
-性能/ha
-    区域感知load balance
-    故障切换
-    故障注入
-    熔断
-    健康检查
-    流量拆分和推出
-策略
-    quota
-        网络数据
-        api调用
-    服务准入条件
-    路由规则
-    容错
-    访问策略
-安全
-    服务间认证(auth)
-    tls
-    细粒度权限控制
-配置
-    啮合层
-        # 服务与网络间加入透明层，用来功能配置
-查看
-    服务网可视化
-    monitor
-    log
-    tracing
-迭代
-    部署
-    版本控制
-平台支持
-    # 如aws, k8s, mesos
-通讯能力
-    # http/1.1 http/2 grpc tcp
 </code></pre>
 
 <h1 id="cpu">cpu</h1>
@@ -272,6 +202,13 @@ CAP定理
         # 显卡在pci总线上
         ## 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。
         ### 内存到显存数据传输最花费时间。
+进程: 独有内存
+线程: 共享进程内存(地址空间、文件描述符)
+    一个进程下的轻量进程
+    POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似
+        自己的信号掩码
+        cpu affinity(倾向在某cpu尽量长时间运行)
+        cgroups
 并行架构
     位级(bit-level): 32位, 64位计算机
     指令级(instruction-level)
@@ -334,7 +271,9 @@ CAP定理
 
 <h1 id="内存">内存</h1>
 
-<pre><code>栈
+<pre><code>dma
+    # direct memory access 不依赖cpu的内存存取
+栈
     申请方式: 系统自动分配
     申请响应: 栈剩余空间小于申请空间, 报overflow
     申请大小限制: 栈是向低地址扩展的连续内存，线顶地址和最大容量是系统编译时预设的，windows下为2M(或1M), 申请超过剩余空间报overflow
@@ -1020,37 +959,72 @@ radius
         转接来话，处理传真，电子邮件等
 </code></pre>
 
-<h1 id="高可用-high-available">高可用(high available)</h1>
+<h1 id="分布式服务">分布式服务</h1>
 
-<h2 id="负载均衡与反向代理">负载均衡与反向代理</h2>
+<pre><code>架构
+    服务网格
+    容器调度编排
+    容器runtime
+    基础设施        # 云服务器
+分层
+    服务
+        对外网关
+        服务容器    # 如aws, k8s, mesos
+            通讯能力    # http/1.1 http/2 grpc tcp
+        配置(分布式)
+            部署
+            版本控制
+        网关
+            访问策略/认证(auth)
+                细粒度权限控制
+            智能路由
+        服务治理(注册,发现)
+            区域感知、load balance
+            容错: 故障切换、熔断、故障注入测试
+            流量拆分和推出
+    监控
+        metrics(api统计, cpu、内存、时长、平均、缓存命中等)
+        调用链跟踪(tracing)
+        日志
+        健康检查和告警
+        服务网可视化
+    对外
+        授权(OAuth2)
+        安全传输协议(tls)
+        限流(quota)   # 网络数据、api调用
+</code></pre>
 
-<h2 id="隔离">隔离</h2>
+<h2 id="高可用-high-available">高可用(high available)</h2>
 
-<h2 id="限流">限流</h2>
+<h3 id="负载均衡与反向代理">负载均衡与反向代理</h3>
 
-<h2 id="降级">降级</h2>
+<h3 id="隔离">隔离</h3>
 
-<h2 id="超时与重试">超时与重试</h2>
+<h3 id="限流">限流</h3>
 
-<h2 id="回滚">回滚</h2>
+<h3 id="降级">降级</h3>
 
-<h2 id="压测">压测</h2>
+<h3 id="超时与重试">超时与重试</h3>
 
-<h1 id="高并发-high-concurrency">高并发(high concurrency)</h1>
+<h3 id="回滚">回滚</h3>
 
-<h2 id="应用级缓存">应用级缓存</h2>
+<h3 id="压测">压测</h3>
 
-<h2 id="http缓存">http缓存</h2>
+<h2 id="高并发-high-concurrency">高并发(high concurrency)</h2>
 
-<h2 id="多级缓存">多级缓存</h2>
+<h3 id="应用级缓存">应用级缓存</h3>
 
-<h2 id="连接池线程池">连接池线程池</h2>
+<h3 id="http缓存">http缓存</h3>
 
-<h2 id="异步并发">异步并发</h2>
+<h3 id="多级缓存">多级缓存</h3>
 
-<h2 id="扩容">扩容</h2>
+<h3 id="连接池线程池">连接池线程池</h3>
 
-<h2 id="队列">队列</h2>
+<h3 id="异步并发">异步并发</h3>
+
+<h3 id="扩容">扩容</h3>
+
+<h3 id="队列">队列</h3>
 </article>
 
       
@@ -1058,8 +1032,8 @@ radius
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified Jul 25, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 25, 2019
     </a>
   </div>
   
@@ -1082,8 +1056,7 @@ radius
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#概念">概念</a></li>
-<li><a href="#模块">模块</a></li>
+<li><a href="#基础">基础</a></li>
 <li><a href="#cpu">cpu</a>
 <ul>
 <li><a href="#进程调度">进程调度</a></li>
@@ -1117,6 +1090,8 @@ radius
 </ul></li>
 </ul></li>
 <li><a href="#电话">电话</a></li>
+<li><a href="#分布式服务">分布式服务</a>
+<ul>
 <li><a href="#高可用-high-available">高可用(high available)</a>
 <ul>
 <li><a href="#负载均衡与反向代理">负载均衡与反向代理</a></li>
@@ -1136,6 +1111,7 @@ radius
 <li><a href="#异步并发">异步并发</a></li>
 <li><a href="#扩容">扩容</a></li>
 <li><a href="#队列">队列</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
