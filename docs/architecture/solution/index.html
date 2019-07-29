@@ -73,6 +73,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
 <ul>
+<li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
 <li><a href="/docs/pl/js">js</a></li>
 <li><a href="/docs/pl/java">java</a></li>
@@ -356,6 +357,20 @@ tornado + celery + rabbitmq + 优先级
 quartz
 </code></pre>
 
+<h2 id="消息">消息</h2>
+
+<pre><code>功能
+    好友
+    单聊, 群聊
+    语音, 视频
+    im      # 浏览器聊天(tcp, 不https)
+协议
+    XMPP        # 基于xml
+    MQTT        # 简单，但自己实现好友、群组
+    SIP         # 复杂
+    私有协议     # 工作量大，扩展性差
+</code></pre>
+
 <h2 id="go高并发实时消息推送">go高并发实时消息推送</h2>
 
 <pre><code>问题
@@ -477,8 +492,8 @@ quartz
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/7deb10f9e083d7d60efb61adfb7a5dee820a390a" title='Last modified Jul 26, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 26, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
     </a>
   </div>
   
@@ -513,6 +528,7 @@ quartz
 <li><a href="#实时并发">实时并发</a>
 <ul>
 <li><a href="#异步方案">异步方案</a></li>
+<li><a href="#消息">消息</a></li>
 <li><a href="#go高并发实时消息推送">go高并发实时消息推送</a></li>
 <li><a href="#直播">直播</a></li>
 <li><a href="#游戏">游戏</a></li>

@@ -73,6 +73,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
 <ul>
+<li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
 <li><a href="/docs/pl/js">js</a></li>
 <li><a href="/docs/pl/java">java</a></li>
@@ -189,7 +190,7 @@ https://github.com/alex-shpak/hugo-book
 latency
 through put
 
-bottle-nect
+bottle-nect(first-principle)
 
 io
     磁盘
@@ -354,36 +355,51 @@ cpu二级缓存取数据: 14 tick
     F5
 </code></pre>
 
-<h1 id="优化">优化</h1>
+<h1 id="性能调优">性能调优</h1>
 
-<pre><code>目的
-    稳定
-    性能
-    扩展
-    代码清晰
-    解耦
-    冷热，新旧数据区隔
-    成本
-结构
-    找瓶颈
+<pre><code>影响因素
+    内因
+        项目设计、实现
+        资源加载
+        配置
+    外因
+        网络
+        流量
+        架构
+        服务器配置
+步骤
+    分析用户习性          # 功能路径，热点
+    内存瓶颈
+        内部
+            托管资源
+                对象分配回收  # session、缓存、对象池等
+            非托管资源
+                数据库、文件、线程
+        外部
+            进程竞争
+    cpu瓶颈
+        cpu密集业务
+            加密、解密，垃圾回收，解压缩，算术运算，过度编译
+    缓存分析
+        浏览器缓存       # 资源文件，过期
+        代理缓存        # 地域、安全、更新
+        内核缓存、IIS缓存
+        数据缓存
+    资源等待分析
+        数据库等待
+        线程锁定
+        磁盘读写
+    数据库瓶颈(找数据库笔记)
+    http优化
+        减小页面
+        只传必要数据
+        资源加载
+架构
     去单点
     服务化
     优质业务专门机器
     广播改订阅
     换语言/框架重构
-数据库
-    连接释放
-    减少不必要数据
-    索引
-    异步化
-    分表
-        # 垂直 分字段，水平 分记录
-        拆微服务直接做
-        hash到几张表
-        时间分表
-        水平分表proxy
-        冷热分离
-        lookup table
 </code></pre>
 
 <h1 id="工具数据">工具数据</h1>
@@ -422,8 +438,8 @@ mysql
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified Jul 25, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 25, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
     </a>
   </div>
   
@@ -452,7 +468,7 @@ mysql
 <li><a href="#cdn">cdn</a></li>
 <li><a href="#服务">服务</a></li>
 <li><a href="#压力">压力</a></li>
-<li><a href="#优化">优化</a></li>
+<li><a href="#性能调优">性能调优</a></li>
 <li><a href="#工具数据">工具数据</a></li>
 </ul>
 </nav>

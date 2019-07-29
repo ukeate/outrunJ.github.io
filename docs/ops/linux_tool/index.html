@@ -73,6 +73,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
 <ul>
+<li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
 <li><a href="/docs/pl/js">js</a></li>
 <li><a href="/docs/pl/java">java</a></li>
@@ -669,10 +670,20 @@ firewall
         --list-all
         --set-default-zone=public
 wget
-        -i filelist.txt
-            # 下载一个文件中的所有url
-        -np -m -l 5
-            # 不下载本站所链接的其它站点内容，5级目录结构
+    -i filelist.txt
+        # 下载一个文件中的所有url
+    -x  # 强制创建目录
+    -P  # 目录prefix
+    -r  # 递归下载
+    -l  # 最大递归深度, inf或0代表无限制
+    -k  # 修改链接，指向本地文件
+    -p  # 下载所有用于显示页面的资源, 如图片
+    -L  # 只跟踪relative链接
+    -N  # 只获取比本地新的文件
+    -np # 不追踪父目录
+    -m  # 缩写-N -r -l inf --no-remove-listing
+    --no-remove-listing         # 不删除listing文件
+
 ping
 telnet
 nmblookup -A ip
@@ -1251,8 +1262,8 @@ simplehttp
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
     </a>
   </div>
   
