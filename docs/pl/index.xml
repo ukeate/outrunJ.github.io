@@ -51,7 +51,7 @@
       <pubDate>Tue, 09 Oct 2018 16:10:44 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/go/</guid>
-      <description>基础 特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 集合直接持有元素 # 自然方式 标准库避免配置和解释 # 自带电池 项目结构简单 编译为本地机器码 编译快 强静态类型 有gc 大厂支持 并发编程特点 语言层面关键字 csp并发模型 channel为一等公民 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 配置 GOROOT # go安装目录 GOPATH # 包目录 # 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 例程原理 流程控制: csp 通信方式: promise-future, channel, event  命令 godoc -http=:6060 # 运行本地帮助网站 go build # 编译代码包 install # 编译安装 get # 下载依赖 # 默认目录是GOPATH下的pkg -u # update -v # 查看进度 clean # 清理build产生的文件 -c # 清理.</description>
+      <description>基础 特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 强静态类型 有gc 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录 # 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录  命令 go version env # 打印go环境信息 run # 编译并运行 build # 编译成二进制执行文件 install # 编译安装 get # 下载依赖, 默认目录是GOPATH下的pkg -u # update -v # 查看进度 clean # 清理build产生的文件 -c # 清理.</description>
     </item>
     
     <item>

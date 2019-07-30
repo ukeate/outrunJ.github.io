@@ -34,7 +34,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/ops/linux/</guid>
-      <description>历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.168.0.100 # ip NETMASK=255.255.255.0 # netmask ONBOOT=yes # 系统启动时是否激活此设备 /network # 修改网关 NETWORKING=yes # 系统是否使用网络 HOSTNAME=abc # 设置本机主机名, 要与/etc/hosts中设置的主机名相同 GATEWAY=192.</description>
+      <description>基础 历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.</description>
     </item>
     
   </channel>

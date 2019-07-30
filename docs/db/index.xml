@@ -33,7 +33,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/db/mysql/</guid>
-      <description>基础 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 services.msc mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p day02&amp;gt;d:/backup.sql // 备份 mysql -uroot -p day02&amp;lt;d:/backup.sql // 导入 mysqladmin -uroot -proot status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?</description>
+      <description>基础 介绍 c++编写 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 services.msc mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p day02&amp;gt;d:/backup.sql // 备份 mysql -uroot -p day02&amp;lt;d:/backup.sql // 导入 mysqladmin -uroot -proot status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?</description>
     </item>
     
     <item>

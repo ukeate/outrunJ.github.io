@@ -315,16 +315,64 @@ o-&gt; 《一个可供中小团队参考的微服务架构技术栈》
         缓存配置工具
 </code></pre>
 
-<h1 id="工作流">工作流</h1>
+<h1 id="业务">业务</h1>
+
+<h2 id="审批">审批</h2>
+
+<pre><code>模板
+    准入规则
+    起始、终止节点
+    节点, 节点成员, 替换成员, 节点事件(脚本), 跳转公式
+审批流程
+    创建, 状态查询
+    审批
+</code></pre>
+
+<h2 id="海">海</h2>
+
+<pre><code>type                    # 记录类型
+    property            # 类型动作, 关联到节点, 记录进出节点的动作。如对成员可读、可写, 记录负责人，对记录执行脚本, 记录回收计划
+model                   # 模式
+    节点树、一个激活
+节点
+    节点组
+    两节点方向
+成员
+    节点成员1对多
+    成员分组(group, role)也是成员
+记录
+    节点记录1对1
+流转                     # 记录按规则在节点流转, 指定某些节点, 或某些记录。动作流程短路
+    motion               # 一次动作，如新建，移动，删除。
+    规则                 # 该次动作对记录的验证
+    fomula               # 计算motion次序
+    历史                  # 动作历史
+权限
+    kind                 # pass或 type、model、property、节点、节点from, 节点to 的任意组合
+    access              # 分不同kind划分具体权限, 如(节点from, 节点to)kind的转移权限
+    pass权限             # 如创建type, 创建model, 某节点所有权限等
+计划                     # 定时或周期的流转
+</code></pre>
+
+<h2 id="工作流">工作流</h2>
 
 <pre><code>本质
     状态管理
     工作流重流程轻数据，业务重数据轻流程。工作流修改数据，数据触发工作流
 分层
-    kernel
-        # engine
-    adapter
-        # services
+    engine                          # engine
+        specification, case
+        net
+            netRunner
+                continueIfPossible  # 遍历task, fire task,
+        condition
+        task
+            join, split             # and所有, xor只一个, or规则
+            workitem
+        flow
+        persisting
+        gateway
+    adapter                         # services
 </code></pre>
 
 <h1 id="数据">数据</h1>
@@ -492,8 +540,8 @@ quartz
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
     </a>
   </div>
   
@@ -518,7 +566,12 @@ quartz
 <ul>
 <li><a href="#微服务">微服务</a></li>
 <li><a href="#apaas">aPaaS</a></li>
+<li><a href="#业务">业务</a>
+<ul>
+<li><a href="#审批">审批</a></li>
+<li><a href="#海">海</a></li>
 <li><a href="#工作流">工作流</a></li>
+</ul></li>
 <li><a href="#数据">数据</a>
 <ul>
 <li><a href="#数据迁移">数据迁移</a></li>
