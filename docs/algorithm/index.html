@@ -1553,6 +1553,32 @@ diffie-hellman
         公钥和私钥，客户用公钥加密，服务端用私钥解密
 </code></pre>
 
+<h1 id="种群统计">种群统计</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">    统计二进制串置位(位值是1)数
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    8位全1数为255, 缓存0-255数的置位数到pc。值为0,1,1,2,1,2,...
+</span><span style="color:#75715e">    byte()会截断8位，如byte(256) = 0
+</span><span style="color:#75715e">    byte(x&gt;&gt;(0*8))得到x低8位截断数值，byte(x&gt;&gt;(1*8))得到x低9-16位截断数值
+</span><span style="color:#75715e">    累加8段数值在pc中映射的置位数，得到x的置位数
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    时间 n/8
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Count</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">uint64</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pc</span> [<span style="color:#ae81ff">256</span>]<span style="color:#66d9ef">byte</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">pc</span> {
+		<span style="color:#a6e22e">pc</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">pc</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> byte(<span style="color:#a6e22e">i</span><span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>)
+	}
+	<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> int(<span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))] <span style="color:#f92672">+</span>
+        <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))])
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
+}</code></pre></div>
 <h1 id="资源">资源</h1>
 
 <pre><code>token bucket
@@ -1659,8 +1685,8 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/21b2cf943bbef1d6cd07affcca4ab1d04d979274" title='Last modified Jul 31, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 31, 2019
     </a>
   </div>
   
@@ -1749,6 +1775,7 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
 <li><a href="#hash">hash</a></li>
 <li><a href="#傅里叶变换">傅里叶变换</a></li>
 <li><a href="#加密">加密</a></li>
+<li><a href="#种群统计">种群统计</a></li>
 <li><a href="#资源">资源</a></li>
 <li><a href="#分布式算法">分布式算法</a></li>
 <li><a href="#np问题">NP问题</a>

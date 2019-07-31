@@ -354,6 +354,26 @@ model                   # 模式
 计划                     # 定时或周期的流转
 </code></pre>
 
+<h2 id="适配器boss">适配器boss</h2>
+
+<pre><code>action                  # 存http地址，参数名，验证器
+    code                # 业务，如用户套餐
+    mode: get/post/put/delete               # 如获得套餐，添加套餐，修改套餐，删除套餐
+    ctx                 # 参数map, action调用前后修改
+    next                # 下个触发action
+history_action          # action调用历史
+suite                   # 带参action, thunk待触发
+    price               # 标价
+    tag                 # 用作商品分类
+order                   # 用户关联到suite, 计费
+category                # 生成action模板
+    apps/plugins        # 由category生成, 多个带形参(如app_id)action, 封装成的模板。添加实例填入实参
+role
+permission              # action code
+    type                # action, suite等
+    access              # crud和其它自定义权限
+</code></pre>
+
 <h2 id="工作流">工作流</h2>
 
 <pre><code>本质
@@ -540,8 +560,8 @@ quartz
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/21b2cf943bbef1d6cd07affcca4ab1d04d979274" title='Last modified Jul 31, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Jul 31, 2019
     </a>
   </div>
   
@@ -570,6 +590,7 @@ quartz
 <ul>
 <li><a href="#审批">审批</a></li>
 <li><a href="#海">海</a></li>
+<li><a href="#适配器boss">适配器boss</a></li>
 <li><a href="#工作流">工作流</a></li>
 </ul></li>
 <li><a href="#数据">数据</a>
