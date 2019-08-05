@@ -838,9 +838,10 @@ webrtc
 <h3 id="spring-mvc">spring mvc</h3>
 
 <pre><code>原理
-    DispatchServlet捕获请求
-    解析url, 调用HandlerMapping映射到处理类HandlerExcutionChain, 根据Handler选择HandlerAdapter
-    数据处理后，返回ModelAndView对象给DispatchServlet
+    DispatchServlet doService()捕获请求, doDispatch()用HandlerMapping映射url得到HandlerExcutionChain(执行链, 包括拦截器和handler)
+    handler getHandlerAdapter得到适配器来处理handler, 返回ModelAndView
+        # HandlerAdapter分三类: Servlet、Controller, HttpRequest
+    DispatchServlet用ViewResolver(视图解析器)解析ModelAndView成View
         # ModelAndView是逻辑视图，DispatchServlet转化成视图View
     返回View
 与struts2区别
@@ -3110,8 +3111,8 @@ tesseract
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
     </a>
   </div>
   

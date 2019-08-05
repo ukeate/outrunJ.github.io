@@ -261,7 +261,11 @@ https://github.com/alex-shpak/hugo-book
                     硬件事务内存(1986年硬件安装lisp的LM-2)     # 1986年cpu MIPS基于RISC简化指令成功，LM-2商业失败
                     软件事务内存(1995年论文), 2005年微软concurrent haskell论文
                         2004年IBM X10, 2006年Sun Fortress, 2007年Clojure, 2010年微软终止.NET软件事务内存
-    并行代码：编译代码顺序不确定，或执行顺序不确定
+    并行代码
+        编译代码顺序不确定，或执行顺序不确定
+        看一句代码的内部实现, 在其中执行了行为
+            go func () { x = make([]int, 10) }()
+            x[9] = 1
     业务并行解耦条件(满足幺半群性质)
         封闭性     # 业务运算结果是业务
         结合律     # 业务a、b的结果后与c执行，等同b、c的结果与a执行
@@ -320,8 +324,12 @@ https://github.com/alex-shpak/hugo-book
     过度竞争
         过多线程尝试同时使用一个共享资源
     同步  # 直接相互制约
+        实现
+            同步原语(如通道、锁)作用时，会刷处理器缓存到内存并提交，保证可见性
     互斥  # 间接相互制约
         竞态条件(race condition)
+        临界区 # 只能一线程访问的代码，如lock了的代码
+        监控模式    # 互斥锁, 函数, 变量 组合出临界区的模式, 使用了代理人(broker)(指锁)
     异步
         # 与同步相对。多线程是实现异步的一种手段
     可见性
@@ -344,6 +352,7 @@ https://github.com/alex-shpak/hugo-book
                 # 可以用对象散列值作全局顺序减小死锁机率
             阻塞加时限
             # 外星方法中可能包含另一把锁，要避免在持锁时调用外星方法
+    活锁  # 多线程尝试绕开死锁而过分同步反复冲突
 </code></pre>
 
 <h2 id="多线程">多线程</h2>
@@ -358,40 +367,36 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="锁">锁</h2>
 
 <pre><code>锁
-    公平锁         # FIFO取锁
-    非公平锁        # 每次直接占有
-    乐观锁         # 假设最好，有冲突时重试
-    悲观锁         # 假设最坏，等所有线程释放成功
-    互斥锁(mutex)
-        # 访问前加锁，访问后解锁
-        悲观锁
+    公平锁                             # FIFO取锁
+    非公平锁                           # 每次直接占有
+    互斥锁(mutex)                      # 访问前加锁，访问后解锁
+        悲观锁                         # 假设最坏，等所有线程释放成功
             读加锁
-        乐观锁
+        乐观锁                         # 假设最好，有冲突时重试
             读不加锁，写时判断数据版本是否修改，再重试
-    读写锁 rwlock
+    读写锁(rwlock)                     # 竞争不激烈比互斥锁慢
+        读锁(共享锁)
+        写锁(互斥锁)
         状态
             读加锁状态
-                可个线程占用
-                阻塞写线程
-                    # 导致写线程抢占不到资源，所以有写线程时，阻塞后进入的读线程
+                可多个线程占用
+                处理器缓存提交，数据可见
+                阻塞写线程              # 导致写线程抢占不到资源，所以有写线程时，阻塞后进入的读线程
             写加锁状态
                 一次只有一个线程占用
                 阻塞所有线程
             不加锁状态
     自旋锁 spinlock
-        互斥锁改，自己进入循环等待状态(忙等)
-            # 适合锁持有时间较短
+        互斥锁改，自己进入循环等待状态(忙等)             # 适合锁持有时间较短
     RCU锁 Read-Copy Update
         读写锁改，一个写线程，读线程无限制
             实现垃圾回收器
             写线程copy副本修改，向垃圾回收器注册callback以执行真正的修改
             垃圾回收器收到信号，所有读线程结束，执行callback
-    可重入锁
-        # 互斥锁改，允许同一线程多次获得写锁
+    可重入锁                            # 互斥锁改，允许同一线程多次获得写锁
     管程(monitor)
     临界区(critical section)
-    内置锁、显示锁
-        # 指java的synchronized与Reentrantlock
+    内置锁、显示锁                       # 指java的synchronized与Reentrantlock
 信号量
     进程, 线程间通知状态
 </code></pre>
@@ -507,8 +512,8 @@ token
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
     </a>
   </div>
   

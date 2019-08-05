@@ -317,6 +317,85 @@ o-&gt; 《一个可供中小团队参考的微服务架构技术栈》
 
 <h1 id="业务">业务</h1>
 
+<h2 id="关注-信箱">关注/信箱</h2>
+
+<pre><code>要求
+    user人数10w, 活跃1w。
+    大部分user关注1k人, 一部分大v被关注100w人。
+    每人每天发100条博文
+    user新博文数量提醒，消息标记已读
+表
+    user
+    user_followers
+    user_followed
+    user_posts(u_id, created_ts)
+    user_messages(u_id, p_id, is_read)
+        # 10w * 100条数据 / 天
+定时任务拉取
+    user_followed拉u_id, user_posts表按时段拉id, 更新user_messages
+    优点
+        平均, 少次, 增量。
+    缺点
+        及时性中
+        每次对所有用户操作
+    数据
+        10w*1k*100条数据 / 天
+发布时推送
+    有p_id, user_followers, 更新user_messages
+    优点
+        及时性高
+    缺点
+        计算集中, 可能高峰
+    数据
+        最高 100w*100条数据 / 次
+        10w*100次 / 天
+messages处理
+    存部分messages
+        不活跃user不存message
+            在登录状态，定时拉取
+                优点
+                    减少message
+                缺点
+                    计算集中
+                数据
+                    1k * N(N&lt;100)条 / 次
+                    1w * 1k * 100条数据 / 天
+    messages结构变化
+        u_id: [{p_id: uint, is_read: bool}]         #  条数稳定为10w
+        用mongodb或redis
+消息队列?
+    服务端存message状态，不能mq
+    如果客户端存状态，这就是个简单的mq问题
+</code></pre>
+
+<h2 id="权限">权限</h2>
+
+<pre><code>成员
+    user
+    role
+    group
+访问权限
+    权限1: 游客，用户，rememberMe
+    权限2: uri前缀(功能模块)
+    权限3: uri后缀(静态资源过滤)
+    判断位置: 过滤器中
+资源权限
+    权限: kind:part1:part2...
+    判断位置: 渲染数据前
+数据权限
+    资源层级
+        权限: 2
+        判断位置: 进方法前
+    单表
+        权限: 表名:列名:值
+        判断位置: 写sql前
+方法权限
+    权限: 方法域:方法名
+    判断位置: 进方法前
+性能
+    grantTable缓存u_id, res_id关系
+</code></pre>
+
 <h2 id="审批">审批</h2>
 
 <pre><code>模板
@@ -560,8 +639,8 @@ quartz
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/21b2cf943bbef1d6cd07affcca4ab1d04d979274" title='Last modified Jul 31, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 31, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
     </a>
   </div>
   
@@ -588,6 +667,8 @@ quartz
 <li><a href="#apaas">aPaaS</a></li>
 <li><a href="#业务">业务</a>
 <ul>
+<li><a href="#关注-信箱">关注/信箱</a></li>
+<li><a href="#权限">权限</a></li>
 <li><a href="#审批">审批</a></li>
 <li><a href="#海">海</a></li>
 <li><a href="#适配器boss">适配器boss</a></li>
