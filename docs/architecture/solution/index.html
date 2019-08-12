@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -632,6 +634,37 @@ quartz
                 # 组合方式
                 水平，垂直，tab
 </code></pre>
+
+<h1 id="功能实现">功能实现</h1>
+
+<h2 id="重复提交">重复提交</h2>
+
+<pre><code>直接redirect
+csrf令牌
+</code></pre>
+
+<h2 id="权限-1">权限</h2>
+
+<pre><code>过滤器 页面权限
+拦截器aop 数据权限
+</code></pre>
+
+<h2 id="seo">seo</h2>
+
+<pre><code>静态化
+</code></pre>
+
+<h2 id="web状态">web状态</h2>
+
+<pre><code>cookie
+url中sessionId
+</code></pre>
+
+<h2 id="加密">加密</h2>
+
+<pre><code>base64
+sha
+</code></pre>
 </article>
 
       
@@ -639,8 +672,8 @@ quartz
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -689,6 +722,14 @@ quartz
 <li><a href="#游戏">游戏</a></li>
 </ul></li>
 <li><a href="#前端模板渲染">前端模板渲染</a></li>
+<li><a href="#功能实现">功能实现</a>
+<ul>
+<li><a href="#重复提交">重复提交</a></li>
+<li><a href="#权限-1">权限</a></li>
+<li><a href="#seo">seo</a></li>
+<li><a href="#web状态">web状态</a></li>
+<li><a href="#加密">加密</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -219,7 +221,7 @@ https://github.com/alex-shpak/hugo-book
 考虑因素
     高并发、高可用、高可靠
     容量规划(流量、容量)
-    SLA制定(吞吐量、响应时间、可用性、降级方案)
+    SLA(service level agreement)制定(吞吐量、响应时间、可用性、降级方案)
     压测方案(线下、线上)
     监控报警(机器负载、响应时间、可用率)
         tracing
@@ -235,7 +237,7 @@ https://github.com/alex-shpak/hugo-book
     实施减少    # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决
 维护
     设计时考虑扩展性
-        DID(设计20倍, 实现3-20倍, 部署1.5-3倍)
+        DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.5-3倍)
     设计能够监控的应用
     版本升降      # 代码仓库
 业务
@@ -372,6 +374,25 @@ https://github.com/alex-shpak/hugo-book
     数据版本
     静态资源版本
 </code></pre>
+
+<h1 id="分层">分层</h1>
+
+<pre><code>mv*
+    mvc
+        # view controller model, 单向循环
+    mvp
+        # view presenter model, presenter双向交互
+    mvvm
+        # view view-model model, view-model双向绑定
+
+验证
+异常层
+    # 封装每层异常为不同异常类
+过滤层
+监听器
+日志
+测试
+</code></pre>
 </article>
 
       
@@ -379,8 +400,8 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/7deb10f9e083d7d60efb61adfb7a5dee820a390a" title='Last modified Jul 26, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 26, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -407,6 +428,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="#业务设计">业务设计</a></li>
 <li><a href="#高并发原则">高并发原则</a></li>
 <li><a href="#高可用原则">高可用原则</a></li>
+<li><a href="#分层">分层</a></li>
 </ul>
 </nav>
   </aside>

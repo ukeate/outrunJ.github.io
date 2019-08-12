@@ -95,6 +95,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -129,6 +130,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -523,7 +525,7 @@ transposition table             置换表
 	<span style="color:#a6e22e">swap</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
 		<span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">i</span>]
 	}
-	<span style="color:#a6e22e">headAdjuct</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">pos</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">len</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">headAdjust</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">pos</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">len</span> <span style="color:#66d9ef">int</span>) {
 		<span style="color:#a6e22e">val</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">pos</span>]
 		<span style="color:#a6e22e">child</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pos</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 
@@ -545,7 +547,7 @@ transposition table             置换表
 	<span style="color:#a6e22e">buildHeap</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>() {
 		<span style="color:#a6e22e">halfLen</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">elements</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
 		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">halfLen</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
-			<span style="color:#a6e22e">headAdjuct</span>(<span style="color:#a6e22e">i</span>, len(<span style="color:#a6e22e">elements</span>))
+			<span style="color:#a6e22e">headAdjust</span>(<span style="color:#a6e22e">i</span>, len(<span style="color:#a6e22e">elements</span>))
 		}
 
 	}
@@ -553,7 +555,7 @@ transposition table             置换表
 	<span style="color:#a6e22e">buildHeap</span>()
 	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">elements</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
 		<span style="color:#a6e22e">swap</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span>)
-		<span style="color:#a6e22e">headAdjuct</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span>)
+		<span style="color:#a6e22e">headAdjust</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span>)
 	}
 }
 
@@ -1685,8 +1687,8 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/21b2cf943bbef1d6cd07affcca4ab1d04d979274" title='Last modified Jul 31, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 31, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   

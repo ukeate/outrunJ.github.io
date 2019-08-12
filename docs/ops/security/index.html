@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   
-    Posts
+    
+    Security
   
  | outrun的笔记</title>
 
@@ -23,7 +24,6 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="https://example.com/posts/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -35,6 +35,7 @@ https://github.com/alex-shpak/hugo-book
 <body>
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="flex container">
+
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
@@ -49,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2fposts\2f "] {
+  nav ul a[href$="\2f docs\2fops\2fsecurity\2f "] {
       color: #004ed0;
   }
   </style>
@@ -169,54 +170,87 @@ https://github.com/alex-shpak/hugo-book
 
     </aside>
 
-    <div class="book-posts">
+    <div class="book-page">
       <header class="align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
   <strong>
   
-    Posts
+    
+    Security
   
 </strong>
 </header>
 
       
+<article class="markdown">
+
+<h1 id="基础">基础</h1>
+
+<pre><code>自变异木马
+    改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理
+    自删除
+    伪装成系统程序或绑定系统程序
+检查
+    可疑进程
+    定时任务
+    启动项
+        /etc/init.d或service --status-all
+        systemctl list-unit-files | grep enabled
+</code></pre>
+
+<h1 id="病毒">病毒</h1>
+
+<pre><code>libudev.so                      # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务
+    chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr +i /lib/
+    /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除
+    /etc/crontab/gcc.sh删除
+    sed '/gcc.sh/d' /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr +i /etc/crontab 删除定时任务
+    重启
+    chattr -i /lib /etc/crontab 恢复可写
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    </a>
+  </div>
   
   
+  <div>
+    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/security.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
   
-  <article class="markdown">
-    <h2>
-      <a href="/posts/note/">整理笔记到github</a>
-    </h2>
-    <h5>
-      <strong>Jul 2, 2019</strong>
-    </h5>
-    <p>记笔记 由于从事软件行业，信息量大，所以养成了记笔记的习惯。 笔记可以按自己的格式和思路写自己需要的，也便于查看。网上的东西对自己来说比较杂乱。 自学的都记了下来了，工作上的少些。
-笔记变更史 一开始用的是ubuntu论坛上推荐的一个工具，现在名字都忘了。 后来一直在用mybase，感觉不错，到现在有5年了。但有几个问题:
- linux下容易打出乱码字符。 删除文档容易出bug。 格式不太好，版本7后用了html做内容，也会有些问题。 是本地数据库，没法在线备份，也不好分享。毕竟东西都放网上比较方便。 软件是收费的。（但开发者很良心，修改下配置就可以接着用，这个&rdquo;bug&rdquo;他们一直不修复）  一直在考虑有道云笔记，开始时它功能不全，没有用。现在功能不错了，我又不想用了。 因为我想自己做一个，容易满足自己的想法和维护。
-现在 这里是用了hugo和它的book主题，多谢它们的作者。 经过一段时间的整理，今天这个笔记可以用了，其它细节用到时再调整。
-    </p>
-  </article>
-  
-  <article class="markdown">
-    <h2>
-      <a href="/posts/first/">博客原则</a>
-    </h2>
-    <h5>
-      <strong>Jun 17, 2019</strong>
-    </h5>
-    <p> 博客原则  做有意义的分享  
-    </p>
-  </article>
-  
-  
+</div>
 
 
       
     </div>
-  </main>
 
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#基础">基础</a></li>
+<li><a href="#病毒">病毒</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
   
   
 </body>

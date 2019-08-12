@@ -43,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/backend/principle/</guid>
-      <description>非阻塞 阻塞指cpu等待io 非阻塞指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 并发 为什么: 多任务能力，非阻塞 类比: 任务队列 并行 为什么: 提高执行效率 类比: 多核处理器 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
+      <description>阻塞 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 并发 为什么: 多任务能力，非阻塞 类比: 任务队列 并行 为什么: 提高执行效率 类比: 多核处理器 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
     </item>
     
     <item>

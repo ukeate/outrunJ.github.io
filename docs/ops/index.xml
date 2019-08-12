@@ -16,7 +16,16 @@
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
       <guid>https://example.com/docs/ops/linux_tool/</guid>
-      <description>内核 modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.directory &amp;quot;fd.type=file&amp;quot; # 目录读写 top fd.</description>
+      <description>包 net-tools ifconfig  内核 modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.directory &amp;quot;fd.</description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://example.com/docs/ops/security/</link>
+      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
+      
+      <guid>https://example.com/docs/ops/security/</guid>
+      <description> 基础 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;amp;&amp;amp; rm -rf /lib/libudev.so &amp;amp;&amp;amp; chattr +i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;amp;&amp;amp; chmod 0000 /etc/crontab &amp;amp;&amp;amp; chattr +i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  </description>
     </item>
     
     <item>
@@ -34,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/ops/linux/</guid>
-      <description>基础 历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz  文件位置 /var /log /boot.log # 启动日志 /proc /[pid] /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS /etc /sudoers /group /passwd /resolv.conf # dns nameserver 223.5.5.5 nameserver 223.6.6.6 # alidns /sysconfig /network-scripts/ifcfg-eth0 # 永久修改ip DEVICE=eth0 # 设备别名 BOOTPROTO=static # 网卡获得ip地址的方式，默认dhcp HWADDR=00:00:00:00:00:00 # mac IPADDR=192.</description>
+      <description>基础 历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 /var /log /boot.</description>
     </item>
     
   </channel>

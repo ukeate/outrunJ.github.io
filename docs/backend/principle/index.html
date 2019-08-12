@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -184,10 +186,10 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="非阻塞">非阻塞</h1>
+<h1 id="阻塞">阻塞</h1>
 
-<pre><code>阻塞指cpu等待io
-非阻塞指调用io后立即返回，但要轮询事件状态
+<pre><code>阻塞(bio)指cpu等待io
+非阻塞(nio)指调用io后立即返回，但要轮询事件状态
     # 非阻塞指对cpu不阻塞，但业务线程阻塞
 轮询(单线程)
     read
@@ -512,8 +514,8 @@ token
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -536,7 +538,7 @@ token
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#非阻塞">非阻塞</a></li>
+<li><a href="#阻塞">阻塞</a></li>
 <li><a href="#事件">事件</a></li>
 <li><a href="#并发并行">并发并行</a>
 <ul>

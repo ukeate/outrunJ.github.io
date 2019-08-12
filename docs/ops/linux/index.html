@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -207,106 +209,112 @@ https://github.com/alex-shpak/hugo-book
         ＃ 同gzip
     .tar.bz2
     .tar.xz
+环境变量
+    http_proxy=http://1.1.1.1：8082         # http代理
+    https_proxy=http://1.1.1.1：8082        # https代理
+    no_proxy='m.test.com,127.0.0.1'         # 代理白名单
+
+    PATH                                    # 命名查找路径
+    SHELL                                   # shell命令位置
+    PWD                                     # 当前用户目录
+    HOME                                    # 同上
+    LOGNAME                                 # 用户名
+    USER                                    # 同上
+    LANG                                    # 语言环境
+    _                                       # 查看环境变量的命令
 </code></pre>
 
 <h1 id="文件位置">文件位置</h1>
 
 <pre><code>/var
     /log
-        /boot.log   # 启动日志
+        /boot.log                           # 启动日志
 /proc
     /[pid]
-        /status # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS
+        /status                             # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS
 /etc
     /sudoers
     /group
     /passwd
-    /resolv.conf
-        # dns
+    /resolv.conf                            # dns
         nameserver 223.5.5.5
-        nameserver 223.6.6.6    # alidns
+        nameserver 223.6.6.6                # alidns
     /sysconfig
-        /network-scripts/ifcfg-eth0
-        # 永久修改ip
-        DEVICE=eth0 # 设备别名
-        BOOTPROTO=static    # 网卡获得ip地址的方式，默认dhcp
-        HWADDR=00:00:00:00:00:00    # mac
-        IPADDR=192.168.0.100    # ip
-        NETMASK=255.255.255.0   # netmask
-        ONBOOT=yes  # 系统启动时是否激活此设备
-        /network    # 修改网关
-        NETWORKING=yes  # 系统是否使用网络
-        HOSTNAME=abc    # 设置本机主机名, 要与/etc/hosts中设置的主机名相同
-        GATEWAY=192.168.0.1 # 网关ip
+        /network-scripts/ifcfg-eth0         # 永久修改网卡
+            DEVICE=eth0                     # 设备别名
+            BOOTPROTO=static                # 网卡获得ip地址的方式，默认dhcp
+            HWADDR=00:00:00:00:00:00        # mac
+            IPADDR=192.168.0.100            # ip
+            NETMASK=255.255.255.0           # netmask
+            ONBOOT=yes                      # 系统启动时是否激活此设备
+        /network                            # 修改网关
+            NETWORKING=yes                  # 系统是否使用网络
+            HOSTNAME=abc                    # 设置本机主机名, 要与/etc/hosts中设置的主机名相同
+            GATEWAY=192.168.0.1             # 网关ip
+        /selinux                            # 软连接到../selinux/config
+            SELINUX=disabled                # 关闭selinux
+    /selinux/config                         # selinux
+        SELINUX=enforcing                   # disabled 为关闭
     /systemd
-        /logind.conf
-            # 电源管理配置
-            HandleLidSwitch=ignore  # 关闭盖子不执行操
-        /system
-            # units位置
-            /default.target # 启动级别
-    /issue
-        # 发行版信息
-    /hosts
-        # 修改localhost
-    /ld.so.conf
-        # lib设置,加入so文件的配置路径如:/usr/local/lib
+        /logind.conf                        # 电源管理配置
+            HandleLidSwitch=ignore          # 关闭盖子不执行操
+        /system                             # units位置
+            /default.target                 # 启动级别
+    /issue                                  # 发行版信息
+    /hosts                                  # 修改localhost
+    /ld.so.conf                             # lib设置,加入so文件的配置路径如:/usr/local/lib
         执行/sbin/ldconfig -v 更新
-    /profile
-        # 用户登录时加载的环境变量
-    /inittab
-        # 设置启动级别
+    /profile                                # 用户登录时加载的环境变量
+    /inittab                                # 设置启动级别
         id:3:initdefault:
-    /selinux/config
-        SELINUX=enforcing
-            # disabled 为关闭
 /usr
     /lib
         /systemd
-            /system # units位置
+            /system                         # units位置
 /run
     /systemd
-        /system # units位置
+        /system                             # units位置
 /sys
     /class
         /backlight
             /acpi_video0
-                /brightness # 修改亮度
-</code></pre>
+                /brightness                 # 修改亮度
+~
+    /.bash_profile
+    /.bashrc
 
-<h2 id="initd">initd</h2>
 
-<pre><code>/etc/rc.d/init.d/rc.local
-    chmod +x rc.local
-    ln -sf ../init.d/rc.local rc0.d/S999rc.local
-    ln -sf ../init.d/rc.local rc1.d/S999rc.local
-    ln -sf ../init.d/rc.local rc2.d/S999rc.local
-    ln -sf ../init.d/rc.local rc3.d/S999rc.local
-    ln -sf ../init.d/rc.local rc4.d/S999rc.local
-    ln -sf ../init.d/rc.local rc5.d/S999rc.local
-    ln -sf ../init.d/rc.local rc6.d/S999rc.local
-        # 文件名中S表示传递start参数(K表示stop), 999为启动级别
-</code></pre>
+initd
+    /etc/rc.d/init.d/rc.local
+        chmod +x rc.local
+        ln -sf ../init.d/rc.local rc0.d/S999rc.local
+        ln -sf ../init.d/rc.local rc1.d/S999rc.local
+        ln -sf ../init.d/rc.local rc2.d/S999rc.local
+        ln -sf ../init.d/rc.local rc3.d/S999rc.local
+        ln -sf ../init.d/rc.local rc4.d/S999rc.local
+        ln -sf ../init.d/rc.local rc5.d/S999rc.local
+        ln -sf ../init.d/rc.local rc6.d/S999rc.local
+            # 文件名中S表示传递start参数(K表示stop), 999为启动级别
 
-<h2 id="fstab">fstab</h2>
 
-<pre><code>/dev/sda1 /home/outrun/sda1 ntfs-3g defaults 0 0
-</code></pre>
 
-<h2 id="日志">日志</h2>
+fstab
+    /dev/sda1 /home/outrun/sda1 ntfs-3g defaults 0 0
 
-<pre><code>access-log      # http传输
-acct和pacct     # 用户命令
-aculog          # modem活动
-btmp            # 失败记录
-lastlog         # 最近成功登录、最后一次不成功登录
-syslog          # 系统日志
-messages        # syslog
-sudolog         # sudo记录
-sulog           # su记录
-utmp            # 当前登录用户
-wtmp            # 用户登录登出记录
-xferlog         # ftp会话
+
+日志
+    access-log      # http传输
+    acct和pacct     # 用户命令
+    aculog          # modem活动
+    btmp            # 失败记录
+    lastlog         # 最近成功登录、最后一次不成功登录
+    syslog          # 系统日志
+    messages        # syslog
+    sudolog         # sudo记录
+    sulog           # su记录
+    utmp            # 当前登录用户
+    wtmp            # 用户登录登出记录
+    xferlog         # ftp会话
 </code></pre>
 
 <h1 id="系统编程">系统编程</h1>
@@ -400,7 +408,6 @@ SIGAIO  34  Ignore  Asynchronous I/O
 <h1 id="发行版">发行版</h1>
 
 <pre><code>lfs
-centos
 coreos
 arch
 fedora
@@ -410,6 +417,16 @@ opensuse
 mint
 </code></pre>
 
+<h2 id="centos">centos</h2>
+
+<pre><code>安装VBoxAdditions
+    yum update kernel
+    yum install kernel-headers kernel-devel gcc
+    # 可能要加软连接 /usr/src/kernels/
+    mount /dev/cdrom /mnt
+    /mnt/VBoxLinuxAdditions.run
+</code></pre>
+
 <h2 id="fedora">fedora</h2>
 
 <pre><code>升级
@@ -417,15 +434,15 @@ mint
     或
     fedora-upgrade
 升级21
-    # rpm --import https://fedoraproject.org/static/95A43F54.txt
-    # yum update yum
-    # yum clean all
-    # yum --releasever=21 distro-sync --nogpgcheck
+    rpm --import https://fedoraproject.org/static/95A43F54.txt
+    yum update yum
+    yum clean all
+    yum --releasever=21 distro-sync --nogpgcheck
 group
-    #yum grouplist
-    #yum groupinstall &quot;X Window System&quot;
-    #yum groupinstall &quot;GNOME Desktop Environment&quot;
-    #yum groupinstall &quot;KDE&quot;
+    yum grouplist
+    yum groupinstall &quot;X Window System&quot;
+    yum groupinstall &quot;GNOME Desktop Environment&quot;
+    yum groupinstall &quot;KDE&quot;
 
 gnome的快捷方式存放地址
 安装unity  
@@ -582,8 +599,8 @@ yaourt
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -607,12 +624,7 @@ yaourt
     <nav id="TableOfContents">
 <ul>
 <li><a href="#基础">基础</a></li>
-<li><a href="#文件位置">文件位置</a>
-<ul>
-<li><a href="#initd">initd</a></li>
-<li><a href="#fstab">fstab</a></li>
-<li><a href="#日志">日志</a></li>
-</ul></li>
+<li><a href="#文件位置">文件位置</a></li>
 <li><a href="#系统编程">系统编程</a>
 <ul>
 <li><a href="#进程通信">进程通信</a></li>
@@ -625,6 +637,7 @@ yaourt
 </ul></li>
 <li><a href="#发行版">发行版</a>
 <ul>
+<li><a href="#centos">centos</a></li>
 <li><a href="#fedora">fedora</a></li>
 <li><a href="#arch">arch</a></li>
 </ul></li>

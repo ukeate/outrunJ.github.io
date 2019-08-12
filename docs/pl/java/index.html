@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -2301,9 +2303,18 @@ mysql
 
 <h1 id="模式">模式</h1>
 
-<h2 id="单例">单例</h2>
+<h2 id="单例-singleton">单例(singleton)</h2>
 
-<pre><code># singleton
+<pre><code>确保只有一个实例
+    # 大多有资源管理器的功能
+    # 反射机制会使所有单例失效：私有构造方法可以被访问
+应用
+    线程池
+    缓存
+    日志对象
+    对话框
+    打印机
+    显卡驱动程序
 o-&gt; 饿汉
 public class Singleton {
     public static Singleton instance = new Singleton();
@@ -2312,11 +2323,23 @@ public class Singleton {
         return instance;
     }
 }
-o-&gt; 懒汉
-    # 双重检测(DCL)问题,
-    # 1 t1编译singleton = new Singleton()时重排序把没初始化对象赋值给singleton时, t2判断singleton为null。用volatile解决
+o-&gt; 懒汉式
+public class Singleton {
+    private static Singleton single=null;
+    private Singleton() {}
+    public synchronized  static Singleton getInstance() {
+        if (single == null) {
+            single = new Singleton();
+        }
+        return single;
+    }
+}
+o-&gt; 懒汉，双重检测(DCL)
+    # 解决问题并发创建问题。在不同jvm或多核cpu上，有无序写入bug。
+    # 解决bug: 1 直接创建static属性, 2 get方法修饰synchronized
 public class Singleton {
     private static volatile Singleton singleton = null;
+        # volatile: t1编译singleton = new Singleton()时重排序把没初始化对象赋值给singleton时, t2判断singleton为null。
     private Singleton(){}
     public static Singleton getInstance(){
         if (singleton == null) {
@@ -2329,6 +2352,25 @@ public class Singleton {
             }
         }
         return singleton;
+    }
+}
+o-&gt; map注册
+    # 学Spring，将类名注册
+public class Singleton {
+    private static Map&lt;String,Singleton&gt; map = new HashMap&lt;String,Singleton&gt;();
+    static{
+        Singleton single = new Singleton();
+        map.put(single.getClass().getName(), single);
+    }
+    protected Singleton(){}
+    public static Singleton getInstance(String name) {
+        if(name == null) {
+            name = Singleton.class.getName();
+        }
+        if(map.get(name) == null) {
+            map.put(name, (Singleton) Class.forName(name).newInstance());
+        }
+        return map.get(name);
     }
 }
 </code></pre>
@@ -2470,7 +2512,7 @@ Icalculator cal = new Minus();
 cal.calculate(exp);
 </code></pre>
 
-<h1 id="观察者">观察者</h1>
+<h2 id="观察者">观察者</h2>
 
 <pre><code># Observer, 对象变化，一对多广播
 public interface Observer {
@@ -2518,8 +2560,8 @@ public class MySubject extends AbstractSubject {
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cf12cab80ae40710da4c7389588117b5e67a7a8b" title='Last modified Aug 5, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 5, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -2580,14 +2622,14 @@ public class MySubject extends AbstractSubject {
 <li><a href="#规范">规范</a></li>
 <li><a href="#模式">模式</a>
 <ul>
-<li><a href="#单例">单例</a></li>
+<li><a href="#单例-singleton">单例(singleton)</a></li>
 <li><a href="#工厂">工厂</a></li>
 <li><a href="#建造者">建造者</a></li>
 <li><a href="#适配器">适配器</a></li>
 <li><a href="#装饰">装饰</a></li>
 <li><a href="#策略">策略</a></li>
-</ul></li>
 <li><a href="#观察者">观察者</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

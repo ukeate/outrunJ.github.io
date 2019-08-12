@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -184,7 +186,7 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="语言">语言</h1>
+<h1 id="基础">基础</h1>
 
 <pre><code>注意
     比较语言，共通处(抽象的元知识)是要点
@@ -435,6 +437,8 @@ https://github.com/alex-shpak/hugo-book
 实现
     事件发布订阅
         回调函数事件化(钩子机制)
+    cps: continuation-passing style
+        在函数式编程中, 多传一个参数k明确控制continuation
     promise/deferred        # promise/A, promise/B, promise/D模型
         # promise在外部暴露接口(可变部分), deferred在内部维护状态(不可变部分)
         状态
@@ -588,8 +592,8 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/21b2cf943bbef1d6cd07affcca4ab1d04d979274" title='Last modified Jul 31, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 31, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
@@ -612,7 +616,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#语言">语言</a></li>
+<li><a href="#基础">基础</a></li>
 <li><a href="#原理">原理</a></li>
 <li><a href="#异步编程">异步编程</a></li>
 <li><a href="#编译">编译</a></li>

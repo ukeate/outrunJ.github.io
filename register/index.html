@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
@@ -127,6 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
 <li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
 </ul></li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
@@ -240,6 +242,7 @@ journalctl
     git
     expect
     wget
+    vsftpd
     sysdig
     sysstat     # sar, sadf, mpstat, iostat, pidstat
 
@@ -300,35 +303,40 @@ opt
     tomcat
     flame-graph
     jdk1.8
+    jdk12
     node
     protoc
 diy
     blog
 文件
-    ~/code
-    ~/scripts/work
-    ~/scripts/app
-    ~/scripts/config
-    ~/scripts/login
-    ~/.xinitrc
-    ~/.bashrc
-    ~/.gitconfig
-    ~/.openvpn
-    ~/.ssh
-    ~/.tmux.conf
-    ~/.config/awesome
-    ~/.config/VirtualBox/VirtualBox.xml
-    /opt/env
-    /opt/svc
-    /etc/resolv.conf
+    ~
+        /code
+        /scripts
+            /work
+            /app
+            /config
+            /login
+        /.xinitrc
+        /.bashrc
+        /.gitconfig
+        /.openvpn
+        /.ssh
+        /.tmux.conf
+        /.config
+            /awesome
+            /VirtualBox/VirtualBox.xml
+    /opt
+        /env
+        /svc
+    /etc
+        /resolv.conf
+        /vsftpd.conf
     /data/var/mysql
     /db/mongo
-    /srv/ftp
-    /srv/http
+    /var/ftp
 
     # log
     ~/VBoxSVC.log
-    ~/VirtualBox VMs/machinename/Logs
     ~/.config/VirtualBox/selectorwindow.log
 </code></pre>
 
@@ -546,8 +554,8 @@ registers
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
     </a>
   </div>
   
