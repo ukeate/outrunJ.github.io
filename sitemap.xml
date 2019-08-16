@@ -40,7 +40,7 @@
   
   <url>
     <loc>https://example.com/docs/ops/docker/</loc>
-    <lastmod>2019-07-25T09:26:43+08:00</lastmod>
+    <lastmod>2019-08-16T12:36:46+08:00</lastmod>
   </url>
   
   <url>
@@ -55,7 +55,7 @@
   
   <url>
     <loc>https://example.com/docs/architecture/</loc>
-    <lastmod>2019-08-12T08:47:47+08:00</lastmod>
+    <lastmod>2019-08-16T12:36:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,7 +96,7 @@
   
   <url>
     <loc>https://example.com/docs/</loc>
-    <lastmod>2019-08-12T08:47:47+08:00</lastmod>
+    <lastmod>2019-08-16T12:36:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -111,8 +111,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/management/</loc>
-    <lastmod>2019-07-25T09:26:43+08:00</lastmod>
+    <loc>https://example.com/docs/method/</loc>
+    <lastmod>2019-08-16T12:36:46+08:00</lastmod>
   </url>
   
   <url>
@@ -137,7 +137,7 @@
   
   <url>
     <loc>https://example.com/docs/architecture/principle/</loc>
-    <lastmod>2019-08-12T08:47:47+08:00</lastmod>
+    <lastmod>2019-08-16T12:36:46+08:00</lastmod>
   </url>
   
   <url>
