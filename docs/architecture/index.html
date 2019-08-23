@@ -95,6 +95,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
@@ -432,12 +433,21 @@ sdn        software defined network 软件定义网络
             监控label                # 筛选pod得到数量
 命令
     kubectl
+        logs
+            kubectl logs --tail=1000 appID1
+                # 查看日志
+        exec
+            kubectl exec -it appID1 /bin/sh
+                # 交互命令进入app
         create
             -f mysql-rc.yaml        # 创建rc
             -f mysql-svc.yaml       # 创建service
         get
             rc                      # 查看rc
             pods
+            pod
+                kubectl get pod -l app=app1 -o wide
+                    # 查看pod app状态
             services
             svc                     # 查看service, 包含cluster ip
             nodes
@@ -1404,9 +1414,47 @@ exhibitor
 
 <h2 id="jetty">jetty</h2>
 
-<pre><code>是开源的servlet容器，基于java, 可以给jsp和servlet提供运行环境
-jetty容器可以实例化成一个对象，迅速为一些独立运行(stand-alone)的java应用提供网络和web连接
+<pre><code># 是开源的servlet容器，基于java, 可以给jsp和servlet提供运行环境
+# jetty容器可以实例化成一个对象，迅速为一些独立运行(stand-alone)的java应用提供网络和web连接
 </code></pre>
+
+<h2 id="apache">apache</h2>
+
+<pre><code># http容器，可容纳php, python。一请求一线程
+安装
+    pacman -S apache
+    mkdir /srv/http
+    chown http:http /srv/http
+编译安装
+    ./configure
+        --prefix=/全路径/install_path
+        --with-apxs2=/全路径/apxs            # 模块
+    make
+    make install
+命令
+    httpd
+        -f                                  # 指定配置
+        -t                                  # 配置检查
+        -k
+            start
+            restart
+            graceful
+            stop
+            graceful-stop
+    apachectl
+        graceful                            # 重载配置
+        -f /全路径/httpd.conf                # 指定配置
+        -t                                  # 配置检查
+配置
+    /etc/httpd/conf/httpd.conf
+        DocumentRoot &quot;/srv/http&quot;            # 项目路径
+        Listen                              # 端口
+案例
+    php
+        docker解决
+</code></pre>
+
+<h2 id="lighttpd">lighttpd</h2>
 
 <h2 id="meteor">meteor</h2>
 
@@ -1675,74 +1723,6 @@ iscsi系统组成
 <pre><code># 开源分布式文件系统
 </code></pre>
 
-<h1 id="第三方服务">第三方服务</h1>
-
-<pre><code>teamwork
-    confluence
-    teambition
-    basecamp
-    jira
-    testlink
-    shimo
-    dropbox
-    trello
-itsm/erp
-    # IT Service Management, 信息技术服务管理
-    salesforce
-    servicenow
-    workday
-        # hr平台
-pay
-    支付宝
-    易宝
-    财付通
-cti
-    天润
-    云之讯
-    容联
-report/olap
-    palo
-idc
-    # infomation data corporation 互联网数据中心
-cdn
-    七牛
-ws
-    阿里云
-    青云
-    digital ocean
-    vultr
-    aws
-    Linode
-    azure
-        # 微软开放平台
-    gce
-        # google compute engine
-    txCloud
-        # 云柜，数据存储和计算
-    首都在线
-paas
-    gae
-        # google app engine
-    sae
-        # sina app engine
-    heroku
-im
-    环信
-    云片
-    jpush
-    im
-    sms.webchinese.cn
-    个推
-ops
-    docker
-safe
-    1password
-dns
-    godaddy
-    万网
-    dnspod
-</code></pre>
-
 <h2 id="cdn">cdn</h2>
 
 <pre><code>介绍
@@ -1754,6 +1734,19 @@ dns
 网宿
 蓝汛
 </code></pre>
+
+<h2 id="aws服务器">aws服务器</h2>
+
+<pre><code>命令
+    aws
+        s3
+            cp --recursive bin s3://meiqia/crm-module/search/bin
+                # 级联复制
+            sync s3://meiqia/crm-module/search/bin bin
+                # 下载
+            rm --recursive s3://meiqia/crm-module/search
+                # 级联删除
+</code></pre>
 </article>
 
       
@@ -1761,8 +1754,8 @@ dns
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/c451d3d6868e0df870a36b7d09d19062d9df7a32" title='Last modified Aug 16, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 16, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
     </a>
   </div>
   
@@ -1874,6 +1867,8 @@ dns
 <li><a href="#netty">netty</a></li>
 <li><a href="#netty-tcnative">netty-tcnative</a></li>
 <li><a href="#jetty">jetty</a></li>
+<li><a href="#apache">apache</a></li>
+<li><a href="#lighttpd">lighttpd</a></li>
 <li><a href="#meteor">meteor</a></li>
 <li><a href="#ringojs">ringojs</a></li>
 <li><a href="#mina">mina</a></li>
@@ -1916,10 +1911,8 @@ dns
 <ul>
 <li><a href="#iscsi">iscsi</a></li>
 <li><a href="#fastdfs">fastdfs</a></li>
-</ul></li>
-<li><a href="#第三方服务">第三方服务</a>
-<ul>
 <li><a href="#cdn">cdn</a></li>
+<li><a href="#aws服务器">aws服务器</a></li>
 </ul></li>
 </ul>
 </nav>

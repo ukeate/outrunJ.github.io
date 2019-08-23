@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
@@ -656,7 +657,14 @@ curl
     curl -X post -k http://localhost:9090/a -H &quot;Content-Type: text/plain&quot; -d '{&quot;name&quot;: &quot;a&quot;}'
         # post请求
     curl -O http://104.223.142.166/isu80        # 抓文件
-nc -U a.sock            # netcat, 功能全面
+nc                      # netcat, 功能全面
+    -U a.sock           # 指定socket
+    -v                  # 显示详情
+    -z                  # 只测试连通
+    -u                  # 使用udp
+
+    o-&gt; 测试udp端口
+    nc -vzu 127.0.0.1 1194
 dig                     # 域名解析
 nmap
     -sP ip/24           # 查看网内所有ip
@@ -1094,8 +1102,10 @@ unzip中转码
     ls | grep '^Dar' | xargs rm
 
 爬网站
-    wget -x -P curSite -r -l 100 -k -p -L -np http://nodeapi.ucdok.com/api/
-
+    wget -x -P curSite -r -l 100 -k -L -np http://nodeapi.ucdok.com/api/
+    带cookie
+        wget --post-data=&quot;username=u1&amp;password=asdf&quot; --save-cookies=cookie --keep-session-cookies &quot;http://www.abc.com/logging.php&quot;
+        wget -x -P curSite -r -l 1 -k -L -np --load-cookies=cookie --keep-session-cookies &quot;https://www.abc.com/display/1&quot;
 递归查找所有内容
     grep -nr 'a' .
 
@@ -1131,8 +1141,8 @@ simplehttp
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
     </a>
   </div>
   

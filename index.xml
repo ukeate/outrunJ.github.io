@@ -112,6 +112,15 @@
     </item>
     
     <item>
+      <title>第三方服务</title>
+      <link>https://example.com/docs/architecture/3rd_product/</link>
+      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/3rd_product/</guid>
+      <description>知识库 confluence # 收费 tiddlyWiki # 可在线定义目录树 github # 用wiki页面, 或gitboot mediaWiki # 维基百科样式，只有单页目录树 dokuWiki # 只有网站地图 xwiki # 目录树, acl tapd # 腾讯 语雀 hdwiki # 百科, 已停更 notion # 任务管理  团队协作 jira # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。 teambition # 项目管理、团队协作 basecamp # 项目管理、团队协作 testlink # 测试，修正，进度 zeplin # 设计和前端协同工具 redmine # 项目管理, ror开发，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起 shimo # 文档协作 etherpad.org # 在线协作无缝编辑 dropbox # 文档协作 坚果云 # 文档协作 trello # 进度管理  代码 sentry # 产品error tracing gerrit # code review 工具 coverallx # github上项目的coverage测试覆盖率条目由它提供服务 circleCI # github代码测试 travis-ci # 利用github hook测试 fitness # 自动单元测试 coverity # 代码静态检查 www.</description>
+    </item>
+    
+    <item>
       <title>Bootstrap</title>
       <link>https://example.com/docs/frontend/bootstrap/</link>
       <pubDate>Thu, 11 Oct 2018 09:39:11 +0800</pubDate>
@@ -162,7 +171,7 @@
       <pubDate>Wed, 10 Oct 2018 20:56:27 +0800</pubDate>
       
       <guid>https://example.com/docs/infomation/</guid>
-      <description>工具 http://lpaste.net/ # 粘代码 https://pastee.org/ # 粘贴代码 http://editor.method.ac/ # 在线ps https://www.processon.com/ # 在线思维导图, uml等 https://www.gliffy.com/go/html5/launch # 在线画图 etherpad.org # 在线协作无缝编辑 www.webpagetest.org # web test http://www.lmgtfy.com/?q=Linux#seen # let me google this for you http://tool.lu/coderunner/ # 在线repl http://bird.so # 程序信息搜索 zeplin # 设计和前端协同工具  更新学习 大前端 http://a.haskellcn.org/study # haskell书目录 liaoxuefeng # 廖雪峰blog http://blogjava.net/ # blog java https://github.com/alsotang/node-lessons # alsotang blog http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 http://tech.meituan.com/ # 美团tech http://harttle.com/ # harttle博客 http://learningwebgl.com/ # webgl 基础 http://www.</description>
+      <description>信息公布 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 问答 quora stack overflow 知乎 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞  做题 http://www.codewars.com/ # haskell等语言在线做题 https://leetcode.com/problemset/algorithms/ # leetcode  资源 堆糖 # 图片 www.</description>
     </item>
     
     <item>
@@ -441,8 +450,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/register/</guid>
-      <description>连接 信息 石墨 processon vpntech
-go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go tool pprof service.test cpu.prof go-torch -b cpu.prof go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot;  linux dmesg journalctl 快捷键 ctrl alt f1/f2/...  系统配置 bin # 系统需要 yaourt network-manager awesome i3-wm ibus wireless-tools pkgfile os-prober ntfs-3g pepper-flash tree unzip alsamixer arandr xscreensaver virtualbox firefox chromium thunderbird tmux vim # 运维需要 openssh git expect wget vsftpd sysdig sysstat # sar, sadf, mpstat, iostat, pidstat # 程序需要 g++ python lua ruby cmake protobuf openjdk8 docker mysql nginx nginx-php nsq redis zipkin opt # ide webstorm datagrip eclipse-inst eclipse-birt eclipse-jee-neon goland intellij idea phpstorm pycharm vscode sublime mps android studio # 图形工具 wireshark filezilla postman robomongo emacs neoclipse # 数据库 elasticsearch elasticsearch-head elasticsearch-analysis-hanlp elasticsearch-ik elasticsearch-pinyin redis mongodb mariadb neo4j pgsql # 工具 go maven tomcat flame-graph jdk1.</description>
+      <description>连接 信息 石墨 vpntech  infoQ V2EX  ProcessOn Atlassian
+go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go tool pprof service.test cpu.prof go-torch -b cpu.prof go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot;  linux dmesg journalctl 快捷键 ctrl alt f1/f2/...  系统配置 bin # 系统需要 yaourt network-manager awesome i3-wm ibus wireless-tools pkgfile os-prober ntfs-3g pepper-flash tree unzip alsamixer arandr xscreensaver virtualbox firefox chromium thunderbird tmux vim # 运维需要 openssh git expect wget vsftpd sysdig sysstat # sar, sadf, mpstat, iostat, pidstat shadowsocks polipo # 程序需要 g++ python2.</description>
     </item>
     
     <item>
@@ -460,7 +469,7 @@ go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/interview/</guid>
-      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法  </description>
+      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优  </description>
     </item>
     
   </channel>

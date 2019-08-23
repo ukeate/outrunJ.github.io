@@ -16,7 +16,7 @@
       <pubDate>Wed, 10 Oct 2018 20:56:27 +0800</pubDate>
       
       <guid>https://example.com/docs/infomation/</guid>
-      <description>工具 http://lpaste.net/ # 粘代码 https://pastee.org/ # 粘贴代码 http://editor.method.ac/ # 在线ps https://www.processon.com/ # 在线思维导图, uml等 https://www.gliffy.com/go/html5/launch # 在线画图 etherpad.org # 在线协作无缝编辑 www.webpagetest.org # web test http://www.lmgtfy.com/?q=Linux#seen # let me google this for you http://tool.lu/coderunner/ # 在线repl http://bird.so # 程序信息搜索 zeplin # 设计和前端协同工具  更新学习 大前端 http://a.haskellcn.org/study # haskell书目录 liaoxuefeng # 廖雪峰blog http://blogjava.net/ # blog java https://github.com/alsotang/node-lessons # alsotang blog http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 http://tech.meituan.com/ # 美团tech http://harttle.com/ # harttle博客 http://learningwebgl.com/ # webgl 基础 http://www.</description>
+      <description>信息公布 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 问答 quora stack overflow 知乎 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞  做题 http://www.codewars.com/ # haskell等语言在线做题 https://leetcode.com/problemset/algorithms/ # leetcode  资源 堆糖 # 图片 www.</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/interview/</guid>
-      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法  </description>
+      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优  </description>
     </item>
     
   </channel>

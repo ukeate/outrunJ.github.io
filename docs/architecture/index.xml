@@ -29,6 +29,15 @@
     </item>
     
     <item>
+      <title>第三方服务</title>
+      <link>https://example.com/docs/architecture/3rd_product/</link>
+      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architecture/3rd_product/</guid>
+      <description>知识库 confluence # 收费 tiddlyWiki # 可在线定义目录树 github # 用wiki页面, 或gitboot mediaWiki # 维基百科样式，只有单页目录树 dokuWiki # 只有网站地图 xwiki # 目录树, acl tapd # 腾讯 语雀 hdwiki # 百科, 已停更 notion # 任务管理  团队协作 jira # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。 teambition # 项目管理、团队协作 basecamp # 项目管理、团队协作 testlink # 测试，修正，进度 zeplin # 设计和前端协同工具 redmine # 项目管理, ror开发，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起 shimo # 文档协作 etherpad.org # 在线协作无缝编辑 dropbox # 文档协作 坚果云 # 文档协作 trello # 进度管理  代码 sentry # 产品error tracing gerrit # code review 工具 coverallx # github上项目的coverage测试覆盖率条目由它提供服务 circleCI # github代码测试 travis-ci # 利用github hook测试 fitness # 自动单元测试 coverity # 代码静态检查 www.</description>
+    </item>
+    
+    <item>
       <title>构架-方案</title>
       <link>https://example.com/docs/architecture/solution/</link>
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>

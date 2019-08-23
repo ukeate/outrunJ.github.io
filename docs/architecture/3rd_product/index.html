@@ -7,12 +7,12 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.56.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   
-    介绍
+    
+    第三方服务
   
  | outrun的笔记</title>
 
@@ -24,7 +24,6 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="https://example.com/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -49,12 +48,9 @@ https://github.com/alex-shpak/hugo-book
   
   
   
-    
-    
-  
 
   <style>
-  nav ul a[href="https\3a\2f\2f example.com\2f "] {
+  nav ul a[href$="\2f docs\2f architecture\2f 3rd_product\2f "] {
       color: #004ed0;
   }
   </style>
@@ -182,7 +178,8 @@ https://github.com/alex-shpak/hugo-book
   </label>
   <strong>
   
-    介绍
+    
+    第三方服务
   
 </strong>
 </header>
@@ -190,31 +187,199 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="为什么建站">为什么建站</h1>
+<h1 id="知识库">知识库</h1>
 
-<ol>
-<li>一个程序有一个入口，来做引导和启发全部。<br/>
-个人要做很多事，工作只是其一。互联网工作的东西，像一个程序，需要一个入口。</li>
-<li>把用的东西放到网上，比较省心。</li>
-</ol>
+<pre><code>confluence
+    # 收费
+tiddlyWiki
+    # 可在线定义目录树
+github
+    # 用wiki页面, 或gitboot
+mediaWiki
+    # 维基百科样式，只有单页目录树
+dokuWiki
+    # 只有网站地图
+xwiki
+    # 目录树, acl
+tapd
+    # 腾讯
+语雀
+hdwiki
+    # 百科, 已停更
+notion
+    # 任务管理
+</code></pre>
 
-<h1 id="为什么记笔记-知识库">为什么记笔记/知识库</h1>
+<h1 id="团队协作">团队协作</h1>
 
-<ol>
-<li>软件行业，信息量大，需要遗忘。用到时又需要回忆。</li>
-<li>信息更新快, 整理笔记把散乱变成系统, 变成自己需要的格式和思路。再更新即是回顾。</li>
-<li>博客不好修改和查看。</li>
-<li>自己重发现比得到知识重要，它可以提供解决问题的思路。</li>
-</ol>
+<pre><code>jira
+    # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。
+teambition
+    # 项目管理、团队协作
+basecamp
+    # 项目管理、团队协作
+testlink
+    # 测试，修正，进度
+zeplin
+    # 设计和前端协同工具
+redmine
+    # 项目管理, ror开发，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起
+shimo
+    # 文档协作
+etherpad.org
+    # 在线协作无缝编辑
+dropbox
+    # 文档协作
+坚果云
+    # 文档协作
+trello
+    # 进度管理
+</code></pre>
 
-<p>因此这里的很多东西是面向个人的。</p>
+<h1 id="代码">代码</h1>
 
-<h1 id="原则">原则</h1>
+<pre><code>sentry
+    # 产品error tracing
+gerrit
+    # code review 工具
+coverallx
+    # github上项目的coverage测试覆盖率条目由它提供服务
+circleCI
+    # github代码测试
+travis-ci
+    # 利用github hook测试
+fitness
+    # 自动单元测试
+coverity
+    # 代码静态检查
+www.webpagetest.org
+    # 测试网站性能
+</code></pre>
 
-<ol>
-<li>第一原理(first principles)</li>
-<li>设计意图(why)最关键, 不要盲从(how)。一手资料(作者原文、官网)(what)更易了解意图</li>
-</ol>
+<h2 id="gitlab">gitlab</h2>
+
+<h1 id="itsm">ITSM</h1>
+
+<pre><code># IT service management
+salesforce
+servicenow
+workday
+    # hr平台
+</code></pre>
+
+<h1 id="erp">ERP</h1>
+
+<pre><code># enterprise resource planning
+</code></pre>
+
+<h1 id="自动化运维-ops">自动化运维(OPS)</h1>
+
+<pre><code>tty.js
+    # 浏览器运行命令
+jenkins
+    # java实现的持续集成工具
+ansible
+    # python实现的自动化部署工具
+gradle
+    # 自动化构建
+saltstack
+    # 部署, 自动化运维
+puppet
+    # 自动化运维
+selenium
+    # 自动化运维
+</code></pre>
+
+<h2 id="cmdb">CMDB</h2>
+
+<pre><code># configuration management database
+jumpserver
+    # 跳板机
+</code></pre>
+
+<h2 id="监控">监控</h2>
+
+<pre><code>prometheus
+    # 监控, go实现
+grafana
+    # 监控
+zabbix
+    # 分布式监控
+nagios
+    # 监控
+</code></pre>
+
+<h1 id="功能服务">功能服务</h1>
+
+<pre><code>ws
+    阿里云
+    青云
+    digital ocean
+    vultr
+    aws
+    Linode
+    azure
+        # 微软开放平台
+    gce
+        # google compute engine
+    txCloud
+        # 云柜，数据存储和计算
+    首都在线
+paas
+    gae
+        # google app engine
+    sae
+        # sina app engine
+    heroku
+dns
+    godaddy
+    万网
+    dnspod
+cdn
+    七牛
+pay
+    支付宝
+    易宝
+    财付通
+idc(infomation data corporation 互联网数据中心)
+cti
+    天润
+    云之讯
+    容联
+报表/olap
+    palo
+im
+    环信
+    云片
+    jpush
+    im
+    sms.webchinese.cn
+    个推
+safe
+    1password
+</code></pre>
+
+<h1 id="工具">工具</h1>
+
+<pre><code>http://tool.lu/coderunner/
+    # 在线repl
+http://lpaste.net/
+    # 粘代码
+https://pastee.org/
+    # 粘贴代码
+http://editor.method.ac/
+    # 在线ps
+https://www.processon.com/
+    # 在线思维导图, uml等
+https://www.gliffy.com/go/html5/launch
+    # 在线画图
+
+
+http://www.lmgtfy.com/?q=Linux#seen
+    # let me google this for you
+codility.com
+    # 招聘在线做题
+</code></pre>
 </article>
 
       
@@ -229,7 +394,7 @@ https://github.com/alex-shpak/hugo-book
   
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/_index.md" target="_blank" rel="noopener">
+    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/3rd_product.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" alt="Edit" /> Edit this page
     </a>
   </div>
@@ -246,9 +411,21 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#为什么建站">为什么建站</a></li>
-<li><a href="#为什么记笔记-知识库">为什么记笔记/知识库</a></li>
-<li><a href="#原则">原则</a></li>
+<li><a href="#知识库">知识库</a></li>
+<li><a href="#团队协作">团队协作</a></li>
+<li><a href="#代码">代码</a>
+<ul>
+<li><a href="#gitlab">gitlab</a></li>
+</ul></li>
+<li><a href="#itsm">ITSM</a></li>
+<li><a href="#erp">ERP</a></li>
+<li><a href="#自动化运维-ops">自动化运维(OPS)</a>
+<ul>
+<li><a href="#cmdb">CMDB</a></li>
+<li><a href="#监控">监控</a></li>
+</ul></li>
+<li><a href="#功能服务">功能服务</a></li>
+<li><a href="#工具">工具</a></li>
 </ul>
 </nav>
   </aside>

@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
@@ -304,6 +305,39 @@ https://github.com/alex-shpak/hugo-book
         rm
 </code></pre>
 
+<h1 id="docker-compose">docker-compose</h1>
+
+<pre><code>docker-compose
+    -h                              # 帮助
+    -f                              # 指定模板
+    version
+
+    up                              # 所有模板创建容器
+        -d                          # 后台
+    down                            # 删除容器、网络、卷、镜像
+    rm                              # 删除容器
+    create                          # 创建容器
+
+    stop                            # 停止容器
+    start                           # 启动容器
+    restart
+    pause                           # 暂停容器
+    unpause
+    kill                            # 强制停止容器
+    scale                           # 指定容器个数
+
+    ps                              # 列出所有容器
+    logs                            # 查日志
+    port                            # 显示容器映射端口
+    run                             # 容器中执行命令
+    exec
+
+    config                          # 查看配置
+    build                           # (重)构建容器
+    pull                            # 拉依赖镜像
+    push                            # 推送镜像
+</code></pre>
+
 <h1 id="dockerfile">Dockerfile</h1>
 
 <pre><code>FROM nginx                          # 基于镜像
@@ -352,6 +386,21 @@ RUN echo 'test'                     # 在当前镜像基础上执行命令，提
         # 把容器提交为镜像
     docker images node_pm2
     docker push outrun11/node_pm2
+代理
+    /etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
+        Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
+            &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
+            &quot;NO_PROXY=192.168.1.1,localhost&quot;
+    systemctl daemon-reload
+换源
+    /etc/docker/daemon.json                                         # 没有时创建
+        {
+          &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;]
+        }
+    systemctl daemon-reload
+    systemctl restart docker
+登录运行容器
+    docker exec -it 8ce /bin/bash
 jenkins
     docker pull jenins
     mkdir /var/jenkins_home
@@ -394,6 +443,24 @@ mysql
 es
     docker run -it  -v /home/test/es/config/:/usr/share/elasticsearch/config/ -v /home/test/es/plugins/:/usr/share/elasticsearch/plugins/ elasticsearch:5.4.3 /bin/bash
     docker run -d -p 9200:9200 -p 9300:9300 --name es  -v /home/test/es/config/:/usr/share/elasticsearch/config/ -v /home/test/es/plugins/:/usr/share/elasticsearch/plugins/ elasticsearch:5.4.3
+dokuwiki
+    docker-compose.yml
+        version: '3'
+        services:
+          dokuwiki:
+            restart: always
+            image: bitnami/dokuwiki:latest
+            ports:
+              - 8004:80
+            environment:
+              - DOKUWIKI_FULL_NAME=outrun
+              - DOKUWIKI_EMAIL=934260428@qq.com
+              - DOKUWIKI_WIKI_NAME=Wiki
+              - DOKUWIKI_USERNAME=outrun
+              - DOKUWIKI_PASSWORD=asdfasdf
+            volumes:
+              - ./.data:/home/outrun/scripts/config/dokuwiki/data
+    docker-compose -f /路径/docker-compose.yml up -d
 </code></pre>
 
 <h1 id="工具">工具</h1>
@@ -410,8 +477,8 @@ pipwork
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/c451d3d6868e0df870a36b7d09d19062d9df7a32" title='Last modified Aug 16, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 16, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
     </a>
   </div>
   
@@ -436,6 +503,7 @@ pipwork
 <ul>
 <li><a href="#基础">基础</a></li>
 <li><a href="#命令">命令</a></li>
+<li><a href="#docker-compose">docker-compose</a></li>
 <li><a href="#dockerfile">Dockerfile</a></li>
 <li><a href="#方案">方案</a></li>
 <li><a href="#工具">工具</a></li>

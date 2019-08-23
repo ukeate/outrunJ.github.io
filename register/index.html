@@ -93,6 +93,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 </ul></li>
@@ -190,8 +191,13 @@ https://github.com/alex-shpak/hugo-book
 
 <p><a href="http://localhost:1315/docs/infomation/" target="_blank">信息</a>
 <a href="https://shimo.im/" target="_blank">石墨</a>
-<a href="https://processon.com/" target="_blank">processon</a>
-<a href="https://www.vtrhome.net/" target="_blank">vpntech</a></p>
+<a href="https://www.vtrhome.net/" target="_blank">vpntech</a>
+<br/>
+<a href="https://www.infoq.cn/" target="_blank">infoQ</a>
+<a href="https://www.v2ex.com/" target="_blank">V2EX</a>
+<br/>
+<a href="https://processon.com/" target="_blank">ProcessOn</a>
+<a href="https://www.atlassian.com/" target="_blank">Atlassian</a></p>
 
 <h1 id="go">go</h1>
 
@@ -245,10 +251,16 @@ journalctl
     vsftpd
     sysdig
     sysstat     # sar, sadf, mpstat, iostat, pidstat
+    shadowsocks
+    polipo
 
     # 程序需要
     g++
-    python
+    python2.7
+        python3.5
+    php
+        php-cgi
+        php-fpm
     lua
     ruby
     cmake
@@ -439,6 +451,18 @@ registers
 <pre><code>shift shift
 </code></pre>
 
+<h1 id="docker">docker</h1>
+
+<pre><code>/etc/docker/daemon.json
+    {
+      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;]
+    }
+/etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
+    Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
+        &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
+        &quot;NO_PROXY=192.168.1.1,localhost&quot;
+</code></pre>
+
 <h1 id="awesome">awesome</h1>
 
 <pre><code>快捷键
@@ -554,8 +578,8 @@ registers
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
     </a>
   </div>
   
@@ -584,6 +608,7 @@ registers
 <li><a href="#系统配置">系统配置</a></li>
 <li><a href="#vim">vim</a></li>
 <li><a href="#intellij">intellij</a></li>
+<li><a href="#docker">docker</a></li>
 <li><a href="#awesome">awesome</a></li>
 <li><a href="#tmux">tmux</a></li>
 </ul>
