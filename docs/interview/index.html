@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-  
-    
-    面试
-  
- | outrun的笔记</title>
+<title>面试 | outrun的笔记</title>
 
 
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
-<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -41,6 +34,15 @@ https://github.com/alex-shpak/hugo-book
 <h2 class="book-brand">
   <a href="https://example.com/">outrun的笔记</a>
 </h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
 
 
 
@@ -153,35 +155,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
 </nav>
 
 
-  
 <script>
 (function() {
-  var menu = document.querySelector('aside.book-menu nav')
-  addEventListener('beforeunload', function(event) {
-    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
   });
-  menu.scrollTop = localStorage.getItem('menu.scrollTop')
-})()
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
 </script>
-
-
 
     </aside>
 
     <div class="book-page">
-      <header class="align-center justify-between book-header">
+      <header class="flex align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>
-  
-    
-    面试
-  
-</strong>
+  <strong>面试</strong>
 </header>
 
       
@@ -207,6 +203,15 @@ o-&gt; 浮点数组(会相等)二分查找
 o-&gt; 任意大整数类型,至少支持乘法
 
 o-&gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优
+
+o-&gt; 100内素数
+o-&gt; 随机填充100内整数不重复
+o-&gt; 找字符串第一个无重复字符, 统计字符重复次数
+o-&gt; 第n个斐波那契数
+o-&gt; 递增数组，求和为m的两数
+o-&gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水
+o-&gt; 无序数组，第k大数
+o-&gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数
 </code></pre>
 </article>
 
@@ -215,8 +220,8 @@ o-&gt; 重量不同多个小球，合并用力为重量和。两两合并到剩�
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
     </a>
   </div>
   

@@ -17,7 +17,7 @@
       <guid>https://example.com/posts/note/</guid>
       <description>记笔记 由于从事软件行业，信息量大，所以养成了记笔记的习惯。 笔记可以按自己的格式和思路写自己需要的，也便于查看。网上的东西对自己来说比较杂乱。 自学的都记了下来了，工作上的少些。
 笔记变更史 一开始用的是ubuntu论坛上推荐的一个工具，现在名字都忘了。 后来一直在用mybase，感觉不错，到现在有5年了。但有几个问题:
- linux下容易打出乱码字符。 删除文档容易出bug。 格式不太好，版本7后用了html做内容，也会有些问题。 是本地数据库，没法在线备份，也不好分享。毕竟东西都放网上比较方便。 软件是收费的。（但开发者很良心，修改下配置就可以接着用，这个&amp;rdquo;bug&amp;rdquo;他们一直不修复）  一直在考虑有道云笔记，开始时它功能不全，没有用。现在功能不错了，我又不想用了。 因为我想自己做一个，容易满足自己的想法和维护。
+ linux下容易打出乱码字符。 删除文档容易出bug。 格式不太好，版本7后用了html做内容，也会有些问题。 是本地数据库，没法在线备份，也不好分享。毕竟东西都放网上比较方便。 软件是收费的。（但开发者很良心，修改下配置就可以接着用，这个&amp;rdquo;bug&amp;rdquo;他们一直不修复）  一直在考虑有道云笔记，开始时它功能不全，没有用。现在功能不错了，我又不想用了。 因为我想自己做一个，容易满足自己的想法和维护。 另外gitbook也可用
 现在 这里是用了hugo和它的book主题，多谢它们的作者。 经过一段时间的整理，今天这个笔记可以用了，其它细节用到时再调整。</description>
     </item>
     
@@ -117,7 +117,7 @@
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
       <guid>https://example.com/docs/architecture/3rd_product/</guid>
-      <description>知识库 confluence # 收费 tiddlyWiki # 可在线定义目录树 github # 用wiki页面, 或gitboot mediaWiki # 维基百科样式，只有单页目录树 dokuWiki # 只有网站地图 xwiki # 目录树, acl tapd # 腾讯 语雀 hdwiki # 百科, 已停更 notion # 任务管理  团队协作 jira # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。 teambition # 项目管理、团队协作 basecamp # 项目管理、团队协作 testlink # 测试，修正，进度 zeplin # 设计和前端协同工具 redmine # 项目管理, ror开发，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起 shimo # 文档协作 etherpad.org # 在线协作无缝编辑 dropbox # 文档协作 坚果云 # 文档协作 trello # 进度管理  代码 sentry # 产品error tracing gerrit # code review 工具 coverallx # github上项目的coverage测试覆盖率条目由它提供服务 circleCI # github代码测试 travis-ci # 利用github hook测试 fitness # 自动单元测试 coverity # 代码静态检查 www.</description>
+      <description>知识库 confluence # 收费 tiddlyWiki # 可在线定义目录树 github # 用wiki页面 gitboot mediaWiki # 维基百科样式，只有单页目录树 dokuWiki # 只有网站地图 xwiki # 目录树, acl tapd # 腾讯 语雀 hdwiki # 百科, 已停更 notion # 任务管理  团队协作 jira # 进度管理 rational # IBM, 进度管理 teambition # 进度管理 basecamp # 进度管理 testlink # 测试收集, 进度管理 zeplin # 设计和前端协同工具 redmine # ror开发, 项目管理, 把成员、任务、文档、讨论等资源整合在一起。支持git, svn, cvs等 trello # 进度管理 team # 微软, 聊天 slack # 聊天 hipChat # Atlassian, 聊天 企业微信 钉钉 shimo # 文档协作 etherpad.</description>
     </item>
     
     <item>
@@ -450,8 +450,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/register/</guid>
-      <description>连接 信息 石墨 vpntech  infoQ V2EX  ProcessOn Atlassian
-go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go tool pprof service.test cpu.prof go-torch -b cpu.prof go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot;  linux dmesg journalctl 快捷键 ctrl alt f1/f2/...  系统配置 bin # 系统需要 yaourt network-manager awesome i3-wm ibus wireless-tools pkgfile os-prober ntfs-3g pepper-flash tree unzip alsamixer arandr xscreensaver virtualbox firefox chromium thunderbird tmux vim # 运维需要 openssh git expect wget vsftpd sysdig sysstat # sar, sadf, mpstat, iostat, pidstat shadowsocks polipo # 程序需要 g++ python2.</description>
+      <description>连接 信息: 信息 石墨 vpntech  资讯: infoQ V2EX  工具: ProcessOn Atlassian Trello
+go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go tool pprof service.test cpu.prof go-torch -b cpu.prof go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot;  linux dmesg journalctl 快捷键 ctrl alt f1/f2/...  端口 1315 blog 8123 polipo 1080 shadowsocks 8004 dokuwiki  系统配置 bin # 系统需要 yaourt network-manager awesome i3-wm ibus wireless-tools pkgfile os-prober ntfs-3g pepper-flash tree unzip alsamixer arandr xscreensaver virtualbox firefox chromium thunderbird tmux vim # 运维需要 openssh git expect wget vsftpd sysdig sysstat # sar, sadf, mpstat, iostat, pidstat shadowsocks polipo # 程序需要 g++ python2.</description>
     </item>
     
     <item>
@@ -469,7 +469,7 @@ go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/interview/</guid>
-      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优  </description>
+      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优 o-&amp;gt; 100内素数 o-&amp;gt; 随机填充100内整数不重复 o-&amp;gt; 找字符串第一个无重复字符, 统计字符重复次数 o-&amp;gt; 第n个斐波那契数 o-&amp;gt; 递增数组，求和为m的两数 o-&amp;gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水 o-&amp;gt; 无序数组，第k大数 o-&amp;gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数  </description>
     </item>
     
   </channel>

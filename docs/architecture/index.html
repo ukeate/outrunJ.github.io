@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-  
-    
-    
-    Architecture
-  
- | outrun的笔记</title>
+<title>Architecture | outrun的笔记</title>
 
 
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
-<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -43,6 +35,15 @@ https://github.com/alex-shpak/hugo-book
 <h2 class="book-brand">
   <a href="https://example.com/">outrun的笔记</a>
 </h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
 
 
 
@@ -155,36 +156,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
 </nav>
 
 
-  
 <script>
 (function() {
-  var menu = document.querySelector('aside.book-menu nav')
-  addEventListener('beforeunload', function(event) {
-    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
   });
-  menu.scrollTop = localStorage.getItem('menu.scrollTop')
-})()
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
 </script>
-
-
 
     </aside>
 
     <div class="book-page">
-      <header class="align-center justify-between book-header">
+      <header class="flex align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>
-  
-    
-    
-    Architecture
-  
-</strong>
+  <strong>Architecture</strong>
 </header>
 
       
@@ -196,9 +190,9 @@ https://github.com/alex-shpak/hugo-book
 sdn        software defined network 软件定义网络
 </code></pre>
 
-<h1 id="service-mesh">service mesh</h1>
+<h1 id="服务网格">服务网格</h1>
 
-<pre><code># 服务网格
+<pre><code># service mesh
 </code></pre>
 
 <h2 id="service-fabric">service fabric</h2>
@@ -212,6 +206,11 @@ sdn        software defined network 软件定义网络
 组成
     数据面板
     控制面板
+</code></pre>
+
+<h2 id="traefik">traefik</h2>
+
+<pre><code># go实现，多后台如k8s, swarm, marathon, mesos
 </code></pre>
 
 <h2 id="linkerd">linkerd</h2>
@@ -1754,8 +1753,8 @@ iscsi系统组成
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
     </a>
   </div>
   
@@ -1779,10 +1778,11 @@ iscsi系统组成
     <nav id="TableOfContents">
 <ul>
 <li><a href="#名词">名词</a></li>
-<li><a href="#service-mesh">service mesh</a>
+<li><a href="#服务网格">服务网格</a>
 <ul>
 <li><a href="#service-fabric">service fabric</a></li>
 <li><a href="#lstio">lstio</a></li>
+<li><a href="#traefik">traefik</a></li>
 <li><a href="#linkerd">linkerd</a></li>
 <li><a href="#conduit">conduit</a></li>
 <li><a href="#fingle">fingle</a></li>

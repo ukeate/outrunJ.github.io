@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-  
-    
-    
-    Markup Language
-  
- | outrun的笔记</title>
+<title>Markup Language | outrun的笔记</title>
 
 
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
-<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -43,6 +35,15 @@ https://github.com/alex-shpak/hugo-book
 <h2 class="book-brand">
   <a href="https://example.com/">outrun的笔记</a>
 </h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
 
 
 
@@ -155,36 +156,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
 </nav>
 
 
-  
 <script>
 (function() {
-  var menu = document.querySelector('aside.book-menu nav')
-  addEventListener('beforeunload', function(event) {
-    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
   });
-  menu.scrollTop = localStorage.getItem('menu.scrollTop')
-})()
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
 </script>
-
-
 
     </aside>
 
     <div class="book-page">
-      <header class="align-center justify-between book-header">
+      <header class="flex align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>
-  
-    
-    
-    Markup Language
-  
-</strong>
+  <strong>Markup Language</strong>
 </header>
 
       
@@ -401,72 +395,185 @@ schema文件路径解析
 
 <pre><code>分类
     salt
-            wireframe
+        wireframe
     uml
-            activity
-            class
-            component
-            sequence
-            state
-            use case
+        activity
+        class
+        component
+        sequence
+        state
+        use case
 </code></pre>
+
+<h1 id="mermaid-js">mermaid.js</h1>
+
+<ul>
+<li>流程图(flowchart)
+
+
+<script src="/mermaid.min.js"></script>
+
+
+
+<p class="mermaid">
+  
+    graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+    
+</p>
+</li>
+<li>时序图(sequence diagram)
+
+
+<p class="mermaid">
+  
+    sequenceDiagram
+        participant Alice
+        participant Bob
+        Alice->>John: Hello John, how are you?
+        loop Healthcheck
+            John->>John: Fight against hypochondria
+        end
+        Note right of John: Rational thoughts <br/>prevail!
+        John-->>Alice: Great!
+        John->>Bob: How about you?
+        Bob-->>John: Jolly good!
+    
+</p>
+</li>
+<li>甘特图(gantt diagram)
+
+
+<p class="mermaid">
+  
+    gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+    
+</p>
+</li>
+<li>类图(class diagram)
+
+
+<p class="mermaid">
+  
+    classDiagram
+    Class01 <|-- AveryLongClass : Cool
+    Class03 *-- Class04
+    Class05 o-- Class06
+    Class07 .. Class08
+    Class09 --> C2 : Where am i?
+    Class09 --* C3
+    Class09 --|> Class07
+    Class07 : equals()
+    Class07 : Object[] elementData
+    Class01 : size()
+    Class01 : int chimp
+    Class01 : int gorilla
+    Class08 <--> C2: Cool label
+    
+</p>
+</li>
+
+<li><p>git graph
+
+
+<p class="mermaid">
+  
+    gitGraph
+    options
+    {
+        "nodeSpacing": 150,
+        "nodeRadius": 10
+    }
+    end
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    commit
+    checkout master
+    commit
+    commit
+    merge newbranch
+    
+</p>
+</p>
 
 <h1 id="markdown">markdown</h1>
 
-<pre><code>标题
-    # 到 ######开头    # 分别表示一号 到 六号 标题
+<p>标题
+    # 到 ######开头    # 分别表示一号 到 六号 标题</p>
 
-字体
-    **a**或__a__   # 加粗
-    *a*或_a_ # 斜体
-    ***a***或___a___ # 加粗斜体
-    ~~a~~   # 删除线
+<p>字体
+    <strong>a</strong>或<strong>a</strong>   # 加粗
+    *a*或<em>a</em> # 斜体
+    <strong><em>a</em></strong>或<strong><em>a</em></strong> # 加粗斜体
+    <del>a</del>   # 删除线
 格式
-    换行 结尾两空格 或 &lt;br/&gt;
+    换行 结尾两空格 或 <br/></p>
 
-引用
+<p>引用
     &gt;a
-    &gt;&gt;b # 不断增加&gt;来多层引用
+    &gt;&gt;b # 不断增加&gt;来多层引用</p>
 
-分割线
-    --- # 三个及以上
-    *** # 三个及以上，与---显示无分别
+<p>分割线
+    &mdash; # 三个及以上
+    *** # 三个及以上，与&mdash;显示无分别</p>
 
-图片
-    ![alt内容](url &quot;title内容&quot;) # alt显示在图片下，title在鼠标悬停时显示
+<p>图片
+    <img src="url" alt="alt内容" title="title内容" /> # alt显示在图片下，title在鼠标悬停时显示</p>
 
-超链接
-    [文本](url)
-    &lt;a href=&quot;url&quot; target=&quot;_blank&quot;&gt;文本&lt;/a&gt;    # 可以用a标签指定target，在新页面显示
+<p>超链接
+    <a href="url">文本</a>
+    <a href="url" target="_blank">文本</a>    # 可以用a标签指定target，在新页面显示</p>
 
-列表
+<p>列表
     -或+或*开头 # 无序列表-
     数字加点开头  # 有序列表，行数自动
-    多空格（至少两个）加列表开头  # 嵌套列表
+    多空格（至少两个）加列表开头  # 嵌套列表</p>
 
-表格
+<p>表格
     标题1|标题2|标题3 # 默认居中对齐
     -|-|-   # -可以多个，:-控制标题和内容左对齐，:-:居中，-:右对齐
-    1|2|3   ＃ 默认左对齐
+    1|2|3   ＃ 默认左对齐</p>
 
-代码
-    `a + b;`    # 单选代码
-    ```
+<p>代码
+    <code>a + b;</code>    # 单选代码
+    <code>
     function a(){
     }
-    ``` # 多行代码
-        # tab开头
+</code> # 多行代码
+        # tab开头</p>
 
-
-流程图
-    略
-</code></pre>
+<p>流程图
+    略</p>
 
 <h1 id="org-mode">org-mode</h1>
 
 <h1 id="restructedtext">restructedText</h1>
 
-<h1 id="latex">LaTex</h1>
+<h1 id="latex">LaTeX</h1>
+
+<h1 id="katex">KaTeX</h1></li>
+</ul>
 </article>
 
       
@@ -474,8 +581,8 @@ schema文件路径解析
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
     </a>
   </div>
   
@@ -503,10 +610,12 @@ schema文件路径解析
 <li><a href="#schema">schema</a></li>
 <li><a href="#uml">uml</a></li>
 <li><a href="#plantuml">plantUML</a></li>
+<li><a href="#mermaid-js">mermaid.js</a></li>
 <li><a href="#markdown">markdown</a></li>
 <li><a href="#org-mode">org-mode</a></li>
 <li><a href="#restructedtext">restructedText</a></li>
-<li><a href="#latex">LaTex</a></li>
+<li><a href="#latex">LaTeX</a></li>
+<li><a href="#katex">KaTeX</a></li>
 </ul>
 </nav>
   </aside>

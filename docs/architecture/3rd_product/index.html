@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-  
-    
-    第三方服务
-  
- | outrun的笔记</title>
+<title>第三方服务 | outrun的笔记</title>
 
 
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
-<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -41,6 +34,15 @@ https://github.com/alex-shpak/hugo-book
 <h2 class="book-brand">
   <a href="https://example.com/">outrun的笔记</a>
 </h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
 
 
 
@@ -153,35 +155,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
 </nav>
 
 
-  
 <script>
 (function() {
-  var menu = document.querySelector('aside.book-menu nav')
-  addEventListener('beforeunload', function(event) {
-    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
   });
-  menu.scrollTop = localStorage.getItem('menu.scrollTop')
-})()
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
 </script>
-
-
 
     </aside>
 
     <div class="book-page">
-      <header class="align-center justify-between book-header">
+      <header class="flex align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>
-  
-    
-    第三方服务
-  
-</strong>
+  <strong>第三方服务</strong>
 </header>
 
       
@@ -194,7 +190,8 @@ https://github.com/alex-shpak/hugo-book
 tiddlyWiki
     # 可在线定义目录树
 github
-    # 用wiki页面, 或gitboot
+    # 用wiki页面
+gitboot
 mediaWiki
     # 维基百科样式，只有单页目录树
 dokuWiki
@@ -213,17 +210,34 @@ notion
 <h1 id="团队协作">团队协作</h1>
 
 <pre><code>jira
-    # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。
+    # 进度管理
+rational
+    # IBM, 进度管理
 teambition
-    # 项目管理、团队协作
+    # 进度管理
 basecamp
-    # 项目管理、团队协作
+    # 进度管理
 testlink
-    # 测试，修正，进度
+    # 测试收集, 进度管理
 zeplin
     # 设计和前端协同工具
 redmine
-    # 项目管理, ror开发，支持git, svn, cvs等，把成员、任务、文档、讨论等资源整合在一起
+    # ror开发, 项目管理, 把成员、任务、文档、讨论等资源整合在一起。支持git, svn, cvs等
+
+
+trello
+    # 进度管理
+
+
+team
+    # 微软, 聊天
+slack
+    # 聊天
+hipChat
+    # Atlassian, 聊天
+企业微信
+钉钉
+
 shimo
     # 文档协作
 etherpad.org
@@ -232,13 +246,13 @@ dropbox
     # 文档协作
 坚果云
     # 文档协作
-trello
-    # 进度管理
 </code></pre>
 
 <h1 id="代码">代码</h1>
 
-<pre><code>sentry
+<pre><code>github
+bitBucket
+sentry
     # 产品error tracing
 gerrit
     # code review 工具
@@ -387,8 +401,8 @@ codility.com
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
     </a>
   </div>
   

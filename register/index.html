@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-  
-    
-    Register
-  
- | outrun的笔记</title>
+<title>Register | outrun的笔记</title>
 
 
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
-<link rel="stylesheet" href="/book.min.1a0250256273fabf0f848ed9a3c50aae344d758339cad9725e656ac71546e6f5.css">
+
+<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -41,6 +34,15 @@ https://github.com/alex-shpak/hugo-book
 <h2 class="book-brand">
   <a href="https://example.com/">outrun的笔记</a>
 </h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
 
 
 
@@ -153,35 +155,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
 </nav>
 
 
-  
 <script>
 (function() {
-  var menu = document.querySelector('aside.book-menu nav')
-  addEventListener('beforeunload', function(event) {
-    localStorage.setItem('menu.scrollTop', menu.scrollTop)
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
   });
-  menu.scrollTop = localStorage.getItem('menu.scrollTop')
-})()
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
 </script>
-
-
 
     </aside>
 
     <div class="book-page">
-      <header class="align-center justify-between book-header">
+      <header class="flex align-center justify-between book-header">
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>
-  
-    
-    Register
-  
-</strong>
+  <strong>Register</strong>
 </header>
 
       
@@ -189,15 +185,19 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="连接">连接</h1>
 
-<p><a href="http://localhost:1315/docs/infomation/" target="_blank">信息</a>
+<p>信息:
+<a href="http://localhost:1315/docs/infomation/" target="_blank">信息</a>
 <a href="https://shimo.im/" target="_blank">石墨</a>
 <a href="https://www.vtrhome.net/" target="_blank">vpntech</a>
 <br/>
+资讯:
 <a href="https://www.infoq.cn/" target="_blank">infoQ</a>
 <a href="https://www.v2ex.com/" target="_blank">V2EX</a>
 <br/>
+工具:
 <a href="https://processon.com/" target="_blank">ProcessOn</a>
-<a href="https://www.atlassian.com/" target="_blank">Atlassian</a></p>
+<a href="https://www.atlassian.com/" target="_blank">Atlassian</a>
+<a href="https://trello.com/b/bWRQmKff/%E8%BF%9B%E5%BA%A6" target="_blank">Trello</a></p>
 
 <h1 id="go">go</h1>
 
@@ -214,6 +214,14 @@ journalctl
 
 快捷键
     ctrl alt f1/f2/...
+</code></pre>
+
+<h1 id="端口">端口</h1>
+
+<pre><code>1315 blog
+8123 polipo
+1080 shadowsocks
+8004 dokuwiki
 </code></pre>
 
 <h1 id="系统配置">系统配置</h1>
@@ -578,8 +586,8 @@ registers
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
     </a>
   </div>
   
@@ -605,6 +613,7 @@ registers
 <li><a href="#连接">连接</a></li>
 <li><a href="#go">go</a></li>
 <li><a href="#linux">linux</a></li>
+<li><a href="#端口">端口</a></li>
 <li><a href="#系统配置">系统配置</a></li>
 <li><a href="#vim">vim</a></li>
 <li><a href="#intellij">intellij</a></li>
