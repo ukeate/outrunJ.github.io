@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -231,11 +231,17 @@ https://github.com/alex-shpak/hugo-book
 <h1 id="并发并行">并发并行</h1>
 
 <pre><code>并发
-    为什么: 多任务能力，非阻塞
-    类比: 任务队列
+    多任务共享时间段, 类比: 任务队列
+    为什么并发
+        多任务能力
+        非阻塞
 并行
-    为什么: 提高执行效率
-    类比: 多核处理器
+    多任务同时处理, 类比: 多核处理器
+    为什么并行
+        提高执行效率
+    分类
+        任务并行化
+        数据并行化
     cpu交替任务           # EDSAC串行任务
         协作式         # 可能独占，Windows3.1, Mac OS 9
         抢占式         # 任务管理器强制中断，Windows95, Mac OS 9以后版本, Unix, Linux
@@ -268,7 +274,7 @@ https://github.com/alex-shpak/hugo-book
     业务并行解耦条件(满足幺半群性质)
         封闭性     # 业务运算结果是业务
         结合律     # 业务a、b的结果后与c执行，等同b、c的结果与a执行
-        单位元     # 单位业务a与其它业务b执行，得b
+        单位元     # 恒等业务a与其它业务b执行，得b, 如reduce的初值
 系统应用
     并发能力
     吞吐量(并行)
@@ -455,7 +461,7 @@ clojure四种并发模型
 
 <h2 id="数据级并行">数据级并行</h2>
 
-<pre><code># 不可变数据
+<pre><code># 不可变数据, 观测不可变、实现不可变
 </code></pre>
 
 <h2 id="lambda架构">lambda架构</h2>
@@ -504,6 +510,48 @@ token
         redis存储
         token不要太长
 </code></pre>
+
+<h1 id="常见问题">常见问题</h1>
+
+<h2 id="csrf">CSRF</h2>
+
+<pre><code>介绍
+    跨域请求伪造(cross-site request forgery)
+    client登录A, 本地生成cookie
+    client登录B, B给执行js，带参数请求站点A
+解决
+    token验证     # 加入自定义头域
+    验证Referer头域
+</code></pre>
+
+<h2 id="xss">XSS</h2>
+
+<pre><code>介绍
+    跨站脚本攻击(cross-site scripting, 易和css混淆，所以写成XSS), 渲染页面时脚本未转义
+</code></pre>
+
+<h2 id="xsf">XSF</h2>
+
+<pre><code>介绍
+    跨站flash攻击(cross-site flash), actionScript加载第三方flash
+</code></pre>
+
+<h2 id="sql注入">sql注入</h2>
+
+<pre><code>介绍
+    拼装sql，参数插入sql逻辑
+解决
+    sql预编译
+</code></pre>
+
+<h2 id="1-n查询">1+N查询</h2>
+
+<pre><code>介绍
+    先查出外键id集合, 再逐条id查关联表。orm易出的问题
+解决
+    用 id IN (1,2,3)
+    commit前自动合并sql
+</code></pre>
 </article>
 
       
@@ -511,8 +559,8 @@ token
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -551,6 +599,14 @@ token
 </ul></li>
 <li><a href="#状态保持">状态保持</a></li>
 <li><a href="#认证">认证</a></li>
+<li><a href="#常见问题">常见问题</a>
+<ul>
+<li><a href="#csrf">CSRF</a></li>
+<li><a href="#xss">XSS</a></li>
+<li><a href="#xsf">XSF</a></li>
+<li><a href="#sql注入">sql注入</a></li>
+<li><a href="#1-n查询">1+N查询</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

@@ -24,7 +24,7 @@
       <pubDate>Thu, 11 Oct 2018 15:34:29 +0800</pubDate>
       
       <guid>https://example.com/docs/db/postgre_sql/</guid>
-      <description>命令 initdb --locale en_US.UTF-8 -D &#39;data&#39; postgres -D data # -p 6543 pg_ctl -D data -l a.log start postmaster # -D /data psql -d postgres # 默认创建的数据库，用户名为当前用户名 ＃ -h localhost -p 5432 -d dbname 用户名 密码 # -f 导入sql命令文件, 或者在末尾加 &amp;lt; a.sql 来导入 # -L 导出日志文件 pg_dump -f a.sql -i -C -E UTF8 -n public -h localhost # 导出数据库 # -a 导出某表 createdb # -hlocalhost -Upostgres -O 用户名 数据库名 # 创建数据库并指定 owner dropdb # -U user dbname 元命令 \?</description>
+      <description>命令 initdb # 初始化数据库 --locale en_US.UTF-8 -D &#39;data&#39; postgres # 启动数据库 -D 目录 -p 6543 pg_ctl start # 控制数据库: start, stop等 -D data -l a.log postmaster -D /data psql -d db1 -h localhost -p 5432 -U 用户名 -W # 强制要求验证密码 -f 导入sql命令文件, 或者在末尾加 &amp;lt; a.sql 来导入 -L 导出日志文件 o-&amp;gt; psql -U outrun -f pg.sql db1 # 导入数据 pg_dump # 导出数据库 -f # 指定文件 -U # 用户 -E UTF8 # 编码 -h localhost -n public # 指定schema -a # 只导数据，没有schema -F t # 压缩成tar o-&amp;gt; pg_dump -U outrun -f pg.</description>
     </item>
     
     <item>

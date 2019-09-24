@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -183,55 +183,152 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="原则">原则</h1>
+<h1 id="基础">基础</h1>
 
-<pre><code>qps
-latency
-through put
-
-bottle-nect(first-principle)
-
-io
+<pre><code>性能指标
+    latency
+    throughput
+    qps = throughput / latency
+性能分析
+    bottle-nect(first-principle)
+资源
+    CPU和GPU
+    内存
     磁盘
-        iops: 2k
     网络
-        带宽
-        iops: 3w
+    能源
+逻辑资源
+    fds(文件描述符)
+    sockets
+    内核对象: locks
+    inodes(磁盘索引节点)
+    transactions
+    ip addresses
+    ports
+    random numbers(分布式随机数)
+容量
+    2000前   尽量少
+    200~    不到机型限制
+    2017    尽量把机器用满
+    以后     metrics分离, 单独规划
 </code></pre>
 
-<h1 id="流量">流量</h1>
+<h1 id="计算">计算</h1>
 
-<pre><code>小米论坛
-    pv 2000w
-    热门并发300
-    20k/页面
-    300k/图片(未压缩)
-    70k/无图帖子
-    500k-3M/有图帖子
-
-    动态服务器最小带宽: 48Mbps
-    静态服务器最小带宽: 1440Mbps
-    实际购买带宽: 800M
-    带宽费用: 8.7w/month
-
-糗事百科
-    pv 1000w
-    热门并发150
-    10k/页面
-    70k/图
-    4图/页
-    90k-400k/综合页
-    动态服务器带宽: 12Mbps
-    静态服务器带宽: 336Mbps
+<pre><code>cpu
+gpu
 </code></pre>
 
-<h1 id="带宽">带宽</h1>
+<h1 id="存储">存储</h1>
 
-<pre><code>建议
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">时间</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">L1 cache</td>
+<td align="left">0.5ns</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">branch mispredict(分支、转移)</td>
+<td align="left">5ns</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">L2 cache</td>
+<td align="left">7ns</td>
+<td align="left">14x L1 cache</td>
+</tr>
+
+<tr>
+<td align="left">Mutex lock/unlock</td>
+<td align="left">25ns</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">Main memory</td>
+<td align="left">100ns</td>
+<td align="left">20x L2 cache, 200x L1 cache</td>
+</tr>
+
+<tr>
+<td align="left">1k字节压缩Zippy</td>
+<td align="left">3,000ns = 3us</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">在1Gbps网络上发送1k字节</td>
+<td align="left">10,000ns = 10us</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">SSD随机读4k</td>
+<td align="left">150,000ns = 150us</td>
+<td align="left">1GB/秒</td>
+</tr>
+
+<tr>
+<td align="left">内存顺序读1MB</td>
+<td align="left">250,000ns = 250us</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">同一数据中心往返</td>
+<td align="left">500,000ns = 500us</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">SSD顺序读1MB</td>
+<td align="left">1,000,000ns = 1000us = 1ms</td>
+<td align="left">1GB/秒, 4x 内存</td>
+</tr>
+
+<tr>
+<td align="left">磁盘搜索</td>
+<td align="left">10,000,000ns = 10,000us = 10ms</td>
+<td align="left">20x 数据中心往返</td>
+</tr>
+
+<tr>
+<td align="left">磁盘顺序读1MB</td>
+<td align="left">20,000,000ns = 20,000us = 20ms</td>
+<td align="left">80x 内存, 20x SSD</td>
+</tr>
+
+<tr>
+<td align="left">发包: 美国 -&gt; 荷兰 -&gt; 加拿大</td>
+<td align="left">150,000,000ns = 150,000us = 150ms</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="传输">传输</h1>
+
+<pre><code>带宽
     热门并发1.5倍到2倍购买
+方式
+    HDD
+    SSD
+    ethernet
+    南桥、北桥芯片
 </code></pre>
 
-<h1 id="压力">压力</h1>
+<h1 id="并发">并发</h1>
 
 <pre><code>并发
     jetty 2k-3k
@@ -321,6 +418,32 @@ cpu二级缓存取数据: 14 tick
     换语言/框架重构
 </code></pre>
 
+<h1 id="案例">案例</h1>
+
+<pre><code>o-&gt; 小米论坛
+    pv 2000w
+    热门并发300
+    20k/页面
+    300k/图片(未压缩)
+    70k/无图帖子
+    500k-3M/有图帖子
+
+    动态服务器最小带宽: 48Mbps
+    静态服务器最小带宽: 1440Mbps
+    实际购买带宽: 800M
+    带宽费用: 8.7w/month
+
+o-&gt; 糗事百科
+    pv 1000w
+    热门并发150
+    10k/页面
+    70k/图
+    4图/页
+    90k-400k/综合页
+    动态服务器带宽: 12Mbps
+    静态服务器带宽: 336Mbps
+</code></pre>
+
 <h1 id="工具数据">工具数据</h1>
 
 <pre><code>nodejs
@@ -357,8 +480,8 @@ mysql
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -381,11 +504,13 @@ mysql
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#原则">原则</a></li>
-<li><a href="#流量">流量</a></li>
-<li><a href="#带宽">带宽</a></li>
-<li><a href="#压力">压力</a></li>
+<li><a href="#基础">基础</a></li>
+<li><a href="#计算">计算</a></li>
+<li><a href="#存储">存储</a></li>
+<li><a href="#传输">传输</a></li>
+<li><a href="#并发">并发</a></li>
 <li><a href="#性能调优">性能调优</a></li>
+<li><a href="#案例">案例</a></li>
 <li><a href="#工具数据">工具数据</a></li>
 </ul>
 </nav>

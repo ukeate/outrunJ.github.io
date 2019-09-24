@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -215,6 +215,12 @@ https://github.com/alex-shpak/hugo-book
             存储空间监控
             命中率监控
             避免缓存集中失效引起雪崩
+为了简单
+    开发和运维分离
+    业务和基础架构分离
+    无状态和有状态分离
+    业务间乘法(正交)而非加法              # 升维的特点, 正交叠加
+    多层抽象, 不断隐去底层(约定大于配置)    # 升维的特点, 抽象观察
 考虑因素
     高并发、高可用、高可靠
     容量规划(流量、容量)
@@ -223,41 +229,124 @@ https://github.com/alex-shpak/hugo-book
     监控报警(机器负载、响应时间、可用率)
         tracing
     应急预案(容灾、降级、限流、隔离、切流量、可回滚)
+微服务
+    单体应用问题
+        复杂: 模块多, 边界模糊, 依赖关系不清晰, 代码质量不统一
+        技术债务: 不坏不修
+        部署频率低: 迭代要部署整个应用，部署时间长，风险高。修复问题慢, 易出错
+        可靠性差: 某bug导致整个应用崩溃
+        扩展性差
+        阻碍技术更新
+    特征
+        服务组件化
+        按业务组织团队
+        负责的态度, 不再是交付给维护者
+        粗粒度通信, http(二进制协议)或消息总线
+        去中心化治理
+        去中心化管理数据
+        基础设施自动化
+        容错设计
+        演进式设计
+    原则
+        单一职责
+        自洽
+        轻量级通信
+        服务粒度: 边界(DDD中的界限上下文)
+    *aaS
+        SaaS(software as a service)
+        PaaS(platform as a service)
+        aPaaS(application PaaS)         # 简单配置产生任意需求的application
+        saPaaS(specific aPaaS)          # 领域定制的aPaaS
+        GaPaaS(generator of aPaaS)      # 脚手架，产生定制的aPaaS
 </code></pre>
 
-<h1 id="业务设计">业务设计</h1>
+<h1 id="架构模型">架构模型</h1>
 
-<pre><code>不过度设计    # 不超出需求，不用复杂方式实现
-             # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性
-    范围减少    # 28原则，最小可行产品
-    设计减少    # 易理解，低成本，可扩展
-    实施减少    # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决
-维护
-    设计时考虑扩展性
-        DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.5-3倍)
-    设计能够监控的应用
-    版本升降      # 代码仓库
-业务
-    防重          # 重复提交，重复扣减，重复支付(异构系统无法防重，用退款处理)
-        防重key, 防重表
-    幂等          # 消息处理，第三方支付回调
-    流程要抽象     # 如工作流
-    状态与状态机
-        订单系统
-            # 状态多时用状态机驱动
-            正向状态(待付款、待发货、已发货、完成)
-            逆向状态(取消、退款)
-            状态轨迹    # 跟踪和记日志，可回溯
-            并发修改，状态变更有序，状态变更消息有序
-前端
-    减少dns查找     # dns可能查多个域
-    减少对象        # 页面布局少，图片合并。对象不要过大，减少到浏览器并发连接数
-    后台系统操作可反馈   # 便于确认效果
-文档和注释
-    设计架构
-    设计思想
-    数据字典/业务流程
-    现有问题
+<pre><code>数据处理
+    lambda架构                           # 实时大数据, stream使用
+        批处理层
+        实时处理层
+        服务层
+    sharing-nothing                     # cpu之间不共享内存和磁盘
+DDD(domain driven design)
+    entity
+        主存储(可变)
+        互相派生                         # 如命令和事件派生状态, 事件派生状态等
+            状态(可变)
+            命令(command, 不可变)
+            事件(event, 不可变)
+    entity representation               # 数据表现
+        多representation一致性
+        representation表达业务的难易
+
+        entity物理介质/表现形式            # 表现形式一致性(同步), 多份存储, 数据派生合并转化
+            OLTP(mysql)                 # 点查询
+            OLAP(clickHouse)            # 范围查询
+            queue(kafka)                # 顺序读, 低延迟
+            业务服务                     # 业务逻辑, 像虚拟的表
+    entity再派生
+        viewModel(不可变)
+        子集(不可变)
+        视图(不可变)
+    BC(bounded context)                 # entity分组
+        分解复杂度: 系统、组织部门
+        内部一致性: 数据、概念
+
+        集成
+            边界entity                   # 授权、binlog、视图数据。本质是权限
+                东西、单据
+                event
+                可实现成worker托管
+
+                物理介质
+                    queue
+                    只读db
+                    rpc虚拟表
+        粒度
+            BC尽可能少而大
+        关系
+            时间错开
+                外键关系                 # BC挂载到BC, 如后台系统与计费系统的定价, 运营人员与服务系统的配置, 流程节点系统对流程的依赖
+                    rpc
+                    数据库
+                    数据复制
+                报表关系
+                    时效性高
+                    一般数据复制          # 所以边界entity是数据变更event
+                触发关系                 # fire and forget
+                交棒关系
+                    下游给上游command/event, 上游触发
+                    上游实现降级          # 下游不可用时，安慰语
+            时间同时
+                accountable/responsible关系                 # 像项目的负责人与开发人
+                    最小化accountable
+                        补偿
+                        responsible提供自己界面
+                    边界entity是rpc虚拟表, 插入command, 返回event
+                抢资源关系
+                    锁服务
+    应用开发      
+        处理entity表现
+</code></pre>
+
+<h1 id="云原生应用">云原生应用</h1>
+
+<pre><code>十二要素
+    一份代码，多份部署
+    显式声明依赖
+    外部保存配置
+    服务作为调用资源
+    分离构建、发布、运行
+        构建: 代码转化到可执行包
+        发布: 可执行包结合配置
+        运行: 选定发布版本，按计划启动
+    多个无状态进程运行
+    端口绑定服务
+    进程作为一等公民并发扩展
+    进程易处理: 快速启动、优雅终止
+    开发环境等价线上环境
+    日志作为事件流
+    管理进程不常驻, 一次性运行
 </code></pre>
 
 <h1 id="高并发原则">高并发原则</h1>
@@ -372,6 +461,49 @@ https://github.com/alex-shpak/hugo-book
     静态资源版本
 </code></pre>
 
+<h1 id="业务设计">业务设计</h1>
+
+<pre><code>不过度设计    # 不超出需求，不用复杂方式实现
+             # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性
+    范围减少    # 28原则，最小可行产品
+    设计减少    # 易理解，低成本，可扩展
+    实施减少    # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决
+维护
+    设计时考虑扩展性
+        DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.5-3倍)
+    设计能够监控的应用
+    版本升降      # 代码仓库
+业务
+    防重          # 重复提交，重复扣减，重复支付(异构系统无法防重，用退款处理)
+        防重key, 防重表
+    幂等          # 消息处理，第三方支付回调
+    流程要抽象     # 如工作流
+    状态与状态机
+        订单系统
+            # 状态多时用状态机驱动
+            正向状态(待付款、待发货、已发货、完成)
+            逆向状态(取消、退款)
+            状态轨迹    # 跟踪和记日志，可回溯
+            并发修改，状态变更有序，状态变更消息有序
+前端
+    减少dns查找     # dns可能查多个域
+    减少对象        # 页面布局少，图片合并。对象不要过大，减少到浏览器并发连接数
+    后台系统操作可反馈   # 便于确认效果
+文档和注释
+    设计架构
+    设计思想
+    数据字典/业务流程
+    现有问题
+</code></pre>
+
+<h1 id="开发模型">开发模型</h1>
+
+<pre><code>TDD(test-driven development)
+    先单元测试
+BDD(behavior-driven development)
+    TDD的变种, 重点描述行为
+</code></pre>
+
 <h1 id="分层">分层</h1>
 
 <pre><code>mv*
@@ -397,8 +529,8 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -422,9 +554,12 @@ https://github.com/alex-shpak/hugo-book
     <nav id="TableOfContents">
 <ul>
 <li><a href="#思想">思想</a></li>
-<li><a href="#业务设计">业务设计</a></li>
+<li><a href="#架构模型">架构模型</a></li>
+<li><a href="#云原生应用">云原生应用</a></li>
 <li><a href="#高并发原则">高并发原则</a></li>
 <li><a href="#高可用原则">高可用原则</a></li>
+<li><a href="#业务设计">业务设计</a></li>
+<li><a href="#开发模型">开发模型</a></li>
 <li><a href="#分层">分层</a></li>
 </ul>
 </nav>

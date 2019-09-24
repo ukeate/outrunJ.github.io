@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Cloud | outrun的笔记</title>
+
+
+<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
+
+
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
+
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/">outrun的笔记</a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2f architecture\2fspring_cloud\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul></li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+
+<ul>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
+</ul></li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
+
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+
+<ul>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
+</ul></li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+
+<ul>
+<li><a href="/docs/backend/principle">原理</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+</ul></li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">pgsql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul></li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+
+<ul>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+</ul></li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+
+<ul>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+</ul></li>
+<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+
+<ul>
+<li><a href="/docs/tool/vim">vim</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+</ul></li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/interview">题目</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+</ul>
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Spring Cloud</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="基础">基础</h1>
+
+<pre><code>介绍
+    spring boot基础上构建，快速构建分布式系统, 全家桶
+    面向云环境架构(云原生)    # 适合在docker和paas部署
+功能
+    配置管理
+    服务发现
+    熔断
+    智能路由
+    微代理
+    控制总线
+    全局锁
+    决策竞选
+    分布式会话
+    集群状态管理
+子项目
+    spring cloud netflix    # 对netflix oss套件整合
+        eureka     # 服务治理(注册、发现)
+        hystrix    # 容错管理
+        ribbon     # 软负载均衡(客户端)
+        feign      # 基于hystrix和ribbon，服务调用组件
+        zuul       # 网关，智能路由、访问过滤
+        archaius   # 外部化配置
+    基础
+        spring cloud starters       # 基础依赖, 高版本取消
+        spring cloud commons
+    服务
+        spring cloud consul         # 封装consul(服务发现与配置, 与docker无缝)
+        spring cloud cluster        # 抽象zookeeper, redis, hazelcast, consul的选举算法和通用状态模式实现接口
+        spring cloud cloudfoundry   # 与pivotal cloudfoundry整合
+        spring cloud aws            # 整合aws
+        spring cloud zookeeper      # 整合zookeeper
+        spring cloud cli            # groovy中快速创建应用
+        spring cloud task           # 任务
+    配置
+        spring cloud config         # 应用配置外部化, 推送客户端配置, 支持git存储
+    消息
+        spring cloud bus            # 消息总线，传播集群状态变化来触发动作，如刷新配置
+        spring cloud stream         # 声明式发送、接收消息
+    监控
+        spring cloud sleuth         # 跟踪
+    安全
+        spring cloud security       # 应用安全控制, zuul代理中OAuth2中继器
+    测试
+        spring cloud contract       # 契约测试, 可用groovy和yaml定义
+版本
+    用命名不用版本号，因为有多子项目版本，易混淆
+    命名用伦敦地铁站用，字母表排序
+缺点
+    难于追查框架问题
+    非二进制通信协议
+    适合中小团队
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<pre><code>pom.xml
+    &lt;modules&gt;
+        &lt;module&gt;spring-cloud-common&lt;/module&gt;
+        &lt;module&gt;spring-cloud-provider-book&lt;/module&gt;
+        &lt;module&gt;spring-cloud-service-discovery&lt;/module&gt;
+        &lt;module&gt;spring-cloud-api-gateway&lt;/module&gt;
+        &lt;module&gt;spring-cloud-consumer-book&lt;/module&gt;
+        &lt;module&gt;spring-cloud-monitor-dashboard&lt;/module&gt;
+        &lt;module&gt;spring-cloud-aggregator&lt;/module&gt;
+        &lt;module&gt;spring-cloud-zipkin-server&lt;/module&gt;
+        &lt;module&gt;spring-cloud-admin-server&lt;/module&gt;
+        &lt;module&gt;spring-cloud-config-server&lt;/module&gt;
+    &lt;/modules&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;relativePath/&gt;
+    &lt;/parent&gt;
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;Edgware.SR3&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+    &lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;spring-releases&lt;/id&gt;
+            &lt;url&gt;https://repo.spring.io/libs-release&lt;/url&gt;
+        &lt;/repository&gt;
+    &lt;/repositories&gt;
+    &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+            &lt;id&gt;spring-releases&lt;/id&gt;
+            &lt;url&gt;https://repo.spring.io/libs-release&lt;/url&gt;
+        &lt;/pluginRepository&gt;
+    &lt;/pluginRepositories&gt;
+application.yml
+    spring:
+        profiles: peer1                         # bean的逻辑组
+</code></pre>
+
+<h1 id="组件">组件</h1>
+
+<pre><code>dependencyManagement
+    spring-cloud-dependencies
+</code></pre>
+
+<h1 id="spring-cloud-spring-boot">spring cloud spring boot</h1>
+
+<h1 id="spring-cloud-eureka">spring cloud eureka</h1>
+
+<pre><code>原理
+    生产者向eureka注册, 周期发送心跳(默认30s)
+    eureka服务间同步注册信息
+    消费者请求地址，缓存本地
+    eurake接收生产者心跳超时, 设置为down, 推送状态到消费者
+    eurake短期down过多生产者，进入自我保护不再down
+组件
+    spring-cloud-starter-[netflix-]eureka-server
+
+application.yml
+    eureka:
+        instance:
+            hostname: localhost                 # 实例主机名
+        client:
+            registerWithEureka: false           # 当前服务不注册
+            fetchRegistry: false                # 不获取注册信息
+            serviceUrl:                         # server地址
+                defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+bootstrap.yml                                   # 基础配置, 待拉取config
+
+注解
+    @EnableEurekaServer                         # 修饰Application类
+</code></pre>
+
+<h1 id="spring-cloud-ribbon">spring cloud ribbon</h1>
+
+<pre><code>application.yml
+    ribbon:
+        eureka:
+            enabled: false                      # 禁止从eureka获得注册列表
+</code></pre>
+
+<h1 id="spring-cloud-hystrix">spring cloud hystrix</h1>
+
+<pre><code># 单个服务监控
+hystrix dashboard
+    路径
+        /hystrix
+        /hystrix.stream                         # 至少请求一次接口，才有数据
+</code></pre>
+
+<h1 id="spring-cloud-turbine">spring cloud turbine</h1>
+
+<pre><code># 多服务监控
+application.yml
+    turbine:
+        aggregator:
+            clusterConfig: default                                  # 此监控器名
+        appConfig: erp-consumer-metadb, erp-consumer                # 目标服务名
+        clusterNameExpression: new String(&quot;default&quot;)                # 名称匹配表达式
+路径
+    /turbine.stream
+</code></pre>
+
+<h1 id="spring-cloud-feign">spring cloud feign</h1>
+
+<pre><code>application.yml
+    feign:
+        hystrix:
+            enabled: true
+</code></pre>
+
+<h1 id="spring-cloud-zuul">spring cloud zuul</h1>
+
+<pre><code># 默认会用ribbon负载均衡
+application.yml
+    zuul:
+        prefix: /v1
+        routes:
+            hiapi:
+                path: /hiapi/**
+                serviceId: erp-consumer-metadb
+                # url: http://localhost:8762  # 这样写不会做负载均衡
+                # serviceId: hiapi-v1
+
+    ## 手动url负载均衡
+    # ribbon: 
+    #   eureka:
+    #     enabled: false
+    # hiapi-v1:
+    #   ribbon:
+    #     listOfServers: http://localhost:8762,http://localhost:8763
+案例
+    过滤
+        import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
+        @Component
+        public class MyFilter extends ZuulFilter {
+
+            private static Logger log = LoggerFactory.getLogger(MyFilter.class);
+
+            @Override
+            public String filterType() {
+                return PRE_TYPE;
+            }
+
+            @Override
+            public int filterOrder() {
+                return 0;
+            }
+
+            @Override
+            public boolean shouldFilter() {
+                return true;
+            }
+
+            @Override
+            public Object run() {
+                RequestContext ctx = RequestContext.getCurrentContext();
+                HttpServletRequest request = ctx.getRequest();
+                log.info(String.format(&quot;%s &gt;&gt;&gt; %s&quot;, request.getMethod(), request.getRequestURL().toString()));
+                Object accessToken = request.getParameter(&quot;token&quot;);
+                if (accessToken == null) {
+                    log.warn(&quot;token is empty&quot;);
+        //
+        //            ctx.setSendZuulResponse(false);
+        //            ctx.setResponseStatusCode(401);
+        //            try {
+        //                ctx.getResponse().getWriter().write(&quot;token is empty&quot;);
+        //            }catch (Exception e){
+        //
+        //            }
+                    return null;
+                }
+                log.info(&quot;ok&quot;);
+                return null;
+            }
+        }
+    熔断
+        @Component
+        public class MyFallbackProvider implements ZuulFallbackProvider {
+            @Override
+            public String getRoute() {
+                return &quot;*&quot;;
+            }
+
+            @Override
+            public ClientHttpResponse fallbackResponse() {
+                return new ClientHttpResponse() {
+                    @Override
+                    public HttpStatus getStatusCode() throws IOException {
+                        return HttpStatus.OK;
+                    }
+
+                    @Override
+                    public int getRawStatusCode() throws IOException {
+                        return 200;
+                    }
+
+                    @Override
+                    public String getStatusText() throws IOException {
+                        return &quot;OK&quot;;
+                    }
+
+                    @Override
+                    public void close() {
+
+                    }
+
+                    @Override
+                    public InputStream getBody() throws IOException {
+                        return new ByteArrayInputStream(&quot;error, I'm the fallback&quot;.getBytes());
+                    }
+
+                    @Override
+                    public HttpHeaders getHeaders() {
+                        HttpHeaders headers = new HttpHeaders();
+                        headers.setContentType(MediaType.APPLICATION_JSON);
+                        return headers;
+                    }
+                };
+            }
+        }
+</code></pre>
+
+<h1 id="spring-cloud-config">spring cloud config</h1>
+
+<pre><code>config-server
+    application.yml
+        server:
+            port: 9012
+        spring:
+            application:
+                name: erp-config-server
+            cloud:
+                config:
+                server:
+                    native:
+                        search-locations: classpath:/shared             # 读取路径
+            profiles:
+                active: native                                          # 本地读取
+    shared/config-client-dev.yml                                        # 文件名为 [客户端服务名]-[profile变量]
+        server:
+            port: 9013
+        foo: foo version 1
+    地址
+        localhost:9012/config-client/dev                                # 查看分发给服务的配置
+config-client
+    spring:
+        application:
+            name: erp-config-client
+        cloud:
+            config:
+                uri: http://localhost:9012
+                fail-fast: true
+        profiles:
+            active: dev
+注解
+    @RefreshScope                           # 热更新
+</code></pre>
+
+<h1 id="spring-cloud-bus">spring cloud bus</h1>
+
+<pre><code>application.yml
+    spring:
+        rabbitmq:
+            host: localhost
+            port: 5672
+            username: outrun
+            password: asdf
+            publisher-confirms: true
+            virtual-host: /
+    management:
+        security:
+            enabled: false
+路径
+    POST /bus/refresh                       # 从新拉配置, 其它服务也触发同步
+        ?destination=appName:*.*            # 指定刷新服务名下实例
+</code></pre>
+
+<h1 id="spring-cloud-stream">spring cloud stream</h1>
+
+<h1 id="spring-cloud-sleuth">spring cloud sleuth</h1>
+
+<pre><code>application.yml
+    zipkin:
+        base-url: http://localhost:9014
+    sleuth:
+        sampler:
+            percentage: 1.0
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/spring_cloud.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#基础">基础</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#组件">组件</a></li>
+<li><a href="#spring-cloud-spring-boot">spring cloud spring boot</a></li>
+<li><a href="#spring-cloud-eureka">spring cloud eureka</a></li>
+<li><a href="#spring-cloud-ribbon">spring cloud ribbon</a></li>
+<li><a href="#spring-cloud-hystrix">spring cloud hystrix</a></li>
+<li><a href="#spring-cloud-turbine">spring cloud turbine</a></li>
+<li><a href="#spring-cloud-feign">spring cloud feign</a></li>
+<li><a href="#spring-cloud-zuul">spring cloud zuul</a></li>
+<li><a href="#spring-cloud-config">spring cloud config</a></li>
+<li><a href="#spring-cloud-bus">spring cloud bus</a></li>
+<li><a href="#spring-cloud-stream">spring cloud stream</a></li>
+<li><a href="#spring-cloud-sleuth">spring cloud sleuth</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

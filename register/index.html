@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -188,16 +188,49 @@ https://github.com/alex-shpak/hugo-book
 <p>信息:
 <a href="http://localhost:1315/docs/infomation/" target="_blank">信息</a>
 <a href="https://shimo.im/" target="_blank">石墨</a>
+<a href="https://trello.com/b/bWRQmKff/%E8%BF%9B%E5%BA%A6" target="_blank">Trello</a>
 <a href="https://www.vtrhome.net/" target="_blank">vpntech</a>
 <br/>
 资讯:
 <a href="https://www.infoq.cn/" target="_blank">infoQ</a>
 <a href="https://www.v2ex.com/" target="_blank">V2EX</a>
+<a href="https://juejin.im/" target="_blank">掘金</a>
+<a href="https://www.zhihu.com/people/tao-wen-54/pins" target="_blank">TaoWen</a>
+<a href="http://yinwang.org" target="_blank">YinWang</a>
+<a href="http://www.oreilly.com.cn" target="_blank">O&rsquo; Reilly</a>
 <br/>
 工具:
-<a href="https://processon.com/" target="_blank">ProcessOn</a>
-<a href="https://www.atlassian.com/" target="_blank">Atlassian</a>
-<a href="https://trello.com/b/bWRQmKff/%E8%BF%9B%E5%BA%A6" target="_blank">Trello</a></p>
+<a href="https://www.atlassian.com/" target="_blank">Atlassian</a></p>
+
+<h1 id="布局">布局</h1>
+
+<pre><code>全
+    console
+    chromium
+    nautilus
+常切回默认
+    左1, 中2, 右1
+左
+    1: vscode、blog、wiki
+    2: 扩展ide
+    3: dia
+    4: work display
+    5: virtual box
+    6: postman
+
+    9: chrome、console
+中
+    1: goland
+    2: intellij idea
+    3: webstorm
+
+    9: chrome、console
+右
+    1: console
+    2: 扩展ide
+
+    9: chrome、console
+</code></pre>
 
 <h1 id="go">go</h1>
 
@@ -218,16 +251,47 @@ journalctl
 
 <h1 id="端口">端口</h1>
 
-<pre><code>1315 blog
-8123 polipo
+<pre><code>8123 polipo
 1080 shadowsocks
+
+1315 blog
+
+8001 nginx
+3306 mysql
+8002 adminer
+27017 mongo
+8003 mongo-express
+6379 redis
+4369, 5671, 5672, 15671, 15672 rabbitmq
+9411 zipkin
+9200 es
+9100 es-head
+5601 kibana
+
 8004 dokuwiki
+8005 wordpress
+8006 nginx-php-fpm
+9090, 1883, 5683 thingsBoard
+
+9000 provider
+9001,9002 consumer
+9003,9004 discovery
+9005,9006 consumer-metadb
+9010 monitor
+9011 api-gateway
+9012 config-server
+9013 config-client
+9014 zipkin-server
+9015 admin-server
+9016 auth
+9017 auth-client
 </code></pre>
 
 <h1 id="系统配置">系统配置</h1>
 
 <pre><code>bin
     # 系统需要
+    synaptics
     yaourt
     network-manager
     awesome
@@ -275,12 +339,23 @@ journalctl
     protobuf
     openjdk8
     docker
+    docker-compose
         mysql
-        nginx
-        nginx-php
-        nsq
         redis
+        mongodb
+        nginx
         zipkin
+        nsq
+        rabbitmq
+        es
+
+        dokuwiki
+        tiddlywiki
+        wordpress
+        nginx-php
+
+    # 设计需要
+    dia
 opt
     # ide
     webstorm
@@ -329,30 +404,34 @@ opt
 diy
     blog
 文件
-    ~
-        /code
-        /scripts
-            /work
-            /app
-            /config
-            /login
-        /.xinitrc
-        /.bashrc
-        /.gitconfig
-        /.openvpn
-        /.ssh
-        /.tmux.conf
-        /.config
-            /awesome
-            /VirtualBox/VirtualBox.xml
-    /opt
-        /env
-        /svc
-    /etc
-        /resolv.conf
-        /vsftpd.conf
-    /data/var/mysql
-    /db/mongo
+    ~/
+        code
+        scripts/
+           work
+           app
+           config
+           login
+        .xinitrc
+        .bashrc
+        .bash_profile
+        .gitconfig
+        .openvpn
+        .ssh
+        .tmux.conf
+        .config/
+            awesome
+            VirtualBox/VirtualBox.xml
+        .m2/
+            settings.xml
+    /opt/
+        env
+        svc
+    /etc/
+        resolv.conf
+        vsftpd.conf
+        X11/
+            xorg.conf.d/
+                70-synaptics.conf
     /var/ftp
 
     # log
@@ -456,19 +535,39 @@ registers
 
 <h1 id="intellij">intellij</h1>
 
-<pre><code>shift shift
+<pre><code>shift shift     # 打开文件
+alt enter       # 补全, 快速修复
 </code></pre>
 
 <h1 id="docker">docker</h1>
 
 <pre><code>/etc/docker/daemon.json
     {
-      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;]
+      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;]
     }
 /etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
     Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
         &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
         &quot;NO_PROXY=192.168.1.1,localhost&quot;
+</code></pre>
+
+<h1 id="maven">maven</h1>
+
+<pre><code>~/.m2/settings.xml
+    &lt;proxies&gt;
+        &lt;proxy&gt;
+          &lt;id&gt;my-proxy&lt;/id&gt;
+          &lt;active&gt;true&lt;/active&gt;
+          &lt;protocol&gt;http&lt;/protocol&gt;
+          &lt;host&gt;localhost&lt;/host&gt;
+          &lt;port&gt;8123&lt;/port&gt;
+          &lt;!--
+          &lt;username&gt;admin&lt;/username&gt;
+          &lt;password&gt;admin&lt;/password&gt;
+          &lt;nonProxyHosts&gt;repository.mycom.com|*.google.com&lt;/nonProxyHosts&gt;
+          --&gt;
+        &lt;/proxy&gt;
+    &lt;/proxies&gt;
 </code></pre>
 
 <h1 id="awesome">awesome</h1>
@@ -578,6 +677,32 @@ registers
     run nm-applet
 </code></pre>
 
+<h1 id="synaptics">synaptics</h1>
+
+<pre><code>/etc/X11/xorg.conf.d/70-synaptics.conf
+    Section &quot;InputClass&quot;
+        Identifier &quot;touchpad&quot;
+        Driver &quot;synaptics&quot;
+        MatchIsTouchpad &quot;on&quot;
+                Option &quot;TapButton1&quot; &quot;1&quot;
+                Option &quot;TapButton2&quot; &quot;3&quot;
+                Option &quot;TapButton3&quot; &quot;2&quot;
+                Option &quot;VertEdgeScroll&quot; &quot;on&quot;
+                Option &quot;VertTwoFingerScroll&quot; &quot;on&quot;
+                Option &quot;HorizEdgeScroll&quot; &quot;on&quot;
+                Option &quot;HorizTwoFingerScroll&quot; &quot;on&quot;
+                Option &quot;CircularScrolling&quot; &quot;on&quot;
+                Option &quot;CircScrollTrigger&quot; &quot;2&quot;
+                Option &quot;EmulateTwoFingerMinZ&quot; &quot;40&quot;
+                Option &quot;EmulateTwoFingerMinW&quot; &quot;8&quot;
+                Option &quot;FingerLow&quot; &quot;30&quot;
+                Option &quot;FingerHigh&quot; &quot;50&quot;
+                Option &quot;MaxTapTime&quot; &quot;125&quot;
+            Option &quot;VertScrollDelta&quot; &quot;-50&quot;
+            Option &quot;HorizScrollDelta&quot; &quot;-50&quot;
+    EndSection
+</code></pre>
+
 <h1 id="tmux">tmux</h1>
 </article>
 
@@ -586,8 +711,8 @@ registers
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified Aug 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -611,6 +736,7 @@ registers
     <nav id="TableOfContents">
 <ul>
 <li><a href="#连接">连接</a></li>
+<li><a href="#布局">布局</a></li>
 <li><a href="#go">go</a></li>
 <li><a href="#linux">linux</a></li>
 <li><a href="#端口">端口</a></li>
@@ -618,7 +744,9 @@ registers
 <li><a href="#vim">vim</a></li>
 <li><a href="#intellij">intellij</a></li>
 <li><a href="#docker">docker</a></li>
+<li><a href="#maven">maven</a></li>
 <li><a href="#awesome">awesome</a></li>
+<li><a href="#synaptics">synaptics</a></li>
 <li><a href="#tmux">tmux</a></li>
 </ul>
 </nav>

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -72,6 +72,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -83,11 +84,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -96,9 +97,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -142,7 +143,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -205,6 +205,8 @@ https://github.com/alex-shpak/hugo-book
         研发工作流支持
         服务支持平台建设
         运维自动化平台建设
+工作方式
+    邮件申请开通 LDAP, VPN, 测试, 线上
 </code></pre>
 
 <h1 id="系统">系统</h1>
@@ -654,21 +656,60 @@ client配置
         # 测试证书是否正常
 </code></pre>
 
+<h1 id="cmdb">cmdb</h1>
+
+<pre><code># configuration management database
+</code></pre>
+
+<h2 id="bt-panel">bt-panel</h2>
+
+<pre><code># 宝塔面板，服务器运维面板
+</code></pre>
+
+<h2 id="jumpserver">jumpserver</h2>
+
+<pre><code>    # 跳板机
+</code></pre>
+
+<h1 id="自动化">自动化</h1>
+
+<pre><code>tty.js
+    # 浏览器运行命令
+jenkins
+    # java实现的持续集成工具
+ansible
+    # python实现的自动化部署工具
+saltstack
+    # 部署, 自动化运维
+puppet
+    # 自动化运维
+selenium
+    # 自动化运维
+</code></pre>
+
 <h1 id="版本">版本</h1>
 
 <pre><code>mercurial
-        # 简称hg，分布式版本控制系统，比git好
+    # 简称hg，分布式版本控制系统，比git好
 clearQuest
-        # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。
+    # IBM Rational提供的缺陷及变更管理工具。它对软件缺陷或功能特性等任务记录提供跟踪管理。提供了查询定制和多种图表报表。
 clearcase
-        # 配置管理的工具，只是SCM管理工具其中的一种。是RATIONAL公司开发的配置管理工具
-gradle
-        # dsl声明设置
+    # 配置管理的工具，只是SCM管理工具其中的一种。是RATIONAL公司开发的配置管理工具
 spm
-        # 构建sea.js项目
+    # 构建sea.js项目
 bower
-        # 构建前端
+    # 构建前端
 redmine
+</code></pre>
+
+<h2 id="gradle">gradle</h2>
+
+<pre><code>介绍
+    dsl声明设置
+命令
+    gradle
+        init
+            --type pom                          # 转换maven项目
 </code></pre>
 
 <h2 id="git">git</h2>
@@ -682,6 +723,13 @@ redmine
         # HEAD的版本号, HEAD^^ 表示HEAD之前两个的版本, HEAD~n 表示之前n个版本
     buffered stage branch head
         # buffered表示当前修改所在的版本，stage是buffered中文件add之后到的版本，branch是stage commit后到的分支(版本)，head是远程仓库的最新版本
+工作流程
+    fork + pull / merge request 更新代码
+    commit message, pr messsage 提交说明
+        pr是功能展示，前面加&quot;WIP:&quot;
+    user.name, user.email用公司的
+    pr必需有人review, assign到人, 推动review
+    pr不要大
 命令
     git [command] --help
     git help submodule
@@ -1068,7 +1116,7 @@ build.xml
 
 <h2 id="maven">maven</h2>
 
-<pre><code>repository包依赖关系网站
+<pre><code>仓库
     mvnrepository.com
 依赖范围
     compile     # 默认,对编译、测试、运行有效
@@ -1078,19 +1126,112 @@ build.xml
     system      # 本地仓库
     import
 命令
-    pom.xml生成项目命令
-            mvn
-            mvn compile                        # mvn compile exec:java
+    mvn                                     # 相当于mvn compile
+        o-&gt; 全局
+        -version                            # 版本
+        -e                                  # 错误详情
+        help:describe                       # help插件的describe
+            -Dplugin=help                   # 显示help插件的详情
+            -Dfull                          # 显示完整参数
+        help:effective-pom                  # 显示默认设置
+
+        o-&gt; 项目生成
+        archetype:create                    # 创建java项目
+            -DgroupId=com.outrun
+            -DartifactId=erp
+            -Dversion=0.0.1-SNAPSHOT
+            -DarchetypeArtifactId=maven-archetype-webapp                            # 指定模板为webapp
+        archetype:generate                  # 向导创建项目
+        site                                # 产生html文档
+        source:jar                          # 源码打包
+        generate-sources                    # 生成源码, 如xdoclet
+        eclipse:eclipse                     # 生成或转化成eclipse工程
+        eclipse:clean                       # 清除eclipse设置
+        idea:idea                           # 生成idea项目
+
+
+        o-&gt; 项目执行
+        validate                            # 项目验证
+        verify                              # 验证包
+        compile                             # 编译
+            exec:java                       # 编译完成后，执行java main方法
+        test-compile                        # 编译测试代码
+        test                                # 运行测试
+            -skipping                       # 跳过
+                compile                     # 不编译
+                test-compile                # 不编译测试
+        integration-test                    # 集成测试
+        package                             # 打包
+            -Dmaven.test.skip=true          # 跳过单元测试，不编译
+            -DskipTests                     # 跳过单元测试，编译
+        install                             # compile, package后， 保存到本地仓库
+            -X                              # 显示依赖
+            -Dmaven.test.skip=true          # 跳过测试
+        clean                               # 清除编译
+            install-U                       # 强制更新
+            package                         # 编译成jar包
+        deploy                              # install后, 上传
+        jar:jar                             # 打jar包
+
+
+        o-&gt; 插件
+        jetty:run                           # 引入jetty-plugin后, 运行jetty
+        tomcat:run
+
+
+        o-&gt; 分析
+        dependency:list                     # 列出依赖
+        dependency:tree                     # 列出依赖树
+        dependency:analyze                  # 依赖分析, 未使用的做标记
+        dependency:resolve                  # 列出已解决的依赖
+        dependency:sources                  # 下载源码
+        dependency:copy-dependencies        # 得到jar包
+配置
+    &lt;groupId&gt;                               # 包名
+    &lt;artifactId&gt;                            # 项目名
+    &lt;version&gt;
+    &lt;packaging&gt;                             # 打包方式, war, jar
+
+    &lt;parent&gt;                                # 父模块
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+        &lt;spring-cloud.version&gt;Dalston.RELEASE&lt;/spring-cloud.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;                              # 子模块继承
+        &lt;dependency&gt;
+            &lt;groupId&gt;
+            &lt;artifactId&gt;
+            &lt;version&gt;
+                LATEST
+                ${spring-cloud.version}         #引用properties中定义的变量
+            &lt;scope&gt;                             # 何时使用
+                compile
+                provided                        # 类似compile
+                runtime
+                test
+                system
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;dependenciesManager&gt;                       # 子模块不继承, 继承时需要声明
+        &lt;dependencies&gt;
+    &lt;/dependenciesManager&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;
+                &lt;artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+工具
     eclipse插件
-            m2e
-    得到jar包
-            mvn dependency:copy-dependencies
-    生成eclipse工程
-            mvn eclipse:eclipse
-    jetty-plugin下运行
-            mvn jetty:run
-    版本
-            mvn -version
+        m2e
 方案
     ojdbc14本地加载
         ＃ oracle是收费的，所以不能直接下载到驱动
@@ -1103,7 +1244,50 @@ build.xml
                 &lt;artifactId&gt;ojdbc14&lt;/artifactId&gt;
                 &lt;version&gt;10.2.0.4.0&lt;/version&gt;
                 &lt;/dependency&gt;
+    代理
+        复制$M2_HOME/conf/settings.xml到.m2/
+        settings.xml
+            &lt;proxies&gt;
+                &lt;proxy&gt;
+                  &lt;id&gt;my-proxy&lt;/id&gt;
+                  &lt;active&gt;true&lt;/active&gt;
+                  &lt;protocol&gt;http&lt;/protocol&gt;
+                  &lt;host&gt;localhost&lt;/host&gt;
+                  &lt;port&gt;8123&lt;/port&gt;
+                  &lt;!--
+                  &lt;username&gt;admin&lt;/username&gt;
+                  &lt;password&gt;admin&lt;/password&gt;
+                  &lt;nonProxyHosts&gt;repository.mycom.com|*.google.com&lt;/nonProxyHosts&gt;
+                  --&gt;
+                &lt;/proxy&gt;
+            &lt;/proxies&gt;
 </code></pre>
+
+<h1 id="代码">代码</h1>
+
+<pre><code>github
+bitBucket
+gitee.com
+    # 码云
+sentry
+    # 产品error tracing
+gerrit
+    # code review 工具
+coverallx
+    # github上项目的coverage测试覆盖率条目由它提供服务
+circleCI
+    # github代码测试
+travis-ci
+    # 利用github hook测试
+fitness
+    # 自动单元测试
+coverity
+    # 代码静态检查
+www.webpagetest.org
+    # 测试网站性能
+</code></pre>
+
+<h2 id="gitlab">gitlab</h2>
 
 <h1 id="应用控制">应用控制</h1>
 
@@ -1159,6 +1343,18 @@ stderr_logfile_backups=2
     pm2 status
     pm2 info 1
     pm2 logs 1
+</code></pre>
+
+<h1 id="监控">监控</h1>
+
+<pre><code>prometheus
+    # 监控, go实现
+grafana
+    # 监控
+zabbix
+    # 分布式监控
+nagios
+    # 监控
 </code></pre>
 
 <h1 id="个人操作">个人操作</h1>
@@ -1252,8 +1448,8 @@ stderr_logfile_backups=2
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -1292,12 +1488,23 @@ stderr_logfile_backups=2
 <li><a href="#opendj">opendj</a></li>
 <li><a href="#openssl">openssl</a></li>
 </ul></li>
+<li><a href="#cmdb">cmdb</a>
+<ul>
+<li><a href="#bt-panel">bt-panel</a></li>
+<li><a href="#jumpserver">jumpserver</a></li>
+</ul></li>
+<li><a href="#自动化">自动化</a></li>
 <li><a href="#版本">版本</a>
 <ul>
+<li><a href="#gradle">gradle</a></li>
 <li><a href="#git">git</a></li>
 <li><a href="#svn">svn</a></li>
 <li><a href="#ant">ant</a></li>
 <li><a href="#maven">maven</a></li>
+</ul></li>
+<li><a href="#代码">代码</a>
+<ul>
+<li><a href="#gitlab">gitlab</a></li>
 </ul></li>
 <li><a href="#应用控制">应用控制</a>
 <ul>
@@ -1305,6 +1512,7 @@ stderr_logfile_backups=2
 <li><a href="#supervisor">supervisor</a></li>
 <li><a href="#pm2">pm2</a></li>
 </ul></li>
+<li><a href="#监控">监控</a></li>
 <li><a href="#个人操作">个人操作</a>
 <ul>
 <li><a href="#vsftp">vsftp</a></li>

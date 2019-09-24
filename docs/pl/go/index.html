@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -311,6 +311,8 @@ https://github.com/alex-shpak/hugo-book
         fix                 # 同go fix
         vet                 # 同go vet
         cgo                 # 生成能够调用c语言代码的go源码文件
+        compile
+            -help           # 可传给编译器的参数
 godoc                       # 提供html页面
     -http=:6060             # 运行本地帮助网站
     -analysis=type          # 提供静态分析结果
@@ -753,7 +755,8 @@ golint                      # 检查风格
             q[:1]; q[1:]; q[:]
         轻量级数据结构，用来访问数组的部分
         零值是nil, 行为和slice一样，不用特殊判断
-        slice后标访问越界时，会自动扩展，越界超过数组长度时，会panic
+        slice后标访问越界时，会自动扩展，越界超过数组长度+1时，会panic
+            append(arr[:i], arr[i+1:]...)删除元素, i为最后元素时, i+1不越界
         不可比较, 只有写函数实现。只能和nil比较
             因为slice的元素不是直接的
                 有可能包含它自身
@@ -1722,9 +1725,29 @@ glide.yaml
     version: 5.0.0
     repo:git@github.com:go-redis/redis
 常见问题
-    vcs
-        glide mirror set a a --vcs git
-            # 改~/.glide/mirrors.yaml文件
+    o-&gt; cannot detect vcs
+        glide.lock或vendor依赖旧版本
+            清理glide.lock和vendor, 检查glide.yaml旧版本
+        glide.yaml子目录处理不完善
+            subpackages:
+            - cloudsql
+        glide mirror找不到包
+            glide mirror set a a --vcs git
+                # 改~/.glide/mirrors.yaml文件
+    o-&gt; does not appear to be a git repository
+        加速服务没有项目
+    o-&gt; glide up依赖不是最新
+        ~/.glide/cache中缓存了旧版本
+    o-&gt; cannot find package &quot;.&quot; in
+        glide对非git协议自有域名处理歧义，子目录分析不准确
+            清理缓存
+                ~/.glide/cache/src/包名
+                ~/.glide/cache/info/包名
+            glide.yaml添加repo重定向及subpackages
+                package: github.com/grpc-ecosystem/grpc-gateway
+                repo: git@github.com:grpc-ecosystem/grpc-gateway.git
+                subpackages:
+                - internal
 </code></pre>
 
 <h2 id="govendor">govendor</h2>
@@ -1780,8 +1803,8 @@ go-torch -b cpu.prof
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   

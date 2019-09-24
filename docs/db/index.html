@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -72,6 +72,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -83,11 +84,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -96,9 +97,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -142,7 +143,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -267,6 +267,30 @@ https://github.com/alex-shpak/hugo-book
     一致性(correspondence)     # 事务前后数据库状态一致, 事务中断时也不会有暂时状态
     隔离性(isolation)          # 事务间不干扰
     持久性(durability)         # 提交结果是永久的
+索引存储
+    B+ tree
+    LSM(log-structured merge) tree
+    fractal tree
+OLTP和OLAP
+    CAP(一致性、可用性、分区容错性)中, OLTP要求ca或cp, OLAP要求ap
+    OLTP要求写优化, OLAP要求查优化
+    OLTP要求优化latency, OLAP要求优化throughput
+    OLTP基于row, OLAP基于column
+    OLTP看中IOPS, OLAP看中data-size传输
+分布式数据库
+    面临问题
+        ACID
+        CAP
+        scale out
+        self-healing
+        运维友好
+        sql
+        事务
+        性能
+        api用明文或二进制
+        升级方案
+        硬件，网络，网络模型，存储模型，语言
+        分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案
 </code></pre>
 
 <h1 id="rds-relational-database-service">rds(relational database service)</h1>
@@ -290,15 +314,24 @@ https://github.com/alex-shpak/hugo-book
     mysql
     mariadb
     percona
-            # mysql分支
+        # mysql分支
     drizzle
-            # mysql分支
+        # mysql分支
     oracle
-    sqlite
     db2
     oceandb
     h2database
+        # java编写，可嵌入java使用
     tidb
+</code></pre>
+
+<h2 id="sqlite">sqlite</h2>
+
+<pre><code>命令
+    sqlite3 数据库文件
+语法
+    .table              # 查看所有表
+    .schema             # 查看建表语句
 </code></pre>
 
 <h2 id="sql">sql</h2>
@@ -311,9 +344,7 @@ https://github.com/alex-shpak/hugo-book
         字符串大小写敏感
     双引号
         转日期时, 双引号直接显示。to_char(sysdate,'yyyy &quot;年&quot; mm &quot;月&quot; dd &quot;日&quot; day')
-
     表别名不加as关键字, 有别名后原名无效
-
     oracle
         ||      # 管道符号
             select ename || '的薪水是' || sal from emp;
@@ -969,6 +1000,8 @@ mysql
     infiniteGraph
     allegroGraph
     orientdb
+    pregel
+        # google图数据库
 </code></pre>
 
 <h3 id="neo4j">neo4j</h3>
@@ -1007,11 +1040,14 @@ mysql
     amazon simpleDB
     hypertable
     bigtable
+    clickhouse
+        # 用于OLAP, 实时分析
 </code></pre>
 
 <h3 id="cassandra">cassandra</h3>
 
 <pre><code>特点
+    适用大规模数据
     良好的分布式扩展性
     功能比key-value丰富，不如mongo
     写快于读
@@ -1278,8 +1314,8 @@ mysql
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/869b95a36d191cc02ce6dc6c810ca19adc06759d" title='Last modified Jul 30, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 30, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -1305,6 +1341,7 @@ mysql
 <li><a href="#基础">基础</a></li>
 <li><a href="#rds-relational-database-service">rds(relational database service)</a>
 <ul>
+<li><a href="#sqlite">sqlite</a></li>
 <li><a href="#sql">sql</a></li>
 <li><a href="#存储过程">存储过程</a></li>
 <li><a href="#触发器">触发器</a></li>

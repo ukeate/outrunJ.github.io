@@ -16,7 +16,7 @@
       <pubDate>Wed, 10 Oct 2018 20:56:27 +0800</pubDate>
       
       <guid>https://example.com/docs/infomation/</guid>
-      <description>信息公布 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 问答 quora stack overflow 知乎 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞  做题 http://www.codewars.com/ # haskell等语言在线做题 https://leetcode.com/problemset/algorithms/ # leetcode  资源 堆糖 # 图片 www.</description>
+      <description>信息公布 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 问答 quora stack overflow 知乎 segmentfault 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞  做题 http://www.codewars.com/ # haskell等语言在线做题 https://leetcode.com/problemset/algorithms/ # leetcode  资源 堆糖 # 图片 www.</description>
     </item>
     
     <item>
@@ -26,15 +26,6 @@
       
       <guid>https://example.com/docs/english/</guid>
       <description>发音 spelling and numbers Acronym ibM, miT, ph.D mbA lA iQ revP ciA fbI coD soS xyZ Spelling boX cooK wiLsoN sentence stress with descriptive phrases It&#39;s SHORT. It&#39;s a short NAIL It&#39;s CHOCOLATE. It&#39;s a chocolate CAKE. contrasting description and a set phrase It&#39;s a short NAIL. It&#39;s a FINGERnail It&#39;s a chocolate CAKE. It&#39;s a PANcake T,D,S or Z + Y T + Y = CH what&#39;s your name can&#39;t you do it?</description>
-    </item>
-    
-    <item>
-      <title>管理</title>
-      <link>https://example.com/docs/method/</link>
-      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
-      
-      <guid>https://example.com/docs/method/</guid>
-      <description> 战略 ai 云 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合 产品 开箱即用，做瑞士军刀不做零件 矛盾 强大，易用 小客户无付费能力，大客户要求多 行业分类 垂直，水平  团队 负责态度 提高团队效率，而非自己效率 # 严肃判断 存在合理性 有目标，成员能力认可，成员感性认可 分配事 因特质分配，如稳定，峰值，沟通 成果评价 产出判断 分配利益和荣耀 团队提升 培训无意义，自觉成长 成员 项目经理 设计 开发 测试人员 运维 数据分析师 技术总监 架构师  人 成分 技能，素质，精神 行动 感性，理性，惯性 优点，缺点 # 并非此长彼短，是两个维度 态度 找潜质的眼光 一定特性抑制作用 创造力，纪律 勤奋，聪明 稳定，峰值 深度，速度 细节，大局 发展 上限 下限 成本 低成本召回  事 知原理 是什么，为什么，怎么样，拆解 事与团队 事造就团队，好团队不一定出好成果  上级 态度 把握分寸 靠谱(事事有交代) 领导利益着想(购买能力和时间的客户) 负责(顾全局) 分忧 超出预期 提问题与建设性意见(提选择题) 只交“产品” 背景清晰 扼要 完整 引入独有经验 沟通 主动、及时、规律 update 问题和需求 重要性(紧迫感) 变化 下一个工作重点 下一个沟通节点  架构师 职责 权衡需求与资源(人、时间), 提出大家认可的方案 素养 深入一线(面对客户) 思考全面 人 owner 自我驱动，持续改进 告警及时响应 出问题，写相关文档 砸需求，看弹性 小精英团队，智能解决问题 沟通 文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 电话 # 即时性相反 方法 划分项目边界 想清楚再行动，行动也会顺畅 拆分 分界 正交 技术 kiss # 有生命力，简单却不容易 设计清晰 选型简单 代码精炼 抽象优雅 任务 任务列表: 难度, 优先级, 排期, 地平线目标, 现状, wishlist nice to have给新人 工程 找瓶颈  招聘 能力 真诚, 主动 表达 快 重点 沟通 双方 逻辑能力，写代码能力 分析/解决问题 设计 时间/流程意识  工程 历史 程序设计阶段1946-1955 节省空间 软件设计阶段1956-1970 硬件发展，软件危机 软件工程阶段1970-今 组件化 迭代 迭代周期 一个迭代周期中不新添加需求 一个迭代周期中包含多次迭代 一个阶段的结束称之为里程碑 初始化阶段增量 项目启动 建立业务模型 定义业务问题域 找出主要风险因素 定义项目需求的外延 创建业务问题域的相关说明文档 细代阶段增量 高层的分析与设计 建立项目的基础框架 监督主要的风险因素 制订达成项目目标的创建计划 构建阶段增量 代码及功能的实现 移交阶段增量 向用户发布产品 beta测试(alpha测试是内部测试， beta测试是用户测试) 执行性能调优，用户培训和接收测试 瀑布模型 #每一次执行工作流的深度不同 # 80/20原则 可行性分析 实现会不会复杂，尽量简单 需求分析 分类 生存点 痒点 兴奋点 # 不会按时交付（只完成主要，然后延期，用户测试） 客户沟通，同类产品比较，行业标准 功能 正确, 可行, 必要, 有序, 明确, 一致 性能 完善, 简短 分析 设计 先出成果再优化 任务分配(进度条) 命名标准 文档 可移植、可维护易扩展 排期 实现 测试 运维 螺旋模型（模块化） # 边分析边开发边交付（一环一环向目标实现） 主要问题 人员流动 代码维护  学习 计划 为什么 有全局, 有方向 平时活动与目标联系起来 轻重有序 磨炼意志(适应变化, 抗干扰) 养成习惯(抗干扰不费意志) 怎么样 全面(考虑娱乐和休息) 简单明确、具体、适当、突出重点 时间科学, 遵守作息时间 及时调整 预习 为什么 上课时：扫除知识障碍、针对性解决问题、笔记有针对性 提高自学能力 改变被动局面，成为良性循环 是什么 初步理解 关联旧知识 找不理解 做笔记和习题 怎么样 先粗读, 再反复细读 先读最困惑点 问为什么 请教别人 实践 笔记 重点、结构、摘要 分类 问题 查阅资料 理解思路 逐步提高 由点到面，由浅入深 学习 怎么样 集中注意 获取知识主动权 作者思路，比较思维方法 方法 分析综合法、归纳演绎法、比较分类法 规律 同一律、矛盾律、排中律 # 形式逻辑学 对立统一、量变到质变、否定之否定 # 辩证逻辑学 学科特点 理科: 逻辑性，抽象思维 文科: 知识有独立性，形象思维 教师特点 保持连续性，不中断钻牛角尖 笔记 思维方法、过程、结果 完整简洁 当堂掌握 领会、巩固、运用 重点是认知过程而非结论 复习 贵在及时 怎么样 尝试回忆 读原文 整理笔记 参考资料 系统复习 为什么 牢固、完整 系统、实用 怎么样 之前之后回忆 有重点阅读 熟记 整理笔记 练习 记忆能力 有记忆意识 理解后记忆 艾宾浩斯曲线 过度学习来记忆 分散记忆好于集中记忆 先整体理解, 后分段记忆, 最后综合复习 多感官 思维能力 积极思维状态 基本思维方法 分类、抽象概括 系统化, 使用时具体化 思维形式 整体思维 相似思维 逆向思维 创造思维  </description>
     </item>
     
     <item>
@@ -52,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/interview/</guid>
-      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优 o-&amp;gt; 100内素数 o-&amp;gt; 随机填充100内整数不重复 o-&amp;gt; 找字符串第一个无重复字符, 统计字符重复次数 o-&amp;gt; 第n个斐波那契数 o-&amp;gt; 递增数组，求和为m的两数 o-&amp;gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水 o-&amp;gt; 无序数组，第k大数 o-&amp;gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数  </description>
+      <description> 带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 100内素数 o-&amp;gt; 随机填充100内整数不重复 o-&amp;gt; 找字符串第一个无重复字符, 统计字符重复次数 o-&amp;gt; 第n个斐波那契数 o-&amp;gt; 递增数组，求和为m的两数 o-&amp;gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水 o-&amp;gt; 无序数组，第k大数 o-&amp;gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优  </description>
     </item>
     
   </channel>

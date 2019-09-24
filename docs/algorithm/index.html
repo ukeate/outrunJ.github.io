@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -72,6 +72,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -83,11 +84,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -96,9 +97,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -142,7 +143,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -719,9 +719,104 @@ transposition table             置换表
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearch2</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">mid</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">high</span>, <span style="color:#a6e22e">val</span>)
 	}
 }</code></pre></div>
+<h2 id="topk">topK</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	第k大数
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	用快排划分
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	时间 n, 空间 n
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">topK</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">low</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">high</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">mid</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">low</span>, <span style="color:#a6e22e">high</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">low</span>]
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">high</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">high</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">high</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">mid</span> {
+			<span style="color:#a6e22e">high</span><span style="color:#f92672">--</span>
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">high</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">low</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">high</span>]
+			<span style="color:#a6e22e">low</span><span style="color:#f92672">++</span>
+		}
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">high</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">low</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">mid</span> {
+			<span style="color:#a6e22e">low</span><span style="color:#f92672">++</span>
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">high</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">high</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">low</span>]
+			<span style="color:#a6e22e">high</span><span style="color:#f92672">--</span>
+		}
+	}
+	<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">low</span>] = <span style="color:#a6e22e">mid</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">low</span> &gt; <span style="color:#a6e22e">k</span> {
+		<span style="color:#a6e22e">topK</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">low</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">k</span>)
+	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">low</span> &lt; <span style="color:#a6e22e">k</span> {
+		<span style="color:#a6e22e">topK</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">low</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">k</span>)
+	}
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	大顶堆
+</span><span style="color:#75715e">	时间 nlog(k), 空间k
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">topK2</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">heap</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">k</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">k</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+
+	<span style="color:#a6e22e">adjust</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">end</span> <span style="color:#66d9ef">int</span>) {
+		<span style="color:#a6e22e">parent</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>
+		<span style="color:#a6e22e">child</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">parent</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">end</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">child</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">child</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] &lt; <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">child</span>] {
+				<span style="color:#a6e22e">child</span><span style="color:#f92672">++</span>
+			}
+
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">parent</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">child</span>] {
+				<span style="color:#66d9ef">return</span>
+			}
+			<span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">parent</span>], <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">child</span>] = <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">child</span>], <span style="color:#a6e22e">heap</span>[<span style="color:#a6e22e">parent</span>]
+			<span style="color:#a6e22e">parent</span> = <span style="color:#a6e22e">child</span>
+			<span style="color:#a6e22e">child</span> = <span style="color:#a6e22e">parent</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+		}
+	}
+	<span style="color:#a6e22e">buildHeap</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+			<span style="color:#a6e22e">adjust</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+		}
+	}
+
+	<span style="color:#a6e22e">buildHeap</span>()
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">k</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] &gt; <span style="color:#a6e22e">heap</span>[<span style="color:#ae81ff">0</span>] {
+			<span style="color:#a6e22e">heap</span>[<span style="color:#ae81ff">0</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+			<span style="color:#a6e22e">adjust</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">heap</span>
+}</code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Expand</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" style="display: none" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">arr</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">70</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">80</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">90</span>}
+	<span style="color:#a6e22e">topK</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">10</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">arr</span>)
+}</code></pre></div>
+    </div>
+  </label>
+</div>
+
+
 <h2 id="倒排索引">倒排索引</h2>
 
 <h1 id="数字">数字</h1>
+
+<h2 id="斐波那契">斐波那契</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	返回第n个斐波那契数
 </span><span style="color:#75715e">
@@ -747,34 +842,9 @@ transposition table             置换表
 		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Fibonacci2</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">Fibonacci2</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-}
-
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">	猴子吃桃：每天吃一半加1个，第n天剩1个，一共几个
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MonkeyEat</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> { <span style="color:#75715e">//指倒数第一天
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">MonkeyEat</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
-}
-
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">	爬楼梯问题：一次走1或2级，爬上n级有多少走法
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">	要走到n+1层，只能从n层或n-1层走。n+1层方法数为n层与n-1层方法数的和。所以是个斐波那契数列问题
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
-	}
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
-}
-
-<span style="color:#75715e">/*
+}</code></pre></div>
+<h2 id="正整数和">正整数和</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	正整数和
 </span><span style="color:#75715e">	递归
 </span><span style="color:#75715e">*/</span>
@@ -783,9 +853,9 @@ transposition table             置换表
 		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">CommonSum</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">n</span>
-}
-
-<span style="color:#75715e">/*
+}</code></pre></div>
+<h2 id="最大公约数-最小公倍数">最大公约数/最小公倍数</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	最大公约数
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">	每执行一次循环, m或n至少缩小了2倍，故时间复杂度上限为log(2)(M),M是循环次数
@@ -832,9 +902,9 @@ transposition table             置换表
 </span><span style="color:#75715e">*/</span>
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LCM</span>(<span style="color:#a6e22e">m</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">GCD</span>(<span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">n</span>)
-}
-
-<span style="color:#75715e">/*
+}</code></pre></div>
+<h2 id="最大子序列和">最大子序列和</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	最大子序列和
 </span><span style="color:#75715e">
 </span><span style="color:#75715e">	时间 n
@@ -856,211 +926,48 @@ transposition table             置换表
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">max</span>
 }</code></pre></div>
-<h1 id="数组">数组</h1>
-
-<h2 id="翻转">翻转</h2>
+<h2 id="判断素数">判断素数</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
-</span><span style="color:#75715e">	翻转数组
+</span><span style="color:#75715e">	判断素数
+</span><span style="color:#75715e">	合数一定有因子小于sqrt(n)
 </span><span style="color:#75715e">
-</span><span style="color:#75715e">	双指针
-</span><span style="color:#75715e">	时间 n，空间 1
+</span><span style="color:#75715e">	时间 n
 </span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Inverse</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">arr</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
-		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">isPrime</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> &lt; <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 	}
+
+	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> int(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(float64(<span style="color:#a6e22e">n</span>)))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">m</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">%</span><span style="color:#a6e22e">i</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
 }
 
 <span style="color:#75715e">/*
-</span><span style="color:#75715e">	单指针
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Inverse2</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
-	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">half</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">half</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">i</span>
-		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
-	}
-}</code></pre></div>
-<h2 id="轮换">轮换</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
-</span><span style="color:#75715e">	轮换，如：[1,2,3,4,5],指定2时，结果[4,5,1,2,3]
+</span><span style="color:#75715e">	arr中false的是素数
+</span><span style="color:#75715e">	j从i开始, 因小于i的数已筛过
 </span><span style="color:#75715e">
-</span><span style="color:#75715e">	翻转前段，翻转后段，再整体翻转
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">	时间 n，空间 1
+</span><span style="color:#75715e">	时间 n*loglog(n)
+</span><span style="color:#75715e">		n(1/2 + 1/3 + ... 1/n)
 </span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Rotate</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int</span>) {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">filterPrime</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> &lt; <span style="color:#ae81ff">2</span> {
 		<span style="color:#66d9ef">return</span>
 	}
 
-	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">length</span> {
-		<span style="color:#a6e22e">k</span> = <span style="color:#a6e22e">k</span> <span style="color:#f92672">%</span> <span style="color:#a6e22e">length</span>
-	}
-
-	<span style="color:#a6e22e">inverse</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">end</span> <span style="color:#66d9ef">int</span>) {
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
-			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	<span style="color:#a6e22e">arr</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">bool</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> int(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(float64(<span style="color:#a6e22e">n</span>)))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">m</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">*</span><span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">*</span><span style="color:#a6e22e">j</span>] = <span style="color:#66d9ef">true</span>
 		}
 	}
-	<span style="color:#a6e22e">inverse</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">-</span><span style="color:#a6e22e">k</span>)
-	<span style="color:#a6e22e">inverse</span>(<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-	<span style="color:#a6e22e">inverse</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 }</code></pre></div>
-<h2 id="回文">回文</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
-</span><span style="color:#75715e">	回文
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">IsPalindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">s</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">j</span>] {
-			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-		}
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-}
-
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">	回文数
-</span><span style="color:#75715e">	1. 计算位
-</span><span style="color:#75715e">	2. 循环到half
-</span><span style="color:#75715e">	2.1 判断高低位余数。
-</span><span style="color:#75715e">		如 num = 12321, 则 t = 10000
-</span><span style="color:#75715e">		第一步 1 == (12321 / 10000) % 10 == 12321 % 10
-</span><span style="color:#75715e">		t /= 10 , 12321 /= 10
-</span><span style="color:#75715e">		第二步 2 == (12321 ／ 1000) % 10 == 1232 % 10
-</span><span style="color:#75715e">		判断成功
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">IsPalindromeNum</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">num</span> &lt; <span style="color:#ae81ff">10</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-	}
-
-	<span style="color:#a6e22e">countWei</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
-		<span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">num</span>
-		<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">num</span> &gt; <span style="color:#ae81ff">0</span> {
-			<span style="color:#a6e22e">num</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
-			<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
-		}
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
-	}
-
-	<span style="color:#a6e22e">wei</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">countWei</span>()
-	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#ae81ff">10</span>, float64(<span style="color:#a6e22e">wei</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
-	<span style="color:#a6e22e">half</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">wei</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">num</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">half</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span><span style="color:#f92672">/</span>int(<span style="color:#a6e22e">t</span>))<span style="color:#f92672">%</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">%</span><span style="color:#ae81ff">10</span> {
-			<span style="color:#a6e22e">t</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
-			<span style="color:#a6e22e">n</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
-		} <span style="color:#66d9ef">else</span> {
-			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-		}
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-}
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">	最长回文子串
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">	时间 n^3
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LongestPalindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
-	<span style="color:#a6e22e">isPalindrome</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">end</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> &lt; <span style="color:#a6e22e">end</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
-				<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-			}
-			<span style="color:#a6e22e">start</span><span style="color:#f92672">++</span>
-			<span style="color:#a6e22e">end</span><span style="color:#f92672">--</span>
-		}
-		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-	}
-
-	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">s</span>)
-	<span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">isPalindrome</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>) <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#a6e22e">i</span>) &gt; <span style="color:#a6e22e">max</span> {
-				<span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">to</span> = <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>
-				<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">to</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">from</span>
-			}
-		}
-	}
-
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">from</span> : <span style="color:#a6e22e">to</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
-}
-
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">	中心扩展法
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">	1 循环所有元素i（i为中心）
-</span><span style="color:#75715e">	2 循环向两边扩展 start, end。(start=i, end=i+1查找偶数串)
-</span><span style="color:#75715e">	2.1 记录left, right回文子串
-</span><span style="color:#75715e">	3 记录此i中心边缘子串是否最大
-</span><span style="color:#75715e">	*2 ..(start=i-1, end=i+1查找奇数串)
-</span><span style="color:#75715e">	*3 ..
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">	时间 n^2，空间 1
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LongestPalindrome2</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
-	<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
-	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">s</span>)
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>
-		<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">end</span> &lt; <span style="color:#a6e22e">length</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
-				<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
-				<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span> = <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
-			} <span style="color:#66d9ef">else</span> {
-				<span style="color:#66d9ef">break</span>
-			}
-		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length1</span> &gt; <span style="color:#a6e22e">max</span> {
-			<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span>
-		}
-
-		<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
-		<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>
-		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">end</span> &lt; <span style="color:#a6e22e">length</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
-				<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
-				<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span> = <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
-			} <span style="color:#66d9ef">else</span> {
-				<span style="color:#66d9ef">break</span>
-			}
-		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length1</span> &gt; <span style="color:#a6e22e">max</span> {
-			<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span>
-		}
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">maxLeft</span> : <span style="color:#a6e22e">maxRight</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
-}</code></pre></div>
-<div class="book-expand">
-  <label>
-    <div class="book-expand-head flex justify-between">
-      <span>Expand</span>
-      <span>↕</span>
-    </div>
-    <input type="checkbox" style="display: none" />
-    <div class="book-expand-content markdown-inner">
-      <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestLongestPalindrome</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
-	<span style="color:#a6e22e">assert</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">t</span>)
-	<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#e6db74">&#34;woabcbaow&#34;</span>, <span style="color:#a6e22e">LongestPalindrome</span>(<span style="color:#e6db74">&#34;sdbsdaswoabcbaowe&#34;</span>))
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestLongestPalindrome2</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
-	<span style="color:#a6e22e">assert</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">t</span>)
-	<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#e6db74">&#34;woabcbaow&#34;</span>, <span style="color:#a6e22e">LongestPalindrome2</span>(<span style="color:#e6db74">&#34;sdbsdaswoabcbaowe&#34;</span>))
-}</code></pre></div>
-    </div>
-  </label>
-</div>
-
-
-<h2 id="连续正整数和为s的序列">连续正整数和为s的序列</h2>
+<h2 id="连续正整数和">连续正整数和</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	描述：给正整数s, 写出连续正整数和为s的所有序列
 </span><span style="color:#75715e">
@@ -1088,7 +995,7 @@ transposition table             置换表
 		}
 	}
 }</code></pre></div>
-<h2 id="两元素和为s-升序不重复数组">两元素和为s(升序不重复数组)</h2>
+<h2 id="有序数组两元素和">有序数组两元素和</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	升序不重复数组中，所有两个元素和为s的组合
 </span><span style="color:#75715e">	时间 n^2
@@ -1161,6 +1068,178 @@ transposition table             置换表
 </div>
 
 
+<h2 id="猴子吃桃">猴子吃桃</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	猴子吃桃：每天吃一半加1个，第n天剩1个，一共几个
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MonkeyEat</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> { <span style="color:#75715e">//指倒数第一天
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">MonkeyEat</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+}</code></pre></div>
+<h2 id="滑动平均数">滑动平均数</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	滑动平均数
+</span><span style="color:#75715e">	先算sum数组
+</span><span style="color:#75715e">	隔n位的两sum之差即此n位的sum
+</span><span style="color:#75715e">	除位数取均值
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">movingAverage</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0.0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+=</span> <span style="color:#a6e22e">sum</span>
+		<span style="color:#a6e22e">sum</span> = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+
+	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">float64</span>, len(<span style="color:#a6e22e">arr</span>))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">n</span>
+		<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">start</span> &lt; <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+			<span style="color:#a6e22e">start</span> = <span style="color:#ae81ff">0</span>
+		}
+		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">i</span>] = (<span style="color:#a6e22e">v</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>]) <span style="color:#f92672">/</span> float64(<span style="color:#a6e22e">count</span>)
+	}
+}</code></pre></div>
+<h2 id="爬楼梯">爬楼梯</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	爬楼梯问题：一次走1或2级，爬上n级有多少走法
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	要走到n+1层，只能从n层或n-1层走。n+1层方法数为n层与n-1层方法数的和。所以是个斐波那契数列问题
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ClimbStairs</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
+}</code></pre></div>
+<h2 id="几瓶汽水">几瓶汽水</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	1元两瓶水, 两空瓶一瓶水, n元几瓶水
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sodaBottle</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+	}
+
+	<span style="color:#a6e22e">bottle</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">sum</span><span style="color:#f92672">++</span>
+		<span style="color:#a6e22e">bottle</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sodaBottle</span>(<span style="color:#a6e22e">bottle</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">sum</span>
+}</code></pre></div>
+<h1 id="数组">数组</h1>
+
+<h2 id="翻转">翻转</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	翻转数组
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	双指针
+</span><span style="color:#75715e">	时间 n，空间 1
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Inverse</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">arr</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	单指针
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Inverse2</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">half</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">half</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">i</span>
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+}</code></pre></div>
+<h2 id="轮换">轮换</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	轮换，如：[1,2,3,4,5],指定2时，结果[4,5,1,2,3]
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	翻转前段，翻转后段，再整体翻转
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	时间 n，空间 1
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Rotate</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">length</span> {
+		<span style="color:#a6e22e">k</span> = <span style="color:#a6e22e">k</span> <span style="color:#f92672">%</span> <span style="color:#a6e22e">length</span>
+	}
+
+	<span style="color:#a6e22e">inverse</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">end</span> <span style="color:#66d9ef">int</span>) {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+		}
+	}
+	<span style="color:#a6e22e">inverse</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">-</span><span style="color:#a6e22e">k</span>)
+	<span style="color:#a6e22e">inverse</span>(<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">inverse</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+}</code></pre></div>
+<h2 id="洗牌">洗牌</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	洗牌(shuffle) Fisher-Yates
+</span><span style="color:#75715e">	随机选择, 删除, 插入新数组
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">shuffle</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UnixNano</span>())
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">length</span>)
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(len(<span style="color:#a6e22e">arr</span>))
+		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">k</span>]
+		<span style="color:#a6e22e">arr</span> = append(<span style="color:#a6e22e">arr</span>[:<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">k</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]<span style="color:#f92672">...</span>)
+	}
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	洗牌 Knuth-Durstenfeld
+</span><span style="color:#75715e">	随机选择, 放尾部
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">shuffle2</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UnixNano</span>())
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">k</span>]
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">arr</span>)
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	洗牌 Inside-Out Algorithm
+</span><span style="color:#75715e">	复制到新数组
+</span><span style="color:#75715e">	遍历原数组位置i, 随机插入新数组(新数组位置i存插入前数据)
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">shuffle3</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UnixNano</span>())
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">length</span>)
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">v</span>
+	}
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">k</span>]
+		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">result</span>)
+}</code></pre></div>
 <h2 id="有序数组去重">有序数组去重</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	有序数组去重
@@ -1227,6 +1306,17 @@ transposition table             置换表
 }</code></pre></div>
 <h1 id="字符串">字符串</h1>
 
+<h2 id="字符统计">字符统计</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	字符统计
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">charSum</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) {
+	<span style="color:#a6e22e">sumMap</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">26</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">s</span> {
+		<span style="color:#a6e22e">sumMap</span>[<span style="color:#a6e22e">c</span><span style="color:#f92672">-</span><span style="color:#ae81ff">97</span>]<span style="color:#f92672">++</span>
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">sumMap</span>)
+}</code></pre></div>
 <h2 id="最后一词长度">最后一词长度</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LastWordLen</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#a6e22e">isLetter</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#66d9ef">uint8</span>) <span style="color:#66d9ef">bool</span> {
@@ -1380,6 +1470,158 @@ transposition table             置换表
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>
 }</code></pre></div>
+<h2 id="回文">回文</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
+</span><span style="color:#75715e">	回文
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">IsPalindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">s</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">j</span>] {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	回文数
+</span><span style="color:#75715e">	1. 计算位
+</span><span style="color:#75715e">	2. 循环到half
+</span><span style="color:#75715e">	2.1 判断高低位余数。
+</span><span style="color:#75715e">		如 num = 12321, 则 t = 10000
+</span><span style="color:#75715e">		第一步 1 == (12321 / 10000) % 10 == 12321 % 10
+</span><span style="color:#75715e">		t /= 10 , 12321 /= 10
+</span><span style="color:#75715e">		第二步 2 == (12321 ／ 1000) % 10 == 1232 % 10
+</span><span style="color:#75715e">		判断成功
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">IsPalindromeNum</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">num</span> &lt; <span style="color:#ae81ff">10</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+	}
+
+	<span style="color:#a6e22e">countWei</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
+		<span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">num</span>
+		<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">num</span> &gt; <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">num</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
+			<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+		}
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
+	}
+
+	<span style="color:#a6e22e">wei</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">countWei</span>()
+	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#ae81ff">10</span>, float64(<span style="color:#a6e22e">wei</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+	<span style="color:#a6e22e">half</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">wei</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">num</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">half</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span><span style="color:#f92672">/</span>int(<span style="color:#a6e22e">t</span>))<span style="color:#f92672">%</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">%</span><span style="color:#ae81ff">10</span> {
+			<span style="color:#a6e22e">t</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
+			<span style="color:#a6e22e">n</span> <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	最长回文子串
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	时间 n^3
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LongestPalindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+	<span style="color:#a6e22e">isPalindrome</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">end</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> &lt; <span style="color:#a6e22e">end</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
+				<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+			}
+			<span style="color:#a6e22e">start</span><span style="color:#f92672">++</span>
+			<span style="color:#a6e22e">end</span><span style="color:#f92672">--</span>
+		}
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+	}
+
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">s</span>)
+	<span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">isPalindrome</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>) <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#a6e22e">i</span>) &gt; <span style="color:#a6e22e">max</span> {
+				<span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">to</span> = <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>
+				<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">to</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">from</span>
+			}
+		}
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">from</span> : <span style="color:#a6e22e">to</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">	中心扩展法
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	1 循环所有元素i（i为中心）
+</span><span style="color:#75715e">	2 循环向两边扩展 start, end。(start=i, end=i+1查找偶数串)
+</span><span style="color:#75715e">	2.1 记录left, right回文子串
+</span><span style="color:#75715e">	3 记录此i中心边缘子串是否最大
+</span><span style="color:#75715e">	*2 ..(start=i-1, end=i+1查找奇数串)
+</span><span style="color:#75715e">	*3 ..
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">	时间 n^2，空间 1
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LongestPalindrome2</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+	<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
+	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">s</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>
+		<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">end</span> &lt; <span style="color:#a6e22e">length</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
+				<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
+				<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span> = <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#66d9ef">break</span>
+			}
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length1</span> &gt; <span style="color:#a6e22e">max</span> {
+			<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span>
+		}
+
+		<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+		<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">end</span> &lt; <span style="color:#a6e22e">length</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">end</span>] {
+				<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span> = <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">length1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
+				<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">end</span> = <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#66d9ef">break</span>
+			}
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length1</span> &gt; <span style="color:#a6e22e">max</span> {
+			<span style="color:#a6e22e">maxLeft</span>, <span style="color:#a6e22e">maxRight</span>, <span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">length1</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">maxLeft</span> : <span style="color:#a6e22e">maxRight</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
+}</code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Expand</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" style="display: none" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestLongestPalindrome</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">assert</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">t</span>)
+	<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#e6db74">&#34;woabcbaow&#34;</span>, <span style="color:#a6e22e">LongestPalindrome</span>(<span style="color:#e6db74">&#34;sdbsdaswoabcbaowe&#34;</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestLongestPalindrome2</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">assert</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">t</span>)
+	<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#e6db74">&#34;woabcbaow&#34;</span>, <span style="color:#a6e22e">LongestPalindrome2</span>(<span style="color:#e6db74">&#34;sdbsdaswoabcbaowe&#34;</span>))
+}</code></pre></div>
+    </div>
+  </label>
+</div>
+
+
 <h2 id="模式匹配">模式匹配</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	模式匹配，brute force法
@@ -1576,7 +1818,7 @@ diffie-hellman
         <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))])
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
 }</code></pre></div>
-<h1 id="资源">资源</h1>
+<h1 id="资源分配">资源分配</h1>
 
 <pre><code>token bucket
     # 令牌桶
@@ -1596,7 +1838,7 @@ leaky bucket
     作用
         强行限制数据传输速率
 max-min fairness
-    # 加权分配资源
+    # 最大最小公平算法, 加权分配
     dominant resource fairness (DRF)
         # 一种 max-min fairness实现，可以多资源分配
 </code></pre>
@@ -1682,8 +1924,8 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1dcd0050b05897002b67e0c13b24ded054a31cbd" title='Last modified Aug 12, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 12, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -1721,24 +1963,38 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
 <li><a href="#查找">查找</a>
 <ul>
 <li><a href="#二分查找-binary-search">二分查找(binary search)</a></li>
+<li><a href="#topk">topK</a></li>
 <li><a href="#倒排索引">倒排索引</a></li>
 </ul></li>
-<li><a href="#数字">数字</a></li>
+<li><a href="#数字">数字</a>
+<ul>
+<li><a href="#斐波那契">斐波那契</a></li>
+<li><a href="#正整数和">正整数和</a></li>
+<li><a href="#最大公约数-最小公倍数">最大公约数/最小公倍数</a></li>
+<li><a href="#最大子序列和">最大子序列和</a></li>
+<li><a href="#判断素数">判断素数</a></li>
+<li><a href="#连续正整数和">连续正整数和</a></li>
+<li><a href="#有序数组两元素和">有序数组两元素和</a></li>
+<li><a href="#猴子吃桃">猴子吃桃</a></li>
+<li><a href="#滑动平均数">滑动平均数</a></li>
+<li><a href="#爬楼梯">爬楼梯</a></li>
+<li><a href="#几瓶汽水">几瓶汽水</a></li>
+</ul></li>
 <li><a href="#数组">数组</a>
 <ul>
 <li><a href="#翻转">翻转</a></li>
 <li><a href="#轮换">轮换</a></li>
-<li><a href="#回文">回文</a></li>
-<li><a href="#连续正整数和为s的序列">连续正整数和为s的序列</a></li>
-<li><a href="#两元素和为s-升序不重复数组">两元素和为s(升序不重复数组)</a></li>
+<li><a href="#洗牌">洗牌</a></li>
 <li><a href="#有序数组去重">有序数组去重</a></li>
 </ul></li>
 <li><a href="#字符串">字符串</a>
 <ul>
+<li><a href="#字符统计">字符统计</a></li>
 <li><a href="#最后一词长度">最后一词长度</a></li>
 <li><a href="#翻转词序">翻转词序</a></li>
 <li><a href="#同字异序">同字异序</a></li>
 <li><a href="#count-and-say">count and say</a></li>
+<li><a href="#回文">回文</a></li>
 <li><a href="#模式匹配">模式匹配</a></li>
 </ul></li>
 <li><a href="#图">图</a>
@@ -1773,7 +2029,7 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
 <li><a href="#傅里叶变换">傅里叶变换</a></li>
 <li><a href="#加密">加密</a></li>
 <li><a href="#种群统计">种群统计</a></li>
-<li><a href="#资源">资源</a></li>
+<li><a href="#资源分配">资源分配</a></li>
 <li><a href="#分布式算法">分布式算法</a></li>
 <li><a href="#np问题">NP问题</a>
 <ul>

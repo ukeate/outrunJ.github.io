@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.ee27cec5adeebb17f8ab96e7260ab73b42d3cfc1dcca73a13fceb99f2ef14cff.js"></script>
+<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
 
 
 
@@ -71,6 +71,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/project">项目</a></li>
+<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -82,11 +83,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/css">css</a></li>
 <li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
 
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
 </ul></li>
 </ul></li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
@@ -95,9 +96,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
 <li><a href="/docs/architecture/solution">方案</a></li>
-<li><a href="/docs/architecture/3rd_product">第三方服务</a></li>
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
 </ul></li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
 
@@ -141,7 +142,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
 </ul></li>
-<li><a href="/docs/method">方法</a></li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
@@ -199,47 +199,74 @@ BASE    # 解决CAP
 <h1 id="cpu">cpu</h1>
 
 <pre><code>介绍
-    单cpu串行工作，前任务完成，后任务才开始
-        # 串行不适合图形处理(多点，线，面要同时乘投影矩阵)
+    单cpu串行工作，前任务完成，后任务才开始                             # 串行不适合图形处理(多点，线，面要同时乘投影矩阵)
     cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元
     cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接
-        # 显卡在pci总线上
-        ## 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。
-        ### 内存到显存数据传输最花费时间。
-进程: 独有内存
-线程: 共享进程内存(地址空间、文件描述符)
-    一个进程下的轻量进程
-    POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似
-        自己的信号掩码
-        cpu affinity(倾向在某cpu尽量长时间运行)
-        cgroups
-并行架构
-    位级(bit-level): 32位, 64位计算机
-    指令级(instruction-level)
-        # 处理器内部并行度很高
-        流水线
-        乱序执行
-        猜测执行
-    数据级, 单指令多数据(SIMD)架构
-        # 图像处理
-    任务级(task-level)
-        # 多处理器
-        # 超线程, 虽只有4个核，但可用核返回8
-        共享内存模型
-        分布式内存模型
+        gpu在pci总线上
+        控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。
+        内存到显存数据传输最花费时间。
+原理
+    处理单元(processing unit)
+        算术逻辑单元(arithmetic logic unit)
+        处理寄存器(processor register)
+    控制单元(control unit)
+        指令寄存器(instruction register)
+        程序计数器(program counter)
+    指令集架构(ISA, instruction set architecture)                   # 机器码易兼容, 软件易编程, 易升级cpu
+        精简指令集RISC(reduced instruction set computing)
+        复杂指令集CISC(complex instruction set computer)
+    时钟频率(clock speed)
+    生产
+        生产线散热决定生存率，决定cpu型号
+    多级缓存
+        L1, L2, L3, L4
+    虚拟化
+        虚拟机监视器(VMM, virtual machine monitors)
 分类
     指令流的重数分类
-            SI(single instruction stream)单指令流
-            MI(multiple instruction stream)多指令流
+        SI(single instruction stream)单指令流
+        MI(multiple instruction stream)多指令流
     操作数流的重数分类
-            SD(single data stream)单数据流
-            MD(multiple data stream)多数据流
+        SD(single data stream)单数据流
+        MD(multiple data stream)多数据流
     SISD 串行计算机
     SIMD 阵列机(多处理单元)
     MISD 很少
     MIMD
         多处理机
         多计算机
+硬件并行
+    位级(bit-level): 32位, 64位计算机
+    指令级(instruction-level)              # 处理器内部并行度很高
+        流水线
+            指令分步骤(指令流), 每步专门部件处理
+            多指令流并行, 部件不空闲等待单指令流结束
+            六级流水线步骤
+                取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO)
+        多发射(超标量)
+            一时钟周期处理多指令
+        超线程
+            模拟多个逻辑线程
+        乱序执行
+        猜测执行
+    数据级
+        向量体系结构、图形处理器
+        单指令多数据(SIMD)架构
+    线程级                                 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互
+    请求级                                 # OS或程序耦合任务间并行
+程序并行
+    数据级(DLP, data-level parallel)
+    任务级(TLP, task-level parallel)       # 多处理器, 超线程, 虽只有4个核，但可用核返回8
+        内存
+            共享内存模型
+            分布式内存模型
+        进程: 独有内存
+        线程: 共享进程内存(地址空间、文件描述符)
+            一个进程下的轻量进程
+            POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似
+                自己的信号掩码
+                cpu affinity(倾向在某cpu尽量长时间运行)
+                cgroups
 </code></pre>
 
 <h2 id="进程调度">进程调度</h2>
@@ -269,13 +296,28 @@ BASE    # 解决CAP
 <h1 id="gpu">gpu</h1>
 
 <pre><code>介绍
-        gpu控制单元少, 计算单元多
-        显卡在pci总线上
+    gpu控制单元少, 计算单元多
+    显卡在pci总线上
+原理
+    数据级并行
+        单条指令并行应用于数据集(SIMD)
+    CUDA(compute unified device architecutre)                       # nvidia推出的通用并行计算架构
+        多网格(grid)组织，每网格多(512-1536)线程块
+        线程块线程相同指令地址, 通过共享存储器(shared memory)和栅栏(barrier)块内通信
+            不同块不通信，粗粒度并行
+            同块通信，细粒度并行
 </code></pre>
 
 <h1 id="内存">内存</h1>
 
-<pre><code>dma
+<pre><code>原理
+    虚拟内存(virtual memory)
+    页表(page table)
+        控制寄存器(control register)
+            CR3保存页目录表内存基地址
+        4级页表(PML4)
+        转换检测缓冲区(TLB, translation lookaside buffer)
+dma
     # direct memory access 不依赖cpu的内存存取
 栈
     申请方式: 系统自动分配
@@ -304,18 +346,7 @@ BASE    # 解决CAP
     表示层
     应用层
 ABR(area border router)：区域边界路由器
-</code></pre>
-
-<h2 id="安全">安全</h2>
-
-<pre><code>子网隔离
-CSRF (Cross-site request forgery)
-    客户端登录A, 本地生成cookie
-    客户端登录B, B给客户端参数，使客户端请求A
-    避免
-        token验证     # 放
-        入自定义头域
-        验证Referer头域
+子网隔离
 </code></pre>
 
 <h2 id="状态">状态</h2>
@@ -990,8 +1021,7 @@ radius
     服务网格
     容器调度编排
     容器runtime
-    基础设施
-            # 云服务器
+    基础设施 # 云服务器
 分层
     服务
         对外网关
@@ -1018,6 +1048,41 @@ radius
         授权(OAuth2)
         安全传输协议(tls)
         限流(quota)   # 网络数据、api调用
+</code></pre>
+
+<h2 id="一致性">一致性</h2>
+
+<h3 id="分布式事务">分布式事务</h3>
+
+<h4 id="tcc">TCC</h4>
+
+<pre><code># Try Confirm Cancel
+</code></pre>
+
+<h4 id="队列">队列</h4>
+
+<pre><code># 同步数据用队列传输
+</code></pre>
+
+<h4 id="两阶段提交">两阶段提交</h4>
+
+<pre><code>过程
+    表决(voting)
+        同意或取消
+    提交(commit)
+        提交或取消
+问题
+    所有节点同步阻塞
+    协调者单点故障
+    协调者commit中网络故障, 部分节点未提交
+</code></pre>
+
+<h4 id="三阶段提交">三阶段提交</h4>
+
+<pre><code>过程                        # 每步引入超时
+    询问(can commit)
+    锁资源(pre commit)
+    提交(do commit)
 </code></pre>
 
 <h2 id="高可用-high-available">高可用(high available)</h2>
@@ -1080,7 +1145,7 @@ radius
 
 <h3 id="扩容">扩容</h3>
 
-<h3 id="队列">队列</h3>
+<h3 id="队列-1">队列</h3>
 </article>
 
       
@@ -1088,8 +1153,8 @@ radius
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/c451d3d6868e0df870a36b7d09d19062d9df7a32" title='Last modified Aug 16, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 16, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
     </a>
   </div>
   
@@ -1121,7 +1186,6 @@ radius
 <li><a href="#内存">内存</a></li>
 <li><a href="#网络">网络</a>
 <ul>
-<li><a href="#安全">安全</a></li>
 <li><a href="#状态">状态</a>
 <ul>
 <li><a href="#cookie">cookie</a></li>
@@ -1148,6 +1212,16 @@ radius
 <li><a href="#电话">电话</a></li>
 <li><a href="#分布式服务">分布式服务</a>
 <ul>
+<li><a href="#一致性">一致性</a>
+<ul>
+<li><a href="#分布式事务">分布式事务</a>
+<ul>
+<li><a href="#tcc">TCC</a></li>
+<li><a href="#队列">队列</a></li>
+<li><a href="#两阶段提交">两阶段提交</a></li>
+<li><a href="#三阶段提交">三阶段提交</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#高可用-high-available">高可用(high available)</a>
 <ul>
 <li><a href="#负载均衡与反向代理">负载均衡与反向代理</a></li>
@@ -1166,7 +1240,7 @@ radius
 <li><a href="#连接池线程池">连接池线程池</a></li>
 <li><a href="#异步并发">异步并发</a></li>
 <li><a href="#扩容">扩容</a></li>
-<li><a href="#队列">队列</a></li>
+<li><a href="#队列-1">队列</a></li>
 </ul></li>
 </ul></li>
 </ul>
