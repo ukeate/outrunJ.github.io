@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
+<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
 
 
 
@@ -584,7 +584,7 @@ client配置
 服务器
     server.json
         {
-            &quot;server&quot;:&quot;172.21.223.196&quot;,
+            &quot;server&quot;:&quot;0.0.0.0&quot;,
             &quot;server_port&quot;:443,
             &quot;local_address&quot;:&quot;127.0.0.1&quot;,
             &quot;local_port&quot;:1080,
@@ -1167,6 +1167,7 @@ build.xml
         install                             # compile, package后， 保存到本地仓库
             -X                              # 显示依赖
             -Dmaven.test.skip=true          # 跳过测试
+            -rf 模块名                       # 从指定模块从新开始
         clean                               # 清除编译
             install-U                       # 强制更新
             package                         # 编译成jar包
@@ -1233,6 +1234,9 @@ build.xml
     eclipse插件
         m2e
 方案
+    新项目安装
+        mvn clean install -DskipTests
+        mvn install -rf :模块名 -DskipTests     # 指定模块开始
     ojdbc14本地加载
         ＃ oracle是收费的，所以不能直接下载到驱动
         o-&gt; mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.4.0 -Dpackaging=jar -Dfile=ojdbc14-10.2.0.4.0.jar
@@ -1355,6 +1359,8 @@ zabbix
     # 分布式监控
 nagios
     # 监控
+emq
+    # mqtt broker, erlang开发, 管理控制台
 </code></pre>
 
 <h1 id="个人操作">个人操作</h1>
@@ -1448,8 +1454,8 @@ nagios
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
     </a>
   </div>
   

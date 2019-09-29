@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
+<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
 
 
 
@@ -583,7 +583,7 @@ golint                      # 检查风格
         func (p *Path)f(){}
     方法可在任何类型(除指针和接口), 如函数
     变量与变量指针都可直接调方法，编译器隐式取地址或取指针
-        P{1}.f()                            # 出错，f()声明成引用传递, 但对P{1}, 编译器无法(*P)取地址
+        P{1}.f()                            # 编译器不报错但运行出错, f()声明成引用传递, 但P{1}.时, 内存地址还未分配, 即还没有*P, 就无法调f()
     有引用传递方法时，避免值传递方法，会产生多例
     值为nil时可调方法
     方法可赋值
@@ -1803,8 +1803,8 @@ go-torch -b cpu.prof
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
     </a>
   </div>
   

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
+<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
 
 
 
@@ -738,6 +738,129 @@ elasticsearch.yml
 docker-compose up -d
 </code></pre>
 
+<h2 id="cassandra">cassandra</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+        cassandra:
+            image: cassandra:latest
+            restart: always
+            command: /bin/bash -c &quot;sleep 1 &amp;&amp; echo ' -- Pausing to let system catch up ... --&gt;' &amp;&amp; /docker-entrypoint.sh cassandra -f&quot;
+            environment:
+            - MAX_HEAP_SIZE=300M
+            - HEAP_NEWSIZE=100M
+            ports:
+            - 7000:7000
+            - 7001:7001
+            - 7199:7199
+            - 9042:9042
+            - 9160:9160
+            volumes:
+            - ./n1data:/var/lib/cassandra
+docker-compose up -d
+</code></pre>
+
+<h2 id="haproxy">haproxy</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+    haproxy:
+        image: haproxy
+        volumes:
+        - ./haproxy:/usr/local/etc/haproxy
+        ports:
+        - &quot;10001:80&quot;
+./haproxy/haproxy.cfg
+    global
+        log 127.0.0.1 local0
+        log 127.0.0.1 local1 notice
+    defaults
+        log global
+        mode http
+        option httplog
+        option dontlognull
+        timeout connect 5000ms
+        timeout client 50000ms
+        timeout server 50000ms
+        stats uri /status
+    frontend balancer
+        bind 0.0.0.0:80
+        default_backend web_backends
+    backend web_backends
+        balance roundrobin
+        # server web1 apache:80 check
+        # server web2 nginx:80 check
+docker-compose up -d
+</code></pre>
+
+<h2 id="zookeeper">zookeeper</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+        zookeeper:
+            image: zookeeper:latest
+            ports:
+            - &quot;2181:2181&quot;
+docker-compose up -d
+</code></pre>
+
+<h2 id="kafka">kafka</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+        zookeeper:
+            image: zookeeper
+            ports:
+            - &quot;2181:2181&quot;
+        kafka:
+            image: wurstmeister/kafka
+            ports:
+            - &quot;9092:9092&quot;
+            environment:
+            KAFKA_ADVERTISED_HOST_NAME: 172.27.0.1
+            KAFKA_CREATE_TOPICS: &quot;outrun1:1:1:compact&quot;
+            KAFKA_MESSAGE_MAX_BYTES: 2000000
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            volumes:
+            - ./kafka/logs:/kafka
+            - ./kafka/docker.sock:/var/run/docker.sock
+        kafka-manager:
+            image: sheepkiller/kafka-manager
+            ports:
+            - 9020:9000
+            environment:
+            ZK_HOSTS: zookeeper:2181
+
+docker-compose up -d
+</code></pre>
+
+<h2 id="emq">emq</h2>
+
+<pre><code>配置
+    18083: 管理控制台
+        admin public
+    1883: mqtt/tcp
+    8883: mqtt/ssl
+    8083: mqtt/websocket
+    8084: mqtt/websocket ssl
+docker-compose up -d
+    version: '3'
+    services:
+    emqttd:
+        image: devicexx/emqttd
+        ports:
+        - 10010:18083
+        - 10011:1883 
+        - 10012:8084 
+        - 10013:8883 
+        - 10014:8083
+docker-compose.yml
+</code></pre>
+
 <h2 id="dokuwiki">dokuwiki</h2>
 
 <pre><code>docker-compose.yml
@@ -802,8 +925,8 @@ pipwork
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
     </a>
   </div>
   
@@ -845,6 +968,11 @@ pipwork
 <li><a href="#mysql">mysql</a></li>
 <li><a href="#mongodb">mongodb</a></li>
 <li><a href="#es">es</a></li>
+<li><a href="#cassandra">cassandra</a></li>
+<li><a href="#haproxy">haproxy</a></li>
+<li><a href="#zookeeper">zookeeper</a></li>
+<li><a href="#kafka">kafka</a></li>
+<li><a href="#emq">emq</a></li>
 <li><a href="#dokuwiki">dokuwiki</a></li>
 <li><a href="#wordpress">wordpress</a></li>
 </ul></li>

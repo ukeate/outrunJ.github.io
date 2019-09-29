@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.bd02055d2761a39c264096803734dc316c182fdde7dc11ed86a9e625e4093e4a.js"></script>
+<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
 
 
 
@@ -380,6 +380,7 @@ figlet                  # 大写字
 cmatrix                 # 终端黑客帝国
 sl                      # 火车
 cal 9 1752              # 打印日历
+jq . a.json             # 验证json格式
 </code></pre>
 
 <h1 id="控制">控制</h1>
@@ -683,6 +684,10 @@ ip                      # 网卡与ip信息
 iotop                   # 实时监视io
 iostat                  # 负载情况
 lsof -i:8080            # 列出当前系统打开的文件，必须root运行才准确
+    -i                  # 端口
+    -P                  # 显示端口号而非名称
+    -n                  # 显示ip而非域名
+    -i -n -P            # 查看进程句柄数
 nicstat                 # 网络流量统计
 netstat
     -a                  # 显示所有
@@ -1224,7 +1229,7 @@ unzip中转码
         wget --post-data=&quot;username=u1&amp;password=asdf&quot; --save-cookies=cookie --keep-session-cookies &quot;http://www.abc.com/logging.php&quot;
         wget -x -P curSite -r -l 1 -k -L -np --load-cookies=cookie --keep-session-cookies &quot;https://www.abc.com/display/1&quot;
 递归查找所有内容
-    grep -nr 'a' .
+    grep -nr --exclude-dir={.git, res, bin} 'a' .
 
 终端录制
     script -t 2&gt;timing.log -a output.log
@@ -1258,8 +1263,8 @@ simplehttp
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
     </a>
   </div>
   
