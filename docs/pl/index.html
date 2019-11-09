@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -70,9 +70,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -521,6 +524,42 @@ https://github.com/alex-shpak/hugo-book
 工具
     sbt
         simple build tool
+语法
+    表达式
+        actor1 ! case1          # 异步消息
+        actor1 !? case1         # 同步消息, 需要对方一定返回
+        actor1 !! case1         # 异步消息, 需要对方一定返回
+    Actor
+        o-&gt;
+        import scala.actors.Actor
+
+        class HelloActor extends Actor {
+        def act() {
+            while (true) {
+            receive {
+                case name: String =&gt; println(&quot;Hello, &quot; + name)
+            }
+            }
+        }
+        }
+
+        val helloActor = new HelloActor
+        helloActor.start()
+        helloActor ! &quot;leo&quot;
+    case                        # 模式匹配
+        case class Login(username: String, password: String)
+        class UserManageActor extends Actor {
+        def act() {
+            while (true) {
+            receive {
+                case Login(username, password) =&gt; println(username + password)
+            }
+            }
+        }
+        }
+        val userManageActor = new UserManageActor
+        userManageActor.start()
+        userManageActor ! Login(&quot;leo&quot;, &quot;1234&quot;)
 </code></pre>
 
 <h1 id="net">.net</h1>
@@ -588,8 +627,8 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/cd195b4fce4da3843da413e752633395b41861f4" title='Last modified Aug 23, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Aug 23, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   

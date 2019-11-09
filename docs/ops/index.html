@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -70,9 +70,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -677,14 +680,56 @@ client配置
     # 浏览器运行命令
 jenkins
     # java实现的持续集成工具
-ansible
-    # python实现的自动化部署工具
 saltstack
     # 部署, 自动化运维
 puppet
     # 自动化运维
 selenium
     # 自动化运维
+</code></pre>
+
+<h2 id="ansible">ansible</h2>
+
+<pre><code># python实现的自动化部署工具
+命令
+    ansible
+        通配符
+            10.1.1.113
+            '*'
+            all
+        -m
+            command                     # 执行命令
+                -a 'uptime'
+            file                        # 操作文件
+                -a &quot;dest=/tmp/t.sh mode=755 owner=root group=root&quot;                  # 改属性
+                -a &quot;src=/etc/resolv.conf dest=/tmp/resolv.conf state=link&quot;          # 软链接
+                -a &quot;path=/tmp/resolv.conf state=absent&quot;                             # 删除软连接
+            copy
+                -a &quot;src=/a.cfg dest=/tmp/a.cfg owner=root group=root mode=0644&quot;
+            cron                        # 定时任务
+                -a 'name=&quot;custom job&quot; minute=*/3 hour=* day=* month=* weekday=* job=&quot;/usr/sbin/ntpdate 172.16.254.139&quot;'
+            group                       # 操作组
+                -a 'gid=2017 name=a'    # 创建组
+            user                        # 操作用户
+                -a 'name=aaa groups=aaa state=present'          # 创建用户
+                -a 'name=aaa groups=aaa remove=yes'             # 删除用户
+            yum
+                -a &quot;state=present name=httpd&quot;
+            service
+                -a 'name=httpd state=started enabled=yes'       # 开机启动
+            ping
+            script
+                -a '/root/test.sh'
+            shell
+                -a 'ps aux|grep zabbix'
+            raw                         # 同shell
+            get_url
+                -a 'url=http://10.1.1.116/a.ico dest=/tmp'      # 下载
+            synchronize
+                -a 'src=/root/a dest=/tmp/ compress=yes'        # 推送
+
+        o-&gt; 例子
+        ansible '*' -m command -a 'uptime'
 </code></pre>
 
 <h1 id="版本">版本</h1>
@@ -863,6 +908,14 @@ redmine
         [commit]
         template=/t.txt
             # 每次commit会打开模板
+    代理
+        git config --global https.proxy http://127.0.0.1:1080
+        git config --global https.proxy https://127.0.0.1:1080
+        git config --global http.proxy 'socks5://127.0.0.1:1080' 
+        git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+        git config --global --unset http.proxy
+        git config --global --unset https.proxy
 方案
     回退commit
         git reset --hard ea1
@@ -1230,9 +1283,159 @@ build.xml
             &lt;/plugin&gt;
         &lt;/plugins&gt;
     &lt;/build&gt;
-工具
-    eclipse插件
-        m2e
+插件
+    介绍
+        按顺序执行，完成maven生命周期
+        无配置时调默认插件
+    生命周期(lifecycle)顺序
+        clean                                   # 清除target目录
+        resources                               # 复制resources下文件到target/classes
+        complie                                 # 包含resources, 编译java下文件到target/classes
+        testResources                           # 复制test/resources下文件到target/test-classes
+        testCompile                             # 包含testResources, 编译test/java下文件到target/test-classes
+        test                                    # 包含resources, compile, testResources, testCompile, test
+        package
+        jar                                     # 打包class文件, 配置文件, 不打包lib
+        install
+
+    maven-clean-plugin
+    maven-resources-plugin
+        &lt;plugin&gt;  
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;  
+            &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;  
+            &lt;version&gt;2.6&lt;/version&gt;  
+            &lt;executions&gt;  
+                &lt;execution&gt;  
+                    &lt;id&gt;copy-resources&lt;/id&gt;  
+                    &lt;phase&gt;validate&lt;/phase&gt;
+                    &lt;goals&gt;  
+                        &lt;goal&gt;copy-resources&lt;/goal&gt;  
+                    &lt;/goals&gt;  
+                    &lt;configuration&gt;  
+                        &lt;outputDirectory&gt;${project.build.outputDirectory}&lt;/outputDirectory&gt;  
+                        &lt;resources&gt;  
+                            &lt;resource&gt;  
+                                &lt;directory&gt;src/main/${deploy.env}/applicationContext.xml&lt;/directory&gt;  
+                                &lt;excludes&gt;
+                                    &lt;exclude&gt;WEB-INF/*.*&lt;/exclude&gt;
+                                &lt;/excludes&gt;
+                                &lt;filtering&gt;false&lt;/filtering&gt;  
+                            &lt;/resource&gt;  
+                        &lt;/resources&gt;  
+                    &lt;/configuration&gt;  
+                    &lt;inherited&gt;&lt;/inherited&gt;  
+                &lt;/execution&gt;  
+            &lt;/executions&gt;  
+        &lt;/plugin&gt;  
+    maven-compiler-plugin
+    maven-surefire-plugin                       # 对应test, 单元测试
+    maven-dependency-plugin                     # 打包lib
+    maven-jar-plugin
+        &lt;plugin&gt;
+             &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+             &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+             &lt;version&gt;2.6&lt;/version&gt;
+             &lt;configuration&gt;
+                &lt;archive&gt;
+                     &lt;manifest&gt;
+                         &lt;addClasspath&gt;true&lt;/addClasspath&gt;
+                         &lt;classpathPrefix&gt;lib/&lt;/classpathPrefix&gt;
+                        &lt;mainClass&gt;com.xxx.xxxService&lt;/mainClass&gt;
+                   &lt;/manifest&gt;
+                &lt;/archive&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;                                # 单独打包lib
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.10&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;copy-dependencies&lt;/id&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;copy-dependencies&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;configuration&gt;
+                        &lt;outputDirectory&gt;${project.build.directory}/lib&lt;/outputDirectory&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    maven-assembly-plugin                       # 打包lib, 有bug缺失spring xds文件, 同级jar会冲突
+        &lt;plugin&gt;
+             &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+             &lt;configuration&gt;
+                 &lt;descriptorRefs&gt;
+                     &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+                 &lt;/descriptorRefs&gt;
+                 &lt;archive&gt;
+                     &lt;manifest&gt;
+                         &lt;mainClass&gt;com.xxx.xxxService&lt;/mainClass&gt;
+                    &lt;/manifest&gt;
+                &lt;/archive&gt;
+            &lt;/configuration&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;make-assembly&lt;/id&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;single&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    maven-shade-plugin                          # 打包lib, 同级jar会冲突, 提示SF,DSA,RSA冲突，排除META-INF相关文件
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.4.3&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;shade&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;configuration&gt;
+                        &lt;filters&gt;
+                            &lt;filter&gt;
+                                &lt;artifact&gt;*:*&lt;/artifact&gt;
+                                &lt;excludes&gt;
+                                    &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;
+                                    &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;
+                                    &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;
+                                &lt;/excludes&gt;
+                            &lt;/filter&gt;
+                        &lt;/filters&gt;
+                        &lt;transformers&gt;
+                            &lt;transformer
+                                    implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;
+                                &lt;resource&gt;META-INF/spring.handlers&lt;/resource&gt;
+                            &lt;/transformer&gt;
+                            &lt;transformer
+                                    implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;
+                                &lt;resource&gt;META-INF/spring.schemas&lt;/resource&gt;
+                            &lt;/transformer&gt;
+                            &lt;transformer
+                                    implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;
+                                &lt;resource&gt;META-INF/spring.tooling&lt;/resource&gt;
+                            &lt;/transformer&gt;
+                            &lt;transformer
+                                    implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;
+                                &lt;mainClass&gt;com.xxx.xxxInvoke&lt;/mainClass&gt;
+                            &lt;/transformer&gt;
+                        &lt;/transformers&gt;
+                        &lt;minimizeJar&gt;true&lt;/minimizeJar&gt;
+                        &lt;shadedArtifactAttached&gt;true&lt;/shadedArtifactAttached&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    maven-install-plugin
+    spring-boot-maven-plugin
+    gradle-maven-plugin
+    protobuf-maven-plugin
+    build-helper-maven-plugin                   # 用于指定自定义目录
 方案
     新项目安装
         mvn clean install -DskipTests
@@ -1365,6 +1568,11 @@ emq
 
 <h1 id="个人操作">个人操作</h1>
 
+<h2 id="ngrok">ngrok</h2>
+
+<pre><code># 内网穿透
+</code></pre>
+
 <h2 id="vsftp">vsftp</h2>
 
 <pre><code>介绍
@@ -1402,14 +1610,11 @@ emq
     /etc/vsftpd.conf
         anonymous_enable=YES            # 允许匿名用户
         local_enable=YES                # linux用户可登录, 虚拟用户可登录
-        write_enable=NO                 # 可写
+        write_enable=YES                # 可写
         local_umask=022                 # user文件权限, 默认077
         dirmessage_enable=YES           # 显示目录信息
         xferlog_enable=NO               # 记录上传/下载日志
         connect_from_port_20=YES        # 确保用20端口传输
-        chroot_local_user=NO            # linux用户可以chroot到他的home目录。YES时, chroot_list_file指定黑名单
-        chroot_list_enable=NO
-        chroot_list_file=/etc/vsftpd/chroot_list                # 一行一名字
         ls_recurse_enable=NO            # 允许ls -R
         allow_writeable_chroot=NO
         listen=NO
@@ -1417,9 +1622,7 @@ emq
 
         pam_service_name=vsftpd
         local_root=/home/outrun/Downloads                       # linux用户默认目录。会先登录到用户目录，再切换到这里
-        anon_root=/home/outrun/Downloads                        # 匿名用户默认目录
         ftp_username=ftp                # 匿名用户名，默认ftp
-        userlist_enable=YES             # 读vsftpd.user_list黑名单
         tcp_wrappers=NO                 # 结合tcp_wrapper限制ip登录
             /etc
                 /hosts.allow            # 允许地址
@@ -1428,13 +1631,32 @@ emq
     mkdir /home/ftp &amp;&amp; chown ftp /home/ftp &amp;&amp; chgrp ftp /home/ftp
     systemctl restart vsftpd
     打开tcp, udp端口21, 20
-方案
-    root 登录
+用户
+    匿名登录
         /etc/vsftpd/vsftpd.conf
+            anonymous_enable=YES
+            anon_root=/home/outrun/Downloads                    # 匿名用户默认目录
+            anon_upload_enable=YES      # 匿名可写，要求write_enable=YES
+            anon_mkdir_write_enable=YES # 匿名创建文件夹
+            anon_other_write_enable=YES # 匿名可删除、重命名
+            anon_umask=000              # 如创建077文件，anon_umask=022时，则为055 
+        chmod 777 dir1
+
+    本地用户登录
+        /etc/vsftpd/vsftpd.conf
+            anonymous_enable=NO
             userlist_enable=YES
-            pam_service_name=vsftpd
-        /etc/vsftpd/ftpusers与/etc/vsftpd/user_list
+            userlist_deny=YES           # YES时user_list为黑名单
+            userlist_file=/etc/vsftpd/user_list
+
+            chroot_local_user=YES       # 默认可以chroot到用户home。YES时, chroot_list_file指定黑名单
+            chroot_list_enable=YES
+            chroot_list_file=/etc/vsftpd/chroot_file            # 名单用户只能访问自己home
+            allow_writeable_chroot=YES  # 不限制chroot目录可写
+        /etc/vsftpd/ftpusers
+        /etc/vsftpd/user_list
             注释root
+    虚拟用户
 </code></pre>
 
 <h2 id="simplehttpserver">SimpleHTTPServer</h2>
@@ -1454,8 +1676,8 @@ emq
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -1499,7 +1721,10 @@ emq
 <li><a href="#bt-panel">bt-panel</a></li>
 <li><a href="#jumpserver">jumpserver</a></li>
 </ul></li>
-<li><a href="#自动化">自动化</a></li>
+<li><a href="#自动化">自动化</a>
+<ul>
+<li><a href="#ansible">ansible</a></li>
+</ul></li>
 <li><a href="#版本">版本</a>
 <ul>
 <li><a href="#gradle">gradle</a></li>
@@ -1521,6 +1746,7 @@ emq
 <li><a href="#监控">监控</a></li>
 <li><a href="#个人操作">个人操作</a>
 <ul>
+<li><a href="#ngrok">ngrok</a></li>
 <li><a href="#vsftp">vsftp</a></li>
 <li><a href="#simplehttpserver">SimpleHTTPServer</a></li>
 <li><a href="#pyshark">pyshark</a></li>

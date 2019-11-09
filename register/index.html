@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -69,9 +69,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -183,64 +186,236 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="连接">连接</h1>
+<h1 id="快速访问">快速访问</h1>
 
 <p>信息:
 <a href="http://localhost:1315/docs/infomation/" target="_blank">信息</a>
-<a href="https://shimo.im/" target="_blank">石墨</a>
-<a href="https://trello.com/b/bWRQmKff/%E8%BF%9B%E5%BA%A6" target="_blank">Trello</a>
 <a href="https://www.vtrhome.net/" target="_blank">vpntech</a>
 <br/>
-资讯:
+同步盘:
+<a href="https://onedrive.live.com/?id=root&cid=FFED8E49854C02E8" target="_blank">OneDrive</a>
+<a href="https://www.icloud.com/" target="_blank">iCloud</a>
+<br/>
+同步信息:
+<a href="https://www.onenote.com/notebooks?auth=1&nf=1&fromAR=1" target="_blank">OneNote</a>
+<a href="https://trello.com/b/bWRQmKff/%E8%BF%9B%E5%BA%A6" target="_blank">Trello</a>
+<a href="https://shimo.im/" target="_blank">石墨</a>
+<br/>
+资讯1级:
+<a href="http://yinwang.org" target="_blank">YinWang</a>
+<a href="https://www.weibo.com/u/6347862377?is_hot=1#_loginLayer_1570797857600" target="_blank">YinWang微博</a>
+<a href="https://www.zhihu.com/people/tao-wen-54/pins" target="_blank">TaoWen</a>
+<br/>
+资讯2级
 <a href="https://www.infoq.cn/" target="_blank">infoQ</a>
 <a href="https://www.v2ex.com/" target="_blank">V2EX</a>
 <a href="https://juejin.im/" target="_blank">掘金</a>
-<a href="https://www.zhihu.com/people/tao-wen-54/pins" target="_blank">TaoWen</a>
-<a href="http://yinwang.org" target="_blank">YinWang</a>
+<br/>
+资讯3级
 <a href="http://www.oreilly.com.cn" target="_blank">O&rsquo; Reilly</a>
+<a href="https://www.thoughtworks.com/cn/radar" target="_blank">技术雷达</a>
+<a href="http://insights.thoughtworkers.org/tech-radar/" target="_blank">技术雷达(分类)</a>
 <br/>
 工具:
-<a href="https://www.atlassian.com/" target="_blank">Atlassian</a></p>
+<a href="https://www.atlassian.com/" target="_blank">Atlassian</a>
+<a href="https://www.jetbrains.com" target="_blank">JetBrains</a></p>
 
-<h1 id="布局">布局</h1>
+<h2 id="数据流向">数据流向</h2>
 
-<pre><code>全
-    console
-    chromium
-    nautilus
-常切回默认
-    左1, 中2, 右1
-左
-    1: vscode、blog、wiki
-    2: 扩展ide
-    3: dia
-    4: work display
-    5: virtual box
-    6: postman
-
-    9: chrome、console
-中
-    1: goland
-    2: intellij idea
-    3: webstorm
-
-    9: chrome、console
-右
-    1: console
-    2: 扩展ide
-
-    9: chrome、console
+<pre><code>输入
+    搜索
+        pages, DEVONagent, 知网
+    发散
+        百度指数
+        DEVONSphere
+    资讯                   
+        博客
+        知乎
+    资料
+        慕课, 网易公开课, 微信/qq                
+        坚果云, 百度网盘, oneDrive
+    会议
+        notability[iCloud]
+    GTD
+        trello
+        drafts[drafts]
+    动画
+        录屏
+            quickTime
+转换
+    分类            # 学术 阅读 实践
+        DEVONthink
+    格式
+        wps(word,ppt -&gt; pdf)     
+        pdfElement(pdf -&gt; word,ppt) 
+    视频
+输出
+    字
+        缩进
+            workflowy[workflowy], 幕布[幕布]
+    图
+        表
+            excel
+        脑图
+            marginNote[iCloud]
+            liquidText[iCloud]
+            xmind[oneDrive]
+            mindNode, ithought
+            scapple
+        结构图
+            visio, ppt, 
+    库
+        oneNote[oneDrive]
+        blog[github]
+        goodnotes
 </code></pre>
 
-<h1 id="go">go</h1>
+<h1 id="phone">phone</h1>
 
-<pre><code>go test -bench=.  --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType
-go tool pprof service.test cpu.prof
-go-torch -b cpu.prof
-go test -cover -args -config config.toml -test.run &quot;TestCreate&quot;
+<pre><code>本质
+    移动
 </code></pre>
 
-<h1 id="linux">linux</h1>
+<h2 id="功能">功能</h2>
+
+<pre><code>v2rayNG
+备忘录
+夸克
+百度地图
+支付宝
+</code></pre>
+
+<h2 id="计划">计划</h2>
+
+<pre><code>tudo
+日历
+时钟
+</code></pre>
+
+<h2 id="其它">其它</h2>
+
+<pre><code>知乎
+网易云音乐
+荔枝
+</code></pre>
+
+<h1 id="ipad">ipad</h1>
+
+<pre><code>本质
+    接现实
+边界                            # 非边界内不要
+    办公
+    个人学习
+对比纸
+    纸：多量，大面积
+    pad: 结构化，深入
+操作
+    下边向上(短)：桌面
+    下边向上(停): dock
+        dock拖app: 小窗、分屏
+            小窗向边(短): 隐藏
+            小窗向边(停): 分屏
+            小窗向上：分离
+    下角向内(短): 切app
+    下角向内(停): app表
+    右上角向下: 控制中心
+    左上角向下：通知
+    桌面向下: 搜索
+    3指左右: app内切换
+    4指左右：切app
+    4指向内(短): 桌面
+    4指向内(停): app表 
+
+    home一下：桌面
+    home两下：app表
+</code></pre>
+
+<h2 id="功能-1">功能</h2>
+
+<pre><code>系统
+    讯飞输入法
+    kitsunebi
+    快捷指令
+现实
+    测距仪
+文档
+    wps
+    documents
+计算
+    calculator
+    geogebra
+资源图片
+    unsplash
+</code></pre>
+
+<h2 id="任务">任务</h2>
+
+<pre><code>trello
+</code></pre>
+
+<h2 id="文件">文件</h2>
+
+<pre><code>icloud                      # 应用数据
+oneDrive                    # oneNote
+百度云                      # 资料
+</code></pre>
+
+<h2 id="结构化">结构化</h2>
+
+<pre><code>xmind
+marginNote3
+liquidText
+石墨
+</code></pre>
+
+<h2 id="笔记">笔记</h2>
+
+<pre><code>oneNote
+</code></pre>
+
+<h1 id="mac">mac</h1>
+
+<pre><code>本质
+    资料
+操作
+    四指
+        向内：启动台
+        向外：桌面
+    三指
+        左右：切桌面
+        向上：app列表
+        向下：expose(单程序多窗口)
+    二指
+        上下：滚动
+        左右：前进后退
+        右边：通知中心
+        缩放,旋转
+        点一下：菜单
+        点二下：小缩放
+    一指
+        点一下：选中
+        点二下：打开
+        点一段：拖
+        点二段：查询
+</code></pre>
+
+<h2 id="办公">办公</h2>
+
+<pre><code>微信
+qq
+office
+旺旺
+</code></pre>
+
+<h1 id="pc">pc</h1>
+
+<pre><code>本质
+    编程
+</code></pre>
+
+<h2 id="系统">系统</h2>
+
+<h3 id="命令">命令</h3>
 
 <pre><code>dmesg
 journalctl
@@ -249,7 +424,7 @@ journalctl
     ctrl alt f1/f2/...
 </code></pre>
 
-<h1 id="端口">端口</h1>
+<h3 id="端口">端口</h3>
 
 <pre><code>8123 polipo
 1080 shadowsocks
@@ -268,12 +443,14 @@ journalctl
 27017 mongo
 8003 mongo-express
 6379 redis
+7474,7687 neo4j
 4369, 5671, 5672, 15671, 15672 rabbitmq
 9411 zipkin
 9200 es
 9100 es-head
 5601 kibana
 10001 haproxy
+5433,8090,8091 confluence
 
 8004 dokuwiki
 8005 wordpress
@@ -294,12 +471,14 @@ journalctl
 9017 auth-client
 </code></pre>
 
-<h1 id="系统配置">系统配置</h1>
+<h3 id="安装的工具">安装的工具</h3>
 
 <pre><code>bin
     # 系统需要
     synaptics
     yaourt
+        wps-office
+        ttf-wps-fonts
     network-manager
     awesome
     i3-wm
@@ -333,12 +512,12 @@ journalctl
     sysstat     # sar, sadf, mpstat, iostat, pidstat
     shadowsocks
     polipo
+    ansible
 
     # 程序需要
     g++
     python2.7
         python3.5
-        ansible
     php
         php-cgi
         php-fpm
@@ -362,6 +541,7 @@ journalctl
         es
         kafka
         cassandra
+        neo4j
 
         dokuwiki
         tiddlywiki
@@ -370,6 +550,10 @@ journalctl
 
     # 设计需要
     dia
+
+    # 工作需要
+    snapcast
+    mosquitto
 opt
     # ide
     webstorm
@@ -417,174 +601,83 @@ opt
     protoc
 diy
     blog
-文件
-    ~/
-        code
-        scripts/
-           work
-           app
-           config
-           login
-        .xinitrc
-        .bashrc
-        .bash_profile
-        .gitconfig
-        .openvpn
-        .ssh
-        .tmux.conf
-        .config/
-            awesome
-            VirtualBox/VirtualBox.xml
-        .m2/
-            settings.xml
-    /opt/
-        env
-        svc
-    /etc/
-        resolv.conf
-        vsftpd.conf
-        X11/
-            xorg.conf.d/
-                70-synaptics.conf
-    /var/ftp
-
-    # log
-    ~/VBoxSVC.log
-    ~/.config/VirtualBox/selectorwindow.log
 </code></pre>
 
-<h1 id="vim">vim</h1>
+<h3 id="配置">配置</h3>
 
-<pre><code>命令
-    vim
-        --version   # 查看插件
-可视模式
-    o   # 切换头尾
-    gv  # 重选上次
-    &lt;C - v&gt; 
-    U/u # 转换大写/小写
-替换模式
-    R
-思想
-    {operator}{motion}
-    {operator}{text-objects}
-operator
-    ;
-    ,
-    3G
-    */#
-    %   # 括号
-    ``  # 跳回
-    ''  # 跳回非空白
-    :marks
-    ma/`a   # 标记跳转
-    &amp;   # 重复substitute
-    cc/C    # 替换一行
-    J   # 删除向下的空行 
-    g~  # 转换大小写
-        # g~~ 转换一行
-motion
-    ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标
-    f/F/t/T
-    .
-    K   # man查询
-    ga  # unicode码
-    nzz/nz-
-q:  # 命令历史
-命令模式
-    :3   # 跳转
-    :'&lt;,'&gt;   # 选中内容
-    :/&lt;html&gt;/,/&lt;\html&gt;/  # 模式匹配范围
-    :h e    # e的帮助
-    :%s///g  # substitute
-    :! command     # 执行shell命令
-                  # !! 执行前一命令
-                  # r!command 结果插入当前
-        # sh 打开sh
-        # pwd
-        # grep t *  当前文件匹配t
-        # ls
-    :normal  A;  # 普通模式下执行A,后写入分号
-shortcut key
-    &lt;C - d&gt;/u   # 滚半屏
-    &lt;C - f&gt;/b   # 滚一屏
-    &lt;C - i&gt;/o   # 下个/上个跳动位置
-    &lt;C X&gt;   # 当前单词大小写转换
-text-object
-    i&quot;  # 中间内容
-        # ' ` ( ) [ ] &lt; &gt; { }
-        # B 表示{}, t 表示 tag之间内容, w 表示word, s 表示句子, p 表示段落
-    a&quot;  # 包括外围
-registers
-    :reg    # 查看所有
-    :y a    # 复制到a寄存器
-    分类
-        &quot;&quot;  # 最后一次操作
-        &quot;0  # 最近一次复制, 排到9
-        &quot;-  # 行内删除
-        &quot;a  # a - z, A - Z
-        &quot;=  # 只读，用于执行表达式命令
-        &quot;*  # clipboard，针对选中部分(selection)
-        &quot;+  # clipboard, windows下与*同，linux X11下针对复制或剪切部分(cut buffer)
-        &quot;_  # black hole
-        &quot;/  # 最近的搜索模式
-宏
-    qaq
-    @a
-折叠
-    # ide支持不好
-对比
-    vim -d file1 file2
-        [c  # 上一个不同
-        ]c  # 下一个不同
-        dp  # 合并增加另一个
-        do  # 合并增加当前
-文件
-    # ide支持不好
-    &lt;C - w&gt; hljk
-    &lt;C - w&gt; w
-    &lt;C - w&gt; s
-    &lt;C - w&gt; v
+<pre><code>~/
+    code
+    scripts/
+        work
+        app
+        config
+        login
+    bak
+    .xinitrc
+    .bashrc
+    .bash_profile
+    .gitconfig
+    .openvpn
+    .ssh
+    .tmux.conf
+    .config/
+        awesome
+        VirtualBox/VirtualBox.xml
+    .m2/
+        settings.xml
+    .local/
+        share/
+            fonts
+/opt/
+    env
+    svc
+/etc/
+    resolv.conf
+    vsftpd.conf
+    X11/
+        xorg.conf.d/
+            70-synaptics.conf
+/var/ftp
+
+# log
+~/logs
+~/VBoxSVC.log
+~/.config/VirtualBox/selectorwindow.log
 </code></pre>
 
-<h1 id="intellij">intellij</h1>
+<h2 id="桌面">桌面</h2>
 
-<pre><code>shift shift     # 打开文件
-alt enter       # 补全, 快速修复
+<h3 id="布局">布局</h3>
+
+<pre><code>全
+    console
+    chromium
+    nautilus
+常切回默认
+    左1, 中2, 右1
+左
+    1: vscode、blog、wiki
+    2: 扩展ide
+    3: dia
+    4: work display
+    5: virtual box
+    6: postman
+
+    9: chrome、console
+中
+    1: goland
+    2: intellij idea
+    3: webstorm
+
+    9: chrome、console
+右
+    1: console
+    2: 扩展ide
+
+    9: chrome、console
 </code></pre>
 
-<h1 id="docker">docker</h1>
-
-<pre><code>/etc/docker/daemon.json
-    {
-      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;]
-    }
-/etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
-    Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
-        &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
-        &quot;NO_PROXY=192.168.1.1,localhost&quot;
-</code></pre>
-
-<h1 id="maven">maven</h1>
-
-<pre><code>~/.m2/settings.xml
-    &lt;proxies&gt;
-        &lt;proxy&gt;
-          &lt;id&gt;my-proxy&lt;/id&gt;
-          &lt;active&gt;true&lt;/active&gt;
-          &lt;protocol&gt;http&lt;/protocol&gt;
-          &lt;host&gt;localhost&lt;/host&gt;
-          &lt;port&gt;8123&lt;/port&gt;
-          &lt;!--
-          &lt;username&gt;admin&lt;/username&gt;
-          &lt;password&gt;admin&lt;/password&gt;
-          &lt;nonProxyHosts&gt;repository.mycom.com|*.google.com&lt;/nonProxyHosts&gt;
-          --&gt;
-        &lt;/proxy&gt;
-    &lt;/proxies&gt;
-</code></pre>
-
-<h1 id="awesome">awesome</h1>
+<h3 id="awesome">awesome</h3>
 
 <pre><code>快捷键
     独立
@@ -691,7 +784,166 @@ alt enter       # 补全, 快速修复
     run nm-applet
 </code></pre>
 
-<h1 id="synaptics">synaptics</h1>
+<h3 id="tmux">tmux</h3>
+
+<h2 id="编程">编程</h2>
+
+<h3 id="vim">vim</h3>
+
+<pre><code>命令
+    vim
+        --version   # 查看插件
+可视模式
+    o   # 切换头尾
+    gv  # 重选上次
+    &lt;C - v&gt; 
+    U/u # 转换大写/小写
+替换模式
+    R
+思想
+    {operator}{motion}
+    {operator}{text-objects}
+operator
+    ;
+    ,
+    3G
+    */#
+    %   # 括号
+    ``  # 跳回
+    ''  # 跳回非空白
+    :marks
+    ma/`a   # 标记跳转
+    &amp;   # 重复substitute
+    cc/C    # 替换一行
+    J   # 删除向下的空行 
+    g~  # 转换大小写
+        # g~~ 转换一行
+motion
+    ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标
+    f/F/t/T
+    .
+    K   # man查询
+    ga  # unicode码
+    nzz/nz-
+q:  # 命令历史
+命令模式
+    :3   # 跳转
+    :'&lt;,'&gt;   # 选中内容
+    :/&lt;html&gt;/,/&lt;\html&gt;/  # 模式匹配范围
+    :h e    # e的帮助
+    :%s///g  # substitute
+    :! command     # 执行shell命令
+                  # !! 执行前一命令
+                  # r!command 结果插入当前
+        # sh 打开sh
+        # pwd
+        # grep t *  当前文件匹配t
+        # ls
+    :normal  A;  # 普通模式下执行A,后写入分号
+shortcut key
+    &lt;C - d&gt;/u   # 滚半屏
+    &lt;C - f&gt;/b   # 滚一屏
+    &lt;C - i&gt;/o   # 下个/上个跳动位置
+    &lt;C X&gt;   # 当前单词大小写转换
+text-object
+    i&quot;  # 中间内容
+        # ' ` ( ) [ ] &lt; &gt; { }
+        # B 表示{}, t 表示 tag之间内容, w 表示word, s 表示句子, p 表示段落
+    a&quot;  # 包括外围
+registers
+    :reg    # 查看所有
+    :y a    # 复制到a寄存器
+    分类
+        &quot;&quot;  # 最后一次操作
+        &quot;0  # 最近一次复制, 排到9
+        &quot;-  # 行内删除
+        &quot;a  # a - z, A - Z
+        &quot;=  # 只读，用于执行表达式命令
+        &quot;*  # clipboard，针对选中部分(selection)
+        &quot;+  # clipboard, windows下与*同，linux X11下针对复制或剪切部分(cut buffer)
+        &quot;_  # black hole
+        &quot;/  # 最近的搜索模式
+宏
+    qaq
+    @a
+折叠
+    # ide支持不好
+对比
+    vim -d file1 file2
+        [c  # 上一个不同
+        ]c  # 下一个不同
+        dp  # 合并增加另一个
+        do  # 合并增加当前
+文件
+    # ide支持不好
+    &lt;C - w&gt; hljk
+    &lt;C - w&gt; w
+    &lt;C - w&gt; s
+    &lt;C - w&gt; v
+</code></pre>
+
+<h3 id="intellij">intellij</h3>
+
+<pre><code>shift shift     # 打开文件
+alt enter       # 补全, 快速修复
+</code></pre>
+
+<h3 id="go工具">go工具</h3>
+
+<pre><code>go test -bench=.  --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType
+go tool pprof service.test cpu.prof
+go-torch -b cpu.prof
+go test -cover -args -config config.toml -test.run &quot;TestCreate&quot;
+</code></pre>
+
+<h2 id="工具">工具</h2>
+
+<h3 id="docker">docker</h3>
+
+<pre><code>/etc/docker/daemon.json
+    {
+      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;, &quot;https://3laho3y3.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;, &quot;https://registry.docker-cn.com&quot;, &quot;http://f1361db2.m.daocloud.io&quot;, &quot;https://mirror.ccs.tencentyun.com&quot;]
+    }
+/etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
+    Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
+        &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
+        &quot;NO_PROXY=192.168.1.1,localhost&quot;
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+
+<h3 id="http-proxy">http proxy</h3>
+
+<pre><code>export https_proxy=http://127.0.0.1:8123
+export http_proxy=http://127.0.0.1:8123
+</code></pre>
+
+<h3 id="git">git</h3>
+
+<pre><code>git config --global http.proxy 'http://127.0.0.1:8123'
+git config --global https.proxy 'http://127.0.0.1:8123'
+</code></pre>
+
+<h3 id="maven">maven</h3>
+
+<pre><code>~/.m2/settings.xml
+    &lt;proxies&gt;
+        &lt;proxy&gt;
+          &lt;id&gt;my-proxy&lt;/id&gt;
+          &lt;active&gt;true&lt;/active&gt;
+          &lt;protocol&gt;http&lt;/protocol&gt;
+          &lt;host&gt;localhost&lt;/host&gt;
+          &lt;port&gt;8123&lt;/port&gt;
+          &lt;!--
+          &lt;username&gt;admin&lt;/username&gt;
+          &lt;password&gt;admin&lt;/password&gt;
+          &lt;nonProxyHosts&gt;repository.mycom.com|*.google.com&lt;/nonProxyHosts&gt;
+          --&gt;
+        &lt;/proxy&gt;
+    &lt;/proxies&gt;
+</code></pre>
+
+<h3 id="synaptics">synaptics</h3>
 
 <pre><code>/etc/X11/xorg.conf.d/70-synaptics.conf
     Section &quot;InputClass&quot;
@@ -716,8 +968,6 @@ alt enter       # 补全, 快速修复
             Option &quot;HorizScrollDelta&quot; &quot;-50&quot;
     EndSection
 </code></pre>
-
-<h1 id="tmux">tmux</h1>
 </article>
 
       
@@ -725,8 +975,8 @@ alt enter       # 补全, 快速修复
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -749,19 +999,58 @@ alt enter       # 补全, 快速修复
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#连接">连接</a></li>
-<li><a href="#布局">布局</a></li>
-<li><a href="#go">go</a></li>
-<li><a href="#linux">linux</a></li>
+<li><a href="#快速访问">快速访问</a>
+<ul>
+<li><a href="#数据流向">数据流向</a></li>
+</ul></li>
+<li><a href="#phone">phone</a>
+<ul>
+<li><a href="#功能">功能</a></li>
+<li><a href="#计划">计划</a></li>
+<li><a href="#其它">其它</a></li>
+</ul></li>
+<li><a href="#ipad">ipad</a>
+<ul>
+<li><a href="#功能-1">功能</a></li>
+<li><a href="#任务">任务</a></li>
+<li><a href="#文件">文件</a></li>
+<li><a href="#结构化">结构化</a></li>
+<li><a href="#笔记">笔记</a></li>
+</ul></li>
+<li><a href="#mac">mac</a>
+<ul>
+<li><a href="#办公">办公</a></li>
+</ul></li>
+<li><a href="#pc">pc</a>
+<ul>
+<li><a href="#系统">系统</a>
+<ul>
+<li><a href="#命令">命令</a></li>
 <li><a href="#端口">端口</a></li>
-<li><a href="#系统配置">系统配置</a></li>
+<li><a href="#安装的工具">安装的工具</a></li>
+<li><a href="#配置">配置</a></li>
+</ul></li>
+<li><a href="#桌面">桌面</a>
+<ul>
+<li><a href="#布局">布局</a></li>
+<li><a href="#awesome">awesome</a></li>
+<li><a href="#tmux">tmux</a></li>
+</ul></li>
+<li><a href="#编程">编程</a>
+<ul>
 <li><a href="#vim">vim</a></li>
 <li><a href="#intellij">intellij</a></li>
+<li><a href="#go工具">go工具</a></li>
+</ul></li>
+<li><a href="#工具">工具</a>
+<ul>
 <li><a href="#docker">docker</a></li>
+<li><a href="#http-proxy">http proxy</a></li>
+<li><a href="#git">git</a></li>
 <li><a href="#maven">maven</a></li>
-<li><a href="#awesome">awesome</a></li>
 <li><a href="#synaptics">synaptics</a></li>
-<li><a href="#tmux">tmux</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

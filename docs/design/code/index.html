@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>设计-代码 | outrun的笔记</title>
+<title>代码 | outrun的笔记</title>
 
 
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -69,9 +69,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -177,11 +180,34 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>设计-代码</strong>
+  <strong>代码</strong>
 </header>
 
       
 <article class="markdown">
+
+<h1 id="认知">认知</h1>
+
+<pre><code>原理
+    模拟执行
+负担
+    概念量
+        封装粒度大
+        多态、运行时多态、静态多态
+        临时状态
+        用工作流, 而非队列
+        日志(event)搜索/集中/回放
+        抽出权限层
+        非轻量级
+            胶水层厚
+            无稳定方案, 复用困难
+    流程长度
+最好
+    单线程                  # 不插入行为
+    上下文集中
+        this.scene.commit()集中状态转移时间线
+    单一方式
+</code></pre>
 
 <h1 id="原则">原则</h1>
 
@@ -404,7 +430,7 @@ thunk
     bug
     重构
         # 只改结构
-     确定修改点
+    确定修改点
         找出测试点
         解依赖
             伪/仿对象
@@ -444,8 +470,8 @@ thunk
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -468,6 +494,7 @@ thunk
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
+<li><a href="#认知">认知</a></li>
 <li><a href="#原则">原则</a></li>
 <li><a href="#设计">设计</a>
 <ul>

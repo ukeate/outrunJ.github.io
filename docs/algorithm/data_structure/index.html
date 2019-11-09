@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -69,9 +69,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -182,6 +185,126 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown">
+
+<h1 id="线性">线性</h1>
+
+<pre><code>列表(list)
+    数组(array)
+        # 相同数据类型元素的序列，下标(index)访问
+        low high
+        字符串
+            二进制串(binary string)
+                # 位串(bit string)
+    链表(linked list)
+        节点(node)
+            指针(pointer)
+        表头(header)
+        单链表(singly linked list)
+        双链表(doubly linked list)
+    栈(stack)
+        # 插入和删除只能在端部进行的列表，应用于递归
+        栈顶(top)
+        LIFO last-in-first-out
+    队列(queue)
+        队头(front)
+        队尾(rear)
+        入队(enqueue)
+        FIFO first-in-first-out
+        优先队列(priority queue)
+            # 数据项多来自于全序域(常整数或实数)
+            查找最大元素，删除最大元素，插入新元素
+            堆(heap)实现
+</code></pre>
+
+<h2 id="散列表">散列表</h2>
+
+<pre><code>介绍
+    有序输入时，树效率低，如果不要求查找有序结果，可以用散列
+概念
+    hash table
+    hashing(散列)
+    item(项)
+    key(关键字)
+        # 项中某部分
+    hash function(散列函数)
+        # 映射函数
+    collsion(冲突)
+        # 多个关键字散列到同项的状况
+    load factor(装填因子)
+        # λ 元素个数对表长度的比，
+        # 如果散列是均匀的，表示了一个项中关键字的平均长度
+        # 一次成功查找要遍历约1 + (λ / 2)个链，1表示被匹配的项
+    rehashing(再散列)
+        一半时进行
+        直到插入失败再进行
+        middle-of-the-road
+            # 到达某load factor时进行
+    caching the hash code(闪存散列代码)
+算法
+    separate chaining(分离链接法)
+        # 解决冲突
+    probing hash table(探测散列表)
+        线性探测法
+            primary clustering(聚集)
+                # 线性探测法中形成数据区块
+        平方探测法
+            secondary clustering(二次聚集)
+                # 模拟结果指出，对每次查找，会引起另外的少于一半的探测
+        double hashing(双散列)
+            # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同
+    extendible hashing(可扩散列)
+        D directory(目录)
+            # 一个分区中bit的个数，所以M最多2^D
+        性质
+            # 基于位模式(bit patterm)是均匀分布的事实, 是&quot;分支系数(branch factor)&quot;, N 是记录总数(随时间变化)
+            树叶期望个数为(N/M)log(2)(e)
+                所以平均树叶满的程度为ln2 = 0.69, 同B树
+            目录期望大小为O(N^(1 + 1 / M) / M)
+        叶子可以指向实际记录的链表(内存装不下太大目录时)，这样得到实际数据就需要第二次磁盘访问
+</code></pre>
+
+<h2 id="队列">队列</h2>
+
+<pre><code>介绍
+    queue 先进先出
+概念
+    enqueue(入队)
+    dequeue(出队)
+    priority queue(优先队列)
+        insert
+        deleteMin
+    binomial queue(二项队列)
+        merge, insert, deleteMin 最坏时间为O(logN), 插入花费常数时间
+        堆序树(二项树)的森林实现
+        B0 = 2^0, B1 = 2^1, B2 = 2^2 ...
+        Bn = B0 + B1 + ... B(n-1)
+</code></pre>
+
+<h1 id="集合">集合</h1>
+
+<pre><code>概念
+    set(集合)，互不相同项的无序组合(可空)
+    element(元素)
+    dictionary(字典)，能够查找，增加，删除元素的集合
+        # 实现时要达到效率的平衡
+    set union problem(集合合并问题)
+        # 动态地把n个元素集合划分为一系列不相交的子集
+    ADT abstract data type(抽象数据类型)
+        # 由表示数据项的抽象对象集合和一系列对它的操作构成
+实现
+    universal set(通用集合)
+        通用集合的子集，用长度为n(通用集合的长度)的位向量(bit vector)表示
+            # 占用大量存储空间
+    线性列表
+        # 去除包含的重复元素
+        # 列表是有序的，但这差别并不重要
+        多重集(multiset)、包(bag)
+            # 可重复项的无序组合
+
+表示
+    S = {2, 3, 5, 7}
+    S = {n: n 为小于0的质数}
+</code></pre>
 
 <h1 id="树">树</h1>
 
@@ -339,126 +462,6 @@ https://github.com/alex-shpak/hugo-book
     merge(合并)
 </code></pre>
 
-<h1 id="线性">线性</h1>
-
-<pre><code>列表(list)
-    数组(array)
-        # 相同数据类型元素的序列，下标(index)访问
-        low high
-        字符串
-            二进制串(binary string)
-                # 位串(bit string)
-    链表(linked list)
-        节点(node)
-            指针(pointer)
-        表头(header)
-        单链表(singly linked list)
-        双链表(doubly linked list)
-    栈(stack)
-        # 插入和删除只能在端部进行的列表，应用于递归
-        栈顶(top)
-        LIFO last-in-first-out
-    队列(queue)
-        队头(front)
-        队尾(rear)
-        入队(enqueue)
-        FIFO first-in-first-out
-        优先队列(priority queue)
-            # 数据项多来自于全序域(常整数或实数)
-            查找最大元素，删除最大元素，插入新元素
-            堆(heap)实现
-</code></pre>
-
-<h2 id="散列表">散列表</h2>
-
-<pre><code>介绍
-    有序输入时，树效率低，如果不要求查找有序结果，可以用散列
-概念
-    hash table
-    hashing(散列)
-    item(项)
-    key(关键字)
-        # 项中某部分
-    hash function(散列函数)
-        # 映射函数
-    collsion(冲突)
-        # 多个关键字散列到同项的状况
-    load factor(装填因子)
-        # λ 元素个数对表长度的比，
-        # 如果散列是均匀的，表示了一个项中关键字的平均长度
-        # 一次成功查找要遍历约1 + (λ / 2)个链，1表示被匹配的项
-    rehashing(再散列)
-        一半时进行
-        直到插入失败再进行
-        middle-of-the-road
-            # 到达某load factor时进行
-    caching the hash code(闪存散列代码)
-算法
-    separate chaining(分离链接法)
-        # 解决冲突
-    probing hash table(探测散列表)
-        线性探测法
-            primary clustering(聚集)
-                # 线性探测法中形成数据区块
-        平方探测法
-            secondary clustering(二次聚集)
-                # 模拟结果指出，对每次查找，会引起另外的少于一半的探测
-        double hashing(双散列)
-            # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同
-    extendible hashing(可扩散列)
-        D directory(目录)
-            # 一个分区中bit的个数，所以M最多2^D
-        性质
-            # 基于位模式(bit patterm)是均匀分布的事实, 是&quot;分支系数(branch factor)&quot;, N 是记录总数(随时间变化)
-            树叶期望个数为(N/M)log(2)(e)
-                所以平均树叶满的程度为ln2 = 0.69, 同B树
-            目录期望大小为O(N^(1 + 1 / M) / M)
-        叶子可以指向实际记录的链表(内存装不下太大目录时)，这样得到实际数据就需要第二次磁盘访问
-</code></pre>
-
-<h2 id="队列">队列</h2>
-
-<pre><code>介绍
-    queue 先进先出
-概念
-    enqueue(入队)
-    dequeue(出队)
-    priority queue(优先队列)
-        insert
-        deleteMin
-    binomial queue(二项队列)
-        merge, insert, deleteMin 最坏时间为O(logN), 插入花费常数时间
-        堆序树(二项树)的森林实现
-        B0 = 2^0, B1 = 2^1, B2 = 2^2 ...
-        Bn = B0 + B1 + ... B(n-1)
-</code></pre>
-
-<h1 id="集合">集合</h1>
-
-<pre><code>概念
-    set(集合)，互不相同项的无序组合(可空)
-    element(元素)
-    dictionary(字典)，能够查找，增加，删除元素的集合
-        # 实现时要达到效率的平衡
-    set union problem(集合合并问题)
-        # 动态地把n个元素集合划分为一系列不相交的子集
-    ADT abstract data type(抽象数据类型)
-        # 由表示数据项的抽象对象集合和一系列对它的操作构成
-实现
-    universal set(通用集合)
-        通用集合的子集，用长度为n(通用集合的长度)的位向量(bit vector)表示
-            # 占用大量存储空间
-    线性列表
-        # 去除包含的重复元素
-        # 列表是有序的，但这差别并不重要
-        多重集(multiset)、包(bag)
-            # 可重复项的无序组合
-
-表示
-    S = {2, 3, 5, 7}
-    S = {n: n 为小于0的质数}
-</code></pre>
-
 <h1 id="图">图</h1>
 
 <pre><code>概念
@@ -564,8 +567,8 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified Jul 25, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 25, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -588,17 +591,17 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#树">树</a>
-<ul>
-<li><a href="#二叉树">二叉树</a></li>
-<li><a href="#堆">堆</a></li>
-</ul></li>
 <li><a href="#线性">线性</a>
 <ul>
 <li><a href="#散列表">散列表</a></li>
 <li><a href="#队列">队列</a></li>
 </ul></li>
 <li><a href="#集合">集合</a></li>
+<li><a href="#树">树</a>
+<ul>
+<li><a href="#二叉树">二叉树</a></li>
+<li><a href="#堆">堆</a></li>
+</ul></li>
 <li><a href="#图">图</a></li>
 </ul>
 </nav>

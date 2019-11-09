@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -69,9 +69,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -269,7 +272,8 @@ https://github.com/alex-shpak/hugo-book
 
     get                     # 下载依赖, 默认目录是GOPATH下的pkg。下载后自动install
         go get gopl.io/...  # ...通配
-        -u                  # update最新版本
+        go get gopl.io@2    # 指定mod版本号
+        -u                  # 更新到mod最新版本
         -v                  # 查看进度
     list                    # 列出指定代码包的信息
         go list ...         # ...通配
@@ -313,21 +317,31 @@ https://github.com/alex-shpak/hugo-book
         cgo                 # 生成能够调用c语言代码的go源码文件
         compile
             -help           # 可传给编译器的参数
+    mod
+        init packageName1   # 生成go.mod
+        download            # 下载mod
+        tidy                # 下载缺少，删除多余
+        edit                # 编辑go.mod
+        graph               # 打印依赖图
+        vendor              # 复制依赖到vendor
+        verify              # 验证mod
+        why                 # 打印依赖原因
+
 godoc                       # 提供html页面
     -http=:6060             # 运行本地帮助网站
     -analysis=type          # 提供静态分析结果
         -analysis=pointer
 gofmt
-golint                      # 检查风格
+golint                          # 检查风格
 </code></pre>
 
 <h1 id="语法">语法</h1>
 
-<pre><code>包                      # 路径引用，命名空间
+<pre><code>包                              # 路径引用，命名空间
     不能循环依赖
-    main包              # 入口包, 产生可执行文件，也可当库导入
-        main()          # 入口函数
-    包名最好匹配目录名     # 导入路径的最后一段
+    main包                      # 入口包, 产生可执行文件，也可当库导入
+        main()                  # 入口函数
+    包名最好匹配目录名          # 导入路径的最后一段
     import
         逐行import或import(多行)
         import 别名 包路径
@@ -337,18 +351,31 @@ golint                      # 检查风格
     var和const
         逐行或var(多行), const(多行)
     包文件函数
-        init            # 文件在编译前排序，按依赖顺序和文件名，也是init的调用顺序。init不能调用和引用
+        init                    # 文件在编译前排序，按依赖顺序和文件名，也是init的调用顺序。init不能调用和引用
     包依赖排序依次初始化
     工作空间
         src
-        bin             # 编译后的执行文件
-        pkg             # 编译后的包, 重复使用加快编译
+        bin                     # 编译后的执行文件
+        pkg                     # 编译后的包, 重复使用加快编译
     vendor目录放本地依赖
     文档注释影响编译
         // +build linux darwin                  # linux和darwin才编译
         // +build ignore                        # 任何时候都不编译
-    内部包               # 路径有internal的包, 只能被父目录导入
+    内部包                      # 路径有internal的包, 只能被父目录导入
         net/http/internal/chunked
+    mod
+        环境变量
+            GO111MODULE
+                off             # 总关闭
+                on              # 总开启
+                auto            # 默认，有go.mod开启
+        路径
+            $GOPATH/pkg         # 保存多版本依赖, 被多项目引用
+            go.mod              # 被go命令维护, 融入了go命令的各个模块
+            go.sum              # 记录lock
+        依赖加载顺序
+            最新release tag
+            最新commit
 注释
     //或/**/
     package前写文档注释，可出现在任何文件中，但一个包约定一个
@@ -1803,8 +1830,8 @@ go-torch -b cpu.prof
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   

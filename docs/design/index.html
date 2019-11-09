@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -70,9 +70,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -184,48 +187,57 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="基础">基础</h1>
+<h1 id="约定">约定</h1>
 
-<h2 id="巴科斯范式的内容">巴科斯范式的内容</h2>
+<h2 id="巴科斯范式">巴科斯范式</h2>
 
-<pre><code>在双引号中的字(&quot;word&quot;)代表着这些字符本身。而double_quote用来代表双引号。
-在双引号外的字（有可能有下划线）代表着语法部分。
-尖括号( &lt; &gt; )内包含的为必选项。
-方括号( [ ] )内包含的为可选项。
-大括号( { } )内包含的为可重复0至无数次的项。
-竖线( | )表示在其左右两边任选一项，相当于&quot;OR&quot;的意思。
-::= 是“被定义为”的意思。
+<pre><code>&quot;word&quot;  表示字符本身
+double_quote    表示&quot;本身
+&quot;&quot;      外表示语法字符
+&lt;&gt;      表示必选项
+[]      表示可选项
+{}      表示可重复0到多次
+|       表示or
+::=     表示“被定义为”
 </code></pre>
 
-<h2 id="媒体">媒体</h2>
+<h1 id="工具">工具</h1>
 
-<pre><code>场景控制
-    3CAD
-        character
-        camera
-        control
-        art direction
-特效
-    会场散射光束（博物馆）
-    雾中焦点的竖光（saber的剑）
-    画线的光点（最终幻想）
-    密集的星星，远近缩放，光圈(tree.js官网）
-    水滴带动整个屏幕的亮度(fate stay night)
-    蓝色光影交错（fate stay night）
-    秒针声强调时间(fate stay night)
-    单帧卡动画渲染气氛(fsn)
-    黑白画面到彩色画面(madlife 集锦[dream on])
-    黑白画面彩色涟漪(冰果)
-    地面的雾影(fsn)
-    音乐重节拍时出现隐形单位/人(fsn)
-    转动的星空光点线加云(fsn结尾)
-    沙的立体塑型(秦时明月)
-    红辣椒的分镜
-网站效果
-    图片向下拉，上面模糊小，下面清晰大，有一种震撼感
+<h2 id="在线">在线</h2>
+
+<pre><code>http://tool.lu/coderunner/
+    # 在线repl
+http://lpaste.net/
+    # 粘代码
+https://pastee.org/
+    # 粘贴代码
+http://editor.method.ac/
+    # 在线ps
+https://www.processon.com/
+    # 在线思维导图, uml等
+https://www.gliffy.com/go/html5/launch
+    # 在线画图
+http://plantuml.com/
+    # plantuml在线画图
+    画图指南: https://deepu.js.org/svg-seq-diagram/Reference_Guide.pdf
+
+http://www.lmgtfy.com/?q=Linux#seen
+    # let me google this for you
+codility.com
+    # 招聘在线做题
+send.firefox.com
+    # 临时分享文件
+file.io
+    # 临时分享文件
+https://volafile.org
+    # 临时聊天室，文件分享
+http://ge.tt/
+    # 临时文件分享
+https://wetransfer.com/
+    # email文件
 </code></pre>
 
-<h1 id="知识库">知识库</h1>
+<h2 id="知识库">知识库</h2>
 
 <pre><code>confluence
     # 收费
@@ -249,12 +261,23 @@ notion
     # 任务管理
 minidoc
     # 原smartWiki(php), 改成golang开发的minidoc
+有道云笔记
+幕布
+石墨
 </code></pre>
 
-<h1 id="团队协作">团队协作</h1>
+<h2 id="网盘">网盘</h2>
+
+<pre><code>google drive
+百度云
+</code></pre>
+
+<h2 id="团队协作">团队协作</h2>
 
 <pre><code>jira
-    # 进度管理
+    # 进度管理跟踪, 敏捷开发
+microsoft Project
+    # 瀑布式开发
 rational
     # IBM, 进度管理
 teambition
@@ -267,6 +290,17 @@ zeplin
     # 设计和前端协同工具
 redmine
     # ror开发, 项目管理, 把成员、任务、文档、讨论等资源整合在一起。支持git, svn, cvs等
+youtrack
+    # jetbrains, 项目管理
+禅道
+    # 项目管理, 开源
+trac
+    # wiki, issue
+tapd
+    # 腾讯项目管理
+    优势
+        打通企业微信
+    功能
 
 trello
     # 进度管理
@@ -289,30 +323,6 @@ dropbox
 坚果云
     # 文档协作
 </code></pre>
-
-<h1 id="工具">工具</h1>
-
-<pre><code>http://tool.lu/coderunner/
-    # 在线repl
-http://lpaste.net/
-    # 粘代码
-https://pastee.org/
-    # 粘贴代码
-http://editor.method.ac/
-    # 在线ps
-https://www.processon.com/
-    # 在线思维导图, uml等
-https://www.gliffy.com/go/html5/launch
-    # 在线画图
-http://plantuml.com/
-    # plantuml在线画图
-    画图指南: https://deepu.js.org/svg-seq-diagram/Reference_Guide.pdf
-
-http://www.lmgtfy.com/?q=Linux#seen
-    # let me google this for you
-codility.com
-    # 招聘在线做题
-</code></pre>
 </article>
 
       
@@ -320,8 +330,8 @@ codility.com
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -344,14 +354,17 @@ codility.com
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#基础">基础</a>
+<li><a href="#约定">约定</a>
 <ul>
-<li><a href="#巴科斯范式的内容">巴科斯范式的内容</a></li>
-<li><a href="#媒体">媒体</a></li>
+<li><a href="#巴科斯范式">巴科斯范式</a></li>
 </ul></li>
+<li><a href="#工具">工具</a>
+<ul>
+<li><a href="#在线">在线</a></li>
 <li><a href="#知识库">知识库</a></li>
+<li><a href="#网盘">网盘</a></li>
 <li><a href="#团队协作">团队协作</a></li>
-<li><a href="#工具">工具</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

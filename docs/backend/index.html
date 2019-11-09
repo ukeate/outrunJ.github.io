@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -70,9 +70,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -1925,17 +1928,17 @@ cluster
     # node单机集群
 fiber
     # node协程
-akka
-    # scala并发、分布式、容错工具
 driud
     # 连接池，阿里开源
 </code></pre>
 
-<h2 id="前端">前端</h2>
+<h1 id="akka">akka</h1>
 
-<h3 id="dwr">dwr</h3>
-
-<pre><code>介绍
+<pre><code># scala并发、分布式、容错工具
+使用
+    system = ActorSystem.create(&quot;hello&quot;)
+    system.actorOf() ## 前端 ### dwr
+介绍
     java函数通过ajax映射到前端js调用
 使用
     ajax框架
@@ -3123,6 +3126,15 @@ wso2
             exception
             controller                  # 页面调用
             service
+            actors
+                service
+                    DefaultActorService
+                        actorContext
+                            actorService(this)
+                            actorSystem
+                            appActor
+                            statsActor
+                        rpcManagerActor
     common                              # 不可改, 功能代理
         data                            # 数据结构
         message                         # 消息类型
@@ -3133,7 +3145,7 @@ wso2
             sql                         # 表结构
     netty-mqtt                          # 不可改, 数据通信协议
     rule-engine                         # 不可改, 规则引擎
-    transport                           # 不可改, 应用层协议
+    transport                           # 不可改, 设备端运行
         http                            # 启动http传输协议
         coap
         mqtt
@@ -3334,8 +3346,8 @@ api
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -3401,11 +3413,8 @@ api
 <li><a href="#运维控制">运维控制</a></li>
 <li><a href="#协议">协议</a></li>
 <li><a href="#高可用-性能">高可用 | 性能</a></li>
-<li><a href="#前端">前端</a>
-<ul>
-<li><a href="#dwr">dwr</a></li>
 </ul></li>
-</ul></li>
+<li><a href="#akka">akka</a></li>
 <li><a href="#应用框架">应用框架</a>
 <ul>
 <li><a href="#数据">数据</a>

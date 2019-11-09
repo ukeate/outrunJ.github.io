@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -69,9 +69,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -258,7 +261,10 @@ https://github.com/alex-shpak/hugo-book
 
 
     login
-    build -t=&quot;nginx/test&quot; .         # 用当前目录Dockerfile创建新镜像
+    build .                         # 用当前目录Dockerfile创建新镜像
+        -t=&quot;nginx/test&quot;             # target
+        --no-cache                  # 不用cache
+        -f a.dockerfile             # 指定文件
     tag nginx/test:test1 outrun11/test:nginx1
         # 远程docker基站创建repository, 名字test
     push outrun11/test:nginx1
@@ -306,16 +312,17 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="dockerfile">Dockerfile</h1>
 
-<pre><code>FROM nginx                          # 基于镜像
-MAINTAINER outrun                   # 指定维护者信息
-EXPOSE 80                           # 内部服务开启的端口
-ENV NODE_ENV test                   # 环境变量
-WORKDIR /src
-COPY ./bin /data/a                  # 复制外部文件到内部
-VOLUME [&quot;/data/log&quot;]                # 创建挂载点
-ENTRYPOINT [&quot;/data/a/a&quot;]            # 容器启动命令，只有一个
-CMD [&quot;-config&quot;, &quot;config.toml&quot;]      # 启动命令，只有一个。可为entrypoint指定参数
-RUN echo 'test'                     # 在当前镜像基础上执行命令，提交为新的镜像
+<pre><code>指令
+    FROM nginx                          # 基于镜像
+    MAINTAINER outrun                   # 指定维护者信息
+    EXPOSE 80                           # 内部服务开启的端口
+    ENV NODE_ENV test                   # 环境变量
+    WORKDIR /src                        # 指定工作目录
+    COPY ./bin /data/a                  # 复制外部文件到内部
+    VOLUME [&quot;/data/log&quot;]                # 创建挂载点
+    ENTRYPOINT [&quot;/data/a/a&quot;]            # 启动命令，只有一个
+    CMD [&quot;-config&quot;, &quot;config.toml&quot;]      # docker run 时运行
+    RUN echo 'test'                     # build过程中执行的命令
 </code></pre>
 
 <h1 id="docker-compose">docker-compose</h1>
@@ -761,6 +768,29 @@ docker-compose up -d
 docker-compose up -d
 </code></pre>
 
+<h2 id="neo4j">neo4j</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+        neo4j:
+            image: neo4j:latest
+            volumes:
+            - ./conf:/var/lib/neo4j/conf
+            - ./mnt:/var/lib/neo4j/import
+            - ./plugins:/plugins
+            - ./data:/data
+            - ./logs:/var/lib/neo4j/logs
+            restart: always
+            ports:
+            - 7474:7474
+            - 7687:7687
+            environment:
+            - NEO4J_dbms_memory_heap_maxSize=512M
+            - NEO4J_AUTH=neo4j/123456           # 用户密码改不了
+docker-compose up -d
+</code></pre>
+
 <h2 id="haproxy">haproxy</h2>
 
 <pre><code>docker-compose.yml
@@ -838,6 +868,22 @@ docker-compose up -d
 docker-compose up -d
 </code></pre>
 
+<h2 id="consul">consul</h2>
+
+<pre><code>docker-compose.yml
+    version: &quot;3.0&quot;
+    services:
+    consul:
+        image: progrium/consul:latest
+        ports:
+        - &quot;8300&quot;
+        - &quot;8400&quot;
+        - &quot;8500:8500&quot;
+        - &quot;53&quot;
+        command: -server -ui-dir /ui -data-dir /tmp/consul --bootstrap-expect=1
+docker-compose up -d
+</code></pre>
+
 <h2 id="emq">emq</h2>
 
 <pre><code>配置
@@ -847,7 +893,7 @@ docker-compose up -d
     8883: mqtt/ssl
     8083: mqtt/websocket
     8084: mqtt/websocket ssl
-docker-compose up -d
+docker-compose.yml
     version: '3'
     services:
     emqttd:
@@ -858,7 +904,39 @@ docker-compose up -d
         - 10012:8084 
         - 10013:8883 
         - 10014:8083
-docker-compose.yml
+docker-compose up -d
+</code></pre>
+
+<h2 id="confluence">confluence</h2>
+
+<pre><code>docker-compose.yml
+    version: '3'
+    services:
+        postgres:
+            container_name: postgres
+            image: postgres:latest
+            restart: always
+            environment:
+            POSTGRES_DB: confluence
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: asdf
+            ports:
+            - 5433:5432
+            volumes:
+            - ./postgresql:/var/lib/postgresql/data
+
+        confluence:
+            container_name: confluence
+            restart: always
+            image: atlassian/confluence-server:latest
+            ports:
+            - 8090:8090
+            - 8091:8091
+            volumes:
+            - ./confluence:/var/atlassian/application-data/confluence
+            links:
+            - postgres:postgres
+docker-compose up -d
 </code></pre>
 
 <h2 id="dokuwiki">dokuwiki</h2>
@@ -925,8 +1003,8 @@ pipwork
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified Sep 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 29, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -969,10 +1047,13 @@ pipwork
 <li><a href="#mongodb">mongodb</a></li>
 <li><a href="#es">es</a></li>
 <li><a href="#cassandra">cassandra</a></li>
+<li><a href="#neo4j">neo4j</a></li>
 <li><a href="#haproxy">haproxy</a></li>
 <li><a href="#zookeeper">zookeeper</a></li>
 <li><a href="#kafka">kafka</a></li>
+<li><a href="#consul">consul</a></li>
 <li><a href="#emq">emq</a></li>
+<li><a href="#confluence">confluence</a></li>
 <li><a href="#dokuwiki">dokuwiki</a></li>
 <li><a href="#wordpress">wordpress</a></li>
 </ul></li>

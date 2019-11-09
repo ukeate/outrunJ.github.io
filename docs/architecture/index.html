@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
 
 
-<script defer src="/search.min.397c17eb512979f6a9505be2b15463ea0f3edc770e672df10386e01a85c1cec8.js"></script>
+<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
 
 
 
@@ -70,9 +70,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 
 <ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-<li><a href="/docs/design/project">项目</a></li>
-<li><a href="/docs/design/method">方法</a></li>
 </ul></li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 
@@ -188,6 +191,16 @@ https://github.com/alex-shpak/hugo-book
 
 <pre><code>Alb        automaticLoopBack 自动回环，虚拟接口
 sdn        software defined network 软件定义网络
+</code></pre>
+
+<h1 id="serverless">serverless</h1>
+
+<pre><code>knative
+    # google开源，serverless标准化方案，基于k8s和istio
+    模块
+        build
+        serving
+        eventing
 </code></pre>
 
 <h1 id="服务网格">服务网格</h1>
@@ -432,34 +445,62 @@ sdn        software defined network 软件定义网络
             监控label                # 筛选pod得到数量
 命令
     kubectl
+        --help                      # 帮助, 各命令之后都可加
+        version
+        cluster-info
         logs
             kubectl logs --tail=1000 appID1
                 # 查看日志
+        run
         exec
             kubectl exec -it appID1 /bin/sh
                 # 交互命令进入app
         create
             -f mysql-rc.yaml        # 创建rc
             -f mysql-svc.yaml       # 创建service
+        set 
+            image
         get
             rc                      # 查看rc
             pods
             pod
+                -o
+                    wide            # 显示详情，有node name
+                o-&gt;
                 kubectl get pod -l app=app1 -o wide
                     # 查看pod app状态
             services
             svc                     # 查看service, 包含cluster ip
             nodes
             endpoints               # service pod的ip:端口
+            deployments
         describe                    # 详情
             node
+            pods
             deployments
+        expose
+        label
+        delete
         scale                       # pod扩容或缩容
+            --replicas=2
         autoscale                   # 创建hpa对象
             deployment
         rolling-update              # pod滚动升级
+        rollout
+            status
+            undo
         apply                       # 应用配置
             -f
+        proxy
+    kubelet
+    kube-apiserver
+    kube-proxy
+    kube-scheduler
+    kubeadm
+    kube-controller-manager
+    hyperkube
+    apiextensions-apiserver
+    mounter
 配置
     用yaml或json定义
     pod
@@ -1911,8 +1952,8 @@ sms.webchinese.cn
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
     </a>
   </div>
   
@@ -1936,6 +1977,7 @@ sms.webchinese.cn
     <nav id="TableOfContents">
 <ul>
 <li><a href="#名词">名词</a></li>
+<li><a href="#serverless">serverless</a></li>
 <li><a href="#服务网格">服务网格</a>
 <ul>
 <li><a href="#service-fabric">service fabric</a></li>
