@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="数据库"><meta property="og:title" content="数据库" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.com/docs/db/" />
+
 <title>数据库 | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://example.com/docs/db/index.xml" title="outrun的笔记" />
 <!--
@@ -27,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -47,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f db\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -76,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -87,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -103,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -185,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>数据库类型
     关系型数据库
     模糊型数据库
@@ -295,9 +301,7 @@ OLTP和OLAP
         硬件，网络，网络模型，存储模型，语言
         分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案
 </code></pre>
-
-<h1 id="rds-relational-database-service">rds(relational database service)</h1>
-
+<h1 id="rdsrelational-database-service">rds(relational database service)</h1>
 <pre><code>缺点
     阻抗失谐    # 和内存中的模型存在差异
 安全
@@ -327,18 +331,14 @@ OLTP和OLAP
         # java编写，可嵌入java使用
     tidb
 </code></pre>
-
 <h2 id="sqlite">sqlite</h2>
-
 <pre><code>命令
     sqlite3 数据库文件
 语法
     .table              # 查看所有表
     .schema             # 查看建表语句
 </code></pre>
-
 <h2 id="sql">sql</h2>
-
 <pre><code>语法
     注释
         --      # 单行注释
@@ -655,9 +655,7 @@ OLTP和OLAP
                 # 级联约束
     检查约束    # oracle支持
 </code></pre>
-
-<h2 id="存储过程">存储过程</h2>
-
+<h2 id="heading-1">存储过程</h2>
 <pre><code>优势
     高效, 首次运行进行预编译
     模块化
@@ -673,9 +671,7 @@ OLTP和OLAP
     需要专人维护
     逻辑变更时修改不灵活
 </code></pre>
-
-<h2 id="触发器">触发器</h2>
-
+<h2 id="heading-2">触发器</h2>
 <pre><code>用途
     表级联更改
     实现比check约束复杂的逻辑
@@ -684,9 +680,7 @@ OLTP和OLAP
 基础
     同一表不能建立2个相同类型触发器
 </code></pre>
-
-<h2 id="视图">视图</h2>
-
+<h2 id="heading-3">视图</h2>
 <pre><code>特点
     优点
         简化查询
@@ -734,9 +728,7 @@ OLTP和OLAP
 
     SHOW CREATE VIEW view_name
 </code></pre>
-
-<h2 id="索引">索引</h2>
-
+<h2 id="heading-4">索引</h2>
 <pre><code>特点
     第一次查询时创建
     加快查询的速度，表删除时索引自动删除
@@ -783,9 +775,7 @@ show keys from tb1;
     Index_type    # 用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。
     Comment       # 更多评注。
 </code></pre>
-
-<h2 id="序列">序列</h2>
-
+<h2 id="heading-5">序列</h2>
 <pre><code># 共享对象唯一的数值，不一定连续
 create sequence tb1_seq
     INCREMENT BY 10              # 步长是10
@@ -800,9 +790,7 @@ alter sequence tb1_seq increment by 10;
     start with 100;                         # 错误 ，不能变更启动序列，只能在创建序列时指定
 drop sequence seq
 </code></pre>
-
-<h1 id="性能优化">性能优化</h1>
-
+<h1 id="heading-6">性能优化</h1>
 <pre><code>设计
     库
         分库
@@ -947,9 +935,7 @@ mysql
         子查询id
             select a.* from 表1 a, (select id from 表1 where 条件 limit 100000,20) b where a.id=b.id
 </code></pre>
-
 <h1 id="nosql">nosql</h1>
-
 <pre><code>介绍
     aggregate-oriented (面向聚合)
         键值
@@ -981,9 +967,7 @@ mysql
             读取多于某值个节点数据并相同时，认为读到最新数据
         用zookeeper等外部“事务”程序库同步读写操作
 </code></pre>
-
-<h2 id="图">图</h2>
-
+<h2 id="heading-7">图</h2>
 <pre><code>介绍
     领域
     关系是一等公民
@@ -1005,9 +989,7 @@ mysql
     pregel
         # google图数据库
 </code></pre>
-
 <h3 id="neo4j">neo4j</h3>
-
 <pre><code>介绍
     使用zookeeper
 特点
@@ -1016,31 +998,29 @@ mysql
     副本从节点
         从节点写数据，先同步到主节点, 再由主节点分发
 </code></pre>
-
 <p>配置
-        dbms.connector.bolt.enabled=true
-        dbms.connector.bolt.listen_address=0.0.0.0:7687
-        dbms.connector.http.enabled=true
-        dbms.connector.http.listen_address=0.0.0.0:7474
-            # 远程访问
-    cql
-        数据类型
-            boolean
-            byte                    # 8位整数
-            short                   # 16位整数
-            int                     # 32位整数
-            long                    # 64位整数
-            float                   # 32位浮点数
-            double                  # 64位浮点数
-            char                    # 16位字符
-            string
-        命令
-            create                  # 创建, 自动生成<id>属性, 最大约为35亿
-                CREATE (dept:Dept:Dept2 { deptno:1,name:&ldquo;a&rdquo;})
-                    # 节点名:多标签 {属性}
-                CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
-                    # 2节点,1关系</p>
-
+dbms.connector.bolt.enabled=true
+dbms.connector.bolt.listen_address=0.0.0.0:7687
+dbms.connector.http.enabled=true
+dbms.connector.http.listen_address=0.0.0.0:7474
+# 远程访问
+cql
+数据类型
+boolean
+byte                    # 8位整数
+short                   # 16位整数
+int                     # 32位整数
+long                    # 64位整数
+float                   # 32位浮点数
+double                  # 64位浮点数
+char                    # 16位字符
+string
+命令
+create                  # 创建, 自动生成<!-- raw HTML omitted -->属性, 最大约为35亿
+CREATE (dept:Dept:Dept2 { deptno:1,name:&ldquo;a&rdquo;})
+# 节点名:多标签 {属性}
+CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
+# 2节点,1关系</p>
 <pre><code>            MATCH (cust:Customer),(dept:Dept)
             WHERE cust.id = 1 AND dept.deptno= 1 
             CREATE (cust)-[r:Do{a:1}]-&gt;(dept)  
@@ -1125,9 +1105,7 @@ mysql
             RETURN STARTNODE(r) # 返回开始节点
             RETURN ENDNODE(r)
 </code></pre>
-
-<h2 id="列族">列族</h2>
-
+<h2 id="heading-8">列族</h2>
 <pre><code>特点
     键空间
 适用
@@ -1148,9 +1126,7 @@ mysql
     clickhouse
         # 用于OLAP, 实时分析
 </code></pre>
-
 <h3 id="cassandra">cassandra</h3>
-
 <pre><code>特点
     适用大规模数据
     良好的分布式扩展性
@@ -1166,9 +1142,7 @@ mysql
     use aaa
         # 用aaa键空间
 </code></pre>
-
 <h3 id="hbase">hbase</h3>
-
 <pre><code>特点
     hdfs存储，分布式，面向列
     可利用map reduce
@@ -1185,9 +1159,7 @@ mysql
         观察者observer（监听器）
         终端endpoint（rpc调用代码）
 </code></pre>
-
-<h2 id="文档">文档</h2>
-
+<h2 id="heading-9">文档</h2>
 <pre><code>适用
     事件记录
     内容管理
@@ -1207,18 +1179,14 @@ mysql
         # 带事务的mongo
     tokumx
 </code></pre>
-
 <h3 id="couchdb">couchDB</h3>
-
 <pre><code>特点
     apache托管,  alang语言开发的，面向文档的分布式数据库
     json结构，易于存储cms, 电话本，地址本等半结构化数据。存储类似于lucene的index
     易添加，不易修改
     主主双向复制
 </code></pre>
-
-<h2 id="键值">键值</h2>
-
+<h2 id="heading-10">键值</h2>
 <pre><code>适用
     session
     用户配置信息
@@ -1241,14 +1209,10 @@ mysql
     rocksDB
     groupCache  # go编写
 </code></pre>
-
-<h2 id="时序">时序</h2>
-
+<h2 id="heading-11">时序</h2>
 <pre><code>influxDB    # go编写
 </code></pre>
-
 <h1 id="newsql">newsql</h1>
-
 <pre><code>工具
     分布式
         google spanner
@@ -1264,19 +1228,13 @@ mysql
     tokudb
     memsql
 </code></pre>
-
 <h2 id="tidb">tidb</h2>
-
-<h1 id="流式数据库">流式数据库</h1>
-
+<h1 id="heading-12">流式数据库</h1>
 <pre><code>piplelineDB
     # 依赖zeromq, 记录时间段内的事件
 </code></pre>
-
 <h1 id="proxy">proxy</h1>
-
 <h2 id="mycat">mycat</h2>
-
 <pre><code># 目录结构
         bin
                 mycat                        # 服务器启动等
@@ -1416,25 +1374,31 @@ mysql
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Nov 9, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/_index.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/_index.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1442,57 +1406,53 @@ mysql
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#rds-relational-database-service">rds(relational database service)</a>
-<ul>
-<li><a href="#sqlite">sqlite</a></li>
-<li><a href="#sql">sql</a></li>
-<li><a href="#存储过程">存储过程</a></li>
-<li><a href="#触发器">触发器</a></li>
-<li><a href="#视图">视图</a></li>
-<li><a href="#索引">索引</a></li>
-<li><a href="#序列">序列</a></li>
-</ul></li>
-<li><a href="#性能优化">性能优化</a></li>
-<li><a href="#nosql">nosql</a>
-<ul>
-<li><a href="#图">图</a>
-<ul>
-<li><a href="#neo4j">neo4j</a></li>
-</ul></li>
-<li><a href="#列族">列族</a>
-<ul>
-<li><a href="#cassandra">cassandra</a></li>
-<li><a href="#hbase">hbase</a></li>
-</ul></li>
-<li><a href="#文档">文档</a>
-<ul>
-<li><a href="#couchdb">couchDB</a></li>
-</ul></li>
-<li><a href="#键值">键值</a></li>
-<li><a href="#时序">时序</a></li>
-</ul></li>
-<li><a href="#newsql">newsql</a>
-<ul>
-<li><a href="#tidb">tidb</a></li>
-</ul></li>
-<li><a href="#流式数据库">流式数据库</a></li>
-<li><a href="#proxy">proxy</a>
-<ul>
-<li><a href="#mycat">mycat</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#sqlite">sqlite</a></li>
+    <li><a href="#sql">sql</a></li>
+    <li><a href="#heading-1">存储过程</a></li>
+    <li><a href="#heading-2">触发器</a></li>
+    <li><a href="#heading-3">视图</a></li>
+    <li><a href="#heading-4">索引</a></li>
+    <li><a href="#heading-5">序列</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-7">图</a>
+      <ul>
+        <li><a href="#neo4j">neo4j</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-8">列族</a>
+      <ul>
+        <li><a href="#cassandra">cassandra</a></li>
+        <li><a href="#hbase">hbase</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-9">文档</a>
+      <ul>
+        <li><a href="#couchdb">couchDB</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-10">键值</a></li>
+    <li><a href="#heading-11">时序</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#tidb">tidb</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#mycat">mycat</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

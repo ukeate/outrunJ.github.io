@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="架构-原理"><meta property="og:title" content="架构-原理" />
+<meta property="og:description" content="基础 CAP定理 # 当面临分区的时候，必须在一致性和可用性之间权衡 一致性Consistency 可用性Availability 分区容错性Partition tolerance BASE # 解决CAP 基本可用(basic available) 软状态(soft state) 最终一致性(eventually consistent)  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 gpu在pci总线上 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 内存到显存数据传输最花费时间。 原理 处理单元(processing unit) 算术逻辑单元(arithmetic logic unit) 处理寄存器(processor register) 控制单元(control unit) 指令寄存器(instruction register) 程序计数器(program counter) 指令集架构(ISA, instruction set architecture) # 机器码易兼容, 软件易编程, 易升级cpu 精简指令集RISC(reduced instruction set computing) 复杂指令集CISC(complex instruction set computer) 时钟频率(clock speed) 生产 生产线散热决定生存率，决定cpu型号 多级缓存 L1, L2, L3, L4 虚拟化 虚拟机监视器(VMM, virtual machine monitors) 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 硬件并行 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 指令分步骤(指令流), 每步专门部件处理 多指令流并行, 部件不空闲等待单指令流结束 六级流水线步骤 取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO) 多发射(超标量) 一时钟周期处理多指令 超线程 模拟多个逻辑线程 乱序执行 猜测执行 数据级 向量体系结构、图形处理器 单指令多数据(SIMD)架构 线程级 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互 请求级 # OS或程序耦合任务间并行 程序并行 数据级(DLP, data-level parallel) 任务级(TLP, task-level parallel) # 多处理器, 超线程, 虽只有4个核，但可用核返回8 内存 共享内存模型 分布式内存模型 进程: 独有内存 线程: 共享进程内存(地址空间、文件描述符) 一个进程下的轻量进程 POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似 自己的信号掩码 cpu affinity(倾向在某cpu尽量长时间运行) cgroups  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/architecture/principle/" />
+<meta property="article:published_time" content="2018-10-10T15:25:12+08:00" />
+<meta property="article:modified_time" content="2019-11-09T20:00:20+08:00" />
 <title>架构-原理 | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f architecture\2fprinciple\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>CAP定理
     # 当面临分区的时候，必须在一致性和可用性之间权衡
     一致性Consistency
@@ -198,9 +205,7 @@ BASE    # 解决CAP
     软状态(soft state)
     最终一致性(eventually consistent)
 </code></pre>
-
 <h1 id="cpu">cpu</h1>
-
 <pre><code>介绍
     单cpu串行工作，前任务完成，后任务才开始                             # 串行不适合图形处理(多点，线，面要同时乘投影矩阵)
     cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元
@@ -271,9 +276,7 @@ BASE    # 解决CAP
                 cpu affinity(倾向在某cpu尽量长时间运行)
                 cgroups
 </code></pre>
-
-<h2 id="进程调度">进程调度</h2>
-
+<h2 id="heading-1">进程调度</h2>
 <pre><code>等级
     高级调度(High-Level Scheduling)
         作业调度, 后备作业调入内存运行
@@ -295,9 +298,7 @@ BASE    # 解决CAP
             轮转法
                 分时系统中,都采用时间片轮转法
 </code></pre>
-
 <h1 id="gpu">gpu</h1>
-
 <pre><code>介绍
     gpu控制单元少, 计算单元多
     显卡在pci总线上
@@ -310,9 +311,7 @@ BASE    # 解决CAP
             不同块不通信，粗粒度并行
             同块通信，细粒度并行
 </code></pre>
-
-<h1 id="内存">内存</h1>
-
+<h1 id="heading-2">内存</h1>
 <pre><code>原理
     虚拟内存(virtual memory)
     页表(page table)
@@ -337,9 +336,7 @@ dma
     存储内容: 堆头部一个字节存放堆的大小。内容由程序员安排
     数据结构: 满足优先队列的数据结构(第1个元素有最高优先权)
 </code></pre>
-
-<h1 id="网络">网络</h1>
-
+<h1 id="heading-3">网络</h1>
 <pre><code>OSI分层
     物理层
     数据链路层
@@ -351,11 +348,8 @@ dma
 ABR(area border router)：区域边界路由器
 子网隔离
 </code></pre>
-
-<h2 id="状态">状态</h2>
-
+<h2 id="heading-4">状态</h2>
 <h3 id="cookie">cookie</h3>
-
 <pre><code>介绍
     cookie的弊端
         数据在客户端可以被修改，所以不能存重要数据
@@ -377,9 +371,7 @@ ABR(area border router)：区域边界路由器
     原user='alsotang'
     现user=sha1('my_secret' + 'alsotang') === 'xxxx...xxx'
 </code></pre>
-
 <h3 id="session">session</h3>
-
 <pre><code>介绍
     session通过cookie中存放session_id来实现
     可以存放在
@@ -390,9 +382,7 @@ ABR(area border router)：区域边界路由器
             # 常用
         4. 数据库中
 </code></pre>
-
-<h2 id="数据链路层">数据链路层</h2>
-
+<h2 id="heading-5">数据链路层</h2>
 <pre><code>分层
     数据链路层分为两层
         llc上层子层                # Logical Link Control 逻辑链路控制。
@@ -414,21 +404,19 @@ mac
     Media Access Control
         mac帧结构
 </code></pre>
-
-<p><img src="/docs/architecture/mac.jpg" alt="&quot;&quot;" />
-                单位
-                    字节
-                帧类型/长度（TYPE/LEN）：
-                    该字段的值大于1500时，表示上层数据使用的协议类型。例如0x0806表示ARP请求或应答，0x0800表示IP协议。
-                    该字段的值小于1500时表示以太网数据的长度，上层携带LLC-PDU。
-                帧校验FCS：
-                    以太网采用32位CRC冗余校验。
-    llc
-        Logical Link Control
-            llc-pdu结构
-<img src="/docs/architecture/llc1.jpg" alt="&quot;&quot;" />
-<img src="/docs/architecture/llc2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/mac.jpg" alt="""">
+单位
+字节
+帧类型/长度（TYPE/LEN）：
+该字段的值大于1500时，表示上层数据使用的协议类型。例如0x0806表示ARP请求或应答，0x0800表示IP协议。
+该字段的值小于1500时表示以太网数据的长度，上层携带LLC-PDU。
+帧校验FCS：
+以太网采用32位CRC冗余校验。
+llc
+Logical Link Control
+llc-pdu结构
+<img src="/docs/architecture/llc1.jpg" alt="""">
+<img src="/docs/architecture/llc2.jpg" alt=""""></p>
 <pre><code>            pdu : 协议数据单元
             dsap : 目标服务访问点
             ssap : 源服务访问点
@@ -439,21 +427,15 @@ arp
     Address Resolution Protocol                    # arp属于中间层，为ip层服务协议
         arp帧结构
 </code></pre>
-
-<p><img src="/docs/architecture/arp1.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/arp1.jpg" alt=""""></p>
 <pre><code>        arp协议的分组格式
 </code></pre>
-
-<p><img src="/docs/architecture/arp2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/arp2.jpg" alt=""""></p>
 <pre><code>        arp在windows命令提示行下的命令
             arp -a                                         查看arp缓存表中的内容
             arp -d                                        清空arp缓存表
 </code></pre>
-
-<h2 id="网络层">网络层</h2>
-
+<h2 id="heading-6">网络层</h2>
 <pre><code>数据包
     接收
         # 一般情况下，网络上所有的机器都可以“听”到通过的流量, 但对不属于自己的数据包则不予响应
@@ -482,66 +464,53 @@ icmp
         是ip层的子协议
         封装
 </code></pre>
-
-<p><img src="/docs/architecture/icmp1.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/icmp1.jpg" alt=""""></p>
 <pre><code>        报文格式
 </code></pre>
-
-<p><img src="/docs/architecture/icmp2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/icmp2.jpg" alt=""""></p>
 <pre><code>        主要报文类型
 </code></pre>
-
-<p><img src="/docs/architecture/icmp3.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/icmp3.jpg" alt=""""></p>
 <pre><code>        时间戳报文举例
 </code></pre>
-
-<p><img src="/docs/architecture/icmp4.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/icmp4.jpg" alt=""""></p>
 <pre><code>        重定向报文举例
 </code></pre>
-
-<p><img src="/docs/architecture/icmp5.jpg" alt="&quot;&quot;" />
-    igmp
-        Internet Group Management Protocol            # Internet组管理协议
-            报文格式
-                8位IGMP类型    8位响应时间    16位检验和
-                32位组地址(D类IP地址)）
-    ospf
-        Open Shortest Path First                        # 开放式最短路径优先。是一种典型的链路状态路由协议。
-                                                        ## 采用OSPF的路由器彼此交换并保存整个网络的链路信息，从而掌握全网的拓扑结构，独立计算路由。
-            报文
-                版本    类型    报文长度
-                路由器标识符
-                区域标识符
-                检验和          鉴别类型
-                鉴别
-                鉴别
-                OSPF报文（有五种类型）
-                    问候(Hello)报文：发现及维持邻居关系，选举DR、BDR。
-                    数据库描述(Database Description)报文：描述本地LSDB的情况。
-                    链路状态请求(Link State Request)报文：向对端请求本端没有或对端更新的LSA。
-                    链路状态更新(Link State Update)报文：向对方更新LSA。
-                    链路状态确认(Link State Acknowledgment)报文：收到LSU报文后，进行确认。
-    bgp
-        介绍　
-            border gateway protocol 边界网关协议</p>
-
+<p><img src="/docs/architecture/icmp5.jpg" alt="""">
+igmp
+Internet Group Management Protocol            # Internet组管理协议
+报文格式
+8位IGMP类型    8位响应时间    16位检验和
+32位组地址(D类IP地址)）
+ospf
+Open Shortest Path First                        # 开放式最短路径优先。是一种典型的链路状态路由协议。
+## 采用OSPF的路由器彼此交换并保存整个网络的链路信息，从而掌握全网的拓扑结构，独立计算路由。
+报文
+版本    类型    报文长度
+路由器标识符
+区域标识符
+检验和          鉴别类型
+鉴别
+鉴别
+OSPF报文（有五种类型）
+问候(Hello)报文：发现及维持邻居关系，选举DR、BDR。
+数据库描述(Database Description)报文：描述本地LSDB的情况。
+链路状态请求(Link State Request)报文：向对端请求本端没有或对端更新的LSA。
+链路状态更新(Link State Update)报文：向对方更新LSA。
+链路状态确认(Link State Acknowledgment)报文：收到LSU报文后，进行确认。
+bgp
+介绍　
+border gateway protocol 边界网关协议</p>
 <h3 id="ip">ip</h3>
-
 <pre><code>Internet Protocol                                # ip地址是互联网主机的唯一标识
 </code></pre>
-
-<p><img src="/docs/architecture/ip1.jpg" alt="&quot;&quot;" />
-        ip地址分类
-            A类 : 0.0.0.0 &ndash; 127.255.255.255 (0段和127段不使用)
-            B类 : 128.0.0.0 &ndash; 191.255.255.255
-            C类 : 192.0.0.0 &ndash; 223.255.255.255
-            D类 : 224.0.0.0 &ndash; 239.255.255.255
-            E类 : 240.0.0.0 &ndash; 254.255.255.255</p>
-
+<p><img src="/docs/architecture/ip1.jpg" alt="""">
+ip地址分类
+A类 : 0.0.0.0 &ndash; 127.255.255.255 (0段和127段不使用)
+B类 : 128.0.0.0 &ndash; 191.255.255.255
+C类 : 192.0.0.0 &ndash; 223.255.255.255
+D类 : 224.0.0.0 &ndash; 239.255.255.255
+E类 : 240.0.0.0 &ndash; 254.255.255.255</p>
 <pre><code>    特殊ip地址
         主机地址全0 : 作为网络本身的标识 , 称为网地址
         主机地址全1 : 广播地址 ， 称为直接广播地址
@@ -561,15 +530,11 @@ icmp
                 本网有几台主机
     ip数据报文格式
 </code></pre>
-
-<p><img src="/docs/architecture/ip2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/ip2.jpg" alt=""""></p>
 <pre><code>ip分片    # 一个MTU（链路层）较大的网络传输到MTU较小的网络过程中，将一个较大的数据包分为几个较小的数据包来传输。
     利用PING命令中的参数–l 可以设置数据部分的字节数
 </code></pre>
-
-<h3 id="抓包">抓包</h3>
-
+<h3 id="heading-7">抓包</h3>
 <pre><code>sniffer(嗅探器)
     # 网络层
     # 硬件sniffer称为 协议分析仪
@@ -596,9 +561,7 @@ icmp
             # 属于第M层攻击，即 在攻击者已经进入了目标系统的情况下
             ## 也可以截获金融信息
 </code></pre>
-
-<h2 id="传输层">传输层</h2>
-
+<h2 id="heading-8">传输层</h2>
 <pre><code>协议
     TCP        Transmission Control Protocol 传输控制协议
     UDP        User Datagram Protocol 用户数据报协议
@@ -612,19 +575,13 @@ udp
     User Datagram Protocol
         封装
 </code></pre>
-
-<p><img src="/docs/architecture/udp1.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/udp1.jpg" alt=""""></p>
 <pre><code>        报文
 </code></pre>
-
-<p><img src="/docs/architecture/udp2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/udp2.jpg" alt=""""></p>
 <pre><code>        有伪首部的报文                                                                        # 伪首部只是单纯为了做校验用的
 </code></pre>
-
-<p><img src="/docs/architecture/udp3.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/udp3.jpg" alt=""""></p>
 <pre><code>            校验和的计算方法                                                        # UDP“检验和”是一个端到端的“检验和”，包括UDP首部、UDP伪首部和UDP数据。
                                                                                         ## UDP12字节的伪首部是为了计算“校验和”而设置的，不参与网络传输。
 
@@ -632,28 +589,20 @@ tcp
     Transmission Control protocol
         报文格式
 </code></pre>
-
-<p><img src="/docs/architecture/tcp1.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/tcp1.jpg" alt=""""></p>
 <pre><code>        三次握手
 </code></pre>
-
-<p><img src="/docs/architecture/tcp2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/tcp2.jpg" alt=""""></p>
 <pre><code>                ACK : Acknowledgement
                 SEQ : Sequence
                 SYN : Synchronous
         断开连接
 </code></pre>
-
-<p><img src="/docs/architecture/tcp3.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/tcp3.jpg" alt=""""></p>
 <pre><code>                FIN : Final
         d.o.s(denial of service)攻击                                                # ddos(distributed denial of service)
 </code></pre>
-
-<p><img src="/docs/architecture/tcp4.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/tcp4.jpg" alt=""""></p>
 <pre><code>socket
     socket可以基于tcp或udp
     一个socket对应系统中一个端口
@@ -663,9 +612,7 @@ ssl
         非对称生成公私钥(慢)
         对称传数据(快)
 </code></pre>
-
-<h2 id="会话层">会话层</h2>
-
+<h2 id="heading-9">会话层</h2>
 <pre><code>udp传输
     netBIOS
         Network Basic Input Output System                           # 网络基本输入输出系统 由ibm开发
@@ -679,9 +626,7 @@ ssl
                                                                     ## 微软将原有的几乎没有多少技术文档的SMB协议进行整理， 重新命名为CIFS
                                                                     ## 成为Internet上计算机之间相互共享数据的一种标准。
 </code></pre>
-
-<h2 id="表示层">表示层</h2>
-
+<h2 id="heading-10">表示层</h2>
 <pre><code>协议
     XDR
     ASN.1
@@ -689,9 +634,7 @@ ssl
     AFP
     NCP
 </code></pre>
-
-<h2 id="应用层">应用层</h2>
-
+<h2 id="heading-11">应用层</h2>
 <pre><code>协议
     HTTP        Hypertext transfer protocol 超文本传输协议
     HSTS        HTTP Strict Transport Security HTTP安全传输
@@ -711,9 +654,7 @@ ssl
     DHCP        Dynamic Host Configuration Protocol 动态主机配置
     BOOTP        Bootstrap Protocol 自举协议
 </code></pre>
-
-<h3 id="tcp传输">tcp传输</h3>
-
+<h3 id="tcp">tcp传输</h3>
 <pre><code>telnet
     telnet                                        # 一个简单的远程终端协议。用户可以通过TCP连接登录到远程的一个主机上，好象使用远程主机一样。
         采用客户机/服务器计算模式。在本地系统上运行TELNET客户机进程，在远程主机上运行TELNET服务器进程。
@@ -772,9 +713,7 @@ hls
         html5原生支持
         m3u8扩展名，里面封装ts小视频
 </code></pre>
-
 <h4 id="http">http</h4>
-
 <pre><code>1.0与1.1区别
     扩展性
         1.1消息中增加版本号
@@ -915,9 +854,7 @@ http/1.1 请求动作
     Cache-Control: no-cache
     Pragma: no-cache
 </code></pre>
-
-<h3 id="udp传输">udp传输</h3>
-
+<h3 id="udp">udp传输</h3>
 <pre><code>dns
     domain name system
         分类
@@ -928,14 +865,10 @@ http/1.1 请求动作
             本机缓冲区 -&gt; 本地域名服务器(缓冲区与数据库) -&gt; 其它域名服务器
         报文格式
 </code></pre>
-
-<p><img src="/docs/architecture/dns1.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/dns1.jpg" alt=""""></p>
 <pre><code>                Queries
 </code></pre>
-
-<p><img src="/docs/architecture/dns2.jpg" alt="&quot;&quot;" /></p>
-
+<p><img src="/docs/architecture/dns2.jpg" alt=""""></p>
 <pre><code>        命令
             windows下命令提示行
                 正向解析
@@ -1001,9 +934,7 @@ coap
         支持可靠传输、数据重传、块传输, 确保到达
         支持ip多播
 </code></pre>
-
 <h3 id="mqtt">mqtt</h3>
-
 <pre><code>介绍
     消息队列遥测传输(message queuing telemetry transport)
     针对硬件性能低、网络状态差的远程设备, 如卫星链路通信
@@ -1013,18 +944,14 @@ qos级别             # quality of service
     区分服务(differentiated service)        # soft qos优先级
     确保服务(guaranteed service)            # hard qos专有带宽
 </code></pre>
-
-<h1 id="电话">电话</h1>
-
+<h1 id="heading-12">电话</h1>
 <pre><code>cti 
     computer telephony integration
     computer telecommunication integration
         计算机技术应用到电话系统中，识别信令信息进行处理，传送预定录音文件
         转接来话，处理传真，电子邮件等
 </code></pre>
-
-<h1 id="分布式服务">分布式服务</h1>
-
+<h1 id="heading-13">分布式服务</h1>
 <pre><code>架构
     服务网格
     容器调度编排
@@ -1057,23 +984,15 @@ qos级别             # quality of service
         安全传输协议(tls)
         限流(quota)   # 网络数据、api调用
 </code></pre>
-
-<h2 id="一致性">一致性</h2>
-
-<h3 id="分布式事务">分布式事务</h3>
-
+<h2 id="heading-14">一致性</h2>
+<h3 id="heading-15">分布式事务</h3>
 <h4 id="tcc">TCC</h4>
-
 <pre><code># Try Confirm Cancel
 </code></pre>
-
-<h4 id="队列">队列</h4>
-
+<h4 id="heading-16">队列</h4>
 <pre><code># 同步数据用队列传输
 </code></pre>
-
-<h4 id="两阶段提交">两阶段提交</h4>
-
+<h4 id="heading-17">两阶段提交</h4>
 <pre><code>过程
     表决(voting)
         同意或取消
@@ -1084,19 +1003,14 @@ qos级别             # quality of service
     协调者单点故障
     协调者commit中网络故障, 部分节点未提交
 </code></pre>
-
-<h4 id="三阶段提交">三阶段提交</h4>
-
+<h4 id="heading-18">三阶段提交</h4>
 <pre><code>过程                        # 每步引入超时
     询问(can commit)
     锁资源(pre commit)
     提交(do commit)
 </code></pre>
-
-<h2 id="高可用-high-available">高可用(high available)</h2>
-
-<h3 id="负载均衡与反向代理">负载均衡与反向代理</h3>
-
+<h2 id="high-available">高可用(high available)</h2>
+<h3 id="heading-19">负载均衡与反向代理</h3>
 <pre><code>外网dns做gslb(全局负载均衡)                    # 有缓存，切换时间长
     分配最近ip和容错
 内网dns
@@ -1126,64 +1040,53 @@ qos级别             # quality of service
         f5
             硬件四层
 </code></pre>
-
-<h3 id="隔离">隔离</h3>
-
-<h3 id="限流">限流</h3>
-
-<h3 id="降级">降级</h3>
-
-<h3 id="超时与重试">超时与重试</h3>
-
-<h3 id="回滚">回滚</h3>
-
-<h3 id="压测">压测</h3>
-
-<h2 id="高并发-high-concurrency">高并发(high concurrency)</h2>
-
-<h3 id="应用级缓存">应用级缓存</h3>
-
-<h3 id="http缓存">http缓存</h3>
-
-<h3 id="多级缓存">多级缓存</h3>
-
-<h3 id="连接池线程池">连接池线程池</h3>
-
-<h3 id="异步并发">异步并发</h3>
-
-<h3 id="扩容">扩容</h3>
-
-<h3 id="队列-1">队列</h3>
-
-<h1 id="大数据">大数据</h1>
-
+<h3 id="heading-20">隔离</h3>
+<h3 id="heading-21">限流</h3>
+<h3 id="heading-22">降级</h3>
+<h3 id="heading-23">超时与重试</h3>
+<h3 id="heading-24">回滚</h3>
+<h3 id="heading-25">压测</h3>
+<h2 id="high-concurrency">高并发(high concurrency)</h2>
+<h3 id="heading-26">应用级缓存</h3>
+<h3 id="http-1">http缓存</h3>
+<h3 id="heading-27">多级缓存</h3>
+<h3 id="heading-28">连接池线程池</h3>
+<h3 id="heading-29">异步并发</h3>
+<h3 id="heading-30">扩容</h3>
+<h3 id="heading-31">队列</h3>
+<h1 id="heading-32">大数据</h1>
 <pre><code>lambda架构                              # 实时大数据, stream使用
     批处理层
     实时处理层
     服务层
-sharing-nothing                         # cpu之间不共享内存和磁盘
-</code></pre>
+sharing-nothing                         # cpu之间不共享内存和磁盘</code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Nov 9, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/principle.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/principle.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1191,86 +1094,74 @@ sharing-nothing                         # cpu之间不共享内存和磁盘
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#cpu">cpu</a>
-<ul>
-<li><a href="#进程调度">进程调度</a></li>
-</ul></li>
-<li><a href="#gpu">gpu</a></li>
-<li><a href="#内存">内存</a></li>
-<li><a href="#网络">网络</a>
-<ul>
-<li><a href="#状态">状态</a>
-<ul>
-<li><a href="#cookie">cookie</a></li>
-<li><a href="#session">session</a></li>
-</ul></li>
-<li><a href="#数据链路层">数据链路层</a></li>
-<li><a href="#网络层">网络层</a>
-<ul>
-<li><a href="#ip">ip</a></li>
-<li><a href="#抓包">抓包</a></li>
-</ul></li>
-<li><a href="#传输层">传输层</a></li>
-<li><a href="#会话层">会话层</a></li>
-<li><a href="#表示层">表示层</a></li>
-<li><a href="#应用层">应用层</a>
-<ul>
-<li><a href="#tcp传输">tcp传输</a>
-<ul>
-<li><a href="#http">http</a></li>
-</ul></li>
-<li><a href="#udp传输">udp传输</a></li>
-<li><a href="#mqtt">mqtt</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#电话">电话</a></li>
-<li><a href="#分布式服务">分布式服务</a>
-<ul>
-<li><a href="#一致性">一致性</a>
-<ul>
-<li><a href="#分布式事务">分布式事务</a>
-<ul>
-<li><a href="#tcc">TCC</a></li>
-<li><a href="#队列">队列</a></li>
-<li><a href="#两阶段提交">两阶段提交</a></li>
-<li><a href="#三阶段提交">三阶段提交</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#高可用-high-available">高可用(high available)</a>
-<ul>
-<li><a href="#负载均衡与反向代理">负载均衡与反向代理</a></li>
-<li><a href="#隔离">隔离</a></li>
-<li><a href="#限流">限流</a></li>
-<li><a href="#降级">降级</a></li>
-<li><a href="#超时与重试">超时与重试</a></li>
-<li><a href="#回滚">回滚</a></li>
-<li><a href="#压测">压测</a></li>
-</ul></li>
-<li><a href="#高并发-high-concurrency">高并发(high concurrency)</a>
-<ul>
-<li><a href="#应用级缓存">应用级缓存</a></li>
-<li><a href="#http缓存">http缓存</a></li>
-<li><a href="#多级缓存">多级缓存</a></li>
-<li><a href="#连接池线程池">连接池线程池</a></li>
-<li><a href="#异步并发">异步并发</a></li>
-<li><a href="#扩容">扩容</a></li>
-<li><a href="#队列-1">队列</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#大数据">大数据</a></li>
-</ul>
+  <ul>
+    <li><a href="#heading-1">进程调度</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-4">状态</a>
+      <ul>
+        <li><a href="#cookie">cookie</a></li>
+        <li><a href="#session">session</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-5">数据链路层</a></li>
+    <li><a href="#heading-6">网络层</a>
+      <ul>
+        <li><a href="#ip">ip</a></li>
+        <li><a href="#heading-7">抓包</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-8">传输层</a></li>
+    <li><a href="#heading-9">会话层</a></li>
+    <li><a href="#heading-10">表示层</a></li>
+    <li><a href="#heading-11">应用层</a>
+      <ul>
+        <li><a href="#tcp">tcp传输</a></li>
+        <li><a href="#udp">udp传输</a></li>
+        <li><a href="#mqtt">mqtt</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-14">一致性</a>
+      <ul>
+        <li><a href="#heading-15">分布式事务</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-available">高可用(high available)</a>
+      <ul>
+        <li><a href="#heading-19">负载均衡与反向代理</a></li>
+        <li><a href="#heading-20">隔离</a></li>
+        <li><a href="#heading-21">限流</a></li>
+        <li><a href="#heading-22">降级</a></li>
+        <li><a href="#heading-23">超时与重试</a></li>
+        <li><a href="#heading-24">回滚</a></li>
+        <li><a href="#heading-25">压测</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-concurrency">高并发(high concurrency)</a>
+      <ul>
+        <li><a href="#heading-26">应用级缓存</a></li>
+        <li><a href="#http-1">http缓存</a></li>
+        <li><a href="#heading-27">多级缓存</a></li>
+        <li><a href="#heading-28">连接池线程池</a></li>
+        <li><a href="#heading-29">异步并发</a></li>
+        <li><a href="#heading-30">扩容</a></li>
+        <li><a href="#heading-31">队列</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

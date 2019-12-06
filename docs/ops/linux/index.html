@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Linux"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;T） 70年代末：AT&amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 /var /log /boot." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/ops/linux/" />
+
 <title>Linux | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +38,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +59,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2fops\2flinux\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +76,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +87,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +103,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +193,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>历史
     40年代：汇编语言
     60年代：汇编语言unux
@@ -223,9 +229,7 @@ https://github.com/alex-shpak/hugo-book
     LANG                                    # 语言环境
     _                                       # 查看环境变量的命令
 </code></pre>
-
-<h1 id="文件位置">文件位置</h1>
-
+<h1 id="heading-1">文件位置</h1>
 <pre><code>/var
     /log
         /boot.log                           # 启动日志
@@ -326,11 +330,8 @@ fstab
     wtmp            # 用户登录登出记录
     xferlog         # ftp会话
 </code></pre>
-
-<h1 id="系统编程">系统编程</h1>
-
-<h2 id="进程通信">进程通信</h2>
-
+<h1 id="heading-2">系统编程</h1>
+<h2 id="heading-3">进程通信</h2>
 <pre><code>对象
     ipc
 种类
@@ -339,84 +340,70 @@ fstab
     信号量
 消息队列
 </code></pre>
-
-<h2 id="错误处理">错误处理</h2>
-
+<h2 id="heading-4">错误处理</h2>
 <pre><code>curedump机制, 产生core文件
 命令
     ulimit
 目录
     /proc/[pid]/
 </code></pre>
-
 <h2 id="fork">fork</h2>
-
 <pre><code>介绍
     子线程
 </code></pre>
-
 <h2 id="epoll">epoll</h2>
-
 <pre><code>介绍
     多路复用io接口，提高大量并发连接中只有少量活跃情况下系统cpu利用率
 </code></pre>
-
 <h2 id="signals">signals</h2>
-
 <pre><code>介绍
     unix系统中出错时显示的错误码（通常是拼在最后）
     http://people.cs.pitt.edu/~alanjawi/cs449/code/shell/UnixSignals.htm
-SIGHUP  1   Exit    Hangup
-SIGINT  2   Exit    Interrupt
-SIGQUIT 3   Core    Quit
-SIGILL  4   Core    Illegal Instruction
-SIGTRAP 5   Core    Trace/Breakpoint Trap
-SIGABRT 6   Core    Abort
-SIGEMT  7   Core    Emulation Trap
-SIGFPE  8   Core    Arithmetic Exception
-SIGKILL 9   Exit    Killed
-SIGBUS  10  Core    Bus Error
-SIGSEGV 11  Core    Segmentation Fault
-SIGSYS  12  Core    Bad System Call
-SIGPIPE 13  Exit    Broken Pipe
-SIGALRM 14  Exit    Alarm Clock
-SIGTERM 15  Exit    Terminated
-SIGUSR1 16  Exit    User Signal 1
-SIGUSR2 17  Exit    User Signal 2
-SIGCHLD 18  Ignore  Child Status
-SIGPWR  19  Ignore  Power Fail/Restart
-SIGWINCH    20  Ignore  Window Size Change
-SIGURG  21  Ignore  Urgent Socket Condition
-SIGPOLL 22  Ignore  Socket I/O Possible
-SIGSTOP 23  Stop    Stopped (signal)
-SIGTSTP 24  Stop    Stopped (user)
-SIGCONT 25  Ignore  Continued
-SIGTTIN 26  Stop    Stopped (tty input)
-SIGTTOU 27  Stop    Stopped (tty output)
-SIGVTALRM   28  Exit    Virtual Timer Expired
-SIGPROF 29  Exit    Profiling Timer Expired
-SIGXCPU 30  Core    CPU time limit exceeded
-SIGXFSZ 31  Core    File size limit exceeded
-SIGWAITING  32  Ignore  All LWPs blocked
-SIGLWP  33  Ignore  Virtual Interprocessor Interrupt for Threads Library
-SIGAIO  34  Ignore  Asynchronous I/O
+SIGHUP	1	Exit	Hangup
+SIGINT	2	Exit	Interrupt
+SIGQUIT	3	Core	Quit
+SIGILL	4	Core	Illegal Instruction
+SIGTRAP	5	Core	Trace/Breakpoint Trap
+SIGABRT	6	Core	Abort
+SIGEMT	7	Core	Emulation Trap
+SIGFPE	8	Core	Arithmetic Exception
+SIGKILL	9	Exit	Killed
+SIGBUS	10	Core	Bus Error
+SIGSEGV	11	Core	Segmentation Fault
+SIGSYS	12	Core	Bad System Call
+SIGPIPE	13	Exit	Broken Pipe
+SIGALRM	14	Exit	Alarm Clock
+SIGTERM	15	Exit	Terminated
+SIGUSR1	16	Exit	User Signal 1
+SIGUSR2	17	Exit	User Signal 2
+SIGCHLD	18	Ignore	Child Status
+SIGPWR	19	Ignore	Power Fail/Restart
+SIGWINCH	20	Ignore	Window Size Change
+SIGURG	21	Ignore	Urgent Socket Condition
+SIGPOLL	22	Ignore	Socket I/O Possible
+SIGSTOP	23	Stop	Stopped (signal)
+SIGTSTP	24	Stop	Stopped (user)
+SIGCONT	25	Ignore	Continued
+SIGTTIN	26	Stop	Stopped (tty input)
+SIGTTOU	27	Stop	Stopped (tty output)
+SIGVTALRM	28	Exit	Virtual Timer Expired
+SIGPROF	29	Exit	Profiling Timer Expired
+SIGXCPU	30	Core	CPU time limit exceeded
+SIGXFSZ	31	Core	File size limit exceeded
+SIGWAITING	32	Ignore	All LWPs blocked
+SIGLWP	33	Ignore	Virtual Interprocessor Interrupt for Threads Library
+SIGAIO	34	Ignore	Asynchronous I/O
 </code></pre>
-
 <h2 id="pf-kernel">pf-kernel</h2>
-
 <pre><code>介绍
     是linux kernel 的fork, pf代表post-factum, 是作者的nickname
 </code></pre>
-
 <h2 id="libev">libev</h2>
-
 <pre><code>libevent
     介绍
         是linux kernel 的fork, pf代表post-factum, 是作者的nickname
 </code></pre>
-
-<h1 id="发行版">发行版</h1>
-
+<h1 id="heading-5">发行版</h1>
 <pre><code>lfs
 coreos
 arch
@@ -426,9 +413,7 @@ gentoo
 opensuse
 mint
 </code></pre>
-
 <h2 id="centos">centos</h2>
-
 <pre><code>安装VBoxAdditions
     yum update kernel
     yum install kernel-headers kernel-devel gcc
@@ -436,9 +421,7 @@ mint
     mount /dev/cdrom /mnt
     /mnt/VBoxLinuxAdditions.run
 </code></pre>
-
 <h2 id="fedora">fedora</h2>
-
 <pre><code>升级
     fedup --network 21
     或
@@ -460,9 +443,7 @@ gnome的快捷方式存放地址
     wget http://download.opensuse.org/repositories/GNOME:/Ayatana/Fedora_17/GNOME:Ayatana.repo
     yum install unity
 </code></pre>
-
 <h2 id="arch">arch</h2>
-
 <pre><code>设置
     ahci, secure boot, post behavious thorough
 源
@@ -529,11 +510,8 @@ yaourt
 字体
     wiki上找font configuration
 </code></pre>
-
-<h1 id="方案">方案</h1>
-
-<h2 id="高并发">高并发</h2>
-
+<h1 id="heading-6">方案</h1>
+<h2 id="heading-7">高并发</h2>
 <pre><code>查看当前TCP连接的状态和对应的连接数量：
     netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
         # TIME_WAIT占用端口会影响后继新连接
@@ -604,25 +582,31 @@ yaourt
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Nov 9, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/linux.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/linux.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -630,40 +614,34 @@ yaourt
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#文件位置">文件位置</a></li>
-<li><a href="#系统编程">系统编程</a>
-<ul>
-<li><a href="#进程通信">进程通信</a></li>
-<li><a href="#错误处理">错误处理</a></li>
-<li><a href="#fork">fork</a></li>
-<li><a href="#epoll">epoll</a></li>
-<li><a href="#signals">signals</a></li>
-<li><a href="#pf-kernel">pf-kernel</a></li>
-<li><a href="#libev">libev</a></li>
-</ul></li>
-<li><a href="#发行版">发行版</a>
-<ul>
-<li><a href="#centos">centos</a></li>
-<li><a href="#fedora">fedora</a></li>
-<li><a href="#arch">arch</a></li>
-</ul></li>
-<li><a href="#方案">方案</a>
-<ul>
-<li><a href="#高并发">高并发</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading-3">进程通信</a></li>
+    <li><a href="#heading-4">错误处理</a></li>
+    <li><a href="#fork">fork</a></li>
+    <li><a href="#epoll">epoll</a></li>
+    <li><a href="#signals">signals</a></li>
+    <li><a href="#pf-kernel">pf-kernel</a></li>
+    <li><a href="#libev">libev</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#centos">centos</a></li>
+    <li><a href="#fedora">fedora</a></li>
+    <li><a href="#arch">arch</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-7">高并发</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

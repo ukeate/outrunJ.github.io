@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="数据结构"><meta property="og:title" content="数据结构" />
+<meta property="og:description" content="线性 列表(list) 数组(array) # 相同数据类型元素的序列，下标(index)访问 low high 字符串 二进制串(binary string) # 位串(bit string) 链表(linked list) 节点(node) 指针(pointer) 表头(header) 单链表(singly linked list) 双链表(doubly linked list) 栈(stack) # 插入和删除只能在端部进行的列表，应用于递归 栈顶(top) LIFO last-in-first-out 队列(queue) 队头(front) 队尾(rear) 入队(enqueue) FIFO first-in-first-out 优先队列(priority queue) # 数据项多来自于全序域(常整数或实数) 查找最大元素，删除最大元素，插入新元素 堆(heap)实现  散列表 介绍 有序输入时，树效率低，如果不要求查找有序结果，可以用散列 概念 hash table hashing(散列) item(项) key(关键字) # 项中某部分 hash function(散列函数) # 映射函数 collsion(冲突) # 多个关键字散列到同项的状况 load factor(装填因子) # λ 元素个数对表长度的比， # 如果散列是均匀的，表示了一个项中关键字的平均长度 # 一次成功查找要遍历约1 &#43; (λ / 2)个链，1表示被匹配的项 rehashing(再散列) 一半时进行 直到插入失败再进行 middle-of-the-road # 到达某load factor时进行 caching the hash code(闪存散列代码) 算法 separate chaining(分离链接法) # 解决冲突 probing hash table(探测散列表) 线性探测法 primary clustering(聚集) # 线性探测法中形成数据区块 平方探测法 secondary clustering(二次聚集) # 模拟结果指出，对每次查找，会引起另外的少于一半的探测 double hashing(双散列) # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同 extendible hashing(可扩散列) D directory(目录) # 一个分区中bit的个数，所以M最多2^D 性质 # 基于位模式(bit patterm)是均匀分布的事实, 是&quot;分支系数(branch factor)&quot;, N 是记录总数(随时间变化) 树叶期望个数为(N/M)log(2)(e) 所以平均树叶满的程度为ln2 = 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/algorithm/data_structure/" />
+<meta property="article:published_time" content="2018-10-07T13:46:46+08:00" />
+<meta property="article:modified_time" content="2019-11-09T20:00:20+08:00" />
 <title>数据结构 | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f algorithm\2f data_structure\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="线性">线性</h1>
-
+<article class="markdown"><h1 id="heading">线性</h1>
 <pre><code>列表(list)
     数组(array)
         # 相同数据类型元素的序列，下标(index)访问
@@ -215,9 +222,7 @@ https://github.com/alex-shpak/hugo-book
             查找最大元素，删除最大元素，插入新元素
             堆(heap)实现
 </code></pre>
-
-<h2 id="散列表">散列表</h2>
-
+<h2 id="heading-1">散列表</h2>
 <pre><code>介绍
     有序输入时，树效率低，如果不要求查找有序结果，可以用散列
 概念
@@ -262,9 +267,7 @@ https://github.com/alex-shpak/hugo-book
             目录期望大小为O(N^(1 + 1 / M) / M)
         叶子可以指向实际记录的链表(内存装不下太大目录时)，这样得到实际数据就需要第二次磁盘访问
 </code></pre>
-
-<h2 id="队列">队列</h2>
-
+<h2 id="heading-2">队列</h2>
 <pre><code>介绍
     queue 先进先出
 概念
@@ -279,9 +282,7 @@ https://github.com/alex-shpak/hugo-book
         B0 = 2^0, B1 = 2^1, B2 = 2^2 ...
         Bn = B0 + B1 + ... B(n-1)
 </code></pre>
-
-<h1 id="集合">集合</h1>
-
+<h1 id="heading-3">集合</h1>
 <pre><code>概念
     set(集合)，互不相同项的无序组合(可空)
     element(元素)
@@ -305,9 +306,7 @@ https://github.com/alex-shpak/hugo-book
     S = {2, 3, 5, 7}
     S = {n: n 为小于0的质数}
 </code></pre>
-
-<h1 id="树">树</h1>
-
+<h1 id="heading-4">树</h1>
 <pre><code>概念
     tree
     free tree(自由树)，连通无回路的图
@@ -366,9 +365,7 @@ https://github.com/alex-shpak/hugo-book
         # 图变树的必要不充分条件，连通图变树的必要充分条件
     任意两个顶点间总存在简单路径，任选顶点可作根
 </code></pre>
-
-<h2 id="二叉树">二叉树</h2>
-
+<h2 id="heading-5">二叉树</h2>
 <pre><code>介绍
     binary tree
     常用顺序表或链表存储
@@ -409,9 +406,7 @@ https://github.com/alex-shpak/hugo-book
         # h 为高度, n为顶点数
 树转换二叉树
 </code></pre>
-
-<h2 id="堆">堆</h2>
-
+<h2 id="heading-6">堆</h2>
 <pre><code>概念
     binary heap(二叉堆、堆)
         # 一棵完全二叉树
@@ -461,9 +456,7 @@ https://github.com/alex-shpak/hugo-book
     heapsort(堆排序)
     merge(合并)
 </code></pre>
-
-<h1 id="图">图</h1>
-
+<h1 id="heading-7">图</h1>
 <pre><code>概念
     graph
     vertices(结点)
@@ -558,29 +551,34 @@ https://github.com/alex-shpak/hugo-book
     activity-node graph(动作节点图)
     event-node graph(事件节点图)
         slack time(松弛时间)
-        critical path(关键路径)
-</code></pre>
+        critical path(关键路径)</code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Nov 9, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/algorithm/data_structure.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/algorithm/data_structure.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -588,30 +586,24 @@ https://github.com/alex-shpak/hugo-book
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#线性">线性</a>
-<ul>
-<li><a href="#散列表">散列表</a></li>
-<li><a href="#队列">队列</a></li>
-</ul></li>
-<li><a href="#集合">集合</a></li>
-<li><a href="#树">树</a>
-<ul>
-<li><a href="#二叉树">二叉树</a></li>
-<li><a href="#堆">堆</a></li>
-</ul></li>
-<li><a href="#图">图</a></li>
-</ul>
+  <ul>
+    <li><a href="#heading-1">散列表</a></li>
+    <li><a href="#heading-2">队列</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-5">二叉树</a></li>
+    <li><a href="#heading-6">堆</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

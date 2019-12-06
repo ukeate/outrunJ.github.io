@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JavaWeb"><meta property="og:title" content="JavaWeb" />
+<meta property="og:description" content="基础 分层 视图层 jsp 控制层 servlet 业务层 过滤数据 manager层 封装第三方，service能力下沉，dao中间件 数据访问层对象 封装对象 数据库 java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  jsp 基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层 域对象 pageContext # 当前页面有效 request # 一次请求范围 session # 会话 application context # 同一服务器 内置对象 Request Response Session Out # 输出流 PageContext # context Page # jsp的this Exception # &lt;%@ page isErrorPage=&quot;true&quot;%&gt; 时使用，显示异常信息 Application # 服务器 Config # 服务器配置  jsp-el表达式 ${ } 11个内置对象 pageContext // pageContext page // map （相当于pageScope，不过写法上省略了Scope） requestScope // map sessionScope // map applicationScope // map param // map ,用${param." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/backend/javaweb/" />
+<meta property="article:published_time" content="2018-10-09T08:48:07+08:00" />
+<meta property="article:modified_time" content="2019-07-19T17:40:27+08:00" />
 <title>JavaWeb | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f backend\2fjavaweb\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>分层
     视图层         jsp
     控制层         servlet
@@ -210,9 +217,7 @@ java web 13种技术
     JavaMail
     JAF        JavaBeans Activation Framework
 </code></pre>
-
 <h2 id="jsp">jsp</h2>
-
 <pre><code>基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层
 域对象
     pageContext     # 当前页面有效
@@ -230,9 +235,7 @@ java web 13种技术
     Application     # 服务器
     Config          # 服务器配置
 </code></pre>
-
-<h3 id="jsp-el表达式">jsp-el表达式</h3>
-
+<h3 id="jsp-el">jsp-el表达式</h3>
 <pre><code>${  }
 11个内置对象
     pageContext    // pageContext
@@ -276,9 +279,7 @@ ${list[0]}&lt;br&gt;
     三元式（?:）
     简单的算术运算
 </code></pre>
-
-<h3 id="jsp-taglib标签库">jsp-taglib标签库</h3>
-
+<h3 id="jsp-taglib">jsp-taglib标签库</h3>
 <pre><code>jstl标签库1.1 或1.2
     标签库1.1中需要    jstl.jar 与 standard.jar 库
 可放入域scope的类型
@@ -588,9 +589,7 @@ xml标签库
             &lt;/fmt:message&gt;
         &lt;/fmt:bundle&gt;
 </code></pre>
-
-<h3 id="jsp动作标签">jsp动作标签</h3>
-
+<h3 id="jsp-1">jsp动作标签</h3>
 <pre><code>在JSP中的动作行为包括：Include、 Forward、 UseBean、 GetProperty、 SetProperty、 Plugin。
 
 一、Include行为
@@ -769,17 +768,13 @@ class=&quot;className&quot; | class=&quot;className&quot; type=&quot;typeName&qu
     当Jsp文件被编译，送往浏览器时，&lt;jsp:plugin&gt;元素将会根据浏览器的版本替换成&lt;object&gt;或者&lt;embed&gt;元素。注意，&lt;object&gt;用于HTML 4.0 ，&lt;embed&gt;用于HTML 3.2。
     一般来说，&lt;jsp:plugin&gt;元素会指定对象是Applet还是Bean,同样也会指定class的名字，还有位置，另外还会指定将从哪里下载这个Java插件。
 </code></pre>
-
-<h3 id="jsp函数">jsp函数</h3>
-
+<h3 id="jsp-2">jsp函数</h3>
 <pre><code>用response.getOutputStream返回数据（而非JspWriter）时，调用：
     # 如输出图片对象：ImageIO.write(image, &quot;jpeg&quot;, response.getOutputStream());
     out.clear();        # 清空 out
     out = pageContext.pushBody()    # 将图片对象的流从out输出，直到整个输出结束（接收方网页加载全部完成时）后才断开
 </code></pre>
-
-<h3 id="jsp基本">jsp基本</h3>
-
+<h3 id="jsp-3">jsp基本</h3>
 <pre><code>模板元素
 脚本
 &lt;%    %&gt;
@@ -844,9 +839,7 @@ class=&quot;className&quot; | class=&quot;className&quot; type=&quot;typeName&qu
     PageContext        _jspx_page_context = null;
                 _jspx_page_context = pageContext;
 </code></pre>
-
-<h3 id="jsp验证码">jsp验证码</h3>
-
+<h3 id="jsp-4">jsp验证码</h3>
 <pre><code>实例    # 在&lt;img&gt;标签的src属性中指定该jsp文件即可
 
     ## out.clear();out = pageContext.pushBody();两条语句的作用是
@@ -905,9 +898,7 @@ class=&quot;className&quot; | class=&quot;className&quot; type=&quot;typeName&qu
     out = pageContext.pushBody();    // 不按照jsp默认的getWriter()方法输出，用我们定义的流的方法进行输出
 %&gt;
 </code></pre>
-
-<h3 id="自定义标签">自定义标签</h3>
-
+<h3 id="heading-1">自定义标签</h3>
 <pre><code>1、JspTag 接口（标记接口，类以Serializable）
 2、Tag 接口（空标签，如&lt;img/&gt;）
     属性：
@@ -1102,9 +1093,7 @@ Jsp2.0
     ${cc:formatMyName(&quot;wangfei&quot;) }
     ${cc:add(12, 34) }
 </code></pre>
-
 <h2 id="jdbc">jdbc</h2>
-
 <pre><code>流程
     Class.forName()     # 加载驱动
     DriverManager.getConnection()
@@ -1135,9 +1124,7 @@ PreparedStatement
         分布式事务
         XAResource获得
 </code></pre>
-
 <h2 id="i18n">i18n</h2>
-
 <pre><code>页面需要获取用户信息，从数据库中取数据显示
 
 java类中试用：
@@ -1277,15 +1264,11 @@ ResourceBundle
 
     String str = messf.format(values);
 </code></pre>
-
-<h1 id="中间件">中间件</h1>
-
+<h1 id="heading-2">中间件</h1>
 <pre><code>顺序
     监听器 -&gt; 过滤器
 </code></pre>
-
-<h2 id="监听器">监听器</h2>
-
+<h2 id="heading-3">监听器</h2>
 <pre><code>分类
     ServletContextListener
     ServletContextAttributeListener
@@ -1322,9 +1305,7 @@ web.xml 注册在过滤器后面，servlet前面
         }
     }
 </code></pre>
-
-<h2 id="过滤器">过滤器</h2>
-
+<h2 id="heading-4">过滤器</h2>
 <pre><code>web.xml
     &lt;filter&gt;
         &lt;filter-name&gt;testFilter
@@ -1514,29 +1495,34 @@ api
                     # 默认是request，当加上其它参数时（如include），request会没有，所以要加两个forward,request
                     ## 是指向里面以该方法请求的时候进行过滤
 </code></pre>
-
 <h2 id="struts2">struts2</h2>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified by shenwenqing | Jul 19, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Jul 19, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/javaweb.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/javaweb.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1544,39 +1530,36 @@ api
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a>
-<ul>
-<li><a href="#jsp">jsp</a>
-<ul>
-<li><a href="#jsp-el表达式">jsp-el表达式</a></li>
-<li><a href="#jsp-taglib标签库">jsp-taglib标签库</a></li>
-<li><a href="#jsp动作标签">jsp动作标签</a></li>
-<li><a href="#jsp函数">jsp函数</a></li>
-<li><a href="#jsp基本">jsp基本</a></li>
-<li><a href="#jsp验证码">jsp验证码</a></li>
-<li><a href="#自定义标签">自定义标签</a></li>
-</ul></li>
-<li><a href="#jdbc">jdbc</a></li>
-<li><a href="#i18n">i18n</a></li>
-</ul></li>
-<li><a href="#中间件">中间件</a>
-<ul>
-<li><a href="#监听器">监听器</a></li>
-<li><a href="#过滤器">过滤器</a></li>
-<li><a href="#struts2">struts2</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#jsp">jsp</a>
+      <ul>
+        <li><a href="#jsp-el">jsp-el表达式</a></li>
+        <li><a href="#jsp-taglib">jsp-taglib标签库</a></li>
+        <li><a href="#jsp-1">jsp动作标签</a></li>
+        <li><a href="#jsp-2">jsp函数</a></li>
+        <li><a href="#jsp-3">jsp基本</a></li>
+        <li><a href="#jsp-4">jsp验证码</a></li>
+        <li><a href="#heading-1">自定义标签</a></li>
+      </ul>
+    </li>
+    <li><a href="#jdbc">jdbc</a></li>
+    <li><a href="#i18n">i18n</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-3">监听器</a></li>
+    <li><a href="#heading-4">过滤器</a></li>
+    <li><a href="#struts2">struts2</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

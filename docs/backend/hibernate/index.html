@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hibernate"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载  优化 数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略  基本概念： o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  使用 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/backend/hibernate/" />
+
 <title>Hibernate | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +38,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +59,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f backend\2fhibernate\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +76,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +87,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +103,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +193,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>优点
     完全面向对象编程思想，无sql
     减少代码
@@ -242,9 +248,7 @@ get与load
     延迟检索        # 访问游离状态代理类，需要在持久化状态时已被初始化
     迫切左外连接检索 # 用外连接取代select，全加载
 </code></pre>
-
-<h1 id="优化">优化</h1>
-
+<h1 id="heading-1">优化</h1>
 <pre><code>数据库设计调整
 HQL优化
 api正确使用
@@ -253,9 +257,7 @@ api正确使用
 一级缓存管理, 二级缓存策略
 事务控制策略
 </code></pre>
-
-<h1 id="基本概念">基本概念：</h1>
-
+<h1 id="heading-2">基本概念：</h1>
 <pre><code>o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题
 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想)
     DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准
@@ -270,9 +272,7 @@ o-&gt; 结构对应 javabean中的 类，对象，属性
 o-&gt; hql        hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用
 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
 </code></pre>
-
-<h1 id="使用">使用</h1>
-
+<h1 id="heading-3">使用</h1>
 <pre><code>1.导入核心包(10 + 1个)
     hibernate3.jar                                # 核心包
     c3p0-0.9.1.jar
@@ -286,7 +286,7 @@ o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
     slf4j-log4j12.jar                        # 三个日志
     +
     mysql-connector-java-5.1.7.bin.jar
-
+        
 2.建立目录
     hibernate.dao
             demo.java
@@ -307,9 +307,7 @@ o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
 6.demo中用hibernate session创建事务进行数据库操作
     demo.java
 </code></pre>
-
 <h1 id="session">session</h1>
-
 <pre><code>查询不需要事务，其它都需要事务
 
 流程
@@ -319,23 +317,23 @@ o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
     session.update(hero);
     session.delete(hero);
     t.comment();
-
+    
 批量
     t.begin();
     session.save(hero);
     t.commit();
     session.clear();
-
+    
     查询
     Query query = session.createQuery(hql);
     List&lt;Hero&gt; heroList = query.list();
-
+    
     查询2
     Query query = session.createQuery(hql);
     query.setString(0,name);                // hql中参数从0开始
     query.setString(1,des);
     Hero hero = (Hero) query.uniqueResult();        // 只有一个结果时使用
-
+    
     修改
     Query query = session.createQuery(hql);
     int i = query.executeUpdate();
@@ -347,7 +345,7 @@ o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean
     }finally{
             HibernateUtil.closeSession(); // session.close();
     }
-
+        
 session
     元素的状态
         # oid: object id,hibernate 的id值唯一并且与表中的数据一一对应
@@ -377,9 +375,7 @@ session
                                                 ## ,同时会连接数据库，查询一级缓存中po与数据库中记录的一一对应关系
         session.commit()    # flush() + 提交事务
 </code></pre>
-
-<h1 id="hibernate-cfg-xml">hibernate.cfg.xml</h1>
-
+<h1 id="hibernatecfgxml">hibernate.cfg.xml</h1>
 <pre><code>必要性
         必须配置
 
@@ -396,15 +392,15 @@ session
                                                                                         ## 所以属性内容从hibernate.properties文件的属性中查找
         方言类的位置是：hibernate3.jar/org.hibernate/dialect/中查找到相应的类，
                 这是最终的路径，（oracle的通用方言类的类路径 可以用这种方法找到，hibernate.properties配置文件中没有写）
-
+        
 加载
         该配置文件属于纯人为配置，需要在Configuration类的实例中调用addResource(&quot;&quot;)方法加载
         addResource()方法中的参数是本配置文件相对于src/目录的全限定名
-
+        
 作用
         1.映射数据库
         2.配置 类-表映射 资源xml文件的路径
-
+        
 内容
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE hibernate-configuration PUBLIC
@@ -424,9 +420,7 @@ session
         &lt;/session-factory&gt;
 &lt;/hibernate-configuration&gt;
 </code></pre>
-
-<h1 id="hibernate-properties">hibernate.properties</h1>
-
+<h1 id="hibernateproperties">hibernate.properties</h1>
 <pre><code>必要性
         不必须配置
 位置：
@@ -435,7 +429,7 @@ session
 源码中的参考文件：
         /project/etc/hibernate.properties
                 # oracle的通用驱动可以从hibernate3.jar/org.hibernate/dialect包中查找
-
+        
 作用
         1.配置连接的数据库，更换数据库只需要更改配置文件即可
         2.配置数据库方言
@@ -459,9 +453,7 @@ session
         hibernate.cache.provider_class                # 开启二级缓存中的普通区           
         hibernate.cache.use_query_cache                # 开启二级缓存中的查询区
 </code></pre>
-
 <h1 id="hibernateutil">HibernateUtil</h1>
-
 <pre><code>目的
         对SessionFactory返回Session的方式进行了重构，通过调用该静态工具方法
         实现只有一个SessionFactory实例，由它产生和销毁很多Session的工厂机制。
@@ -475,7 +467,7 @@ session
 SessionFactory对象与Session对象
         SessionFactory:只创建一次，重量级对象，线程安全，可以共享，实例变量，开始时创建 
         Session:创建多次，轻量级对象，线程不安全，不可以共享，局部变量，临时创建 
-
+        
 
 实现代码
 /**
@@ -528,7 +520,7 @@ public final class HibernateUtil {
         * 
         */
         public static void closeSession(){
-
+                
                 Session session = threadLocal.get();
                 if(session != null){
                         session.close();
@@ -537,9 +529,7 @@ public final class HibernateUtil {
         }
 }
 </code></pre>
-
 <h1 id="hql">hql</h1>
-
 <pre><code>hql特性
     1.hql是hibernate专用，有专用的技术转换hql到sql,但降低效率
     2.hql完全面向对象,只出现类，属性，操作符和关键字,例如sum(),order by
@@ -558,7 +548,7 @@ public final class HibernateUtil {
         分页
                 query.setFirstResult(0);        # 开始标号
                 setMaxResults(3);              # 最多显示的条数
-
+        
 query语句                习惯用别名替代类名
                 # from后面出现的是类名，where中比较的是对象属性（已经在映射文件中映射到了表名与字段名）
         占位符
@@ -600,17 +590,13 @@ query语句                习惯用别名替代类名
         三级级联抓取                # 对抓取的集合也可以直接抓取下一层
                 FROM Account a LEFT JOIN FETCH a.roleSet r LEFT JOIN FETCH r.privilegeSet WHERE a.login = :login AND a.pass = :pass
 </code></pre>
-
-<h1 id="案例">案例</h1>
-
+<h1 id="heading-4">案例</h1>
 <pre><code>编码
     hibernate用用户操作系统的编码作为自己的编码
 
     mysql5.5中设置编码：根目录下my文件 default-character-set=gbk
 </code></pre>
-
-<h1 id="查询">查询</h1>
-
+<h1 id="heading-5">查询</h1>
 <pre><code>hibernate的查询方式
     1.session.get(字节码,1)
     2.session.load(字节码,1)
@@ -637,9 +623,7 @@ query语句                习惯用别名替代类名
         自连接
             select a.name, b.name from emp a, emp b where a.mgr=b.id;
 </code></pre>
-
-<h1 id="多表映射">多表映射</h1>
-
+<h1 id="heading-6">多表映射</h1>
 <pre><code>主控方                # 就是只有主控方的操作成立，非主控方的改变忽略
         inverse=&quot;true&quot;
                 # false:主表管理，主表插入成功后，再发送n条更新语句来更新外键
@@ -665,7 +649,7 @@ query语句                习惯用别名替代类名
                         &lt;many-to-one&gt;
         注意
                 级联插入的子表的id内容要为空，否则会变成级联更新                # 这里和单个数据插入时设置对象的id属性不起作用【只有hibernate的主键增长策略起作用】是不同的
-
+                
 单向一对多                        # 集合映射的一种
         “一”的类中
                 private Set&lt;Order&gt; orderSet = new LinkedHashSet&lt;Order&gt;();
@@ -699,7 +683,7 @@ query语句                习惯用别名替代类名
                         column=&quot;CUSTOMERS_ID&quot; 
                         cascade=&quot;all&quot;
                 /&gt;
-
+        
 双向一对多  # 双向映射就存在主控方的问题  
                 ##　主表从表（外键【可以为空】）        
                 ## 集合映射的应用
@@ -710,7 +694,7 @@ query语句                习惯用别名替代类名
     1.两表都配置&lt;one-to-one/&gt;
     2.主表配置cascade
         3.从表中constrained=true属性（主键是否同时为外键约束）
-
+        
 多对多（单向左到右，单向右到左，双向）                # 集合映射的应用
                                                                 ## 多对多关系中一定要有主控方，否则主键冲突问题
         1.创建中间表  
@@ -734,7 +718,7 @@ query语句                习惯用别名替代类名
                         # 不手工解除关系的话， 表记录对象：Teacher t1
                                 ，t1删除时,级联删除middle表中数据，middle表中对应了学生的外键
                                 ，由于多对一级联，会删除学生，由于该学生的主键可能会被middle表中的其它记录作为外键引用，所以不能删除，删除时会出错。 
-
+                
                 查询1号老师对应的学生,并解除关系 
                         Teacher t1
                         for(Student s: t1.getStudentSet()){
@@ -744,15 +728,13 @@ query语句                习惯用别名替代类名
                         t1.setStudentSet(null);
                         session.delete(t1);
 </code></pre>
-
-<h1 id="缓存">缓存</h1>
-
+<h1 id="heading-7">缓存</h1>
 <pre><code>缓存        
         1.一级缓存(session)中的数据是独享的，二级缓存(sessionFactory)中的数据是共享的
         2.一级缓存中的数据改变时会更新二级缓存(如果二级缓存设置为read-only时，会更新出错)
         3.二级缓存默认不能存po(持久化对象) ，只存放连接数据库的信息和映射文件 
                 # 这时查询数据时的顺序是 一级缓存 -&gt; 数据库
-
+                
 启用二级缓存                # 开启的二级缓存中可以保存po
                                 ## 二级缓存的两个空间：普通缓存区(get、load)、查询缓存区(query对象查询)
         普通缓存区
@@ -799,9 +781,7 @@ query语句                习惯用别名替代类名
         一级缓存：session.clear();
         二级缓存：sessionFactory.close();
 </code></pre>
-
-<h1 id="集合映射">集合映射</h1>
-
+<h1 id="heading-8">集合映射</h1>
 <pre><code>作用
         集合包含于表类中，对应其一个属性，相当于该类对应表的一个子表
         每种集合对应一张表，内容对应记录。
@@ -828,9 +808,7 @@ query语句                习惯用别名替代类名
         dao中使用
                 user.getTelSet().add(&quot;131&quot;);
 </code></pre>
-
-<h1 id="检索策略">检索策略</h1>
-
+<h1 id="heading-9">检索策略</h1>
 <pre><code>hibernate检索的两种类型
         立刻检索:session.get,query.list        &lt;class lazy=&quot;true&quot;&gt;标签中类的检索策略，get方法与list都不遵循
         延迟检索:session.load      # 初始时是代理对象,使用时查询  只有load方法遵循&lt;class lazy=&quot;true&quot;&gt;标签中类的检索策略
@@ -845,21 +823,19 @@ query语句                习惯用别名替代类名
                 false false 时    查类时查集合
                 true false 时    查类时没有查集合
 </code></pre>
-
-<h1 id="经验">经验</h1>
-
+<h1 id="heading-10">经验</h1>
 <pre><code>删除的两种方法 
         session.delete(session.get(Category.class,id));    # 先查询再删除，效率低
     session.createQuery(&quot;delete Categroy c where c.id=:id&quot;).setInteger(&quot;id&quot;,id).executeUpdate();
                     # 执行hql语句，效率高
-
+                    
 hibernate注解
         hibernate3.6支持注解
                 javaee5不支持，默认关闭
                 javaee6支持，默认开启，此时不加载注解配置文件会报错，所以要关掉
                         hibernate.cfg.xml中
                         &lt;property name=&quot;javax.persistence.validation.mode&quot;&gt;none&lt;/property&gt;
-
+                        
 DB Browser反射编译表的生成映射文件和类的时候，会生成项目目录下hibernate.reveng.xml的临时配置文件，可以删掉
 
 映射文件class属性
@@ -868,9 +844,7 @@ DB Browser反射编译表的生成映射文件和类的时候，会生成项目�
 映射文件set标签属性
         Order-by=&quot;id&quot;                                # set中级联对象按照&quot;id&quot;属性进行排序
 </code></pre>
-
 <h1 id="c3p0">c3p0</h1>
-
 <pre><code>c3p0并不是hibernate默认的连接池（默认的是hibernate自带的连接池算法）
         配置c3p0以后自动关闭Hibernate自带的连接池，而使用c3p0连接池
 
@@ -896,9 +870,7 @@ hibernate.properties文件中
         hibernate.c3p0.timeout=1800 
         hibernate.c3p0.max_statements=50 
 </code></pre>
-
-<h1 id="映射">映射</h1>
-
+<h1 id="heading-11">映射</h1>
 <pre><code>hbm.xml
     位置与名称：
             domain.xx.java 文件同级目录 xx.hbm.xml
@@ -906,7 +878,7 @@ hibernate.properties文件中
     约束文件位置
             hibernate3.jar/org/hibernate/hibernate-mapping-3.0.dtd
             从其中复制约束头
-
+            
     源码中的案例文件
             \project\tutorials\中搜索 hbm.xml
 
@@ -914,7 +886,7 @@ hibernate.properties文件中
             1.映射JavaBean到表字段（动态占位符），可以使用面向对象的hql语名生成sql语句
             2.session中保存类对象，缓存查询过的表的内容
             3.在映射关系的xml文件中可以设置主键的改变方式（这样以后dao类中设置的主键内容被配置文件中的设置覆盖）
-
+            
     主键
             表中的主键
                     自然主键：有业务逻辑含义的字段（如name）（多个自然主键：联合主键）
@@ -979,25 +951,31 @@ javaBean
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified Jul 19, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 19, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified by shenwenqing | Jul 19, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Jul 19, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/hibernate.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/hibernate.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1005,36 +983,14 @@ javaBean
     
   
 
-  <aside class="book-toc level-6 fixed">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#优化">优化</a></li>
-<li><a href="#基本概念">基本概念：</a></li>
-<li><a href="#使用">使用</a></li>
-<li><a href="#session">session</a></li>
-<li><a href="#hibernate-cfg-xml">hibernate.cfg.xml</a></li>
-<li><a href="#hibernate-properties">hibernate.properties</a></li>
-<li><a href="#hibernateutil">HibernateUtil</a></li>
-<li><a href="#hql">hql</a></li>
-<li><a href="#案例">案例</a></li>
-<li><a href="#查询">查询</a></li>
-<li><a href="#多表映射">多表映射</a></li>
-<li><a href="#缓存">缓存</a></li>
-<li><a href="#集合映射">集合映射</a></li>
-<li><a href="#检索策略">检索策略</a></li>
-<li><a href="#经验">经验</a></li>
-<li><a href="#c3p0">c3p0</a></li>
-<li><a href="#映射">映射</a></li>
-</ul>
-</nav>
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

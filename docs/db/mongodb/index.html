@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mongodb"><meta property="og:title" content="Mongodb" />
+<meta property="og:description" content="特点  数据结构json(bson) 易写入，易修改 c&#43;&#43;编写 分布式 介于关系数据库 和 非关系数据库之间 查询语句强 支持索引 bson格式  注意  document不能大于4Mb 可以非安全模式异步马上成功 每个连接用队列存储命令  数据结构定义  collection # 表 document # 记录 field(key, value) # 字段(field)与值(value) 与关系型数据库的区别 document中的field不要key俱全或一样 find()命令查询  bson的数据类型  ＃bson 是json的扩展 # 增加了数据类型 # 把json数据转换成二进制码存到文件 null boolean undefined 数组 # 如{gps: [20, 56]} 32位和64位整数 # shell中不支持 ## node.js python java等高级语言的驱动中支持 64位浮点 # shell使用的全是这种类型, 如{x:3.14} utf-8 # 字符串类型 ObjectID Date # 如{x:new Date()} 正则 # 如{x:/uspcat/i} javascript块代码 # 如{x:function(){}} ## 相当于存储过程 内嵌文档 # 如{x: {xx: &quot;a&quot;}} 二进制 # shell中不能使用  ObjectId  大小 12字节 显示为24个十六进制字符 # 空间换时间的思想 细节 前4字节是unix时间戳 后3字节集群machine hash 后2字节pid 后3字节inc自增计数器, 在前面都相等时全局自增  命名  数据库与集合名 不能是空字符串 特殊字符 &#39; (空格) , $ / \ \0 应该全小写 小于64字节 数据库名不与保留库名相同，如 admin, local, config 集合名 db-text合法，但不能db." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/db/mongodb/" />
+<meta property="article:published_time" content="2018-10-11T16:00:15+08:00" />
+<meta property="article:modified_time" content="2019-06-17T13:24:09+08:00" />
 <title>Mongodb | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f db\2fmongodb\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="特点">特点</h1>
-
+<article class="markdown"><h1 id="heading">特点</h1>
 <pre><code>    数据结构json(bson)
     易写入，易修改
     c++编写
@@ -197,16 +204,12 @@ https://github.com/alex-shpak/hugo-book
     支持索引
     bson格式
 </code></pre>
-
-<h1 id="注意">注意</h1>
-
+<h1 id="heading-1">注意</h1>
 <pre><code>    document不能大于4Mb
     可以非安全模式异步马上成功
     每个连接用队列存储命令
 </code></pre>
-
-<h1 id="数据结构定义">数据结构定义</h1>
-
+<h1 id="heading-2">数据结构定义</h1>
 <pre><code>    collection                                        # 表
             document                                # 记录
                     field(key, value)                # 字段(field)与值(value)
@@ -214,9 +217,7 @@ https://github.com/alex-shpak/hugo-book
             document中的field不要key俱全或一样
             find()命令查询
 </code></pre>
-
-<h1 id="bson的数据类型">bson的数据类型</h1>
-
+<h1 id="bson">bson的数据类型</h1>
 <pre><code>    ＃bson 是json的扩展
      # 增加了数据类型
      # 把json数据转换成二进制码存到文件
@@ -236,9 +237,7 @@ https://github.com/alex-shpak/hugo-book
     内嵌文档                        # 如{x: {xx: &quot;a&quot;}}
     二进制                                # shell中不能使用
 </code></pre>
-
 <h1 id="objectid">ObjectId</h1>
-
 <pre><code>    大小
             12字节
             显示为24个十六进制字符
@@ -249,9 +248,7 @@ https://github.com/alex-shpak/hugo-book
             后2字节pid
             后3字节inc自增计数器, 在前面都相等时全局自增
 </code></pre>
-
-<h1 id="命名">命名</h1>
-
+<h1 id="heading-3">命名</h1>
 <pre><code>    数据库与集合名
             不能是空字符串
             特殊字符
@@ -267,9 +264,7 @@ https://github.com/alex-shpak/hugo-book
             可以a.b来命名来划分子集合
                     不能以system.开头命名
 </code></pre>
-
 <h1 id="api">api</h1>
-
 <pre><code>collection
         增
                 save
@@ -429,9 +424,7 @@ ttl(time to live)
         })
                 # 插入的这条数据在July 22, 2013 14:00:00删除
 </code></pre>
-
 <h2 id="aggregate">aggregate</h2>
-
 <pre><code>mapReduce(
         function() {emit(this.cust_id, this.amount);},
                 # map
@@ -489,9 +482,7 @@ aggregate([
             }
     }])
 </code></pre>
-
 <h2 id="expressions">expressions</h2>
-
 <pre><code>$and
 $or
 $not
@@ -550,9 +541,7 @@ $within
 $box
 $center
 </code></pre>
-
-<h2 id="对象">对象</h2>
-
+<h2 id="heading-4">对象</h2>
 <pre><code>全局函数
         printjson
         connect('localhost:27017/mydb')
@@ -565,9 +554,7 @@ $center
                 next()
                 forEach
 </code></pre>
-
-<h2 id="复制">复制</h2>
-
+<h2 id="heading-5">复制</h2>
 <pre><code>复制
         mongod --master --oplogSize 100
         mongod --slave --source localhost:27017
@@ -609,9 +596,7 @@ $center
         db.addUser('name', 'pwd')
                 # 复制认证时用
 </code></pre>
-
-<h2 id="分片">分片</h2>
-
+<h2 id="heading-6">分片</h2>
 <pre><code>mongods --port 3000 --configdb localhost:27017
         # 多个地址用,隔开
         # 每个片都就是副本集
@@ -624,9 +609,7 @@ db.runCommand({shardcollection: 'db1.user', key: {_id: 1}})
 db.printShardingStatus()
 db.runCommand({removeshard: 'localhost:27017'})
 </code></pre>
-
 <h1 id="shell">shell</h1>
-
 <pre><code>mongo 127.0.0.1:27017/admin
         # 启动sell , 默认数据库为test
 mongod –port 10000 –fork –logpath= logpath=/data/mongodb/log/mongodb.log -- logappend -- dbpath=/data/mongodb/data/db –config ~/.mongodb.conf 
@@ -675,9 +658,7 @@ mongofiles put foo.txt
 mongostat
         # 实时输出mongo状态
 </code></pre>
-
 <h1 id="java-client">java client</h1>
-
 <pre><code>1.导入mongo-java-drver-2.9.3.jar
 2.api
         Mongo m = new Mongo(&quot;localhost&quot;, 27017);
@@ -742,25 +723,31 @@ mongostat
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified Jun 17, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jun 17, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Jun 17, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/mongodb.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/mongodb.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -768,34 +755,22 @@ mongostat
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#特点">特点</a></li>
-<li><a href="#注意">注意</a></li>
-<li><a href="#数据结构定义">数据结构定义</a></li>
-<li><a href="#bson的数据类型">bson的数据类型</a></li>
-<li><a href="#objectid">ObjectId</a></li>
-<li><a href="#命名">命名</a></li>
-<li><a href="#api">api</a>
-<ul>
-<li><a href="#aggregate">aggregate</a></li>
-<li><a href="#expressions">expressions</a></li>
-<li><a href="#对象">对象</a></li>
-<li><a href="#复制">复制</a></li>
-<li><a href="#分片">分片</a></li>
-</ul></li>
-<li><a href="#shell">shell</a></li>
-<li><a href="#java-client">java client</a></li>
-</ul>
+  <ul>
+    <li><a href="#aggregate">aggregate</a></li>
+    <li><a href="#expressions">expressions</a></li>
+    <li><a href="#heading-4">对象</a></li>
+    <li><a href="#heading-5">复制</a></li>
+    <li><a href="#heading-6">分片</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

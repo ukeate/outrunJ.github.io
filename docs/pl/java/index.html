@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Java"><meta property="og:title" content="Java" />
+<meta property="og:description" content="基础 历史 1991.4 Oak 1995.5 Java1.0 &quot;Write Once, Run Anywhere&quot; 1996.1 JDK1.0, 纯解释型JVM(Sun Classic VM), Applet, AWT 1996.5 JavaOne大会 1997.2 JDK1.1, JDBC, JAR文件格式, JavaBeans, RMI, 内部类(Inner Class), 反射(Reflection) 1998.12 JDK1.2, 分出J2SE、J2EE、J2ME。JVM内置JIT, EJB, Java Plug-in, Java IDL, Swing, Collections, strictfp关键字 1999.4 JVM HotSpot 2000.5 JDK1.3, 数学运算, Timer, JNDI成为平台服务, CORBA IIOP实现RMI, 2D API, JavaSound 2002.2 JDK1.4, 成熟版本，多公司参与。正则, 异常链, NIO, 日志类, XML, XSLT # .NET发布 2004.9 JDK1.5, 自动装箱, 泛型, 动态注解, 枚举, 变长参数, foreach, 改进内存模型JMM(Java Memory Model), concurrent包 2006." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/pl/java/" />
+<meta property="article:published_time" content="2018-10-09T08:48:07+08:00" />
+<meta property="article:modified_time" content="2019-09-24T08:48:46+08:00" />
 <title>Java | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2fpl\2fjava\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>历史
     1991.4 Oak
     1995.5 Java1.0 &quot;Write Once, Run Anywhere&quot;
@@ -261,9 +268,7 @@ JRE(java runtime environment)
     Java SE(Standard Edition)        # 以前叫J2SE, 桌面应用, 完整API
     Java EE(Enterprise Edition)      # 企业应用(ERP, CRM), 扩充API(javax包, 有些合入了JavaSE), 部署支持
 </code></pre>
-
-<h1 id="命令与工具">命令与工具</h1>
-
+<h1 id="heading-1">命令与工具</h1>
 <pre><code>bin目录
     javac           #  编译器
     java            #  解释器
@@ -290,11 +295,8 @@ JRE(java runtime environment)
     MAT (Memory Analyzer)
         # eclipse MAT插件分析dump文件
 </code></pre>
-
-<h1 id="语法">语法</h1>
-
-<h2 id="基础-1">基础</h2>
-
+<h1 id="heading-2">语法</h1>
+<h2 id="heading-3">基础</h2>
 <pre><code>类型
     基本类型
         # 作为面向对象语言，为了方便引入了基本类型
@@ -518,9 +520,7 @@ JRE(java runtime environment)
         JVM及语言的安全特性
         安全管理器与java api
 </code></pre>
-
-<h2 id="异常">异常</h2>
-
+<h2 id="heading-4">异常</h2>
 <pre><code>异常机制
     运行时出现错误，控制权交给异常处理器
     方法立即结束，抛出一个异常对象。调用该方法的程序停止，搜索处理代码
@@ -562,9 +562,7 @@ Error
     java.sql.BatchUpdateException       # sql批处理
     com.mysql.jdbc.MysqlDataTruncation      # mysql 插入数据被截断,插入数据过长时遇到
 </code></pre>
-
-<h2 id="注解">注解</h2>
-
+<h2 id="heading-5">注解</h2>
 <pre><code># annotation (1.5特性)
 jdk的注解
     @SuppressWarnings(&quot;deprecation&quot;)        # 压制警告
@@ -618,9 +616,7 @@ jdk的注解
         double finished() default 0;
     }
 </code></pre>
-
-<h2 id="版本特性">版本特性</h2>
-
+<h2 id="heading-6">版本特性</h2>
 <pre><code>java8
     接口中可以定义静态方法与默认方法
         不能重写equals，hashCode或toString的默认实现。
@@ -682,11 +678,8 @@ java5
         HashMap的替代者ConcurrentHashMap
         ArrayList的替代者CopyOnWriteArrayList
 </code></pre>
-
 <h1 id="api">api</h1>
-
 <h2 id="object">Object</h2>
-
 <pre><code>clone()
     # 开始与new相同分配内存, 然后填充对象的域。是浅拷贝
     深拷贝
@@ -715,9 +708,7 @@ wait()
 notify()
 notifyAll()
 </code></pre>
-
-<h2 id="系统">系统</h2>
-
+<h2 id="heading-7">系统</h2>
 <pre><code>System
     currentTimeMillis();
         # Clock.systemDefaultZone().millis()  # java8
@@ -741,15 +732,11 @@ Scanner
 Cloneable接口
     clone()
 </code></pre>
-
-<h2 id="包装类型">包装类型</h2>
-
+<h2 id="heading-8">包装类型</h2>
 <pre><code>parseXxx(String)    # 从字符串转换
 valueOf(String)     # 从字符串转换
 </code></pre>
-
 <h2 id="string">String</h2>
-
 <pre><code># final类，不可继承
 length()
     # String length是方法, 数组length是属性
@@ -780,9 +767,7 @@ replaceAll()
     intern()
         # 返回常量池中的引用(String对象equals池中某对象为true)，没有时添加
 </code></pre>
-
-<h3 id="正则">正则</h3>
-
+<h3 id="heading-9">正则</h3>
 <pre><code>Pattern
 [abc]
 [^abc]
@@ -858,15 +843,11 @@ Special constructs (non-capturing)
             System.out.println(m1.group().replaceAll(&quot;[()]&quot;, &quot;&quot;));
         }
 </code></pre>
-
 <h2 id="math">Math</h2>
-
 <pre><code>round
     # 四舍五入, -11.5得到11
 </code></pre>
-
-<h2 id="时间">时间</h2>
-
+<h2 id="heading-10">时间</h2>
 <pre><code>java8的新时间类实现JSR-310
     特点
         不变性, 内部状态不变、线程安全
@@ -1021,9 +1002,7 @@ Chronology  # java8 年表
     ZonedDateTime gCalendarDateTime = new GregorianCalendar().toZonedDateTime()
     GregorianCalendar gCalendar = GregorianCalendar.from(gCalendarDateTime)
 </code></pre>
-
-<h2 id="数组">数组</h2>
-
+<h2 id="heading-11">数组</h2>
 <pre><code>length
     属性
 newInstance()
@@ -1031,9 +1010,7 @@ newInstance()
         T[] = (T[]) new Object[0];
         (T[]) Array.newInstance(type, size);
 </code></pre>
-
-<h2 id="枚举">枚举</h2>
-
+<h2 id="heading-12">枚举</h2>
 <pre><code># 枚举类型的比较取决于声明顺序
 举类的实现类
     java.lang.Enum&lt;E&gt; extends Object
@@ -1201,9 +1178,7 @@ newInstance()
     java.util.EnumSet    # 集合中的元素不重复
     java.util.EnumMap    # key是enum类型，而value则可以是任意类型。
 </code></pre>
-
 <h2 id="collection">Collection</h2>
-
 <pre><code>继承结构
     &lt;&lt;Collection&gt;&gt;
         &lt;&lt;Queue&gt;&gt;
@@ -1355,9 +1330,7 @@ Collections
     synchronizedMap()
     synchronizedSet()
 </code></pre>
-
-<h2 id="流">流</h2>
-
+<h2 id="heading-13">流</h2>
 <pre><code>函数流特点
     Iterator是外部迭代，串行化操作。Stream是内部迭代, 自动并行处理
     方法分惰性和及早执行
@@ -1497,9 +1470,7 @@ Serializable接口
         return (T)ois.readObject()
     }
 </code></pre>
-
-<h2 id="并行">并行</h2>
-
+<h2 id="heading-14">并行</h2>
 <pre><code>线程通信
     共享变量
     wait(), notify()实现生产和消费通知
@@ -1722,9 +1693,7 @@ java.util.concurrent.locks     # 锁
         await()
         signal()
 </code></pre>
-
-<h2 id="内省">内省</h2>
-
+<h2 id="heading-15">内省</h2>
 <pre><code># IntroSpector，操作javabean
 例子
     Point p = new Point();
@@ -1743,9 +1712,7 @@ java.util.concurrent.locks     # 锁
         }
     }
 </code></pre>
-
-<h2 id="反射">反射</h2>
-
+<h2 id="heading-16">反射</h2>
 <pre><code># 类中成分映射为类
 字节码
     Class类型对象指向类加载器中加载的字节码
@@ -1851,9 +1818,7 @@ Proxy   # 只代理有接口的类
     })
     proxyInstance.add(1)
 </code></pre>
-
 <h2 id="web-service">web service</h2>
-
 <pre><code>常识
     基于socket                # socket可以跨语言访问
         # 单用socket提供网络服务出现的问题：
@@ -1969,9 +1934,7 @@ wsdl
     @WebResult(name=&quot;&quot;)     # 方法返回值类型前，指定返回值名（如果返回的是集合，则指定的是集合内元素的名）
     @WebParam(name=&quot;&quot;)     # 方法参数值类型前，指定参数名
 </code></pre>
-
-<h2 id="框架">框架</h2>
-
+<h2 id="heading-17">框架</h2>
 <pre><code>cglib
     # 构造接口
 dbutils
@@ -1980,11 +1943,8 @@ fastjson
 beanUtils
 ioUtils
 </code></pre>
-
 <h1 id="jvm">jvm</h1>
-
-<h2 id="基础-2">基础</h2>
-
+<h2 id="heading-18">基础</h2>
 <pre><code>继承
     被继承的对象是会单例，不会新创建。如果被继承的对象没有，则创建一个
 多态
@@ -2081,9 +2041,7 @@ ioUtils
 JIT(just in time)
     # 热点代码检测, 运行时编译和优化
 </code></pre>
-
-<h2 id="类加载器">类加载器</h2>
-
+<h2 id="heading-19">类加载器</h2>
 <pre><code>父亲委派机制(java2)
     # 常用类不被替代
     先试上层类加载器
@@ -2171,9 +2129,7 @@ servlet部署
     输出Servlet.class的jar与servlet-api.jar到jdk/lib/ext
         # 因为servlet.class加载的时候需要HttpServlet类，该类在tomcat提供的servlet-api.jar
 </code></pre>
-
-<h1 id="规范">规范</h1>
-
+<h1 id="heading-20">规范</h1>
 <pre><code>命名与写法
     包名 小写、只用一个单词、只用单数
     类名 UpperCamelCase
@@ -2424,11 +2380,8 @@ mysql
 服务器
     JVM设置- XX :+ HeapDumpOnOutOfMemoryError, OOM时输出dump信息
 </code></pre>
-
-<h1 id="模式">模式</h1>
-
-<h2 id="单例-singleton">单例(singleton)</h2>
-
+<h1 id="heading-21">模式</h1>
+<h2 id="singleton">单例(singleton)</h2>
 <pre><code>确保只有一个实例
     # 大多有资源管理器的功能
     # 反射机制会使所有单例失效：私有构造方法可以被访问
@@ -2498,9 +2451,7 @@ public class Singleton {
     }
 }
 </code></pre>
-
-<h2 id="工厂">工厂</h2>
-
+<h2 id="heading-22">工厂</h2>
 <pre><code># factory
 o-&gt; 多工厂，静态工厂
 public interface Sender{
@@ -2532,9 +2483,7 @@ public class SendMailFactory implements Provider {
     }
 }
 </code></pre>
-
-<h2 id="建造者">建造者</h2>
-
+<h2 id="heading-23">建造者</h2>
 <pre><code># builder, 提供工厂方法，建造内部复合对象
 o-&gt;
 public class Builder {
@@ -2544,9 +2493,7 @@ public class Builder {
     }
 }
 </code></pre>
-
-<h2 id="适配器">适配器</h2>
-
+<h2 id="heading-24">适配器</h2>
 <pre><code># adapter, 用来匹配接口
 o-&gt; 类
 public class Source(){
@@ -2584,9 +2531,7 @@ public class Adapter extends AbstractTarget {
     public method2(){}
 }
 </code></pre>
-
-<h2 id="装饰">装饰</h2>
-
+<h2 id="heading-25">装饰</h2>
 <pre><code># decorator，持有被装饰实例，实现同一接口
 o-&gt;
 public interface Sourceable {
@@ -2608,9 +2553,7 @@ public class Decorator implements Sourceable {
     }
 }
 </code></pre>
-
-<h2 id="策略">策略</h2>
-
+<h2 id="heading-26">策略</h2>
 <pre><code># strategy, 封装多个算法类, 更换策略，调用方式一致
 o-&gt;
 public interface ICalculator {
@@ -2635,9 +2578,7 @@ public class AbstractCalculator {
 Icalculator cal = new Minus();
 cal.calculate(exp);
 </code></pre>
-
-<h2 id="观察者">观察者</h2>
-
+<h2 id="heading-27">观察者</h2>
 <pre><code># Observer, 对象变化，一对多广播
 public interface Observer {
     public void update();
@@ -2675,29 +2616,34 @@ public class MySubject extends AbstractSubject {
     public void operate() {
         notifyObservers();
     }
-}
-</code></pre>
+}</code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Sep 24, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/java.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/java.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -2705,64 +2651,58 @@ public class MySubject extends AbstractSubject {
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#命令与工具">命令与工具</a></li>
-<li><a href="#语法">语法</a>
-<ul>
-<li><a href="#基础-1">基础</a></li>
-<li><a href="#异常">异常</a></li>
-<li><a href="#注解">注解</a></li>
-<li><a href="#版本特性">版本特性</a></li>
-</ul></li>
-<li><a href="#api">api</a>
-<ul>
-<li><a href="#object">Object</a></li>
-<li><a href="#系统">系统</a></li>
-<li><a href="#包装类型">包装类型</a></li>
-<li><a href="#string">String</a>
-<ul>
-<li><a href="#正则">正则</a></li>
-</ul></li>
-<li><a href="#math">Math</a></li>
-<li><a href="#时间">时间</a></li>
-<li><a href="#数组">数组</a></li>
-<li><a href="#枚举">枚举</a></li>
-<li><a href="#collection">Collection</a></li>
-<li><a href="#流">流</a></li>
-<li><a href="#并行">并行</a></li>
-<li><a href="#内省">内省</a></li>
-<li><a href="#反射">反射</a></li>
-<li><a href="#web-service">web service</a></li>
-<li><a href="#框架">框架</a></li>
-</ul></li>
-<li><a href="#jvm">jvm</a>
-<ul>
-<li><a href="#基础-2">基础</a></li>
-<li><a href="#类加载器">类加载器</a></li>
-</ul></li>
-<li><a href="#规范">规范</a></li>
-<li><a href="#模式">模式</a>
-<ul>
-<li><a href="#单例-singleton">单例(singleton)</a></li>
-<li><a href="#工厂">工厂</a></li>
-<li><a href="#建造者">建造者</a></li>
-<li><a href="#适配器">适配器</a></li>
-<li><a href="#装饰">装饰</a></li>
-<li><a href="#策略">策略</a></li>
-<li><a href="#观察者">观察者</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading-3">基础</a></li>
+    <li><a href="#heading-4">异常</a></li>
+    <li><a href="#heading-5">注解</a></li>
+    <li><a href="#heading-6">版本特性</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#object">Object</a></li>
+    <li><a href="#heading-7">系统</a></li>
+    <li><a href="#heading-8">包装类型</a></li>
+    <li><a href="#string">String</a>
+      <ul>
+        <li><a href="#heading-9">正则</a></li>
+      </ul>
+    </li>
+    <li><a href="#math">Math</a></li>
+    <li><a href="#heading-10">时间</a></li>
+    <li><a href="#heading-11">数组</a></li>
+    <li><a href="#heading-12">枚举</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#heading-13">流</a></li>
+    <li><a href="#heading-14">并行</a></li>
+    <li><a href="#heading-15">内省</a></li>
+    <li><a href="#heading-16">反射</a></li>
+    <li><a href="#web-service">web service</a></li>
+    <li><a href="#heading-17">框架</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-18">基础</a></li>
+    <li><a href="#heading-19">类加载器</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#singleton">单例(singleton)</a></li>
+    <li><a href="#heading-22">工厂</a></li>
+    <li><a href="#heading-23">建造者</a></li>
+    <li><a href="#heading-24">适配器</a></li>
+    <li><a href="#heading-25">装饰</a></li>
+    <li><a href="#heading-26">策略</a></li>
+    <li><a href="#heading-27">观察者</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

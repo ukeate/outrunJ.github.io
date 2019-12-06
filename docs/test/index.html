@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="测试"><meta property="og:title" content="测试" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.com/docs/test/" />
+
 <title>测试 | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://example.com/docs/test/index.xml" title="outrun的笔记" />
 <!--
@@ -27,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -47,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2ftest\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -76,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -87,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -103,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -185,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>分类
     功能测试
         黑盒
@@ -209,50 +215,32 @@ https://github.com/alex-shpak/hugo-book
         ## angular中没有这种问题，因为所有定位元素和处理事件的工作都是在angular内部完成的
         ## 在测试时创建dom，就增加了测试的复杂性。而且页面变化时有更多维护要做。访问dom的操作很慢，测试反馈时间长
 </code></pre>
-
-<h1 id="资源占用">资源占用</h1>
-
+<h1 id="heading-1">资源占用</h1>
 <h2 id="cpu">cpu</h2>
-
 <pre><code>graph-frames
 subsecond offset
 </code></pre>
-
-<h2 id="综合">综合</h2>
-
+<h2 id="heading-2">综合</h2>
 <h3 id="visualvm">VisualVM</h3>
-
 <h3 id="jprofiler">JProfiler</h3>
-
 <pre><code># 收费, java
 </code></pre>
-
 <h3 id="perfino">perfino</h3>
-
 <pre><code># 监测jvm
 </code></pre>
-
 <h3 id="yourkit">YourKit</h3>
-
 <pre><code># 收费, java, 有调用链
 </code></pre>
-
 <h3 id="spring-insight">Spring Insight</h3>
-
 <pre><code># java spring
 </code></pre>
-
-<h1 id="数据库">数据库</h1>
-
+<h1 id="heading-3">数据库</h1>
 <pre><code>sysbench
     # mysql 压测
     --db-driver=mysql --mysql-host=visitor-bench.ctysoosgzk4k.rds.cn-north-1.amazonaws.com.cn --mysql-user=root --mysql-password=12345678 --threads=512 --events=1000000 --time=0 --report-interval=15 ./bench_visit_page_insert.lua run
 </code></pre>
-
-<h1 id="接口">接口</h1>
-
+<h1 id="heading-4">接口</h1>
 <h2 id="loadrunner">loadrunner</h2>
-
 <pre><code>    脚本参数
         get
             web_url(&quot;login&quot;,
@@ -301,9 +289,7 @@ subsecond offset
                 &quot;Body= {\&quot;trans_code\&quot;:\&quot;1006\&quot;,\&quot;end_date\&quot;:\&quot;20140701\&quot;,\&quot;source\&quot;:\&quot;appkey\&quot;,\&quot;data\&quot;:\&quot;eyJiZWdpbl9kYXRlIjoiMjAxNDA2MDEiLCJlbmRfZGF0ZSI6IjIwMTQwNzAxIiwicG9zX2lkIjoiODg1MDAzMTAiLCJzb3VyY2UiOiJhcHBrZXkiLCJjdXN0b21lcl9pZCI6IjM3MDExMjEwNzQ2NyIsImFjY2Vzc190b2tlbiI6IiJ9\&quot;,\&quot;begin_date\&quot;:\&quot;20140601\&quot;,\&quot;mac\&quot;:\&quot;123\&quot;,\&quot;pos_id\&quot;:\&quot;88500310\&quot;,\&quot;customer_id\&quot;:\&quot;370112107467\&quot;,\&quot;access_token\&quot;:\&quot;\&quot;}&quot;,
                 LAST);
 </code></pre>
-
 <h2 id="phoenix">phoenix</h2>
-
 <pre><code>    介绍
             web自动化测试工具
     特点
@@ -357,9 +343,7 @@ fortio
 hey
         # http压测
 </code></pre>
-
 <h2 id="js">js</h2>
-
 <pre><code>heapdump
         # 堆内存快照
 jslint
@@ -374,9 +358,7 @@ chai
 mock.js
         # 模拟生成接口假数据
 </code></pre>
-
 <h3 id="benchmark">benchmark</h3>
-
 <pre><code>介绍
         测试代码执行性能
 使用
@@ -412,9 +394,7 @@ mock.js
         })
         .run({'async': true});                    // 这里async与时间计算有关，默认为true
 </code></pre>
-
 <h3 id="travis">travis</h3>
-
 <pre><code>介绍
     项目node版本测试，在基本依赖下跑
 使用
@@ -431,9 +411,7 @@ mock.js
             # 一个使用了mongodb的nodejs应用，用0.8、0.10、0.11三个版本来跑，跑测试的命令是make test
     travis测试的项目，可以得到一个图片地址，显示项目当前的测试通过状态，把这个图片添加到项目的README中
 </code></pre>
-
 <h3 id="jasmine">jasmine</h3>
-
 <pre><code>介绍
     编写单元测试
 使用
@@ -451,9 +429,7 @@ mock.js
         });
     });
 </code></pre>
-
 <h3 id="should">should</h3>
-
 <pre><code>介绍
     兼容性测试
 安装
@@ -472,9 +448,7 @@ result.bar.should.equal(foo);
 user.should.be.an.instanceOf(Object).and.have.property('name', 'jack');
 this.obj.should.have.property('id').which.is.a.Number();
 </code></pre>
-
 <h3 id="memwatch">memwatch</h3>
-
 <pre><code>介绍
     监控内存leak, stats,leak在连续5次垃圾回收后内存没释放时触发, stats事件在垃圾回收时触发
 
@@ -492,9 +466,7 @@ for (var i = 0; i &lt; 10000; i++) {
 var diff = hd.end()
 console.log(JSON.stringify(diff, null, 2))
 </code></pre>
-
 <h3 id="muk">muk</h3>
-
 <pre><code>var muk = require('muk')
 before(function () {
     muk(fs, 'readFileSync', function (path, encoding) {
@@ -512,9 +484,7 @@ after(function () {
     muk.restore()
 })
 </code></pre>
-
 <h3 id="rewire">rewire</h3>
-
 <pre><code>介绍
     测试私有方法
 
@@ -525,9 +495,7 @@ it('limit should return success', function () {
     litmit(10).should.be.equal(10)
 })
 </code></pre>
-
 <h3 id="mocha">mocha</h3>
-
 <pre><code>介绍
     单元测试框架
 命令
@@ -575,18 +543,14 @@ suite('Array', function() {
     })
 })
 </code></pre>
-
 <h3 id="istanbul">istanbul</h3>
-
 <pre><code>介绍
     名字是依斯坦布尔，用来白盒覆盖用例测试
     支持的use cases有unit tests, browser tests, server side code embedding
 使用
     instanbul cover test.js
 </code></pre>
-
 <h3 id="phantomjs">phantomjs</h3>
-
 <pre><code>介绍
     前端测试工具
     webkit js测试工具，支持多web标准, dom, css, json, canvas和svg
@@ -601,9 +565,7 @@ o-&gt; 使用2
     console.log('Hello, world');
     phantom.exit();
 </code></pre>
-
 <h3 id="browserstack">browserstack</h3>
-
 <pre><code>介绍
     前端测试工具
     内建webdriver的api
@@ -620,9 +582,7 @@ o-&gt; 使用2
     browserstack-runner
     https://www.browserstack.com/automate 查看结果
 </code></pre>
-
 <h3 id="karma">karma</h3>
-
 <pre><code>介绍
     是google Testacular的新名字，自动化完成单元测试
 使用
@@ -632,9 +592,7 @@ o-&gt; 使用2
         # 初始化karma配置文件
     npm install karma-jasmine
 </code></pre>
-
 <h3 id="jscover">jscover</h3>
-
 <pre><code>介绍
     覆盖率测试
 使用
@@ -647,9 +605,7 @@ o-&gt; 使用2
     mocha -R html-cov &gt; coverage.html
         # 生成结果
 </code></pre>
-
 <h3 id="blanket">blanket</h3>
-
 <pre><code>介绍
     比jscover更好的测试工具
 使用
@@ -662,23 +618,17 @@ o-&gt; 使用2
         }
     mocha --require blanket -R html-cov &gt; coverage.html
 </code></pre>
-
 <h2 id="python">python</h2>
-
 <pre><code>nose
     # 注解测试
 selenium
     # 自动化测试
 </code></pre>
-
 <h2 id="go">go</h2>
-
 <pre><code>gomock
     # 官方mock库, 对接口mock
 </code></pre>
-
 <h3 id="monkey">monkey</h3>
-
 <pre><code>介绍
     对函数mock
 Patch()
@@ -690,50 +640,48 @@ UnpatchInstanceMethod()
     内联函数不能mock
         测试时禁止内联, go test -gcflags=all=&quot;-N -l&quot;
 </code></pre>
-
 <h2 id="java">java</h2>
-
 <h3 id="hamcrest">hamcrest</h3>
-
 <pre><code># 自然语法
 </code></pre>
-
 <h3 id="mockito">mockito</h3>
-
-<h1 id="页面">页面</h1>
-
+<h1 id="heading-5">页面</h1>
 <pre><code>jsperf
     # js性能分析
 jasmine
     # js单元测试
 </code></pre>
-
-<h1 id="移动">移动</h1>
-
+<h1 id="heading-6">移动</h1>
 <pre><code>robotium
     # android自动化测试
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Sep 24, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/test/_index.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/test/_index.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -741,66 +689,62 @@ jasmine
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#资源占用">资源占用</a>
-<ul>
-<li><a href="#cpu">cpu</a></li>
-<li><a href="#综合">综合</a>
-<ul>
-<li><a href="#visualvm">VisualVM</a></li>
-<li><a href="#jprofiler">JProfiler</a></li>
-<li><a href="#perfino">perfino</a></li>
-<li><a href="#yourkit">YourKit</a></li>
-<li><a href="#spring-insight">Spring Insight</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#数据库">数据库</a></li>
-<li><a href="#接口">接口</a>
-<ul>
-<li><a href="#loadrunner">loadrunner</a></li>
-<li><a href="#phoenix">phoenix</a></li>
-<li><a href="#js">js</a>
-<ul>
-<li><a href="#benchmark">benchmark</a></li>
-<li><a href="#travis">travis</a></li>
-<li><a href="#jasmine">jasmine</a></li>
-<li><a href="#should">should</a></li>
-<li><a href="#memwatch">memwatch</a></li>
-<li><a href="#muk">muk</a></li>
-<li><a href="#rewire">rewire</a></li>
-<li><a href="#mocha">mocha</a></li>
-<li><a href="#istanbul">istanbul</a></li>
-<li><a href="#phantomjs">phantomjs</a></li>
-<li><a href="#browserstack">browserstack</a></li>
-<li><a href="#karma">karma</a></li>
-<li><a href="#jscover">jscover</a></li>
-<li><a href="#blanket">blanket</a></li>
-</ul></li>
-<li><a href="#python">python</a></li>
-<li><a href="#go">go</a>
-<ul>
-<li><a href="#monkey">monkey</a></li>
-</ul></li>
-<li><a href="#java">java</a>
-<ul>
-<li><a href="#hamcrest">hamcrest</a></li>
-<li><a href="#mockito">mockito</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#页面">页面</a></li>
-<li><a href="#移动">移动</a></li>
-</ul>
+  <ul>
+    <li><a href="#cpu">cpu</a></li>
+    <li><a href="#heading-2">综合</a>
+      <ul>
+        <li><a href="#visualvm">VisualVM</a></li>
+        <li><a href="#jprofiler">JProfiler</a></li>
+        <li><a href="#perfino">perfino</a></li>
+        <li><a href="#yourkit">YourKit</a></li>
+        <li><a href="#spring-insight">Spring Insight</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#loadrunner">loadrunner</a></li>
+    <li><a href="#phoenix">phoenix</a></li>
+    <li><a href="#js">js</a>
+      <ul>
+        <li><a href="#benchmark">benchmark</a></li>
+        <li><a href="#travis">travis</a></li>
+        <li><a href="#jasmine">jasmine</a></li>
+        <li><a href="#should">should</a></li>
+        <li><a href="#memwatch">memwatch</a></li>
+        <li><a href="#muk">muk</a></li>
+        <li><a href="#rewire">rewire</a></li>
+        <li><a href="#mocha">mocha</a></li>
+        <li><a href="#istanbul">istanbul</a></li>
+        <li><a href="#phantomjs">phantomjs</a></li>
+        <li><a href="#browserstack">browserstack</a></li>
+        <li><a href="#karma">karma</a></li>
+        <li><a href="#jscover">jscover</a></li>
+        <li><a href="#blanket">blanket</a></li>
+      </ul>
+    </li>
+    <li><a href="#python">python</a></li>
+    <li><a href="#go">go</a>
+      <ul>
+        <li><a href="#monkey">monkey</a></li>
+      </ul>
+    </li>
+    <li><a href="#java">java</a>
+      <ul>
+        <li><a href="#hamcrest">hamcrest</a></li>
+        <li><a href="#mockito">mockito</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

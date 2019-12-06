@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Principle"><meta property="og:title" content="" />
+<meta property="og:description" content="阻塞 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/backend/principle/" />
+
 <title>Principle | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +38,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +59,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f backend\2fprinciple\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +76,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +87,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +103,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +193,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="阻塞">阻塞</h1>
-
+<article class="markdown"><h1 id="heading">阻塞</h1>
 <pre><code>阻塞(bio)指cpu等待io
 非阻塞(nio)指调用io后立即返回，但要轮询事件状态
     # 非阻塞指对cpu不阻塞，但业务线程阻塞
@@ -217,9 +223,7 @@ https://github.com/alex-shpak/hugo-book
             linux下自实现
             windows下IOCP
 </code></pre>
-
-<h1 id="事件">事件</h1>
-
+<h1 id="heading-1">事件</h1>
 <pre><code>实现
     回调
     队列存事件, 单进程检测事件是否回调
@@ -230,9 +234,7 @@ https://github.com/alex-shpak/hugo-book
     epoll(select, poll)
     libev(libevent)
 </code></pre>
-
-<h1 id="并发并行">并发并行</h1>
-
+<h1 id="heading-2">并发并行</h1>
 <pre><code>并发
     多任务共享时间段, 类比: 任务队列
     为什么并发
@@ -362,18 +364,14 @@ https://github.com/alex-shpak/hugo-book
             # 外星方法中可能包含另一把锁，要避免在持锁时调用外星方法
     活锁  # 多线程尝试绕开死锁而过分同步反复冲突
 </code></pre>
-
-<h2 id="多线程">多线程</h2>
-
+<h2 id="heading-3">多线程</h2>
 <pre><code>线程池
     作用
         重复利用, 降低资源消耗
         提高响应速度，不等线程创建
         可管理，线程是稀缺资源，统一分配，调优和监控，提高系统稳定性
 </code></pre>
-
-<h2 id="锁">锁</h2>
-
+<h2 id="heading-4">锁</h2>
 <pre><code>锁
     公平锁                             # FIFO取锁
     非公平锁                           # 每次直接占有
@@ -408,9 +406,7 @@ https://github.com/alex-shpak/hugo-book
 信号量
     进程, 线程间通知状态
 </code></pre>
-
 <h2 id="cas">CAS</h2>
-
 <pre><code># compare and swap，无锁算法(lock free), 非阻塞(non-blocking), 构成基本的乐观锁
 # cpu实现的指令
 3个操作数
@@ -419,9 +415,7 @@ https://github.com/alex-shpak/hugo-book
     进行比较的值A
     拟写入的新值B
 </code></pre>
-
-<h2 id="函数式">函数式</h2>
-
+<h2 id="heading-5">函数式</h2>
 <pre><code>介绍
     消除可变状态
 概念
@@ -433,9 +427,7 @@ https://github.com/alex-shpak/hugo-book
         # (+ (+ 1 2) (+ 3 4))就是一个数据流，所有函数都可以用时执行
         future模型
 </code></pre>
-
-<h2 id="分离标识与状态">分离标识与状态</h2>
-
+<h2 id="heading-6">分离标识与状态</h2>
 <pre><code>介绍
     Clojure, 指令式编程和函数式编程混搭
 
@@ -445,36 +437,26 @@ clojure四种并发模型
     agent代理
     refs引用 与 ATM软件事务内存
 </code></pre>
-
-<h2 id="actor模型">actor模型</h2>
-
+<h2 id="actor">actor模型</h2>
 <pre><code>介绍
     作为actor自己修改自己的数据，对外提供消息，处理对外消息
     共享内存模型和分布式内存模型，适合解决地理分布型问题，强大的容错性
     基于消息传递，侧重通道两端实体
     每个actor有一个mailbox, mailbox中转消息
 </code></pre>
-
 <h2 id="csp">csp</h2>
-
 <pre><code>介绍
     通信顺序进程(communicating sequential processes)
     基于消息传递，侧重信息通道
 </code></pre>
-
-<h2 id="数据级并行">数据级并行</h2>
-
+<h2 id="heading-7">数据级并行</h2>
 <pre><code># 不可变数据, 观测不可变、实现不可变
 </code></pre>
-
-<h2 id="lambda架构">lambda架构</h2>
-
+<h2 id="lambda">lambda架构</h2>
 <pre><code>介绍
     综合MapReduce和流式处理的特点，处理大数据问题的架构
 </code></pre>
-
-<h1 id="状态保持">状态保持</h1>
-
+<h1 id="heading-8">状态保持</h1>
 <pre><code>cookie
     分域名, 客户端保存服务器定义数据, 请求时发送
 session
@@ -490,9 +472,7 @@ session
             memorycache
             gemfire     # 12306
 </code></pre>
-
-<h1 id="认证">认证</h1>
-
+<h1 id="heading-9">认证</h1>
 <pre><code>单点登录
     sessionID存cookie, cookie禁用存头域
 token
@@ -513,11 +493,8 @@ token
         redis存储
         token不要太长
 </code></pre>
-
-<h1 id="常见问题">常见问题</h1>
-
+<h1 id="heading-10">常见问题</h1>
 <h2 id="csrf">CSRF</h2>
-
 <pre><code>介绍
     跨域请求伪造(cross-site request forgery)
     client登录A, 本地生成cookie
@@ -526,56 +503,53 @@ token
     token验证     # 加入自定义头域
     验证Referer头域
 </code></pre>
-
 <h2 id="xss">XSS</h2>
-
 <pre><code>介绍
     跨站脚本攻击(cross-site scripting, 易和css混淆，所以写成XSS), 渲染页面时脚本未转义
 </code></pre>
-
 <h2 id="xsf">XSF</h2>
-
 <pre><code>介绍
     跨站flash攻击(cross-site flash), actionScript加载第三方flash
 </code></pre>
-
-<h2 id="sql注入">sql注入</h2>
-
+<h2 id="sql">sql注入</h2>
 <pre><code>介绍
     拼装sql，参数插入sql逻辑
 解决
     sql预编译
 </code></pre>
-
-<h2 id="1-n查询">1+N查询</h2>
-
+<h2 id="1n">1+N查询</h2>
 <pre><code>介绍
     先查出外键id集合, 再逐条id查关联表。orm易出的问题
 解决
     用 id IN (1,2,3)
-    commit前自动合并sql
-</code></pre>
+    commit前自动合并sql</code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Sep 24, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/principle.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/backend/principle.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -583,42 +557,34 @@ token
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#阻塞">阻塞</a></li>
-<li><a href="#事件">事件</a></li>
-<li><a href="#并发并行">并发并行</a>
-<ul>
-<li><a href="#多线程">多线程</a></li>
-<li><a href="#锁">锁</a></li>
-<li><a href="#cas">CAS</a></li>
-<li><a href="#函数式">函数式</a></li>
-<li><a href="#分离标识与状态">分离标识与状态</a></li>
-<li><a href="#actor模型">actor模型</a></li>
-<li><a href="#csp">csp</a></li>
-<li><a href="#数据级并行">数据级并行</a></li>
-<li><a href="#lambda架构">lambda架构</a></li>
-</ul></li>
-<li><a href="#状态保持">状态保持</a></li>
-<li><a href="#认证">认证</a></li>
-<li><a href="#常见问题">常见问题</a>
-<ul>
-<li><a href="#csrf">CSRF</a></li>
-<li><a href="#xss">XSS</a></li>
-<li><a href="#xsf">XSF</a></li>
-<li><a href="#sql注入">sql注入</a></li>
-<li><a href="#1-n查询">1+N查询</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading-3">多线程</a></li>
+    <li><a href="#heading-4">锁</a></li>
+    <li><a href="#cas">CAS</a></li>
+    <li><a href="#heading-5">函数式</a></li>
+    <li><a href="#heading-6">分离标识与状态</a></li>
+    <li><a href="#actor">actor模型</a></li>
+    <li><a href="#csp">csp</a></li>
+    <li><a href="#heading-7">数据级并行</a></li>
+    <li><a href="#lambda">lambda架构</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#csrf">CSRF</a></li>
+    <li><a href="#xss">XSS</a></li>
+    <li><a href="#xsf">XSF</a></li>
+    <li><a href="#sql">sql注入</a></li>
+    <li><a href="#1n">1+N查询</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

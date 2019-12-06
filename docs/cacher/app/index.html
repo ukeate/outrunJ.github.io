@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="App"><meta property="og:title" content="" />
+<meta property="og:description" content="趋向 本地(app) -&gt; 线上(browser)  采用 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 项目 OmniPlan, ganttProject, microsoftProject 转换 文件 # 学术 阅读 实践 DEVONthink, siteSucker 文字 wps, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic shortMenu 影音 permute3 touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory quickTime, gifox, gif brewery, gif maker, Hype3 aurora3DMaker 系统 istatistica, wifiExplorer alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 浏览器: tampermonkey FEFileExplorer 输出 字 drafts[iCloud], workflowy[workflowy], 幕布[幕布] expressions jetbrains, vim, spacemacs 图 表: excel, marginNote[iCloud], xmind[oneDrive], liquidText[iCloud], mindNode, ithoughts, scapple 结构: visio, wps, ppt, OmniGraffle, plantUML, graphviz 数学: mathStudio, pocketCAS 画: procreator 库 笔记: oneNote[oneDrive], blog[github], goodnotes 记录: dayOne 同步 synergy, pushbullet 依赖 系统: 文件: tree, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: nohup, expect 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g&#43;&#43;, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/cacher/app/" />
+
+<title>App | outrun的笔记</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+<ul>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+<ul>
+<li><a href="/docs/backend/principle">原理</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">pgsql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">vim</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/interview">题目</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>App</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="heading">趋向</h1>
+<pre><code>本地(app) -&gt; 线上(browser)
+</code></pre>
+<h1 id="heading-1">采用</h1>
+<pre><code>输入
+    新
+        搜索: DEVONagent, wolframAlpha
+        渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook
+        发散: 百度指数, DEVONSphere
+        盘: icloud, oneDrive x 2, 坚果云, 百度网盘 
+        休闲: noizio, relaxMelodiesSeasions, earth3D
+    会议
+        notability[iCloud]
+    GTD
+        trello, microsoftToDo, things3
+    项目
+        OmniPlan, ganttProject, microsoftProject
+转换
+    文件            # 学术 阅读 实践
+        DEVONthink, siteSucker
+    文字
+        wps, word, pdfElement, LaTeX, iAWriter, 
+        代码: cacher[github], lepton[github], dash, snippetsLap, textastic
+        shortMenu
+    影音
+        permute3
+        touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory
+        quickTime, gifox, gif brewery, gif maker, Hype3
+        aurora3DMaker
+    系统
+        istatistica, wifiExplorer
+        alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch
+        浏览器: tampermonkey
+        FEFileExplorer
+输出
+    字
+        drafts[iCloud], workflowy[workflowy], 幕布[幕布]
+        expressions 
+        jetbrains, vim, spacemacs
+    图
+        表: excel, marginNote[iCloud], xmind[oneDrive], liquidText[iCloud], mindNode, ithoughts, scapple
+        结构: visio, wps, ppt, OmniGraffle, plantUML, graphviz
+        数学: mathStudio, pocketCAS
+        画: procreator
+    库
+        笔记: oneNote[oneDrive], blog[github], goodnotes
+        记录: dayOne
+同步
+    synergy, pushbullet
+依赖
+    系统: 
+        文件: tree, unzip, 7z, diff, du
+        系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service
+        包: yaourt, yay, pkgfile, snap
+            wps-office, ttf-wps-fonts
+        界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox
+        网络: chromium, firefox, thunderbird
+    ops:
+        shell: nohup, expect
+        系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df
+        网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh
+        vpn: openvpn, shadowsocks, polipo, v2ray
+        vm: docker, docker-compose
+            db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j
+                elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin
+            mq: nsq, rabbitmq,  kafka,
+            容器: nginx, nginx-php
+            监控: zipkin, 
+            应用: dokuwiki, tiddlywiki, wordpress, 
+        服务: vsftpd, filezilla
+        分布式: ansible
+    程序:
+        基本: make, cmake, g++, gcc, lua, ruby,
+        java: openjdk8, jdk8, jdk12, maven, tomcat
+        go: go1.9.3, go1.12.6, go1.13.5, probobuf, protoc
+        python: python2.7, python3.8, pip2, pip3
+        php: php-cgi, php-fpm
+        js: node, mvn, babel-cli
+        分析: flame-graph
+    媒体: dia, convert, import, alsamixer, mplayer
+    ide: vscode, sublime, emacs, vim 
+        jetbrains: webstorm, goland, intellijIdea, phpstorm, pycharm, mps, android studio
+        eclipse: eclipse-inst, eclipse-birt, eclipse-jee-neon
+    数据库: datagrip, neoclipse, robo3t, studio-3t
+    测试: postman
+    工作: snapcast, mosquitto, sox, snapcastrd, websockify
+</code></pre>
+<h3 id="vim">vim(简)</h3>
+<pre><code>命令
+    vim
+        --version   # 查看插件
+可视模式
+    o   # 切换头尾
+    gv  # 重选上次
+    &lt;C - v&gt; 
+    U/u # 转换大写/小写
+替换模式
+    R
+思想
+    {operator}{motion}
+    {operator}{text-objects}
+operator
+    ;
+    ,
+    3G
+    */#
+    %   # 括号
+    ``  # 跳回
+    ''  # 跳回非空白
+    :marks
+    ma/`a   # 标记跳转
+    &amp;   # 重复substitute
+    cc/C    # 替换一行
+    J   # 删除向下的空行 
+    g~  # 转换大小写
+        # g~~ 转换一行
+motion
+    ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标
+    f/F/t/T
+    .
+    K   # man查询
+    ga  # unicode码
+    nzz/nz-
+q:  # 命令历史
+命令模式
+    :3   # 跳转
+    :'&lt;,'&gt;   # 选中内容
+    :/&lt;html&gt;/,/&lt;\html&gt;/  # 模式匹配范围
+    :h e    # e的帮助
+    :%s///g  # substitute
+    :! command     # 执行shell命令
+                  # !! 执行前一命令
+                  # r!command 结果插入当前
+        # sh 打开sh
+        # pwd
+        # grep t *  当前文件匹配t
+        # ls
+    :normal  A;  # 普通模式下执行A,后写入分号
+shortcut key
+    &lt;C - d&gt;/u   # 滚半屏
+    &lt;C - f&gt;/b   # 滚一屏
+    &lt;C - i&gt;/o   # 下个/上个跳动位置
+    &lt;C X&gt;   # 当前单词大小写转换
+text-object
+    i&quot;  # 中间内容
+        # ' ` ( ) [ ] &lt; &gt; { }
+        # B 表示{}, t 表示 tag之间内容, w 表示word, s 表示句子, p 表示段落
+    a&quot;  # 包括外围
+registers
+    :reg    # 查看所有
+    :y a    # 复制到a寄存器
+    分类
+        &quot;&quot;  # 最后一次操作
+        &quot;0  # 最近一次复制, 排到9
+        &quot;-  # 行内删除
+        &quot;a  # a - z, A - Z
+        &quot;=  # 只读，用于执行表达式命令
+        &quot;*  # clipboard，针对选中部分(selection)
+        &quot;+  # clipboard, windows下与*同，linux X11下针对复制或剪切部分(cut buffer)
+        &quot;_  # black hole
+        &quot;/  # 最近的搜索模式
+宏
+    qaq
+    @a
+折叠
+    # ide支持不好
+对比
+    vim -d file1 file2
+        [c  # 上一个不同
+        ]c  # 下一个不同
+        dp  # 合并增加另一个
+        do  # 合并增加当前
+文件
+    # ide支持不好
+    &lt;C - w&gt; hljk
+    &lt;C - w&gt; w
+    &lt;C - w&gt; s
+    &lt;C - w&gt; v
+</code></pre>
+<h1 id="intellij">intellij(简)</h1>
+<pre><code>shift shift     # 打开文件
+alt enter       # 补全, 快速修复
+</code></pre>
+<h1 id="alfred">alfred</h1>
+<pre><code>搜索
+    指定网站搜索
+    文件
+剪贴板
+计算器
+自定义脚本
+    打字
+    命令
+    工作流</code></pre>
+</article>
+
+      <div class="book-footer justify-between">
+  
+
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Dec 6, 2019</span>
+    </a>
+  </div>
+  
+  
+
+  
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cacher/app.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+  
+
+</div>
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#vim">vim(简)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>

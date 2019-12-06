@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nodejs"><meta property="og:title" content="Nodejs" />
+<meta property="og:description" content="基础 特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&gt; watcher -&gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/architecture/nodejs/" />
+<meta property="article:published_time" content="2018-10-11T10:33:48+08:00" />
+<meta property="article:modified_time" content="2019-07-29T10:48:05+08:00" />
 <title>Nodejs | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f architecture\2fnodejs\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +194,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>特点
     commonJS规范
     javascript书写(v8引擎)
@@ -258,9 +265,7 @@ commonJS
     I/O密集服务
     cpu密集用c/c++扩展，用子进程
 </code></pre>
-
-<h1 id="工具">工具</h1>
-
+<h1 id="heading-1">工具</h1>
 <pre><code>node --v8-options | grep harmony
     # 查看支持的es6特性
 npm
@@ -333,9 +338,7 @@ cnpm
         # debug模式运行时, help查看可用命令
         node debug app.js
 </code></pre>
-
-<h1 id="配置">配置</h1>
-
+<h1 id="heading-2">配置</h1>
 <pre><code>package.json
     name                # 包名
     description         # 简介
@@ -395,11 +398,8 @@ cnpm
         }
     }
 </code></pre>
-
 <h1 id="api">api</h1>
-
-<h2 id="异步api">异步api</h2>
-
+<h2 id="api-1">异步api</h2>
 <pre><code>I/O操作api
 setTimeout() setInterval()
     定时器插入观察者的红黑树中, tick时迭代定时器，如果超时就形成事件
@@ -410,9 +410,7 @@ process.nextTick()
 setImmediate()
     回调放入链表, 每tick执行一个，位于check观察者，晚于idle
 </code></pre>
-
-<h2 id="宿主对象">宿主对象</h2>
-
+<h2 id="heading-3">宿主对象</h2>
 <pre><code>global      #全局对象
     root    # 指向自己
     BLOBAL # 指向自己
@@ -496,11 +494,8 @@ promise     # 0.11.x后加入的全局对象
             console.log(jade.compile(value[0])(value[1]));
         });
 </code></pre>
-
-<h2 id="内置lib">内置lib</h2>
-
+<h2 id="lib">内置lib</h2>
 <h3 id="http">http</h3>
-
 <pre><code>介绍
     继承自net模块
     EventEmitter实例
@@ -556,9 +551,7 @@ createServer(onRequest).listen(8888, func);                # 创建服务器并�
 request(options, fn)        # 发起客户端请求
     # options中有 host, hostname, port, localAddress(使用本地的哪个网卡), socketPath(本地套接字文件路径), method, path, headers, auth(被计算成请求头的Authorization部分), agent(并发连接数，默认5)
 </code></pre>
-
 <h3 id="https">https</h3>
-
 <pre><code>介绍
     nodejs
     申请ca证书
@@ -612,9 +605,7 @@ request(options, fn)        # 发起客户端请求
             console.log(e)
         })
 </code></pre>
-
 <h3 id="net">net</h3>
-
 <pre><code>介绍
     处理tcp请求
     socket是EventEmitter的Stream实例
@@ -691,9 +682,7 @@ var server = net.createServer(function (socket) {
     socket.pipe(socket)
 })
 </code></pre>
-
 <h3 id="dgram">dgram</h3>
-
 <pre><code>介绍
     处理udp
     socket是EventEmitter实例
@@ -721,9 +710,7 @@ client.send(message, 0, message.length, 41234, 'localhost', function (err, bytes
     client.close()
 })
 </code></pre>
-
 <h3 id="events">events</h3>
-
 <pre><code>介绍
     几乎所有对象的父类
 使用
@@ -742,18 +729,13 @@ client.send(message, 0, message.length, 41234, 'localhost', function (err, bytes
 setMaxListeners(0)
     # 侦听器过多不警告
 </code></pre>
-
 <h3 id="path">path</h3>
-
 <h3 id="os">os</h3>
-
 <pre><code>方法
     totalmem
     freemem
 </code></pre>
-
 <h3 id="fs">fs</h3>
-
 <pre><code>fs.readFile(&quot;tmp/test.png&quot;, &quot;binary&quot;, function(error, file){
 });
 fs.writeFile('target.png', 'binary', function(err){
@@ -780,11 +762,8 @@ var reader = fs.createReadStream('in.txt')
 var writer = fs.createWriteStream('out.txt')
 reader.pipe(writer)
 </code></pre>
-
 <h3 id="sys">sys</h3>
-
 <h3 id="process">process</h3>
-
 <pre><code>argv
     # 启动时参数
 pid
@@ -822,21 +801,15 @@ process.on('uncaughtException', function () {
     }, 5000)
 })
 </code></pre>
-
 <h3 id="module">module</h3>
-
 <pre><code>exports
 parent
 </code></pre>
-
 <h3 id="stream">stream</h3>
-
 <pre><code>介绍
     继承EventEmitter, 处理文件之类的流
 </code></pre>
-
 <h3 id="tls">tls</h3>
-
 <pre><code>介绍
     建立在tls/ssl上的加密tcp
     使用openssl来构建证书和测试
@@ -883,9 +856,7 @@ stream.on('end', function () {
         server.close()
 })
 </code></pre>
-
 <h3 id="child-process">child_process</h3>
-
 <pre><code>介绍
     可以创建新的node进程
 spawn(command[, args][a options])
@@ -1022,9 +993,7 @@ process.on('message', function (m, tcp) {
     }
 })
 </code></pre>
-
 <h3 id="cluster">cluster</h3>
-
 <pre><code>介绍
     child_process和net模块的组合
         cluster启动时，内部启动tcp服务器
@@ -1052,9 +1021,7 @@ for (var i = 0; i &lt; cpus.length; i++) {
     cluster.fork()
 }
 </code></pre>
-
 <h3 id="domain">domain</h3>
-
 <pre><code>介绍
     用于异步异常捕获
     绑定方式
@@ -1119,26 +1086,19 @@ dispose()               # 释放一个domain对象，让node进程回收这部�
         d.add(timer);
         d.run(next);
 </code></pre>
-
-<h2 id="外部lib">外部lib</h2>
-
+<h2 id="lib-1">外部lib</h2>
 <h3 id="url">url</h3>
-
 <pre><code>parse()
     pathname
 
     url.parse(req.url)
     url.parse(req.url, true) 会parse出query对象
 </code></pre>
-
 <h3 id="querystring">querystring</h3>
-
 <pre><code>parse()
     querystring.parse(url.parse(req.url).query)
 </code></pre>
-
 <h3 id="crypto">crypto</h3>
-
 <pre><code>介绍
     加密并生成各种散列
     利用openssl库来实现，提供openssl中一系列哈希方法，包括hmac, cipher, decipher, 签名和验证等方法的封装
@@ -1146,14 +1106,10 @@ dispose()               # 释放一个domain对象，让node进程回收这部�
     var crypto = require('crypto');
     console.log(crypto.getHashes());                                    # 打印支持的所有hasp算法
 </code></pre>
-
 <h3 id="node-gyp">node-gyp</h3>
-
 <pre><code>编译C++模块的编译工具
 </code></pre>
-
 <h3 id="util">util</h3>
-
 <pre><code>使用
     var util = require('util');
 方法
@@ -1183,15 +1139,11 @@ dispose()               # 释放一个domain对象，让node进程回收这部�
         deprecate(foo, 'foo() is deprecated, use bar() instead');
             # 标记为过时, 调用foo()时显示后面的话
 </code></pre>
-
 <h3 id="zlib">zlib</h3>
-
 <pre><code>介绍
     提供压缩方法，如gzip
 </code></pre>
-
-<h2 id="全局属性">全局属性</h2>
-
+<h2 id="heading-4">全局属性</h2>
 <pre><code>介绍
     并非挂在global下的属性，但可以直接使用
 
@@ -1200,9 +1152,7 @@ __dirname
 __filename
     # 当前在执行的js文件路径
 </code></pre>
-
-<h1 id="方案">方案</h1>
-
+<h1 id="heading-5">方案</h1>
 <pre><code>异常捕获
     process.on(&quot;uncaughtException&quot;,function(e){
         logger.error(&quot;error:&quot;+e);
@@ -1213,25 +1163,31 @@ __filename
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified Jul 29, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Jul 29, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/15feb1e2be0cbeb562f889e370e5c399e0945464" title='Last modified by shenwenqing | Jul 29, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Jul 29, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/nodejs.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/architecture/nodejs.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1239,56 +1195,50 @@ __filename
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#工具">工具</a></li>
-<li><a href="#配置">配置</a></li>
-<li><a href="#api">api</a>
-<ul>
-<li><a href="#异步api">异步api</a></li>
-<li><a href="#宿主对象">宿主对象</a></li>
-<li><a href="#内置lib">内置lib</a>
-<ul>
-<li><a href="#http">http</a></li>
-<li><a href="#https">https</a></li>
-<li><a href="#net">net</a></li>
-<li><a href="#dgram">dgram</a></li>
-<li><a href="#events">events</a></li>
-<li><a href="#path">path</a></li>
-<li><a href="#os">os</a></li>
-<li><a href="#fs">fs</a></li>
-<li><a href="#sys">sys</a></li>
-<li><a href="#process">process</a></li>
-<li><a href="#module">module</a></li>
-<li><a href="#stream">stream</a></li>
-<li><a href="#tls">tls</a></li>
-<li><a href="#child-process">child_process</a></li>
-<li><a href="#cluster">cluster</a></li>
-<li><a href="#domain">domain</a></li>
-</ul></li>
-<li><a href="#外部lib">外部lib</a>
-<ul>
-<li><a href="#url">url</a></li>
-<li><a href="#querystring">querystring</a></li>
-<li><a href="#crypto">crypto</a></li>
-<li><a href="#node-gyp">node-gyp</a></li>
-<li><a href="#util">util</a></li>
-<li><a href="#zlib">zlib</a></li>
-</ul></li>
-<li><a href="#全局属性">全局属性</a></li>
-</ul></li>
-<li><a href="#方案">方案</a></li>
-</ul>
+  <ul>
+    <li><a href="#api-1">异步api</a></li>
+    <li><a href="#heading-3">宿主对象</a></li>
+    <li><a href="#lib">内置lib</a>
+      <ul>
+        <li><a href="#http">http</a></li>
+        <li><a href="#https">https</a></li>
+        <li><a href="#net">net</a></li>
+        <li><a href="#dgram">dgram</a></li>
+        <li><a href="#events">events</a></li>
+        <li><a href="#path">path</a></li>
+        <li><a href="#os">os</a></li>
+        <li><a href="#fs">fs</a></li>
+        <li><a href="#sys">sys</a></li>
+        <li><a href="#process">process</a></li>
+        <li><a href="#module">module</a></li>
+        <li><a href="#stream">stream</a></li>
+        <li><a href="#tls">tls</a></li>
+        <li><a href="#child-process">child_process</a></li>
+        <li><a href="#cluster">cluster</a></li>
+        <li><a href="#domain">domain</a></li>
+      </ul>
+    </li>
+    <li><a href="#lib-1">外部lib</a>
+      <ul>
+        <li><a href="#url">url</a></li>
+        <li><a href="#querystring">querystring</a></li>
+        <li><a href="#crypto">crypto</a></li>
+        <li><a href="#node-gyp">node-gyp</a></li>
+        <li><a href="#util">util</a></li>
+        <li><a href="#zlib">zlib</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">全局属性</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

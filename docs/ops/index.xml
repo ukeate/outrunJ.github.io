@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>运维 on outrun的笔记</title>
@@ -12,11 +12,11 @@
     
     <item>
       <title>LinuxTool</title>
-      <link>https://example.com/docs/ops/linux_tool/</link>
+      <link>https://example.com/docs/ops/tool/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/ops/linux_tool/</guid>
-      <description>包 net-tools ifconfig  内核 modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.directory &amp;quot;fd.</description>
+      <guid>https://example.com/docs/ops/tool/</guid>
+      <description>包 net-tools ifconfig  内核 modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.directory &amp;quot;fd.type=file&amp;quot; # 目录读写 top fd.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
       <guid>https://example.com/docs/ops/security/</guid>
-      <description> 基础 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;amp;&amp;amp; rm -rf /lib/libudev.so &amp;amp;&amp;amp; chattr +i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;amp;&amp;amp; chmod 0000 /etc/crontab &amp;amp;&amp;amp; chattr +i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  </description>
+      <description>基础 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;amp;&amp;amp; rm -rf /lib/libudev.so &amp;amp;&amp;amp; chattr +i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;amp;&amp;amp; chmod 0000 /etc/crontab &amp;amp;&amp;amp; chattr +i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  </description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
       <pubDate>Thu, 11 Oct 2018 18:18:21 +0800</pubDate>
       
       <guid>https://example.com/docs/ops/docker/</guid>
-      <description>基础 介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .</description>
+      <description>基础 介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .</description>
     </item>
     
     <item>

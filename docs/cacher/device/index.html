@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Device"><meta property="og:title" content="" />
+<meta property="og:description" content="phone 本质 移动 app tudo, v2rayNG 夸克, 百度地图, 支付宝 网易云音乐  ipad 本质 接现实 纸：多量，大面积 pad: 结构化，易重构 标志app notability, marginNote3, procreator  mac 本质 非编程 快捷键 divvy：control &#43; command &#43; v alfred：option &#43; 空格 标志app OmniPlan, outlook DEVONagent, DEVONthink, marginNote3, xmind  pc 本质 编程  命令 dmesg journalctl 快捷键 ctrl alt f1/f2/...  WM 全 console chromium nautilus 常切回默认 左1, 中2, 右1 左 # 资料、工具 1: vscode、blog、wiki 2: 扩展ide 3: dia 4: work display 5: virtual box 6: postman 9: chrome、console 中 # 编程 1: goland 2: intellij idea 3: webstorm 9: chrome、console 右 # 辅助 1: console 2: remote console 3: 扩展ide 5: blueberry 6: synergy 9: chrome、console  端口 8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 系统 ~/ code scripts/ work app config login bak ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/cacher/device/" />
+
+<title>Device | outrun的笔记</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">go</a></li>
+<li><a href="/docs/pl/js">js</a></li>
+<li><a href="/docs/pl/java">java</a></li>
+<li><a href="/docs/pl/python">python</a></li>
+<li><a href="/docs/pl/haskell">haskell</a></li>
+<li><a href="/docs/pl/clojure">clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">html</a></li>
+<li><a href="/docs/pl/markup_language/css">css</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/architecture"><strong>架构</strong></a>
+<ul>
+<li><a href="/docs/architecture/principle">原理</a></li>
+<li><a href="/docs/architecture/performance">性能</a></li>
+<li><a href="/docs/architecture/solution">方案</a></li>
+<li><a href="/docs/architecture/nginx">nginx</a></li>
+<li><a href="/docs/architecture/nodejs">nodejs</a></li>
+<li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/backend"><strong>后端</strong></a>
+<ul>
+<li><a href="/docs/backend/principle">原理</a></li>
+<li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
+<li><a href="/docs/backend/javaweb">javaweb</a></li>
+<li><a href="/docs/backend/spring">spring</a></li>
+<li><a href="/docs/backend/hibernate">hibernate</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">mongodb</a></li>
+<li><a href="/docs/db/mysql">mysql</a></li>
+<li><a href="/docs/db/oracle">oracle</a></li>
+<li><a href="/docs/db/postgre_sql">pgsql</a></li>
+<li><a href="/docs/db/redis">redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">jquery</a></li>
+<li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
+<li><a href="/docs/frontend/angular">angular</a></li>
+<li><a href="/docs/frontend/react">react</a></li>
+<li><a href="/docs/frontend/threejs">three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">vim</a></li>
+<li><a href="/docs/tool/eclipse">eclipse</a></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/media">媒体</a></li>
+<li><a href="/docs/english">英语</a></li>
+<li><a href="/docs/interview">题目</a></li>
+<li><a href="/docs/infomation">信息</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Device</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="phone">phone</h1>
+<pre><code>本质
+    移动
+app
+    tudo, v2rayNG
+    夸克, 百度地图, 支付宝
+    网易云音乐
+</code></pre>
+<h1 id="ipad">ipad</h1>
+<pre><code>本质
+    接现实
+        纸：多量，大面积
+        pad: 结构化，易重构
+标志app
+    notability, marginNote3, procreator
+</code></pre>
+<h1 id="mac">mac</h1>
+<pre><code>本质
+    非编程
+快捷键
+    divvy：control + command + v
+    alfred：option + 空格
+标志app
+    OmniPlan, outlook 
+    DEVONagent, DEVONthink, marginNote3, xmind
+</code></pre>
+<h1 id="pc">pc</h1>
+<pre><code>本质
+    编程
+</code></pre>
+<h2 id="heading">命令</h2>
+<pre><code>dmesg
+journalctl
+
+快捷键
+    ctrl alt f1/f2/...
+</code></pre>
+<h2 id="wm">WM</h2>
+<pre><code>全
+    console
+    chromium
+    nautilus
+常切回默认
+    左1, 中2, 右1
+左                              # 资料、工具
+    1: vscode、blog、wiki
+    2: 扩展ide
+    3: dia
+    4: work display
+    5: virtual box
+    6: postman
+
+    9: chrome、console
+中                              # 编程
+    1: goland
+    2: intellij idea
+    3: webstorm
+
+    9: chrome、console
+右                              # 辅助
+    1: console
+    2: remote console
+    3: 扩展ide
+    5: blueberry
+    6: synergy
+
+    9: chrome、console
+</code></pre>
+<h2 id="heading-1">端口</h2>
+<pre><code>8123 polipo
+1080 shadowsocks
+
+1315 blog
+
+7000,7001,7199,9042,9160 cassandra
+9092 kafka
+2181 kafka zookeeper
+9020 kafka-manager
+8001 nginx
+3306 mysql
+5432 postgres
+54321 timescaledb
+8002 adminer
+27017 mongo
+8003 mongo-express
+6379 redis
+7474,7687 neo4j
+4369, 5671, 5672, 15671, 15672 rabbitmq
+9411 zipkin
+9200 es
+9100 es-head
+5601 kibana
+10001 haproxy
+5433,8090,8091 confluence
+
+8004 dokuwiki
+8005 wordpress
+8006 nginx-php-fpm
+9090, 1883, 5683 thingsBoard
+
+9000 provider
+9001,9002 consumer
+9003,9004 discovery
+9005,9006 consumer-metadb
+9010 monitor
+9011 api-gateway
+9012 config-server
+9013 config-client
+9014 zipkin-server
+9015 admin-server
+9016 auth
+9017 auth-client
+</code></pre>
+<h2 id="heading-2">配置</h2>
+<h3 id="heading-3">系统</h3>
+<pre><code>~/
+    code
+    scripts/
+        work
+        app
+        config
+        login
+    bak
+    .xinitrc
+    .bashrc
+    .bash_profile
+    .gitconfig
+    .openvpn
+    .ssh
+    .tmux.conf
+    .config/
+        awesome
+        VirtualBox/VirtualBox.xml
+    .m2/
+        settings.xml
+    .local/
+        share/
+            fonts
+/opt/
+    env
+    svc
+/etc/
+    resolv.conf
+    vsftpd.conf
+    X11/
+        xorg.conf.d/
+            70-synaptics.conf
+/var/ftp
+
+# log
+~/logs
+~/VBoxSVC.log
+~/.config/VirtualBox/selectorwindow.log
+</code></pre>
+<h3 id="vim">vim</h3>
+<pre><code>set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+
+set hlsearch
+set incsearch
+set ignorecase
+
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set autoindent
+set smartindent
+</code></pre>
+<h3 id="synaptics">synaptics</h3>
+<pre><code>/etc/X11/xorg.conf.d/70-synaptics.conf
+    Section &quot;InputClass&quot;
+        Identifier &quot;touchpad&quot;
+        Driver &quot;synaptics&quot;
+        MatchIsTouchpad &quot;on&quot;
+                Option &quot;TapButton1&quot; &quot;1&quot;
+                Option &quot;TapButton2&quot; &quot;3&quot;
+                Option &quot;TapButton3&quot; &quot;2&quot;
+                Option &quot;VertEdgeScroll&quot; &quot;on&quot;
+                Option &quot;VertTwoFingerScroll&quot; &quot;on&quot;
+                Option &quot;HorizEdgeScroll&quot; &quot;on&quot;
+                Option &quot;HorizTwoFingerScroll&quot; &quot;on&quot;
+                Option &quot;CircularScrolling&quot; &quot;on&quot;
+                Option &quot;CircScrollTrigger&quot; &quot;2&quot;
+                Option &quot;EmulateTwoFingerMinZ&quot; &quot;40&quot;
+                Option &quot;EmulateTwoFingerMinW&quot; &quot;8&quot;
+                Option &quot;FingerLow&quot; &quot;30&quot;
+                Option &quot;FingerHigh&quot; &quot;50&quot;
+                Option &quot;MaxTapTime&quot; &quot;125&quot;
+            Option &quot;VertScrollDelta&quot; &quot;-50&quot;
+            Option &quot;HorizScrollDelta&quot; &quot;-50&quot;
+    EndSection
+</code></pre>
+<h3 id="awesome">awesome</h3>
+<pre><code>快捷键
+    独立
+        &lt;M - s&gt;             # 帮助
+        &lt;M - w&gt;             # 菜单
+    client
+        &lt;M - 回车&gt;            # 终端
+        &lt;M - ctrl - r&gt;       # reload
+        &lt;M - c&gt;              # 自定义chromium
+        &lt;M - f&gt;              # 全屏
+        &lt;M - shift - c&gt;      # 关闭
+        &lt;M - 数字&gt;            # 切换到tag
+        &lt;M - j&gt; &lt;M - k&gt;      # 本tag切换client
+        &lt;M - 空格&gt;            # 变布局
+~/.xinitrc
+    exec /usr/bin/awesome &gt;&gt; ~/.cache/awesome/stdout 2&gt;&gt; ~/.cache/awesome/stderr
+~/.config/awesome/rc.lua
+    # 默认在/etc/xdg/awesome/rc.lua
+
+    -- Table of layouts to cover with awful.layout.inc, order matters.
+    awful.layout.layouts = {
+        -- awful.layout.suit.floating,
+        awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        awful.layout.suit.tile.bottom,
+        awful.layout.suit.tile,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.fair,
+        -- awful.layout.suit.fair.horizontal,
+        awful.layout.suit.magnifier,
+        awful.layout.suit.corner.nw,
+        -- awful.layout.suit.corner.ne,
+        -- awful.layout.suit.corner.sw,
+        -- awful.layout.suit.corner.se,
+        awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+    }
+    -- }}}
+
+    
+    -- {{{ Menu
+    mymainmenu = awful.menu({ items = { { &quot;awesome&quot;, myawesomemenu, beautiful.awesome_icon },
+        { &quot;chromium&quot;, &quot;chromium&quot; },
+        { &quot;open terminal&quot;, terminal }
+      }
+    })
+
+
+    -- {{{ Key bindings
+    -- Standard program
+        awful.key({ modkey,           }, &quot;c&quot;, function () awful.spawn(&quot;chromium&quot;) end,
+            {description = &quot;open a chromium&quot;, group = &quot;launcher&quot;}),
+        awful.key({ modkey,           }, &quot;q&quot;, function () awful.spawn(&quot;xscreensaver-command --lock&quot;) end,
+            {description = &quot;lock screen&quot;, group = &quot;launcher&quot;}),
+
+    -- {{{ Rules
+    -- Floating clients.
+    {
+    rule = { class = &quot;VirtualBox&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;MyBase&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;2&quot;}
+    },
+
+
+    {
+    rule = { class = &quot;jetbrains-goland&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;Code&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;2&quot;}
+    },
+
+    {
+    rule = { class = &quot;jetbrains-webstorm&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;3&quot;}
+    },
+
+
+    -- {{{ diy auto run
+    awful.util.spawn_with_shell(&quot;~/.config/awesome/autorun.sh&quot;)
+    -- }}}
+
+~/.config/awesome/autorun.sh
+    #!/usr/bin/env bash
+
+    # nothing to use
+    function run {
+        if ! pgrep $1 ; then
+            $@&amp;
+        fi
+    }
+
+    if xrandr | grep -q 'eDP1 connected' ; then
+        run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off
+    fi
+
+    run ibus-daemon --xim
+    run nm-applet
+</code></pre>
+<h3 id="docker">docker</h3>
+<pre><code>/etc/docker/daemon.json
+    {
+      &quot;registry-mirrors&quot;: [&quot;https://nmp74w3y.mirror.aliyuncs.com&quot;, &quot;https://3laho3y3.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;, &quot;https://registry.docker-cn.com&quot;, &quot;http://f1361db2.m.daocloud.io&quot;, &quot;https://mirror.ccs.tencentyun.com&quot;]
+    }
+/etc/systemd/system/docker.service.d/http-proxy.conf            # 没有时创建
+    Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;
+        &quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;
+        &quot;NO_PROXY=192.168.1.1,localhost&quot;
+</code></pre>
+<h3 id="http-proxy">http proxy</h3>
+<pre><code>export https_proxy=http://127.0.0.1:8123
+export http_proxy=http://127.0.0.1:8123
+</code></pre>
+<h3 id="git">git</h3>
+<pre><code>git config --global http.proxy 'http://127.0.0.1:8123'
+git config --global https.proxy 'http://127.0.0.1:8123'
+</code></pre>
+<h3 id="maven">maven</h3>
+<pre><code>~/.m2/settings.xml
+    &lt;proxies&gt;
+        &lt;proxy&gt;
+          &lt;id&gt;my-proxy&lt;/id&gt;
+          &lt;active&gt;true&lt;/active&gt;
+          &lt;protocol&gt;http&lt;/protocol&gt;
+          &lt;host&gt;localhost&lt;/host&gt;
+          &lt;port&gt;8123&lt;/port&gt;
+          &lt;!--
+          &lt;username&gt;admin&lt;/username&gt;
+          &lt;password&gt;admin&lt;/password&gt;
+          &lt;nonProxyHosts&gt;repository.mycom.com|*.google.com&lt;/nonProxyHosts&gt;
+          --&gt;
+        &lt;/proxy&gt;
+    &lt;/proxies&gt;
+</code></pre>
+<h3 id="tmux">tmux</h3>
+</article>
+
+      <div class="book-footer justify-between">
+  
+
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Dec 6, 2019</span>
+    </a>
+  </div>
+  
+  
+
+  
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cacher/device.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+  
+
+</div>
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">命令</a></li>
+    <li><a href="#wm">WM</a></li>
+    <li><a href="#heading-1">端口</a></li>
+    <li><a href="#heading-2">配置</a>
+      <ul>
+        <li><a href="#heading-3">系统</a></li>
+        <li><a href="#vim">vim</a></li>
+        <li><a href="#synaptics">synaptics</a></li>
+        <li><a href="#awesome">awesome</a></li>
+        <li><a href="#docker">docker</a></li>
+        <li><a href="#http-proxy">http proxy</a></li>
+        <li><a href="#git">git</a></li>
+        <li><a href="#maven">maven</a></li>
+        <li><a href="#tmux">tmux</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>

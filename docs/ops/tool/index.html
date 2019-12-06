@@ -4,18 +4,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LinuxTool"><meta property="og:title" content="LinuxTool" />
+<meta property="og:description" content="包 net-tools ifconfig  内核 modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &quot;evt.failed=true&quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &quot;fd.type=file&quot; # 进程文件描述符 fdbytes_by fd.directory &quot;fd.type=file&quot; # 目录读写 top fd." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/ops/tool/" />
+<meta property="article:published_time" content="2018-10-11T18:47:57+08:00" />
+<meta property="article:modified_time" content="2019-12-06T10:59:07+08:00" />
 <title>LinuxTool | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +39,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +60,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2fops\2flinux_tool\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +77,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +88,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +104,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,16 +194,11 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="包">包</h1>
-
+<article class="markdown"><h1 id="heading">包</h1>
 <pre><code>net-tools
     ifconfig
 </code></pre>
-
-<h1 id="内核">内核</h1>
-
+<h1 id="heading-1">内核</h1>
 <pre><code>modprobe vboxdrv                    # 内核
 lsmod                               # 显示当前系统加载的模块，如systemctl中start了的模块
 sysdig
@@ -231,10 +236,9 @@ sysdig
         -vcontainers                # 容器资源
         -pc                         # 详情
 </code></pre>
-
-<h1 id="文件">文件</h1>
-
-<pre><code>rm -rf
+<h1 id="heading-2">文件</h1>
+<pre><code>rename 's/\.bak$//' *.bak           # 重命名
+rm -rf
 touch
     -t 0712250000 file              # 修改文件时间戳(YYMMDDhhmm)
 ls *[0-9]*
@@ -328,9 +332,7 @@ chcon
     chcon -R -t mysqld_db_t /data
     chcon -R --reference=/var/lib/mysql /data
 </code></pre>
-
-<h1 id="系统">系统</h1>
-
+<h1 id="heading-3">系统</h1>
 <pre><code>man
     -f                  # 简要介绍
     -k                  # 通配搜索
@@ -369,9 +371,7 @@ halt
 bash
     -c                  # 执行命令字符串
 </code></pre>
-
-<h1 id="查看">查看</h1>
-
+<h1 id="heading-4">查看</h1>
 <pre><code>env                     # 查看所有环境变量
 echo
 watch -n 1 -d netstat  -ant         # 监视
@@ -386,9 +386,7 @@ sl                      # 火车
 cal 9 1752              # 打印日历
 jq . a.json             # 验证json格式
 </code></pre>
-
-<h1 id="控制">控制</h1>
-
+<h1 id="heading-5">控制</h1>
 <pre><code>script/scriptreply      # 终端录制
 source
 bc
@@ -413,18 +411,14 @@ expect                  # 为运行的脚本预填表单
     if [fork]!=0 exit
     disconnect
 </code></pre>
-
-<h1 id="日志">日志</h1>
-
+<h1 id="heading-6">日志</h1>
 <pre><code>dmesg                   # 启动日志
 rsyslog                 # 日志管理, syslog的实现, 在systemd中被systemd-journal取代
 mcelog                  # machine check exception log
 journalctl              # 日志查看
         -xe
 </code></pre>
-
-<h1 id="设备">设备</h1>
-
+<h1 id="heading-7">设备</h1>
 <pre><code>top
     top -d 1 -p pid [,pid ...]
 htop
@@ -460,9 +454,7 @@ powertop                # intel电源管理
 lspci
 lsusb
 </code></pre>
-
-<h2 id="硬盘">硬盘</h2>
-
+<h2 id="heading-8">硬盘</h2>
 <pre><code>fdisk -l
 cfdisk
 sfdisk
@@ -512,9 +504,7 @@ lvs
     删除一个物理卷：
     pvremove /dev/sda1
 </code></pre>
-
-<h2 id="进程">进程</h2>
-
+<h2 id="heading-9">进程</h2>
 <pre><code>pidstat                 # 进程使用资源的情况
 ps
     aux                 # 用在unix style中, BSD格式显示
@@ -537,10 +527,11 @@ pkill Xorg              # kill 所有包含
 killall Xorg            # kill 所有包含
 xkill                   # 运行后 在xwindow点击kill窗口
 </code></pre>
-
-<h2 id="网络">网络</h2>
-
-<pre><code>mtr                     # myTrace, 合并ping与traceroute，默认发送ICMP包, 做持续探测, 避免节点波动的影响
+<h2 id="heading-10">网络</h2>
+<pre><code>ab                      # 压测
+    ab -c 10 -n 100 https://www.baidu.com/
+        # 10并发100次, url结尾要有/
+mtr                     # myTrace, 合并ping与traceroute，默认发送ICMP包, 做持续探测, 避免节点波动的影响
                         # Loss%丢包率, Snt每秒包数, Last最近一次延迟, Avg平均值, Best最小值, Worst最大值, StDev标准差
     -u                  # 使用udp包
     --no-dns            # 不对ip做域名反解析
@@ -554,21 +545,22 @@ xkill                   # 运行后 在xwindow点击kill窗口
             8 链路负载均衡
 traceroute              # 做一次探测, 默认UDP包, 发包TTL值逐渐增大
     -I                  # 使用ICMP包
-ufw                     # 简化防火墙
+ufw                     # ubuntu, 简化防火墙
 iptables
-    -L                  # list 显示
-    -n                  # 端口以数字显示
-    -A                  # append, 添加
-    -D                  # delete, 删除
-    -p                  # 协议
-    --dport             # 目标端口
-    --sport             # 源端口
-    -j                  # 跳转
-        ACCEPT
-        SNAT            # 只适用于POSTROUTING链，修改源地址
-    -t                  # 要操作的匹配表
-    -F                  # flush
-
+    参数
+        -L                  # list 显示
+        -n                  # 端口以数字显示
+        -A                  # append, 添加
+        -D                  # delete, 删除
+        -p                  # 协议
+        -m                  # 使用模块, 会根据-p选择模块
+        --dport             # 目标端口
+        --sport             # 源端口
+        -j                  # 跳转
+            ACCEPT
+            SNAT            # 只适用于POSTROUTING链，修改源地址
+        -t                  # 要操作的匹配表
+        -F                  # flush
     表
         filter          # 默认表
             INPUT       # 进入
@@ -581,30 +573,45 @@ iptables
         mangle          # 指定包修改
             PREROUTING
             OUTPUT
-
-    o-&gt;
-    iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-    iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-    iptables -L -n
-    service iptables save
-    iptables -t nat -L  # 查nat表
-    iptables -F
-
     配置文件
         /etc/sysconfig/iptables
         /usr/libexec/iptables/iptables.init
             save
-
-    service iptables save
-    service iptables restart            # 开放端口
-
-    systemctl enable iptables.service
-
-    iptables -A INPUT -p tcp --dport 3128 -j ACCEPT         # DROP
-    iptables -A OUTPUT -p tcp --sport 3128 -j ACCEPT
-
-    iptables -t nat -A POSTROUTING -s 192.168.252.0/24 -j SNAT --to-source 10.171.83.146
-        # vpn服务器
+        rules.v4        # 自定义配置
+            *filter
+            :INPUT ACCEPT [186:19951]
+            :FORWARD ACCEPT [0:0]
+            :OUTPUT ACCEPT [71:11164]
+            -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+            -A INPUT -p tcp -m tcp --dport 23 -j ACCEPT
+            -A INPUT -p tcp -m tcp --dport 24 -j ACCEPT
+            COMMIT
+    开机启动
+        创建/etc/network/if-pre-up.d/iptables
+            iptables-restore &lt; rules.v4
+    命令
+        systemctl enable iptables.service
+        service iptables save
+        service iptables restart
+        iptables-restore &lt; rules.v4
+            # 导入配置
+    常用命令
+        iptables -L -n
+            # 查看
+        iptables -F
+            # flush, 生效
+        iptables -P INPUT ACCEPT
+            # 开放所有input
+        iptables -P OUTPUT ACCEPT
+            # 开放所有output
+        iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+            # 开放input tcp 22
+        iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+            # 开放output tcp 22
+        iptables -t nat -L
+            # 查nat表
+        iptables -t nat -A POSTROUTING -s 192.168.252.0/24 -j SNAT --to-source 10.171.83.146
+            # vpn转发
 firewall
     systemctl start firewalld
 
@@ -739,9 +746,7 @@ vnc                     # 远程桌面
             localhost:5801                          # 需要安装java
 wifi-menu
 </code></pre>
-
-<h1 id="调度">调度</h1>
-
+<h1 id="heading-11">调度</h1>
 <pre><code>at                      # 某时间运行一次
 
 jobs                    # 后台作业
@@ -788,10 +793,23 @@ cron
                 # 每15分钟执行一次打印
         0 */2 * * * date                            # 每两个小时
 </code></pre>
-
-<h1 id="包管理">包管理</h1>
-
-<pre><code>rpm                         # 源 rpm fusion
+<h1 id="heading-12">包管理</h1>
+<pre><code>snap
+    list                    # 列已安装
+    find                    # 搜索
+    install
+    remove
+    refresh                 # 更新
+        refresh all
+    revert                  # 还原到上个版本
+        --revision          # 指定版本
+    run                     # 运行命令
+    start                   # 运行service
+        --enable            # 开机启动
+    stop                    # 停止service
+    save                    # 存配置快照
+    saved                   # 列出所有快照
+rpm                         # 源 rpm fusion
     -i 安装
     -e 卸载
     -qa 查看安装的包名
@@ -882,9 +900,7 @@ dpkg                        # 管理deb包程序
     -r                      # 删除
 pkgfile                     # 查看命令所需的包
 </code></pre>
-
 <h1 id="init">init</h1>
-
 <pre><code>grub
     /etc/default/grub       # 设置文件
     grub2-mkconfig -o /boot/grub2/grub.cfg      # 使设置生效，update-grub 是debian下做的包装
@@ -913,9 +929,7 @@ chkconfig iptables on/off   # 设置服务启动
     --level 2345 iptables off                   # 查看各level服务状态
     --list
 </code></pre>
-
-<h1 id="编程">编程</h1>
-
+<h1 id="heading-13">编程</h1>
 <pre><code>:() { :|:&amp; };:              # fork bombmake
 make
     注意
@@ -1085,16 +1099,56 @@ bpftrace                # btrace2.0
 gdb
 SystemTap               # 内核动态探针
 </code></pre>
+<h1 id="heading-14">媒体</h1>
+<pre><code>import                  # 截图
+    import a.png        # 选取区域
+    -pause 3 -frame a.png                       # 截窗口, 延迟3秒(为了选定)
+display                 # 显示图片
+    display *.png       # 幻灯片
+    -delay 5            # 5百分之秒切换
 
-<h1 id="图形程序">图形程序</h1>
+    快捷键
+        空格            # 下一张
+        退格            # 上一张
+        h               # 水平翻转
+        v               # 垂直翻转
+        /               # 顺时针翻转90度
+        \               # 逆时针旋转90度
+        &gt;               # 放大
+        &lt;               # 缩小
+        f7              # 模糊
+convert                 # 转换图片
+    convert a.jpg a.png # 转格式
 
-<h2 id="桌面">桌面</h2>
+    -resize 1024x768
+        convert -resize a.jpg a1.jpg
+    -sample 50%x50%     # 缩略图
+    -rotate 270         # 顺时针旋转270度
+    -flip               # 左右翻转
+    -paint 4            # 旋转角度
 
+    -draw               # 加文字
+        convert -fill black -pointsize 60 -font helvetica -draw 'text 10,80 &quot;A&quot; ‘  a.jpg  a1.jpg
+            # 用黑色, 60磅, helvetica字体, 在位置10,80 写A
+    -raise 5x5          # 右下增加
+    +raise 5x5          # 左上增加
+    -bordercolor red -border 5x5                # 红色边框
+    -mattecolor black -frame 5x5                # 黑色边框
+
+    -noise 3            # 油画
+    -monochrome         # 噪声
+    -blur 80            # 高斯模糊
+    -flop               # 底片
+    -negate             # 黑白
+    -charcoal 2         # 炭笔
+    -spread 30          # 漩涡
+    -swirl 67           # 凸起
+</code></pre>
+<h1 id="heading-15">图形程序</h1>
+<h2 id="heading-16">桌面</h2>
 <pre><code>kde
 </code></pre>
-
 <h3 id="gnome">gnome</h3>
-
 <pre><code>启动
     .xinitrc
         exec gnome-session
@@ -1119,16 +1173,12 @@ gnome terminate
     右键快捷键
         shift + f10
 </code></pre>
-
 <h3 id="i3">i3</h3>
-
 <pre><code>启动
     .xinitrc
         exec i3
 </code></pre>
-
 <h3 id="awesome">awesome</h3>
-
 <pre><code>启动
     .xinitrc
         exec /usr/bin/awesome &gt;&gt; ~/.cache/awesome/stdout 2&gt;&gt; ~/.cache/awesome/stderr
@@ -1161,9 +1211,7 @@ gnome terminate
         run ibus-daemon -d -x
         run nm-applet
 </code></pre>
-
-<h2 id="显示">显示</h2>
-
+<h2 id="heading-17">显示</h2>
 <pre><code>xrandr
     # 多显示器布局
     -q                         # 列出所有屏幕
@@ -1179,29 +1227,21 @@ gnome terminate
         right
         inverted
 </code></pre>
-
-<h2 id="任务栏">任务栏</h2>
-
+<h2 id="heading-18">任务栏</h2>
 <pre><code>nm-applet
     # 联网
 </code></pre>
-
-<h2 id="输入法">输入法</h2>
-
+<h2 id="heading-19">输入法</h2>
 <pre><code>fcitx
 ibus
 ibus-daemon -d -x -r        # ibus后台运行
 </code></pre>
-
-<h2 id="模拟">模拟</h2>
-
+<h2 id="heading-20">模拟</h2>
 <pre><code>wine
 winetricks                  # 安装wine的各种依赖
 cabextract                  # microsoft cabinet获取工具
 </code></pre>
-
-<h1 id="方案">方案</h1>
-
+<h1 id="heading-21">方案</h1>
 <pre><code>命令组合                    # xargs sed | grep awk
     grep                    # 去除某些 grep nginx | grep -v grep
 过滤进程并kill
@@ -1270,25 +1310,31 @@ simplehttp
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified Nov 9, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Nov 9, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Dec 6, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/linux_tool.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/tool.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -1296,49 +1342,34 @@ simplehttp
     
   
 
-  <aside class="book-toc level-6 fixed">
+  <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#包">包</a></li>
-<li><a href="#内核">内核</a></li>
-<li><a href="#文件">文件</a></li>
-<li><a href="#系统">系统</a></li>
-<li><a href="#查看">查看</a></li>
-<li><a href="#控制">控制</a></li>
-<li><a href="#日志">日志</a></li>
-<li><a href="#设备">设备</a>
-<ul>
-<li><a href="#硬盘">硬盘</a></li>
-<li><a href="#进程">进程</a></li>
-<li><a href="#网络">网络</a></li>
-</ul></li>
-<li><a href="#调度">调度</a></li>
-<li><a href="#包管理">包管理</a></li>
-<li><a href="#init">init</a></li>
-<li><a href="#编程">编程</a></li>
-<li><a href="#图形程序">图形程序</a>
-<ul>
-<li><a href="#桌面">桌面</a>
-<ul>
-<li><a href="#gnome">gnome</a></li>
-<li><a href="#i3">i3</a></li>
-<li><a href="#awesome">awesome</a></li>
-</ul></li>
-<li><a href="#显示">显示</a></li>
-<li><a href="#任务栏">任务栏</a></li>
-<li><a href="#输入法">输入法</a></li>
-<li><a href="#模拟">模拟</a></li>
-</ul></li>
-<li><a href="#方案">方案</a></li>
-</ul>
+  <ul>
+    <li><a href="#heading-8">硬盘</a></li>
+    <li><a href="#heading-9">进程</a></li>
+    <li><a href="#heading-10">网络</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-16">桌面</a>
+      <ul>
+        <li><a href="#gnome">gnome</a></li>
+        <li><a href="#i3">i3</a></li>
+        <li><a href="#awesome">awesome</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-17">显示</a></li>
+    <li><a href="#heading-18">任务栏</a></li>
+    <li><a href="#heading-19">输入法</a></li>
+    <li><a href="#heading-20">模拟</a></li>
+  </ul>
 </nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 

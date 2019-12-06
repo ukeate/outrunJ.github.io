@@ -4,18 +4,30 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mysql"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 介绍 c&#43;&#43;编写 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 o-&gt; mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p -h127.0.0.1 -P3306 --force --all-databases # 所有库 --databases db1 db2 # 多库 o-&gt; mysqldump -uroot -p db1 tb1&gt; tb1.sql mysqladmin -uroot -p status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/db/mysql/" />
+
 <title>Mysql | outrun的笔记</title>
-
-
-<link rel="stylesheet" href="/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
-
-
-<script defer src="/search.min.3a46c391565f1f1bf40fffee740f8e5b6667b86a14536745c93a799cfa884314.js"></script>
-
-
-
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.55213a089ce455398417dc93630b18952fd0e3e41948929baeb281cb80f140f4.js" integrity="sha256-VSE6CJzkVTmEF9yTYwsYlS/Q4&#43;QZSJKbrrKBy4DxQPQ="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <!--
 Made with Book Theme
@@ -26,18 +38,19 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
+  <input type="checkbox" class="hidden" id="menu-control" />
   <main class="flex container">
 
     <aside class="book-menu fixed">
       <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/">outrun的笔记</a>
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" readonly />
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
   <div class="book-search-spinner spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -46,28 +59,16 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
-
-  <style>
-  nav ul a[href$="\2f docs\2f db\2fmysql\2f "] {
-      color: #004ed0;
-  }
-  </style>
-
-<ul>
+    <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
-
 <ul>
 <li><a href="/docs/algorithm/math">数学</a></li>
 <li><a href="/docs/algorithm/thought">思想</a></li>
 <li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
-
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
 <li><a href="/docs/design/biz">行业</a></li>
@@ -75,9 +76,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
-
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">go</a></li>
@@ -86,15 +87,15 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/python">python</a></li>
 <li><a href="/docs/pl/haskell">haskell</a></li>
 <li><a href="/docs/pl/clojure">clojure</a></li>
-<li><a href="/docs/pl/markup_language"><strong><em>标记语言</em></strong></a>
-
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">html</a></li>
 <li><a href="/docs/pl/markup_language/css">css</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/architecture"><strong>架构</strong></a>
-
 <ul>
 <li><a href="/docs/architecture/principle">原理</a></li>
 <li><a href="/docs/architecture/performance">性能</a></li>
@@ -102,59 +103,67 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architecture/nginx">nginx</a></li>
 <li><a href="/docs/architecture/nodejs">nodejs</a></li>
 <li><a href="/docs/architecture/spring_cloud">spring cloud</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/backend"><strong>后端</strong></a>
-
 <ul>
 <li><a href="/docs/backend/principle">原理</a></li>
 <li><a href="/docs/backend/elasticsearch">elasticsearch</a></li>
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
-
 <ul>
 <li><a href="/docs/db/mongodb">mongodb</a></li>
 <li><a href="/docs/db/mysql">mysql</a></li>
 <li><a href="/docs/db/oracle">oracle</a></li>
 <li><a href="/docs/db/postgre_sql">pgsql</a></li>
 <li><a href="/docs/db/redis">redis</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/frontend"><strong>前端</strong></a>
-
 <ul>
 <li><a href="/docs/frontend/jquery">jquery</a></li>
 <li><a href="/docs/frontend/bootstrap">bootstrap</a></li>
 <li><a href="/docs/frontend/angular">angular</a></li>
 <li><a href="/docs/frontend/react">react</a></li>
 <li><a href="/docs/frontend/threejs">three.js</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
-
 <ul>
 <li><a href="/docs/ops/linux">linux</a></li>
-<li><a href="/docs/ops/linux_tool">linux工具</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">docker</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/media"><strong>媒体</strong></a></li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
-
 <ul>
 <li><a href="/docs/tool/vim">vim</a></li>
 <li><a href="/docs/tool/eclipse">eclipse</a></li>
-</ul></li>
+<li><a href="/docs/tool/apple">apple</a></li>
+</ul>
+</li>
 <li><a href="/docs/media">媒体</a></li>
 <li><a href="/docs/english">英语</a></li>
 <li><a href="/docs/interview">题目</a></li>
 <li><a href="/docs/infomation">信息</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
-<li><a href="/register">&ldquo;寄存器&rdquo;</a></li>
+<li><a href="/docs/cacher"><strong>寄存器</strong></a>
+<ul>
+<li><a href="/docs/cacher/device">设备</a></li>
+<li><a href="/docs/cacher/app">app</a></li>
+<li><a href="/docs/cacher/develop">开发</a></li>
+<li><a href="/docs/cacher/ops">运维</a></li>
 </ul>
-
-
+</li>
+</ul>
 
 
 
@@ -184,10 +193,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="基础">基础</h1>
-
+<article class="markdown"><h1 id="heading">基础</h1>
 <pre><code>介绍
     c++编写
 端口
@@ -281,9 +287,7 @@ https://github.com/alex-shpak/hugo-book
     /var/lib/mysql              # 默认数据库
     /var/log/mariadb            # 默认日志
 </code></pre>
-
-<h1 id="引擎">引擎</h1>
-
+<h1 id="heading-1">引擎</h1>
 <pre><code>XtraDB
 Memory(Heap)
     # 之前叫Heap, 存到内存
@@ -325,9 +329,7 @@ InnoDB
     注意
         自增id最大值放在内存中，重启后会再查找。MyISAM的自增id最大值在文件中，重启不丢失。
 </code></pre>
-
-<h1 id="函数">函数</h1>
-
+<h1 id="heading-2">函数</h1>
 <pre><code>count(*)
 count(name)                        # 不统计null，所以不推荐，会漏数据
 sum(english)/count(*) as 英语平均分
@@ -370,9 +372,7 @@ curdate()+ 3                                # 当前日期 + 3 天
 date(str)                                        # 提取日期时间表达字符串中的日期部分
 date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
 </code></pre>
-
-<h1 id="系统库-数据字典">系统库/数据字典</h1>
-
+<h1 id="heading-3">系统库/数据字典</h1>
 <pre><code>系统库
     information_schema
         # 默认内置元信息数据库
@@ -387,9 +387,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     test
         # 5.7移除，内置测试数据库
 </code></pre>
-
-<h1 id="触发器-trigger">触发器(trigger)</h1>
-
+<h1 id="trigger">触发器(trigger)</h1>
 <pre><code>new与old
     # 指代新数据
     insert只有new是合法的；
@@ -414,9 +412,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     set @new = new.s1;
     end;
 </code></pre>
-
-<h1 id="存储过程-stored-procedure">存储过程(stored procedure)</h1>
-
+<h1 id="stored-procedure">存储过程(stored procedure)</h1>
 <pre><code># 5.0加入
 结束符号(delimiter) //
 语法
@@ -477,7 +473,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     show procedure status;
     show create procedure proc_name;
     show create function func_name;
-
+    
 
 异常
     DECLARE
@@ -505,7 +501,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
 函数
     # 与存储过程唯一不同必须有RETURN语句
     # 不能在函数中访问表
-
+                
     function example1:
     create function myadd(num1 int, num2 int)
     returns int
@@ -513,7 +509,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     return num1 + num2;
     end//
 
-
+                
 例1
     create procedure pro(in name varchar(20))
     begin
@@ -552,7 +548,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     end case;
     select findday;
     end//
-
+        
 例4      # while循环
     create procedure findsum(in n int)
     begin
@@ -564,7 +560,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     end while;
     select sum;
     end//
-
+        
 例5      # 验证登录
     create procedure prologin(in user_name varchar(20), in user_psw varchar(100), out flag int)
     begin
@@ -575,9 +571,7 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     end if;
     end//
 </code></pre>
-
-<h1 id="配置">配置</h1>
-
+<h1 id="heading-4">配置</h1>
 <pre><code>o-&gt; my.cnf文件
 [client]
 
@@ -611,9 +605,7 @@ lower_case_table_names=1
 interactive_timeout=3600
 sql_mode=IGNORE_SPACE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 </code></pre>
-
-<h1 id="安全性">安全性</h1>
-
+<h1 id="heading-5">安全性</h1>
 <pre><code>跨域访问，使用ssh隧道加密通信
 set password设置密码
 用grant和revoke对用户授权
@@ -646,9 +638,7 @@ max_user_connections变量限制指定帐户连接数
         mysqladmin reload           # 运行中开启访问控制
     --skip-show-databases   # 禁止show databases
 </code></pre>
-
-<h1 id="方案">方案</h1>
-
+<h1 id="heading-6">方案</h1>
 <pre><code>初始化
     systemctl start mariadb
     mysql_secure_installation
@@ -766,25 +756,31 @@ max_user_connections变量限制指定帐户连接数
 </code></pre>
 </article>
 
-      
-<div class="book-footer justify-between">
+      <div class="book-footer justify-between">
+  
+
+  
   
   <div>
     
-    <a href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified Sep 24, 2019 by shenwenqing' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" alt="Changed" /> Sep 24, 2019
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Sep 24, 2019</span>
     </a>
   </div>
   
+  
+
   
   <div>
-    <a href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/mysql.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/mysql.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
   
-</div>
 
+</div>
 
       
     </div>
@@ -792,27 +788,14 @@ max_user_connections变量限制指定帐户连接数
     
   
 
-  <aside class="book-toc level-6 fixed">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#基础">基础</a></li>
-<li><a href="#引擎">引擎</a></li>
-<li><a href="#函数">函数</a></li>
-<li><a href="#系统库-数据字典">系统库/数据字典</a></li>
-<li><a href="#触发器-trigger">触发器(trigger)</a></li>
-<li><a href="#存储过程-stored-procedure">存储过程(stored procedure)</a></li>
-<li><a href="#配置">配置</a></li>
-<li><a href="#安全性">安全性</a></li>
-<li><a href="#方案">方案</a></li>
-</ul>
-</nav>
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
 
   </main>
-  
-  
+
   
 </body>
 
