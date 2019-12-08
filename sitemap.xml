@@ -39,7 +39,7 @@
   
   <url>
     <loc>https://example.com/docs/ops/docker/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
@@ -99,17 +99,17 @@
   
   <url>
     <loc>https://example.com/docs/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/infomation/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <loc>https://example.com/docs/misc/infomation/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/english/</loc>
-    <lastmod>2019-07-02T17:39:53+08:00</lastmod>
+    <loc>https://example.com/docs/misc/english/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
@@ -158,8 +158,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/media/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <loc>https://example.com/docs/misc/media/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
@@ -279,22 +279,17 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/cacher/app/</loc>
+    <loc>https://example.com/docs/cache/develop/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/docs/cacher/develop/</loc>
+    <loc>https://example.com/docs/cache/device/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/docs/cacher/device/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://example.com/docs/cacher/ops/</loc>
+    <loc>https://example.com/docs/cache/ops/</loc>
     <priority>0</priority>
   </url>
   
@@ -319,13 +314,18 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/cache/app/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/tool/apple/</loc>
     <lastmod>2019-12-06T10:59:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/cacher/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <loc>https://example.com/docs/cache/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
   <url>
@@ -369,8 +369,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/interview/</loc>
-    <lastmod>2019-09-24T08:48:46+08:00</lastmod>
+    <loc>https://example.com/docs/misc/interview/</loc>
+    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
   </url>
   
 </urlset>

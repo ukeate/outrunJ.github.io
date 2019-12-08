@@ -167,19 +167,19 @@
     
     <item>
       <title>Infomation</title>
-      <link>https://example.com/docs/infomation/</link>
+      <link>https://example.com/docs/misc/infomation/</link>
       <pubDate>Wed, 10 Oct 2018 20:56:27 +0800</pubDate>
       
-      <guid>https://example.com/docs/infomation/</guid>
+      <guid>https://example.com/docs/misc/infomation/</guid>
       <description>信息公布 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 https://bbs.pediy.com/ # 看雪论坛 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 https://www.jiumodiary.com/ # 鸠摩搜书 https://z-lib.org/ # 最大eboot库 问答 quora stack overflow 知乎 segmentfault 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞  做题 http://www.</description>
     </item>
     
     <item>
       <title>English</title>
-      <link>https://example.com/docs/english/</link>
+      <link>https://example.com/docs/misc/english/</link>
       <pubDate>Wed, 10 Oct 2018 20:53:25 +0800</pubDate>
       
-      <guid>https://example.com/docs/english/</guid>
+      <guid>https://example.com/docs/misc/english/</guid>
       <description>发音 spelling and numbers Acronym ibM, miT, ph.D mbA lA iQ revP ciA fbI coD soS xyZ Spelling boX cooK wiLsoN sentence stress with descriptive phrases It&#39;s SHORT. It&#39;s a short NAIL It&#39;s CHOCOLATE. It&#39;s a chocolate CAKE. contrasting description and a set phrase It&#39;s a short NAIL. It&#39;s a FINGERnail It&#39;s a chocolate CAKE. It&#39;s a PANcake T,D,S or Z + Y T + Y = CH what&#39;s your name can&#39;t you do it?</description>
     </item>
     
@@ -253,6 +253,15 @@
       
       <guid>https://example.com/docs/architecture/principle/</guid>
       <description>基础 CAP定理 # 当面临分区的时候，必须在一致性和可用性之间权衡 一致性Consistency 可用性Availability 分区容错性Partition tolerance BASE # 解决CAP 基本可用(basic available) 软状态(soft state) 最终一致性(eventually consistent)  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 gpu在pci总线上 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 内存到显存数据传输最花费时间。 原理 处理单元(processing unit) 算术逻辑单元(arithmetic logic unit) 处理寄存器(processor register) 控制单元(control unit) 指令寄存器(instruction register) 程序计数器(program counter) 指令集架构(ISA, instruction set architecture) # 机器码易兼容, 软件易编程, 易升级cpu 精简指令集RISC(reduced instruction set computing) 复杂指令集CISC(complex instruction set computer) 时钟频率(clock speed) 生产 生产线散热决定生存率，决定cpu型号 多级缓存 L1, L2, L3, L4 虚拟化 虚拟机监视器(VMM, virtual machine monitors) 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 硬件并行 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 指令分步骤(指令流), 每步专门部件处理 多指令流并行, 部件不空闲等待单指令流结束 六级流水线步骤 取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO) 多发射(超标量) 一时钟周期处理多指令 超线程 模拟多个逻辑线程 乱序执行 猜测执行 数据级 向量体系结构、图形处理器 单指令多数据(SIMD)架构 线程级 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互 请求级 # OS或程序耦合任务间并行 程序并行 数据级(DLP, data-level parallel) 任务级(TLP, task-level parallel) # 多处理器, 超线程, 虽只有4个核，但可用核返回8 内存 共享内存模型 分布式内存模型 进程: 独有内存 线程: 共享进程内存(地址空间、文件描述符) 一个进程下的轻量进程 POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似 自己的信号掩码 cpu affinity(倾向在某cpu尽量长时间运行) cgroups  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
+    </item>
+    
+    <item>
+      <title>媒体</title>
+      <link>https://example.com/docs/misc/media/</link>
+      <pubDate>Wed, 10 Oct 2018 15:13:01 +0800</pubDate>
+      
+      <guid>https://example.com/docs/misc/media/</guid>
+      <description>原理 硬件 CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d 分形 介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华.</description>
     </item>
     
     <item>
@@ -437,38 +446,29 @@
     
     <item>
       <title></title>
-      <link>https://example.com/docs/cacher/app/</link>
+      <link>https://example.com/docs/cache/develop/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cacher/app/</guid>
-      <description>趋向 本地(app) -&amp;gt; 线上(browser)  采用 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 项目 OmniPlan, ganttProject, microsoftProject 转换 文件 # 学术 阅读 实践 DEVONthink, siteSucker 文字 wps, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic shortMenu 影音 permute3 touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory quickTime, gifox, gif brewery, gif maker, Hype3 aurora3DMaker 系统 istatistica, wifiExplorer alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 浏览器: tampermonkey FEFileExplorer 输出 字 drafts[iCloud], workflowy[workflowy], 幕布[幕布] expressions jetbrains, vim, spacemacs 图 表: excel, marginNote[iCloud], xmind[oneDrive], liquidText[iCloud], mindNode, ithoughts, scapple 结构: visio, wps, ppt, OmniGraffle, plantUML, graphviz 数学: mathStudio, pocketCAS 画: procreator 库 笔记: oneNote[oneDrive], blog[github], goodnotes 记录: dayOne 同步 synergy, pushbullet 依赖 系统: 文件: tree, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: nohup, expect 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
+      <guid>https://example.com/docs/cache/develop/</guid>
+      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config  hugo go install --tags extended </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/cacher/develop/</link>
+      <link>https://example.com/docs/cache/device/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cacher/develop/</guid>
-      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config mvn clean package -DskipTests maven maven helper plugin 打包main方法jar不能引用 用父项目mvn package, 如果用子项目mvn package会找不到其它子项目(not exist) 模块运行前mvn package  hugo go install --tags extended </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/cacher/device/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/cacher/device/</guid>
+      <guid>https://example.com/docs/cache/device/</guid>
       <description>phone 本质 移动 app tudo, v2rayNG 夸克, 百度地图, 支付宝 网易云音乐  ipad 本质 接现实 纸：多量，大面积 pad: 结构化，易重构 标志app notability, marginNote3, procreator  mac 本质 非编程 快捷键 divvy：control + command + v alfred：option + 空格 标志app OmniPlan, outlook DEVONagent, DEVONthink, marginNote3, xmind  pc 本质 编程  命令 dmesg journalctl 快捷键 ctrl alt f1/f2/...  WM 全 console chromium nautilus 常切回默认 左1, 中2, 右1 左 # 资料、工具 1: vscode、blog、wiki 2: 扩展ide 3: dia 4: work display 5: virtual box 6: postman 9: chrome、console 中 # 编程 1: goland 2: intellij idea 3: webstorm 9: chrome、console 右 # 辅助 1: console 2: remote console 3: 扩展ide 5: blueberry 6: synergy 9: chrome、console  端口 8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 系统 ~/ code scripts/ work app config login bak .</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/cacher/ops/</link>
+      <link>https://example.com/docs/cache/ops/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cacher/ops/</guid>
-      <description>docker sudo systemctl daemon-reload sudo systemctl restart docker docker build -t java/gateway:1.0 . docker run --name gateway -d java/gateway:1.0 docker status 45370 # 显示资源占用 docker inspect 45370 # 详情  snap brew 安装：/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install 目录: /usr/local/Homebrew 命令 brew update # 更新brew search install remove upgrade tap # 安装扩展 options # 查看安装选项 info home # 访问包官网 services list # 查看已安装 cleanup # 清除无用配置 restart # 重启  ubuntu apt-cache madison nginx # 查看仓库中所有版本  centos yum install epel-release gcc升级 yum -y install centos-release-scl yum -y install devtoolset-6-gcc devtoolset-6-gcc-c++ devtoolset-6-binutils scl enable devtoolset-6 bash echo &amp;quot;source /opt/rh/devtoolset-6/enable&amp;quot; &amp;gt;&amp;gt;/etc/profile dnf install @development-tools snap info mosquitto # 查看仓库所有版本 </description>
+      <guid>https://example.com/docs/cache/ops/</guid>
+      <description>xargs xrags -d &amp;quot;\t&amp;quot; # 定义分隔符 -t # -t打印执行的命令 -L 1 # 1行执行一次 -n 1 # 一次使用1项 -I arg1 sh -c &#39;echo arg1; mkdir arg1&#39; # 执行多命令 --max-procs 0 # 并行执行，不限数量  awk maven mvn clean package -DskipTests maven maven helper plugin 打包main方法jar不能引用 用父项目mvn package, 如果用子项目mvn package会找不到其它子项目(not exist) 模块运行前mvn package  docker 系统 sudo systemctl daemon-reload sudo systemctl restart docker docker build --help 镜像 docker build -t java/gateway:1.0 . docker images docker image inspect 4de 镜像文档: https://hub.</description>
     </item>
     
     <item>
@@ -508,6 +508,15 @@
     </item>
     
     <item>
+      <title>App</title>
+      <link>https://example.com/docs/cache/app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/app/</guid>
+      <description>趋向 本地(app) -&amp;gt; 线上(browser)  采用 工具 sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
+    </item>
+    
+    <item>
       <title>Apple</title>
       <link>https://example.com/docs/tool/apple/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -527,10 +536,10 @@
     
     <item>
       <title>面试</title>
-      <link>https://example.com/docs/interview/</link>
+      <link>https://example.com/docs/misc/interview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/interview/</guid>
+      <guid>https://example.com/docs/misc/interview/</guid>
       <description>带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 100内素数 o-&amp;gt; 随机填充100内整数不重复 o-&amp;gt; 找字符串第一个无重复字符, 统计字符重复次数 o-&amp;gt; 第n个斐波那契数 o-&amp;gt; 递增数组，求和为m的两数 o-&amp;gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水 o-&amp;gt; 无序数组，第k大数 o-&amp;gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优 </description>
     </item>
     
