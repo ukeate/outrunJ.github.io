@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Develop"><meta property="og:title" content="" />
-<meta property="og:description" content="go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &quot;TestCreate&quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config  hugo go install --tags extended " />
+<meta property="og:description" content="go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &quot;TestCreate&quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod  hugo go install --tags extended " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/cache/develop/" />
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -112,6 +112,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -215,6 +216,7 @@ go get -u
 <pre><code>java -jar xxx.jar
     java -jar a.jar  --spring.config.location=/application.yml 
         # 指定spring config
+        --spring.profiles.active=prod
 </code></pre>
 <h1 id="hugo">hugo</h1>
 <pre><code>go install --tags extended</code></pre>
@@ -227,9 +229,9 @@ go get -u
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/66fa298a6aeb531ad416239a0744631ee2141f3d" title='Last modified by shenwenqing | Dec 8, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Dec 8, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -253,7 +255,13 @@ go get -u
   
 
   <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#go">go</a></li>
+    <li><a href="#java">java</a></li>
+    <li><a href="#hugo">hugo</a></li>
+  </ul>
+</nav>
   </aside>
 
 

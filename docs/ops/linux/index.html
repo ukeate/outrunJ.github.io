@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -112,6 +112,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -241,8 +242,9 @@ https://github.com/alex-shpak/hugo-book
         /status                             # 任务虚拟地址空间的大小 VmSize, 应用程序正在使用的物理内存的大小 VmRSS
 /etc
     /sudoers
-    /group
+        outrun ALL=(ALL) NOPASSWD:ALL
     /passwd
+    /group
     /resolv.conf                            # dns
         nameserver 223.5.5.5
         nameserver 223.6.6.6                # alidns
@@ -333,8 +335,13 @@ fstab
     wtmp            # 用户登录登出记录
     xferlog         # ftp会话
 </code></pre>
-<h1 id="heading-2">系统编程</h1>
-<h2 id="heading-3">进程通信</h2>
+<h1 id="heading-2">设置</h1>
+<pre><code>lib设置
+    /etc/ld.so.conf加入so文件的配置路径如:/usr/local/lib
+    执行/sbin/ldconfig -v 更新
+</code></pre>
+<h1 id="heading-3">系统编程</h1>
+<h2 id="heading-4">进程通信</h2>
 <pre><code>对象
     ipc
 种类
@@ -343,7 +350,7 @@ fstab
     信号量
 消息队列
 </code></pre>
-<h2 id="heading-4">错误处理</h2>
+<h2 id="heading-5">错误处理</h2>
 <pre><code>curedump机制, 产生core文件
 命令
     ulimit
@@ -406,7 +413,7 @@ SIGAIO	34	Ignore	Asynchronous I/O
     介绍
         是linux kernel 的fork, pf代表post-factum, 是作者的nickname
 </code></pre>
-<h1 id="heading-5">发行版</h1>
+<h1 id="heading-6">发行版</h1>
 <pre><code>lfs
 coreos
 arch
@@ -513,8 +520,8 @@ yaourt
 字体
     wiki上找font configuration
 </code></pre>
-<h1 id="heading-6">方案</h1>
-<h2 id="heading-7">高并发</h2>
+<h1 id="heading-7">方案</h1>
+<h2 id="heading-8">高并发</h2>
 <pre><code>查看当前TCP连接的状态和对应的连接数量：
     netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
         # TIME_WAIT占用端口会影响后继新连接
@@ -592,9 +599,9 @@ yaourt
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Nov 9, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -620,23 +627,32 @@ yaourt
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-3">进程通信</a></li>
-    <li><a href="#heading-4">错误处理</a></li>
-    <li><a href="#fork">fork</a></li>
-    <li><a href="#epoll">epoll</a></li>
-    <li><a href="#signals">signals</a></li>
-    <li><a href="#pf-kernel">pf-kernel</a></li>
-    <li><a href="#libev">libev</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#centos">centos</a></li>
-    <li><a href="#fedora">fedora</a></li>
-    <li><a href="#arch">arch</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-7">高并发</a></li>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#heading-1">文件位置</a></li>
+    <li><a href="#heading-2">设置</a></li>
+    <li><a href="#heading-3">系统编程</a>
+      <ul>
+        <li><a href="#heading-4">进程通信</a></li>
+        <li><a href="#heading-5">错误处理</a></li>
+        <li><a href="#fork">fork</a></li>
+        <li><a href="#epoll">epoll</a></li>
+        <li><a href="#signals">signals</a></li>
+        <li><a href="#pf-kernel">pf-kernel</a></li>
+        <li><a href="#libev">libev</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-6">发行版</a>
+      <ul>
+        <li><a href="#centos">centos</a></li>
+        <li><a href="#fedora">fedora</a></li>
+        <li><a href="#arch">arch</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-7">方案</a>
+      <ul>
+        <li><a href="#heading-8">高并发</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>

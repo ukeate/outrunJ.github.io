@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -3579,124 +3580,136 @@ image
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#ecmascript-6">ECMAScript 6</a></li>
-    <li><a href="#commonjs">commonJS</a></li>
-    <li><a href="#amd">AMD</a></li>
-    <li><a href="#cmd">CMD</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-3">直接量</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-5">严格模式</a></li>
-    <li><a href="#heading-6">模块化</a></li>
-    <li><a href="#heading-7">类型与变量</a>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#heading-1">标准</a>
       <ul>
-        <li><a href="#heading-8">类型</a></li>
-        <li><a href="#heading-9">作用域</a></li>
+        <li><a href="#ecmascript-6">ECMAScript 6</a></li>
+        <li><a href="#commonjs">commonJS</a></li>
+        <li><a href="#amd">AMD</a></li>
+        <li><a href="#cmd">CMD</a></li>
       </ul>
     </li>
-    <li><a href="#heading-10">表达式</a>
+    <li><a href="#heading-2">词法</a>
       <ul>
-        <li><a href="#heading-11">运算符</a></li>
-        <li><a href="#eval">eval</a></li>
+        <li><a href="#heading-3">直接量</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">语句</a>
+    <li><a href="#heading-4">语法</a>
       <ul>
-        <li><a href="#heading-13">模式匹配</a></li>
+        <li><a href="#heading-5">严格模式</a></li>
+        <li><a href="#heading-6">模块化</a></li>
+        <li><a href="#heading-7">类型与变量</a>
+          <ul>
+            <li><a href="#heading-8">类型</a></li>
+            <li><a href="#heading-9">作用域</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-10">表达式</a>
+          <ul>
+            <li><a href="#heading-11">运算符</a></li>
+            <li><a href="#eval">eval</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-12">语句</a>
+          <ul>
+            <li><a href="#heading-13">模式匹配</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-14">函数</a>
+          <ul>
+            <li><a href="#generator">generator</a></li>
+            <li><a href="#promise">promise</a></li>
+            <li><a href="#async">async</a></li>
+            <li><a href="#class">class</a></li>
+            <li><a href="#decorator">decorator</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-15">对象</a>
+          <ul>
+            <li><a href="#heading-16">属性</a></li>
+            <li><a href="#heading-17">数组</a></li>
+            <li><a href="#heading-18">集合</a></li>
+            <li><a href="#proxy">proxy</a></li>
+            <li><a href="#reflect">reflect</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-19">正则</a>
+          <ul>
+            <li><a href="#heading-20">特点</a></li>
+            <li><a href="#heading-21">常用</a></li>
+            <li><a href="#heading-22">元字符扩展</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#heading-14">函数</a>
+    <li><a href="#heading-23">风格</a></li>
+    <li><a href="#heading-24">浏览器</a></li>
+    <li><a href="#heading-25">常用函数</a>
       <ul>
-        <li><a href="#generator">generator</a></li>
-        <li><a href="#promise">promise</a></li>
-        <li><a href="#async">async</a></li>
-        <li><a href="#class">class</a></li>
-        <li><a href="#decorator">decorator</a></li>
+        <li><a href="#heading-26">基础扩展</a></li>
+        <li><a href="#heading-27">函数式</a></li>
+        <li><a href="#generator-1">generator</a></li>
       </ul>
     </li>
-    <li><a href="#heading-15">对象</a>
+    <li><a href="#api">api</a>
       <ul>
-        <li><a href="#heading-16">属性</a></li>
-        <li><a href="#heading-17">数组</a></li>
-        <li><a href="#heading-18">集合</a></li>
-        <li><a href="#proxy">proxy</a></li>
-        <li><a href="#reflect">reflect</a></li>
+        <li><a href="#heading-28">全局</a></li>
+        <li><a href="#heading-29">构造函数</a>
+          <ul>
+            <li><a href="#heading-30">包装对象函数</a></li>
+            <li><a href="#object">Object</a></li>
+            <li><a href="#array">Array</a></li>
+            <li><a href="#function">Function</a></li>
+            <li><a href="#date">Date</a></li>
+            <li><a href="#error">Error</a></li>
+            <li><a href="#regexp">RegExp</a></li>
+            <li><a href="#set">Set</a></li>
+            <li><a href="#weakset">WeakSet</a></li>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#weakmap">WeakMap</a></li>
+            <li><a href="#proxy-1">Proxy</a></li>
+            <li><a href="#arraybuffer">ArrayBuffer</a></li>
+            <li><a href="#typedarray">(TypedArray)</a></li>
+            <li><a href="#dataview">DataView</a></li>
+            <li><a href="#websocket">WebSocket</a></li>
+            <li><a href="#filereader">FileReader</a></li>
+            <li><a href="#promise-1">Promise</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-31">全局对象</a>
+          <ul>
+            <li><a href="#heading-32">顶级全局对象</a></li>
+            <li><a href="#math">Math</a></li>
+            <li><a href="#json">JSON</a></li>
+            <li><a href="#reflect-1">Reflect</a></li>
+            <li><a href="#symbol">Symbol</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#heading-19">正则</a>
+    <li><a href="#dom">dom</a>
       <ul>
-        <li><a href="#heading-20">特点</a></li>
-        <li><a href="#heading-21">常用</a></li>
-        <li><a href="#heading-22">元字符扩展</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-26">基础扩展</a></li>
-    <li><a href="#heading-27">函数式</a></li>
-    <li><a href="#generator-1">generator</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-28">全局</a></li>
-    <li><a href="#heading-29">构造函数</a>
-      <ul>
-        <li><a href="#heading-30">包装对象函数</a></li>
-        <li><a href="#object">Object</a></li>
-        <li><a href="#array">Array</a></li>
-        <li><a href="#function">Function</a></li>
-        <li><a href="#date">Date</a></li>
-        <li><a href="#error">Error</a></li>
-        <li><a href="#regexp">RegExp</a></li>
-        <li><a href="#set">Set</a></li>
-        <li><a href="#weakset">WeakSet</a></li>
-        <li><a href="#map">Map</a></li>
-        <li><a href="#weakmap">WeakMap</a></li>
-        <li><a href="#proxy-1">Proxy</a></li>
-        <li><a href="#arraybuffer">ArrayBuffer</a></li>
-        <li><a href="#typedarray">(TypedArray)</a></li>
-        <li><a href="#dataview">DataView</a></li>
-        <li><a href="#websocket">WebSocket</a></li>
-        <li><a href="#filereader">FileReader</a></li>
-        <li><a href="#promise-1">Promise</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-31">全局对象</a>
-      <ul>
-        <li><a href="#heading-32">顶级全局对象</a></li>
-        <li><a href="#math">Math</a></li>
-        <li><a href="#json">JSON</a></li>
-        <li><a href="#reflect-1">Reflect</a></li>
-        <li><a href="#symbol">Symbol</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#window">window对象</a>
-      <ul>
-        <li><a href="#document">document</a></li>
-        <li><a href="#element">element</a></li>
-        <li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
-        <li><a href="#localstorage">localStorage</a></li>
-        <li><a href="#worker">Worker</a></li>
-        <li><a href="#eventsource">EventSource</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-33">控件</a>
-      <ul>
-        <li><a href="#activexobject">ActiveXObject</a></li>
-      </ul>
-    </li>
-    <li><a href="#canvas">canvas</a>
-      <ul>
-        <li><a href="#heading-34">优化</a></li>
-        <li><a href="#webgl">webgl</a></li>
+        <li><a href="#window">window对象</a>
+          <ul>
+            <li><a href="#document">document</a></li>
+            <li><a href="#element">element</a></li>
+            <li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
+            <li><a href="#localstorage">localStorage</a></li>
+            <li><a href="#worker">Worker</a></li>
+            <li><a href="#eventsource">EventSource</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-33">控件</a>
+          <ul>
+            <li><a href="#activexobject">ActiveXObject</a></li>
+          </ul>
+        </li>
+        <li><a href="#canvas">canvas</a>
+          <ul>
+            <li><a href="#heading-34">优化</a></li>
+            <li><a href="#webgl">webgl</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

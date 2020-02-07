@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://example.com/docs/ops/tool/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -39,7 +39,7 @@
   
   <url>
     <loc>https://example.com/docs/ops/docker/</loc>
-    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -69,7 +69,7 @@
   
   <url>
     <loc>https://example.com/docs/architecture/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -114,7 +114,7 @@
   
   <url>
     <loc>https://example.com/docs/design/people/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -129,7 +129,7 @@
   
   <url>
     <loc>https://example.com/docs/design/drive/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -139,17 +139,17 @@
   
   <url>
     <loc>https://example.com/docs/design/project/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/ops/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/architecture/solution/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -169,12 +169,12 @@
   
   <url>
     <loc>https://example.com/docs/frontend/</loc>
-    <lastmod>2019-09-24T08:48:46+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/backend/</loc>
-    <lastmod>2019-12-06T10:59:07+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -264,6 +264,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/backend/hadoop/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/backend/hibernate/</loc>
     <priority>0</priority>
   </url>
@@ -294,6 +299,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/cache/work/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/db/mysql/</loc>
     <priority>0</priority>
   </url>
@@ -315,7 +325,7 @@
   
   <url>
     <loc>https://example.com/docs/cache/app/</loc>
-    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>
@@ -325,7 +335,7 @@
   
   <url>
     <loc>https://example.com/docs/cache/</loc>
-    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
   </url>
   
   <url>

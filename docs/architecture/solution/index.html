@@ -4,20 +4,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="构架-方案"><meta property="og:title" content="构架-方案" />
+<meta name="description" content="架构-方案"><meta property="og:title" content="架构-方案" />
 <meta property="og:description" content="微服务 o-&gt; 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置 o-&gt; 《一个可供中小团队参考的微服务架构技术栈》  aPaaS # platform as a service，介于IaaS和SaaS中间 将软件研发的平台做为服务，以SaaS的模式交付 组件化支撑和驱动 # 组件的发展决定paas广度，组件的聚合决定paas深度 # 对内固守组件边界，对外暴露标准接口 分层 平台组件 基础业务 # 不可见，影响全局，通用业务逻辑，对性能很敏感 业务 组件 设计 # 自描述的，这样就在设计和开发上解耦 确定边界 定义标准接口 确定核心功能 规范异常处理 开发 # 像开发dsl一样,来评判核心逻辑和接口，抽象度高 技术评审 定义接口 # 面向接口开发，也称为BDD dubbo、grpc等 restful 接口设计 标准化 说明 服务路由 版本管理 授权管理 核心理念 # 体现在 服务、工具、模型、规范 开放 而非 封闭 合作 而非 限制 共享 而非 替代 重点关注 基础业务 组织架构和用户组 审批流 权限 通用模型 透明分布式缓存模型 分布式存储模型 分布式事务模型 效率工具 数据迁移工具 缓存配置工具  常用技术栈 SaaS aws线上云 微服务 &#43; gRPC &#43; k8s &#43; Istio Golang &#43; TypeScript &#43; Python TiDB 轻应用 node." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/architecture/solution/" />
 <meta property="article:published_time" content="2018-10-10T16:49:27+08:00" />
-<meta property="article:modified_time" content="2019-11-09T20:00:20+08:00" />
-<title>构架-方案 | outrun的笔记</title>
+<meta property="article:modified_time" content="2020-02-07T09:57:27+08:00" />
+<title>架构-方案 | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -193,7 +194,7 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>构架-方案</strong>
+  <strong>架构-方案</strong>
 </header>
 
       
@@ -348,13 +349,38 @@ o-&gt; 《一个可供中小团队参考的微服务架构技术栈》
 <pre><code>queue + map
     # queue存储、限量, map查询，指向queue中元素
 </code></pre>
-<h1 id="heading-6">实时并发</h1>
-<h2 id="heading-7">异步方案</h2>
+<h1 id="heading-6">大数据</h1>
+<pre><code>流程
+    采集 -&gt; kafka -&gt; ETL -&gt; kafka -&gt; 存储 -&gt; OLAP
+借鉴
+    宜信
+采集
+    实时
+        trigger、日志
+            canel
+    准实时
+        日志
+    非实时
+        任务调度
+            quartz, xxl-job, 大数据
+处理
+    流式框架、ETL
+        storm, flink, spark
+存储
+    es, HDFS, driud, 业务系统
+    hadoop: hbase, hive
+展现
+    OLAP
+        kylin, superset, Davinci
+    DBus-allinone
+</code></pre>
+<h1 id="heading-7">实时并发</h1>
+<h2 id="heading-8">异步方案</h2>
 <pre><code>node.js + mongodb
 tornado + celery + rabbitmq + 优先级
 quartz
 </code></pre>
-<h2 id="heading-8">消息</h2>
+<h2 id="heading-9">消息</h2>
 <pre><code>功能
     好友
     单聊, 群聊
@@ -442,10 +468,10 @@ quartz
     15亿个心跳包/天
     持续运行一个月无异常
 </code></pre>
-<h2 id="heading-9">直播</h2>
+<h2 id="heading-10">直播</h2>
 <pre><code>《关于直播，所有的技术细节都在这里了》
 </code></pre>
-<h2 id="heading-10">游戏</h2>
+<h2 id="heading-11">游戏</h2>
 <pre><code>进程
     gateway进程组
         # 对外api
@@ -458,12 +484,12 @@ quartz
     多word进程组
         # 不同地图的信息、逻辑
 </code></pre>
-<h1 id="heading-11">功能实现</h1>
-<h2 id="heading-12">重复提交</h2>
+<h1 id="heading-12">功能实现</h1>
+<h2 id="heading-13">重复提交</h2>
 <pre><code>直接redirect
 csrf令牌
 </code></pre>
-<h2 id="heading-13">权限</h2>
+<h2 id="heading-14">权限</h2>
 <pre><code>过滤器 页面权限
 拦截器aop 数据权限
 </code></pre>
@@ -474,12 +500,12 @@ csrf令牌
 <pre><code>cookie
 url中sessionId
 </code></pre>
-<h2 id="heading-14">加密</h2>
+<h2 id="heading-15">加密</h2>
 <pre><code>base64
 sha
 </code></pre>
-<h1 id="heading-15">业务</h1>
-<h2 id="heading-16">关注/信箱</h2>
+<h1 id="heading-16">业务</h1>
+<h2 id="heading-17">关注/信箱</h2>
 <pre><code>要求
     user人数10w, 活跃1w。
     大部分user关注1k人, 一部分大v被关注100w人。
@@ -528,7 +554,7 @@ messages处理
     服务端存message状态，不能mq
     如果客户端存状态，这就是个简单的mq问题
 </code></pre>
-<h2 id="heading-17">权限</h2>
+<h2 id="heading-18">权限</h2>
 <pre><code>类型
     ACL(access control list)                        # 权限存成列表
     RBAC(role base access control)                  # 角色对应权限
@@ -558,7 +584,7 @@ messages处理
 性能
     grantTable缓存u_id, res_id关系
 </code></pre>
-<h2 id="heading-18">审批</h2>
+<h2 id="heading-19">审批</h2>
 <pre><code>模板
     准入规则
     起始、终止节点
@@ -567,7 +593,7 @@ messages处理
     创建, 状态查询
     审批
 </code></pre>
-<h2 id="heading-19">海</h2>
+<h2 id="heading-20">海</h2>
 <pre><code>type                    # 记录类型
     property            # 类型动作, 关联到节点, 记录进出节点的动作。如对成员可读、可写, 记录负责人，对记录执行脚本, 记录回收计划
 model                   # 模式
@@ -609,7 +635,7 @@ permission              # action code
     type                # action, suite等
     access              # crud和其它自定义权限
 </code></pre>
-<h2 id="heading-20">工作流</h2>
+<h2 id="heading-21">工作流</h2>
 <pre><code>本质
     状态管理
     工作流重流程轻数据，业务重数据轻流程。工作流修改数据，数据触发工作流
@@ -671,7 +697,7 @@ permission              # action code
                 订阅应用事件, 应用时间触发器
     基础组件
 </code></pre>
-<h1 id="heading-21">企业</h1>
+<h1 id="heading-22">企业</h1>
 <h2 id="erp">erp</h2>
 <pre><code># enterprise resource planning, 企业资源计划
 元数据驱动去抽象和设计
@@ -691,7 +717,7 @@ permission              # action code
 <h2 id="cmp">cmp</h2>
 <pre><code># campaign management platform, 营销活动管理平台
 </code></pre>
-<h1 id="heading-22">前端模板渲染</h1>
+<h1 id="heading-23">前端模板渲染</h1>
 <pre><code>layout
     layout service
         # 缓存layout到redis
@@ -808,10 +834,27 @@ permission              # action code
             websocket、modbus、lightSensor、light、opcua,
     合作
 </code></pre>
-<h1 id="heading-23">优秀项目借鉴</h1>
+<h1 id="heading-24">优秀项目借鉴</h1>
 <pre><code>thingsBoard
 confluence, jira
 </code></pre>
+<h1 id="heading-25">运维</h1>
+<pre><code>标准
+    ITIL(IT Infrastructure Library)
+    ITSM(IT System Management)
+资产管理
+运维
+    规章
+    容器
+        vspere, openstack
+    服务
+        硬件: 巡检
+        软件
+    交换机
+        ng, lvs
+    展现
+        zabbix
+DevOps</code></pre>
 </article>
 
       <div class="book-footer justify-between">
@@ -821,9 +864,9 @@ confluence, jira
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Nov 9, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -849,43 +892,59 @@ confluence, jira
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-3">数据迁移</a></li>
-    <li><a href="#heading-4">数据存储</a></li>
-    <li><a href="#heading-5">缓存</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-7">异步方案</a></li>
-    <li><a href="#heading-8">消息</a></li>
-    <li><a href="#go">go高并发实时消息推送</a></li>
-    <li><a href="#heading-9">直播</a></li>
-    <li><a href="#heading-10">游戏</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-12">重复提交</a></li>
-    <li><a href="#heading-13">权限</a></li>
-    <li><a href="#seo">seo</a></li>
-    <li><a href="#web">web状态</a></li>
-    <li><a href="#heading-14">加密</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-16">关注/信箱</a></li>
-    <li><a href="#heading-17">权限</a></li>
-    <li><a href="#heading-18">审批</a></li>
-    <li><a href="#heading-19">海</a></li>
-    <li><a href="#boss">适配器boss</a></li>
-    <li><a href="#heading-20">工作流</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#erp">erp</a></li>
-    <li><a href="#mes">mes</a></li>
-    <li><a href="#wms">wms</a></li>
-    <li><a href="#oms">oms</a></li>
-    <li><a href="#tms">tms</a></li>
-    <li><a href="#cmp">cmp</a></li>
+    <li><a href="#heading">微服务</a></li>
+    <li><a href="#apaas">aPaaS</a></li>
+    <li><a href="#heading-1">常用技术栈</a></li>
+    <li><a href="#heading-2">数据</a>
+      <ul>
+        <li><a href="#heading-3">数据迁移</a></li>
+        <li><a href="#heading-4">数据存储</a></li>
+        <li><a href="#heading-5">缓存</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-6">大数据</a></li>
+    <li><a href="#heading-7">实时并发</a>
+      <ul>
+        <li><a href="#heading-8">异步方案</a></li>
+        <li><a href="#heading-9">消息</a></li>
+        <li><a href="#go">go高并发实时消息推送</a></li>
+        <li><a href="#heading-10">直播</a></li>
+        <li><a href="#heading-11">游戏</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-12">功能实现</a>
+      <ul>
+        <li><a href="#heading-13">重复提交</a></li>
+        <li><a href="#heading-14">权限</a></li>
+        <li><a href="#seo">seo</a></li>
+        <li><a href="#web">web状态</a></li>
+        <li><a href="#heading-15">加密</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-16">业务</a>
+      <ul>
+        <li><a href="#heading-17">关注/信箱</a></li>
+        <li><a href="#heading-18">权限</a></li>
+        <li><a href="#heading-19">审批</a></li>
+        <li><a href="#heading-20">海</a></li>
+        <li><a href="#boss">适配器boss</a></li>
+        <li><a href="#heading-21">工作流</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-22">企业</a>
+      <ul>
+        <li><a href="#erp">erp</a></li>
+        <li><a href="#mes">mes</a></li>
+        <li><a href="#wms">wms</a></li>
+        <li><a href="#oms">oms</a></li>
+        <li><a href="#tms">tms</a></li>
+        <li><a href="#cmp">cmp</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-23">前端模板渲染</a></li>
+    <li><a href="#iot">工业互联网(IoT)</a></li>
+    <li><a href="#heading-24">优秀项目借鉴</a></li>
+    <li><a href="#heading-25">运维</a></li>
   </ul>
 </nav>
   </aside>

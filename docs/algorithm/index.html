@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -2047,85 +2048,106 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#insert-sort">插入排序(insert sort)</a></li>
-    <li><a href="#bubble-sort">冒泡排序(bubble sort)</a></li>
-    <li><a href="#select-sort">选择排序(select sort)</a></li>
-    <li><a href="#shell-sort">希尔排序(shell sort)</a></li>
-    <li><a href="#bucket-sort">桶排序(bucket sort)</a></li>
-    <li><a href="#quick-sort">快速排序(quick sort)</a></li>
-    <li><a href="#heap-sort">堆排序(heap sort)</a></li>
-    <li><a href="#merge-sort">归并排序(merge sort)</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#binary-search">二分查找(binary search)</a></li>
-    <li><a href="#topk">topK</a></li>
-    <li><a href="#heading-3">倒排索引</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-5">斐波那契</a></li>
-    <li><a href="#heading-6">正整数和</a></li>
-    <li><a href="#heading-7">最大公约数/最小公倍数</a></li>
-    <li><a href="#heading-8">最大子序列和</a></li>
-    <li><a href="#heading-9">判断素数</a></li>
-    <li><a href="#heading-10">连续正整数和</a></li>
-    <li><a href="#heading-11">有序数组两元素和</a></li>
-    <li><a href="#heading-12">猴子吃桃</a></li>
-    <li><a href="#heading-13">滑动平均数</a></li>
-    <li><a href="#heading-14">爬楼梯</a></li>
-    <li><a href="#heading-15">几瓶汽水</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-17">翻转</a></li>
-    <li><a href="#heading-18">轮换</a></li>
-    <li><a href="#heading-19">洗牌</a></li>
-    <li><a href="#heading-20">有序数组去重</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-22">字符统计</a></li>
-    <li><a href="#heading-23">最后一词长度</a></li>
-    <li><a href="#heading-24">翻转词序</a></li>
-    <li><a href="#heading-25">同字异序</a></li>
-    <li><a href="#count-and-say">count and say</a></li>
-    <li><a href="#heading-26">回文</a></li>
-    <li><a href="#heading-27">模式匹配</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#bfsbreadth-first-search">BFS(breadth first search)</a></li>
-    <li><a href="#dfsdepth-first-search">DFS(depth first search)</a></li>
-    <li><a href="#a">A*</a></li>
-    <li><a href="#dijkstra">Dijkstra</a></li>
-    <li><a href="#bellman-ford">Bellman-Ford</a></li>
-    <li><a href="#floyd-warshall">Floyd-Warshall</a></li>
-    <li><a href="#heading-29">走迷宫</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-31">背包问题</a></li>
-    <li><a href="#heading-32">最长公共子串</a></li>
-    <li><a href="#heading-33">捏小球</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#kknn-k-nearest-neighbours">k最近邻(KNN, k-nearest neighbours)</a></li>
-    <li><a href="#heading-35">贝叶斯</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-37">布隆过滤器</a></li>
-    <li><a href="#hyperloglog">hyperLogLog</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#simplex">单纯形法(simplex)</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-44">旅行商问题</a></li>
+    <li><a href="#heading">名词</a></li>
+    <li><a href="#heading-1">排序</a>
+      <ul>
+        <li><a href="#insert-sort">插入排序(insert sort)</a></li>
+        <li><a href="#bubble-sort">冒泡排序(bubble sort)</a></li>
+        <li><a href="#select-sort">选择排序(select sort)</a></li>
+        <li><a href="#shell-sort">希尔排序(shell sort)</a></li>
+        <li><a href="#bucket-sort">桶排序(bucket sort)</a></li>
+        <li><a href="#quick-sort">快速排序(quick sort)</a></li>
+        <li><a href="#heap-sort">堆排序(heap sort)</a></li>
+        <li><a href="#merge-sort">归并排序(merge sort)</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">查找</a>
+      <ul>
+        <li><a href="#binary-search">二分查找(binary search)</a></li>
+        <li><a href="#topk">topK</a></li>
+        <li><a href="#heading-3">倒排索引</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">数字</a>
+      <ul>
+        <li><a href="#heading-5">斐波那契</a></li>
+        <li><a href="#heading-6">正整数和</a></li>
+        <li><a href="#heading-7">最大公约数/最小公倍数</a></li>
+        <li><a href="#heading-8">最大子序列和</a></li>
+        <li><a href="#heading-9">判断素数</a></li>
+        <li><a href="#heading-10">连续正整数和</a></li>
+        <li><a href="#heading-11">有序数组两元素和</a></li>
+        <li><a href="#heading-12">猴子吃桃</a></li>
+        <li><a href="#heading-13">滑动平均数</a></li>
+        <li><a href="#heading-14">爬楼梯</a></li>
+        <li><a href="#heading-15">几瓶汽水</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-16">数组</a>
+      <ul>
+        <li><a href="#heading-17">翻转</a></li>
+        <li><a href="#heading-18">轮换</a></li>
+        <li><a href="#heading-19">洗牌</a></li>
+        <li><a href="#heading-20">有序数组去重</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-21">字符串</a>
+      <ul>
+        <li><a href="#heading-22">字符统计</a></li>
+        <li><a href="#heading-23">最后一词长度</a></li>
+        <li><a href="#heading-24">翻转词序</a></li>
+        <li><a href="#heading-25">同字异序</a></li>
+        <li><a href="#count-and-say">count and say</a></li>
+        <li><a href="#heading-26">回文</a></li>
+        <li><a href="#heading-27">模式匹配</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-28">图</a>
+      <ul>
+        <li><a href="#bfsbreadth-first-search">BFS(breadth first search)</a></li>
+        <li><a href="#dfsdepth-first-search">DFS(depth first search)</a></li>
+        <li><a href="#a">A*</a></li>
+        <li><a href="#dijkstra">Dijkstra</a></li>
+        <li><a href="#bellman-ford">Bellman-Ford</a></li>
+        <li><a href="#floyd-warshall">Floyd-Warshall</a></li>
+        <li><a href="#heading-29">走迷宫</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-30">动态规划</a>
+      <ul>
+        <li><a href="#heading-31">背包问题</a></li>
+        <li><a href="#heading-32">最长公共子串</a></li>
+        <li><a href="#heading-33">捏小球</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-34">分类与回归</a>
+      <ul>
+        <li><a href="#kknn-k-nearest-neighbours">k最近邻(KNN, k-nearest neighbours)</a></li>
+        <li><a href="#heading-35">贝叶斯</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-36">概率算法</a>
+      <ul>
+        <li><a href="#heading-37">布隆过滤器</a></li>
+        <li><a href="#hyperloglog">hyperLogLog</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-38">线性规划</a>
+      <ul>
+        <li><a href="#simplex">单纯形法(simplex)</a></li>
+      </ul>
+    </li>
+    <li><a href="#hash">hash</a></li>
+    <li><a href="#heading-39">傅里叶变换</a></li>
+    <li><a href="#heading-40">加密</a></li>
+    <li><a href="#heading-41">种群统计</a></li>
+    <li><a href="#heading-42">资源分配</a></li>
+    <li><a href="#heading-43">分布式算法</a></li>
+    <li><a href="#np">NP问题</a>
+      <ul>
+        <li><a href="#heading-44">旅行商问题</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>

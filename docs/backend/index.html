@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -2005,265 +2006,7 @@ phantomjs
         多租户
 spark
 stream
-</code></pre>
-<h4 id="hadoop">hadoop</h4>
-<pre><code># 发展
-    google
-        gfs
-        mapReduce
-            # 并行计算框架
-        big-table
-    hadoop1.0
-    hdfs
-        mapReduce
-    hadoop2.0
-        hdfs
-            # Hadoop Distributed File System　
-        yarn
-            # Yet Another Resource Negotiator资源管理调度系统
-            # 在hdfs上运行计算框架(如mapReduce, storm, spark)
-# 原理
-    hdfs
-        模块
-                client
-                nameNode                                                # 用于注册文件
-                                                                        ## 2.0后可以有多个nameNode
-                        metadata                                        # 数据的描述信息
-                dataNode                                                # 数据在dataNode间水平传递
-        关系
-                client rpc nameNode
-        结构
-                metadata
-                        /test/a.log, 3, {blk_1,blk_2}, [{blk_1:[h0,h1,h3]},{blk_2:[h0,h2,h4]}]
-    mapReduce
-        Map: 切分，并行计算
-        Reduce: 从map中取多个计算结果，进行合并
-
-# 组件
-    ambari
-            # 安装、部署、配置和管理
-    hdfs
-            # 分布式文件系统
-    hive
-            # 数据仓库
-    pig
-            # 数据流处理
-    mahout
-            # 数据挖掘
-    mapreduce
-    flume
-            # 日志收集
-    hbase
-            # 实时分布式, bigtable数据库
-    sqoop
-            # etl
-    zookeeper
-# 框架
-    CDH
-        cloudera
-    HDP
-        hortonworks data platform
-    应用框架
-        sqoop
-            在hdfs(hive)与关系型数据库之间数据相互转移
-        phoenix
-            介绍
-                    打造更快的sql查询，面向hbase与hdfs之上的其它nosql数据库
-            特征
-                    通过jdbc进行交互
-        shark
-            介绍
-                    hive on spark
-            特点
-                    并行job处理比mapReduce快100倍
-        ganglia
-            分布式监控系统，用于监视和显示集群中节点的各种状态信息，如cpu, mem, 硬盘利用率, i/o负载, 网络流量等，历史数据生成曲线图，通过php页面显现。
-    存储框架
-        hive
-            功能
-                    将结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能，可以将sql语句转换为mapReduce运行。
-            缺点
-                    底层使用mapReduce引擎，是一个批处理过程，难以满足查询的交互性
-        hbase
-            特征
-                    分布式的，面向列的开源nosql数据库，列可以动态增加
-                    基于hadoop的bigTable
-                    不同于一般关系数据库，是一个适合于非结构化数据存储的数据库
-                    自动切分数据
-                    并发读写
-            缺点
-                    只能按照row key来查询
-                    master宕机，整个系统挂掉
-    计算框架
-        mr
-            离线计算框架
-        spark
-            介绍
-                scala实现
-                内存计算框架
-                apache托管UC Berkeley AMP lab开源的类hadoop 通用并行框架
-                mapreduce中间输出结果可以保存在内存中，不再需要读写hdfs
-            特点
-                    准实时，收集成rdd后处理
-                    不支持事务
-            技术
-                    spark rdd
-                    spark streaming
-                    spark sql
-        drill
-            google dremel 的开源版本
-        storm
-            介绍
-                    实时视图计算框架
-                    纯实时
-                    支持事务
-            特点
-                    结合kafka
-        impala
-            介绍
-                    实时视图计算框架
-                    纯实时
-                    支持事务
-            特点
-                    结合kafka
-# 部署
-    本地模式
-    伪分布模式(学习用)
-    集群模式
-    例子
-        软件结构
-                0        jdk, hadoop                        NameNode, DFSZKFailoverController
-                1        jdk, hadoop                        NameNode, DFSZKFailoverController
-                2        jdk, hadoop                        ResourceManager
-                3        jdk, hadoop, zookeeper        DataNode, NodeManager, JournalNode, QuorumPeerMain
-                4        jdk, hadoop, zookeeper        DataNode, NodeManager, JournalNode, QuorumPeerMain
-                5        jdk, hadoop, zookeeper        DataNode, NodeManager, JournalNode, QuorumPeerMain
-        zookeeper
-            配置conf/zoo.cfg
-                    tickTime=2000                        # 心跳间隔(ms)
-                    initLimit=10                        # 初始化时最多容忍心跳次数
-                    syncLimit=5                        # 同步失败最多容忍心跳次数
-                    dataDir=/usr/local/zookeeper/data        # 运行时文件目录
-                    clientPort=2181                # 运行端口号
-                    server.1=主机名或ip:2888:3888        # 服务运行端口与选举端口
-                    server.2=主机名或ip:2888:3888
-                    server.3=主机名或ip:2888:3888
-            命令
-                    ./bin/zkServer.sh start
-                    ./bin/zkServer.sh status
-                    jps                                        # 显示名为QuorumPeerMain
-        hadoop
-            hadoop-env.sh
-                export JAVA_HOME=
-            core-site.xml
-                &lt;configuration&gt;
-                    &lt;property&gt;
-                            &lt;name&gt;fs.defaultFS&lt;/name&gt;
-                            &lt;value&gt;hdfs://ns1&lt;/value&gt;
-                    &lt;/property&gt;
-                    &lt;property&gt;
-                            &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-                            &lt;value&gt;/usr/local/hadoop-2.2.0/tmp&lt;/value&gt;
-                    &lt;/property&gt;
-                    &lt;property&gt;
-                            &lt;name&gt;ha.zookeeper.quorum&lt;/name&gt;
-                            &lt;value&gt;192.168.56.13:2181, 192.168.56.14:2181, 192.168.56.15:2181&lt;/value&gt;
-                    &lt;/property&gt;
-                &lt;/configuration&gt;
-            hdfs-site.xml
-                &lt;property&gt;
-                    &lt;name&gt;dfs.nameservices&lt;/name&gt;
-                    &lt;value&gt;ns1&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.ha.namenodes.ns1&lt;/name&gt;
-                    &lt;value&gt;nn1,nn2&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.namenode.rpc-address.ns1.nn1&lt;/name&gt;
-                    &lt;value&gt;192.168.56.10:9000&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.namenode.http-address.ns1.nn1&lt;/name&gt;
-                    &lt;value&gt;192.168.56.10:50070&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.namenode.rpc-address.ns1.nn2&lt;/name&gt;
-                    &lt;value&gt;192.168.56.11:9000&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.namenode.http-address.ns1.nn2&lt;/name&gt;
-                    &lt;value&gt;192.168.56.11:50070&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.namenode.shared.edits.dir&lt;/name&gt;
-                    &lt;value&gt;qjournal://192.168.56.13:8485;192.168.56.14:8485;192.168.56.15:8485&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.journalnode.edits.dir&lt;/name&gt;
-                    &lt;value&gt;/usr/local/hadoop-2.2.0/journal&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.ha.automatic-failover.enabled&lt;/name&gt;
-                    &lt;value&gt;true&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.client.failover.proxy.provider.ns1&lt;/name&gt;
-                    &lt;value&gt;org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.ha.fencing.methods&lt;/name&gt;
-                    &lt;value&gt;sshfence&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;dfs.ha.fencing.ssh.private-key-files&lt;/name&gt;
-                    &lt;value&gt;/root/.ssh/id_rsa&lt;/value&gt;
-                &lt;/property&gt;
-            mapred-site.xml
-                &lt;property&gt;
-                    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-                    &lt;value&gt;yarn&lt;/value&gt;
-                &lt;/property&gt;
-            yarn-site.xml
-                &lt;property&gt;
-                    &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
-                    &lt;value&gt;192.168.56.12&lt;/value&gt;
-                &lt;/property&gt;
-                &lt;property&gt;
-                    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-                    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-                &lt;/property&gt;
-            etc/hadoop/slaves
-                192.168.56.13
-                192.168.56.14
-                192.168.56.15
-        收尾
-            o-&gt; ssh免登录(0到1,2,3,4,5)
-                    ssh-keygen -t rsa
-                    ssh-copy-id -i 192.168.56.11                # 这样就可以免登录访问192.168.56.11了
-                                                            ## ssh-copy-id -i localhost 免登录自己
-
-            o-&gt; 复制hadoop2.2.0(从0到1,2,3,4,5)
-
-            o-&gt; 添加hadoop_home到环境变量
-                    etc/profile
-                            export HADOOP_HOME=/usr/local/hadoop-2.2.0
-                            export PATH=$PATH:$HADOOP_HOME/bin
-        启动
-            0 上启动
-                    ./sbin/hadoop-daemons.sh start journalnode
-            0 上格式化namenode
-                    hadoop namenode -format
-# 相关
-    bigTable
-    gfs
-    dremel
-        介绍
-                google的交互式数据分析系统，构建于gfs上
-        特点
-                嵌套型数据的列存储
-                多层查询
-                减少查询的处理数据量，提升查询效率
+hadoop
 </code></pre>
 <h2 id="heading-23">搜索</h2>
 <pre><code>分类
@@ -3245,9 +2988,9 @@ api
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Dec 6, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -3273,115 +3016,122 @@ api
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-2">脚手架</a>
+    <li><a href="#heading">名词</a></li>
+    <li><a href="#heading-1">开发框架</a>
       <ul>
-        <li><a href="#spring-boot">spring boot</a></li>
-        <li><a href="#drapwizard">drapWizard</a></li>
+        <li><a href="#heading-2">脚手架</a>
+          <ul>
+            <li><a href="#spring-boot">spring boot</a></li>
+            <li><a href="#drapwizard">drapWizard</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-3">写法</a>
+          <ul>
+            <li><a href="#ejb">ejb</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-4">语言增强</a>
+          <ul>
+            <li><a href="#guava">guava</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-5">接口</a>
+          <ul>
+            <li><a href="#connect">connect</a></li>
+            <li><a href="#express">express</a></li>
+            <li><a href="#koa">koa</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-6">实时</a>
+          <ul>
+            <li><a href="#socketio">socket.io</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-7">展示</a>
+          <ul>
+            <li><a href="#spring-mvc">spring mvc</a></li>
+            <li><a href="#struts2">struts2</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#heading-3">写法</a>
+    <li><a href="#heading-8">功能</a>
       <ul>
-        <li><a href="#ejb">ejb</a></li>
+        <li><a href="#heading-9">日志</a></li>
+        <li><a href="#heading-10">格式|模板</a></li>
+        <li><a href="#heading-11">生成|压缩|加密|计算特征</a></li>
+        <li><a href="#heading-12">客户端|邮件</a></li>
+        <li><a href="#heading-13">领域语言</a></li>
+        <li><a href="#heading-14">图形</a></li>
+        <li><a href="#heading-15">运维控制</a></li>
+        <li><a href="#heading-16">协议</a></li>
+        <li><a href="#--">高可用 | 性能</a>
+          <ul>
+            <li><a href="#akka">akka</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#heading-4">语言增强</a>
+    <li><a href="#heading-17">应用框架</a>
       <ul>
-        <li><a href="#guava">guava</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-5">接口</a>
-      <ul>
-        <li><a href="#connect">connect</a></li>
-        <li><a href="#express">express</a></li>
-        <li><a href="#koa">koa</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-6">实时</a>
-      <ul>
-        <li><a href="#socketio">socket.io</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-7">展示</a>
-      <ul>
-        <li><a href="#spring-mvc">spring mvc</a></li>
-        <li><a href="#struts2">struts2</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-9">日志</a></li>
-    <li><a href="#heading-10">格式|模板</a></li>
-    <li><a href="#heading-11">生成|压缩|加密|计算特征</a></li>
-    <li><a href="#heading-12">客户端|邮件</a></li>
-    <li><a href="#heading-13">领域语言</a></li>
-    <li><a href="#heading-14">图形</a></li>
-    <li><a href="#heading-15">运维控制</a></li>
-    <li><a href="#heading-16">协议</a></li>
-    <li><a href="#--">高可用 | 性能</a>
-      <ul>
-        <li><a href="#akka">akka</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-18">数据</a>
-      <ul>
-        <li><a href="#heading-19">日志</a></li>
-        <li><a href="#heading-20">爬虫</a></li>
-        <li><a href="#heading-21">分析</a></li>
-        <li><a href="#heading-22">计算</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-23">搜索</a>
-      <ul>
-        <li><a href="#lucene">lucene</a></li>
-        <li><a href="#solr">solr</a></li>
-        <li><a href="#elasticsearch">elasticsearch</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-24">权限</a>
-      <ul>
-        <li><a href="#shiro">shiro</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-25">博客</a>
-      <ul>
-        <li><a href="#cleaver">cleaver</a></li>
-        <li><a href="#hexo">hexo</a></li>
-        <li><a href="#hugo">hugo</a></li>
-        <li><a href="#jekyll">jekyll</a></li>
-      </ul>
-    </li>
-    <li><a href="#webide">webIDE</a></li>
-    <li><a href="#heading-26">游戏</a></li>
-    <li><a href="#heading-27">地理信息</a></li>
-    <li><a href="#heading-28">人工智能</a></li>
-    <li><a href="#cms">CMS</a>
-      <ul>
-        <li><a href="#wordpress">wordpress</a></li>
-        <li><a href="#dedecms">dedecms</a></li>
-        <li><a href="#cms-1">帝国cms</a></li>
-        <li><a href="#phpcms">phpcms</a></li>
-        <li><a href="#phpwind">phpwind</a></li>
-        <li><a href="#drupal">drupal</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-29">商城</a>
-      <ul>
-        <li><a href="#ecshop">ecshop</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-30">企业资源计划</a>
-      <ul>
-        <li><a href="#jbpm">jbpm</a></li>
-      </ul>
-    </li>
-    <li><a href="#it">it服务管理</a></li>
-    <li><a href="#iot">工业互联网(IoT)</a>
-      <ul>
-        <li><a href="#thingsboard">thingsBoard</a></li>
+        <li><a href="#heading-18">数据</a>
+          <ul>
+            <li><a href="#heading-19">日志</a></li>
+            <li><a href="#heading-20">爬虫</a></li>
+            <li><a href="#heading-21">分析</a></li>
+            <li><a href="#heading-22">计算</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-23">搜索</a>
+          <ul>
+            <li><a href="#lucene">lucene</a></li>
+            <li><a href="#solr">solr</a></li>
+            <li><a href="#elasticsearch">elasticsearch</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-24">权限</a>
+          <ul>
+            <li><a href="#shiro">shiro</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-25">博客</a>
+          <ul>
+            <li><a href="#cleaver">cleaver</a></li>
+            <li><a href="#hexo">hexo</a></li>
+            <li><a href="#hugo">hugo</a></li>
+            <li><a href="#jekyll">jekyll</a></li>
+          </ul>
+        </li>
+        <li><a href="#webide">webIDE</a></li>
+        <li><a href="#heading-26">游戏</a></li>
+        <li><a href="#heading-27">地理信息</a></li>
+        <li><a href="#heading-28">人工智能</a></li>
+        <li><a href="#cms">CMS</a>
+          <ul>
+            <li><a href="#wordpress">wordpress</a></li>
+            <li><a href="#dedecms">dedecms</a></li>
+            <li><a href="#cms-1">帝国cms</a></li>
+            <li><a href="#phpcms">phpcms</a></li>
+            <li><a href="#phpwind">phpwind</a></li>
+            <li><a href="#drupal">drupal</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-29">商城</a>
+          <ul>
+            <li><a href="#ecshop">ecshop</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-30">企业资源计划</a>
+          <ul>
+            <li><a href="#jbpm">jbpm</a></li>
+          </ul>
+        </li>
+        <li><a href="#it">it服务管理</a></li>
+        <li><a href="#iot">工业互联网(IoT)</a>
+          <ul>
+            <li><a href="#thingsboard">thingsBoard</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

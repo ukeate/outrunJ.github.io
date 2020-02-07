@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -112,6 +112,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -2054,50 +2055,60 @@ api
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-4">监听器</a></li>
-    <li><a href="#properties">properties</a></li>
-    <li><a href="#bean">bean</a></li>
-    <li><a href="#aop">aop</a></li>
-    <li><a href="#dao">dao</a></li>
-    <li><a href="#heading-5">事务</a></li>
-    <li><a href="#spring-mybatis">spring mybatis</a></li>
-    <li><a href="#spring-struts2">spring struts2</a></li>
-    <li><a href="#spring-mvc">spring mvc</a></li>
-    <li><a href="#quartz">quartz:定时器</a></li>
-    <li><a href="#heading-6">远程调用</a></li>
-    <li><a href="#websocket">websocket</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-7">基础文件</a></li>
-    <li><a href="#heading-8">配置</a></li>
-    <li><a href="#heading-9">注解</a></li>
-    <li><a href="#heading-10">类</a></li>
-    <li><a href="#heading-11">插件</a>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#heading-1">使用</a></li>
+    <li><a href="#api">api</a></li>
+    <li><a href="#heading-2">注解</a></li>
+    <li><a href="#heading-3">模块</a>
       <ul>
-        <li><a href="#maven">maven</a></li>
+        <li><a href="#heading-4">监听器</a></li>
+        <li><a href="#properties">properties</a></li>
+        <li><a href="#bean">bean</a></li>
+        <li><a href="#aop">aop</a></li>
+        <li><a href="#dao">dao</a></li>
+        <li><a href="#heading-5">事务</a></li>
+        <li><a href="#spring-mybatis">spring mybatis</a></li>
+        <li><a href="#spring-struts2">spring struts2</a></li>
+        <li><a href="#spring-mvc">spring mvc</a></li>
+        <li><a href="#quartz">quartz:定时器</a></li>
+        <li><a href="#heading-6">远程调用</a></li>
+        <li><a href="#websocket">websocket</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">组件</a>
+    <li><a href="#spring-boot">spring boot</a>
       <ul>
-        <li><a href="#spring">spring</a></li>
-        <li><a href="#heading-13">测试</a></li>
-        <li><a href="#heading-14">数据库</a></li>
-        <li><a href="#web">web</a></li>
-        <li><a href="#heading-15">日志</a></li>
-        <li><a href="#jackson">jackson</a></li>
-        <li><a href="#scheduled">Scheduled</a></li>
-        <li><a href="#heading-16">热部署</a></li>
-        <li><a href="#jsp">jsp</a></li>
-        <li><a href="#lombok">lombok</a></li>
-        <li><a href="#remote-shell">remote shell</a></li>
-        <li><a href="#actuator">actuator</a></li>
-        <li><a href="#spring-boot-admin">spring boot admin</a></li>
-        <li><a href="#spring-initializer">spring initializer</a></li>
-        <li><a href="#spring-security">spring security</a></li>
-        <li><a href="#spring-security-oauth2">spring security oauth2</a></li>
+        <li><a href="#heading-7">基础文件</a></li>
+        <li><a href="#heading-8">配置</a></li>
+        <li><a href="#heading-9">注解</a></li>
+        <li><a href="#heading-10">类</a></li>
+        <li><a href="#heading-11">插件</a>
+          <ul>
+            <li><a href="#maven">maven</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-12">组件</a>
+          <ul>
+            <li><a href="#spring">spring</a></li>
+            <li><a href="#heading-13">测试</a></li>
+            <li><a href="#heading-14">数据库</a></li>
+            <li><a href="#web">web</a></li>
+            <li><a href="#heading-15">日志</a></li>
+            <li><a href="#jackson">jackson</a></li>
+            <li><a href="#scheduled">Scheduled</a></li>
+            <li><a href="#heading-16">热部署</a></li>
+            <li><a href="#jsp">jsp</a></li>
+            <li><a href="#lombok">lombok</a></li>
+            <li><a href="#remote-shell">remote shell</a></li>
+            <li><a href="#actuator">actuator</a></li>
+            <li><a href="#spring-boot-admin">spring boot admin</a></li>
+            <li><a href="#spring-initializer">spring initializer</a></li>
+            <li><a href="#spring-security">spring security</a></li>
+            <li><a href="#spring-security-oauth2">spring security oauth2</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
+    <li><a href="#spring-integration">spring integration</a></li>
   </ul>
 </nav>
   </aside>

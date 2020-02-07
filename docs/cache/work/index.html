@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="关于我"><meta property="og:title" content="关于我" />
-<meta property="og:description" content="介绍 outrun，男，1990.4 934260428@qq.com outrunJ.github.io  " />
+<meta name="description" content="Work"><meta property="og:title" content="" />
+<meta property="og:description" content="mosquitto_pub -h localhost -p 1883 -t &lsquo;gateway&rsquo; -m &lsquo;{&ldquo;id&rdquo;:&ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&rdquo;,&ldquo;deviceID&rdquo;:&ldquo;ea1&rdquo;,&ldquo;status&rdquo;:10,&ldquo;type&rdquo;:301,&ldquo;kind&rdquo;:0,&ldquo;content&rdquo;:&ldquo;ewoJImhvc3QiOgl7CgkJImFyY2giOgkiQ29ydGV4LUE3IiwKCQkiaXAiOgkiMTkyLjE2OC4wLjEzMCIsCgkJIm1hYyI6CSI5YzpiNjpkMDowMDowMDowMSIsCgkJInNvZnR3YXJlIjoJIlYxLjAiLAoJCSJoYXJkd2FyZSI6CSJWMS4wIiwKCQkib3MiOgkiVGluYVYyLjIiCgl9Cn0=&rdquo;}&rsquo; mosquitto_pub -h localhost -p 1883 -t &lsquo;gateway&rsquo; -f a.json mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;gateway&rsquo; -f a.json
+mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;gateway&rsquo; -m &lsquo;{&ldquo;id&rdquo;:&ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&rdquo;,&ldquo;deviceID&rdquo;:&ldquo;mrsipspeaker0001&rdquo;,&ldquo;status&rdquo;:10,&ldquo;type&rdquo;:30300,&ldquo;kind&rdquo;:0}&rsquo; mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;device/mrsipspeaker0001/deliver&rsquo; -f
+mosquitto_sub -h localhost -p 1883 -t &lsquo;device/ea1&rsquo;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/about_me/" />
-<meta property="article:modified_time" content="2019-07-02T17:39:53+08:00" />
-<title>关于我 | outrun的笔记</title>
+<meta property="og:url" content="https://example.com/docs/cache/work/" />
+
+<title>Work | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -193,15 +195,16 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>关于我</strong>
+  <strong>Work</strong>
 </header>
 
       
-<article class="markdown"><h1 id="heading">介绍</h1>
-<pre><code>outrun，男，1990.4
-934260428@qq.com
-outrunJ.github.io
-</code></pre>
+<article class="markdown"><p>mosquitto_pub -h localhost -p 1883 -t &lsquo;gateway&rsquo; -m &lsquo;{&ldquo;id&rdquo;:&ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&rdquo;,&ldquo;deviceID&rdquo;:&ldquo;ea1&rdquo;,&ldquo;status&rdquo;:10,&ldquo;type&rdquo;:301,&ldquo;kind&rdquo;:0,&ldquo;content&rdquo;:&ldquo;ewoJImhvc3QiOgl7CgkJImFyY2giOgkiQ29ydGV4LUE3IiwKCQkiaXAiOgkiMTkyLjE2OC4wLjEzMCIsCgkJIm1hYyI6CSI5YzpiNjpkMDowMDowMDowMSIsCgkJInNvZnR3YXJlIjoJIlYxLjAiLAoJCSJoYXJkd2FyZSI6CSJWMS4wIiwKCQkib3MiOgkiVGluYVYyLjIiCgl9Cn0=&rdquo;}&rsquo;
+mosquitto_pub -h localhost -p 1883 -t &lsquo;gateway&rsquo; -f  a.json
+mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;gateway&rsquo; -f  a.json</p>
+<p>mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;gateway&rsquo; -m &lsquo;{&ldquo;id&rdquo;:&ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&rdquo;,&ldquo;deviceID&rdquo;:&ldquo;mrsipspeaker0001&rdquo;,&ldquo;status&rdquo;:10,&ldquo;type&rdquo;:30300,&ldquo;kind&rdquo;:0}&rsquo;
+mosquitto_pub -h 101.132.195.113 -p 32003 -t &lsquo;device/mrsipspeaker0001/deliver&rsquo; -f</p>
+<p>mosquitto_sub -h localhost -p 1883 -t &lsquo;device/ea1&rsquo;</p>
 </article>
 
       <div class="book-footer justify-between">
@@ -211,9 +214,9 @@ outrunJ.github.io
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/d77a072aab9ef6a9a141f9424c2ff3b1a22d16b6" title='Last modified by shenwenqing | Jul 2, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Jul 2, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -221,7 +224,7 @@ outrunJ.github.io
 
   
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/about_me.md" target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cache/work.md" target="_blank">
       <img src="/svg/edit.svg" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -237,11 +240,7 @@ outrunJ.github.io
   
 
   <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">介绍</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 

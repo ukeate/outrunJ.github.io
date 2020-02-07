@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -1412,42 +1413,52 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#sqlite">sqlite</a></li>
-    <li><a href="#sql">sql</a></li>
-    <li><a href="#heading-1">存储过程</a></li>
-    <li><a href="#heading-2">触发器</a></li>
-    <li><a href="#heading-3">视图</a></li>
-    <li><a href="#heading-4">索引</a></li>
-    <li><a href="#heading-5">序列</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-7">图</a>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#rdsrelational-database-service">rds(relational database service)</a>
       <ul>
-        <li><a href="#neo4j">neo4j</a></li>
+        <li><a href="#sqlite">sqlite</a></li>
+        <li><a href="#sql">sql</a></li>
+        <li><a href="#heading-1">存储过程</a></li>
+        <li><a href="#heading-2">触发器</a></li>
+        <li><a href="#heading-3">视图</a></li>
+        <li><a href="#heading-4">索引</a></li>
+        <li><a href="#heading-5">序列</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">列族</a>
+    <li><a href="#heading-6">性能优化</a></li>
+    <li><a href="#nosql">nosql</a>
       <ul>
-        <li><a href="#cassandra">cassandra</a></li>
-        <li><a href="#hbase">hbase</a></li>
+        <li><a href="#heading-7">图</a>
+          <ul>
+            <li><a href="#neo4j">neo4j</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-8">列族</a>
+          <ul>
+            <li><a href="#cassandra">cassandra</a></li>
+            <li><a href="#hbase">hbase</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-9">文档</a>
+          <ul>
+            <li><a href="#couchdb">couchDB</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-10">键值</a></li>
+        <li><a href="#heading-11">时序</a></li>
       </ul>
     </li>
-    <li><a href="#heading-9">文档</a>
+    <li><a href="#newsql">newsql</a>
       <ul>
-        <li><a href="#couchdb">couchDB</a></li>
+        <li><a href="#tidb">tidb</a></li>
       </ul>
     </li>
-    <li><a href="#heading-10">键值</a></li>
-    <li><a href="#heading-11">时序</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#tidb">tidb</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#mycat">mycat</a></li>
+    <li><a href="#heading-12">流式数据库</a></li>
+    <li><a href="#proxy">proxy</a>
+      <ul>
+        <li><a href="#mycat">mycat</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>

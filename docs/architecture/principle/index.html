@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -1100,63 +1101,74 @@ sharing-nothing                         # cpu之间不共享内存和磁盘</cod
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-1">进程调度</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-4">状态</a>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#cpu">cpu</a>
       <ul>
-        <li><a href="#cookie">cookie</a></li>
-        <li><a href="#session">session</a></li>
+        <li><a href="#heading-1">进程调度</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">数据链路层</a></li>
-    <li><a href="#heading-6">网络层</a>
+    <li><a href="#gpu">gpu</a></li>
+    <li><a href="#heading-2">内存</a></li>
+    <li><a href="#heading-3">网络</a>
       <ul>
-        <li><a href="#ip">ip</a></li>
-        <li><a href="#heading-7">抓包</a></li>
+        <li><a href="#heading-4">状态</a>
+          <ul>
+            <li><a href="#cookie">cookie</a></li>
+            <li><a href="#session">session</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-5">数据链路层</a></li>
+        <li><a href="#heading-6">网络层</a>
+          <ul>
+            <li><a href="#ip">ip</a></li>
+            <li><a href="#heading-7">抓包</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-8">传输层</a></li>
+        <li><a href="#heading-9">会话层</a></li>
+        <li><a href="#heading-10">表示层</a></li>
+        <li><a href="#heading-11">应用层</a>
+          <ul>
+            <li><a href="#tcp">tcp传输</a></li>
+            <li><a href="#udp">udp传输</a></li>
+            <li><a href="#mqtt">mqtt</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#heading-8">传输层</a></li>
-    <li><a href="#heading-9">会话层</a></li>
-    <li><a href="#heading-10">表示层</a></li>
-    <li><a href="#heading-11">应用层</a>
+    <li><a href="#heading-12">电话</a></li>
+    <li><a href="#heading-13">分布式服务</a>
       <ul>
-        <li><a href="#tcp">tcp传输</a></li>
-        <li><a href="#udp">udp传输</a></li>
-        <li><a href="#mqtt">mqtt</a></li>
+        <li><a href="#heading-14">一致性</a>
+          <ul>
+            <li><a href="#heading-15">分布式事务</a></li>
+          </ul>
+        </li>
+        <li><a href="#high-available">高可用(high available)</a>
+          <ul>
+            <li><a href="#heading-19">负载均衡与反向代理</a></li>
+            <li><a href="#heading-20">隔离</a></li>
+            <li><a href="#heading-21">限流</a></li>
+            <li><a href="#heading-22">降级</a></li>
+            <li><a href="#heading-23">超时与重试</a></li>
+            <li><a href="#heading-24">回滚</a></li>
+            <li><a href="#heading-25">压测</a></li>
+          </ul>
+        </li>
+        <li><a href="#high-concurrency">高并发(high concurrency)</a>
+          <ul>
+            <li><a href="#heading-26">应用级缓存</a></li>
+            <li><a href="#http-1">http缓存</a></li>
+            <li><a href="#heading-27">多级缓存</a></li>
+            <li><a href="#heading-28">连接池线程池</a></li>
+            <li><a href="#heading-29">异步并发</a></li>
+            <li><a href="#heading-30">扩容</a></li>
+            <li><a href="#heading-31">队列</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-14">一致性</a>
-      <ul>
-        <li><a href="#heading-15">分布式事务</a></li>
-      </ul>
-    </li>
-    <li><a href="#high-available">高可用(high available)</a>
-      <ul>
-        <li><a href="#heading-19">负载均衡与反向代理</a></li>
-        <li><a href="#heading-20">隔离</a></li>
-        <li><a href="#heading-21">限流</a></li>
-        <li><a href="#heading-22">降级</a></li>
-        <li><a href="#heading-23">超时与重试</a></li>
-        <li><a href="#heading-24">回滚</a></li>
-        <li><a href="#heading-25">压测</a></li>
-      </ul>
-    </li>
-    <li><a href="#high-concurrency">高并发(high concurrency)</a>
-      <ul>
-        <li><a href="#heading-26">应用级缓存</a></li>
-        <li><a href="#http-1">http缓存</a></li>
-        <li><a href="#heading-27">多级缓存</a></li>
-        <li><a href="#heading-28">连接池线程池</a></li>
-        <li><a href="#heading-29">异步并发</a></li>
-        <li><a href="#heading-30">扩容</a></li>
-        <li><a href="#heading-31">队列</a></li>
-      </ul>
-    </li>
+    <li><a href="#heading-32">大数据</a></li>
   </ul>
 </nav>
   </aside>

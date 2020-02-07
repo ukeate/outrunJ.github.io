@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -231,7 +232,7 @@ fushsia
 <h1 id="heading-2">虚拟化</h1>
 <pre><code>docker
 vagrant
-    # 用一个virtualbox虚拟机来快速部署开发环境
+    # 自动化虚拟机配置
 parallels desktop
     # 苹果
 xen
@@ -742,7 +743,14 @@ selenium
         o-&gt; 例子
         ansible '*' -m command -a 'uptime'
 </code></pre>
-<h1 id="heading-5">版本</h1>
+<h1 id="heading-5">仓库</h1>
+<h2 id="nexus">nexus</h2>
+<pre><code># maven, npm, go, docker, yum等
+</code></pre>
+<h2 id="jfrog">jfrog</h2>
+<pre><code># 全语言二进制仓库
+</code></pre>
+<h1 id="heading-6">版本</h1>
 <pre><code>mercurial
     # 简称hg，分布式版本控制系统，比git好
 clearQuest
@@ -783,6 +791,9 @@ redmine
 命令
     git [command] --help
     git help submodule
+    设置
+        config
+            --global http.proxy 'http://127.0.0.1:8123'
     仓库
         clone
         checkout
@@ -1492,7 +1503,7 @@ build.xml
                 &lt;/proxy&gt;
             &lt;/proxies&gt;
 </code></pre>
-<h1 id="heading-6">代码</h1>
+<h1 id="heading-7">代码</h1>
 <pre><code>github
 bitBucket
 gitee.com
@@ -1515,7 +1526,7 @@ www.webpagetest.org
     # 测试网站性能
 </code></pre>
 <h2 id="gitlab">gitlab</h2>
-<h1 id="heading-7">应用控制</h1>
+<h1 id="heading-8">应用控制</h1>
 <h2 id="forever">forever</h2>
 <pre><code>openvpn --config openvpn.conf
         # 连接
@@ -1579,7 +1590,7 @@ www.webpagetest.org
     pm2 info 1
     pm2 logs 1
 </code></pre>
-<h1 id="heading-8">监控</h1>
+<h1 id="heading-9">监控</h1>
 <pre><code>prometheus
     # 监控, go实现
 grafana
@@ -1591,7 +1602,7 @@ nagios
 emq
     # mqtt broker, erlang开发, 管理控制台
 </code></pre>
-<h1 id="heading-9">个人操作</h1>
+<h1 id="heading-10">个人操作</h1>
 <h2 id="ngrok">ngrok</h2>
 <pre><code># 内网穿透
 </code></pre>
@@ -1695,9 +1706,9 @@ emq
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Dec 6, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -1723,51 +1734,71 @@ emq
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#kvm">kvm</a></li>
-    <li><a href="#vmware">vmware</a></li>
-    <li><a href="#virtualbox">virtualbox</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#sshsecure-shell">ssh（secure shell）</a></li>
-    <li><a href="#openvpn">openvpn</a></li>
-    <li><a href="#shadowsocks">shadowsocks</a></li>
-    <li><a href="#opendj">opendj</a></li>
-    <li><a href="#openssl">openssl</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#bt-panel">bt-panel</a></li>
-    <li><a href="#jumpserver">jumpserver</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#ansible">ansible</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#gradle">gradle</a></li>
-    <li><a href="#git">git</a></li>
-    <li><a href="#svn">svn</a></li>
-    <li><a href="#ant">ant</a></li>
-    <li><a href="#maven">maven</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#gitlab">gitlab</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#forever">forever</a></li>
-    <li><a href="#supervisor">supervisor</a></li>
-    <li><a href="#pm2">pm2</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#ngrok">ngrok</a></li>
-    <li><a href="#vsftp">vsftp</a></li>
-    <li><a href="#simplehttpserver">SimpleHTTPServer</a></li>
-    <li><a href="#pyshark">pyshark</a></li>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#heading-1">系统</a></li>
+    <li><a href="#heading-2">虚拟化</a>
+      <ul>
+        <li><a href="#kvm">kvm</a></li>
+        <li><a href="#vmware">vmware</a></li>
+        <li><a href="#virtualbox">virtualbox</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-3">认证</a>
+      <ul>
+        <li><a href="#sshsecure-shell">ssh（secure shell）</a></li>
+        <li><a href="#openvpn">openvpn</a></li>
+        <li><a href="#shadowsocks">shadowsocks</a></li>
+        <li><a href="#opendj">opendj</a></li>
+        <li><a href="#openssl">openssl</a></li>
+      </ul>
+    </li>
+    <li><a href="#cmdb">cmdb</a>
+      <ul>
+        <li><a href="#bt-panel">bt-panel</a></li>
+        <li><a href="#jumpserver">jumpserver</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">自动化</a>
+      <ul>
+        <li><a href="#ansible">ansible</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-5">仓库</a>
+      <ul>
+        <li><a href="#nexus">nexus</a></li>
+        <li><a href="#jfrog">jfrog</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-6">版本</a>
+      <ul>
+        <li><a href="#gradle">gradle</a></li>
+        <li><a href="#git">git</a></li>
+        <li><a href="#svn">svn</a></li>
+        <li><a href="#ant">ant</a></li>
+        <li><a href="#maven">maven</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-7">代码</a>
+      <ul>
+        <li><a href="#gitlab">gitlab</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-8">应用控制</a>
+      <ul>
+        <li><a href="#forever">forever</a></li>
+        <li><a href="#supervisor">supervisor</a></li>
+        <li><a href="#pm2">pm2</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-9">监控</a></li>
+    <li><a href="#heading-10">个人操作</a>
+      <ul>
+        <li><a href="#ngrok">ngrok</a></li>
+        <li><a href="#vsftp">vsftp</a></li>
+        <li><a href="#simplehttpserver">SimpleHTTPServer</a></li>
+        <li><a href="#pyshark">pyshark</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>

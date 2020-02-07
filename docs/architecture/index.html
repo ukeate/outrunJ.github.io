@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.4708d27426d73c75fcd1db9bff28b0d212b9aad828418cdf15e037c517ee6676.js" integrity="sha256-RwjSdCbXPHX80dub/yiw0hK5qtgoQYzfFeA3xRfuZnY="></script>
+<script defer src="/en.search.min.89e277eaffc2d6dc705b9a49befe5b401408d8ab0d73322c720731b5efe7dd95.js" integrity="sha256-ieJ36v/C1txwW5pJvv5bQBQI2KsNczIscgcxte/n3ZU="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -113,6 +113,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/backend/javaweb">javaweb</a></li>
 <li><a href="/docs/backend/spring">spring</a></li>
 <li><a href="/docs/backend/hibernate">hibernate</a></li>
+<li><a href="/docs/backend/hadoop">hadoop</a></li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -203,7 +204,7 @@ sdn        software defined network 软件定义网络
 </code></pre>
 <h1 id="serverless">serverless</h1>
 <pre><code>knative
-    # google开源，serverless标准化方案，基于k8s和istio
+    # google开源，serverless标准化方案，基于kubernetes和istio
     模块
         build
         serving
@@ -223,7 +224,7 @@ sdn        software defined network 软件定义网络
 </code></pre>
 <h2 id="knative">knative</h2>
 <pre><code>介绍
-    管理k8s, Istio
+    管理kubernetes, Istio
 模块
     build
     serve
@@ -232,13 +233,13 @@ sdn        software defined network 软件定义网络
     event
 </code></pre>
 <h2 id="traefik">traefik</h2>
-<pre><code># go实现，多后台如k8s, swarm, marathon, mesos
+<pre><code># go实现，多后台如kubernetes, swarm, marathon, mesos
 </code></pre>
 <h2 id="linkerd">linkerd</h2>
 <pre><code># buoyant出品
 </code></pre>
 <h2 id="conduit">conduit</h2>
-<pre><code># 面向k8s轻量化mesh
+<pre><code># 面向kubernetes轻量化mesh
 </code></pre>
 <h2 id="fingle">fingle</h2>
 <pre><code># twitter出品
@@ -270,7 +271,7 @@ sdn        software defined network 软件定义网络
 <th align="left">特性</th>
 <th align="left">dubbo</th>
 <th align="left">spring cloud</th>
-<th align="left">k8s</th>
+<th align="left">kubernetes</th>
 </tr>
 </thead>
 <tbody>
@@ -278,25 +279,25 @@ sdn        software defined network 软件定义网络
 <td align="left">配置管理</td>
 <td align="left">-</td>
 <td align="left">config</td>
-<td align="left">k8s configMap</td>
+<td align="left">kubernetes configMap</td>
 </tr>
 <tr>
 <td align="left">服务发现</td>
 <td align="left">zookeeper</td>
 <td align="left">eureka, consul, zookeeper</td>
-<td align="left">k8s services</td>
+<td align="left">kubernetes services</td>
 </tr>
 <tr>
 <td align="left">负载均衡</td>
 <td align="left">自带</td>
 <td align="left">ribbon</td>
-<td align="left">k8s services</td>
+<td align="left">kubernetes services</td>
 </tr>
 <tr>
 <td align="left">网关</td>
 <td align="left">-</td>
 <td align="left">zuul</td>
-<td align="left">k8s services</td>
+<td align="left">kubernetes services</td>
 </tr>
 <tr>
 <td align="left">分布式追踪</td>
@@ -308,7 +309,7 @@ sdn        software defined network 软件定义网络
 <td align="left">容错</td>
 <td align="left">不完善</td>
 <td align="left">hystrix</td>
-<td align="left">k8s health check</td>
+<td align="left">kubernetes health check</td>
 </tr>
 <tr>
 <td align="left">通信方式</td>
@@ -332,7 +333,7 @@ sdn        software defined network 软件定义网络
 <td align="left">任务管理</td>
 <td align="left"></td>
 <td align="left">spring batch</td>
-<td align="left">k8s jobs</td>
+<td align="left">kubernetes jobs</td>
 </tr>
 </tbody>
 </table>
@@ -478,6 +479,14 @@ sdn        software defined network 软件定义网络
     hyperkube
     apiextensions-apiserver
     mounter
+镜像
+    kube-apiserver
+    kube-controller-manager
+    kube-scheduler
+    kube-proxy
+    pause
+    etcd
+    coredns
 配置
     用yaml或json定义
     pod
@@ -691,7 +700,7 @@ exhibitor
 </code></pre>
 <h2 id="heading-5">配置</h2>
 <h3 id="etcd">etcd</h3>
-<pre><code># k8s中用到的服务发现仓库
+<pre><code># kubernetes中用到的服务发现仓库
 </code></pre>
 <h3 id="spring-cloud-config">spring cloud config</h3>
 <h3 id="diamond">Diamond</h3>
@@ -1727,9 +1736,9 @@ sms.webchinese.cn
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Dec 6, 2019</span>
+      <span>Feb 7, 2020</span>
     </a>
   </div>
   
@@ -1755,204 +1764,221 @@ sms.webchinese.cn
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#service-fabric">service fabric</a></li>
-    <li><a href="#istio">Istio</a></li>
-    <li><a href="#knative">knative</a></li>
-    <li><a href="#traefik">traefik</a></li>
-    <li><a href="#linkerd">linkerd</a></li>
-    <li><a href="#conduit">conduit</a></li>
-    <li><a href="#fingle">fingle</a></li>
-    <li><a href="#envoy">envoy</a></li>
-    <li><a href="#nginmesh">nginmesh</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#cloudstack">cloudStack</a></li>
-    <li><a href="#cloudfoundry">cloudfoundry</a></li>
-    <li><a href="#openstack">openstack</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#kubernetes">kubernetes</a></li>
-    <li><a href="#spring-cloud">spring cloud</a></li>
-    <li><a href="#mesos">mesos</a></li>
-    <li><a href="#dubbo">Dubbo</a></li>
-    <li><a href="#dubbox">Dubbox</a></li>
-    <li><a href="#netflix-oss">netflix oss</a></li>
-    <li><a href="#orleans">orleans</a></li>
-    <li><a href="#hsf">hsf</a></li>
-    <li><a href="#nscale">nscale</a></li>
-    <li><a href="#armada">armada</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#eai">eai</a></li>
-    <li><a href="#esb">esb</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#thrift">thrift</a></li>
-    <li><a href="#cxf">cxf</a></li>
-    <li><a href="#grpc">grpc</a></li>
-    <li><a href="#protobuf">protobuf</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#hessian">hessian</a></li>
-    <li><a href="#burlap">Burlap</a></li>
-    <li><a href="#httpinvoker">httpinvoker</a></li>
-    <li><a href="#web-service">web service</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-4">治理(服务发现)</a>
+    <li><a href="#heading">名词</a></li>
+    <li><a href="#serverless">serverless</a></li>
+    <li><a href="#heading-1">服务网格</a>
       <ul>
-        <li><a href="#zookeeper">zookeeper</a></li>
-        <li><a href="#eureka">Eureka</a></li>
-        <li><a href="#consul">Consul</a></li>
+        <li><a href="#service-fabric">service fabric</a></li>
+        <li><a href="#istio">Istio</a></li>
+        <li><a href="#knative">knative</a></li>
+        <li><a href="#traefik">traefik</a></li>
+        <li><a href="#linkerd">linkerd</a></li>
+        <li><a href="#conduit">conduit</a></li>
+        <li><a href="#fingle">fingle</a></li>
+        <li><a href="#envoy">envoy</a></li>
+        <li><a href="#nginmesh">nginmesh</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">配置</a>
+    <li><a href="#paas">paas</a>
       <ul>
-        <li><a href="#etcd">etcd</a></li>
-        <li><a href="#spring-cloud-config">spring cloud config</a></li>
-        <li><a href="#diamond">Diamond</a></li>
-        <li><a href="#archaius">Archaius</a></li>
-        <li><a href="#disconf">Disconf</a></li>
-        <li><a href="#qconf">QConf</a></li>
+        <li><a href="#cloudstack">cloudStack</a></li>
+        <li><a href="#cloudfoundry">cloudfoundry</a></li>
+        <li><a href="#openstack">openstack</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">任务</a>
+    <li><a href="#heading-2">分布式服务(容器调度编排)</a>
       <ul>
-        <li><a href="#elastic-job">Elastic-Job</a></li>
-        <li><a href="#azkaban">Azkaban</a></li>
-        <li><a href="#spring-cloud-task">spring cloud task</a></li>
+        <li><a href="#kubernetes">kubernetes</a></li>
+        <li><a href="#spring-cloud">spring cloud</a></li>
+        <li><a href="#mesos">mesos</a></li>
+        <li><a href="#dubbo">Dubbo</a></li>
+        <li><a href="#dubbox">Dubbox</a></li>
+        <li><a href="#netflix-oss">netflix oss</a></li>
+        <li><a href="#orleans">orleans</a></li>
+        <li><a href="#hsf">hsf</a></li>
+        <li><a href="#nscale">nscale</a></li>
+        <li><a href="#armada">armada</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">跟踪</a>
+    <li><a href="#soa">soa</a>
       <ul>
-        <li><a href="#zipkin">zipkin</a></li>
-        <li><a href="#opentracing">opentracing</a></li>
-        <li><a href="#hydra">Hydra</a></li>
-        <li><a href="#spring-cloud-sleuth">spring cloud sleuth</a></li>
+        <li><a href="#eai">eai</a></li>
+        <li><a href="#esb">esb</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">监控</a>
+    <li><a href="#rpc">rpc</a>
       <ul>
-        <li><a href="#spyjs">spy.js</a></li>
-        <li><a href="#alinode">alinode</a></li>
-        <li><a href="#oneapm">oneapm</a></li>
+        <li><a href="#thrift">thrift</a></li>
+        <li><a href="#cxf">cxf</a></li>
+        <li><a href="#grpc">grpc</a></li>
+        <li><a href="#protobuf">protobuf</a></li>
       </ul>
     </li>
-    <li><a href="#heading-9">容错</a>
+    <li><a href="#rmi">rmi</a>
       <ul>
-        <li><a href="#hystrix">hystrix</a></li>
+        <li><a href="#hessian">hessian</a></li>
+        <li><a href="#burlap">Burlap</a></li>
+        <li><a href="#httpinvoker">httpinvoker</a></li>
+        <li><a href="#web-service">web service</a></li>
       </ul>
     </li>
-    <li><a href="#heading-10">代理</a>
+    <li><a href="#heading-3">粘合层</a>
       <ul>
-        <li><a href="#gearman">gearman</a></li>
+        <li><a href="#heading-4">治理(服务发现)</a>
+          <ul>
+            <li><a href="#zookeeper">zookeeper</a></li>
+            <li><a href="#eureka">Eureka</a></li>
+            <li><a href="#consul">Consul</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-5">配置</a>
+          <ul>
+            <li><a href="#etcd">etcd</a></li>
+            <li><a href="#spring-cloud-config">spring cloud config</a></li>
+            <li><a href="#diamond">Diamond</a></li>
+            <li><a href="#archaius">Archaius</a></li>
+            <li><a href="#disconf">Disconf</a></li>
+            <li><a href="#qconf">QConf</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-6">任务</a>
+          <ul>
+            <li><a href="#elastic-job">Elastic-Job</a></li>
+            <li><a href="#azkaban">Azkaban</a></li>
+            <li><a href="#spring-cloud-task">spring cloud task</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-7">跟踪</a>
+          <ul>
+            <li><a href="#zipkin">zipkin</a></li>
+            <li><a href="#opentracing">opentracing</a></li>
+            <li><a href="#hydra">Hydra</a></li>
+            <li><a href="#spring-cloud-sleuth">spring cloud sleuth</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-8">监控</a>
+          <ul>
+            <li><a href="#spyjs">spy.js</a></li>
+            <li><a href="#alinode">alinode</a></li>
+            <li><a href="#oneapm">oneapm</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-9">容错</a>
+          <ul>
+            <li><a href="#hystrix">hystrix</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-10">代理</a>
+          <ul>
+            <li><a href="#gearman">gearman</a></li>
+          </ul>
+        </li>
+        <li><a href="#hazelcast">hazelcast</a>
+          <ul>
+            <li><a href="#twemproxy">twemproxy</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#hazelcast">hazelcast</a>
+    <li><a href="#heading-11">高可用</a>
       <ul>
-        <li><a href="#twemproxy">twemproxy</a></li>
+        <li><a href="#heading-12">心跳</a>
+          <ul>
+            <li><a href="#heartbeat">heartbeat</a></li>
+            <li><a href="#keepalived">keepalived</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-13">负载</a>
+          <ul>
+            <li><a href="#haproxy">haproxy</a></li>
+            <li><a href="#tengine">tengine</a></li>
+            <li><a href="#openresty">openresty</a></li>
+            <li><a href="#varnish">varnish</a></li>
+            <li><a href="#traffic-server">traffic server</a></li>
+            <li><a href="#squid">squid</a></li>
+            <li><a href="#lvs">lvs</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading-12">心跳</a>
+    <li><a href="#heading-14">容器服务</a>
       <ul>
-        <li><a href="#heartbeat">heartbeat</a></li>
-        <li><a href="#keepalived">keepalived</a></li>
+        <li><a href="#tomcat">tomcat</a></li>
+        <li><a href="#netty">netty</a></li>
+        <li><a href="#netty-tcnative">netty-tcnative</a></li>
+        <li><a href="#jetty">jetty</a></li>
+        <li><a href="#apache">apache</a></li>
+        <li><a href="#lighttpd">lighttpd</a></li>
+        <li><a href="#meteor">meteor</a></li>
+        <li><a href="#ringojs">ringojs</a></li>
+        <li><a href="#mina">mina</a></li>
+        <li><a href="#tomcat-native">tomcat native</a></li>
+        <li><a href="#tinyhttpd">tinyHttpd</a></li>
+        <li><a href="#resin">resin</a></li>
+        <li><a href="#uwsgi">uwsgi</a></li>
+        <li><a href="#weblogic">weblogic</a></li>
+        <li><a href="#was">was</a></li>
+        <li><a href="#gunicon">gunicon</a></li>
+        <li><a href="#nodejs">node.js</a></li>
       </ul>
     </li>
-    <li><a href="#heading-13">负载</a>
+    <li><a href="#heading-15">通信服务</a>
       <ul>
-        <li><a href="#haproxy">haproxy</a></li>
-        <li><a href="#tengine">tengine</a></li>
-        <li><a href="#openresty">openresty</a></li>
-        <li><a href="#varnish">varnish</a></li>
-        <li><a href="#traffic-server">traffic server</a></li>
-        <li><a href="#squid">squid</a></li>
-        <li><a href="#lvs">lvs</a></li>
+        <li><a href="#log">log</a>
+          <ul>
+            <li><a href="#elk">elk</a></li>
+            <li><a href="#logio">log.io</a></li>
+          </ul>
+        </li>
+        <li><a href="#mq">mq</a>
+          <ul>
+            <li><a href="#pulsar">pulsar</a></li>
+            <li><a href="#rabbitmq">rabbitMQ</a></li>
+            <li><a href="#jafka">jafka</a></li>
+            <li><a href="#kafka">kafka</a></li>
+            <li><a href="#nsq">nsq</a></li>
+            <li><a href="#memcacheq">memcacheQ</a></li>
+            <li><a href="#zeromq">zeroMQ</a></li>
+            <li><a href="#activemq">activeMQ</a></li>
+            <li><a href="#beanstalkd">beanstalkd</a></li>
+            <li><a href="#mqtt">mqtt</a></li>
+            <li><a href="#emqttd">emqttd</a></li>
+            <li><a href="#apollo">apollo</a></li>
+            <li><a href="#metaq">metaq</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-16">任务</a>
+          <ul>
+            <li><a href="#quartz">quartz</a></li>
+            <li><a href="#celery">celery</a></li>
+            <li><a href="#rundeck">rundeck</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#tomcat">tomcat</a></li>
-    <li><a href="#netty">netty</a></li>
-    <li><a href="#netty-tcnative">netty-tcnative</a></li>
-    <li><a href="#jetty">jetty</a></li>
-    <li><a href="#apache">apache</a></li>
-    <li><a href="#lighttpd">lighttpd</a></li>
-    <li><a href="#meteor">meteor</a></li>
-    <li><a href="#ringojs">ringojs</a></li>
-    <li><a href="#mina">mina</a></li>
-    <li><a href="#tomcat-native">tomcat native</a></li>
-    <li><a href="#tinyhttpd">tinyHttpd</a></li>
-    <li><a href="#resin">resin</a></li>
-    <li><a href="#uwsgi">uwsgi</a></li>
-    <li><a href="#weblogic">weblogic</a></li>
-    <li><a href="#was">was</a></li>
-    <li><a href="#gunicon">gunicon</a></li>
-    <li><a href="#nodejs">node.js</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#log">log</a>
+    <li><a href="#heading-17">存储服务</a>
       <ul>
-        <li><a href="#elk">elk</a></li>
-        <li><a href="#logio">log.io</a></li>
+        <li><a href="#iscsi">iscsi</a></li>
+        <li><a href="#fastdfs">fastdfs</a></li>
+        <li><a href="#cdn">cdn</a></li>
+        <li><a href="#aws">aws服务器</a></li>
       </ul>
     </li>
-    <li><a href="#mq">mq</a>
+    <li><a href="#heading-18">功能服务</a>
       <ul>
-        <li><a href="#pulsar">pulsar</a></li>
-        <li><a href="#rabbitmq">rabbitMQ</a></li>
-        <li><a href="#jafka">jafka</a></li>
-        <li><a href="#kafka">kafka</a></li>
-        <li><a href="#nsq">nsq</a></li>
-        <li><a href="#memcacheq">memcacheQ</a></li>
-        <li><a href="#zeromq">zeroMQ</a></li>
-        <li><a href="#activemq">activeMQ</a></li>
-        <li><a href="#beanstalkd">beanstalkd</a></li>
-        <li><a href="#mqtt">mqtt</a></li>
-        <li><a href="#emqttd">emqttd</a></li>
-        <li><a href="#apollo">apollo</a></li>
-        <li><a href="#metaq">metaq</a></li>
+        <li><a href="#webs">webs</a></li>
+        <li><a href="#paas-1">paas</a></li>
+        <li><a href="#dns">dns</a></li>
+        <li><a href="#cdn-1">cdn</a></li>
+        <li><a href="#pay">pay</a></li>
+        <li><a href="#idc">idc</a></li>
+        <li><a href="#cti">cti</a></li>
+        <li><a href="#olap">报表/olap</a></li>
+        <li><a href="#im">im</a></li>
+        <li><a href="#safe">safe</a></li>
+        <li><a href="#heading-19">设备</a></li>
       </ul>
     </li>
-    <li><a href="#heading-16">任务</a>
-      <ul>
-        <li><a href="#quartz">quartz</a></li>
-        <li><a href="#celery">celery</a></li>
-        <li><a href="#rundeck">rundeck</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#iscsi">iscsi</a></li>
-    <li><a href="#fastdfs">fastdfs</a></li>
-    <li><a href="#cdn">cdn</a></li>
-    <li><a href="#aws">aws服务器</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#webs">webs</a></li>
-    <li><a href="#paas-1">paas</a></li>
-    <li><a href="#dns">dns</a></li>
-    <li><a href="#cdn-1">cdn</a></li>
-    <li><a href="#pay">pay</a></li>
-    <li><a href="#idc">idc</a></li>
-    <li><a href="#cti">cti</a></li>
-    <li><a href="#olap">报表/olap</a></li>
-    <li><a href="#im">im</a></li>
-    <li><a href="#safe">safe</a></li>
-    <li><a href="#heading-19">设备</a></li>
   </ul>
 </nav>
   </aside>
