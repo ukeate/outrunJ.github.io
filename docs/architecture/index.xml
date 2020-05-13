@@ -1,77 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>架构 on outrun的笔记</title>
-    <link>https://example.com/docs/architecture/</link>
-    <description>Recent content in 架构 on outrun的笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Oct 2018 10:33:48 +0800</lastBuildDate>
-    
-	<atom:link href="https://example.com/docs/architecture/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Nginx</title>
-      <link>https://example.com/docs/architecture/nginx/</link>
-      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architecture/nginx/</guid>
-      <description>基础 结构 一个主进程(root权限运行)和多个工作进程(普通权限运行) 优点 异步非阻塞 非常稳定 反向代理 后端服务io能力不高，nginx buffer http请求直到完整，再发送到后端。同样buffer响应 相对apache 轻量 apache阻塞 占资源低 模块化设计 社区活跃, bug少 多进程模型 使用epoll 多worker处理，业务阻塞时切换调度, 结束阻塞时分配 模块 handler filter upstream load-balance 功能 http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理 命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.</description>
-    </item>
-    
-    <item>
-      <title>Nodejs</title>
-      <link>https://example.com/docs/architecture/nodejs/</link>
-      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architecture/nodejs/</guid>
-      <description>基础 特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&amp;gt; watcher -&amp;gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.</description>
-    </item>
-    
-    <item>
-      <title>Spring Cloud</title>
-      <link>https://example.com/docs/architecture/spring_cloud/</link>
-      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architecture/spring_cloud/</guid>
-      <description>基础 介绍 spring boot基础上构建，快速构建分布式系统, 全家桶 面向云环境架构(云原生) # 适合在docker和paas部署 功能 配置管理 服务发现 熔断 智能路由 微代理 控制总线 全局锁 决策竞选 分布式会话 集群状态管理 子项目 spring cloud netflix # 对netflix oss套件整合 eureka # 服务治理(注册、发现) hystrix # 容错管理 ribbon # 软负载均衡(客户端) feign # 基于hystrix和ribbon，服务调用组件 zuul # 网关，智能路由、访问过滤 archaius # 外部化配置 基础 spring cloud starters # 基础依赖, 高版本取消 spring cloud commons 服务 spring cloud consul # 封装consul(服务发现与配置, 与docker无缝) spring cloud cluster # 抽象zookeeper, redis, hazelcast, consul的选举算法和通用状态模式实现接口 spring cloud cloudfoundry # 与pivotal cloudfoundry整合 spring cloud aws # 整合aws spring cloud zookeeper # 整合zookeeper spring cloud cli # groovy中快速创建应用 spring cloud task # 任务 配置 spring cloud config # 应用配置外部化, 推送客户端配置, 支持git存储 消息 spring cloud bus # 消息总线，传播集群状态变化来触发动作，如刷新配置 spring cloud stream # 声明式发送、接收消息 监控 spring cloud sleuth # 跟踪 安全 spring cloud security # 应用安全控制, zuul代理中OAuth2中继器 测试 spring cloud contract # 契约测试, 可用groovy和yaml定义 版本 用命名不用版本号，因为有多子项目版本，易混淆 命名用伦敦地铁站用，字母表排序 缺点 难于追查框架问题 非二进制通信协议 适合中小团队  配置 pom.</description>
-    </item>
-    
-    <item>
-      <title>架构-方案</title>
-      <link>https://example.com/docs/architecture/solution/</link>
-      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architecture/solution/</guid>
-      <description>微服务 o-&amp;gt; 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置 o-&amp;gt; 《一个可供中小团队参考的微服务架构技术栈》  aPaaS # platform as a service，介于IaaS和SaaS中间 将软件研发的平台做为服务，以SaaS的模式交付 组件化支撑和驱动 # 组件的发展决定paas广度，组件的聚合决定paas深度 # 对内固守组件边界，对外暴露标准接口 分层 平台组件 基础业务 # 不可见，影响全局，通用业务逻辑，对性能很敏感 业务 组件 设计 # 自描述的，这样就在设计和开发上解耦 确定边界 定义标准接口 确定核心功能 规范异常处理 开发 # 像开发dsl一样,来评判核心逻辑和接口，抽象度高 技术评审 定义接口 # 面向接口开发，也称为BDD dubbo、grpc等 restful 接口设计 标准化 说明 服务路由 版本管理 授权管理 核心理念 # 体现在 服务、工具、模型、规范 开放 而非 封闭 合作 而非 限制 共享 而非 替代 重点关注 基础业务 组织架构和用户组 审批流 权限 通用模型 透明分布式缓存模型 分布式存储模型 分布式事务模型 效率工具 数据迁移工具 缓存配置工具  常用技术栈 SaaS aws线上云 微服务 + gRPC + k8s + Istio Golang + TypeScript + Python TiDB 轻应用 node.</description>
-    </item>
-    
-    <item>
-      <title>架构-原理</title>
-      <link>https://example.com/docs/architecture/principle/</link>
-      <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architecture/principle/</guid>
-      <description>基础 CAP定理 # 当面临分区的时候，必须在一致性和可用性之间权衡 一致性Consistency 可用性Availability 分区容错性Partition tolerance BASE # 解决CAP 基本可用(basic available) 软状态(soft state) 最终一致性(eventually consistent)  cpu 介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 gpu在pci总线上 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 内存到显存数据传输最花费时间。 原理 处理单元(processing unit) 算术逻辑单元(arithmetic logic unit) 处理寄存器(processor register) 控制单元(control unit) 指令寄存器(instruction register) 程序计数器(program counter) 指令集架构(ISA, instruction set architecture) # 机器码易兼容, 软件易编程, 易升级cpu 精简指令集RISC(reduced instruction set computing) 复杂指令集CISC(complex instruction set computer) 时钟频率(clock speed) 生产 生产线散热决定生存率，决定cpu型号 多级缓存 L1, L2, L3, L4 虚拟化 虚拟机监视器(VMM, virtual machine monitors) 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 硬件并行 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 指令分步骤(指令流), 每步专门部件处理 多指令流并行, 部件不空闲等待单指令流结束 六级流水线步骤 取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO) 多发射(超标量) 一时钟周期处理多指令 超线程 模拟多个逻辑线程 乱序执行 猜测执行 数据级 向量体系结构、图形处理器 单指令多数据(SIMD)架构 线程级 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互 请求级 # OS或程序耦合任务间并行 程序并行 数据级(DLP, data-level parallel) 任务级(TLP, task-level parallel) # 多处理器, 超线程, 虽只有4个核，但可用核返回8 内存 共享内存模型 分布式内存模型 进程: 独有内存 线程: 共享进程内存(地址空间、文件描述符) 一个进程下的轻量进程 POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似 自己的信号掩码 cpu affinity(倾向在某cpu尽量长时间运行) cgroups  进程调度 等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/architecture/performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/architecture/performance/</guid>
-      <description>基础 性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 cpu gpu  存储    类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&amp;gt; 荷兰 -&amp;gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 带宽 热门并发1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/architecture/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/architecture/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</guid>
-      <description>��������[s�����)8�+���p	#g���}�L�y�@$L�	YV:V:vlǖ퉜&amp;amp;���[&amp;lsquo;v��mS��-&amp;amp;&amp;amp;%=�+�삶R�@�����,��ϳ��o��كw�;�*���뇝�*FF��ua�������v���s�6}��iEn���tų��J������������ �5��~����-TO�U*�4���^u�8���b��q��bu�m|܊µN��58�aT9����S�Q]4��j琶Wݖ�y�Ǔ�6��8�4��E�ͶWî���c�LhG�;t���.�i����&#39;i��~[}Љ&amp;quot;qۍZ~g\�&amp;amp;H:� ����1,f�W}2��r�rA�rQ�r~wi5�����q��0&amp;lt;����њ7�N��p�fV+N�q��O�A7��˯�m�~s[��&amp;lt;���:bB+�~3^Y:�����7�~���ˁwЧ�;qa�o���ّ�{��9�����xh����xh��M�{�e�&amp;gt;fBK+��������vL����D�nxѠ��1]���ǩ���?���P��˿�����p���Fq�D���LuC��X�����Q��5p�cݵ�_S�55��d����h���vZ��Z��B��u�A�r��l�^ൗa�%g���dܲ׮�#�C�Ck��[+�!b���ǌ�uW����G�q@��ԍ7oT�묵���lM���f�#=e�/��;3vF���1�:Y;SǍ�P&amp;rsquo;�Oq��Fa&#39;&amp;gt;HH�^9���&amp;gt;���V+�|HǑ��^pڋ��;�$��cW����6��O4��r��&amp;quot;|5qΧ���!!�a���d���&amp;gt;��_���ȲI&amp;lt;^؇��4¹id&amp;quot;���_�����H�Ԝ��2�(�Q�p&amp;lt;WH ��&amp;quot;}�	������n��[�ǟ���������_�&amp;lt;��s����.������W�֕ޥ۽��ӻ�P�bp2ScIM,��&amp;quot;��%B홽o6b�����3r�6G#+�U��e�SLQA!&#39;���o2��d^&amp;gt;��w���^��|���ͽ������m~O{��|�&amp;lt;�=����/�#ӮQG�E�.%х����8b��/BK��u&amp;quot;&amp;quot;&amp;quot;�x��2X��3r��L�5g�gv���]~������,;���nj�(�X82(�,*L�,eA�冊��%}��)�B� �Sj%O�R���+Ll�Y��0y�a�����E���b��=�0�1S����IY(�Ed@�@���Ug$:L��0�V�D�Ӹ�����M����r�a����R�: �K�&amp;amp;r��J�B�Y�ҿ�jSS�ҿ#Up��^��ū�����,IE%��T���e�!����{����PNV��Ȥ�e��*�\��l�:q̖:�X&amp;amp;~0h@4�U&#39;��5OCDCd~�����I��FI(1e 2���VY,��HA�j� B��l��F��NC�e�f�f0�z뮦�zz�(թ�%��ɽ�ΐap1�C��d-�.u���&amp;amp;��i,[m�V~�4A4A��[_���MD9A,�Ŭ�)�+5E��i�G�1a�&amp;amp;TL���i,��������,��o|ۻvA3��&amp;rdquo;��[&amp;rdquo;�!�&amp;quot;����&amp;quot;ؒ:�K�ÀCLd��I��&amp;lt;�͒K^&amp;gt;�ӿ�W͒XBE&#39;�+]�#��$�w��gk2�(�*ܩS[悋za*1�۰,T9�A#����5[@Cd����_&amp;gt;�����ޓ��m�SD�N��rqDc� ��������8����(\�	~���[�)�\�+��؎%�̬�oȠ���0�х�q�r&#39;M�+���ݖS��Է8��јb�-(��Q�����Bv�H1�֢�ka���F��$҅����k�Xq��4O�����F�o��n��8��Q��p����S���eQ[ܫ��G��w�cK�!&amp;quot;\qn�c&amp;amp;:�,ab�L]�s���YU��˴I�\V�,=U~��b�������?&amp;gt;���J�3�m��}��(ir�n��-���?{W�!����u�Q�vBQ��dnn|�:9�Ƚ=�?�s�P�&amp;quot;A��R�0��[��w］�Fޮ�t�j [Di��S!�e�9�&amp;amp;&amp;amp;:��AG����u��MΘH����t(�(t�ԱM^�6�۳�f���������E/�\����������I9�	��vD�xf�ؤ�����9Ack��h&amp;lt;Ș��!�&amp;amp;K6��Z0�7��[T��!��(EφMQ������[/��e���s�;w%�.�����Ɗr����b��N-�i�(�J����L6�Yj3�O�Z&amp;quot;U�BY�@i���e w0�L)I���v,M��*2++�y�����7�&amp;gt;����Xo��u�t.�Q����8f����w&amp;amp;O���^ �Loa,#�1-Y�H�r,�D�w�&amp;quot;L�1�&amp;quot;2U�&amp;quot;n��r�X�g�g� 0/#�,J�V-��|k͋*��?�o��RP�Mm���M����h�9�d��g	�9cf�:7dP�8��gU����G���1����TSD�6��G{7uAG��62����^n)7�����hq��0,G��:�h�2���&amp;rdquo;���7,o�e�u�J���tp�����u��f��r���������d��{��H���k���b�ҡB�$Qkp�����������B���&amp;amp;��S3@3@g����$�&amp;gt;s}[��;��[����sEmŷ&amp;amp;,��lwNg�;T/@ό�d�[�!���A��yzI{�I��y�nx�ɹ�	��&amp;rdquo;�}r���t�����</description>
-    </item>
-    
-  </channel>
-</rss>

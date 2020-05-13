@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Performance"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 cpu gpu  存储    类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&gt; 荷兰 -&gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 带宽 热门并发1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/support_service/performance/" />
+
+<title>Performance | outrun的笔记</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<ul>
+<li><a href="/docs/function_small/principle">原理</a></li>
+<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
+<li><a href="/docs/function_small/nginx">Nginx</a></li>
+<li><a href="/docs/function_small/nodejs">Node.js</a></li>
+<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
+<li><a href="/docs/function_small/spring">Spring</a></li>
+</ul>
+</li>
+<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<ul>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<ul>
+<li><a href="/docs/support_service/principle">原理</a></li>
+<li><a href="/docs/support_service/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<ul>
+<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">JQuery</a></li>
+<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/frontend/angular">Angular</a></li>
+<li><a href="/docs/frontend/react">React</a></li>
+<li><a href="/docs/frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">Linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">Docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">Vim</a></li>
+<li><a href="/docs/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/apple">Apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>cache</strong></a>
+<ul>
+<li><a href="/docs/cache/device">设备</a></li>
+<li><a href="/docs/cache/app">APP</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/ops">运维</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Performance</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="heading">基础</h1>
+<pre><code>性能指标
+    latency
+    throughput
+    qps = throughput / latency
+性能分析
+    bottle-nect(first-principle)
+资源
+    CPU和GPU
+    内存
+    磁盘
+    网络
+    能源
+逻辑资源
+    fds(文件描述符)
+    sockets
+    内核对象: locks
+    inodes(磁盘索引节点)
+    transactions
+    ip addresses
+    ports
+    random numbers(分布式随机数)
+容量
+    2000前   尽量少
+    200~    不到机型限制
+    2017    尽量把机器用满
+    以后     metrics分离, 单独规划
+</code></pre>
+<h1 id="heading-1">计算</h1>
+<pre><code>cpu
+gpu
+</code></pre>
+<h1 id="heading-2">存储</h1>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">时间</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">L1 cache</td>
+<td align="left">0.5ns</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">branch mispredict(分支、转移)</td>
+<td align="left">5ns</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">L2 cache</td>
+<td align="left">7ns</td>
+<td align="left">14x L1 cache</td>
+</tr>
+<tr>
+<td align="left">Mutex lock/unlock</td>
+<td align="left">25ns</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Main memory</td>
+<td align="left">100ns</td>
+<td align="left">20x L2 cache, 200x L1 cache</td>
+</tr>
+<tr>
+<td align="left">1k字节压缩Zippy</td>
+<td align="left">3,000ns = 3us</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">在1Gbps网络上发送1k字节</td>
+<td align="left">10,000ns = 10us</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">SSD随机读4k</td>
+<td align="left">150,000ns = 150us</td>
+<td align="left">1GB/秒</td>
+</tr>
+<tr>
+<td align="left">内存顺序读1MB</td>
+<td align="left">250,000ns = 250us</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">同一数据中心往返</td>
+<td align="left">500,000ns = 500us</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">SSD顺序读1MB</td>
+<td align="left">1,000,000ns = 1000us = 1ms</td>
+<td align="left">1GB/秒, 4x 内存</td>
+</tr>
+<tr>
+<td align="left">磁盘搜索</td>
+<td align="left">10,000,000ns = 10,000us = 10ms</td>
+<td align="left">20x 数据中心往返</td>
+</tr>
+<tr>
+<td align="left">磁盘顺序读1MB</td>
+<td align="left">20,000,000ns = 20,000us = 20ms</td>
+<td align="left">80x 内存, 20x SSD</td>
+</tr>
+<tr>
+<td align="left">发包: 美国 -&gt; 荷兰 -&gt; 加拿大</td>
+<td align="left">150,000,000ns = 150,000us = 150ms</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="heading-3">传输</h1>
+<pre><code>带宽
+    热门并发1.5倍到2倍购买
+方式
+    HDD
+    SSD
+    ethernet
+    南桥、北桥芯片
+</code></pre>
+<h1 id="heading-4">并发</h1>
+<pre><code>并发
+    jetty 2k-3k
+    nginx 1w
+    lvs 100w
+    f5 + lvs 400w-800w
+    mysql 1k
+    oracle 1.5k-2k
+    tomcat 1k
+
+1并发/10在线用户/100注册用户
+
+1用户/20pv
+
+访问时段
+    8点 - 23点
+    最大访问量为平均值1.7倍
+
+每个html页面20k, 40k/css, 50k/js. css与js会缓存
+
+数据库
+    mongodb
+        查询
+            4w++/5s                # aurora测
+
+一个进程13M左右
+    10g内存787多并发(最早的apache)
+一个线程2M内存
+    10g内存5120并发
+
+cpu一级缓存取数据: 3个时钟周期(tick)
+cpu二级缓存取数据: 14 tick
+内存取数据: 250 tick
+磁盘取数据: 4100w tick
+网络取数据: 24000w tick
+
+负载均衡器
+    # 并发在100w - 800w
+    深信服
+    F5
+</code></pre>
+<h1 id="heading-5">性能调优</h1>
+<pre><code>影响因素
+    内因
+        项目设计、实现
+        资源加载
+        配置
+    外因
+        网络
+        流量
+        架构
+        服务器配置
+步骤
+    分析用户习性          # 功能路径，热点
+    内存瓶颈
+        内部
+            托管资源
+                对象分配回收  # session、缓存、对象池等
+            非托管资源
+                数据库、文件、线程
+        外部
+            进程竞争
+    cpu瓶颈
+        cpu密集业务
+            加密、解密，垃圾回收，解压缩，算术运算，过度编译
+    缓存分析
+        浏览器缓存       # 资源文件，过期
+        代理缓存        # 地域、安全、更新
+        内核缓存、IIS缓存
+        数据缓存
+    资源等待分析
+        数据库等待
+        线程锁定
+        磁盘读写
+    数据库瓶颈(找数据库笔记)
+    http优化
+        减小页面
+        只传必要数据
+        资源加载
+架构
+    去单点
+    服务化
+    优质业务专门机器
+    广播改订阅
+    换语言/框架重构
+</code></pre>
+<h1 id="heading-6">案例</h1>
+<pre><code>o-&gt; 小米论坛
+    pv 2000w
+    热门并发300
+    20k/页面
+    300k/图片(未压缩)
+    70k/无图帖子
+    500k-3M/有图帖子
+
+    动态服务器最小带宽: 48Mbps
+    静态服务器最小带宽: 1440Mbps
+    实际购买带宽: 800M
+    带宽费用: 8.7w/month
+
+o-&gt; 糗事百科
+    pv 1000w
+    热门并发150
+    10k/页面
+    70k/图
+    4图/页
+    90k-400k/综合页
+    动态服务器带宽: 12Mbps
+    静态服务器带宽: 336Mbps
+</code></pre>
+<h1 id="heading-7">工具数据</h1>
+<pre><code>nodejs
+    虚拟机数据
+        mem: 512m
+        mem: 66.7%
+        cpu: 1%
+    执行
+        5秒循环mongo数据: 17w条
+    状况
+        程序完全阻塞
+
+    并发: 300
+    qps: 140
+    8核全满
+
+    2-4G 内存 3000万并发
+    5w socket                        # 系统最高65535个端口，支持这么多连接
+    已实现成就
+        ruby迁移到node.js有10倍的性能提升，特定情况下20倍性能提升
+        5w并发/min
+
+
+redis
+    200并发, 每次3ms, 37000次/s
+
+mysql
+    最多3.5w写入/s</code></pre>
+</article>
+
+      <div class="book-footer justify-between">
+  
+
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>May 13, 2020</span>
+    </a>
+  </div>
+  
+  
+
+  
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/support_service/performance.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+  
+
+</div>
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">基础</a></li>
+    <li><a href="#heading-1">计算</a></li>
+    <li><a href="#heading-2">存储</a></li>
+    <li><a href="#heading-3">传输</a></li>
+    <li><a href="#heading-4">并发</a></li>
+    <li><a href="#heading-5">性能调优</a></li>
+    <li><a href="#heading-6">案例</a></li>
+    <li><a href="#heading-7">工具数据</a></li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>

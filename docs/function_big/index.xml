@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大功能 on outrun的笔记</title>
+    <link>https://example.com/docs/function_big/</link>
+    <description>Recent content in 大功能 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/docs/function_big/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>架构-方案</title>
+      <link>https://example.com/docs/function_big/solution/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/function_big/solution/</guid>
+      <description>功能实现 重复提交 直接redirect csrf令牌  权限 过滤器 页面权限 拦截器aop 数据权限  seo 静态化  web状态 cookie url中sessionId  加密 base64 sha  复杂业务 关注/信箱 要求 user人数10w, 活跃1w。 大部分user关注1k人, 一部分大v被关注100w人。 每人每天发100条博文 user新博文数量提醒，消息标记已读 表 user user_followers user_followed user_posts(u_id, created_ts) user_messages(u_id, p_id, is_read) # 10w * 100条数据 / 天 定时任务拉取 user_followed拉u_id, user_posts表按时段拉id, 更新user_messages 优点 平均, 少次, 增量。 缺点 及时性中 每次对所有用户操作 数据 10w*1k*100条数据 / 天 发布时推送 有p_id, user_followers, 更新user_messages 优点 及时性高 缺点 计算集中, 可能高峰 数据 最高 100w*100条数据 / 次 10w*100次 / 天 messages处理 存部分messages 不活跃user不存message 在登录状态，定时拉取 优点 减少message 缺点 计算集中 数据 1k * N(N&amp;lt;100)条 / 次 1w * 1k * 100条数据 / 天 messages结构变化 u_id: [{p_id: uint, is_read: bool}] # 条数稳定为10w 用mongodb或redis 消息队列?</description>
+    </item>
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>https://example.com/docs/function_big/javaweb/</link>
+      <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
+      
+      <guid>https://example.com/docs/function_big/javaweb/</guid>
+      <description>基础 分层 视图层 jsp 控制层 servlet 业务层 过滤数据 manager层 封装第三方，service能力下沉，dao中间件 数据访问层对象 封装对象 数据库 java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  jsp 基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层 域对象 pageContext # 当前页面有效 request # 一次请求范围 session # 会话 application context # 同一服务器 内置对象 Request Response Session Out # 输出流 PageContext # context Page # jsp的this Exception # &amp;lt;%@ page isErrorPage=&amp;quot;true&amp;quot;%&amp;gt; 时使用，显示异常信息 Application # 服务器 Config # 服务器配置  jsp-el表达式 ${ } 11个内置对象 pageContext // pageContext page // map （相当于pageScope，不过写法上省略了Scope） requestScope // map sessionScope // map applicationScope // map param // map ,用${param.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/function_big/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/function_big/hadoop/</guid>
+      <description>介绍 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.5: 300w-500w MySQL8: 1亿、1GB Doug Cutting GFS -&amp;gt; HDFS 存储 Map-Reduce -&amp;gt; MapReduce 计算 BigTable -&amp;gt; HBase 表式存储 发展 2003-2004: Google公开部分GFS和MapReduce 2005: Hadoop成为Apache Lucene子项目Nutch了一部分 2006.3: MapReduce和NDFS(Nutch Distributed File System)纳入Hadoop 发行版本 Apache: 开源 Cloudera: Doug Cutting, 一键部署, 资源占用大 Hortonworks: 雅虎工程师，贡献Hadoop 80%代码, 一键部署 阿里云 特点 高可靠性：多副本 高扩展性 高效性: 并行运行 高容错性 组成 Hadoop1.</description>
+    </item>
+    
+  </channel>
+</rss>
