@@ -19,12 +19,17 @@
   
   <url>
     <loc>https://example.com/docs/ops/tool/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/docs/ops/monitor/</loc>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/ops/security/</loc>
-    <lastmod>2019-08-12T08:47:47+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -48,8 +53,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/docs/db/postgre_sql/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <loc>https://example.com/docs/db/postgresql/</loc>
+    <lastmod>2020-07-03T16:15:45+08:00</lastmod>
   </url>
   
   <url>
@@ -104,7 +109,7 @@
   
   <url>
     <loc>https://example.com/docs/misc/infomation/</loc>
-    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -114,7 +119,7 @@
   
   <url>
     <loc>https://example.com/docs/design/people/</loc>
-    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -124,12 +129,17 @@
   
   <url>
     <loc>https://example.com/docs/design/biz/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/docs/design/body/</loc>
+    <lastmod>2020-07-03T16:15:45+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/design/drive/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -139,17 +149,17 @@
   
   <url>
     <loc>https://example.com/docs/design/project/</loc>
-    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/ops/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/function_big/solution/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -184,7 +194,7 @@
   
   <url>
     <loc>https://example.com/docs/function_small/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -235,7 +245,7 @@
   
   <url>
     <loc>https://example.com/docs/pl/java/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -259,6 +269,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/cache/biz/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/cache/develop/</loc>
     <priority>0</priority>
   </url>
@@ -269,12 +284,22 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/cache/manage/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/cache/ops/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://example.com/docs/cache/work/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://example.com/docs/cache/work_code/</loc>
     <priority>0</priority>
   </url>
   
@@ -335,7 +360,7 @@
   
   <url>
     <loc>https://example.com/docs/cache/app/</loc>
-    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -344,12 +369,27 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/cache/book/</loc>
+    <lastmod>2020-07-03T16:15:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/</loc>
   </url>
   
   <url>
+    <loc>https://example.com/docs/tool/ipad/</loc>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/docs/tool/jetbrains/</loc>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/cache/</loc>
-    <lastmod>2020-02-07T09:57:27+08:00</lastmod>
+    <lastmod>2020-07-03T16:15:45+08:00</lastmod>
   </url>
   
   <url>
@@ -364,17 +404,17 @@
   
   <url>
     <loc>https://example.com/docs/tool/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/db/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/test/</loc>
-    <lastmod>2019-09-24T08:48:46+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
@@ -383,18 +423,23 @@
   </url>
   
   <url>
+    <loc>https://example.com/docs/test/debug/</loc>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/docs/algorithm/</loc>
-    <lastmod>2019-11-09T20:00:20+08:00</lastmod>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/docs/design/</loc>
-    <lastmod>2020-05-13T18:01:09+08:00</lastmod>
+    <lastmod>2020-07-03T16:15:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/docs/misc/interview/</loc>
-    <lastmod>2019-12-08T10:47:38+08:00</lastmod>
+    <loc>https://example.com/docs/tool/adopt/</loc>
+    <lastmod>2021-02-04T15:02:50+08:00</lastmod>
   </url>
   
 </urlset>

@@ -40,6 +40,15 @@
     </item>
     
     <item>
+      <title>Monitor</title>
+      <link>https://example.com/docs/ops/monitor/</link>
+      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
+      
+      <guid>https://example.com/docs/ops/monitor/</guid>
+      <description>统计方式 选时间段 时序数据表 max、min、avg  物理机 Load Average 介绍 数字n表示n倍  cpu Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 Mysql 总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
+    </item>
+    
+    <item>
       <title>Security</title>
       <link>https://example.com/docs/ops/security/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
@@ -86,10 +95,10 @@
     
     <item>
       <title>Postgre SQL</title>
-      <link>https://example.com/docs/db/postgre_sql/</link>
+      <link>https://example.com/docs/db/postgresql/</link>
       <pubDate>Thu, 11 Oct 2018 15:34:29 +0800</pubDate>
       
-      <guid>https://example.com/docs/db/postgre_sql/</guid>
+      <guid>https://example.com/docs/db/postgresql/</guid>
       <description>命令 initdb # 初始化数据库 --locale en_US.UTF-8 -D &#39;data&#39; postgres # 启动数据库 -D 目录 -p 6543 pg_ctl start # 控制数据库: start, stop等 -D data -l a.log postmaster -D /data psql -d db1 -h localhost -p 5432 -U 用户名 -W # 强制要求验证密码 -f 导入sql命令文件, 或者在末尾加 &amp;lt; a.sql 来导入 -L 导出日志文件 o-&amp;gt; psql -U outrun -f pg.sql db1 # 导入数据 pg_dump # 导出数据库 -f # 指定文件 -U # 用户 -E UTF8 # 编码 -h localhost -n public # 指定schema -a # 只导数据，没有schema -F t # 压缩成tar o-&amp;gt; pg_dump -U outrun -f pg.</description>
     </item>
     
@@ -189,7 +198,7 @@
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
       <guid>https://example.com/docs/design/people/</guid>
-      <description>人, 事, 团队 人 业内口碑 成分 技能，素质，精神 行动 感性，理性，惯性 发展 上限 下限 成本 低成本召回 事 知原理 是什么，为什么，怎么样，拆解 事与团队 事造就团队，好团队不一定出好成果 团队 存在合理性 有目标，成员能力认可，成员感性认可 小精英团队，才能解决问题 分配事 因特质分配，如稳定，峰值，沟通 成果评价 产出判断 分配利益和荣耀 时间和代码量评价不了程序员的工作, 可以匿名互评(口碑) 团队提升 培训无意义，自觉成长 成员 项目经理 设计 开发 测试人员 运维 系统工程师 设计、实现产品 数据分析师 技术总监 架构师 权衡, 出方案  职工 态度 把握分寸 靠谱(事事有交代) 负责(顾全局) 主动 超出预期 负责态度, 提高团队效率，而非自己效率 # 严肃判断 沟通 及早沟通、同步 文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 电话 # 即时性相反 留响应时间, 同组 -&amp;gt; 跨组 -&amp;gt; 跨部门 -&amp;gt; 跨公司 明确通知人时, 邮件, im特殊指定 文档 周报 文档简单有计划，为节省向别人解释的时间 建设性意见(提选择题) 只交“产品”: 背景清晰, 扼要, 完整, 引入独有经验  工程师 本质 解决问题 普遍问题 技能: 工具使用(写工具), 表面学习, 笨办法, 不会读文档, 只会知识迁移 设计: 不知经典设计, 不知设计哲学, 不知目的, 无法反应需求, 没有品位, 读不懂设计 知识更新: 学不动, 基础差(用二手资料), 无认知体系(认为都是新东西), 重复学习无用知识 沟通: 不专业(不用专业名词), 不主动, 不沟通对方, 不抓重点, 思路不连贯, 阅历不足(不会写文档), 不问为什么 能力 特点 知识、经验、技能、协作 # (1+天赋)x知识x工程习惯 犯错(多做多错) 方法 抽象 # 设计就是从升维中拆分和简化 沉淀 # 没有沉淀的学习不好回顾修改, 像没有测试的代码 品位 优点，缺点 # 找潜质, 并非此长彼短，是两个维度,有一定抑制作用 创造力，纪律 勤奋，聪明 稳定，峰值 深度，速度 细节，大局 开发 考虑工作的复用性 加入项目，需要可对所有代码修改 善用工具 自己的事主动跟进 owner 自我负责, 自我驱动, 持续改进 能部署, 能手工排查问题，手工修复数据, 开发调试工具, 数据修复工具 模块职责单一, 明白当前负责和极限性能 能降级, 知道下游调用和降级影响。了解上游依赖和上游降级影响 配好log、监控、告警, 告警及时响应  架构师 分级 初级 代码 命名：精确性、简单性、一致性、区别性、业务性 逻辑: 缩进、换行 代码体积: 行、方法、类 抽象能力 边界 中级 流量、并发等 高级 理解业务核心价值、业务实现方式 业务技术支撑方式 业务趋势  艺术家 岗位 项目经理(pm, project manager) 技术经理(tm, technical manager) 产品设计经理(pdm, product design manager) 运营经理(pom) 测试经理(qam) 客服经理(csm, customer success manager) 开发组长(tl, team leader) 架构师(pa) 开发工程师(de, development engineer) 数据库管理员(dba, database administrator) 系统管理员(sa) 界面设计师(ui, user interface) 用户体验设计师(ue, user experience) 产品运营师(po, product operator) 产品设计师(pd, product designer) 测试工程师(qa, quality assurance) 配置管理员(pcm) 发布员(pb) 软件过程专员(sqa, software quality assurance) 运维工程师(sre, site reliability engineer)  招聘 双向选择 精确率&amp;amp;召回率 方面 沟通 喜欢技术，逻辑能力, 编码能力, 设计能力 基本概念, 边界考虑充足, 进阶答案, 衍生问题的解决 是否有自己思考，对自己负责  </description>
+      <description>人, 事, 团队 人 业内口碑 成分 技能，素质，精神 行动 感性，理性，惯性 发展 上限 下限 成本 低成本召回 事 知原理 是什么，为什么，怎么样，拆解 事与团队 事造就团队，好团队不一定出好成果 团队 存在合理性 有目标，成员能力认可，成员感性认可 小精英团队，才能解决问题 分配事 因特质分配，如稳定，峰值，沟通 成果评价 产出判断 分配利益和荣耀 时间和代码量评价不了程序员的工作, 可以匿名互评(口碑) 团队提升 培训无意义，自觉成长 成员 项目经理 设计 开发 测试人员 运维 系统工程师 设计、实现产品 数据分析师 技术总监 架构师 权衡, 出方案  职工 态度 把握分寸 靠谱(事事有交代) 负责(顾全局) 主动 超出预期 负责态度, 提高团队效率，而非自己效率 # 严肃判断 沟通 及早沟通、同步 文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 电话 # 即时性相反 留响应时间, 同组 -&amp;gt; 跨组 -&amp;gt; 跨部门 -&amp;gt; 跨公司 明确通知人时, 邮件, im特殊指定 文档 周报 文档简单有计划，为节省向别人解释的时间 建设性意见(提选择题) 只交“产品”: 背景清晰, 扼要, 完整, 引入独有经验  工程师 本质 解决问题 普遍问题 技能: 工具使用(写工具), 表面学习, 笨办法, 不会读文档, 只会知识迁移 设计: 不知经典设计, 不知设计哲学, 不知目的, 无法反应需求, 没有品位, 读不懂设计 知识更新: 学不动, 基础差(用二手资料), 无认知体系(认为都是新东西), 重复学习无用知识 沟通: 不专业(不用专业名词), 不主动, 不沟通对方, 不抓重点, 思路不连贯, 阅历不足(不会写文档), 不问为什么 能力 特点 知识、经验、技能、协作 # (1+天赋)x知识x工程习惯 犯错(多做多错) 方法 抽象 # 设计就是从升维中拆分和简化 沉淀 # 没有沉淀的学习不好回顾修改, 像没有测试的代码 品位 优点，缺点 # 找潜质, 并非此长彼短，是两个维度,有一定抑制作用 创造力，纪律 勤奋，聪明 稳定，峰值 深度，速度 细节，大局 开发 考虑工作的复用性 加入项目，需要可对所有代码修改 善用工具 自己的事主动跟进 owner 自我负责, 自我驱动, 持续改进 能部署, 能手工排查问题，手工修复数据, 开发调试工具, 数据修复工具 模块职责单一, 明白当前负责和极限性能 能降级, 知道下游调用和降级影响。了解上游依赖和上游降级影响 配好log、监控、告警, 告警及时响应  架构师 场景/用例/问题 -&amp;gt; 方案/方案权衡 -&amp;gt; 落地路径 分级 初级 代码 命名：精确性、简单性、一致性、区别性、业务性 逻辑: 缩进、换行 代码体积: 行、方法、类 抽象能力 边界 中级 流量、并发等 高级 理解业务核心价值、业务实现方式 业务技术支撑方式 业务趋势  艺术家 岗位 项目经理(pm, project manager) 技术经理(tm, technical manager) 产品设计经理(pdm, product design manager) 运营经理(pom) 测试经理(qam) 客服经理(csm, customer success manager) 开发组长(tl, team leader) 架构师(pa) 开发工程师(de, development engineer) 数据库管理员(dba, database administrator) 系统管理员(sa) 界面设计师(ui, user interface) 用户体验设计师(ue, user experience) 产品运营师(po, product operator) 产品设计师(pd, product designer) 测试工程师(qa, quality assurance) 配置管理员(pcm) 发布员(pb) 软件过程专员(sqa, software quality assurance) 运维工程师(sre, site reliability engineer)  招聘 双向选择 精确率&amp;amp;召回率 方面 沟通 喜欢技术，逻辑能力, 编码能力, 设计能力 基本概念, 边界考虑充足, 进阶答案, 衍生问题的解决 是否有自己思考，对自己负责  </description>
     </item>
     
     <item>
@@ -207,7 +216,16 @@
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
       <guid>https://example.com/docs/design/biz/</guid>
-      <description>云 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合  产业互联网 供应链 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸  ai 优化、预测 拟合函数, 高阶微积分, 梯度下降  媒体 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
+      <description>云 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合  产业互联网 供应链 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸  AI 优化、预测 拟合函数, 高阶微积分, 梯度下降  媒体 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
+    </item>
+    
+    <item>
+      <title>身体</title>
+      <link>https://example.com/docs/design/body/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
+      
+      <guid>https://example.com/docs/design/body/</guid>
+      <description>造型期 体态 高低肩 骨盆前倾 体能 心肺 变速有氧：4、6、8各2min， 30min以上 力量 核心训练  健身计划 目标 指导 FITT Frequency: 一周3-5次 Intensity: 有氧 心率: 123-142 无氧 动作 间歇 个数 重量 Time: 60min力量 + 30min有氧 Type: 热身 抗阻力训练 拉伸 阶段 适应期(1-2月) 心肺功能: 功率 核心力量 保护腰：呼吸 + 静态 内脂 力量训练 动作规范 蹲、推、拉、举、旋转 进阶期(2-3月) 消耗 &amp;gt; 摄入 七大肌肉群：胸、肩、背、腹、腿、臀、手臂 三分化、四分化 爆发力  </description>
     </item>
     
     <item>
@@ -216,7 +234,7 @@
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
       <guid>https://example.com/docs/design/drive/</guid>
-      <description>时间管理 习惯 身体 早起, 状态 思路 第一原理 用最好的工具 行动 早起计划, 日记 简单的事重复做 一次只做一事 番茄: 工作, 休息, 全局 dump笔记 总结反思 习惯 事件记录，反思, 28法则排除 做事 处理完重要紧急, 做重要不紧急 收集(清空思想), 排程, 执行 日程表(最优先) 短期, 长期, 有截止, 无截止 无截止跟据当前情况, 分配时间和空间 必做, 可做 方式 GTD: 每天, 日程 记录: 每事 总结: 每天  学习 计划 为什么 有全局, 有方向 平时活动与目标联系起来 轻重有序 磨炼意志(适应变化, 抗干扰) 养成习惯(抗干扰不费意志) 怎么样 全面(考虑娱乐和休息) 简单明确、具体、适当、突出重点 时间科学, 遵守作息时间 及时调整 预习 为什么 上课时：扫除知识障碍、针对性解决问题、笔记有针对性 提高自学能力 改变被动局面，成为良性循环 是什么 初步理解 关联旧知识 找不理解 做笔记和习题 怎么样 先粗读, 再反复细读 先读最困惑点 问为什么 请教别人 实践 笔记 重点、结构、摘要 分类 问题 查阅资料 理解思路 逐步提高 由点到面，由浅入深 学习 怎么样 集中注意 获取知识主动权 作者思路，比较思维方法 方法 分析综合法、归纳演绎法、比较分类法 规律 同一律、矛盾律、排中律 # 形式逻辑学 对立统一、量变到质变、否定之否定 # 辩证逻辑学 学科特点 理科: 逻辑性，抽象思维 文科: 知识有独立性，形象思维 教师特点 保持连续性，不中断钻牛角尖 笔记 思维方法、过程、结果 完整简洁 当堂掌握 领会、巩固、运用 重点是认知过程而非结论 复习 贵在及时 怎么样 尝试回忆 读原文 整理笔记 参考资料 系统复习 为什么 牢固、完整 系统、实用 怎么样 之前之后回忆 有重点阅读 熟记 整理笔记 练习 记忆能力 有记忆意识 理解后记忆 艾宾浩斯曲线 过度学习来记忆 分散记忆好于集中记忆 先整体理解, 后分段记忆, 最后综合复习 多感官 思维能力 积极思维状态 基本思维方法 分类、抽象概括 系统化, 使用时具体化 思维形式 整体思维 相似思维 逆向思维 创造思维  战略 产品 开箱即用，做瑞士军刀不做零件 矛盾 强大，易用 小客户无付费能力，大客户要求多 行业分类 垂直，水平 互联网 流量 客户粘性  高效模型 组织 简单，分离 反行为 不为大家谋福利 计划 第一原理 做重要不紧急 边界分割 # 正交 拆分 迷雾即瓶颈 曼陀罗思考法 落地 原型 风险点 # 技术 导向 意义(目标导向), 通常是解决问题 把握纲领 先核心再扩展 # 稳定隔离 只输出产品，电梯演讲(简单, 清晰, 轻松, 主线, 一套) 清己再清人 反行为 未想清就做, 就开会或讨论 没想清就下放，还期望下级解决 会议不定目标, 无leader, 使场面发散 最好画图 准备 反行为 描述不明确, 缺条件 调研 输入时保持输出 产品 一步到位&amp;amp;发展演变 时间推移 环境变化，想法变化 尽力不变 大方案试错成本高，落地难 研发的局部性与架构的全局性矛盾 需要研讨大方案有指导意义 实现 内部有 &amp;gt; 外部有 &amp;gt; 半成品 &amp;gt; 自实现 经验人 &amp;gt; 个人搜集 和谐氛围 分块向下 去查证 时间尽量排前 统一工具 解耦低速设备 update全员参与, 或文档 重构灰度替换: 课题(单领域深度再广度), 项目，架构，组织重构 反行为 老板干预下层 不会拒绝 苦干非巧干, 要28原则做事(第一原理) 孤立无援 陷入现状 问题掩盖/私下处理 潮流设计(design by buzzword) 代码不控制质量，一定会快速变质(熵) 管理 无为 沟通 在线文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 口头/电话 多方口头时，要维护自有重点 谈判 抛回对方问题，使其思考，后做到已方稍强 push 系统演讲 &amp;gt; 说明 &amp;gt; 讨论 总结 向流程和工具找问题 学习 一就是全 工具 方便集成其它系统 线下转线上  发现问题(创造新视角) 分类 已知的已知, 已知的未知，未知的未知 知 事实，解释 方法 解决问题到发现问题 从知到无知的视角转换 存量到流量 封闭体系到开放体系 固定维度到可变维度 元级超越维度 抽象化、类推 轴 why型思维  解决问题 提问 提原始问题，因为相对自己的看法，可能有更优解 描述问题，尝试与尝试结果 描述环境 要结构化、解决导向的提问, 否则散乱无意义 定义 为什么，是什么，怎么样，展望 zoom in, zoom out 解决 定位、权衡、落地、风控 解决数量级问题 </description>
+      <description>时间管理 习惯 身体 早起, 状态 思路 第一原理 用最好的工具 行动 早起计划, 日记 简单的事重复做 一次只做一事 番茄: 工作, 休息, 全局 dump笔记 总结反思 习惯 事件记录，反思, 28法则排除 做事 处理完重要紧急, 做重要不紧急 收集(清空思想), 排程, 执行 日程表(最优先) 短期, 长期, 有截止, 无截止 无截止跟据当前情况, 分配时间和空间 必做, 可做 方式 GTD: 每天, 日程 记录: 每事 总结: 每天  学习 计划 为什么 有全局, 有方向 平时活动与目标联系起来 轻重有序 磨炼意志(适应变化, 抗干扰) 养成习惯(抗干扰不费意志) 怎么样 全面(考虑娱乐和休息) 简单明确、具体、适当、突出重点 时间科学, 遵守作息时间 及时调整 预习 为什么 上课时：扫除知识障碍、针对性解决问题、笔记有针对性 提高自学能力 改变被动局面，成为良性循环 是什么 初步理解 关联旧知识 找不理解 做笔记和习题 怎么样 先粗读, 再反复细读 先读最困惑点 问为什么 请教别人 实践 笔记 重点、结构、摘要 分类 问题 查阅资料 理解思路 逐步提高 由点到面，由浅入深 学习 怎么样 集中注意 获取知识主动权 作者思路，比较思维方法 方法 分析综合法、归纳演绎法、比较分类法 规律 同一律、矛盾律、排中律 # 形式逻辑学 对立统一、量变到质变、否定之否定 # 辩证逻辑学 学科特点 理科: 逻辑性，抽象思维 文科: 知识有独立性，形象思维 教师特点 保持连续性，不中断钻牛角尖 笔记 思维方法、过程、结果 完整简洁 当堂掌握 领会、巩固、运用 重点是认知过程而非结论 复习 贵在及时 怎么样 尝试回忆 读原文 整理笔记 参考资料 系统复习 为什么 牢固、完整 系统、实用 怎么样 之前之后回忆 有重点阅读 熟记 整理笔记 练习 记忆能力 有记忆意识 理解后记忆 艾宾浩斯曲线 过度学习来记忆 分散记忆好于集中记忆 先整体理解, 后分段记忆, 最后综合复习 多感官 思维能力 积极思维状态 基本思维方法 分类、抽象概括 系统化, 使用时具体化 思维形式 整体思维 相似思维 逆向思维 创造思维  战略 产品 开箱即用，做瑞士军刀不做零件 矛盾 强大，易用 小客户无付费能力，大客户要求多 行业分类 垂直，水平 互联网 流量 客户粘性  高效模型 组织 简单，分离 反行为 不为大家谋福利 计划 第一原理 做重要不紧急 边界分割 # 正交 拆分 迷雾即瓶颈 曼陀罗思考法 落地 原型 风险点 # 技术 导向 思考框架：现状、目标、实现路径 意义(目标导向)。通常是解决问题 把握纲领 先核心再扩展 # 稳定隔离 只输出产品，电梯演讲(简单, 清晰, 轻松, 主线, 一套) 清己再清人 反行为 未想清就做, 就开会或讨论 没想清就下放，还期望下级解决 会议不定目标, 无leader, 使场面发散 最好画图 准备 反行为 描述不明确, 缺条件 调研 输入时保持输出 产品 一步到位&amp;amp;发展演变 时间推移 环境变化，想法变化 尽力不变 大方案试错成本高，落地难 研发的局部性与架构的全局性矛盾 需要研讨大方案有指导意义 方案 先系分, 再拆解 验收条件: 拆分到最细节的方案, 分配到人、工作量、联调提测时间 把控变化，提供适应方案 实现 内部有 &amp;gt; 外部有 &amp;gt; 半成品 &amp;gt; 自实现 经验人 &amp;gt; 个人搜集 和谐氛围 分块向下 去查证 时间尽量排前 统一工具 解耦低速设备 update全员参与, 或文档 重构灰度替换: 课题(单领域深度再广度), 项目，架构，组织重构 反行为 老板干预下层 不会拒绝 苦干非巧干, 要28原则做事(第一原理) 孤立无援 陷入现状 问题掩盖/私下处理 潮流设计(design by buzzword) 代码不控制质量，一定会快速变质(熵) 管理 无为 沟通 在线文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 口头/电话 多方口头时，要维护自有重点 谈判 抛回对方问题，使其思考，后做到已方稍强 push 系统演讲 &amp;gt; 说明 &amp;gt; 讨论 总结 向流程和工具找问题 学习 一就是全 工具 方便集成其它系统 线下转线上  发现问题(创造新视角) 分类 已知的已知, 已知的未知，未知的未知 知 事实，解释 方法 解决问题到发现问题 从知到无知的视角转换 存量到流量 封闭体系到开放体系 固定维度到可变维度 元级超越维度 抽象化、类推 轴 why型思维  解决问题 提问 提原始问题，因为相对自己的看法，可能有更优解 描述问题，尝试与尝试结果 描述环境 要结构化、解决导向的提问, 否则散乱无意义 定义 为什么，是什么，怎么样，展望 zoom in, zoom out 解决 定位、权衡、落地、风控 解决数量级问题 </description>
     </item>
     
     <item>
@@ -234,7 +252,7 @@
       <pubDate>Wed, 10 Oct 2018 17:39:31 +0800</pubDate>
       
       <guid>https://example.com/docs/design/project/</guid>
-      <description>业务 目标 降低人才素质需求 减少开发时间 分类 创造虚拟空间 自动化 辅助决策 思路 逻辑: 因果(演绎), 时间, 空间, 优先 方法: 5w2h(who, when, where, why, what, how, how much) 建模: 中心 # 调整抽象领域和层次(视问题决定) 自上而下 # 问题明确，展开 自下而上 # 内容分类、剪枝、归纳 分解 MECE(mutually exclusive collectively exhaustive) 正交 穷尽 经验 优秀的产品都有全局把控感(confluence, jira) 设计思想多源自: 操作系统、编译器、函数式 深入一线(面对客户) 思考全面, 全局 考虑需求本质，考虑上下游全局 想清楚再行动 过程 发掘(discovery) 价值定位(价值驱动) 客户体验梳理和设计 愿景 干系人 电梯演讲收敛 定义(define) 用户旅程，业务流程 事件风暴 -&amp;gt; 映射技术 -&amp;gt; 架构 设计(design) 总体 识别问题域, 归纳服务, 上下游关系 架构图, api, 技术栈 提升方向, 改进 迭代 价值/成本分布图 milestone演进 业务技术/需求拆解全景图(白板贴标) mvp(minimum viable product最小可行计划)迭代计划 开发(develop) 度量, 质量指标 工具选择, 规范 架构守护，治理 实施策略 交付 产品生命周期管理 目标, 资本 机会点-&amp;gt;需求 角度决定设计 找到不动点 如对cache的设计 业务角度 选择简单易用的缓存框架 有人会用，学习成本别太高 关注数据模型结构设计 缓存更新真麻烦 paas角度 声明式使用，配置文件设置 缓存对比，选择强大且稳定的 存取接口设计，方便易用 数据变动监听，自动刷新缓存 平台角度 缓存服务器集群方式 存储空间监控 命中率监控 避免缓存集中失效引起雪崩 不过度设计 # 不超出需求，不用复杂方式实现 # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性 范围减少 # 28原则，最小可行产品 设计减少 # 易理解，低成本，可扩展 实施减少 # 找开源-&amp;gt;找内部已实现-&amp;gt;找方案描述-&amp;gt;自己解决 二八定律 墨菲定律 事情不是表面看起来那么简单 事情都会比预计时间长 可能出错总会出错 如果你担心发生，它更可能发生 维护 设计时考虑扩展性 DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.</description>
+      <description>产品 愿景 定义产品的目的和原因，将到达的地点 ux 微交互 # 细节决定成败  RoadMap 介绍 到达愿景的策略路径，提供一系列与产品战略相一致的战术步骤 为什么 简单、清晰的通讯文档 少的多的会议 健康的团队辩论：交付成果与目标联系起来 做出每个人都理解的产品决定，不再打击创意 高维度的概述 动态演变 要素 时间周期 时间区间，只定时间范围 big-view(product) 全局理解产品的未来, 交付顺序 统一视野(vision), 范围(scope)，时间期限(time line) pre-view(release) release中的产品功能, 和前几个迭代从backlog中要交付的工作项(item) now-view(iteration) 团队在一次迭代中要交付的需求(requirements) 优先级，留空间适应变化 项目事件 完成产品总体计划必要的工作项, 详尽且切合目的 分解目的，制定步骤 路标 关键工作项完成的时间节点(里程碑) 结果反馈：审视是否偏离，试验中改进 确定在每个时间范围内实现可衡量的结果。定义为目标关键结果(OKR)、关键性能指标(KPI) 种类 基于目标 current near term future 基于功能 5000新用户 步骤 确定目标 分解目标，穷尽事项，组织，优先级排序 使用优化框架 effort / impact impact / goal 卡洛斯模型? 注意 定义战略主题(名词)，抓住核心用户行为的本质、产品能力、竞争优势、技术改进 保持路线图战略，避免战术 每个计划阶段都考虑优先级, 每个目标、动作、发布、特性的价值可见性 始终在试验(ABE), 为了正确定义目标和后续特征 先做出有根据的猜测 测试 基于反馈迭代  业务 目标 降低人才素质需求 减少开发时间 分类 创造虚拟空间 自动化 辅助决策 思路 逻辑: 因果(演绎), 时间, 空间, 优先 方法: 5w2h(who, when, where, why, what, how, how much) 建模: 中心 # 调整抽象领域和层次(视问题决定) 自上而下 # 问题明确，展开 自下而上 # 内容分类、剪枝、归纳 分解 MECE(mutually exclusive collectively exhaustive) 正交 穷尽 经验 优秀的产品都有全局把控感(confluence, jira) 设计思想多源自: 操作系统、编译器、函数式 深入一线(面对客户) 思考全面, 全局 考虑需求本质，考虑上下游全局 想清楚再行动 过程 发掘(discovery) 价值定位(价值驱动) 客户体验梳理和设计 愿景 干系人 电梯演讲收敛 定义(define) 用户旅程，业务流程 事件风暴 -&amp;gt; 映射技术 -&amp;gt; 架构 设计(design) 总体 识别问题域, 归纳服务, 上下游关系 架构图, api, 技术栈 提升方向, 改进 迭代 价值/成本分布图 milestone演进 业务技术/需求拆解全景图(白板贴标) mvp(minimum viable product最小可行计划)迭代计划 开发(develop) 度量, 质量指标 工具选择, 规范 架构守护，治理 实施策略 交付 产品生命周期管理 目标, 资本 机会点-&amp;gt;需求 角度决定设计 找到不动点 如对cache的设计 业务角度 选择简单易用的缓存框架 有人会用，学习成本别太高 关注数据模型结构设计 缓存更新真麻烦 paas角度 声明式使用，配置文件设置 缓存对比，选择强大且稳定的 存取接口设计，方便易用 数据变动监听，自动刷新缓存 平台角度 缓存服务器集群方式 存储空间监控 命中率监控 避免缓存集中失效引起雪崩 不过度设计 # 不超出需求，不用复杂方式实现 # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性 范围减少 # 28原则，最小可行产品 设计减少 # 易理解，低成本，可扩展 实施减少 # 找开源-&amp;gt;找内部已实现-&amp;gt;找方案描述-&amp;gt;自己解决 二八定律 墨菲定律 事情不是表面看起来那么简单 事情都会比预计时间长 可能出错总会出错 如果你担心发生，它更可能发生 维护 设计时考虑扩展性 DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.</description>
     </item>
     
     <item>
@@ -392,11 +410,20 @@
     
     <item>
       <title></title>
+      <link>https://example.com/docs/cache/biz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/biz/</guid>
+      <description>名词 SCM 供应链管理(Supply Chain Management)  业务 订单 采购 单据 领域模型 领域服务 库存 生产入库 调拨 盘点 单据 领域模型 领域服务  目标 领域设计 业务库瘦身 模型 单据拆分：核减单据、非核减单据 流水拆分 核减流水: 物品、档口、批次、日期 非核减流水 周期 14个月滚动 历史单据按年拆分 实时计算框架 商户分库 冷热数据分离  分层 代码 choice-scm entity ScmParams paramScope: 1:门店 2:总部 3:系统 默认为1 tenantId service ScmParamService findScmParamsData: 获取系统配置参数 dataclean cleancenter executor Basic Business Cache MicService Retry StatusRef TenantInit event table Range TableConfig task ExecLogService NoteService Servicesdf ui web advice SetMoney schedule scm-core-domain # 领域核心, 单据 scm-core-stock # 领域核心, 库存 scm-product-base scm-product-stock </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/cache/develop/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/develop/</guid>
-      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod  hugo go install --tags extended </description>
+      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod java -Xmx2g  hugo go install --tags extended </description>
     </item>
     
     <item>
@@ -406,6 +433,15 @@
       
       <guid>https://example.com/docs/cache/device/</guid>
       <description>phone 本质 移动 app tudo, v2rayNG 夸克, 百度地图, 支付宝 网易云音乐  ipad 本质 接现实 纸：多量，大面积 pad: 结构化，易重构 标志app notability, marginNote3, procreator  mac 本质 非编程 快捷键 divvy：control + command + v alfred：option + 空格 标志app OmniPlan, outlook DEVONagent, DEVONthink, marginNote3, xmind  pc 本质 编程  WM 桌面 全 console chromium nautilus 常切回默认 左1, 中2, 右1 左 # 资料、工具 1: vscode、blog、wiki 2: 扩展ide 3: dia 4: work display 5: virtual box 6: postman 9: chrome、console 中 # 编程 1: goland 2: intellij idea 3: webstorm 9: chrome、console 右 # 辅助 1: console 2: remote console 3: 扩展ide 5: blueberry 6: synergy 9: chrome、console  快捷键 独立 &amp;lt;M - s&amp;gt; # 帮助 &amp;lt;M - w&amp;gt; # 菜单 client &amp;lt;M - 回车&amp;gt; # 终端 &amp;lt;M - ctrl - r&amp;gt; # reload &amp;lt;M - c&amp;gt; # 自定义chromium &amp;lt;M - f&amp;gt; # 全屏 &amp;lt;M - shift - c&amp;gt; # 关闭 &amp;lt;M - 数字&amp;gt; # 切换到tag &amp;lt;M - j&amp;gt; &amp;lt;M - k&amp;gt; # 本tag切换client &amp;lt;M - 空格&amp;gt; # 变布局  端口 8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 # 同步备份 .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/cache/manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/manage/</guid>
+      <description>沟通 主动，及时 有效 负责 目的、优先级  人员 负责 有用 项目 task -&amp;gt; who -&amp;gt; done time -&amp;gt; product 团队 原型项目 -&amp;gt; 培训 -&amp;gt; 人手可用</description>
     </item>
     
     <item>
@@ -423,9 +459,32 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/work/</guid>
-      <description>mosquitto_pub -h localhost -p 1883 -t &amp;lsquo;gateway&amp;rsquo; -m &amp;lsquo;{&amp;ldquo;id&amp;rdquo;:&amp;ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&amp;rdquo;,&amp;ldquo;deviceID&amp;rdquo;:&amp;ldquo;ea1&amp;rdquo;,&amp;ldquo;status&amp;rdquo;:10,&amp;ldquo;type&amp;rdquo;:301,&amp;ldquo;kind&amp;rdquo;:0,&amp;ldquo;content&amp;rdquo;:&amp;ldquo;ewoJImhvc3QiOgl7CgkJImFyY2giOgkiQ29ydGV4LUE3IiwKCQkiaXAiOgkiMTkyLjE2OC4wLjEzMCIsCgkJIm1hYyI6CSI5YzpiNjpkMDowMDowMDowMSIsCgkJInNvZnR3YXJlIjoJIlYxLjAiLAoJCSJoYXJkd2FyZSI6CSJWMS4wIiwKCQkib3MiOgkiVGluYVYyLjIiCgl9Cn0=&amp;rdquo;}&amp;rsquo; mosquitto_pub -h localhost -p 1883 -t &amp;lsquo;gateway&amp;rsquo; -f a.json mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;gateway&amp;rsquo; -f a.json
-mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;gateway&amp;rsquo; -m &amp;lsquo;{&amp;ldquo;id&amp;rdquo;:&amp;ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&amp;rdquo;,&amp;ldquo;deviceID&amp;rdquo;:&amp;ldquo;mrsipspeaker0001&amp;rdquo;,&amp;ldquo;status&amp;rdquo;:10,&amp;ldquo;type&amp;rdquo;:30300,&amp;ldquo;kind&amp;rdquo;:0}&amp;rsquo; mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;device/mrsipspeaker0001/deliver&amp;rsquo; -f
-mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</description>
+      <description>项目结构 api: controller biz: 特异业务 manager converter core: 公用业务 model entity bo service repository common dal dataobject do dao mapper service facade dto: facade和controller用 service: 服务间api validate integration service shared dto: 项目内部公用  业务流程 积分管理(向门店加积分)
+配送流程 物品档案 配送物品关系 配送售价单 物品关系设置 其他入库 门店请购单
+订单中心 生成订单 配送订单 生成备货分拣单/审核 备货单 备货完成 分拣单 编辑 提交+校验 审核（关闭开关[配送出库单是否自动审核]）+校验, 批量审核+校验 [反审核]：不反结算 配送出库 出库（关闭开关[备货单和分拣单]） 生成发货单 反审核 发货单 验收单  配送金额 unit_price 3.925 purc_unit_num 2 tax_ratio 0.1
+cost_price(成本单价) 3 price_type 1 price_param 5.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/cache/work_code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/work_code/</guid>
+      <description>跳转点 积分类 ScmSettlementPointServiceFacade
+精度 Integer precision = paramClientService.getPricePrecision(dto.getTenantId());
+标准单位转订货单位 scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )
+物品 goodsClientService.findGoodsList
+计算类类似 DispatchOutPriceCalculator detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))
+枚举 出库状态 ScmDispatchOutStatusEnum
+tenantUtil
+命令 git update-index &amp;ndash;assume-unchanged a
+搜索词 分库 DynamicDataSource determineCurrentLookupKey
+snip org.apache.ibatis.mapping.MappedStatement#getBoundSql
+PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
+com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
+// 查属性 ServletContext sc = ContextLoader.getCurrentWebApplicationContext().getServletContext(); WebApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(sc); Environment env = (Environment) ac.getBean(&amp;ldquo;environment&amp;rdquo;); env.getProperty(&amp;ldquo;name&amp;rdquo;);
+sql UPDATE scm_out_posorderredu_detail SET bill_no = CASE bill_id &amp;lt;foreach collection=&amp;quot;list&amp;quot; item=&amp;quot;item&amp;quot; index=&amp;quot;index&amp;quot;&amp;gt; WHEN #{item.</description>
     </item>
     
     <item>
@@ -533,7 +592,7 @@ mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/app/</guid>
-      <description>趋向 本地(app) -&amp;gt; 线上(browser)  采用 工具 sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
+      <description>vim(简) 命令 vim --version # 查看插件 可视模式 o # 切换头尾 gv # 重选上次 &amp;lt;C - v&amp;gt; U/u # 转换大写/小写 替换模式 R 思想 {operator}{motion} {operator}{text-objects} operator ; , 3G */# % # 括号 `` # 跳回 &#39;&#39; # 跳回非空白 :marks ma/`a # 标记跳转 &amp;amp; # 重复substitute cc/C # 替换一行 J # 删除向下的空行 g~ # 转换大小写 # g~~ 转换一行 motion ^/$/0/&amp;lt;home&amp;gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标 f/F/t/T . K # man查询 ga # unicode码 nzz/nz- q: # 命令历史 命令模式 :3 # 跳转 :&#39;&amp;lt;,&#39;&amp;gt; # 选中内容 :/&amp;lt;html&amp;gt;/,/&amp;lt;\html&amp;gt;/ # 模式匹配范围 :h e # e的帮助 :%s///g # substitute :!</description>
     </item>
     
     <item>
@@ -546,6 +605,33 @@ mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</descript
     </item>
     
     <item>
+      <title>Book</title>
+      <link>https://example.com/docs/cache/book/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/book/</guid>
+      <description>《错误之书：改变你一生的9个秘密》 错误之一：活在别人为你设定的剧本里 错误之二：任由他人决定你的价值 错误之三：凡事总爱找借口 每一个借口背后都隐藏着通信成功的大门 错误之四：结交错误的朋友 远离说“不”的人、怀疑论者和负能量的人，多结交鼓励者、激励者和成功人士 错误之五：不愿走出舒适圈 胜利者其实一直在“自找苦吃”。 领袖们会不断地走出舒适圈，寻求突破。 平庸本就是享尽舒适的最终结局。 错误之六：让暂时的挫折变成永久的失败 不要让一时的现状决定 了你未来的命运。 一旦你给自己贴上负面标签，挫折就会变得异样复杂。 成功人士会将一时的失败视作能往成功之路的阶梯。 错误之七：放任自己，随波逐流 独树一帜，也就意味着不断超越自我 独树一帜既是真实的自我 错误之八：认为获得成功的途径是有限的 世上的机会是无限的，人的潜能也是无止境的。 我们唯一要担心的就是思维的限度。 错误之九：挥霍光阴，不加珍惜 每日的忧虑背后隐藏着时间的馈赠。抛开忧虑，珍惜当下。  </description>
+    </item>
+    
+    <item>
+      <title>iPad</title>
+      <link>https://example.com/docs/tool/ipad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/tool/ipad/</guid>
+      <description>alfred 搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流  fantastical 个人总结 名字 date 9th from 9.30p to 10.32p alert 30min 对象 Account - Calendar Sets - Cals(Subscription+Interesting) + Item(Events + Tasks) nlp 语法 事件 [with 人物] [at 地点] [at 日期时间] [on 日期] [from 日期时间] [to 日期时间] [of every 日期时间] 提醒 URL 日历 日期 特定 日期 11月1日 11/1 11.1 星期 周一 mon/tue/wed/tur/fri/sat/sun 相对 日期 15天后 after 15 days 星期 下周一 next mon 重复 日期 每月2号 every 2 星期 每周二 every tue 每隔两周的周三 on wed every 2 weeks 复合 7月1日到8月1日之间的每个周一周二 on mons tues from 7/1 to 8/1 区间 12月17日到次年1月3日是寒假 寒假 12/17-1/3 12/17~1/3 时间 24小时制 13 12小时制 下午一点 1p 1pm 分钟 下午一点半 13:30 1.</description>
+    </item>
+    
+    <item>
+      <title>Jetbrains</title>
+      <link>https://example.com/docs/tool/jetbrains/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/tool/jetbrains/</guid>
+      <description>intellij idea 注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
+    </item>
+    
+    <item>
       <title>关于我</title>
       <link>https://example.com/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -555,12 +641,21 @@ mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</descript
     </item>
     
     <item>
-      <title>面试</title>
-      <link>https://example.com/docs/misc/interview/</link>
+      <title>程序调试</title>
+      <link>https://example.com/docs/test/debug/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/misc/interview/</guid>
-      <description>带笔记本 算法 目标 写bug free算法 o-&amp;gt; 链表反转 递归、非递归 o-&amp;gt; ArrayList, ThreeMap, HashMap 的原理和模拟 o-&amp;gt; 灵活运用栈与队列 o-&amp;gt; 9大排序代码，时间复杂度与空间复杂度，优缺点 o-&amp;gt; 矩阵加法、减法、乘法、100个矩阵乘法与最优结合次序 o-&amp;gt; 邻接表、邻接矩阵、深搜、广搜、拓扑排序、最短路径、最小生成树 o-&amp;gt; 单链表有没有超过5个字符的回文子串 o-&amp;gt; 单链表最长回文子串 o-&amp;gt; 浮点数组(会相等)二分查找 o-&amp;gt; 任意大整数类型,至少支持乘法 o-&amp;gt; 100内素数 o-&amp;gt; 随机填充100内整数不重复 o-&amp;gt; 找字符串第一个无重复字符, 统计字符重复次数 o-&amp;gt; 第n个斐波那契数 o-&amp;gt; 递增数组，求和为m的两数 o-&amp;gt; 1元两瓶水, 两空瓶一瓶水, n元几瓶水 o-&amp;gt; 无序数组，第k大数 o-&amp;gt; 二维数组用0,1填充, 1有障碍, 任意两点最短路径、步数 o-&amp;gt; 重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优 </description>
+      <guid>https://example.com/docs/test/debug/</guid>
+      <description>分析方向 cpu 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数  内存 对象 对象个数、空间比例 调用栈分配比例  线程/协程 泄露 I/O阻塞 锁阻塞 channel阻塞  GC问题 少建对象  Linux time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig  Java VisualVM JProfiler # 收费, java  perfino # 监测jvm  YourKit # 收费, java, 有调用链  Spring Insight # java spring  Golang go命令 go tool pprof Xx.</description>
+    </item>
+    
+    <item>
+      <title>采用</title>
+      <link>https://example.com/docs/tool/adopt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/tool/adopt/</guid>
+      <description>趋向 本地(app) -&amp;gt; 线上(browser)  采用 工具 sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 分享: snipaste, flameshot 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
     </item>
     
   </channel>

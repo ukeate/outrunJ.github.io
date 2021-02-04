@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -146,11 +146,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -172,10 +177,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -1322,8 +1329,55 @@ transposition table             置换表
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span>
 }
-</code></pre></div><h1 id="heading-21">字符串</h1>
-<h2 id="heading-22">字符统计</h2>
+</code></pre></div><h2 id="heading-21">数组积水</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">// 无论中间多少高低柱子，当前点积水量都是min(最左, 最右)高度
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">savewater</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">point_l</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">max_l</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+
+	<span style="color:#a6e22e">point_r</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+	<span style="color:#a6e22e">max_r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[len(<span style="color:#a6e22e">arr</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+
+	<span style="color:#a6e22e">volume</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">point_l</span> &lt; <span style="color:#a6e22e">point_r</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">max_l</span> &lt; <span style="color:#a6e22e">max_r</span> {
+			<span style="color:#a6e22e">point_l</span><span style="color:#f92672">++</span>
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">max_l</span> &lt; <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_l</span>] {
+				<span style="color:#a6e22e">max_l</span> = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_l</span>]
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#a6e22e">volume</span> = <span style="color:#a6e22e">volume</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">max_l</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_l</span>]
+			}
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">point_r</span><span style="color:#f92672">--</span>
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">max_r</span> &lt; <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_r</span>] {
+				<span style="color:#a6e22e">max_r</span> = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_r</span>]
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#a6e22e">volume</span> = <span style="color:#a6e22e">volume</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">max_r</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">point_r</span>]
+			}
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">volume</span>
+}
+</code></pre></div><div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Expand</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">arr</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>}
+	<span style="color:#a6e22e">volume</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">savewater</span>(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">volume</span>)
+}
+</code></pre></div>
+    </div>
+  </label>
+</div>
+
+<h1 id="heading-22">字符串</h1>
+<h2 id="heading-23">字符统计</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	字符统计
 </span><span style="color:#75715e">*/</span>
@@ -1334,7 +1388,7 @@ transposition table             置换表
 	}
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">sumMap</span>)
 }
-</code></pre></div><h2 id="heading-23">最后一词长度</h2>
+</code></pre></div><h2 id="heading-24">最后一词长度</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LastWordLen</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#a6e22e">isLetter</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#66d9ef">uint8</span>) <span style="color:#66d9ef">bool</span> {
 		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;z&#39;</span>) <span style="color:#f92672">||</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;A&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;Z&#39;</span>) {
@@ -1366,7 +1420,7 @@ transposition table             置换表
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">retLen</span>
 }
-</code></pre></div><h2 id="heading-24">翻转词序</h2>
+</code></pre></div><h2 id="heading-25">翻转词序</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	翻转词序
 </span><span style="color:#75715e">*/</span>
@@ -1420,7 +1474,7 @@ transposition table             置换表
   </label>
 </div>
 
-<h2 id="heading-25">同字异序</h2>
+<h2 id="heading-26">同字异序</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ALPHABET_LENGHT</span> = <span style="color:#ae81ff">26</span>
 <span style="color:#75715e">/*
 </span><span style="color:#75715e">	是否同字异序, 如eel, lee
@@ -1487,7 +1541,7 @@ transposition table             置换表
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>
 }
-</code></pre></div><h2 id="heading-26">回文</h2>
+</code></pre></div><h2 id="heading-27">回文</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	回文
 </span><span style="color:#75715e">*/</span>
@@ -1639,7 +1693,7 @@ transposition table             置换表
   </label>
 </div>
 
-<h2 id="heading-27">模式匹配</h2>
+<h2 id="heading-28">模式匹配</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">	模式匹配，brute force法
 </span><span style="color:#75715e">	时间 m*n，空间1
@@ -1669,7 +1723,7 @@ transposition table             置换表
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">KMP</span>() {
 
 }
-</code></pre></div><h1 id="heading-28">图</h1>
+</code></pre></div><h1 id="heading-29">图</h1>
 <h2 id="bfsbreadth-first-search">BFS(breadth first search)</h2>
 <h2 id="dfsdepth-first-search">DFS(depth first search)</h2>
 <h2 id="a">A*</h2>
@@ -1678,7 +1732,7 @@ transposition table             置换表
 <h2 id="dijkstra">Dijkstra</h2>
 <h2 id="bellman-ford">Bellman-Ford</h2>
 <h2 id="floyd-warshall">Floyd-Warshall</h2>
-<h2 id="heading-29">走迷宫</h2>
+<h2 id="heading-30">走迷宫</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">    检测方向 -&gt; 走 -&gt; 递归 -&gt; 回退
 </span><span style="color:#75715e">*/</span>
@@ -1773,12 +1827,12 @@ transposition table             置换表
 	<span style="color:#a6e22e">maze</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">e</span>, <span style="color:#ae81ff">0</span>)
 	println()
 }
-</code></pre></div><h1 id="heading-30">动态规划</h1>
-<h2 id="heading-31">背包问题</h2>
+</code></pre></div><h1 id="heading-31">动态规划</h1>
+<h2 id="heading-32">背包问题</h2>
 <pre><code>背包有大小，物品有大小和价值，向背包装最大价值物品
 </code></pre>
-<h2 id="heading-32">最长公共子串</h2>
-<h2 id="heading-33">捏小球</h2>
+<h2 id="heading-33">最长公共子串</h2>
+<h2 id="heading-34">捏小球</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">    重量不同多个小球，合并用力为重量和。两两合并到剩一个，总用力最小。写代码求最优
 </span><span style="color:#75715e">
@@ -1808,7 +1862,7 @@ transposition table             置换表
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 	print(<span style="color:#a6e22e">pinch</span>([]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>}))
 }
-</code></pre></div><h1 id="heading-34">分类与回归</h1>
+</code></pre></div><h1 id="heading-35">分类与回归</h1>
 <pre><code>分类是编组，回归是预测
 </code></pre>
 <h2 id="kknn-k-nearest-neighbours">k最近邻(KNN, k-nearest neighbours)</h2>
@@ -1818,9 +1872,9 @@ transposition table             置换表
 应用
     推荐系统
 </code></pre>
-<h2 id="heading-35">贝叶斯</h2>
-<h1 id="heading-36">概率算法</h1>
-<h2 id="heading-37">布隆过滤器</h2>
+<h2 id="heading-36">贝叶斯</h2>
+<h1 id="heading-37">概率算法</h1>
+<h2 id="heading-38">布隆过滤器</h2>
 <pre><code>介绍
     判断值一定不存在，或可能存在
     高效插入和查询
@@ -1860,7 +1914,7 @@ transposition table             置换表
 应用
     redis用pfadd()和pfcount()
 </code></pre>
-<h1 id="heading-38">线性规划</h1>
+<h1 id="heading-39">线性规划</h1>
 <pre><code>图算法是线性规划的子集
 </code></pre>
 <h2 id="simplex">单纯形法(simplex)</h2>
@@ -1876,14 +1930,14 @@ transposition table             置换表
     填装因子: 元素数/总位置数
     散列函数
 </code></pre>
-<h1 id="heading-39">傅里叶变换</h1>
+<h1 id="heading-40">傅里叶变换</h1>
 <pre><code>描述
     所有波都可以用多个正弦波叠加表示
 应用
     声音中分离出噪声、人声
     图像增大高频信号提高对比度，相机找高频分量最大来自动对焦
 </code></pre>
-<h1 id="heading-40">加密</h1>
+<h1 id="heading-41">加密</h1>
 <pre><code>签名
     公钥
         dsa
@@ -1902,7 +1956,7 @@ diffie-hellman
         双方不需知道加密算法
         公钥和私钥，客户用公钥加密，服务端用私钥解密
 </code></pre>
-<h1 id="heading-41">种群统计</h1>
+<h1 id="heading-42">种群统计</h1>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">/*
 </span><span style="color:#75715e">    统计二进制串置位(位值是1)数
 </span><span style="color:#75715e">
@@ -1928,7 +1982,7 @@ diffie-hellman
         <span style="color:#a6e22e">pc</span>[byte(<span style="color:#a6e22e">x</span><span style="color:#f92672">&gt;&gt;</span>(<span style="color:#ae81ff">7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>))])
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
 }
-</code></pre></div><h1 id="heading-42">资源分配</h1>
+</code></pre></div><h1 id="heading-43">资源分配</h1>
 <pre><code>token bucket
     # 令牌桶
     通过多少流量，删除多少令牌
@@ -1951,7 +2005,7 @@ max-min fairness
     dominant resource fairness (DRF)
         # 一种 max-min fairness实现，可以多资源分配
 </code></pre>
-<h1 id="heading-43">分布式算法</h1>
+<h1 id="heading-44">分布式算法</h1>
 <pre><code>特点
     分布性，并发性
 一致性hash
@@ -2013,7 +2067,7 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
     涉及集合且难解决    # 广播台集合
     可转换为集合覆盖问题或旅行商问题
 </code></pre>
-<h2 id="heading-44">旅行商问题</h2>
+<h2 id="heading-45">旅行商问题</h2>
 <pre><code># TSP, travelling salesman problem, 组合优化中的np困难问题
 介绍
     遍历n地点，找总路程最短的路径
@@ -2028,9 +2082,9 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Nov 9, 2019</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -2097,20 +2151,21 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
         <li><a href="#heading-18">轮换</a></li>
         <li><a href="#heading-19">洗牌</a></li>
         <li><a href="#heading-20">有序数组去重</a></li>
+        <li><a href="#heading-21">数组积水</a></li>
       </ul>
     </li>
-    <li><a href="#heading-21">字符串</a>
+    <li><a href="#heading-22">字符串</a>
       <ul>
-        <li><a href="#heading-22">字符统计</a></li>
-        <li><a href="#heading-23">最后一词长度</a></li>
-        <li><a href="#heading-24">翻转词序</a></li>
-        <li><a href="#heading-25">同字异序</a></li>
+        <li><a href="#heading-23">字符统计</a></li>
+        <li><a href="#heading-24">最后一词长度</a></li>
+        <li><a href="#heading-25">翻转词序</a></li>
+        <li><a href="#heading-26">同字异序</a></li>
         <li><a href="#count-and-say">count and say</a></li>
-        <li><a href="#heading-26">回文</a></li>
-        <li><a href="#heading-27">模式匹配</a></li>
+        <li><a href="#heading-27">回文</a></li>
+        <li><a href="#heading-28">模式匹配</a></li>
       </ul>
     </li>
-    <li><a href="#heading-28">图</a>
+    <li><a href="#heading-29">图</a>
       <ul>
         <li><a href="#bfsbreadth-first-search">BFS(breadth first search)</a></li>
         <li><a href="#dfsdepth-first-search">DFS(depth first search)</a></li>
@@ -2118,42 +2173,42 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
         <li><a href="#dijkstra">Dijkstra</a></li>
         <li><a href="#bellman-ford">Bellman-Ford</a></li>
         <li><a href="#floyd-warshall">Floyd-Warshall</a></li>
-        <li><a href="#heading-29">走迷宫</a></li>
+        <li><a href="#heading-30">走迷宫</a></li>
       </ul>
     </li>
-    <li><a href="#heading-30">动态规划</a>
+    <li><a href="#heading-31">动态规划</a>
       <ul>
-        <li><a href="#heading-31">背包问题</a></li>
-        <li><a href="#heading-32">最长公共子串</a></li>
-        <li><a href="#heading-33">捏小球</a></li>
+        <li><a href="#heading-32">背包问题</a></li>
+        <li><a href="#heading-33">最长公共子串</a></li>
+        <li><a href="#heading-34">捏小球</a></li>
       </ul>
     </li>
-    <li><a href="#heading-34">分类与回归</a>
+    <li><a href="#heading-35">分类与回归</a>
       <ul>
         <li><a href="#kknn-k-nearest-neighbours">k最近邻(KNN, k-nearest neighbours)</a></li>
-        <li><a href="#heading-35">贝叶斯</a></li>
+        <li><a href="#heading-36">贝叶斯</a></li>
       </ul>
     </li>
-    <li><a href="#heading-36">概率算法</a>
+    <li><a href="#heading-37">概率算法</a>
       <ul>
-        <li><a href="#heading-37">布隆过滤器</a></li>
+        <li><a href="#heading-38">布隆过滤器</a></li>
         <li><a href="#hyperloglog">hyperLogLog</a></li>
       </ul>
     </li>
-    <li><a href="#heading-38">线性规划</a>
+    <li><a href="#heading-39">线性规划</a>
       <ul>
         <li><a href="#simplex">单纯形法(simplex)</a></li>
       </ul>
     </li>
     <li><a href="#hash">hash</a></li>
-    <li><a href="#heading-39">傅里叶变换</a></li>
-    <li><a href="#heading-40">加密</a></li>
-    <li><a href="#heading-41">种群统计</a></li>
-    <li><a href="#heading-42">资源分配</a></li>
-    <li><a href="#heading-43">分布式算法</a></li>
+    <li><a href="#heading-40">傅里叶变换</a></li>
+    <li><a href="#heading-41">加密</a></li>
+    <li><a href="#heading-42">种群统计</a></li>
+    <li><a href="#heading-43">资源分配</a></li>
+    <li><a href="#heading-44">分布式算法</a></li>
     <li><a href="#np">NP问题</a>
       <ul>
-        <li><a href="#heading-44">旅行商问题</a></li>
+        <li><a href="#heading-45">旅行商问题</a></li>
       </ul>
     </li>
   </ul>

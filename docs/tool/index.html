@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -146,11 +146,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -172,10 +177,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -207,6 +214,23 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="heading">系统</h1>
+<h2 id="macos">MacOS</h2>
+<pre><code>命令
+    brew
+        update              # 更新brew
+        search
+        install
+        remove
+        upgrade
+        tap                 # 安装扩展
+        options             # 查看安装选项
+        info
+        home                # 访问包官网
+        services
+            list            # 查看已安装
+            cleanup         # 清除无用配置
+            restart         # 重启
+</code></pre>
 <h2 id="windows">windows</h2>
 <pre><code># 方案
     附件 -&gt; 系统工具 -&gt; 字符映射表 -&gt; 新宋体 中查看汉字的unicode编码
@@ -409,6 +433,31 @@ siri
 <h2 id="charlet">charlet</h2>
 <pre><code># 抓包
 </code></pre>
+<h2 id="mitmproxy">mitmproxy</h2>
+<pre><code># 抓包
+命令
+    mitmdump
+    mitmproxy
+    mitmweb
+</code></pre>
+<h2 id="burp-suite">Burp Suite</h2>
+<pre><code># 抓包
+</code></pre>
+<h2 id="fiddler">fiddler</h2>
+<pre><code># 抓包
+</code></pre>
+<h2 id="whistle">whistle</h2>
+<pre><code># 抓包
+</code></pre>
+<h2 id="tcpdump">tcpdump</h2>
+<pre><code># 抓包
+</code></pre>
+<h2 id="anyproxy">anyproxy</h2>
+<pre><code># 代理http/https
+</code></pre>
+<h2 id="proxychains">proxychains</h2>
+<pre><code># 代理
+</code></pre>
 <h2 id="chrome">chrome</h2>
 <pre><code>介绍
     webkit: chrome firefox safari的内核，来源于kde的khtml与kjs
@@ -455,34 +504,6 @@ mozvr
 </code></pre>
 <h1 id="heading-4">开发</h1>
 <h2 id="vim">vim</h2>
-<h2 id="intellij-idea">intellij idea</h2>
-<pre><code>注意
-    Project 相当于workspace, module 相当于工程
-注册
-    服务器
-        # 发布网站 http://idea.lanyus.com
-        http://idea.qinxi1992.cn
-        http://idea.lianghongbo.com/licens
-        http://im.js.cn:8888
-javaagent
-    https://zhile.io/
-
-快捷键
-    alt + enter     # 改错
-    shift shift     # 搜索跳转
-
-编码
-    file -&gt; settings -&gt; appearence里use custom font设置中文字体
-    file -&gt; settings -&gt; editor -&gt; file encodings 三处utf-8
-    idea安装目录/bin/idea.vmoptions和idea64.vmoptions,最后添加
-        -Dfile.encoding=UTF-8
-    .idea/encodings.xml里删除除了UTF-8的项
-</code></pre>
-<h2 id="webstorm">webstorm</h2>
-<h2 id="pycharm">pycharm</h2>
-<h2 id="goland">goland</h2>
-<h2 id="clion">clion</h2>
-<h2 id="phpcharm">phpCharm</h2>
 <h2 id="sublime">sublime</h2>
 <pre><code>功能
     显示风格好
@@ -549,9 +570,9 @@ javaagent
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>May 13, 2020</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -579,6 +600,7 @@ javaagent
   <ul>
     <li><a href="#heading">系统</a>
       <ul>
+        <li><a href="#macos">MacOS</a></li>
         <li><a href="#windows">windows</a></li>
         <li><a href="#ipados">ipados</a></li>
       </ul>
@@ -588,6 +610,13 @@ javaagent
         <li><a href="#teamviewer">teamviewer</a></li>
         <li><a href="#wireshark">wireshark</a></li>
         <li><a href="#charlet">charlet</a></li>
+        <li><a href="#mitmproxy">mitmproxy</a></li>
+        <li><a href="#burp-suite">Burp Suite</a></li>
+        <li><a href="#fiddler">fiddler</a></li>
+        <li><a href="#whistle">whistle</a></li>
+        <li><a href="#tcpdump">tcpdump</a></li>
+        <li><a href="#anyproxy">anyproxy</a></li>
+        <li><a href="#proxychains">proxychains</a></li>
         <li><a href="#chrome">chrome</a></li>
         <li><a href="#firefox">firefox</a></li>
       </ul>
@@ -607,12 +636,6 @@ javaagent
     <li><a href="#heading-4">开发</a>
       <ul>
         <li><a href="#vim">vim</a></li>
-        <li><a href="#intellij-idea">intellij idea</a></li>
-        <li><a href="#webstorm">webstorm</a></li>
-        <li><a href="#pycharm">pycharm</a></li>
-        <li><a href="#goland">goland</a></li>
-        <li><a href="#clion">clion</a></li>
-        <li><a href="#phpcharm">phpCharm</a></li>
         <li><a href="#sublime">sublime</a></li>
         <li><a href="#idle">idle</a></li>
         <li><a href="#lighttable">lighttable</a></li>

@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="App"><meta property="og:title" content="App" />
-<meta property="og:description" content="趋向 本地(app) -&gt; 线上(browser)  采用 工具 sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g&#43;&#43;, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1." />
+<meta property="og:description" content="vim(简) 命令 vim --version # 查看插件 可视模式 o # 切换头尾 gv # 重选上次 &lt;C - v&gt; U/u # 转换大写/小写 替换模式 R 思想 {operator}{motion} {operator}{text-objects} operator ; , 3G */# % # 括号 `` # 跳回 &#39;&#39; # 跳回非空白 :marks ma/`a # 标记跳转 &amp; # 重复substitute cc/C # 替换一行 J # 删除向下的空行 g~ # 转换大小写 # g~~ 转换一行 motion ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标 f/F/t/T . K # man查询 ga # unicode码 nzz/nz- q: # 命令历史 命令模式 :3 # 跳转 :&#39;&lt;,&#39;&gt; # 选中内容 :/&lt;html&gt;/,/&lt;\html&gt;/ # 模式匹配范围 :h e # e的帮助 :%s///g # substitute :!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/cache/app/" />
-<meta property="article:modified_time" content="2020-02-07T09:57:27+08:00" />
+<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
 <title>App | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -128,7 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -145,11 +145,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -171,10 +176,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -205,100 +212,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown"><h1 id="heading">趋向</h1>
-<pre><code>本地(app) -&gt; 线上(browser)
-</code></pre>
-<h1 id="heading-1">采用</h1>
-<h2 id="heading-2">工具</h2>
-<pre><code>sidecar
-    信息: oneNote[oneDrive]
-    记录: todo, dayOne, 支付宝, moneyPro, 
-输入
-    新
-        搜索: DEVONagent, wolframAlpha
-        渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook
-        发散: 百度指数, DEVONSphere
-        盘: icloud, oneDrive x 2, 坚果云, 百度网盘 
-        休闲: noizio, relaxMelodiesSeasions, earth3D
-    会议
-        notability[iCloud]
-    GTD
-        trello, microsoftToDo, things3
-转换
-    文件
-        DEVONthink, siteSucker
-    字
-        字: wps-word, word, pdfElement, LaTeX, iAWriter, 
-        代码: cacher[github], lepton[github], dash, snippetsLap, textastic
-        misc: shortMenu
-    图
-        marginNote[iCloud], liquidText[iCloud]
-    影音
-        音频: permute3
-        图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory
-        视频: quickTime, gifox, gif brewery, gif maker, Hype3
-        3d: aurora3DMaker
-    修补
-        设备同步: synergy, pushbullet, sharemouse
-        人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch
-        监视: istatistica, wifiExplorer
-        文件: FEFileExplorer
-        浏览器: tampermonkey
-输出
-    字
-        大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布]
-        代码: jetbrains, vim, spacemacs
-        表达式: expressions 
-    图
-        架构: visio, wps-ppt, ppt, OmniGraffle, 
-        建模: plantUML, graphviz, 
-        甘特图: OmniPlan, ganttProject, microsoftProject
-        表: excel, xmind[oneDrive], mindNode, ithoughts, scapple
-        数学: mathStudio, pocketCAS
-        画: procreator
-    库 
-        结构: blog[github]
-        书: goodnotes
-</code></pre>
-<h2 id="heading-3">依赖</h2>
-<pre><code>系统: 
-    文件: tree, unrar, unzip, 7z, diff, du
-    系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service
-    包: yaourt, yay, pkgfile, snap
-        wps-office, ttf-wps-fonts
-    界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox
-    网络: chromium, firefox, thunderbird
-ops:
-    shell: ^z, bg, fg, jobs, nohup, expect, 
-    系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df
-    网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup
-    vpn: openvpn, shadowsocks, polipo, v2ray
-    vm: docker, docker-compose
-        db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j
-            elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin
-        mq: nsq, rabbitmq,  kafka,
-        容器: nginx, nginx-php
-        监控: zipkin, 
-        应用: dokuwiki, tiddlywiki, wordpress, 
-    服务: vsftpd, filezilla
-    分布式: ansible
-程序:
-    基本: make, cmake, g++, gcc, lua, ruby,
-    java: openjdk8, jdk8, jdk12, maven, tomcat
-    go: go1.9.3, go1.12.6, go1.13.5, probobuf, protoc
-    python: python2.7, python3.8, pip2, pip3
-    php: php-cgi, php-fpm
-    js: node, mvn, babel-cli
-    分析: flame-graph
-媒体: dia, convert, import, alsamixer, mplayer
-ide: vscode, sublime, emacs, vim 
-    jetbrains: webstorm, goland, intellijIdea, phpstorm, pycharm, mps, android studio
-    eclipse: eclipse-inst, eclipse-birt, eclipse-jee-neon
-数据库: datagrip, neoclipse, robo3t, studio-3t
-测试: postman
-工作: snapcast, mosquitto, sox, snapcastrd, websockify
-</code></pre>
-<h3 id="vim">vim(简)</h3>
+<article class="markdown"><h1 id="vim">vim(简)</h1>
 <pre><code>命令
     vim
         --version   # 查看插件
@@ -390,20 +304,6 @@ registers
     &lt;C - w&gt; s
     &lt;C - w&gt; v
 </code></pre>
-<h1 id="intellij">intellij(简)</h1>
-<pre><code>shift shift     # 打开文件
-alt enter       # 补全, 快速修复
-</code></pre>
-<h1 id="alfred">alfred</h1>
-<pre><code>搜索
-    指定网站搜索
-    文件
-剪贴板
-计算器
-自定义脚本
-    打字
-    命令
-    工作流</code></pre>
 </article>
 
       <div class="book-footer justify-between">
@@ -413,9 +313,9 @@ alt enter       # 补全, 快速修复
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/adc0cf7ce98f30a58eff2eafe7af92f6382f0df9" title='Last modified by shenwenqing | Feb 7, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Feb 7, 2020</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -441,19 +341,7 @@ alt enter       # 补全, 快速修复
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">趋向</a></li>
-    <li><a href="#heading-1">采用</a>
-      <ul>
-        <li><a href="#heading-2">工具</a></li>
-        <li><a href="#heading-3">依赖</a>
-          <ul>
-            <li><a href="#vim">vim(简)</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#intellij">intellij(简)</a></li>
-    <li><a href="#alfred">alfred</a></li>
+    <li><a href="#vim">vim(简)</a></li>
   </ul>
 </nav>
   </aside>

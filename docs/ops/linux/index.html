@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -128,7 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -145,11 +145,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -171,10 +176,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -425,20 +432,40 @@ SIGAIO	34	Ignore	Asynchronous I/O
 <h1 id="heading-6">发行版</h1>
 <pre><code>lfs
 coreos
-arch
-fedora
 debian
 gentoo
 opensuse
 mint
 </code></pre>
 <h2 id="centos">centos</h2>
-<pre><code>安装VBoxAdditions
+<pre><code>包
+    dnf install @development-tools
+    yum install epel-release
+安装VBoxAdditions
     yum update kernel
     yum install kernel-headers kernel-devel gcc
     # 可能要加软连接 /usr/src/kernels/
     mount /dev/cdrom /mnt
     /mnt/VBoxLinuxAdditions.run
+gcc升级
+    yum -y install centos-release-scl
+    yum -y install devtoolset-6-gcc devtoolset-6-gcc-c++ devtoolset-6-binutils
+    scl enable devtoolset-6 bash
+    echo &quot;source /opt/rh/devtoolset-6/enable&quot; &gt;&gt;/etc/profile
+</code></pre>
+<h2 id="ubuntu">ubuntu</h2>
+<pre><code>包
+    apt-cache madison xxx       # 查看仓库中所有版本
+    apt-cache search xxx
+    apt-get -f -y --assume-yes install
+    aptitude
+        search
+        show
+        install
+        remove 
+        purge                   # 删除包及配置
+        clean                   # 删除下载的包文件
+        autoclean               # 仅删除过期
 </code></pre>
 <h2 id="fedora">fedora</h2>
 <pre><code>升级
@@ -608,9 +635,9 @@ yaourt
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>May 13, 2020</span>
+      <span>Jul 3, 2020</span>
     </a>
   </div>
   
@@ -653,6 +680,7 @@ yaourt
     <li><a href="#heading-6">发行版</a>
       <ul>
         <li><a href="#centos">centos</a></li>
+        <li><a href="#ubuntu">ubuntu</a></li>
         <li><a href="#fedora">fedora</a></li>
         <li><a href="#arch">arch</a></li>
       </ul>

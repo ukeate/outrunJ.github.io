@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/pl/java/" />
 <meta property="article:published_time" content="2018-10-09T08:48:07+08:00" />
-<meta property="article:modified_time" content="2020-05-13T18:01:09+08:00" />
+<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
 <title>Java | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -146,11 +146,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -172,10 +177,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -299,16 +306,28 @@ JRE(java runtime environment)
     serialver       #  返回指定类的序列化号serialverUID
     appletviewer    #  小程序浏览器，执行HTML文件上java小程序类
     htmlconverter   #  转换applet tags成java plug-in
-    javap   # 反编译
-    jad     # 反编译
+    javap           # 反编译
+    jad             # 反编译
         jad -o -a d.java Xxx.class
-    jmap    # 查看堆内存情况, 产生dump文件
+    jps                                 # 查java进程
+    jinfo                               # 输出、修改opts
+    jstat                               # 性能分析
+        -option                         # 查看分析项
+        -class                          # 加载class的数量
+        -compiler                       # 实时编译数量
+        -gc                             # gc次数，时间
+        -gccapacity                     # gc占量: young、old、perm
+        -gcnew                          # new对象数量
+        -gcnewcapacity                  # new对象占量
+        -gcutil                         # gc统计
+    jmap                                # 内存分配
+    jconsole                            # 图形统计：heap, threads, classes, cpu, VM summary
+    jstack                              # 查看线程(如死锁),得到java stack和native stack
 工具
     MAT (Memory Analyzer)
         # eclipse MAT插件分析dump文件
-    jstack          # 查看线程(如死锁),得到java stack和native stack
-    jmap            # 查看内存
-    jstat           # 性能分析
+    JProfiler
+        # 图形化全面性能分析
 </code></pre>
 <h1 id="heading-2">语法</h1>
 <h2 id="heading-3">基础</h2>
@@ -1965,74 +1984,6 @@ ioUtils
 多态
     父类(接口)中定义的引用变量，在运行时动态绑定到具体实例的方法执行
 内部unicode编码
-内存      # java自动管理堆栈, c++手动分配
-    方法区(method area)
-        特点
-            静态分配, 位置不改变
-            线程共享
-        保存
-            类信息
-                class
-            数据区(data segment)
-                常量池(constant pool) # 编译期确定，保存在.class中的数据
-                    字面量
-                    文本形式的符号引用
-                        字段名称和描述符
-                        方法名称和描述符
-                        类和接口的全限定名
-                静态区(static segment)
-                    静态变量
-            代码区(code segement)
-                JIT编译后的代码
-    堆(heap)
-        特点
-            以随意顺序，运行时分配和回收空间, 代码申请
-            大小、数量、生命期常常在编译时不确定
-            细分为新生代和老年代, 再具体为 eden survivor(from survivor、to survivor), tenured
-            线程共享
-            OutOfMemoryError
-        保存
-            引用类型在堆分配类变量, 局部变量生命周期结束后，堆空间等待gc回收
-            this
-        实现
-            存放所有runtime data
-            heap是jvm启动时创建
-    程序计数器(program counter register)
-    栈(stack)
-        分类
-            虚拟机栈(vm stack)
-            本地方法栈(native method stack)
-        特点
-            逻辑概念，可连续可不连续, 系统自动分配。栈中的字面值可共享,如int i = 3
-            每个线程有私有栈空间, 随线程创建
-            StackOverflowError
-        保存
-            基础数据类型
-            引用类型在栈分配地址, 局部变量生命周期结束后，栈空间立即回收
-            方法调用    # 一次调用一个帧(frame)
-            方法的形参, 调用完回收
-            方法引用参数, 在栈上分配地址, 调用完回收
-            方法实参，栈空间分配，调用完释放
-        实现
-            java的stack存放的是frames, frames由heap分配，所以stack内存不连续
-            只存在本地变量、返回值、调用方法，不能直接push和pop frams
-
-    机制
-        程序计数器、虚拟机栈、本地方法栈 是线程私有空间
-            随线程产生和销毁，每个栈帧分配多少内存在随类结构确定。内存分配回收都是确定的
-        方法区和堆
-            一个接口的各实现类需要内存可能不一样, 所以运行时才知道创建哪些对象，内存分配和回收是动态的，gc主要关注
-    内存溢出
-        原因
-            加载数据过大  # 大约10万条以上, 应分页查询
-            集合中对象引用未清除
-            代码循环产生对象
-            第三方软件bug
-            启动参数内存设置过小
-        方案
-            jvm启动参数 -Xms, -Xmx
-            jvm错误日志, OutOfMemory前信息
-            内存查看工具动态查看
 类
     初始化时机
         new
@@ -2056,7 +2007,79 @@ ioUtils
 JIT(just in time)
     # 热点代码检测, 运行时编译和优化
 </code></pre>
-<h2 id="heading-19">类加载器</h2>
+<h3 id="heading-19">内存</h3>
+<pre><code># java自动管理堆栈, c++手动分配
+组成
+    方法区(method area)
+        组成
+            类信息
+                class
+            数据区(data segment)
+                运行时常量池(constant pool) # 编译期确定，保存在.class中的数据
+                    字面量
+                    文本形式的符号引用
+                        字段名称和描述符
+                        方法名称和描述符
+                        类和接口的全限定名
+                静态区(static segment)
+                    静态变量
+            代码区(code segement)
+                JIT编译后的代码
+        特点
+            线程共享
+            静态分配, 位置不改变
+    栈(stack)
+        分类
+            虚拟机栈(vm stack)
+            本地方法栈(native method stack)
+        保存
+            基础数据类型
+            引用类型在栈分配地址, 局部变量生命周期结束后，栈空间立即回收
+            方法调用    # 一次调用一个帧(frame)
+            方法的形参, 调用完回收
+            方法引用参数, 在栈上分配地址, 调用完回收
+            方法实参，栈空间分配，调用完释放
+        特点
+            线程隔离
+            逻辑概念，可连续可不连续, 系统自动分配。栈中的字面值可共享,如int i = 3
+            StackOverflowError
+        实现
+            java的stack存放的是frames, frames由heap分配，所以stack内存不连续
+            只存在本地变量、返回值、调用方法，不能直接push和pop frams
+    堆(heap)
+        保存
+            引用类型在堆分配类变量, 局部变量生命周期结束后，堆空间等待gc回收
+            this
+        特点
+            线程共享
+            以随意顺序，运行时分配和回收空间, 代码申请
+            大小、数量、生命期常常在编译时不确定
+            细分为新生代和老年代, 再具体为 eden survivor(from survivor、to survivor), tenured
+            OutOfMemoryError
+        实现
+            存放所有runtime data
+            heap是jvm启动时创建
+    程序计数器(program counter register)
+        特点
+            线程隔离
+机制
+    程序计数器、虚拟机栈、本地方法栈 是线程私有空间
+        随线程产生和销毁，每个栈帧分配多少内存在随类结构确定。内存分配回收都是确定的
+    方法区和堆
+        一个接口的各实现类需要内存可能不一样, 所以运行时才知道创建哪些对象，内存分配和回收是动态的，gc主要关注
+内存溢出
+    原因
+        加载数据过大  # 大约10万条以上, 应分页查询
+        集合中对象引用未清除
+        代码循环产生对象
+        第三方软件bug
+        启动参数内存设置过小
+    方案
+        jvm启动参数 -Xms, -Xmx
+        jvm错误日志, OutOfMemory前信息
+        内存查看工具动态查看
+</code></pre>
+<h2 id="heading-20">类加载器</h2>
 <pre><code>父亲委派机制(java2)
     # 常用类不被替代
     先试上层类加载器
@@ -2144,7 +2167,7 @@ servlet部署
     输出Servlet.class的jar与servlet-api.jar到jdk/lib/ext
         # 因为servlet.class加载的时候需要HttpServlet类，该类在tomcat提供的servlet-api.jar
 </code></pre>
-<h1 id="heading-20">规范</h1>
+<h1 id="heading-21">规范</h1>
 <pre><code>命名与写法
     包名 小写、只用一个单词、只用单数
     类名 UpperCamelCase
@@ -2395,7 +2418,7 @@ mysql
 服务器
     JVM设置- XX :+ HeapDumpOnOutOfMemoryError, OOM时输出dump信息
 </code></pre>
-<h1 id="heading-21">模式</h1>
+<h1 id="heading-22">模式</h1>
 <h2 id="singleton">单例(singleton)</h2>
 <pre><code>确保只有一个实例
     # 大多有资源管理器的功能
@@ -2466,7 +2489,7 @@ public class Singleton {
     }
 }
 </code></pre>
-<h2 id="heading-22">工厂</h2>
+<h2 id="heading-23">工厂</h2>
 <pre><code># factory
 o-&gt; 多工厂，静态工厂
 public interface Sender{
@@ -2498,7 +2521,7 @@ public class SendMailFactory implements Provider {
     }
 }
 </code></pre>
-<h2 id="heading-23">建造者</h2>
+<h2 id="heading-24">建造者</h2>
 <pre><code># builder, 提供工厂方法，建造内部复合对象
 o-&gt;
 public class Builder {
@@ -2508,7 +2531,7 @@ public class Builder {
     }
 }
 </code></pre>
-<h2 id="heading-24">适配器</h2>
+<h2 id="heading-25">适配器</h2>
 <pre><code># adapter, 用来匹配接口
 o-&gt; 类
 public class Source(){
@@ -2546,7 +2569,7 @@ public class Adapter extends AbstractTarget {
     public method2(){}
 }
 </code></pre>
-<h2 id="heading-25">装饰</h2>
+<h2 id="heading-26">装饰</h2>
 <pre><code># decorator，持有被装饰实例，实现同一接口
 o-&gt;
 public interface Sourceable {
@@ -2568,7 +2591,7 @@ public class Decorator implements Sourceable {
     }
 }
 </code></pre>
-<h2 id="heading-26">策略</h2>
+<h2 id="heading-27">策略</h2>
 <pre><code># strategy, 封装多个算法类, 更换策略，调用方式一致
 o-&gt;
 public interface ICalculator {
@@ -2593,7 +2616,7 @@ public class AbstractCalculator {
 Icalculator cal = new Minus();
 cal.calculate(exp);
 </code></pre>
-<h2 id="heading-27">观察者</h2>
+<h2 id="heading-28">观察者</h2>
 <pre><code># Observer, 对象变化，一对多广播
 public interface Observer {
     public void update();
@@ -2641,9 +2664,9 @@ public class MySubject extends AbstractSubject {
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>May 13, 2020</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -2704,20 +2727,24 @@ public class MySubject extends AbstractSubject {
     </li>
     <li><a href="#jvm">jvm</a>
       <ul>
-        <li><a href="#heading-18">基础</a></li>
-        <li><a href="#heading-19">类加载器</a></li>
+        <li><a href="#heading-18">基础</a>
+          <ul>
+            <li><a href="#heading-19">内存</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading-20">类加载器</a></li>
       </ul>
     </li>
-    <li><a href="#heading-20">规范</a></li>
-    <li><a href="#heading-21">模式</a>
+    <li><a href="#heading-21">规范</a></li>
+    <li><a href="#heading-22">模式</a>
       <ul>
         <li><a href="#singleton">单例(singleton)</a></li>
-        <li><a href="#heading-22">工厂</a></li>
-        <li><a href="#heading-23">建造者</a></li>
-        <li><a href="#heading-24">适配器</a></li>
-        <li><a href="#heading-25">装饰</a></li>
-        <li><a href="#heading-26">策略</a></li>
-        <li><a href="#heading-27">观察者</a></li>
+        <li><a href="#heading-23">工厂</a></li>
+        <li><a href="#heading-24">建造者</a></li>
+        <li><a href="#heading-25">适配器</a></li>
+        <li><a href="#heading-26">装饰</a></li>
+        <li><a href="#heading-27">策略</a></li>
+        <li><a href="#heading-28">观察者</a></li>
       </ul>
     </li>
   </ul>

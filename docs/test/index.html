@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -146,11 +146,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -172,10 +177,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -227,31 +234,12 @@ https://github.com/alex-shpak/hugo-book
         ## angular中没有这种问题，因为所有定位元素和处理事件的工作都是在angular内部完成的
         ## 在测试时创建dom，就增加了测试的复杂性。而且页面变化时有更多维护要做。访问dom的操作很慢，测试反馈时间长
 </code></pre>
-<h1 id="heading-1">资源占用</h1>
-<h2 id="cpu">cpu</h2>
-<pre><code>graph-frames
-subsecond offset
-</code></pre>
-<h2 id="heading-2">综合</h2>
-<h3 id="visualvm">VisualVM</h3>
-<h3 id="jprofiler">JProfiler</h3>
-<pre><code># 收费, java
-</code></pre>
-<h3 id="perfino">perfino</h3>
-<pre><code># 监测jvm
-</code></pre>
-<h3 id="yourkit">YourKit</h3>
-<pre><code># 收费, java, 有调用链
-</code></pre>
-<h3 id="spring-insight">Spring Insight</h3>
-<pre><code># java spring
-</code></pre>
-<h1 id="heading-3">数据库</h1>
+<h1 id="heading-1">数据库</h1>
 <pre><code>sysbench
     # mysql 压测
     --db-driver=mysql --mysql-host=visitor-bench.ctysoosgzk4k.rds.cn-north-1.amazonaws.com.cn --mysql-user=root --mysql-password=12345678 --threads=512 --events=1000000 --time=0 --report-interval=15 ./bench_visit_page_insert.lua run
 </code></pre>
-<h1 id="heading-4">接口</h1>
+<h1 id="heading-2">接口</h1>
 <h2 id="loadrunner">loadrunner</h2>
 <pre><code>    脚本参数
         get
@@ -657,13 +645,13 @@ UnpatchInstanceMethod()
 <pre><code># 自然语法
 </code></pre>
 <h3 id="mockito">mockito</h3>
-<h1 id="heading-5">页面</h1>
+<h1 id="heading-3">页面</h1>
 <pre><code>jsperf
     # js性能分析
 jasmine
     # js单元测试
 </code></pre>
-<h1 id="heading-6">移动</h1>
+<h1 id="heading-4">移动</h1>
 <pre><code>robotium
     # android自动化测试
 </code></pre>
@@ -676,9 +664,9 @@ jasmine
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Sep 24, 2019</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -705,22 +693,8 @@ jasmine
     <nav id="TableOfContents">
   <ul>
     <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">资源占用</a>
-      <ul>
-        <li><a href="#cpu">cpu</a></li>
-        <li><a href="#heading-2">综合</a>
-          <ul>
-            <li><a href="#visualvm">VisualVM</a></li>
-            <li><a href="#jprofiler">JProfiler</a></li>
-            <li><a href="#perfino">perfino</a></li>
-            <li><a href="#yourkit">YourKit</a></li>
-            <li><a href="#spring-insight">Spring Insight</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#heading-3">数据库</a></li>
-    <li><a href="#heading-4">接口</a>
+    <li><a href="#heading-1">数据库</a></li>
+    <li><a href="#heading-2">接口</a>
       <ul>
         <li><a href="#loadrunner">loadrunner</a></li>
         <li><a href="#phoenix">phoenix</a></li>
@@ -756,8 +730,8 @@ jasmine
         </li>
       </ul>
     </li>
-    <li><a href="#heading-5">页面</a></li>
-    <li><a href="#heading-6">移动</a></li>
+    <li><a href="#heading-3">页面</a></li>
+    <li><a href="#heading-4">移动</a></li>
   </ul>
 </nav>
   </aside>

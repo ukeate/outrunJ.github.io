@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>Monitor</title>
+      <link>https://example.com/docs/ops/monitor/</link>
+      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
+      
+      <guid>https://example.com/docs/ops/monitor/</guid>
+      <description>统计方式 选时间段 时序数据表 max、min、avg  物理机 Load Average 介绍 数字n表示n倍  cpu Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 Mysql 总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
+    </item>
+    
+    <item>
       <title>Security</title>
       <link>https://example.com/docs/ops/security/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>

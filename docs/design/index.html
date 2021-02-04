@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -146,11 +146,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -172,10 +177,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -218,39 +225,7 @@ double_quote    表示&quot;本身
 ::=     表示“被定义为”
 </code></pre>
 <h1 id="heading-2">工具</h1>
-<h2 id="heading-3">在线</h2>
-<pre><code>http://tool.lu/coderunner/
-    # 在线repl
-http://lpaste.net/
-    # 粘代码
-https://pastee.org/
-    # 粘贴代码
-http://editor.method.ac/
-    # 在线ps
-https://www.processon.com/
-    # 在线思维导图, uml等
-https://www.gliffy.com/go/html5/launch
-    # 在线画图
-http://plantuml.com/
-    # plantuml在线画图
-    画图指南: https://deepu.js.org/svg-seq-diagram/Reference_Guide.pdf
-
-http://www.lmgtfy.com/?q=Linux#seen
-    # let me google this for you
-codility.com
-    # 招聘在线做题
-send.firefox.com
-    # 临时分享文件
-file.io
-    # 临时分享文件
-https://volafile.org
-    # 临时聊天室，文件分享
-http://ge.tt/
-    # 临时文件分享
-https://wetransfer.com/
-    # email文件
-</code></pre>
-<h2 id="heading-4">知识库</h2>
+<h2 id="heading-3">知识库</h2>
 <pre><code>confluence
     # 收费
 NextCloud
@@ -283,11 +258,11 @@ dropbox
 坚果云
     # 文档协作
 </code></pre>
-<h2 id="heading-5">网盘</h2>
+<h2 id="heading-4">网盘</h2>
 <pre><code>google drive
 百度云
 </code></pre>
-<h2 id="heading-6">沟通</h2>
+<h2 id="heading-5">沟通</h2>
 <pre><code>Mattermost
     # 开源
 team
@@ -302,20 +277,20 @@ hipChat
 飞书
 瀑布IM
 </code></pre>
-<h2 id="heading-7">邮件</h2>
+<h2 id="heading-6">邮件</h2>
 <pre><code>gmail
 阿里云邮箱
 腾讯企业邮
 zoho
 网易企业邮
 </code></pre>
-<h2 id="heading-8">原型</h2>
+<h2 id="heading-7">原型</h2>
 <pre><code>zeplin
     # 设计和前端协同工具
 蓝湖
     # 免费
 </code></pre>
-<h2 id="heading-9">团队协作</h2>
+<h2 id="heading-8">团队协作</h2>
 <pre><code>jira
     # 进度管理跟踪, 敏捷开发
 microsoft Project
@@ -359,7 +334,7 @@ peerProject
 trello
     # 进度管理
 </code></pre>
-<h2 id="heading-10">代码管理</h2>
+<h2 id="heading-9">代码管理</h2>
 <pre><code>github
 gitee
 coding
@@ -370,30 +345,30 @@ gitlab
 gogs
     # 开源
 </code></pre>
-<h2 id="heading-11">测试</h2>
+<h2 id="heading-10">测试</h2>
 <pre><code>semaphore
 codeClimate
 </code></pre>
-<h2 id="heading-12">文档</h2>
+<h2 id="heading-11">文档</h2>
 <pre><code>swagger
 </code></pre>
-<h2 id="heading-13">镜像</h2>
+<h2 id="heading-12">镜像</h2>
 <pre><code>harbor
 nexus
 </code></pre>
-<h2 id="heading-14">部署</h2>
+<h2 id="heading-13">部署</h2>
 <pre><code>drone
 Travis-CI
 CircleCI
 GitLab-CI
 </code></pre>
-<h2 id="heading-15">集群</h2>
+<h2 id="heading-14">集群</h2>
 <pre><code>kuboard
 prometheus
 grafana
 zabbix
 </code></pre>
-<h2 id="heading-16">日志</h2>
+<h2 id="heading-15">日志</h2>
 <pre><code>ElasticStack</code></pre>
 </article>
 
@@ -404,9 +379,9 @@ zabbix
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>May 13, 2020</span>
+      <span>Jul 3, 2020</span>
     </a>
   </div>
   
@@ -439,20 +414,19 @@ zabbix
     </li>
     <li><a href="#heading-2">工具</a>
       <ul>
-        <li><a href="#heading-3">在线</a></li>
-        <li><a href="#heading-4">知识库</a></li>
-        <li><a href="#heading-5">网盘</a></li>
-        <li><a href="#heading-6">沟通</a></li>
-        <li><a href="#heading-7">邮件</a></li>
-        <li><a href="#heading-8">原型</a></li>
-        <li><a href="#heading-9">团队协作</a></li>
-        <li><a href="#heading-10">代码管理</a></li>
-        <li><a href="#heading-11">测试</a></li>
-        <li><a href="#heading-12">文档</a></li>
-        <li><a href="#heading-13">镜像</a></li>
-        <li><a href="#heading-14">部署</a></li>
-        <li><a href="#heading-15">集群</a></li>
-        <li><a href="#heading-16">日志</a></li>
+        <li><a href="#heading-3">知识库</a></li>
+        <li><a href="#heading-4">网盘</a></li>
+        <li><a href="#heading-5">沟通</a></li>
+        <li><a href="#heading-6">邮件</a></li>
+        <li><a href="#heading-7">原型</a></li>
+        <li><a href="#heading-8">团队协作</a></li>
+        <li><a href="#heading-9">代码管理</a></li>
+        <li><a href="#heading-10">测试</a></li>
+        <li><a href="#heading-11">文档</a></li>
+        <li><a href="#heading-12">镜像</a></li>
+        <li><a href="#heading-13">部署</a></li>
+        <li><a href="#heading-14">集群</a></li>
+        <li><a href="#heading-15">日志</a></li>
       </ul>
     </li>
   </ul>

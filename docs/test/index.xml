@@ -9,5 +9,14 @@
 	<atom:link href="https://example.com/docs/test/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>程序调试</title>
+      <link>https://example.com/docs/test/debug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/test/debug/</guid>
+      <description>分析方向 cpu 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数  内存 对象 对象个数、空间比例 调用栈分配比例  线程/协程 泄露 I/O阻塞 锁阻塞 channel阻塞  GC问题 少建对象  Linux time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig  Java VisualVM JProfiler # 收费, java  perfino # 监测jvm  YourKit # 收费, java, 有调用链  Spring Insight # java spring  Golang go命令 go tool pprof Xx.</description>
+    </item>
+    
   </channel>
 </rss>

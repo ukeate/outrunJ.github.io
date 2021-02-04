@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.e6187ea308ea911e6b534431a6035215c80ef5b60ba93fed826389d9dcdb35ba.js" integrity="sha256-5hh&#43;owjqkR5rU0QxpgNSFcgO9bYLqT/tgmOJ2dzbNbo="></script>
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -128,7 +128,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/mongodb">MongoDB</a></li>
 <li><a href="/docs/db/mysql">Mysql</a></li>
 <li><a href="/docs/db/oracle">Oracle</a></li>
-<li><a href="/docs/db/postgre_sql">PgSQL</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
 </ul>
 </li>
@@ -145,11 +145,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/ops/linux">Linux</a></li>
 <li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a></li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
 <li><a href="/docs/tool"><strong>图形工具</strong></a>
 <ul>
 <li><a href="/docs/tool/vim">Vim</a></li>
@@ -171,10 +176,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/app">APP</a></li>
 <li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-</ul>
-</li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
 <li><a href="/posts"><strong>博客</strong></a></li>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
 </ul>
 
 
@@ -244,7 +251,17 @@ journalctl -xeu kubelet --no-pager
 快捷键
     ctrl alt f1/f2/...
 </code></pre>
-<h1 id="heading-1">命令</h1>
+<h1 id="heading-1">网络</h1>
+<pre><code>ifconfig docker0 down
+    ifconfig docker0 up
+tcpdump -n tcp port 8383 -i lo and src host 183.14.132.117
+    -w 文件         # 文件会记录详细包
+    -c 条数
+    -n              # 不转端口成name
+    -i 网卡
+    -vvv            # 最详细输出
+</code></pre>
+<h1 id="heading-2">命令</h1>
 <pre><code>envsubst '${THREAD_NUM}' &lt; decoder.conf.template &gt; decoder.conf
 grep
     -v grep         # 过滤掉grep
@@ -277,6 +294,20 @@ su
         sudo -i su outrun
 simplehttp
     python -m SimpleHTTPServer 8080
+diff        # 改变以匹配第二个文件
+    diff -y a b
+    diff dir1 dir2
+
+    diff -uN a b &gt; b.patch
+    patch -p0 &lt; b.patch
+    patch -RE -p0 &lt; b.patch
+
+    diff -uNra a b &gt; b.patch
+    cd a
+    patch -p1  &lt; ../b.patch
+    patch -RE -p1 &lt; ../b.patch
+vimdiff a b
+rsync
 后台
     fg
     bg
@@ -303,16 +334,10 @@ simplehttp
             wget --post-data=&quot;username=u1&amp;password=asdf&quot; --save-cookies=cookie --keep-session-cookies &quot;http://www.abc.com/logging.php&quot;
             wget -x -P curSite -r -l 1 -k -L -np --load-cookies=cookie --keep-session-cookies &quot;https://www.abc.com/display/1&quot;
 </code></pre>
-<h1 id="maven">maven</h1>
-<pre><code>mvn clean package -DskipTests
-maven
-    maven helper plugin
-    打包main方法jar不能引用
-    用父项目mvn package, 如果用子项目mvn package会找不到其它子项目(not exist)
-    模块运行前mvn package
-</code></pre>
 <h1 id="docker">docker</h1>
-<pre><code>系统
+<pre><code>目录
+    /var/lib/docker
+系统
     sudo systemctl daemon-reload
     sudo systemctl restart docker
     docker build --help
@@ -358,43 +383,8 @@ registry
     docker exec -it -u root ef2 /bin/bash
     docker restart ef2
     docker logs -f -t ef2
-</code></pre>
-<h1 id="snap">snap</h1>
-<h1 id="brew">brew</h1>
-<pre><code>安装：/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install
-目录: /usr/local/Homebrew
-命令
-    brew
-        update              # 更新brew
-        search
-        install
-        remove
-        upgrade
-        tap                 # 安装扩展
-        options             # 查看安装选项
-        info
-        home                # 访问包官网
-        services
-            list            # 查看已安装
-            cleanup         # 清除无用配置
-            restart         # 重启
-</code></pre>
-<h1 id="ubuntu">ubuntu</h1>
-<pre><code>apt-cache madison nginx     # 查看仓库中所有版本
-</code></pre>
-<h1 id="centos">centos</h1>
-<pre><code>yum install epel-release
-gcc升级
-    yum -y install centos-release-scl
-    yum -y install devtoolset-6-gcc devtoolset-6-gcc-c++ devtoolset-6-binutils
-    scl enable devtoolset-6 bash
-    echo &quot;source /opt/rh/devtoolset-6/enable&quot; &gt;&gt;/etc/profile
-dnf install @development-tools
-snap info mosquitto         # 查看仓库所有版本
-</code></pre>
-<h1 id="git">git</h1>
-<pre><code>tag
-    git tag -a v1.0.1  -m 'a' e67 
+system
+    docker system prune -a
 </code></pre>
 <h1 id="kubenetes">kubenetes</h1>
 <h2 id="minikube">minikube</h2>
@@ -583,9 +573,9 @@ Other Commands:
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>May 13, 2020</span>
+      <span>Feb 4, 2021</span>
     </a>
   </div>
   
@@ -613,14 +603,9 @@ Other Commands:
   <ul>
     <li><a href="#heading">源</a></li>
     <li><a href="#linux">linux日志</a></li>
-    <li><a href="#heading-1">命令</a></li>
-    <li><a href="#maven">maven</a></li>
+    <li><a href="#heading-1">网络</a></li>
+    <li><a href="#heading-2">命令</a></li>
     <li><a href="#docker">docker</a></li>
-    <li><a href="#snap">snap</a></li>
-    <li><a href="#brew">brew</a></li>
-    <li><a href="#ubuntu">ubuntu</a></li>
-    <li><a href="#centos">centos</a></li>
-    <li><a href="#git">git</a></li>
     <li><a href="#kubenetes">kubenetes</a>
       <ul>
         <li><a href="#minikube">minikube</a></li>

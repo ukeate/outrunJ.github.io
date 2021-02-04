@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="程序调试"><meta property="og:title" content="程序调试" />
+<meta property="og:description" content="分析方向 cpu 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数  内存 对象 对象个数、空间比例 调用栈分配比例  线程/协程 泄露 I/O阻塞 锁阻塞 channel阻塞  GC问题 少建对象  Linux time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig  Java VisualVM JProfiler # 收费, java  perfino # 监测jvm  YourKit # 收费, java, 有调用链  Spring Insight # java spring  Golang go命令 go tool pprof Xx." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/test/debug/" />
+<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
+<title>程序调试 | outrun的笔记</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.26b8797f8a3beaef0b8ff0ce07014f79848163e1ef47bb5b4da1da1141a89e6b.js" integrity="sha256-Jrh5f4o76u8Lj/DOBwFPeYSBY&#43;HvR7tbTaHaEUGonms="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<ul>
+<li><a href="/docs/function_small/principle">原理</a></li>
+<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
+<li><a href="/docs/function_small/nginx">Nginx</a></li>
+<li><a href="/docs/function_small/nodejs">Node.js</a></li>
+<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
+<li><a href="/docs/function_small/spring">Spring</a></li>
+</ul>
+</li>
+<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<ul>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<ul>
+<li><a href="/docs/support_service/principle">原理</a></li>
+<li><a href="/docs/support_service/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<ul>
+<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">JQuery</a></li>
+<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/frontend/angular">Angular</a></li>
+<li><a href="/docs/frontend/react">React</a></li>
+<li><a href="/docs/frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">Linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">安全</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">Docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">Vim</a></li>
+<li><a href="/docs/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/apple">Apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>cache</strong></a>
+<ul>
+<li><a href="/docs/cache/device">设备</a></li>
+<li><a href="/docs/cache/app">APP</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/book">书</a></li>
+<li><a href="/docs/cache/manage">管理</a></li>
+<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>程序调试</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="heading">分析方向</h1>
+<h2 id="cpu">cpu</h2>
+<pre><code>方法调用
+    调用栈时长比例
+    录制时间内调用栈时长
+火焰图(graph frames)
+    宽度: 方法耗时
+    高度: 调用栈深
+    排序是按字母的，颜色是随机的
+subsecond offset heat map
+    x轴: 秒
+    y轴: 一秒内各阶段
+    z轴: 颜色深度标记events采样数
+</code></pre>
+<h2 id="heading-1">内存</h2>
+<pre><code>对象
+    对象个数、空间比例
+    调用栈分配比例
+</code></pre>
+<h2 id="heading-2">线程/协程</h2>
+<pre><code>泄露
+    I/O阻塞
+    锁阻塞
+    channel阻塞
+</code></pre>
+<h2 id="gc">GC问题</h2>
+<pre><code>少建对象
+</code></pre>
+<h1 id="linux">Linux</h1>
+<pre><code>time
+ftrace
+perf_events
+eBPF
+SystemTap
+LTTng
+ktap
+dtrace4linux
+OEL DTrace
+sysdig
+</code></pre>
+<h1 id="java">Java</h1>
+<h3 id="visualvm">VisualVM</h3>
+<h3 id="jprofiler">JProfiler</h3>
+<pre><code># 收费, java
+</code></pre>
+<h3 id="perfino">perfino</h3>
+<pre><code># 监测jvm
+</code></pre>
+<h3 id="yourkit">YourKit</h3>
+<pre><code># 收费, java, 有调用链
+</code></pre>
+<h3 id="spring-insight">Spring Insight</h3>
+<pre><code># java spring
+</code></pre>
+<h1 id="golang">Golang</h1>
+<pre><code>go命令
+    go tool pprof Xx.bin Xx.prof
+        -inuse_space                # -inuse_space显示真正使用的内存
+        -cpuprofile=cpu.prof
+        -memprofile=mem.prof
+        -blockprofile=block.prof
+        -svg                        # 输出svg
+
+    go build
+        -toolexec=&quot;/usr/bin/time&quot;   # -toolexec在每个命令加上前缀
+        -toolexec=&quot;perf stat&quot;
+        -gcflags='-memprofile=m.p'
+        -gcflags='-traceprofile=t.p'
+
+    go test
+        -blockprofile=b.p net/http
+        -trace=t.p
+    go tool trace Xx.bin t.p
+    go-torch cpu.prof
+</code></pre>
+<p>环境变量
+GODEBUG=gctrace=1
+# 打印gc信息
+http
+import _ &ldquo;net/http/pprof&rdquo;
+func main() {
+log.Println(http.ListenAndServe(&ldquo;localhost:3999&rdquo;, nil))
+}</p>
+<pre><code>    go tool pprof http://localhost:3999/debug/pprof/profile
+    go tool pprof http://localhost:3999/debug/pprof/heap
+    go tool pprof http://localhost:3999/debug/pprof/block
+</code></pre>
+<h2 id="pprof">pprof</h2>
+</article>
+
+      <div class="book-footer justify-between">
+  
+
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Feb 4, 2021</span>
+    </a>
+  </div>
+  
+  
+
+  
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/test/debug.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+  
+
+</div>
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">分析方向</a>
+      <ul>
+        <li><a href="#cpu">cpu</a></li>
+        <li><a href="#heading-1">内存</a></li>
+        <li><a href="#heading-2">线程/协程</a></li>
+        <li><a href="#gc">GC问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux">Linux</a></li>
+    <li><a href="#java">Java</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#visualvm">VisualVM</a></li>
+            <li><a href="#jprofiler">JProfiler</a></li>
+            <li><a href="#perfino">perfino</a></li>
+            <li><a href="#yourkit">YourKit</a></li>
+            <li><a href="#spring-insight">Spring Insight</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#golang">Golang</a>
+      <ul>
+        <li><a href="#pprof">pprof</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>

@@ -20,10 +20,10 @@
     
     <item>
       <title>Postgre SQL</title>
-      <link>https://example.com/docs/db/postgre_sql/</link>
+      <link>https://example.com/docs/db/postgresql/</link>
       <pubDate>Thu, 11 Oct 2018 15:34:29 +0800</pubDate>
       
-      <guid>https://example.com/docs/db/postgre_sql/</guid>
+      <guid>https://example.com/docs/db/postgresql/</guid>
       <description>命令 initdb # 初始化数据库 --locale en_US.UTF-8 -D &#39;data&#39; postgres # 启动数据库 -D 目录 -p 6543 pg_ctl start # 控制数据库: start, stop等 -D data -l a.log postmaster -D /data psql -d db1 -h localhost -p 5432 -U 用户名 -W # 强制要求验证密码 -f 导入sql命令文件, 或者在末尾加 &amp;lt; a.sql 来导入 -L 导出日志文件 o-&amp;gt; psql -U outrun -f pg.sql db1 # 导入数据 pg_dump # 导出数据库 -f # 指定文件 -U # 用户 -E UTF8 # 编码 -h localhost -n public # 指定schema -a # 只导数据，没有schema -F t # 压缩成tar o-&amp;gt; pg_dump -U outrun -f pg.</description>
     </item>
     

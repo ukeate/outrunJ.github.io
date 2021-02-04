@@ -11,11 +11,20 @@
     
     <item>
       <title></title>
+      <link>https://example.com/docs/cache/biz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/biz/</guid>
+      <description>名词 SCM 供应链管理(Supply Chain Management)  业务 订单 采购 单据 领域模型 领域服务 库存 生产入库 调拨 盘点 单据 领域模型 领域服务  目标 领域设计 业务库瘦身 模型 单据拆分：核减单据、非核减单据 流水拆分 核减流水: 物品、档口、批次、日期 非核减流水 周期 14个月滚动 历史单据按年拆分 实时计算框架 商户分库 冷热数据分离  分层 代码 choice-scm entity ScmParams paramScope: 1:门店 2:总部 3:系统 默认为1 tenantId service ScmParamService findScmParamsData: 获取系统配置参数 dataclean cleancenter executor Basic Business Cache MicService Retry StatusRef TenantInit event table Range TableConfig task ExecLogService NoteService Servicesdf ui web advice SetMoney schedule scm-core-domain # 领域核心, 单据 scm-core-stock # 领域核心, 库存 scm-product-base scm-product-stock </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/cache/develop/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/develop/</guid>
-      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod  hugo go install --tags extended </description>
+      <description>go go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod java -Xmx2g  hugo go install --tags extended </description>
     </item>
     
     <item>
@@ -25,6 +34,15 @@
       
       <guid>https://example.com/docs/cache/device/</guid>
       <description>phone 本质 移动 app tudo, v2rayNG 夸克, 百度地图, 支付宝 网易云音乐  ipad 本质 接现实 纸：多量，大面积 pad: 结构化，易重构 标志app notability, marginNote3, procreator  mac 本质 非编程 快捷键 divvy：control + command + v alfred：option + 空格 标志app OmniPlan, outlook DEVONagent, DEVONthink, marginNote3, xmind  pc 本质 编程  WM 桌面 全 console chromium nautilus 常切回默认 左1, 中2, 右1 左 # 资料、工具 1: vscode、blog、wiki 2: 扩展ide 3: dia 4: work display 5: virtual box 6: postman 9: chrome、console 中 # 编程 1: goland 2: intellij idea 3: webstorm 9: chrome、console 右 # 辅助 1: console 2: remote console 3: 扩展ide 5: blueberry 6: synergy 9: chrome、console  快捷键 独立 &amp;lt;M - s&amp;gt; # 帮助 &amp;lt;M - w&amp;gt; # 菜单 client &amp;lt;M - 回车&amp;gt; # 终端 &amp;lt;M - ctrl - r&amp;gt; # reload &amp;lt;M - c&amp;gt; # 自定义chromium &amp;lt;M - f&amp;gt; # 全屏 &amp;lt;M - shift - c&amp;gt; # 关闭 &amp;lt;M - 数字&amp;gt; # 切换到tag &amp;lt;M - j&amp;gt; &amp;lt;M - k&amp;gt; # 本tag切换client &amp;lt;M - 空格&amp;gt; # 变布局  端口 8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 # 同步备份 .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/cache/manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/manage/</guid>
+      <description>沟通 主动，及时 有效 负责 目的、优先级  人员 负责 有用 项目 task -&amp;gt; who -&amp;gt; done time -&amp;gt; product 团队 原型项目 -&amp;gt; 培训 -&amp;gt; 人手可用</description>
     </item>
     
     <item>
@@ -42,9 +60,32 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/work/</guid>
-      <description>mosquitto_pub -h localhost -p 1883 -t &amp;lsquo;gateway&amp;rsquo; -m &amp;lsquo;{&amp;ldquo;id&amp;rdquo;:&amp;ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&amp;rdquo;,&amp;ldquo;deviceID&amp;rdquo;:&amp;ldquo;ea1&amp;rdquo;,&amp;ldquo;status&amp;rdquo;:10,&amp;ldquo;type&amp;rdquo;:301,&amp;ldquo;kind&amp;rdquo;:0,&amp;ldquo;content&amp;rdquo;:&amp;ldquo;ewoJImhvc3QiOgl7CgkJImFyY2giOgkiQ29ydGV4LUE3IiwKCQkiaXAiOgkiMTkyLjE2OC4wLjEzMCIsCgkJIm1hYyI6CSI5YzpiNjpkMDowMDowMDowMSIsCgkJInNvZnR3YXJlIjoJIlYxLjAiLAoJCSJoYXJkd2FyZSI6CSJWMS4wIiwKCQkib3MiOgkiVGluYVYyLjIiCgl9Cn0=&amp;rdquo;}&amp;rsquo; mosquitto_pub -h localhost -p 1883 -t &amp;lsquo;gateway&amp;rsquo; -f a.json mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;gateway&amp;rsquo; -f a.json
-mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;gateway&amp;rsquo; -m &amp;lsquo;{&amp;ldquo;id&amp;rdquo;:&amp;ldquo;M4XcVGQDs1O2ZX2xX2NgDK2NdlyWPw4&amp;rdquo;,&amp;ldquo;deviceID&amp;rdquo;:&amp;ldquo;mrsipspeaker0001&amp;rdquo;,&amp;ldquo;status&amp;rdquo;:10,&amp;ldquo;type&amp;rdquo;:30300,&amp;ldquo;kind&amp;rdquo;:0}&amp;rsquo; mosquitto_pub -h 101.132.195.113 -p 32003 -t &amp;lsquo;device/mrsipspeaker0001/deliver&amp;rsquo; -f
-mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</description>
+      <description>项目结构 api: controller biz: 特异业务 manager converter core: 公用业务 model entity bo service repository common dal dataobject do dao mapper service facade dto: facade和controller用 service: 服务间api validate integration service shared dto: 项目内部公用  业务流程 积分管理(向门店加积分)
+配送流程 物品档案 配送物品关系 配送售价单 物品关系设置 其他入库 门店请购单
+订单中心 生成订单 配送订单 生成备货分拣单/审核 备货单 备货完成 分拣单 编辑 提交+校验 审核（关闭开关[配送出库单是否自动审核]）+校验, 批量审核+校验 [反审核]：不反结算 配送出库 出库（关闭开关[备货单和分拣单]） 生成发货单 反审核 发货单 验收单  配送金额 unit_price 3.925 purc_unit_num 2 tax_ratio 0.1
+cost_price(成本单价) 3 price_type 1 price_param 5.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/cache/work_code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/work_code/</guid>
+      <description>跳转点 积分类 ScmSettlementPointServiceFacade
+精度 Integer precision = paramClientService.getPricePrecision(dto.getTenantId());
+标准单位转订货单位 scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )
+物品 goodsClientService.findGoodsList
+计算类类似 DispatchOutPriceCalculator detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))
+枚举 出库状态 ScmDispatchOutStatusEnum
+tenantUtil
+命令 git update-index &amp;ndash;assume-unchanged a
+搜索词 分库 DynamicDataSource determineCurrentLookupKey
+snip org.apache.ibatis.mapping.MappedStatement#getBoundSql
+PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
+com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
+// 查属性 ServletContext sc = ContextLoader.getCurrentWebApplicationContext().getServletContext(); WebApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(sc); Environment env = (Environment) ac.getBean(&amp;ldquo;environment&amp;rdquo;); env.getProperty(&amp;ldquo;name&amp;rdquo;);
+sql UPDATE scm_out_posorderredu_detail SET bill_no = CASE bill_id &amp;lt;foreach collection=&amp;quot;list&amp;quot; item=&amp;quot;item&amp;quot; index=&amp;quot;index&amp;quot;&amp;gt; WHEN #{item.</description>
     </item>
     
     <item>
@@ -53,7 +94,16 @@ mosquitto_sub -h localhost -p 1883 -t &amp;lsquo;device/ea1&amp;rsquo;</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/app/</guid>
-      <description>趋向 本地(app) -&amp;gt; 线上(browser)  采用 工具 sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
+      <description>vim(简) 命令 vim --version # 查看插件 可视模式 o # 切换头尾 gv # 重选上次 &amp;lt;C - v&amp;gt; U/u # 转换大写/小写 替换模式 R 思想 {operator}{motion} {operator}{text-objects} operator ; , 3G */# % # 括号 `` # 跳回 &#39;&#39; # 跳回非空白 :marks ma/`a # 标记跳转 &amp;amp; # 重复substitute cc/C # 替换一行 J # 删除向下的空行 g~ # 转换大小写 # g~~ 转换一行 motion ^/$/0/&amp;lt;home&amp;gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标 f/F/t/T . K # man查询 ga # unicode码 nzz/nz- q: # 命令历史 命令模式 :3 # 跳转 :&#39;&amp;lt;,&#39;&amp;gt; # 选中内容 :/&amp;lt;html&amp;gt;/,/&amp;lt;\html&amp;gt;/ # 模式匹配范围 :h e # e的帮助 :%s///g # substitute :!</description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>https://example.com/docs/cache/book/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/book/</guid>
+      <description>《错误之书：改变你一生的9个秘密》 错误之一：活在别人为你设定的剧本里 错误之二：任由他人决定你的价值 错误之三：凡事总爱找借口 每一个借口背后都隐藏着通信成功的大门 错误之四：结交错误的朋友 远离说“不”的人、怀疑论者和负能量的人，多结交鼓励者、激励者和成功人士 错误之五：不愿走出舒适圈 胜利者其实一直在“自找苦吃”。 领袖们会不断地走出舒适圈，寻求突破。 平庸本就是享尽舒适的最终结局。 错误之六：让暂时的挫折变成永久的失败 不要让一时的现状决定 了你未来的命运。 一旦你给自己贴上负面标签，挫折就会变得异样复杂。 成功人士会将一时的失败视作能往成功之路的阶梯。 错误之七：放任自己，随波逐流 独树一帜，也就意味着不断超越自我 独树一帜既是真实的自我 错误之八：认为获得成功的途径是有限的 世上的机会是无限的，人的潜能也是无止境的。 我们唯一要担心的就是思维的限度。 错误之九：挥霍光阴，不加珍惜 每日的忧虑背后隐藏着时间的馈赠。抛开忧虑，珍惜当下。  </description>
     </item>
     
   </channel>
