@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Biz"><meta property="og:title" content="" />
-<meta property="og:description" content="名词 SCM 供应链管理(Supply Chain Management)  业务 订单 采购 单据 领域模型 领域服务 库存 生产入库 调拨 盘点 单据 领域模型 领域服务  目标 领域设计 业务库瘦身 模型 单据拆分：核减单据、非核减单据 流水拆分 核减流水: 物品、档口、批次、日期 非核减流水 周期 14个月滚动 历史单据按年拆分 实时计算框架 商户分库 冷热数据分离  分层 代码 choice-scm entity ScmParams paramScope: 1:门店 2:总部 3:系统 默认为1 tenantId service ScmParamService findScmParamsData: 获取系统配置参数 dataclean cleancenter executor Basic Business Cache MicService Retry StatusRef TenantInit event table Range TableConfig task ExecLogService NoteService Servicesdf ui web advice SetMoney schedule scm-core-domain # 领域核心, 单据 scm-core-stock # 领域核心, 库存 scm-product-base scm-product-stock " />
+<meta name="description" content="Book"><meta property="og:title" content="Book" />
+<meta property="og:description" content="《错误之书：改变你一生的9个秘密》 错误之一：活在别人为你设定的剧本里 错误之二：任由他人决定你的价值 错误之三：凡事总爱找借口 每一个借口背后都隐藏着通信成功的大门 错误之四：结交错误的朋友 远离说“不”的人、怀疑论者和负能量的人，多结交鼓励者、激励者和成功人士 错误之五：不愿走出舒适圈 胜利者其实一直在“自找苦吃”。 领袖们会不断地走出舒适圈，寻求突破。 平庸本就是享尽舒适的最终结局。 错误之六：让暂时的挫折变成永久的失败 不要让一时的现状决定 了你未来的命运。 一旦你给自己贴上负面标签，挫折就会变得异样复杂。 成功人士会将一时的失败视作能往成功之路的阶梯。 错误之七：放任自己，随波逐流 独树一帜，也就意味着不断超越自我 独树一帜既是真实的自我 错误之八：认为获得成功的途径是有限的 世上的机会是无限的，人的潜能也是无止境的。 我们唯一要担心的就是思维的限度。 错误之九：挥霍光阴，不加珍惜 每日的忧虑背后隐藏着时间的馈赠。抛开忧虑，珍惜当下。  《七个习惯》 一、主动 二、以终为始 三、第一原理 四、双赢 五、共情 六、1&#43;1&gt;2 七、更新 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/cache/biz/" />
-
-<title>Biz | outrun的笔记</title>
+<meta property="og:url" content="https://example.com/docs/misc/book/" />
+<meta property="article:modified_time" content="2021-03-12T17:11:25+08:00" />
+<title>Book | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.3742beae30aef1c6d3ebf132df35efad736b48139af63fae1e97e61c2d9ee0ae.js" integrity="sha256-N0K&#43;rjCu8cbT6/Ey3zXvrXNrSBOa9j&#43;uHpfmHC2e4K4="></script>
+<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -168,18 +168,25 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/media">媒体</a></li>
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
 </ul>
 </li>
 <li><a href="/docs/cache"><strong>cache</strong></a>
 <ul>
-<li><a href="/docs/cache/device">设备</a></li>
-<li><a href="/docs/cache/app">APP</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/book">书</a></li>
-<li><a href="/docs/cache/manage">管理</a></li>
-<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/mashibing">MCA</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a>
+<ul>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+<li><a href="/docs/template"><strong>模板配置</strong></a>
+<ul>
+<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
 </ul>
@@ -208,83 +215,42 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Biz</strong>
+  <strong>Book</strong>
 </header>
 
       
-<article class="markdown"><h1 id="heading">名词</h1>
-<pre><code>SCM
-    供应链管理(Supply Chain Management)
+<article class="markdown"><h1 id="9">《错误之书：改变你一生的9个秘密》</h1>
+<pre><code>错误之一：活在别人为你设定的剧本里
+错误之二：任由他人决定你的价值
+错误之三：凡事总爱找借口
+    每一个借口背后都隐藏着通信成功的大门
+错误之四：结交错误的朋友
+    远离说“不”的人、怀疑论者和负能量的人，多结交鼓励者、激励者和成功人士
+错误之五：不愿走出舒适圈
+    胜利者其实一直在“自找苦吃”。
+    领袖们会不断地走出舒适圈，寻求突破。
+    平庸本就是享尽舒适的最终结局。
+错误之六：让暂时的挫折变成永久的失败
+    不要让一时的现状决定 了你未来的命运。
+    一旦你给自己贴上负面标签，挫折就会变得异样复杂。
+    成功人士会将一时的失败视作能往成功之路的阶梯。
+错误之七：放任自己，随波逐流
+    独树一帜，也就意味着不断超越自我
+    独树一帜既是真实的自我
+错误之八：认为获得成功的途径是有限的
+    世上的机会是无限的，人的潜能也是无止境的。
+    我们唯一要担心的就是思维的限度。
+错误之九：挥霍光阴，不加珍惜
+    每日的忧虑背后隐藏着时间的馈赠。抛开忧虑，珍惜当下。
 </code></pre>
-<h1 id="heading-1">业务</h1>
-<pre><code>订单
-采购
-    单据
-        领域模型
-        领域服务
-库存
-    生产入库
-    调拨
-    盘点
-    单据
-        领域模型
-    领域服务
-</code></pre>
-<h1 id="heading-2">目标</h1>
-<pre><code>领域设计
-业务库瘦身
-    模型
-        单据拆分：核减单据、非核减单据
-        流水拆分
-            核减流水: 物品、档口、批次、日期
-            非核减流水
-    周期
-        14个月滚动
-        历史单据按年拆分   
-实时计算框架
-商户分库
-冷热数据分离
-</code></pre>
-<h1 id="heading-3">分层</h1>
-<h1 id="heading-4">代码</h1>
-<pre><code>choice-scm
-    entity
-        ScmParams
-            paramScope: 1:门店 2:总部  3:系统 默认为1
-                tenantId
-    service
-        ScmParamService
-            findScmParamsData: 获取系统配置参数
-        dataclean
-            cleancenter
-                executor
-                    Basic
-                    Business
-                    Cache
-                    MicService
-                    Retry
-                    StatusRef
-                    TenantInit
-                event
-            table
-                Range
-                TableConfig
-            task
-                ExecLogService
-                NoteService
-                Servicesdf
-
-            ui
-    web
-        advice
-            SetMoney
-    schedule
-
-
-scm-core-domain                 # 领域核心, 单据
-scm-core-stock                  # 领域核心, 库存
-scm-product-base
-scm-product-stock</code></pre>
+<h1 id="heading">《七个习惯》</h1>
+<pre><code>一、主动
+二、以终为始
+三、第一原理
+四、双赢
+五、共情    
+六、1+1&gt;2
+七、更新</code></pre>
 </article>
 
       <div class="book-footer justify-between">
@@ -294,9 +260,9 @@ scm-product-stock</code></pre>
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Feb 4, 2021</span>
+      <span>Mar 12, 2021</span>
     </a>
   </div>
   
@@ -304,7 +270,7 @@ scm-product-stock</code></pre>
 
   
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cache/biz.md" target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/misc/book.md" target="_blank">
       <img src="/svg/edit.svg" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -322,11 +288,8 @@ scm-product-stock</code></pre>
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">名词</a></li>
-    <li><a href="#heading-1">业务</a></li>
-    <li><a href="#heading-2">目标</a></li>
-    <li><a href="#heading-3">分层</a></li>
-    <li><a href="#heading-4">代码</a></li>
+    <li><a href="#9">《错误之书：改变你一生的9个秘密》</a></li>
+    <li><a href="#heading">《七个习惯》</a></li>
   </ul>
 </nav>
   </aside>

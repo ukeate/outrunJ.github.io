@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>模板配置 on outrun的笔记</title>
+    <link>https://example.com/docs/template/</link>
+    <description>Recent content in 模板配置 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://example.com/docs/template/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>awesome</title>
+      <link>https://example.com/docs/template/awesome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/template/awesome/</guid>
+      <description>autorun.sh #!/usr/bin/env bash # nothing to use function run { if ! pgrep $1 ; then $@&amp;amp; fi } if randr | grep -q &#39;eDP1 connected&#39; ; then run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off fi  rc.</description>
+    </item>
+    
+    <item>
+      <title>docker模板</title>
+      <link>https://example.com/docs/template/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/template/docker/</guid>
+      <description>registry htpasswd -Bbn outrun asdf &amp;gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &amp;quot;true&amp;quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&amp;quot;insecure-registries&amp;quot;:[&amp;quot;127.0.0.1:5000&amp;quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{.</description>
+    </item>
+    
+    <item>
+      <title>linux模板</title>
+      <link>https://example.com/docs/template/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/template/linux/</guid>
+      <description>/etc/resolv.conf nameserver 114.114.114.114  /etc/X11/xorg.conf.d/70-synaptics.conf Section &amp;quot;InputClass&amp;quot; Identifier &amp;quot;touchpad&amp;quot; Driver &amp;quot;synaptics&amp;quot; MatchIsTouchpad &amp;quot;on&amp;quot; Option &amp;quot;TapButton1&amp;quot; &amp;quot;1&amp;quot; Option &amp;quot;TapButton2&amp;quot; &amp;quot;3&amp;quot; Option &amp;quot;TapButton3&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;VertEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;VertTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircularScrolling&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircScrollTrigger&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;EmulateTwoFingerMinZ&amp;quot; &amp;quot;40&amp;quot; Option &amp;quot;EmulateTwoFingerMinW&amp;quot; &amp;quot;8&amp;quot; Option &amp;quot;FingerLow&amp;quot; &amp;quot;30&amp;quot; Option &amp;quot;FingerHigh&amp;quot; &amp;quot;50&amp;quot; Option &amp;quot;MaxTapTime&amp;quot; &amp;quot;125&amp;quot; Option &amp;quot;VertScrollDelta&amp;quot; &amp;quot;-50&amp;quot; Option &amp;quot;HorizScrollDelta&amp;quot; &amp;quot;-50&amp;quot; EndSection  /etc/systemd/system/docker.service.d/http-proxy.conf Environment=&amp;quot;HTTP_PROXY=http://127.0.0.1:8123&amp;quot; &amp;quot;HTTPS_PROXY=http://127.0.0.1:8123&amp;quot; &amp;quot;NO_PROXY=192.168.1.1,localhost&amp;quot;  ~/scripts/work/app/set-brightness #!/usr/bin/expect -f spawn sudo vim /sys/class/backlight/intel_backlight/brightness expect &amp;quot;*password*&amp;quot; send -- &amp;quot;\r&amp;quot; interact  </description>
+    </item>
+    
+  </channel>
+</rss>

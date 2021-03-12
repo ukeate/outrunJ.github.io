@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="App"><meta property="og:title" content="App" />
-<meta property="og:description" content="vim(简) 命令 vim --version # 查看插件 可视模式 o # 切换头尾 gv # 重选上次 &lt;C - v&gt; U/u # 转换大写/小写 替换模式 R 思想 {operator}{motion} {operator}{text-objects} operator ; , 3G */# % # 括号 `` # 跳回 &#39;&#39; # 跳回非空白 :marks ma/`a # 标记跳转 &amp; # 重复substitute cc/C # 替换一行 J # 删除向下的空行 g~ # 转换大小写 # g~~ 转换一行 motion ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标 f/F/t/T . K # man查询 ga # unicode码 nzz/nz- q: # 命令历史 命令模式 :3 # 跳转 :&#39;&lt;,&#39;&gt; # 选中内容 :/&lt;html&gt;/,/&lt;\html&gt;/ # 模式匹配范围 :h e # e的帮助 :%s///g # substitute :!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/cache/app/" />
-<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
-<title>App | outrun的笔记</title>
+<meta name="description" content="模板配置"><meta property="og:title" content="模板配置" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.com/docs/template/" />
+
+<title>模板配置 | outrun的笔记</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
 
 
-<script defer src="/en.search.min.3742beae30aef1c6d3ebf132df35efad736b48139af63fae1e97e61c2d9ee0ae.js" integrity="sha256-N0K&#43;rjCu8cbT6/Ey3zXvrXNrSBOa9j&#43;uHpfmHC2e4K4="></script>
+<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,6 +29,7 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/template/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -168,18 +169,25 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/media">媒体</a></li>
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
 </ul>
 </li>
 <li><a href="/docs/cache"><strong>cache</strong></a>
 <ul>
-<li><a href="/docs/cache/device">设备</a></li>
-<li><a href="/docs/cache/app">APP</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/book">书</a></li>
-<li><a href="/docs/cache/manage">管理</a></li>
-<li><a href="/posts"><strong>博客</strong></a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/mashibing">MCA</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a>
+<ul>
 <li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+<li><a href="/docs/template"><strong>模板配置</strong></a>
+<ul>
+<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
 </ul>
@@ -208,103 +216,11 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>App</strong>
+  <strong>模板配置</strong>
 </header>
 
       
-<article class="markdown"><h1 id="vim">vim(简)</h1>
-<pre><code>命令
-    vim
-        --version   # 查看插件
-可视模式
-    o   # 切换头尾
-    gv  # 重选上次
-    &lt;C - v&gt; 
-    U/u # 转换大写/小写
-替换模式
-    R
-思想
-    {operator}{motion}
-    {operator}{text-objects}
-operator
-    ;
-    ,
-    3G
-    */#
-    %   # 括号
-    ``  # 跳回
-    ''  # 跳回非空白
-    :marks
-    ma/`a   # 标记跳转
-    &amp;   # 重复substitute
-    cc/C    # 替换一行
-    J   # 删除向下的空行 
-    g~  # 转换大小写
-        # g~~ 转换一行
-motion
-    ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标
-    f/F/t/T
-    .
-    K   # man查询
-    ga  # unicode码
-    nzz/nz-
-q:  # 命令历史
-命令模式
-    :3   # 跳转
-    :'&lt;,'&gt;   # 选中内容
-    :/&lt;html&gt;/,/&lt;\html&gt;/  # 模式匹配范围
-    :h e    # e的帮助
-    :%s///g  # substitute
-    :! command     # 执行shell命令
-                  # !! 执行前一命令
-                  # r!command 结果插入当前
-        # sh 打开sh
-        # pwd
-        # grep t *  当前文件匹配t
-        # ls
-    :normal  A;  # 普通模式下执行A,后写入分号
-shortcut key
-    &lt;C - d&gt;/u   # 滚半屏
-    &lt;C - f&gt;/b   # 滚一屏
-    &lt;C - i&gt;/o   # 下个/上个跳动位置
-    &lt;C X&gt;   # 当前单词大小写转换
-text-object
-    i&quot;  # 中间内容
-        # ' ` ( ) [ ] &lt; &gt; { }
-        # B 表示{}, t 表示 tag之间内容, w 表示word, s 表示句子, p 表示段落
-    a&quot;  # 包括外围
-registers
-    :reg    # 查看所有
-    :y a    # 复制到a寄存器
-    分类
-        &quot;&quot;  # 最后一次操作
-        &quot;0  # 最近一次复制, 排到9
-        &quot;-  # 行内删除
-        &quot;a  # a - z, A - Z
-        &quot;=  # 只读，用于执行表达式命令
-        &quot;*  # clipboard，针对选中部分(selection)
-        &quot;+  # clipboard, windows下与*同，linux X11下针对复制或剪切部分(cut buffer)
-        &quot;_  # black hole
-        &quot;/  # 最近的搜索模式
-宏
-    qaq
-    @a
-折叠
-    # ide支持不好
-对比
-    vim -d file1 file2
-        [c  # 上一个不同
-        ]c  # 下一个不同
-        dp  # 合并增加另一个
-        do  # 合并增加当前
-文件
-    # ide支持不好
-    &lt;C - w&gt; hljk
-    &lt;C - w&gt; w
-    &lt;C - w&gt; s
-    &lt;C - w&gt; v
-</code></pre>
-</article>
+<article class="markdown"></article>
 
       <div class="book-footer justify-between">
   
@@ -313,9 +229,9 @@ registers
   
   <div>
     
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
       <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Feb 4, 2021</span>
+      <span>Mar 12, 2021</span>
     </a>
   </div>
   
@@ -323,7 +239,7 @@ registers
 
   
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cache/app.md" target="_blank">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/template/_index.md" target="_blank">
       <img src="/svg/edit.svg" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -339,11 +255,7 @@ registers
   
 
   <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#vim">vim(简)</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 

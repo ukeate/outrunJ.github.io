@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="awesome"><meta property="og:title" content="awesome" />
+<meta property="og:description" content="autorun.sh #!/usr/bin/env bash # nothing to use function run { if ! pgrep $1 ; then $@&amp; fi } if randr | grep -q &#39;eDP1 connected&#39; ; then run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off fi  rc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/template/awesome/" />
+<meta property="article:modified_time" content="2021-03-12T17:11:25+08:00" />
+<title>awesome | outrun的笔记</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+
+
+<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<ul>
+<li><a href="/docs/function_small/principle">原理</a></li>
+<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
+<li><a href="/docs/function_small/nginx">Nginx</a></li>
+<li><a href="/docs/function_small/nodejs">Node.js</a></li>
+<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
+<li><a href="/docs/function_small/spring">Spring</a></li>
+</ul>
+</li>
+<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<ul>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<ul>
+<li><a href="/docs/support_service/principle">原理</a></li>
+<li><a href="/docs/support_service/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<ul>
+<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">JQuery</a></li>
+<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/frontend/angular">Angular</a></li>
+<li><a href="/docs/frontend/react">React</a></li>
+<li><a href="/docs/frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">Linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">监控</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">Docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">Vim</a></li>
+<li><a href="/docs/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/apple">Apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>cache</strong></a>
+<ul>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/mashibing">MCA</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a>
+<ul>
+<li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+<li><a href="/docs/template"><strong>模板配置</strong></a>
+<ul>
+<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/awesome">awesome</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>awesome</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="autorunsh">autorun.sh</h1>
+<pre><code>#!/usr/bin/env bash
+
+# nothing to use
+function run {
+    if ! pgrep $1 ; then
+        $@&amp;
+    fi
+}
+
+if randr | grep -q 'eDP1 connected' ; then
+    run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off
+fi
+</code></pre>
+<h1 id="rclua">rc.lua</h1>
+<pre><code>-- Standard awesome library
+local gears = require(&quot;gears&quot;)
+local awful = require(&quot;awful&quot;)
+require(&quot;awful.autofocus&quot;)
+-- Widget and layout library
+local wibox = require(&quot;wibox&quot;)
+-- Theme handling library
+local beautiful = require(&quot;beautiful&quot;)
+-- Notification library
+local naughty = require(&quot;naughty&quot;)
+local menubar = require(&quot;menubar&quot;)
+local hotkeys_popup = require(&quot;awful.hotkeys_popup&quot;).widget
+-- Enable hotkeys help widget for VIM and other apps
+-- when client with a matching name is opened:
+require(&quot;awful.hotkeys_popup.keys&quot;)
+
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                    title = &quot;Oops, there were errors during startup!&quot;,
+                    text = awesome.startup_errors })
+end
+
+-- Handle runtime errors after startup
+do
+    local in_error = false
+    awesome.connect_signal(&quot;debug::error&quot;, function (err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
+
+        naughty.notify({ preset = naughty.config.presets.critical,
+                        title = &quot;Oops, an error happened!&quot;,
+                        text = tostring(err) })
+        in_error = false
+    end)
+end
+-- }}}
+
+-- {{{ Variable definitions
+-- Themes define colours, icons, font and wallpapers.
+beautiful.init(gears.filesystem.get_themes_dir() .. &quot;zenburn/theme.lua&quot;)
+
+-- This is used later as the default terminal and editor to run.
+terminal = &quot;lxterminal&quot;
+editor = os.getenv(&quot;EDITOR&quot;) or &quot;vim&quot;
+editor_cmd = terminal .. &quot; -e &quot; .. editor
+
+-- Default modkey.
+-- Usually, Mod4 is the key with a logo between Control and Alt.
+-- If you do not like this or do not have such a key,
+-- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+-- However, you can use another modifier like Mod1, but it may interact with others.
+modkey = &quot;Mod4&quot;
+
+-- Table of layouts to cover with awful.layout.inc, order matters.
+awful.layout.layouts = {
+    -- awful.layout.suit.floating,
+    awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.corner.nw,
+    -- awful.layout.suit.corner.ne,
+    -- awful.layout.suit.corner.sw,
+    -- awful.layout.suit.corner.se,
+    awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+}
+-- }}}
+
+-- {{{ Helper functions
+local function client_menu_toggle_fn()
+    local instance = nil
+
+    return function ()
+        if instance and instance.wibox.visible then
+            instance:hide()
+            instance = nil
+        else
+            instance = awful.menu.clients({ theme = { width = 250 } })
+        end
+    end
+end
+-- }}}
+
+-- {{{ Menu
+-- Create a launcher widget and a main menu
+myawesomemenu = {
+{ &quot;hotkeys&quot;, function() return false, hotkeys_popup.show_help end},
+{ &quot;manual&quot;, terminal .. &quot; -e man awesome&quot; },
+{ &quot;edit config&quot;, editor_cmd .. &quot; &quot; .. awesome.conffile },
+{ &quot;restart&quot;, awesome.restart },
+{ &quot;quit&quot;, function() awesome.quit() end}
+}
+
+mymainmenu = awful.menu({ items = { { &quot;awesome&quot;, myawesomemenu, beautiful.awesome_icon },
+                                    { &quot;chromium&quot;, &quot;chromium&quot; },
+                                    { &quot;open terminal&quot;, terminal }
+                                }
+                        })
+
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+                                    menu = mymainmenu })
+
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- }}}
+
+-- Keyboard map indicator and switcher
+mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- {{{ Wibar
+-- Create a textclock widget
+mytextclock = wibox.widget.textclock()
+
+-- Create a wibox for each screen and add it
+local taglist_buttons = gears.table.join(
+                    awful.button({ }, 1, function(t) t:view_only() end),
+                    awful.button({ modkey }, 1, function(t)
+                                            if client.focus then
+                                                client.focus:move_to_tag(t)
+                                            end
+                                        end),
+                    awful.button({ }, 3, awful.tag.viewtoggle),
+                    awful.button({ modkey }, 3, function(t)
+                                            if client.focus then
+                                                client.focus:toggle_tag(t)
+                                            end
+                                        end),
+                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                )
+
+local tasklist_buttons = gears.table.join(
+                    awful.button({ }, 1, function (c)
+                                            if c == client.focus then
+                                                c.minimized = true
+                                            else
+                                                -- Without this, the following
+                                                -- :isvisible() makes no sense
+                                                c.minimized = false
+                                                if not c:isvisible() and c.first_tag then
+                                                    c.first_tag:view_only()
+                                                end
+                                                -- This will also un-minimize
+                                                -- the client, if needed
+                                                client.focus = c
+                                                c:raise()
+                                            end
+                                        end),
+                    awful.button({ }, 3, client_menu_toggle_fn()),
+                    awful.button({ }, 4, function ()
+                                            awful.client.focus.byidx(1)
+                                        end),
+                    awful.button({ }, 5, function ()
+                                            awful.client.focus.byidx(-1)
+                                        end))
+
+local function set_wallpaper(s)
+    -- Wallpaper
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        -- If wallpaper is a function, call it with the screen
+        if type(wallpaper) == &quot;function&quot; then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
+end
+
+-- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+screen.connect_signal(&quot;property::geometry&quot;, set_wallpaper)
+
+awful.screen.connect_for_each_screen(function(s)
+    -- Wallpaper
+    set_wallpaper(s)
+
+    -- Each screen has its own tag table.
+    awful.tag({ &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot; }, s, awful.layout.layouts[1])
+
+    -- Create a promptbox for each screen
+    s.mypromptbox = awful.widget.prompt()
+    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
+    -- We need one layoutbox per screen.
+    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox:buttons(gears.table.join(
+                        awful.button({ }, 1, function () awful.layout.inc( 1) end),
+                        awful.button({ }, 3, function () awful.layout.inc(-1) end),
+                        awful.button({ }, 4, function () awful.layout.inc( 1) end),
+                        awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+    -- Create a taglist widget
+    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
+
+    -- Create a tasklist widget
+    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+
+    -- Create the wibox
+    s.mywibox = awful.wibar({ position = &quot;top&quot;, screen = s })
+
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            mylauncher,
+            s.mytaglist,
+            s.mypromptbox,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            mykeyboardlayout,
+            wibox.widget.systray(),
+            mytextclock,
+            s.mylayoutbox,
+        },
+    }
+end)
+-- }}}
+
+-- {{{ Mouse bindings
+root.buttons(gears.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev)
+))
+-- }}}
+
+-- {{{ Key bindings
+globalkeys = gears.table.join(
+    awful.key({ modkey,           }, &quot;s&quot;,      hotkeys_popup.show_help,
+            {description=&quot;show help&quot;, group=&quot;awesome&quot;}),
+    awful.key({ modkey,           }, &quot;Left&quot;,   awful.tag.viewprev,
+            {description = &quot;view previous&quot;, group = &quot;tag&quot;}),
+    awful.key({ modkey,           }, &quot;Right&quot;,  awful.tag.viewnext,
+            {description = &quot;view next&quot;, group = &quot;tag&quot;}),
+    awful.key({ modkey,           }, &quot;Escape&quot;, awful.tag.history.restore,
+            {description = &quot;go back&quot;, group = &quot;tag&quot;}),
+
+    awful.key({ modkey,           }, &quot;j&quot;,
+        function ()
+            awful.client.focus.byidx( 1)
+        end,
+        {description = &quot;focus next by index&quot;, group = &quot;client&quot;}
+    ),
+    awful.key({ modkey,           }, &quot;k&quot;,
+        function ()
+            awful.client.focus.byidx(-1)
+        end,
+        {description = &quot;focus previous by index&quot;, group = &quot;client&quot;}
+    ),
+    awful.key({ modkey,           }, &quot;w&quot;, function () mymainmenu:show() end,
+            {description = &quot;show main menu&quot;, group = &quot;awesome&quot;}),
+
+    -- Layout manipulation
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;j&quot;, function () awful.client.swap.byidx(  1)    end,
+            {description = &quot;swap with next client by index&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;k&quot;, function () awful.client.swap.byidx( -1)    end,
+            {description = &quot;swap with previous client by index&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;j&quot;, function () awful.screen.focus_relative( 1) end,
+            {description = &quot;focus the next screen&quot;, group = &quot;screen&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;k&quot;, function () awful.screen.focus_relative(-1) end,
+            {description = &quot;focus the previous screen&quot;, group = &quot;screen&quot;}),
+    awful.key({ modkey,           }, &quot;u&quot;, awful.client.urgent.jumpto,
+            {description = &quot;jump to urgent client&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey,           }, &quot;Tab&quot;,
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end,
+        {description = &quot;go back&quot;, group = &quot;client&quot;}),
+
+    -- Standard program
+    awful.key({ modkey,           }, &quot;Return&quot;, function () awful.spawn(terminal) end,
+            {description = &quot;open a terminal&quot;, group = &quot;launcher&quot;}),
+    awful.key({ modkey,           }, &quot;c&quot;, function () awful.spawn(&quot;chromium&quot;) end,
+            {description = &quot;open a chromium&quot;, group = &quot;launcher&quot;}),
+    -- awful.key({ modkey,           }, &quot;q&quot;, function () awful.spawn(&quot;xscreensaver-command --lock&quot;) end,
+    --           {description = &quot;lock screen&quot;, group = &quot;launcher&quot;}),
+    awful.key({ modkey,           }, &quot;q&quot;, function () awful.spawn(&quot;xlock&quot;) end,
+            {description = &quot;lock screen&quot;, group = &quot;launcher&quot;}),
+    awful.key({ modkey,           }, &quot;v&quot;, function () awful.spawn(&quot;flameshot gui&quot;) end,
+            {description = &quot;screen shot&quot;, group = &quot;launcher&quot;}),
+
+    awful.key({ modkey, &quot;Control&quot; }, &quot;r&quot;, awesome.restart,
+            {description = &quot;reload awesome&quot;, group = &quot;awesome&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;q&quot;, awesome.quit,
+            {description = &quot;quit awesome&quot;, group = &quot;awesome&quot;}),
+
+    awful.key({ modkey,           }, &quot;l&quot;,     function () awful.tag.incmwfact( 0.05)          end,
+            {description = &quot;increase master width factor&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey,           }, &quot;h&quot;,     function () awful.tag.incmwfact(-0.05)          end,
+            {description = &quot;decrease master width factor&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;h&quot;,     function () awful.tag.incnmaster( 1, nil, true) end,
+            {description = &quot;increase the number of master clients&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;l&quot;,     function () awful.tag.incnmaster(-1, nil, true) end,
+            {description = &quot;decrease the number of master clients&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;h&quot;,     function () awful.tag.incncol( 1, nil, true)    end,
+            {description = &quot;increase the number of columns&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;l&quot;,     function () awful.tag.incncol(-1, nil, true)    end,
+            {description = &quot;decrease the number of columns&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey,           }, &quot;space&quot;, function () awful.layout.inc( 1)                end,
+            {description = &quot;select next&quot;, group = &quot;layout&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;space&quot;, function () awful.layout.inc(-1)                end,
+            {description = &quot;select previous&quot;, group = &quot;layout&quot;}),
+
+    awful.key({ modkey, &quot;Control&quot; }, &quot;n&quot;,
+            function ()
+                local c = awful.client.restore()
+                -- Focus restored client
+                if c then
+                    client.focus = c
+                    c:raise()
+                end
+            end,
+            {description = &quot;restore minimized&quot;, group = &quot;client&quot;}),
+
+    -- Prompt
+    awful.key({ modkey },            &quot;r&quot;,     function () awful.screen.focused().mypromptbox:run() end,
+            {description = &quot;run prompt&quot;, group = &quot;launcher&quot;}),
+    awful.key({ &quot;Mod1&quot; }, &quot;Escape&quot;, function () awful.menu.menu_keys.down = { &quot;Down&quot;, &quot;Alt_L&quot; } awful.menu.clients({theme = { width = 250 }}, { keygrabber=true, coords={x=525, y=330} }) end),
+    awful.key({ modkey }, &quot;x&quot;,
+            function ()
+                awful.prompt.run {
+                    prompt       = &quot;Run Lua code: &quot;,
+                    textbox      = awful.screen.focused().mypromptbox.widget,
+                    exe_callback = awful.util.eval,
+                    history_path = awful.util.get_cache_dir() .. &quot;/history_eval&quot;
+                }
+            end,
+            {description = &quot;lua execute prompt&quot;, group = &quot;awesome&quot;}),
+    -- Menubar
+    awful.key({ modkey }, &quot;p&quot;, function() menubar.show() end,
+            {description = &quot;show the menubar&quot;, group = &quot;launcher&quot;})
+)
+
+clientkeys = gears.table.join(
+    awful.key({ modkey,           }, &quot;f&quot;,
+        function (c)
+            c.fullscreen = not c.fullscreen
+            c:raise()
+        end,
+        {description = &quot;toggle fullscreen&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;c&quot;,      function (c) c:kill()                         end,
+            {description = &quot;close&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;space&quot;,  awful.client.floating.toggle                     ,
+            {description = &quot;toggle floating&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;Return&quot;, function (c) c:swap(awful.client.getmaster()) end,
+            {description = &quot;move to master&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey,           }, &quot;o&quot;,      function (c) c:move_to_screen()               end,
+            {description = &quot;move to screen&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey,           }, &quot;t&quot;,      function (c) c.ontop = not c.ontop            end,
+            {description = &quot;toggle keep on top&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey,           }, &quot;n&quot;,
+        function (c)
+            -- The client currently has the input focus, so it cannot be
+            -- minimized, since minimized clients can't have the focus.
+            c.minimized = true
+        end ,
+        {description = &quot;minimize&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey,           }, &quot;m&quot;,
+        function (c)
+            c.maximized = not c.maximized
+            c:raise()
+        end ,
+        {description = &quot;(un)maximize&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;m&quot;,
+        function (c)
+            c.maximized_vertical = not c.maximized_vertical
+            c:raise()
+        end ,
+        {description = &quot;(un)maximize vertically&quot;, group = &quot;client&quot;}),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;m&quot;,
+        function (c)
+            c.maximized_horizontal = not c.maximized_horizontal
+            c:raise()
+        end ,
+        {description = &quot;(un)maximize horizontally&quot;, group = &quot;client&quot;})
+)
+
+-- Bind all key numbers to tags.
+-- Be careful: we use keycodes to make it work on any keyboard layout.
+-- This should map on the top row of your keyboard, usually 1 to 9.
+for i = 1, 9 do
+    globalkeys = gears.table.join(globalkeys,
+        -- View tag only.
+        awful.key({ modkey }, &quot;#&quot; .. i + 9,
+                function ()
+                        local screen = awful.screen.focused()
+                        local tag = screen.tags[i]
+                        if tag then
+                        tag:view_only()
+                        end
+                end,
+                {description = &quot;view tag #&quot;..i, group = &quot;tag&quot;}),
+        -- Toggle tag display.
+        awful.key({ modkey, &quot;Control&quot; }, &quot;#&quot; .. i + 9,
+                function ()
+                    local screen = awful.screen.focused()
+                    local tag = screen.tags[i]
+                    if tag then
+                        awful.tag.viewtoggle(tag)
+                    end
+                end,
+                {description = &quot;toggle tag #&quot; .. i, group = &quot;tag&quot;}),
+        -- Move client to tag.
+        awful.key({ modkey, &quot;Shift&quot; }, &quot;#&quot; .. i + 9,
+                function ()
+                    if client.focus then
+                        local tag = client.focus.screen.tags[i]
+                        if tag then
+                            client.focus:move_to_tag(tag)
+                        end
+                    end
+                end,
+                {description = &quot;move focused client to tag #&quot;..i, group = &quot;tag&quot;}),
+        -- Toggle tag on focused client.
+        awful.key({ modkey, &quot;Control&quot;, &quot;Shift&quot; }, &quot;#&quot; .. i + 9,
+                function ()
+                    if client.focus then
+                        local tag = client.focus.screen.tags[i]
+                        if tag then
+                            client.focus:toggle_tag(tag)
+                        end
+                    end
+                end,
+                {description = &quot;toggle focused client on tag #&quot; .. i, group = &quot;tag&quot;})
+    )
+end
+
+clientbuttons = gears.table.join(
+    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+    awful.button({ modkey }, 1, awful.mouse.client.move),
+    awful.button({ modkey }, 3, awful.mouse.client.resize))
+
+-- Set keys
+root.keys(globalkeys)
+-- }}}
+
+-- {{{ Rules
+-- Rules to apply to new clients (through the &quot;manage&quot; signal).
+awful.rules.rules = {
+    -- All clients will match this rule.
+    { rule = { },
+    properties = { border_width = beautiful.border_width,
+                    border_color = beautiful.border_normal,
+                    focus = awful.client.focus.filter,
+                    raise = true,
+                    keys = clientkeys,
+                    buttons = clientbuttons,
+                    screen = awful.screen.preferred,
+                    placement = awful.placement.no_overlap+awful.placement.no_offscreen
+    }
+    },
+
+    -- Floating clients.
+    { rule_any = {
+        instance = {
+        &quot;DTA&quot;,  -- Firefox addon DownThemAll.
+        &quot;copyq&quot;,  -- Includes session name in class.
+        },
+        class = {
+        &quot;Arandr&quot;,
+        &quot;Gpick&quot;,
+        &quot;Kruler&quot;,
+        &quot;MessageWin&quot;,  -- kalarm.
+        &quot;Sxiv&quot;,
+        &quot;Wpa_gui&quot;,
+        &quot;pinentry&quot;,
+        &quot;veromix&quot;,
+        &quot;xtightvncviewer&quot;},
+
+        name = {
+        &quot;Event Tester&quot;,  -- xev.
+        },
+        role = {
+        &quot;AlarmWindow&quot;,  -- Thunderbird's calendar.
+        &quot;pop-up&quot;,       -- e.g. Google Chrome's (detached) Developer Tools.
+        }
+    }, properties = { floating = true }},
+
+    -- Add titlebars to normal clients and dialogs
+    { rule_any = {type = { &quot;normal&quot;, &quot;dialog&quot; }
+    }, properties = { titlebars_enabled = true }
+    },
+
+    -- Set Firefox to always map on the tag named &quot;2&quot; on screen 1.
+    -- { rule = { class = &quot;Firefox&quot; },
+    --   properties = { screen = 1, tag = &quot;2&quot; } },
+    {
+    rule = { class = &quot;Code&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;Dia&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;3&quot;, floating = true}
+    },
+
+    {
+    rule = { class = &quot;VirtualBox&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;9&quot;, floating = true}
+    },
+
+    {
+    rule = { class = &quot;Postman&quot;},
+    properties = { screen = &quot;DP2-1&quot;, tag = &quot;6&quot;, floating = true}
+    },
+
+    {
+    rule = { class = &quot;jetbrains-goland&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;1&quot;}
+    },
+
+    {
+    rule = { class = &quot;jetbrains-idea&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;2&quot;}
+    },
+
+    {
+    rule = { class = &quot;jetbrains-webstorm&quot;},
+    properties = { screen = &quot;HDMI1&quot;, tag = &quot;3&quot;}
+    },
+
+    {
+    rule = { class = &quot;VisualVM 1.4.3&quot;},
+    properties = { screen = &quot;eDP1&quot;, tag = &quot;4&quot;}
+    },
+
+    {
+    rule = { class = &quot;Blueberry.py&quot;},
+    properties = { screen = &quot;eDP1&quot;, tag = &quot;5&quot;}
+    },
+
+}
+-- }}}
+
+-- {{{ Signals
+-- Signal function to execute when a new client appears.
+client.connect_signal(&quot;manage&quot;, function (c)
+    -- Set the windows at the slave,
+    -- i.e. put it at the end of others instead of setting it master.
+    -- if not awesome.startup then awful.client.setslave(c) end
+
+    if awesome.startup and
+    not c.size_hints.user_position
+    and not c.size_hints.program_position then
+        -- Prevent clients from being unreachable after screen count changes.
+        awful.placement.no_offscreen(c)
+    end
+end)
+
+-- Add a titlebar if titlebars_enabled is set to true in the rules.
+client.connect_signal(&quot;request::titlebars&quot;, function(c)
+    -- buttons for the titlebar
+    local buttons = gears.table.join(
+        awful.button({ }, 1, function()
+            client.focus = c
+            c:raise()
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ }, 3, function()
+            client.focus = c
+            c:raise()
+            awful.mouse.client.resize(c)
+        end)
+    )
+
+    awful.titlebar(c) : setup {
+        { -- Left
+            awful.titlebar.widget.iconwidget(c),
+            buttons = buttons,
+            layout  = wibox.layout.fixed.horizontal
+        },
+        { -- Middle
+            { -- Title
+                align  = &quot;center&quot;,
+                widget = awful.titlebar.widget.titlewidget(c)
+            },
+            buttons = buttons,
+            layout  = wibox.layout.flex.horizontal
+        },
+        { -- Right
+            awful.titlebar.widget.floatingbutton (c),
+            awful.titlebar.widget.maximizedbutton(c),
+            awful.titlebar.widget.stickybutton   (c),
+            awful.titlebar.widget.ontopbutton    (c),
+            awful.titlebar.widget.closebutton    (c),
+            layout = wibox.layout.fixed.horizontal()
+        },
+        layout = wibox.layout.align.horizontal
+    }
+end)
+
+-- Enable sloppy focus, so that focus follows mouse.
+client.connect_signal(&quot;mouse::enter&quot;, function(c)
+    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+        and awful.client.focus.filter(c) then
+        client.focus = c
+    end
+end)
+
+client.connect_signal(&quot;focus&quot;, function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal(&quot;unfocus&quot;, function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+-- {{{ diy auto run
+awful.util.spawn_with_shell(&quot;~/.config/awesome/autorun.sh&quot;)
+-- }}}
+</code></pre>
+</article>
+
+      <div class="book-footer justify-between">
+  
+
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
+      <img src="/svg/calendar.svg" alt="Calendar" />
+      <span>Mar 12, 2021</span>
+    </a>
+  </div>
+  
+  
+
+  
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/template/awesome.md" target="_blank">
+      <img src="/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+  
+
+</div>
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc levels-6 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#autorunsh">autorun.sh</a></li>
+    <li><a href="#rclua">rc.lua</a></li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>
