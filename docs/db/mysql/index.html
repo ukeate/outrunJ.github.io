@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mysql"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 介绍 c&#43;&#43;编写 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 o-&gt; mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p -h127.0.0.1 -P3306 --force --all-databases # 所有库 --databases db1 db2 # 多库 o-&gt; mysqldump -uroot -p db1 tb1&gt; tb1.sql mysqladmin -uroot -p status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?" />
+<meta name="description" content="基础 #  介绍 c&#43;&#43;编写 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 o-&gt; mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p -h127.0.0.1 -P3306 --force --all-databases # 所有库 --databases db1 db2 # 多库 o-&gt; mysqldump -uroot -p db1 tb1&gt; tb1.sql mysqladmin -uroot -p status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 #  介绍 c&#43;&#43;编写 端口 3306 命令 mysql --max-relay-logs-size=300 # 中继日志大小(sql语句数) --relay-log-purge={0|1} # 中继日志自动清空 --relay-log-space-limit=0 # 限制中继日志大小,0表示无限制 o-&gt; mysql -h 127.0.0.1 -u root -p mysqldump -uroot -p -h127.0.0.1 -P3306 --force --all-databases # 所有库 --databases db1 db2 # 多库 o-&gt; mysqldump -uroot -p db1 tb1&gt; tb1.sql mysqladmin -uroot -p status # 查看当前连接数 组件 mysql enterprise monitor documentation mysql enterprise monitor connector mysql enterprise monitor service manager mysql enterprise monitor agent mysql enterprise backup mysql connector 工具 mysql database mysql cluster # 创建集群，配置复杂 mysql cluster manager # cluster帮助软件，配置简单 mysql workbench # 据库建模工具 mysql utilities # 提供一组命令行工具用于维护和管理 MySQL 服务器 连接参数 root:123456@tcp(abcdefg:3306)/meiqia?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/db/mysql/" />
+<meta property="og:url" content="https://example.com/docs/db/mysql/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-07-03T16:15:45&#43;08:00" />
 
 <title>Mysql | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,72 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Mysql</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#引擎">引擎</a></li>
+    <li><a href="#函数">函数</a></li>
+    <li><a href="#系统库数据字典">系统库/数据字典</a></li>
+    <li><a href="#触发器trigger">触发器(trigger)</a></li>
+    <li><a href="#存储过程stored-procedure">存储过程(stored procedure)</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#安全性">安全性</a></li>
+    <li><a href="#方案">方案</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>介绍
     c++编写
 端口
@@ -313,7 +371,10 @@ https://github.com/alex-shpak/hugo-book
     /var/lib/mysql              # 默认数据库
     /var/log/mariadb            # 默认日志
 </code></pre>
-<h1 id="heading-1">引擎</h1>
+<h1 id="引擎">
+  引擎
+  <a class="anchor" href="#%e5%bc%95%e6%93%8e">#</a>
+</h1>
 <pre><code>XtraDB
 Memory(Heap)
     # 之前叫Heap, 存到内存
@@ -355,7 +416,10 @@ InnoDB
     注意
         自增id最大值放在内存中，重启后会再查找。MyISAM的自增id最大值在文件中，重启不丢失。
 </code></pre>
-<h1 id="heading-2">函数</h1>
+<h1 id="函数">
+  函数
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>count(*)
 count(name)                        # 不统计null，所以不推荐，会漏数据
 sum(english)/count(*) as 英语平均分
@@ -398,7 +462,10 @@ curdate()+ 3                                # 当前日期 + 3 天
 date(str)                                        # 提取日期时间表达字符串中的日期部分
 date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
 </code></pre>
-<h1 id="heading-3">系统库/数据字典</h1>
+<h1 id="系统库数据字典">
+  系统库/数据字典
+  <a class="anchor" href="#%e7%b3%bb%e7%bb%9f%e5%ba%93%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8">#</a>
+</h1>
 <pre><code>系统库
     information_schema
         # 默认内置元信息数据库
@@ -413,7 +480,10 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     test
         # 5.7移除，内置测试数据库
 </code></pre>
-<h1 id="trigger">触发器(trigger)</h1>
+<h1 id="触发器trigger">
+  触发器(trigger)
+  <a class="anchor" href="#%e8%a7%a6%e5%8f%91%e5%99%a8trigger">#</a>
+</h1>
 <pre><code>new与old
     # 指代新数据
     insert只有new是合法的；
@@ -438,7 +508,10 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     set @new = new.s1;
     end;
 </code></pre>
-<h1 id="stored-procedure">存储过程(stored procedure)</h1>
+<h1 id="存储过程stored-procedure">
+  存储过程(stored procedure)
+  <a class="anchor" href="#%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8bstored-procedure">#</a>
+</h1>
 <pre><code># 5.0加入
 结束符号(delimiter) //
 语法
@@ -597,7 +670,10 @@ date('1997-11-12','1997-11-11')                # 前面减后面 得到天数
     end if;
     end//
 </code></pre>
-<h1 id="heading-4">配置</h1>
+<h1 id="配置">
+  配置
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae">#</a>
+</h1>
 <pre><code>o-&gt; my.cnf文件
 [client]
 
@@ -631,7 +707,10 @@ lower_case_table_names=1
 interactive_timeout=3600
 sql_mode=IGNORE_SPACE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 </code></pre>
-<h1 id="heading-5">安全性</h1>
+<h1 id="安全性">
+  安全性
+  <a class="anchor" href="#%e5%ae%89%e5%85%a8%e6%80%a7">#</a>
+</h1>
 <pre><code>跨域访问，使用ssh隧道加密通信
 set password设置密码
 用grant和revoke对用户授权
@@ -664,7 +743,10 @@ max_user_connections变量限制指定帐户连接数
         mysqladmin reload           # 运行中开启访问控制
     --skip-show-databases   # 禁止show databases
 </code></pre>
-<h1 id="heading-6">方案</h1>
+<h1 id="方案">
+  方案
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88">#</a>
+</h1>
 <pre><code>初始化
     systemctl start mariadb
     mysql_secure_installation
@@ -781,60 +863,86 @@ max_user_connections变量限制指定帐户连接数
         主A复制到主B后，主B不会把数据复制到主B的从
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 3, 2020</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/mysql.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/db/mysql.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">引擎</a></li>
-    <li><a href="#heading-2">函数</a></li>
-    <li><a href="#heading-3">系统库/数据字典</a></li>
-    <li><a href="#trigger">触发器(trigger)</a></li>
-    <li><a href="#stored-procedure">存储过程(stored procedure)</a></li>
-    <li><a href="#heading-4">配置</a></li>
-    <li><a href="#heading-5">安全性</a></li>
-    <li><a href="#heading-6">方案</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#引擎">引擎</a></li>
+    <li><a href="#函数">函数</a></li>
+    <li><a href="#系统库数据字典">系统库/数据字典</a></li>
+    <li><a href="#触发器trigger">触发器(trigger)</a></li>
+    <li><a href="#存储过程stored-procedure">存储过程(stored procedure)</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#安全性">安全性</a></li>
+    <li><a href="#方案">方案</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

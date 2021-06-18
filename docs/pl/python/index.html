@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Python"><meta property="og:title" content="Python" />
-<meta property="og:description" content="介绍 虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #! /usr/bin/python # -*- coding: utf8 -*-  语法 规范 pep8  内置函数 o-&gt; input(&quot;&quot;) # x = int(input(&quot;Please enter an integer:&quot;)) print(&quot;%s&quot;, % s1) ## %.3s % (&quot;abcdef&quot;)取3字符 ## %.* s % (2, &quot;abcd&quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.3f %-10.3F 浮点数 ## 10位宽, 小数精确3位, 右对齐 # %g %G 指数(e E)或浮点数(根据显示长度决定) # %% 字符% print(&quot;c is %s, e is %i&quot; % (c, e) str(1) int(&quot;1&quot;) range(1, 10) # range(-2, -11, -3) exec(&#39;&#39;) # 执行字符串中的代码 execfile(r&#39;a." />
+<meta name="description" content="介绍 #  虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #  #! /usr/bin/python # -*- coding: utf8 -*-  语法 #  规范 pep8  内置函数 #  o-&gt; input(&quot;&quot;) # x = int(input(&quot;Please enter an integer:&quot;)) print(&quot;%s&quot;, % s1) ## %.3s % (&quot;abcdef&quot;)取3字符 ## %.* s % (2, &quot;abcd&quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Python" />
+<meta property="og:description" content="介绍 #  虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #  #! /usr/bin/python # -*- coding: utf8 -*-  语法 #  规范 pep8  内置函数 #  o-&gt; input(&quot;&quot;) # x = int(input(&quot;Please enter an integer:&quot;)) print(&quot;%s&quot;, % s1) ## %.3s % (&quot;abcdef&quot;)取3字符 ## %.* s % (2, &quot;abcd&quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/python/" />
-<meta property="article:published_time" content="2018-10-09T16:05:05+08:00" />
-<meta property="article:modified_time" content="2019-07-02T17:39:53+08:00" />
+<meta property="og:url" content="https://example.com/docs/pl/python/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-09T16:05:05&#43;08:00" />
+<meta property="article:modified_time" content="2019-07-02T17:39:53&#43;08:00" />
+
 <title>Python | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,43 +212,100 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Python</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#shell">shell</a></li>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#内置函数">内置函数</a></li>
+        <li><a href="#类型">类型</a></li>
+        <li><a href="#语句">语句</a></li>
+        <li><a href="#函数">函数</a></li>
+        <li><a href="#oop">oop</a></li>
+        <li><a href="#模块">模块</a></li>
+        <li><a href="#异常">异常</a></li>
+      </ul>
+    </li>
+    <li><a href="#模块-1">模块</a></li>
+    <li><a href="#工具">工具</a></li>
+    <li><a href="#容器">容器</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">介绍</h1>
+      
+  <article class="markdown"><h1 id="介绍">
+  介绍
+  <a class="anchor" href="#%e4%bb%8b%e7%bb%8d">#</a>
+</h1>
 <pre><code>虚拟机语言
 虽然是脚本语言，可以预编译成pyc文件来执行
 </code></pre>
-<h1 id="shell">shell</h1>
+<h1 id="shell">
+  shell
+  <a class="anchor" href="#shell">#</a>
+</h1>
 <pre><code>#! /usr/bin/python
 # -*- coding: utf8 -*-
 </code></pre>
-<h1 id="heading-1">语法</h1>
+<h1 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h1>
 <pre><code>规范
     pep8
 </code></pre>
-<h2 id="heading-2">内置函数</h2>
+<h2 id="内置函数">
+  内置函数
+  <a class="anchor" href="#%e5%86%85%e7%bd%ae%e5%87%bd%e6%95%b0">#</a>
+</h2>
 <pre><code>o-&gt;
     input(&quot;&quot;)
         # x = int(input(&quot;Please enter an integer:&quot;))
@@ -305,7 +378,10 @@ o-&gt; 文档
     dir(list)
     help(s.replace)
 </code></pre>
-<h2 id="heading-3">类型</h2>
+<h2 id="类型">
+  类型
+  <a class="anchor" href="#%e7%b1%bb%e5%9e%8b">#</a>
+</h2>
 <pre><code>o-&gt; 基本类型
     数字
         1.2, 3+4j, Decimal, Fraction
@@ -436,7 +512,10 @@ o-&gt; 文件
     text = f.read()
         text.split()
 </code></pre>
-<h2 id="heading-4">语句</h2>
+<h2 id="语句">
+  语句
+  <a class="anchor" href="#%e8%af%ad%e5%8f%a5">#</a>
+</h2>
 <pre><code>o-&gt; 语句
     在物理行中用分号划分逻辑行
     pass
@@ -463,7 +542,10 @@ o-&gt; 循环
     while running:
     else:
 </code></pre>
-<h2 id="heading-5">函数</h2>
+<h2 id="函数">
+  函数
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0">#</a>
+</h2>
 <pre><code>函数
     def sum(a, b=2, *args, **kwargs):
             # *args得到元组, kwargs得到字典
@@ -529,7 +611,10 @@ asyncio模块
     __code__
     __annotations__
 </code></pre>
-<h2 id="oop">oop</h2>
+<h2 id="oop">
+  oop
+  <a class="anchor" href="#oop">#</a>
+</h2>
 <pre><code>class Base:
     __metaclass__ = models.SubfieldBase
         # __metaclass__实例化结果是类，用于继承
@@ -560,7 +645,10 @@ oChild.add(&quot;str1&quot;)
 oChild.data
 oChild.plus(2, 3)
 </code></pre>
-<h2 id="heading-6">模块</h2>
+<h2 id="模块">
+  模块
+  <a class="anchor" href="#%e6%a8%a1%e5%9d%97">#</a>
+</h2>
 <pre><code># .pyc是字节编译文件
 # __name__ 等于'__main__'时程序本身使用运行, 否则是引用
 
@@ -583,7 +671,10 @@ from a import add_func
     sys.path
     sys.path.append(os.getcwd() + &quot;\\parent\\child&quot;)
 </code></pre>
-<h2 id="heading-7">异常</h2>
+<h2 id="异常">
+  异常
+  <a class="anchor" href="#%e5%bc%82%e5%b8%b8">#</a>
+</h2>
 <pre><code>if s == &quot;&quot;:
     raise Exception(&quot;must not be empty.&quot;)
 try:
@@ -596,7 +687,10 @@ finally:
     print(&quot;Goodbye.&quot;)
 else:
 </code></pre>
-<h1 id="heading-8">模块</h1>
+<h1 id="模块-1">
+  模块
+  <a class="anchor" href="#%e6%a8%a1%e5%9d%97-1">#</a>
+</h1>
 <pre><code>os
 sys
     argv
@@ -692,7 +786,10 @@ fabric
 celery
     # 定时调度
 </code></pre>
-<h1 id="heading-9">工具</h1>
+<h1 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h1>
 <pre><code>steuptools
     easy_install
 pip
@@ -709,7 +806,10 @@ pdb
 cprofile
     # 性能测试
 </code></pre>
-<h1 id="heading-10">容器</h1>
+<h1 id="容器">
+  容器
+  <a class="anchor" href="#%e5%ae%b9%e5%99%a8">#</a>
+</h1>
 <pre><code>gunicorn
     # python实现
     sudo pip install gunicorn
@@ -722,67 +822,93 @@ uwsgi
 nginx
 shell</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/d77a072aab9ef6a9a141f9424c2ff3b1a22d16b6" title='Last modified by shenwenqing | Jul 2, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/d77a072aab9ef6a9a141f9424c2ff3b1a22d16b6" title='Last modified by shenwenqing | Jul 2, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 2, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/python.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/python.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">介绍</a></li>
+    <li><a href="#介绍">介绍</a></li>
     <li><a href="#shell">shell</a></li>
-    <li><a href="#heading-1">语法</a>
+    <li><a href="#语法">语法</a>
       <ul>
-        <li><a href="#heading-2">内置函数</a></li>
-        <li><a href="#heading-3">类型</a></li>
-        <li><a href="#heading-4">语句</a></li>
-        <li><a href="#heading-5">函数</a></li>
+        <li><a href="#内置函数">内置函数</a></li>
+        <li><a href="#类型">类型</a></li>
+        <li><a href="#语句">语句</a></li>
+        <li><a href="#函数">函数</a></li>
         <li><a href="#oop">oop</a></li>
-        <li><a href="#heading-6">模块</a></li>
-        <li><a href="#heading-7">异常</a></li>
+        <li><a href="#模块">模块</a></li>
+        <li><a href="#异常">异常</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">模块</a></li>
-    <li><a href="#heading-9">工具</a></li>
-    <li><a href="#heading-10">容器</a></li>
+    <li><a href="#模块-1">模块</a></li>
+    <li><a href="#工具">工具</a></li>
+    <li><a href="#容器">容器</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

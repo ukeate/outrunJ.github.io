@@ -4,18 +4,14 @@
     <title>程序语言 on outrun的笔记</title>
     <link>https://example.com/docs/pl/</link>
     <description>Recent content in 程序语言 on outrun的笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="https://example.com/docs/pl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/pl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>程序语言原理</title>
       <link>https://example.com/docs/pl/principle/</link>
       <pubDate>Wed, 10 Oct 2018 15:13:01 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/principle/</guid>
-      <description>基础 注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; # c++的语法缺陷, &amp;gt;&amp;gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin .</description>
+      <description>基础 #  注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; # c++的语法缺陷, &amp;gt;&amp;gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin .</description>
     </item>
     
     <item>
@@ -24,7 +20,7 @@
       <pubDate>Tue, 09 Oct 2018 16:54:16 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/haskell/</guid>
-      <description>介绍 源于ML 标准化的、纯函数式编程语言 非限定性语义和强静态类型 作为其他语言设计新功能时的样板，如Python的lambda标记语句  工具 检索函数用http://www.Haskell.org/hoogle  单词 polymorphism # 多态 monomorphic # 单态  风格 point free style sum&#39; xs = foldl (+) 0 xs sum&#39; = foldl (+) 0  注意 使用缩进代替括号，但也可用括号  文件扩展名 # 文件中不用let定义变量, # 变量赋值两次会报错, 这意味着代码顺序不重要 hs  内置变量 pi  模块 :m Data.Char Data.Map # 加载模块 chr # chr :: Int -&amp;gt; Char ord # ord :: Char -&amp;gt; Int toUpper toLower import Data.</description>
+      <description>介绍 #  源于ML 标准化的、纯函数式编程语言 非限定性语义和强静态类型 作为其他语言设计新功能时的样板，如Python的lambda标记语句  工具 #  检索函数用http://www.Haskell.org/hoogle  单词 #  polymorphism # 多态 monomorphic # 单态  风格 #  point free style sum&#39; xs = foldl (+) 0 xs sum&#39; = foldl (+) 0  注意 #  使用缩进代替括号，但也可用括号  文件扩展名 #  # 文件中不用let定义变量, # 变量赋值两次会报错, 这意味着代码顺序不重要 hs  内置变量 #  pi  模块 #  :m Data.Char Data.Map # 加载模块 chr # chr :: Int -&amp;gt; Char ord # ord :: Char -&amp;gt; Int toUpper toLower import Data.</description>
     </item>
     
     <item>
@@ -33,7 +29,7 @@
       <pubDate>Tue, 09 Oct 2018 16:24:04 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/elixir/</guid>
-      <description>介绍 跑在erlang虚拟机上 与erlang相同，actor称作进程, 是比线程更轻量的概念  使用 o-&amp;gt; 元组 {:foo, &amp;quot;this&amp;quot;, 42} # 三元组 o-&amp;gt; actor defmodule Talker do def loop do receive do {:greet, name, age} -&amp;gt; IO.puts(&amp;quot;Hello #{name}&amp;quot;) {:shutdown} -&amp;gt; exit(:normal) end loop end end pid = spawn(&amp;amp;Talker.loop/0) send(pid, {:greet, &amp;quot;Huey&amp;quot;, 16}) sleep(1000) Process.flag(:trap_exit, true) pid = spawn_link(&amp;amp;Takler.loop/0) send(pid, {:shutdown}) receive do {:EXIT, ^pid, reason} -&amp;gt; IO.puts(&amp;quot;Talker has exited (#{reason})&amp;quot;) end o-&amp;gt; 有状态的actor # 递归 defmodule Counter do def start(count) do spawn(__MODULE__, :loop, [count]) # 伪变量__MODULE__, 是当前模块的名字 end def next(counter) do send(counter, {:next}) end def loop(count) do receive do {:next} -&amp;gt; IO.</description>
+      <description>介绍 #  跑在erlang虚拟机上 与erlang相同，actor称作进程, 是比线程更轻量的概念  使用 #  o-&amp;gt; 元组 {:foo, &amp;quot;this&amp;quot;, 42} # 三元组 o-&amp;gt; actor defmodule Talker do def loop do receive do {:greet, name, age} -&amp;gt; IO.puts(&amp;quot;Hello #{name}&amp;quot;) {:shutdown} -&amp;gt; exit(:normal) end loop end end pid = spawn(&amp;amp;Talker.loop/0) send(pid, {:greet, &amp;quot;Huey&amp;quot;, 16}) sleep(1000) Process.flag(:trap_exit, true) pid = spawn_link(&amp;amp;Takler.loop/0) send(pid, {:shutdown}) receive do {:EXIT, ^pid, reason} -&amp;gt; IO.puts(&amp;quot;Talker has exited (#{reason})&amp;quot;) end o-&amp;gt; 有状态的actor # 递归 defmodule Counter do def start(count) do spawn(__MODULE__, :loop, [count]) # 伪变量__MODULE__, 是当前模块的名字 end def next(counter) do send(counter, {:next}) end def loop(count) do receive do {:next} -&amp;gt; IO.</description>
     </item>
     
     <item>
@@ -42,7 +38,7 @@
       <pubDate>Tue, 09 Oct 2018 16:10:44 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/go/</guid>
-      <description>基础 特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 引用包名在头 包依赖有向无环，可独立和并行编译 目标文件包含依赖包信息 强静态类型 有gc 变长栈，最小2kb, 最大1GB 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录, 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 GOOS # 指定操作系统, 如android, linux, darwin, windows GOARCH # 处理器架构，如amd64, 386, arm  命令 go help importpath # 说明 指定代码托管网站版本协议 gopath # vendor怎么使用 list # go list 说明 version env # 打印go环境信息 run # 编译并运行 -race # 检查运行中的竞态冲突并报告 build # 库被舍弃，main包编译成二进制执行文件 go build gopl.</description>
+      <description>基础 #  特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 引用包名在头 包依赖有向无环，可独立和并行编译 目标文件包含依赖包信息 强静态类型 有gc 变长栈，最小2kb, 最大1GB 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录, 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 GOOS # 指定操作系统, 如android, linux, darwin, windows GOARCH # 处理器架构，如amd64, 386, arm  命令 #  go help importpath # 说明 指定代码托管网站版本协议 gopath # vendor怎么使用 list # go list 说明 version env # 打印go环境信息 run # 编译并运行 -race # 检查运行中的竞态冲突并报告 build # 库被舍弃，main包编译成二进制执行文件 go build gopl.</description>
     </item>
     
     <item>
@@ -51,7 +47,7 @@
       <pubDate>Tue, 09 Oct 2018 16:05:05 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/python/</guid>
-      <description>介绍 虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #! /usr/bin/python # -*- coding: utf8 -*-  语法 规范 pep8  内置函数 o-&amp;gt; input(&amp;quot;&amp;quot;) # x = int(input(&amp;quot;Please enter an integer:&amp;quot;)) print(&amp;quot;%s&amp;quot;, % s1) ## %.3s % (&amp;quot;abcdef&amp;quot;)取3字符 ## %.* s % (2, &amp;quot;abcd&amp;quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.3f %-10.3F 浮点数 ## 10位宽, 小数精确3位, 右对齐 # %g %G 指数(e E)或浮点数(根据显示长度决定) # %% 字符% print(&amp;quot;c is %s, e is %i&amp;quot; % (c, e) str(1) int(&amp;quot;1&amp;quot;) range(1, 10) # range(-2, -11, -3) exec(&#39;&#39;) # 执行字符串中的代码 execfile(r&#39;a.</description>
+      <description>介绍 #  虚拟机语言 虽然是脚本语言，可以预编译成pyc文件来执行  shell #  #! /usr/bin/python # -*- coding: utf8 -*-  语法 #  规范 pep8  内置函数 #  o-&amp;gt; input(&amp;quot;&amp;quot;) # x = int(input(&amp;quot;Please enter an integer:&amp;quot;)) print(&amp;quot;%s&amp;quot;, % s1) ## %.3s % (&amp;quot;abcdef&amp;quot;)取3字符 ## %.* s % (2, &amp;quot;abcd&amp;quot;)取2字符) # %r repr()显示字符串 # %c 单个字符 # %b 二进制整数 # %x 十六进制整数 # %d 十进制整数 # %i 十进制整数 # %o 八进制整数 # %e %E 指数(基底分别为e E) # %-10.</description>
     </item>
     
     <item>
@@ -60,7 +56,7 @@
       <pubDate>Tue, 09 Oct 2018 16:00:21 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/clojure/</guid>
-      <description>介绍  是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如+是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur  语法  s-expressions (max 3 5) (+ 1 (* 2 3)) (def meaning-of-life 42) (if (&amp;lt; meaning-of-life 0) &amp;quot;negative&amp;quot; &amp;quot;non-negative&amp;quot;) (def droids [&amp;quot;Huey&amp;quot; &amp;quot;Dewey&amp;quot; &amp;quot;Louie&amp;quot;]) (count droids) (droids 0) (def me {:name &amp;quot;Paul&amp;quot; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10)  并发 o-&amp;gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap!</description>
+      <description>介绍 #   是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如+是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur  语法 #   s-expressions (max 3 5) (+ 1 (* 2 3)) (def meaning-of-life 42) (if (&amp;lt; meaning-of-life 0) &amp;quot;negative&amp;quot; &amp;quot;non-negative&amp;quot;) (def droids [&amp;quot;Huey&amp;quot; &amp;quot;Dewey&amp;quot; &amp;quot;Louie&amp;quot;]) (count droids) (droids 0) (def me {:name &amp;quot;Paul&amp;quot; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10)  并发 #  o-&amp;gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap!</description>
     </item>
     
     <item>
@@ -69,16 +65,7 @@
       <pubDate>Tue, 09 Oct 2018 10:31:30 +0800</pubDate>
       
       <guid>https://example.com/docs/pl/js/</guid>
-      <description>基础 特性 原型链, 面向对象, 动态语言(已超出脚本语言的范畴) 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义 v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化 历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript ECMAScript 3(ES3) 作为标准广泛使用 ECMAScript 5(ES5) 定义了新的语言标准 JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 JavaScript1.8 在实现es7 JavaScript解释器或引擎(engine)也有版本号 Google的叫做V8(现在是4.0) 微软改动并取名Jscript  标准 ECMAScript 6 介绍 目标是js可写 复杂的应用程序 函数库 代码自动自成器(code generator) mozilla基于ECMAScript6 发布 JavaScript2.0 V8, node.js使用 let # 块级作用域中声明变量 const # 声明常量 Set对象 # 同java Set, 是一个数组 属性 size 方法 add(value) delete(value) has(value) clear() Map对象 # 键值对，键可以是对象 使用 var m = new Map(); o = {p: &amp;quot;Helllo&amp;quot;}; m.</description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>https://example.com/docs/pl/java/</link>
-      <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/java/</guid>
-      <description>基础 历史 1991.4 Oak 1995.5 Java1.0 &amp;quot;Write Once, Run Anywhere&amp;quot; 1996.1 JDK1.0, 纯解释型JVM(Sun Classic VM), Applet, AWT 1996.5 JavaOne大会 1997.2 JDK1.1, JDBC, JAR文件格式, JavaBeans, RMI, 内部类(Inner Class), 反射(Reflection) 1998.12 JDK1.2, 分出J2SE、J2EE、J2ME。JVM内置JIT, EJB, Java Plug-in, Java IDL, Swing, Collections, strictfp关键字 1999.4 JVM HotSpot 2000.5 JDK1.3, 数学运算, Timer, JNDI成为平台服务, CORBA IIOP实现RMI, 2D API, JavaSound 2002.2 JDK1.4, 成熟版本，多公司参与。正则, 异常链, NIO, 日志类, XML, XSLT # .NET发布 2004.9 JDK1.5, 自动装箱, 泛型, 动态注解, 枚举, 变长参数, foreach, 改进内存模型JMM(Java Memory Model), concurrent包 2006.</description>
+      <description>基础 #  特性 原型链, 面向对象, 动态语言(已超出脚本语言的范畴) 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义 v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化 历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript ECMAScript 3(ES3) 作为标准广泛使用 ECMAScript 5(ES5) 定义了新的语言标准 JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 JavaScript1.8 在实现es7 JavaScript解释器或引擎(engine)也有版本号 Google的叫做V8(现在是4.0) 微软改动并取名Jscript  标准 #  ECMAScript 6 #  介绍 目标是js可写 复杂的应用程序 函数库 代码自动自成器(code generator) mozilla基于ECMAScript6 发布 JavaScript2.0 V8, node.js使用 let # 块级作用域中声明变量 const # 声明常量 Set对象 # 同java Set, 是一个数组 属性 size 方法 add(value) delete(value) has(value) clear() Map对象 # 键值对，键可以是对象 使用 var m = new Map(); o = {p: &amp;quot;Helllo&amp;quot;}; m.</description>
     </item>
     
   </channel>

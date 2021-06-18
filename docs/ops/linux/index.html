@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Linux"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;T） 70年代末：AT&amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 /var /log /boot." />
+<meta name="description" content="基础 #  历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;T） 70年代末：AT&amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 #  /var /log /boot.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 #  历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;T） 70年代末：AT&amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 #  /var /log /boot." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/ops/linux/" />
+<meta property="og:url" content="https://example.com/docs/ops/linux/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-07-03T16:15:45&#43;08:00" />
 
 <title>Linux | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,90 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Linux</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#文件位置">文件位置</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#系统编程">系统编程</a>
+      <ul>
+        <li><a href="#进程通信">进程通信</a></li>
+        <li><a href="#错误处理">错误处理</a></li>
+        <li><a href="#fork">fork</a></li>
+        <li><a href="#epoll">epoll</a></li>
+        <li><a href="#signals">signals</a></li>
+        <li><a href="#pf-kernel">pf-kernel</a></li>
+        <li><a href="#libev">libev</a></li>
+      </ul>
+    </li>
+    <li><a href="#发行版">发行版</a>
+      <ul>
+        <li><a href="#centos">centos</a></li>
+        <li><a href="#ubuntu">ubuntu</a></li>
+        <li><a href="#fedora">fedora</a></li>
+        <li><a href="#arch">arch</a></li>
+      </ul>
+    </li>
+    <li><a href="#方案">方案</a>
+      <ul>
+        <li><a href="#高并发">高并发</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>历史
     40年代：汇编语言
     60年代：汇编语言unux
@@ -255,7 +331,10 @@ https://github.com/alex-shpak/hugo-book
     LANG                                    # 语言环境
     _                                       # 查看环境变量的命令
 </code></pre>
-<h1 id="heading-1">文件位置</h1>
+<h1 id="文件位置">
+  文件位置
+  <a class="anchor" href="#%e6%96%87%e4%bb%b6%e4%bd%8d%e7%bd%ae">#</a>
+</h1>
 <pre><code>/var
     /log
         /boot.log                           # 启动日志
@@ -358,13 +437,22 @@ fstab
     wtmp            # 用户登录登出记录
     xferlog         # ftp会话
 </code></pre>
-<h1 id="heading-2">设置</h1>
+<h1 id="设置">
+  设置
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae">#</a>
+</h1>
 <pre><code>lib设置
     /etc/ld.so.conf加入so文件的配置路径如:/usr/local/lib
     执行/sbin/ldconfig -v 更新
 </code></pre>
-<h1 id="heading-3">系统编程</h1>
-<h2 id="heading-4">进程通信</h2>
+<h1 id="系统编程">
+  系统编程
+  <a class="anchor" href="#%e7%b3%bb%e7%bb%9f%e7%bc%96%e7%a8%8b">#</a>
+</h1>
+<h2 id="进程通信">
+  进程通信
+  <a class="anchor" href="#%e8%bf%9b%e7%a8%8b%e9%80%9a%e4%bf%a1">#</a>
+</h2>
 <pre><code>对象
     ipc
 种类
@@ -373,22 +461,34 @@ fstab
     信号量
 消息队列
 </code></pre>
-<h2 id="heading-5">错误处理</h2>
+<h2 id="错误处理">
+  错误处理
+  <a class="anchor" href="#%e9%94%99%e8%af%af%e5%a4%84%e7%90%86">#</a>
+</h2>
 <pre><code>curedump机制, 产生core文件
 命令
     ulimit
 目录
     /proc/[pid]/
 </code></pre>
-<h2 id="fork">fork</h2>
+<h2 id="fork">
+  fork
+  <a class="anchor" href="#fork">#</a>
+</h2>
 <pre><code>介绍
     子线程
 </code></pre>
-<h2 id="epoll">epoll</h2>
+<h2 id="epoll">
+  epoll
+  <a class="anchor" href="#epoll">#</a>
+</h2>
 <pre><code>介绍
     多路复用io接口，提高大量并发连接中只有少量活跃情况下系统cpu利用率
 </code></pre>
-<h2 id="signals">signals</h2>
+<h2 id="signals">
+  signals
+  <a class="anchor" href="#signals">#</a>
+</h2>
 <pre><code>介绍
     unix系统中出错时显示的错误码（通常是拼在最后）
     http://people.cs.pitt.edu/~alanjawi/cs449/code/shell/UnixSignals.htm
@@ -427,16 +527,25 @@ SIGWAITING	32	Ignore	All LWPs blocked
 SIGLWP	33	Ignore	Virtual Interprocessor Interrupt for Threads Library
 SIGAIO	34	Ignore	Asynchronous I/O
 </code></pre>
-<h2 id="pf-kernel">pf-kernel</h2>
+<h2 id="pf-kernel">
+  pf-kernel
+  <a class="anchor" href="#pf-kernel">#</a>
+</h2>
 <pre><code>介绍
     是linux kernel 的fork, pf代表post-factum, 是作者的nickname
 </code></pre>
-<h2 id="libev">libev</h2>
+<h2 id="libev">
+  libev
+  <a class="anchor" href="#libev">#</a>
+</h2>
 <pre><code>libevent
     介绍
         是linux kernel 的fork, pf代表post-factum, 是作者的nickname
 </code></pre>
-<h1 id="heading-6">发行版</h1>
+<h1 id="发行版">
+  发行版
+  <a class="anchor" href="#%e5%8f%91%e8%a1%8c%e7%89%88">#</a>
+</h1>
 <pre><code>lfs
 coreos
 debian
@@ -444,7 +553,10 @@ gentoo
 opensuse
 mint
 </code></pre>
-<h2 id="centos">centos</h2>
+<h2 id="centos">
+  centos
+  <a class="anchor" href="#centos">#</a>
+</h2>
 <pre><code>包
     dnf install @development-tools
     yum install epel-release
@@ -460,7 +572,10 @@ gcc升级
     scl enable devtoolset-6 bash
     echo &quot;source /opt/rh/devtoolset-6/enable&quot; &gt;&gt;/etc/profile
 </code></pre>
-<h2 id="ubuntu">ubuntu</h2>
+<h2 id="ubuntu">
+  ubuntu
+  <a class="anchor" href="#ubuntu">#</a>
+</h2>
 <pre><code>包
     apt-cache madison xxx       # 查看仓库中所有版本
     apt-cache search xxx
@@ -474,7 +589,10 @@ gcc升级
         clean                   # 删除下载的包文件
         autoclean               # 仅删除过期
 </code></pre>
-<h2 id="fedora">fedora</h2>
+<h2 id="fedora">
+  fedora
+  <a class="anchor" href="#fedora">#</a>
+</h2>
 <pre><code>升级
     fedup --network 21
     或
@@ -496,7 +614,10 @@ gnome的快捷方式存放地址
     wget http://download.opensuse.org/repositories/GNOME:/Ayatana/Fedora_17/GNOME:Ayatana.repo
     yum install unity
 </code></pre>
-<h2 id="arch">arch</h2>
+<h2 id="arch">
+  arch
+  <a class="anchor" href="#arch">#</a>
+</h2>
 <pre><code>设置
     ahci, secure boot, post behavious thorough
 源
@@ -563,8 +684,14 @@ yaourt
 字体
     wiki上找font configuration
 </code></pre>
-<h1 id="heading-7">方案</h1>
-<h2 id="heading-8">高并发</h2>
+<h1 id="方案">
+  方案
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88">#</a>
+</h1>
+<h2 id="高并发">
+  高并发
+  <a class="anchor" href="#%e9%ab%98%e5%b9%b6%e5%8f%91">#</a>
+</h2>
 <pre><code>查看当前TCP连接的状态和对应的连接数量：
     netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
         # TIME_WAIT占用端口会影响后继新连接
@@ -634,49 +761,61 @@ yaourt
         nofile=10000000         # 文件句柄数
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 3, 2020</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/linux.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/ops/linux.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">文件位置</a></li>
-    <li><a href="#heading-2">设置</a></li>
-    <li><a href="#heading-3">系统编程</a>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#文件位置">文件位置</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#系统编程">系统编程</a>
       <ul>
-        <li><a href="#heading-4">进程通信</a></li>
-        <li><a href="#heading-5">错误处理</a></li>
+        <li><a href="#进程通信">进程通信</a></li>
+        <li><a href="#错误处理">错误处理</a></li>
         <li><a href="#fork">fork</a></li>
         <li><a href="#epoll">epoll</a></li>
         <li><a href="#signals">signals</a></li>
@@ -684,7 +823,7 @@ yaourt
         <li><a href="#libev">libev</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">发行版</a>
+    <li><a href="#发行版">发行版</a>
       <ul>
         <li><a href="#centos">centos</a></li>
         <li><a href="#ubuntu">ubuntu</a></li>
@@ -692,20 +831,34 @@ yaourt
         <li><a href="#arch">arch</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">方案</a>
+    <li><a href="#方案">方案</a>
       <ul>
-        <li><a href="#heading-8">高并发</a></li>
+        <li><a href="#高并发">高并发</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="运维"><meta property="og:title" content="运维" />
+<meta name="description" content="基础 #  目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上  单机 #  系统 #  linux windows chrome os mac os fushsia # goolge os  虚拟化 #  docker vagrant # 自动化虚拟机配置 parallels desktop # 苹果 xen gnome boxes hyper-v # 微软  KVM #  介绍 kernel-based virtual machine, 使用linux自身的调度器进行管理,所以代码较少 # 又叫qemu-system或qemu-kvm 虚拟化需要硬件支持(如 intel VT技术或AMD V技术)，是基于硬件的完全虚拟化 原理 包含一个可加载的内核模块kvm.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="运维" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/docs/ops/" />
-<meta property="og:updated_time" content="2018-10-10T17:33:07+08:00" />
+
 <title>运维 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +27,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <link rel="alternate" type="application/rss+xml" href="https://example.com/docs/ops/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
@@ -38,21 +36,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +60,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +83,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +91,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +117,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +200,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +211,144 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>运维</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#单机">单机</a>
+      <ul>
+        <li><a href="#系统">系统</a></li>
+        <li><a href="#虚拟化">虚拟化</a>
+          <ul>
+            <li><a href="#kvm">KVM</a></li>
+            <li><a href="#vmware">VMware</a></li>
+            <li><a href="#virtualbox">VirtualBox</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#多机">多机</a>
+      <ul>
+        <li><a href="#自动化">自动化</a>
+          <ul>
+            <li><a href="#ansible">Ansible</a></li>
+          </ul>
+        </li>
+        <li><a href="#监控">监控</a></li>
+      </ul>
+    </li>
+    <li><a href="#资源">资源</a>
+      <ul>
+        <li><a href="#版本">版本</a>
+          <ul>
+            <li><a href="#gradle">Gradle</a></li>
+            <li><a href="#git">Git</a></li>
+            <li><a href="#svn">SVN</a></li>
+            <li><a href="#ant">Ant</a></li>
+            <li><a href="#maven">Maven</a></li>
+          </ul>
+        </li>
+        <li><a href="#代码">代码</a>
+          <ul>
+            <li><a href="#gitlab">GitLab</a></li>
+          </ul>
+        </li>
+        <li><a href="#仓库">仓库</a>
+          <ul>
+            <li><a href="#nexus">Nexus</a></li>
+            <li><a href="#jfrog">JFrog</a></li>
+          </ul>
+        </li>
+        <li><a href="#cmdb">CMDB</a>
+          <ul>
+            <li><a href="#bt-panel">Bt-Panel</a></li>
+            <li><a href="#jumpserver">JumpServer</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#功能">功能</a>
+      <ul>
+        <li><a href="#认证">认证</a>
+          <ul>
+            <li><a href="#sshsecure-shell">SSH（Secure Shell）</a></li>
+            <li><a href="#openvpn">OpenVPN</a></li>
+            <li><a href="#shadowsocks">Shadowsocks</a></li>
+            <li><a href="#opendj">OpenDJ</a></li>
+            <li><a href="#openssl">OpenSSL</a></li>
+          </ul>
+        </li>
+        <li><a href="#应用控制">应用控制</a>
+          <ul>
+            <li><a href="#forever">Forever</a></li>
+            <li><a href="#supervisor">Supervisor</a></li>
+            <li><a href="#pm2">PM2</a></li>
+          </ul>
+        </li>
+        <li><a href="#个人操作">个人操作</a>
+          <ul>
+            <li><a href="#ngrok">Ngrok</a></li>
+            <li><a href="#vsftp">VSFTP</a></li>
+            <li><a href="#simplehttpserver">SimpleHTTPServer</a></li>
+          </ul>
+        </li>
+        <li><a href="#pyshark">Pyshark</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>目标
     安全性
         账号管理
@@ -243,8 +371,14 @@ https://github.com/alex-shpak/hugo-book
 工作方式
     邮件申请开通 LDAP, VPN, 测试, 线上
 </code></pre>
-<h1 id="heading-1">单机</h1>
-<h2 id="heading-2">系统</h2>
+<h1 id="单机">
+  单机
+  <a class="anchor" href="#%e5%8d%95%e6%9c%ba">#</a>
+</h1>
+<h2 id="系统">
+  系统
+  <a class="anchor" href="#%e7%b3%bb%e7%bb%9f">#</a>
+</h2>
 <pre><code>linux
 windows
 chrome os
@@ -252,7 +386,10 @@ mac os
 fushsia
     # goolge os
 </code></pre>
-<h2 id="heading-3">虚拟化</h2>
+<h2 id="虚拟化">
+  虚拟化
+  <a class="anchor" href="#%e8%99%9a%e6%8b%9f%e5%8c%96">#</a>
+</h2>
 <pre><code>docker
 vagrant
     # 自动化虚拟机配置
@@ -263,7 +400,10 @@ gnome boxes
 hyper-v
     # 微软
 </code></pre>
-<h3 id="kvm">KVM</h3>
+<h3 id="kvm">
+  KVM
+  <a class="anchor" href="#kvm">#</a>
+</h3>
 <pre><code>介绍
     kernel-based virtual machine, 使用linux自身的调度器进行管理,所以代码较少
         # 又叫qemu-system或qemu-kvm
@@ -274,7 +414,10 @@ hyper-v
     检查系统是否支持硬件虚拟化
         egrep '(vmx|svm)' --color=always /proc/cpuinfo
 </code></pre>
-<h3 id="vmware">VMware</h3>
+<h3 id="vmware">
+  VMware
+  <a class="anchor" href="#vmware">#</a>
+</h3>
 <pre><code>安装
     安装后会创建两个虚拟网卡
 设置
@@ -286,99 +429,102 @@ hyper-v
         nat:通过虚拟网卡连接主机，共享网络
         host-only:单机模式
 </code></pre>
-<h3 id="virtualbox">VirtualBox</h3>
+<h3 id="virtualbox">
+  VirtualBox
+  <a class="anchor" href="#virtualbox">#</a>
+</h3>
 <pre><code>网络连接
 </code></pre>
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="left">NAT</th>
-<th align="left">Bridged Adapter</th>
-<th align="left">Internal</th>
-<th align="left">Host-only Adapter</th>
+<th style="text-align:left"></th>
+<th style="text-align:left">NAT</th>
+<th style="text-align:left">Bridged Adapter</th>
+<th style="text-align:left">Internal</th>
+<th style="text-align:left">Host-only Adapter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">虚拟机-&gt;主机</td>
-<td align="left">√</td>
-<td align="left">√</td>
-<td align="left">×</td>
-<td align="left">默认不能，需设置</td>
+<td style="text-align:left">虚拟机-&gt;主机</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">默认不能，需设置</td>
 </tr>
 <tr>
-<td align="left">主机-&gt;虚拟机</td>
-<td align="left">×</td>
-<td align="left">√</td>
-<td align="left">×</td>
-<td align="left">默认不能，需设置</td>
+<td style="text-align:left">主机-&gt;虚拟机</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">默认不能，需设置</td>
 </tr>
 <tr>
-<td align="left">虚拟机-&gt;其他主机</td>
-<td align="left">√</td>
-<td align="left">√</td>
-<td align="left">×</td>
-<td align="left">默认不能，需设置</td>
+<td style="text-align:left">虚拟机-&gt;其他主机</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">默认不能，需设置</td>
 </tr>
 <tr>
-<td align="left">其他主机-&gt;虚拟机</td>
-<td align="left">×</td>
-<td align="left">√</td>
-<td align="left">×</td>
-<td align="left">默认不能，需设置</td>
+<td style="text-align:left">其他主机-&gt;虚拟机</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">默认不能，需设置</td>
 </tr>
 <tr>
-<td align="left">虚拟机间</td>
-<td align="left">×</td>
-<td align="left">√</td>
-<td align="left">同网络可以</td>
-<td align="left">√</td>
+<td style="text-align:left">虚拟机间</td>
+<td style="text-align:left">×</td>
+<td style="text-align:left">√</td>
+<td style="text-align:left">同网络可以</td>
+<td style="text-align:left">√</td>
 </tr>
 <tr>
-<td align="left">方案</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left">linux安装增强iso</td>
+<td style="text-align:left">方案</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td align="left">iso位置</td>
+<td style="text-align:left">linux安装增强iso</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td align="left">/usr/share/virtualbox</td>
+<td style="text-align:left">iso位置</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td align="left">编译环境</td>
+<td style="text-align:left">/usr/share/virtualbox</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td align="left">kernel-devel</td>
+<td style="text-align:left">编译环境</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td align="left">gcc</td>
+<td style="text-align:left">kernel-devel</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">gcc</td>
 <td></td>
 <td></td>
 <td></td>
@@ -397,8 +543,14 @@ hyper-v
         clone 时选择更新mac,并在虚拟机中网络连接设置中重写mac与ip
         配置主机间ssh免登录，远程ssh与所有主机免登录
 </code></pre>
-<h1 id="heading-4">多机</h1>
-<h2 id="heading-5">自动化</h2>
+<h1 id="多机">
+  多机
+  <a class="anchor" href="#%e5%a4%9a%e6%9c%ba">#</a>
+</h1>
+<h2 id="自动化">
+  自动化
+  <a class="anchor" href="#%e8%87%aa%e5%8a%a8%e5%8c%96">#</a>
+</h2>
 <pre><code>tty.js
     # 浏览器运行命令
 jenkins
@@ -410,7 +562,10 @@ puppet
 selenium
     # 自动化运维
 </code></pre>
-<h3 id="ansible">Ansible</h3>
+<h3 id="ansible">
+  Ansible
+  <a class="anchor" href="#ansible">#</a>
+</h3>
 <pre><code># python实现的自动化部署工具
 命令
     ansible
@@ -452,7 +607,10 @@ selenium
         o-&gt; 例子
         ansible '*' -m command -a 'uptime'
 </code></pre>
-<h2 id="heading-6">监控</h2>
+<h2 id="监控">
+  监控
+  <a class="anchor" href="#%e7%9b%91%e6%8e%a7">#</a>
+</h2>
 <pre><code>prometheus
     # 监控, go实现
 grafana
@@ -464,8 +622,14 @@ nagios
 emq
     # mqtt broker, erlang开发, 管理控制台
 </code></pre>
-<h1 id="heading-7">资源</h1>
-<h2 id="heading-8">版本</h2>
+<h1 id="资源">
+  资源
+  <a class="anchor" href="#%e8%b5%84%e6%ba%90">#</a>
+</h1>
+<h2 id="版本">
+  版本
+  <a class="anchor" href="#%e7%89%88%e6%9c%ac">#</a>
+</h2>
 <pre><code>mercurial
     # 简称hg，分布式版本控制系统，比git好
 clearQuest
@@ -478,7 +642,10 @@ bower
     # 构建前端
 redmine
 </code></pre>
-<h3 id="gradle">Gradle</h3>
+<h3 id="gradle">
+  Gradle
+  <a class="anchor" href="#gradle">#</a>
+</h3>
 <pre><code>介绍
     基于dsl(Groovy)声明项目自动化构建
 环境
@@ -517,7 +684,10 @@ redmine
         org.gradle.warning.mode=none            # 屏蔽warning
         org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 </code></pre>
-<h3 id="git">Git</h3>
+<h3 id="git">
+  Git
+  <a class="anchor" href="#git">#</a>
+</h3>
 <pre><code>目录结构
     .git
         branches
@@ -761,7 +931,10 @@ github
 插件
     octotree    # 树形显示
 </code></pre>
-<h3 id="svn">SVN</h3>
+<h3 id="svn">
+  SVN
+  <a class="anchor" href="#svn">#</a>
+</h3>
 <pre><code>linux下移植的版本控制器
 默认端口: 3690
 ## 目录结构
@@ -880,7 +1053,10 @@ github
 
     rapidsvn
 </code></pre>
-<h3 id="ant">Ant</h3>
+<h3 id="ant">
+  Ant
+  <a class="anchor" href="#ant">#</a>
+</h3>
 <pre><code>功能
     js压缩
     自动发布
@@ -897,7 +1073,10 @@ build.xml
             &lt;/target&gt;
     &lt;/project&gt;
 </code></pre>
-<h3 id="maven">Maven</h3>
+<h3 id="maven">
+  Maven
+  <a class="anchor" href="#maven">#</a>
+</h3>
 <pre><code>仓库
     mvnrepository.com
 依赖范围
@@ -1223,7 +1402,10 @@ mvn                                         # 相当于mvn compile
                 &lt;/proxy&gt;
             &lt;/proxies&gt;
 </code></pre>
-<h2 id="heading-9">代码</h2>
+<h2 id="代码">
+  代码
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81">#</a>
+</h2>
 <pre><code>github
 bitBucket
 gitee.com
@@ -1245,26 +1427,56 @@ coverity
 www.webpagetest.org
     # 测试网站性能
 </code></pre>
-<h3 id="gitlab">GitLab</h3>
-<h2 id="heading-10">仓库</h2>
-<h3 id="nexus">Nexus</h3>
+<h3 id="gitlab">
+  GitLab
+  <a class="anchor" href="#gitlab">#</a>
+</h3>
+<h2 id="仓库">
+  仓库
+  <a class="anchor" href="#%e4%bb%93%e5%ba%93">#</a>
+</h2>
+<h3 id="nexus">
+  Nexus
+  <a class="anchor" href="#nexus">#</a>
+</h3>
 <pre><code># maven, npm, go, docker, yum等
 </code></pre>
-<h3 id="jfrog">JFrog</h3>
+<h3 id="jfrog">
+  JFrog
+  <a class="anchor" href="#jfrog">#</a>
+</h3>
 <pre><code># 全语言二进制仓库
 </code></pre>
-<h2 id="cmdb">CMDB</h2>
+<h2 id="cmdb">
+  CMDB
+  <a class="anchor" href="#cmdb">#</a>
+</h2>
 <pre><code># configuration management database
 </code></pre>
-<h3 id="bt-panel">Bt-Panel</h3>
+<h3 id="bt-panel">
+  Bt-Panel
+  <a class="anchor" href="#bt-panel">#</a>
+</h3>
 <pre><code># 宝塔面板，服务器运维面板
 </code></pre>
-<h3 id="jumpserver">JumpServer</h3>
+<h3 id="jumpserver">
+  JumpServer
+  <a class="anchor" href="#jumpserver">#</a>
+</h3>
 <pre><code># 跳板机
 </code></pre>
-<h1 id="heading-11">功能</h1>
-<h2 id="heading-12">认证</h2>
-<h3 id="sshsecure-shell">SSH（Secure Shell）</h3>
+<h1 id="功能">
+  功能
+  <a class="anchor" href="#%e5%8a%9f%e8%83%bd">#</a>
+</h1>
+<h2 id="认证">
+  认证
+  <a class="anchor" href="#%e8%ae%a4%e8%af%81">#</a>
+</h2>
+<h3 id="sshsecure-shell">
+  SSH（Secure Shell）
+  <a class="anchor" href="#sshsecure-shell">#</a>
+</h3>
 <pre><code>特点
     1.加密和压缩：http与ftp都是明文传输
     2.ssh有很多子协议，实现不同功能：如sftp,scp
@@ -1307,7 +1519,10 @@ sshpass
     命令
         sshpass  -p zlycare@123 ssh zlycare@10.162.201.58
 </code></pre>
-<h3 id="openvpn">OpenVPN</h3>
+<h3 id="openvpn">
+  OpenVPN
+  <a class="anchor" href="#openvpn">#</a>
+</h3>
 <pre><code>安装
     yum install openvpn easy-rsa lzo lzo-devel openssl openssl-devel -y
     或编译安装openvpn
@@ -1495,7 +1710,10 @@ client配置
                 auth-user-pass
                 tls-auth ta.key 1
 </code></pre>
-<h3 id="shadowsocks">Shadowsocks</h3>
+<h3 id="shadowsocks">
+  Shadowsocks
+  <a class="anchor" href="#shadowsocks">#</a>
+</h3>
 <pre><code>安装
     sudo yum -y install epel-release
     sudo yum -y install python-pip
@@ -1550,12 +1768,18 @@ client配置
         export http_proxy=http://127.0.0.1:8123
         export https_proxy=http://127.0.0.1:8123
 </code></pre>
-<h3 id="opendj">OpenDJ</h3>
+<h3 id="opendj">
+  OpenDJ
+  <a class="anchor" href="#opendj">#</a>
+</h3>
 <pre><code>介绍
     open source directory services for the java platform
     LDAPv3的认证系统
 </code></pre>
-<h3 id="openssl">OpenSSL</h3>
+<h3 id="openssl">
+  OpenSSL
+  <a class="anchor" href="#openssl">#</a>
+</h3>
 <pre><code>使用
     openssl genrsa -out server.key 1024
         # 生成私钥
@@ -1571,15 +1795,24 @@ client配置
     openssl s_client -connect 127.0.0.1:8000
         # 测试证书是否正常
 </code></pre>
-<h2 id="heading-13">应用控制</h2>
-<h3 id="forever">Forever</h3>
+<h2 id="应用控制">
+  应用控制
+  <a class="anchor" href="#%e5%ba%94%e7%94%a8%e6%8e%a7%e5%88%b6">#</a>
+</h2>
+<h3 id="forever">
+  Forever
+  <a class="anchor" href="#forever">#</a>
+</h3>
 <pre><code>openvpn --config openvpn.conf
         # 连接
         ## --user outrun
         ## --auth-nocache
         # askpass pass.txt 放密码到文件
 </code></pre>
-<h3 id="supervisor">Supervisor</h3>
+<h3 id="supervisor">
+  Supervisor
+  <a class="anchor" href="#supervisor">#</a>
+</h3>
 <pre><code>介绍
     监视重启
 命令
@@ -1618,7 +1851,10 @@ client配置
         environment=ASPNETCORE_ENVIRONMENT=Production       # 环境变量
         user=root                                           # 执行的用户
 </code></pre>
-<h3 id="pm2">PM2</h3>
+<h3 id="pm2">
+  PM2
+  <a class="anchor" href="#pm2">#</a>
+</h3>
 <pre><code>介绍
     带有负载均衡功能的node应用进程管理器
     内建负载均衡(使用node cluster模块)
@@ -1635,11 +1871,20 @@ client配置
     pm2 info 1
     pm2 logs 1
 </code></pre>
-<h2 id="heading-14">个人操作</h2>
-<h3 id="ngrok">Ngrok</h3>
+<h2 id="个人操作">
+  个人操作
+  <a class="anchor" href="#%e4%b8%aa%e4%ba%ba%e6%93%8d%e4%bd%9c">#</a>
+</h2>
+<h3 id="ngrok">
+  Ngrok
+  <a class="anchor" href="#ngrok">#</a>
+</h3>
 <pre><code># 内网穿透
 </code></pre>
-<h3 id="vsftp">VSFTP</h3>
+<h3 id="vsftp">
+  VSFTP
+  <a class="anchor" href="#vsftp">#</a>
+</h3>
 <pre><code>介绍
     默认端口21
 用户
@@ -1723,55 +1968,73 @@ client配置
             注释root
     虚拟用户
 </code></pre>
-<h3 id="simplehttpserver">SimpleHTTPServer</h3>
+<h3 id="simplehttpserver">
+  SimpleHTTPServer
+  <a class="anchor" href="#simplehttpserver">#</a>
+</h3>
 <pre><code>pythom -m SimpleHTTPServer 8080
 </code></pre>
-<h2 id="pyshark">Pyshark</h2>
+<h2 id="pyshark">
+  Pyshark
+  <a class="anchor" href="#pyshark">#</a>
+</h2>
 <pre><code>介绍
     包嗅探
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 12, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/_index.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/ops/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">单机</a>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#单机">单机</a>
       <ul>
-        <li><a href="#heading-2">系统</a></li>
-        <li><a href="#heading-3">虚拟化</a>
+        <li><a href="#系统">系统</a></li>
+        <li><a href="#虚拟化">虚拟化</a>
           <ul>
             <li><a href="#kvm">KVM</a></li>
             <li><a href="#vmware">VMware</a></li>
@@ -1780,19 +2043,19 @@ client配置
         </li>
       </ul>
     </li>
-    <li><a href="#heading-4">多机</a>
+    <li><a href="#多机">多机</a>
       <ul>
-        <li><a href="#heading-5">自动化</a>
+        <li><a href="#自动化">自动化</a>
           <ul>
             <li><a href="#ansible">Ansible</a></li>
           </ul>
         </li>
-        <li><a href="#heading-6">监控</a></li>
+        <li><a href="#监控">监控</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">资源</a>
+    <li><a href="#资源">资源</a>
       <ul>
-        <li><a href="#heading-8">版本</a>
+        <li><a href="#版本">版本</a>
           <ul>
             <li><a href="#gradle">Gradle</a></li>
             <li><a href="#git">Git</a></li>
@@ -1801,12 +2064,12 @@ client配置
             <li><a href="#maven">Maven</a></li>
           </ul>
         </li>
-        <li><a href="#heading-9">代码</a>
+        <li><a href="#代码">代码</a>
           <ul>
             <li><a href="#gitlab">GitLab</a></li>
           </ul>
         </li>
-        <li><a href="#heading-10">仓库</a>
+        <li><a href="#仓库">仓库</a>
           <ul>
             <li><a href="#nexus">Nexus</a></li>
             <li><a href="#jfrog">JFrog</a></li>
@@ -1820,9 +2083,9 @@ client配置
         </li>
       </ul>
     </li>
-    <li><a href="#heading-11">功能</a>
+    <li><a href="#功能">功能</a>
       <ul>
-        <li><a href="#heading-12">认证</a>
+        <li><a href="#认证">认证</a>
           <ul>
             <li><a href="#sshsecure-shell">SSH（Secure Shell）</a></li>
             <li><a href="#openvpn">OpenVPN</a></li>
@@ -1831,14 +2094,14 @@ client配置
             <li><a href="#openssl">OpenSSL</a></li>
           </ul>
         </li>
-        <li><a href="#heading-13">应用控制</a>
+        <li><a href="#应用控制">应用控制</a>
           <ul>
             <li><a href="#forever">Forever</a></li>
             <li><a href="#supervisor">Supervisor</a></li>
             <li><a href="#pm2">PM2</a></li>
           </ul>
         </li>
-        <li><a href="#heading-14">个人操作</a>
+        <li><a href="#个人操作">个人操作</a>
           <ul>
             <li><a href="#ngrok">Ngrok</a></li>
             <li><a href="#vsftp">VSFTP</a></li>
@@ -1850,13 +2113,27 @@ client配置
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

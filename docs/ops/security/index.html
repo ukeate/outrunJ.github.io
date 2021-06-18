@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Security"><meta property="og:title" content="Security" />
-<meta property="og:description" content="基础 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr &#43;i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr &#43;i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  " />
+<meta name="description" content="基础 #  自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 #  libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr &#43;i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr &#43;i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Security" />
+<meta property="og:description" content="基础 #  自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled  病毒 #  libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr &#43;i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr &#43;i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/ops/security/" />
-<meta property="article:published_time" content="2018-10-11T18:47:57+08:00" />
-<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
+<meta property="og:url" content="https://example.com/docs/ops/security/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T18:47:57&#43;08:00" />
+<meta property="article:modified_time" content="2021-02-04T15:02:50&#43;08:00" />
+
 <title>Security | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +212,65 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Security</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#病毒">病毒</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>自变异木马
     改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理
     自删除
@@ -232,7 +282,10 @@ https://github.com/alex-shpak/hugo-book
         /etc/init.d或service --status-all
         systemctl list-unit-files | grep enabled
 </code></pre>
-<h1 id="heading-1">病毒</h1>
+<h1 id="病毒">
+  病毒
+  <a class="anchor" href="#%e7%97%85%e6%af%92">#</a>
+</h1>
 <pre><code>libudev.so                      # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务
     chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr +i /lib/
     /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除
@@ -242,53 +295,79 @@ https://github.com/alex-shpak/hugo-book
     chattr -i /lib /etc/crontab 恢复可写
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/security.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/ops/security.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">病毒</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#病毒">病毒</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

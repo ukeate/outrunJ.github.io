@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Threejs"><meta property="og:title" content="Threejs" />
-<meta property="og:description" content="介绍 协调程序加载项的类库  使用 var preload = new createjs.LoadQueue(false, &quot;assets/&quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&quot;image&quot;], callback: function(src){ var id = src.toLowerCase().split(&quot;/&quot;).pop().split(&quot;.&quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &quot;Autumn.png&quot;, &quot;BlueBird.png&quot;, &quot;Nepal.jpg&quot;, &quot;Texas.jpg&quot; ]);  api 涉及dom 属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls.handleResize(); } 三大组件 场景(scene) var scene = new THREE." />
+<meta name="description" content="介绍 #  协调程序加载项的类库  使用 #  var preload = new createjs.LoadQueue(false, &quot;assets/&quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&quot;image&quot;], callback: function(src){ var id = src.toLowerCase().split(&quot;/&quot;).pop().split(&quot;.&quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &quot;Autumn.png&quot;, &quot;BlueBird.png&quot;, &quot;Nepal.jpg&quot;, &quot;Texas.jpg&quot; ]);  api #  涉及dom #  属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Threejs" />
+<meta property="og:description" content="介绍 #  协调程序加载项的类库  使用 #  var preload = new createjs.LoadQueue(false, &quot;assets/&quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&quot;image&quot;], callback: function(src){ var id = src.toLowerCase().split(&quot;/&quot;).pop().split(&quot;.&quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &quot;Autumn.png&quot;, &quot;BlueBird.png&quot;, &quot;Nepal.jpg&quot;, &quot;Texas.jpg&quot; ]);  api #  涉及dom #  属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/frontend/threejs/" />
-<meta property="article:published_time" content="2018-10-11T07:58:16+08:00" />
-<meta property="article:modified_time" content="2019-06-17T13:24:09+08:00" />
+<meta property="og:url" content="https://example.com/docs/frontend/threejs/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T07:58:16&#43;08:00" />
+<meta property="article:modified_time" content="2019-06-17T13:24:09&#43;08:00" />
+
 <title>Threejs | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,34 +212,150 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Threejs</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#api">api</a>
+      <ul>
+        <li><a href="#涉及dom">涉及dom</a></li>
+        <li><a href="#renderer">renderer</a></li>
+        <li><a href="#camera">camera</a></li>
+        <li><a href="#scene">scene</a></li>
+        <li><a href="#light">light</a></li>
+        <li><a href="#object">object</a>
+          <ul>
+            <li><a href="#mesh">mesh</a></li>
+            <li><a href="#mesh组件">mesh组件</a></li>
+            <li><a href="#fog">fog</a></li>
+            <li><a href="#object3d">Object3D</a></li>
+            <li><a href="#ray">Ray</a></li>
+          </ul>
+        </li>
+        <li><a href="#particle">particle</a></li>
+        <li><a href="#工具">工具</a>
+          <ul>
+            <li><a href="#utils">utils</a></li>
+            <li><a href="#filter">filter</a></li>
+            <li><a href="#effect">effect</a></li>
+            <li><a href="#helper">helper</a></li>
+            <li><a href="#物件">物件</a></li>
+            <li><a href="#animationhandler">AnimationHandler</a></li>
+            <li><a href="#shader">shader</a></li>
+            <li><a href="#projector">projector</a></li>
+          </ul>
+        </li>
+        <li><a href="#扩展">扩展</a>
+          <ul>
+            <li><a href="#性能">性能</a></li>
+            <li><a href="#动画引擎">动画引擎</a></li>
+            <li><a href="#loader">Loader</a></li>
+            <li><a href="#controls">Controls</a></li>
+            <li><a href="#detector">Detector</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#着色器">着色器</a>
+      <ul>
+        <li><a href="#顶点着色器">顶点着色器</a></li>
+        <li><a href="#片元着色器">片元着色器</a></li>
+        <li><a href="#变量">变量</a></li>
+      </ul>
+    </li>
+    <li><a href="#思路">思路</a>
+      <ul>
+        <li><a href="#animate动画">animate动画</a></li>
+        <li><a href="#结构">结构</a></li>
+        <li><a href="#控制">控制</a></li>
+        <li><a href="#场景">场景</a></li>
+        <li><a href="#性能-1">性能</a></li>
+      </ul>
+    </li>
+    <li><a href="#框架">框架</a>
+      <ul>
+        <li><a href="#sim">sim</a></li>
+        <li><a href="#physijs">physi.js</a></li>
+        <li><a href="#voxeljs">voxel.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#例子来自webgl中文网">例子(来自webgl中文网)</a>
+      <ul>
+        <li><a href="#16万个三角形">16万个三角形</a></li>
+        <li><a href="#人物粒子">人物粒子</a></li>
+        <li><a href="#多视口">多视口</a></li>
+        <li><a href="#杰克与豆径">杰克与豆径</a></li>
+        <li><a href="#流动立方体">流动立方体</a></li>
+        <li><a href="#我的世界">我的世界</a></li>
+        <li><a href="#汽车换装">汽车换装</a></li>
+        <li><a href="#分形">分形</a></li>
+        <li><a href="#镜像分形">镜像分形</a></li>
+        <li><a href="#文字">文字</a></li>
+        <li><a href="#小地图">小地图</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">介绍</h1>
+      
+  <article class="markdown"><h1 id="介绍">
+  介绍
+  <a class="anchor" href="#%e4%bb%8b%e7%bb%8d">#</a>
+</h1>
 <pre><code>协调程序加载项的类库
 </code></pre>
-<h1 id="heading-1">使用</h1>
+<h1 id="使用">
+  使用
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
+</h1>
 <pre><code>var preload = new createjs.LoadQueue(false, &quot;assets/&quot;);
 var plugin= {
         getPreloadHandlers: function(){
@@ -245,8 +377,14 @@ preload.loadManifest([
         &quot;Texas.jpg&quot;
 ]);
 </code></pre>
-<h1 id="api">api</h1>
-<h2 id="dom">涉及dom</h2>
+<h1 id="api">
+  api
+  <a class="anchor" href="#api">#</a>
+</h1>
+<h2 id="涉及dom">
+  涉及dom
+  <a class="anchor" href="#%e6%b6%89%e5%8f%8adom">#</a>
+</h2>
 <pre><code>属性
         window.innerWidth
         window.innerHeight
@@ -271,7 +409,10 @@ preload.loadManifest([
 版本
     THREE.VERSION
 </code></pre>
-<h2 id="renderer">renderer</h2>
+<h2 id="renderer">
+  renderer
+  <a class="anchor" href="#renderer">#</a>
+</h2>
 <pre><code>使用
     THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);                # 透视摄像机
     camera.position.x = 0;
@@ -321,7 +462,10 @@ WebGLRenderer
             document.body.appendChild(container);
             container.appendChild(renderer.domElement);
 </code></pre>
-<h2 id="camera">camera</h2>
+<h2 id="camera">
+  camera
+  <a class="anchor" href="#camera">#</a>
+</h2>
 <pre><code>使用
     camera = new THREE.Camera(60, 1, 1, 6500);
     camera.position.z = -85;
@@ -425,13 +569,19 @@ TrackballControls   # 轨迹球相机
 FlyControls     # 飞行相机
 FirstPersonControls     # 第一人称相机
 </code></pre>
-<h2 id="scene">scene</h2>
+<h2 id="scene">
+  scene
+  <a class="anchor" href="#scene">#</a>
+</h2>
 <pre><code>使用
     scene = new THREE.Scene();  # 场景
             scene.add(meshCube);
             scene.add(light);
 </code></pre>
-<h2 id="light">light</h2>
+<h2 id="light">
+  light
+  <a class="anchor" href="#light">#</a>
+</h2>
 <pre><code>使用
     // light.position.x = x;
     light.position.set(0, 0, 300).normalize();;        
@@ -453,8 +603,14 @@ SpotLight   # 聚光灯
                 # 显现阴影，默认不显现
                 ## 显现阴影还要对renderer进行设置
 </code></pre>
-<h2 id="object">object</h2>
-<h3 id="mesh">mesh</h3>
+<h2 id="object">
+  object
+  <a class="anchor" href="#object">#</a>
+</h2>
+<h3 id="mesh">
+  mesh
+  <a class="anchor" href="#mesh">#</a>
+</h3>
 <pre><code>使用
     var mesh = THREE.Mesh(geometry, material);                                                                # mesh模型
             mesh.position.x= x;
@@ -529,8 +685,14 @@ MorphAnimMesh
                     # delta表示实际浏览器每次刷新的间隔时间
                     # 作用: 主要更新lastKeyframe
 </code></pre>
-<h3 id="mesh-1">mesh组件</h3>
-<h4 id="geometry">geometry</h4>
+<h3 id="mesh组件">
+  mesh组件
+  <a class="anchor" href="#mesh%e7%bb%84%e4%bb%b6">#</a>
+</h3>
+<h4 id="geometry">
+  geometry
+  <a class="anchor" href="#geometry">#</a>
+</h4>
 <pre><code>介绍
         geometry表示形状
 THREE.Geometry();
@@ -639,7 +801,10 @@ TextGeometry
 
     });
 </code></pre>
-<h4 id="material">material</h4>
+<h4 id="material">
+  material
+  <a class="anchor" href="#material">#</a>
+</h4>
 <pre><code>使用
     THREE.LineBasicMaterial( parameters );                                                        # 线材质
         参数
@@ -749,7 +914,10 @@ ShaderMaterial
             uniforms.time.value += 0.005
                             # 通过value改变uniforms中变量的值
 </code></pre>
-<h4 id="texture">texture</h4>
+<h4 id="texture">
+  texture
+  <a class="anchor" href="#texture">#</a>
+</h4>
 <pre><code>例子
         var geometry = new THREE.PlaneGeometry( 500, 300, 1, 1 );
         geometry.vertices[0].uv = new THREE.Vector2(0,0);
@@ -781,16 +949,25 @@ Filter
 Wrapping
     RepeatWrapping
 </code></pre>
-<h4 id="color">Color</h4>
+<h4 id="color">
+  Color
+  <a class="anchor" href="#color">#</a>
+</h4>
 <pre><code>THREE.Color()
 THREE.Color( 0x444444 );       
 </code></pre>
-<h4 id="vector3">Vector3</h4>
+<h4 id="vector3">
+  Vector3
+  <a class="anchor" href="#vector3">#</a>
+</h4>
 <pre><code>THREE.Vecotor3(4,8,9);                                                                        
 THREE.Vector3();
 point1.set(4,8,9);
 </code></pre>
-<h4 id="quaternion">Quaternion</h4>
+<h4 id="quaternion">
+  Quaternion
+  <a class="anchor" href="#quaternion">#</a>
+</h4>
 <pre><code>介绍　
         四元组
 api
@@ -809,26 +986,44 @@ api
         setFromRotationMatrix: function(m)
                 # 把矩阵转为欧拉角
 </code></pre>
-<h3 id="fog">fog</h3>
+<h3 id="fog">
+  fog
+  <a class="anchor" href="#fog">#</a>
+</h3>
 <pre><code>scene.fog = new THREE.Fog(0x999999, 0.1, 8000);
 THREE.Fog = function(hex, near, far)
     # hex为颜色, near是雾开始的地方, far是雾结束的地方
 </code></pre>
-<h3 id="object3d">Object3D</h3>
+<h3 id="object3d">
+  Object3D
+  <a class="anchor" href="#object3d">#</a>
+</h3>
 <pre><code>new THREE.Object3D();
 </code></pre>
-<h3 id="ray">Ray</h3>
+<h3 id="ray">
+  Ray
+  <a class="anchor" href="#ray">#</a>
+</h3>
 <pre><code>介绍
         一条射线
 
 ray = new THREE.Ray(camera.position);
         # 传入起点
 </code></pre>
-<h2 id="particle">particle</h2>
+<h2 id="particle">
+  particle
+  <a class="anchor" href="#particle">#</a>
+</h2>
 <pre><code>particleSystem = new THREE.ParticleSystem(particles, material);
 </code></pre>
-<h2 id="heading-2">工具</h2>
-<h3 id="utils">utils</h3>
+<h2 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h2>
+<h3 id="utils">
+  utils
+  <a class="anchor" href="#utils">#</a>
+</h3>
 <pre><code>ImageUtils
     loadTextureCube([&quot;&quot;, &quot;&quot;]);
 ShaderUtils
@@ -839,15 +1034,24 @@ GeometryUtils
     merge = function(geometry1, object2/* mesh | geometry */){ ... }
         # geometry1是合成后的对象，第二个是要合并的对象，如果是mesh，就取mesh中的geometry对象
 </code></pre>
-<h3 id="filter">filter</h3>
+<h3 id="filter">
+  filter
+  <a class="anchor" href="#filter">#</a>
+</h3>
 <pre><code>LinearFilter
 NearestFilter
 </code></pre>
-<h3 id="effect">effect</h3>
+<h3 id="effect">
+  effect
+  <a class="anchor" href="#effect">#</a>
+</h3>
 <pre><code>BloomEffect
     postBloom = new BloomEffect(renderer, renderTarget, window.innerWidth, window.innerHeight, 4);
 </code></pre>
-<h3 id="helper">helper</h3>
+<h3 id="helper">
+  helper
+  <a class="anchor" href="#helper">#</a>
+</h3>
 <pre><code>o-&gt; 辅助对象一键打开或关闭
         # 将所有辅助对象放到helps数组中
     var help = [];
@@ -909,7 +1113,10 @@ WireframeHelper
     介绍
             将模型转换为线框图
 </code></pre>
-<h3 id="heading-3">物件</h3>
+<h3 id="物件">
+  物件
+  <a class="anchor" href="#%e7%89%a9%e4%bb%b6">#</a>
+</h3>
 <pre><code>Mirror
     介绍
             模拟一个镜子, 放在那, 就反射它前面的景物
@@ -940,11 +1147,17 @@ WireframeHelper
                     # 开启调试模式会有辅助线
     );
 </code></pre>
-<h3 id="animationhandler">AnimationHandler</h3>
+<h3 id="animationhandler">
+  AnimationHandler
+  <a class="anchor" href="#animationhandler">#</a>
+</h3>
 <pre><code>介绍
         主要负责动画的插值和播放
 </code></pre>
-<h3 id="shader">shader</h3>
+<h3 id="shader">
+  shader
+  <a class="anchor" href="#shader">#</a>
+</h3>
 <pre><code>EffectComposer
     介绍
             用于渲染复杂效果, 例如将一个场景作为纹理传入, 例如用着色器将场景某部分模糊或发光处理
@@ -1007,7 +1220,10 @@ WireframeHelper
                         effectFilm.renderToScreen = true;
                         composer.addPass(effectFilm);
 </code></pre>
-<h3 id="projector">projector</h3>
+<h3 id="projector">
+  projector
+  <a class="anchor" href="#projector">#</a>
+</h3>
 <pre><code>介绍
         包含各种矩阵
         提供重要且简单的函数，进行二维和三维之间的转换
@@ -1020,9 +1236,18 @@ WireframeHelper
                 ## z 是没有意义的，通常设置为1
                 # camera是当前相机，有了相机才能计算当前投影。
 </code></pre>
-<h2 id="heading-4">扩展</h2>
-<h3 id="heading-5">性能</h3>
-<h4 id="statsjs">stats.js</h4>
+<h2 id="扩展">
+  扩展
+  <a class="anchor" href="#%e6%89%a9%e5%b1%95">#</a>
+</h2>
+<h3 id="性能">
+  性能
+  <a class="anchor" href="#%e6%80%a7%e8%83%bd">#</a>
+</h3>
+<h4 id="statsjs">
+  stats.js
+  <a class="anchor" href="#statsjs">#</a>
+</h4>
 <pre><code>官网
         https://github.com/mrdoob/stats.js 
 视图                        # 点击切换
@@ -1054,8 +1279,14 @@ WireframeHelper
         animation中
                 stats.update();
 </code></pre>
-<h3 id="heading-6">动画引擎</h3>
-<h4 id="tweenjs">tween.js</h4>
+<h3 id="动画引擎">
+  动画引擎
+  <a class="anchor" href="#%e5%8a%a8%e7%94%bb%e5%bc%95%e6%93%8e">#</a>
+</h3>
+<h4 id="tweenjs">
+  tween.js
+  <a class="anchor" href="#tweenjs">#</a>
+</h4>
 <pre><code>官网
         https://github.com/sole
 介绍
@@ -1109,7 +1340,10 @@ TWEEN.Easing
     TWEEN.Easing.Sinusoidal.EaseOut
             # Sinusoidal是正弦曲线的缓动
 </code></pre>
-<h3 id="loader">Loader</h3>
+<h3 id="loader">
+  Loader
+  <a class="anchor" href="#loader">#</a>
+</h3>
 <pre><code>VTKLoader
     var loader = new THREE.VTKLoader();
     loader.addEventListener('load', function(event){
@@ -1148,20 +1382,32 @@ SceneLoader
     介绍
             导入各物体、变换层级、材质、纹理、相机、光源的统一js文件，其中有其它js的url引用
 </code></pre>
-<h3 id="controls">Controls</h3>
+<h3 id="controls">
+  Controls
+  <a class="anchor" href="#controls">#</a>
+</h3>
 <pre><code>见Camara
 </code></pre>
-<h3 id="detector">Detector</h3>
+<h3 id="detector">
+  Detector
+  <a class="anchor" href="#detector">#</a>
+</h3>
 <pre><code>if(! Detector.webgl) Detector.addGetWebGLMessage();
 </code></pre>
-<h1 id="heading-7">命令</h1>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
 <pre><code>convert_obj_three.py
     介绍
             转换obj文件为three.js二进制文件
 
     python convert_boj_three.py -i alien2.obj -o alien2_bin.js -t binary
 </code></pre>
-<h1 id="heading-8">着色器</h1>
+<h1 id="着色器">
+  着色器
+  <a class="anchor" href="#%e7%9d%80%e8%89%b2%e5%99%a8">#</a>
+</h1>
 <pre><code>介绍
         一种二进制码，在绘制场景之前做一些事。操作在显卡中进行
         对每一个顶点或者片元执行一次着色器，这个操作并行执行
@@ -1180,7 +1426,10 @@ webgl着色器分类
                 定义屏幕中各点的颜色
                 顶点之间的颜色也被一起处理了(插值)
 </code></pre>
-<h2 id="heading-9">顶点着色器</h2>
+<h2 id="顶点着色器">
+  顶点着色器
+  <a class="anchor" href="#%e9%a1%b6%e7%82%b9%e7%9d%80%e8%89%b2%e5%99%a8">#</a>
+</h2>
 <pre><code>介绍
         接收三维点坐标，处理为二维坐标并输出
         THREE.ShaderMaterial用来定义着色器，着色器材质用着色器程序去控制几何体的顶点和颜色
@@ -1212,7 +1461,10 @@ three.js注入变量
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }                # projectionMatrix是投影矩阵，modelViewMatrix是模型视图矩阵
 </code></pre>
-<h2 id="heading-10">片元着色器</h2>
+<h2 id="片元着色器">
+  片元着色器
+  <a class="anchor" href="#%e7%89%87%e5%85%83%e7%9d%80%e8%89%b2%e5%99%a8">#</a>
+</h2>
 <pre><code>介绍
         一个片元对应一个像素，对其输出一个颜色值。
                 # 将顶点着色器输出的二维点坐标转化为待处理的像素并传递给片元着色器的过程，称为图元光栅化
@@ -1260,7 +1512,10 @@ three.js注入变量
             gl_FragColor = vec4(vec3(a, b, c), 1.0);
     }
 </code></pre>
-<h2 id="heading-11">变量</h2>
+<h2 id="变量">
+  变量
+  <a class="anchor" href="#%e5%8f%98%e9%87%8f">#</a>
+</h2>
 <pre><code>变量分类
         attributes(属性变量)                        # 保存顶点独有数据，如顶点的位置
                 attributes vec3 pos;
@@ -1281,8 +1536,14 @@ three.js注入变量
         attribute        -&gt;        顶点着色器        -&gt;        varying        -&gt;        图元光栅化        -&gt;        varying        -&gt;        片元着色器        -&gt;        gl_FragColor
         uniform        -&gt;        顶点着色器        -&gt;        gl_Position        -&gt;        图元光栅化        -&gt;        gl_Position        -&gt;        片元着色器        -&gt;        gl_FragColor
 </code></pre>
-<h1 id="heading-12">思路</h1>
-<h2 id="animate">animate动画</h2>
+<h1 id="思路">
+  思路
+  <a class="anchor" href="#%e6%80%9d%e8%b7%af">#</a>
+</h1>
+<h2 id="animate动画">
+  animate动画
+  <a class="anchor" href="#animate%e5%8a%a8%e7%94%bb">#</a>
+</h2>
 <pre><code>window.requestAnimationFrame(callback)
         # 返回id, 传给window.cancelAnimationFrame()取消该次动画
         ## 原理
@@ -1366,7 +1627,10 @@ render计算
                     window.addEventListener('resize', ...)
             播放音乐
 </code></pre>
-<h2 id="heading-13">结构</h2>
+<h2 id="结构">
+  结构
+  <a class="anchor" href="#%e7%bb%93%e6%9e%84">#</a>
+</h2>
 <pre><code>定义App类
     App类将相机，视图，灯光等场景代码封装，为了场景的代码的重用
             # 场景重新new
@@ -1401,7 +1665,10 @@ render计算
                     return this.pool[poolId];
             }
 </code></pre>
-<h2 id="heading-14">控制</h2>
+<h2 id="控制">
+  控制
+  <a class="anchor" href="#%e6%8e%a7%e5%88%b6">#</a>
+</h2>
 <pre><code>resize
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -1431,7 +1698,10 @@ render计算
                     # 计算射线与模型的相交点数组
     }
 </code></pre>
-<h2 id="heading-15">场景</h2>
+<h2 id="场景">
+  场景
+  <a class="anchor" href="#%e5%9c%ba%e6%99%af">#</a>
+</h2>
 <pre><code>天空盒
     两种实现
             立方体内部贴纹理
@@ -1456,7 +1726,10 @@ render计算
             mesh = new THREE.Mesh(new THREE.CubeGeometry(100, 100, 100), 22, material);
             sceneCube.add(mesh);
 </code></pre>
-<h2 id="heading-16">性能</h2>
+<h2 id="性能-1">
+  性能
+  <a class="anchor" href="#%e6%80%a7%e8%83%bd-1">#</a>
+</h2>
 <pre><code>概要
         3d设计的精髓在于性能优化
         使用连续内存(如数组)将加速程序运行，不连续内存将增加读取时寻址的时间。
@@ -1553,22 +1826,40 @@ Object
                     # 用于保存three.js中的Object3D对象
             children
 </code></pre>
-<h1 id="heading-17">框架</h1>
-<h2 id="sim">sim</h2>
+<h1 id="框架">
+  框架
+  <a class="anchor" href="#%e6%a1%86%e6%9e%b6">#</a>
+</h1>
+<h2 id="sim">
+  sim
+  <a class="anchor" href="#sim">#</a>
+</h2>
 <pre><code>介绍
     封装three.js大量重复工作
             如设置渲染器，循环重绘，向场景添加Mesh等
 </code></pre>
-<h2 id="physijs">physi.js</h2>
+<h2 id="physijs">
+  physi.js
+  <a class="anchor" href="#physijs">#</a>
+</h2>
 <pre><code>介绍
         基于three.js上构建的物理引擎
 </code></pre>
-<h2 id="voxeljs">voxel.js</h2>
+<h2 id="voxeljs">
+  voxel.js
+  <a class="anchor" href="#voxeljs">#</a>
+</h2>
 <pre><code>介绍
         像素方块游戏开发(minecraft)
 </code></pre>
-<h1 id="webgl">例子(来自webgl中文网)</h1>
-<h2 id="16">16万个三角形</h2>
+<h1 id="例子来自webgl中文网">
+  例子(来自webgl中文网)
+  <a class="anchor" href="#%e4%be%8b%e5%ad%90%e6%9d%a5%e8%87%aawebgl%e4%b8%ad%e6%96%87%e7%bd%91">#</a>
+</h1>
+<h2 id="16万个三角形">
+  16万个三角形
+  <a class="anchor" href="#16%e4%b8%87%e4%b8%aa%e4%b8%89%e8%a7%92%e5%bd%a2">#</a>
+</h2>
 <pre><code>定义
         o-&gt; triangles = 160000
         o-&gt; 每个三角形有３个顶点, 一个顶点三个float表示，共triangles * 3 * 3个float
@@ -1633,7 +1924,10 @@ Object
 
                 # 将BufferGeometry和材质组成mesh
 </code></pre>
-<h2 id="heading-18">人物粒子</h2>
+<h2 id="人物粒子">
+  人物粒子
+  <a class="anchor" href="#%e4%ba%ba%e7%89%a9%e7%b2%92%e5%ad%90">#</a>
+</h2>
 <pre><code>生成粒子
         var vertices = geometry.vertices;
         var mesh = new THREE.ParticleSystem(geometry, new THREE.ParticleBasicMaterial({size: 3, color: c}));
@@ -1647,7 +1941,10 @@ Object
         composer.render(0.01);
                 # composer为THREE.EffectComposer, 效果组合器
 </code></pre>
-<h2 id="heading-19">多视口</h2>
+<h2 id="多视口">
+  多视口
+  <a class="anchor" href="#%e5%a4%9a%e8%a7%86%e5%8f%a3">#</a>
+</h2>
 <pre><code>viewport
 注意
         视口的坐标为归一化的坐标。左上角是(0, 0), 右下角是(1, 1)
@@ -1664,7 +1961,10 @@ Object
     THREE.SceneUtils.createMultiMaterialObject(geometry, materials)
             # 传递一个几何体和材质数组，几何体每一个材质组合成一个Mesh, 将Mesh加入组group对象中，返回组对象。
 </code></pre>
-<h2 id="heading-20">杰克与豆径</h2>
+<h2 id="杰克与豆径">
+  杰克与豆径
+  <a class="anchor" href="#%e6%9d%b0%e5%85%8b%e4%b8%8e%e8%b1%86%e5%be%84">#</a>
+</h2>
 <pre><code>主要内容
         天空盒
         生长效果
@@ -1694,11 +1994,17 @@ Object
             audio.play();
     &lt;/script&gt;
 </code></pre>
-<h2 id="heading-21">流动立方体</h2>
+<h2 id="流动立方体">
+  流动立方体
+  <a class="anchor" href="#%e6%b5%81%e5%8a%a8%e7%ab%8b%e6%96%b9%e4%bd%93">#</a>
+</h2>
 <pre><code>设计
         从相机到鼠标发射射线, 与射线相交的点，就是选中物体的某个点
 </code></pre>
-<h2 id="heading-22">我的世界</h2>
+<h2 id="我的世界">
+  我的世界
+  <a class="anchor" href="#%e6%88%91%e7%9a%84%e4%b8%96%e7%95%8c">#</a>
+</h2>
 <pre><code>MineCraftApp = function(){
         Sim.App.call(this);
 }
@@ -1722,7 +2028,10 @@ $(document).ready(
         }
 );
 </code></pre>
-<h2 id="heading-23">汽车换装</h2>
+<h2 id="汽车换装">
+  汽车换装
+  <a class="anchor" href="#%e6%b1%bd%e8%bd%a6%e6%8d%a2%e8%a3%85">#</a>
+</h2>
 <pre><code>设计
         汽车类
                 更换s汽车模型
@@ -1748,7 +2057,10 @@ $(document).ready(
                 materials: null
         }
 </code></pre>
-<h2 id="heading-24">分形</h2>
+<h2 id="分形">
+  分形
+  <a class="anchor" href="#%e5%88%86%e5%bd%a2">#</a>
+</h2>
 <pre><code>uniforms = {
         scale: {type: 'v2', value: new THREE.Vector2()},
         c: {type: 'v2', value: new THREE.Vector2()}
@@ -1789,7 +2101,10 @@ void main(void){
         }
 }
 </code></pre>
-<h2 id="heading-25">镜像分形</h2>
+<h2 id="镜像分形">
+  镜像分形
+  <a class="anchor" href="#%e9%95%9c%e5%83%8f%e5%88%86%e5%bd%a2">#</a>
+</h2>
 <pre><code>介绍
         镜面反射场景
 
@@ -1838,11 +2153,17 @@ THREE.ShaderLib['mirror'] = {
         ].join('\n')
 };
 </code></pre>
-<h2 id="heading-26">文字</h2>
+<h2 id="文字">
+  文字
+  <a class="anchor" href="#%e6%96%87%e5%ad%97">#</a>
+</h2>
 <pre><code>介绍
     原理: 每个要显示的文字生成mesh
 </code></pre>
-<h2 id="heading-27">小地图</h2>
+<h2 id="小地图">
+  小地图
+  <a class="anchor" href="#%e5%b0%8f%e5%9c%b0%e5%9b%be">#</a>
+</h2>
 <pre><code>介绍
         实现方式1, 在天空直接用正投影相机
                 # 实现简单,但渲染效果差,占很多cpu时间(重新绘制一次整个场景)
@@ -1861,47 +2182,59 @@ o-&gt; 实现
         renderer2.render(scene, camera2);
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jun 17, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/frontend/threejs.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/frontend/threejs.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">介绍</a></li>
-    <li><a href="#heading-1">使用</a></li>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#使用">使用</a></li>
     <li><a href="#api">api</a>
       <ul>
-        <li><a href="#dom">涉及dom</a></li>
+        <li><a href="#涉及dom">涉及dom</a></li>
         <li><a href="#renderer">renderer</a></li>
         <li><a href="#camera">camera</a></li>
         <li><a href="#scene">scene</a></li>
@@ -1909,29 +2242,29 @@ o-&gt; 实现
         <li><a href="#object">object</a>
           <ul>
             <li><a href="#mesh">mesh</a></li>
-            <li><a href="#mesh-1">mesh组件</a></li>
+            <li><a href="#mesh组件">mesh组件</a></li>
             <li><a href="#fog">fog</a></li>
             <li><a href="#object3d">Object3D</a></li>
             <li><a href="#ray">Ray</a></li>
           </ul>
         </li>
         <li><a href="#particle">particle</a></li>
-        <li><a href="#heading-2">工具</a>
+        <li><a href="#工具">工具</a>
           <ul>
             <li><a href="#utils">utils</a></li>
             <li><a href="#filter">filter</a></li>
             <li><a href="#effect">effect</a></li>
             <li><a href="#helper">helper</a></li>
-            <li><a href="#heading-3">物件</a></li>
+            <li><a href="#物件">物件</a></li>
             <li><a href="#animationhandler">AnimationHandler</a></li>
             <li><a href="#shader">shader</a></li>
             <li><a href="#projector">projector</a></li>
           </ul>
         </li>
-        <li><a href="#heading-4">扩展</a>
+        <li><a href="#扩展">扩展</a>
           <ul>
-            <li><a href="#heading-5">性能</a></li>
-            <li><a href="#heading-6">动画引擎</a></li>
+            <li><a href="#性能">性能</a></li>
+            <li><a href="#动画引擎">动画引擎</a></li>
             <li><a href="#loader">Loader</a></li>
             <li><a href="#controls">Controls</a></li>
             <li><a href="#detector">Detector</a></li>
@@ -1939,54 +2272,68 @@ o-&gt; 实现
         </li>
       </ul>
     </li>
-    <li><a href="#heading-7">命令</a></li>
-    <li><a href="#heading-8">着色器</a>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#着色器">着色器</a>
       <ul>
-        <li><a href="#heading-9">顶点着色器</a></li>
-        <li><a href="#heading-10">片元着色器</a></li>
-        <li><a href="#heading-11">变量</a></li>
+        <li><a href="#顶点着色器">顶点着色器</a></li>
+        <li><a href="#片元着色器">片元着色器</a></li>
+        <li><a href="#变量">变量</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">思路</a>
+    <li><a href="#思路">思路</a>
       <ul>
-        <li><a href="#animate">animate动画</a></li>
-        <li><a href="#heading-13">结构</a></li>
-        <li><a href="#heading-14">控制</a></li>
-        <li><a href="#heading-15">场景</a></li>
-        <li><a href="#heading-16">性能</a></li>
+        <li><a href="#animate动画">animate动画</a></li>
+        <li><a href="#结构">结构</a></li>
+        <li><a href="#控制">控制</a></li>
+        <li><a href="#场景">场景</a></li>
+        <li><a href="#性能-1">性能</a></li>
       </ul>
     </li>
-    <li><a href="#heading-17">框架</a>
+    <li><a href="#框架">框架</a>
       <ul>
         <li><a href="#sim">sim</a></li>
         <li><a href="#physijs">physi.js</a></li>
         <li><a href="#voxeljs">voxel.js</a></li>
       </ul>
     </li>
-    <li><a href="#webgl">例子(来自webgl中文网)</a>
+    <li><a href="#例子来自webgl中文网">例子(来自webgl中文网)</a>
       <ul>
-        <li><a href="#16">16万个三角形</a></li>
-        <li><a href="#heading-18">人物粒子</a></li>
-        <li><a href="#heading-19">多视口</a></li>
-        <li><a href="#heading-20">杰克与豆径</a></li>
-        <li><a href="#heading-21">流动立方体</a></li>
-        <li><a href="#heading-22">我的世界</a></li>
-        <li><a href="#heading-23">汽车换装</a></li>
-        <li><a href="#heading-24">分形</a></li>
-        <li><a href="#heading-25">镜像分形</a></li>
-        <li><a href="#heading-26">文字</a></li>
-        <li><a href="#heading-27">小地图</a></li>
+        <li><a href="#16万个三角形">16万个三角形</a></li>
+        <li><a href="#人物粒子">人物粒子</a></li>
+        <li><a href="#多视口">多视口</a></li>
+        <li><a href="#杰克与豆径">杰克与豆径</a></li>
+        <li><a href="#流动立方体">流动立方体</a></li>
+        <li><a href="#我的世界">我的世界</a></li>
+        <li><a href="#汽车换装">汽车换装</a></li>
+        <li><a href="#分形">分形</a></li>
+        <li><a href="#镜像分形">镜像分形</a></li>
+        <li><a href="#文字">文字</a></li>
+        <li><a href="#小地图">小地图</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

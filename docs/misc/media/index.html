@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="媒体"><meta property="og:title" content="媒体" />
-<meta property="og:description" content="原理 硬件 CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d 分形 介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华." />
+<meta name="description" content="原理 #  硬件 #  CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 #  Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 #  基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d #  分形 #  介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="媒体" />
+<meta property="og:description" content="原理 #  硬件 #  CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 #  Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 #  基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d #  分形 #  介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/misc/media/" />
-<meta property="article:published_time" content="2018-10-10T15:13:01+08:00" />
-<meta property="article:modified_time" content="2019-12-08T10:47:38+08:00" />
+<meta property="og:url" content="https://example.com/docs/misc/media/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-10T15:13:01&#43;08:00" />
+<meta property="article:modified_time" content="2019-12-08T10:47:38&#43;08:00" />
+
 <title>媒体 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,38 +212,98 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>媒体</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#原理">原理</a>
+      <ul>
+        <li><a href="#硬件">硬件</a></li>
+        <li><a href="#标准">标准</a></li>
+        <li><a href="#算法">算法</a></li>
+        <li><a href="#2d">2d</a>
+          <ul>
+            <li><a href="#分形">分形</a></li>
+          </ul>
+        </li>
+        <li><a href="#3d">3d</a>
+          <ul>
+            <li><a href="#术语">术语</a></li>
+            <li><a href="#硬件-1">硬件</a></li>
+            <li><a href="#模型">模型</a></li>
+            <li><a href="#计算">计算</a></li>
+            <li><a href="#渲染">渲染</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#工具">工具</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">原理</h1>
-<h2 id="heading-1">硬件</h2>
+      
+  <article class="markdown"><h1 id="原理">
+  原理
+  <a class="anchor" href="#%e5%8e%9f%e7%90%86">#</a>
+</h1>
+<h2 id="硬件">
+  硬件
+  <a class="anchor" href="#%e7%a1%ac%e4%bb%b6">#</a>
+</h2>
 <pre><code>CRT cathode ray tube 阴极射线管显示器
     随机扫描方式
     光栅扫描方式
     DPU distributed processing unit 分散处理单元
 </code></pre>
-<h2 id="heading-2">标准</h2>
+<h2 id="标准">
+  标准
+  <a class="anchor" href="#%e6%a0%87%e5%87%86">#</a>
+</h2>
 <pre><code>Core Graphics System
     CGI(computer graphics interface)
         # 与设备无关的方法，方便的直接控制图形设备
@@ -240,7 +316,10 @@ https://github.com/alex-shpak/hugo-book
     GL(graphics library)
         # 广泛应用的标准图形程序库
 </code></pre>
-<h2 id="heading-3">算法</h2>
+<h2 id="算法">
+  算法
+  <a class="anchor" href="#%e7%ae%97%e6%b3%95">#</a>
+</h2>
 <pre><code>基元的显示
     直线扫描转换
         DDA
@@ -384,8 +463,14 @@ https://github.com/alex-shpak/hugo-book
                     # 可与RGB空间互相转化
                     HLS(Hue, lightness, saturation)双六棱锥模型
 </code></pre>
-<h2 id="2d">2d</h2>
-<h3 id="heading-4">分形</h3>
+<h2 id="2d">
+  2d
+  <a class="anchor" href="#2d">#</a>
+</h2>
+<h3 id="分形">
+  分形
+  <a class="anchor" href="#%e5%88%86%e5%bd%a2">#</a>
+</h3>
 <pre><code>介绍
     Fractal
     具有自相似性质的多个形状
@@ -396,14 +481,23 @@ Mandelbrot Set
         分形领域最著名的科学家 本华.曼德博
         曼德博集合常常由 z^2 + c定义
 </code></pre>
-<h2 id="3d">3d</h2>
-<h3 id="heading-5">术语</h3>
+<h2 id="3d">
+  3d
+  <a class="anchor" href="#3d">#</a>
+</h2>
+<h3 id="术语">
+  术语
+  <a class="anchor" href="#%e6%9c%af%e8%af%ad">#</a>
+</h3>
 <pre><code>顶点(vertexs): 
 图元(primitives, entity, 图素, 实体): 顶点组合为图元
 片元(fragments, 片段): 图元裁剪、颜色、纹理、坐标转换等后合成片元
 像素(pixels)
 </code></pre>
-<h3 id="heading-6">硬件</h3>
+<h3 id="硬件-1">
+  硬件
+  <a class="anchor" href="#%e7%a1%ac%e4%bb%b6-1">#</a>
+</h3>
 <pre><code>cpu与gpu
     特点
         cpu串行运算，电量分配给控制器和缓存，没有太多计算单元
@@ -413,7 +507,10 @@ Mandelbrot Set
         webgl中大量控制逻辑用js编写cpu执行，交给gpu渲染。要渲染的数据从内存传入显存，再由显卡计算
             最耗时的是内存到显存之前的数据传输
 </code></pre>
-<h3 id="heading-7">模型</h3>
+<h3 id="模型">
+  模型
+  <a class="anchor" href="#%e6%a8%a1%e5%9e%8b">#</a>
+</h3>
 <pre><code>mesh模型
     无数三角形面组成的物体（可帖上纹理）。
 概念
@@ -462,7 +559,10 @@ vtk
         介绍
             一个纹理包含了包围物体场景的图像数据。x, y, z轴正负方向各一张图片，首尾相连。
 </code></pre>
-<h3 id="heading-8">计算</h3>
+<h3 id="计算">
+  计算
+  <a class="anchor" href="#%e8%ae%a1%e7%ae%97">#</a>
+</h3>
 <pre><code>旋转的三种工具
     矩阵
         用来与点相乘，改变点的位置
@@ -480,8 +580,14 @@ vtk
         ## 如鼠标从二维到三维的反投影
 三维布尔运算
 </code></pre>
-<h3 id="heading-9">渲染</h3>
-<h1 id="heading-10">工具</h1>
+<h3 id="渲染">
+  渲染
+  <a class="anchor" href="#%e6%b8%b2%e6%9f%93">#</a>
+</h3>
+<h1 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h1>
 <pre><code>flash
 3d max
 blender
@@ -494,73 +600,99 @@ illustrator
 gimp
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/66fa298a6aeb531ad416239a0744631ee2141f3d" title='Last modified by shenwenqing | Dec 8, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/66fa298a6aeb531ad416239a0744631ee2141f3d" title='Last modified by shenwenqing | Dec 8, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Dec 8, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/misc/media.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/misc/media.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">原理</a>
+    <li><a href="#原理">原理</a>
       <ul>
-        <li><a href="#heading-1">硬件</a></li>
-        <li><a href="#heading-2">标准</a></li>
-        <li><a href="#heading-3">算法</a></li>
+        <li><a href="#硬件">硬件</a></li>
+        <li><a href="#标准">标准</a></li>
+        <li><a href="#算法">算法</a></li>
         <li><a href="#2d">2d</a>
           <ul>
-            <li><a href="#heading-4">分形</a></li>
+            <li><a href="#分形">分形</a></li>
           </ul>
         </li>
         <li><a href="#3d">3d</a>
           <ul>
-            <li><a href="#heading-5">术语</a></li>
-            <li><a href="#heading-6">硬件</a></li>
-            <li><a href="#heading-7">模型</a></li>
-            <li><a href="#heading-8">计算</a></li>
-            <li><a href="#heading-9">渲染</a></li>
+            <li><a href="#术语">术语</a></li>
+            <li><a href="#硬件-1">硬件</a></li>
+            <li><a href="#模型">模型</a></li>
+            <li><a href="#计算">计算</a></li>
+            <li><a href="#渲染">渲染</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#heading-10">工具</a></li>
+    <li><a href="#工具">工具</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

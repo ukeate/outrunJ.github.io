@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Work"><meta property="og:title" content="" />
-<meta property="og:description" content="项目结构 api: controller biz: 特异业务 manager converter core: 公用业务 model entity bo service repository common dal dataobject do dao mapper service facade dto: facade和controller用 service: 服务间api validate integration service shared dto: 项目内部公用  业务流程 积分管理(向门店加积分)
+<meta name="description" content="项目结构 #  api: controller biz: 特异业务 manager converter core: 公用业务 model entity bo service repository common dal dataobject do dao mapper service facade dto: facade和controller用 service: 服务间api validate integration service shared dto: 项目内部公用  业务流程 #  积分管理(向门店加积分)
 配送流程 物品档案 配送物品关系 配送售价单 物品关系设置 其他入库 门店请购单
-订单中心 生成订单 配送订单 生成备货分拣单/审核 备货单 备货完成 分拣单 编辑 提交&#43;校验 审核（关闭开关[配送出库单是否自动审核]）&#43;校验, 批量审核&#43;校验 [反审核]：不反结算 配送出库 出库（关闭开关[备货单和分拣单]） 生成发货单 反审核 发货单 验收单  配送金额 unit_price 3.925 purc_unit_num 2 tax_ratio 0.1
-cost_price(成本单价) 3 price_type 1 price_param 5." />
+订单中心 生成订单 配送订单 生成备货分拣单/审核 备货单 备货完成 分拣单 编辑 提交&#43;校验 审核（关闭开关[配送出库单是否自动审核]）&#43;校验, 批量审核&#43;校验 [反审核]：不反结算 配送出库 出库（关闭开关[备货单和分拣单]） 生成发货单 反审核 发货单 验收单  配送金额 #  unit_price 3.925 purc_unit_num 2 tax_ratio 0.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="项目结构 #  api: controller biz: 特异业务 manager converter core: 公用业务 model entity bo service repository common dal dataobject do dao mapper service facade dto: facade和controller用 service: 服务间api validate integration service shared dto: 项目内部公用  业务流程 #  积分管理(向门店加积分)
+配送流程 物品档案 配送物品关系 配送售价单 物品关系设置 其他入库 门店请购单
+订单中心 生成订单 配送订单 生成备货分拣单/审核 备货单 备货完成 分拣单 编辑 提交&#43;校验 审核（关闭开关[配送出库单是否自动审核]）&#43;校验, 批量审核&#43;校验 [反审核]：不反结算 配送出库 出库（关闭开关[备货单和分拣单]） 生成发货单 反审核 发货单 验收单  配送金额 #  unit_price 3.925 purc_unit_num 2 tax_ratio 0." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/cache/work/" />
+<meta property="og:url" content="https://example.com/docs/cache/work/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2021-06-18T13:03:49&#43;08:00" />
 
 <title>Work | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -31,7 +33,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -40,21 +41,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -62,7 +65,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -79,6 +88,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -86,7 +96,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -106,6 +122,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -188,7 +205,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -198,58 +216,104 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Work</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#项目结构">项目结构</a></li>
+    <li><a href="#业务流程">业务流程</a></li>
+    <li><a href="#配送金额">配送金额</a></li>
+    <li><a href="#表关系">表关系</a>
+      <ul>
+        <li><a href="#退货入库单-查出库单">退货入库单, 查出库单</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据库">数据库</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#配置加载">配置加载</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">项目结构</h1>
+      
+  <article class="markdown"><h1 id="项目结构">
+  项目结构
+  <a class="anchor" href="#%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84">#</a>
+</h1>
 <pre><code>api: controller
 biz: 特异业务
-    manager
-    converter
+	manager
+	converter
 core: 公用业务
-    model
+	model
         entity
         bo
-    service
+	service
         repository
 common
-    dal
+	dal
         dataobject
             do
         dao
         mapper
-    service
+	service
         facade
             dto: facade和controller用
             service: 服务间api
             validate
         integration
             service
-    shared
+	shared
         dto: 项目内部公用
 </code></pre>
-<h1 id="heading-1">业务流程</h1>
+<h1 id="业务流程">
+  业务流程
+  <a class="anchor" href="#%e4%b8%9a%e5%8a%a1%e6%b5%81%e7%a8%8b">#</a>
+</h1>
 <p>积分管理(向门店加积分)</p>
 <p>配送流程
 物品档案
@@ -259,24 +323,27 @@ common
 其他入库
 门店请购单</p>
 <pre><code>订单中心
-    生成订单
+	生成订单
 配送订单
-    生成备货分拣单/审核
+	生成备货分拣单/审核
 备货单
-    备货完成
+	备货完成
 分拣单
-    编辑
+	编辑
         提交+校验
         审核（关闭开关[配送出库单是否自动审核]）+校验, 批量审核+校验
-    [反审核]：不反结算
+	[反审核]：不反结算
 配送出库
-    出库（关闭开关[备货单和分拣单]）
-    生成发货单
-    反审核
+	出库（关闭开关[备货单和分拣单]）
+	生成发货单
+	反审核
 发货单
 验收单
 </code></pre>
-<h1 id="heading-2">配送金额</h1>
+<h1 id="配送金额">
+  配送金额
+  <a class="anchor" href="#%e9%85%8d%e9%80%81%e9%87%91%e9%a2%9d">#</a>
+</h1>
 <p>unit_price 3.925
 purc_unit_num 2
 tax_ratio 0.1</p>
@@ -291,11 +358,26 @@ goods_tax_amt 4.28 =  goods_amt - goods_amt_notax
 goods_tax_amt_nodiscount
 goods_amt_notax_nodiscount
 goods_amt_nodiscount</p>
-<h1 id="heading-3">表关系</h1>
-<h2 id="-">退货入库单, 查出库单</h2>
+<h1 id="表关系">
+  表关系
+  <a class="anchor" href="#%e8%a1%a8%e5%85%b3%e7%b3%bb">#</a>
+</h1>
+<h2 id="退货入库单-查出库单">
+  退货入库单, 查出库单
+  <a class="anchor" href="#%e9%80%80%e8%b4%a7%e5%85%a5%e5%ba%93%e5%8d%95-%e6%9f%a5%e5%87%ba%e5%ba%93%e5%8d%95">#</a>
+</h2>
 <p>dispatch_in(up_bill_id) -&gt; return_goods(id) in_id   -&gt;
 dispatch_in(id) up_bill_id -&gt; out_check_relation(check_id) -&gt; out_id</p>
-<h1 id="heading-4">数据库</h1>
+<p>整理下配送订单拆单生成备货分拣单的流程图
+细一点，备货单怎么生成的，分拣单怎么生成的，每张表记录了啥</p>
+<h1 id="数据库">
+  数据库
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ba%93">#</a>
+</h1>
+<p>jdbc:mysql://172.17.31.65:3306/test_cloud_scm?
+useSSL=false&amp;allowMultiQueries=true&amp;rewriteBatchedStatements=true&amp;serverTimezone=GMT%2B8&amp;zeroDateTimeBehavior=convertToNull</p>
+<p>jdbc:mysql://vpcprod.cs-scm-global-master.cnhz.keruyun.com:3306/online_cloud_scm?
+useSSL=false&amp;allowMultiQueries=true&amp;rewriteBatchedStatements=true&amp;serverTimezone=GMT%2B8&amp;zeroDateTimeBehavior=convertToNull</p>
 <p>jdbc:mysql://172.17.31.65:3306/test_cloud_scm?useSSL=false&amp;allowMultiQueries=true&amp;rewriteBatchedStatements=true&amp;serverTimezone=GMT%2B8&amp;autoReconnectForPools=true&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;zeroDateTimeBehavior=convertToNull
 test_new_scm test_scm_2018</p>
 <p>jdbc:mysql://172.17.31.65:3306/test_cloud_scm?useSSL=false&amp;allowMultiQueries=true&amp;rewriteBatchedStatements=true
@@ -310,9 +392,15 @@ dev_scm_user u5#AMiZnybvU4fN9YyNlstCXc6u8sHSZ</p>
 dev_prod_cloud_cred_w_user 8adcese8acfe7c9Lba94abed88754eSS</p>
 <p>jdbc:mysql://172.17.31.65:3306/test_prod_cloud_credit?useSSL=false&amp;allowMultiQueries=true&amp;rewriteBatchedStatements=true
 test_cred_w_user 9Lba94abed8878adcese8acfe7c54eSS</p>
-<h1 id="heading-5">测试</h1>
+<h1 id="测试">
+  测试
+  <a class="anchor" href="#%e6%b5%8b%e8%af%95">#</a>
+</h1>
 <p>X-Service-Group：test04</p>
-<h1 id="heading-6">配置加载</h1>
+<h1 id="配置加载">
+  配置加载
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae%e5%8a%a0%e8%bd%bd">#</a>
+</h1>
 <p>本地环境变量中的配置 &gt; apollo配置中心的配置 &gt; 本地文件的配置</p>
 <p>1 命令行参数
 -Dspring.profiles.active=dev
@@ -326,62 +414,88 @@ export SPRING_PROFILES_ACTIVE=dev
 8 在应用配置 Java 类（包含“@Configuration”注解的 Java 类）中通过“@PropertySource”注解声明的属性文件
 9 通过“SpringApplication.setDefaultProperties”声明的默认属性</p>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
-      <span>Mar 12, 2021</span>
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1bb58a2a578f674675d9eb7e3d272d9330ca1ccd" title='Last modified by 申文庆 | Jun 18, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 18, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cache/work.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/cache/work.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">项目结构</a></li>
-    <li><a href="#heading-1">业务流程</a></li>
-    <li><a href="#heading-2">配送金额</a></li>
-    <li><a href="#heading-3">表关系</a>
+    <li><a href="#项目结构">项目结构</a></li>
+    <li><a href="#业务流程">业务流程</a></li>
+    <li><a href="#配送金额">配送金额</a></li>
+    <li><a href="#表关系">表关系</a>
       <ul>
-        <li><a href="#-">退货入库单, 查出库单</a></li>
+        <li><a href="#退货入库单-查出库单">退货入库单, 查出库单</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">数据库</a></li>
-    <li><a href="#heading-5">测试</a></li>
-    <li><a href="#heading-6">配置加载</a></li>
+    <li><a href="#数据库">数据库</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#配置加载">配置加载</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

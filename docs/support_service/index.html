@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="支撑-服务"><meta property="og:title" content="支撑-服务" />
+<meta name="description" content="容器服务 #  tomcat #  ## 介绍 tomcat从7开始默认就是nio的 ## 配置 bin/startup.bat set JAVA_HOME= # 设置tomcat运行jdk context.xml &lt;Loader delegate=&quot;true&quot;/&gt; # true表示使用java加载器的代理模式 ## false代表永远先在Web应用程序中寻找 web.xml Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4 Creation-Date: 2013-08-04T19:40:08&#43;08:00 ====== web.xml文件 ====== Created Sunday 04 August 2013 &lt;servlet&gt; &lt;servlet-name&gt; &lt;servlet-class&gt; &lt;load-on-startup&gt;1 &lt;init-param&gt; &lt;param-name&gt; &lt;param-value&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt; &lt;url-pattern&gt; &lt;welcome-file-list&gt; &lt;welcome-file&gt; &lt;filter&gt; &lt;filter-name&gt; &lt;filter-class&gt; &lt;init-param&gt; &lt;filter-mapping&gt; &lt;filter-name&gt; &lt;url-pattern&gt; &lt;mime-mapping&gt; &lt;extension&gt;bmp &lt;mime-type&gt;image/bmp &lt;error-page&gt; &lt;exception-type&gt;异常类的完全限定名 /&lt;error-code&gt;错误码 &lt;location&gt;以“/”开头的错误处理页面路径 ## 启动顺序 web.xml中配置的启动顺序 监听器 过滤器 servlet load-on-startup属性值越小越先启动 tomcat的加载过程： # 分析启动日志得到 启动http协议 启动catalina 启动servlet引擎 加载xml配置文件 初始化日志配置 初始化ContextListener 初始化SessionListener 部署web项目 spring监听器，加载xml配置(开始spring自己的日志记录) 实例化bean 初始化c3p0连接池的记录显示 初始化LocalSessionFactoryBean的记录显示 application监听器(监听器按配置顺序启动) struts过滤器，加载xml配置(开始struts自己的日志记录) struts-default.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="支撑-服务" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/docs/support_service/" />
-<meta property="og:updated_time" content="2018-10-11T10:33:48+08:00" />
+
 <title>支撑-服务 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +27,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <link rel="alternate" type="application/rss+xml" href="https://example.com/docs/support_service/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
@@ -38,21 +36,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +60,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +83,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +91,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +117,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +200,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,32 +211,130 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>支撑-服务</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#容器服务">容器服务</a>
+      <ul>
+        <li><a href="#tomcat">tomcat</a></li>
+        <li><a href="#netty">netty</a></li>
+        <li><a href="#netty-tcnative">netty-tcnative</a></li>
+        <li><a href="#jetty">jetty</a></li>
+        <li><a href="#apache">apache</a></li>
+        <li><a href="#lighttpd">lighttpd</a></li>
+        <li><a href="#meteor">meteor</a></li>
+        <li><a href="#ringojs">ringojs</a></li>
+        <li><a href="#mina">mina</a></li>
+        <li><a href="#tomcat-native">tomcat native</a></li>
+        <li><a href="#tinyhttpd">tinyHttpd</a></li>
+        <li><a href="#resin">resin</a></li>
+        <li><a href="#uwsgi">uwsgi</a></li>
+        <li><a href="#weblogic">weblogic</a></li>
+        <li><a href="#was">was</a></li>
+        <li><a href="#gunicon">gunicon</a></li>
+        <li><a href="#nodejs">node.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#通信服务">通信服务</a>
+      <ul>
+        <li><a href="#log">log</a>
+          <ul>
+            <li><a href="#elk">elk</a></li>
+            <li><a href="#logio">log.io</a></li>
+          </ul>
+        </li>
+        <li><a href="#mq">mq</a>
+          <ul>
+            <li><a href="#pulsar">pulsar</a></li>
+            <li><a href="#rabbitmq">rabbitMQ</a></li>
+            <li><a href="#jafka">jafka</a></li>
+            <li><a href="#kafka">kafka</a></li>
+            <li><a href="#nsq">nsq</a></li>
+            <li><a href="#memcacheq">memcacheQ</a></li>
+            <li><a href="#zeromq">zeroMQ</a></li>
+            <li><a href="#activemq">activeMQ</a></li>
+            <li><a href="#beanstalkd">beanstalkd</a></li>
+            <li><a href="#mqtt">mqtt</a></li>
+            <li><a href="#emqttd">emqttd</a></li>
+            <li><a href="#apollo">apollo</a></li>
+            <li><a href="#metaq">metaq</a></li>
+          </ul>
+        </li>
+        <li><a href="#任务">任务</a>
+          <ul>
+            <li><a href="#quartz">quartz</a></li>
+            <li><a href="#celery">celery</a></li>
+            <li><a href="#rundeck">rundeck</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#存储服务">存储服务</a>
+      <ul>
+        <li><a href="#iscsi">iscsi</a></li>
+        <li><a href="#fastdfs">fastdfs</a></li>
+        <li><a href="#cdn">cdn</a></li>
+        <li><a href="#aws服务器">aws服务器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">容器服务</h1>
-<h2 id="tomcat">tomcat</h2>
+      
+  <article class="markdown"><h1 id="容器服务">
+  容器服务
+  <a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%9c%8d%e5%8a%a1">#</a>
+</h1>
+<h2 id="tomcat">
+  tomcat
+  <a class="anchor" href="#tomcat">#</a>
+</h2>
 <pre><code>## 介绍
     tomcat从7开始默认就是nio的
 ## 配置
@@ -373,7 +486,10 @@ https://github.com/alex-shpak/hugo-book
     发布war文件：
             localhost:8080 -&gt; tomcat manager -&gt; WAR file to deploy
 </code></pre>
-<h2 id="netty">netty</h2>
+<h2 id="netty">
+  netty
+  <a class="anchor" href="#netty">#</a>
+</h2>
 <pre><code>介绍
     JBOSS提供，由Trustin Lee开发，比mina晚
     java开源框架
@@ -467,7 +583,10 @@ https://github.com/alex-shpak/hugo-book
         Bootstrap                        # for non-server channels such as a client-side or connectionless channel
             connect(host, port)
 </code></pre>
-<h2 id="netty-tcnative">netty-tcnative</h2>
+<h2 id="netty-tcnative">
+  netty-tcnative
+  <a class="anchor" href="#netty-tcnative">#</a>
+</h2>
 <pre><code>介绍
         tomcat native 的分支
 特点
@@ -475,11 +594,17 @@ https://github.com/alex-shpak/hugo-book
         可以maven配置dependency
         提供openssl的支持
 </code></pre>
-<h2 id="jetty">jetty</h2>
+<h2 id="jetty">
+  jetty
+  <a class="anchor" href="#jetty">#</a>
+</h2>
 <pre><code># 是开源的servlet容器，基于java, 可以给jsp和servlet提供运行环境
 # jetty容器可以实例化成一个对象，迅速为一些独立运行(stand-alone)的java应用提供网络和web连接
 </code></pre>
-<h2 id="apache">apache</h2>
+<h2 id="apache">
+  apache
+  <a class="anchor" href="#apache">#</a>
+</h2>
 <pre><code># http容器，可容纳php, python。一请求一线程
 安装
     pacman -S apache
@@ -513,50 +638,107 @@ https://github.com/alex-shpak/hugo-book
     php
         docker解决
 </code></pre>
-<h2 id="lighttpd">lighttpd</h2>
-<h2 id="meteor">meteor</h2>
+<h2 id="lighttpd">
+  lighttpd
+  <a class="anchor" href="#lighttpd">#</a>
+</h2>
+<h2 id="meteor">
+  meteor
+  <a class="anchor" href="#meteor">#</a>
+</h2>
 <pre><code># 包装node
 </code></pre>
-<h2 id="ringojs">ringojs</h2>
+<h2 id="ringojs">
+  ringojs
+  <a class="anchor" href="#ringojs">#</a>
+</h2>
 <pre><code># jvm上commonJs规范的服务器
 </code></pre>
-<h2 id="mina">mina</h2>
+<h2 id="mina">
+  mina
+  <a class="anchor" href="#mina">#</a>
+</h2>
 <pre><code>apache提供， 由Trustin Lee开发，比netty更早
 </code></pre>
-<h2 id="tomcat-native">tomcat native</h2>
+<h2 id="tomcat-native">
+  tomcat native
+  <a class="anchor" href="#tomcat-native">#</a>
+</h2>
 <pre><code># 基于apr(apache portable runtime)技术，让tomcat在操作系统级别的交互上做的更好
 </code></pre>
-<h2 id="tinyhttpd">tinyHttpd</h2>
-<h2 id="resin">resin</h2>
+<h2 id="tinyhttpd">
+  tinyHttpd
+  <a class="anchor" href="#tinyhttpd">#</a>
+</h2>
+<h2 id="resin">
+  resin
+  <a class="anchor" href="#resin">#</a>
+</h2>
 <pre><code># 收费, 类似tomcat的java容器，性能提升
 </code></pre>
-<h2 id="uwsgi">uwsgi</h2>
+<h2 id="uwsgi">
+  uwsgi
+  <a class="anchor" href="#uwsgi">#</a>
+</h2>
 <pre><code># 一个web服务器，实现了wsgi, uwsgi, http等协议
 </code></pre>
-<h2 id="weblogic">weblogic</h2>
+<h2 id="weblogic">
+  weblogic
+  <a class="anchor" href="#weblogic">#</a>
+</h2>
 <pre><code># oracle
 </code></pre>
-<h2 id="was">was</h2>
+<h2 id="was">
+  was
+  <a class="anchor" href="#was">#</a>
+</h2>
 <pre><code># ibm服务器
 </code></pre>
-<h2 id="gunicon">gunicon</h2>
+<h2 id="gunicon">
+  gunicon
+  <a class="anchor" href="#gunicon">#</a>
+</h2>
 <pre><code># python wsgi http server
 </code></pre>
-<h2 id="nodejs">node.js</h2>
-<h1 id="heading-1">通信服务</h1>
-<h2 id="log">log</h2>
-<h3 id="elk">elk</h3>
+<h2 id="nodejs">
+  node.js
+  <a class="anchor" href="#nodejs">#</a>
+</h2>
+<h1 id="通信服务">
+  通信服务
+  <a class="anchor" href="#%e9%80%9a%e4%bf%a1%e6%9c%8d%e5%8a%a1">#</a>
+</h1>
+<h2 id="log">
+  log
+  <a class="anchor" href="#log">#</a>
+</h2>
+<h3 id="elk">
+  elk
+  <a class="anchor" href="#elk">#</a>
+</h3>
 <pre><code>        # elasticsearch, logstash, kibana
 </code></pre>
-<h3 id="logio">log.io</h3>
-<h2 id="mq">mq</h2>
+<h3 id="logio">
+  log.io
+  <a class="anchor" href="#logio">#</a>
+</h3>
+<h2 id="mq">
+  mq
+  <a class="anchor" href="#mq">#</a>
+</h2>
 <pre><code>消息重发
     状态表记录消息状态
 </code></pre>
-<h3 id="pulsar">pulsar</h3>
+<h3 id="pulsar">
+  pulsar
+  <a class="anchor" href="#pulsar">#</a>
+</h3>
 <pre><code># 雅虎开源, 存储和服务分离，高可用存储, 支持流
 </code></pre>
-<h3 id="rabbitmq">rabbitMQ</h3>
+<h3 id="rabbitmq">
+  rabbitMQ
+  <a class="anchor" href="#rabbitmq">#</a>
+</h3>
 <pre><code>介绍
     erlang开发, 重量级
     支持协议多，AMQP、XMPP、SMTP、STOMP
@@ -629,14 +811,20 @@ install
 
             channel.start_consuming()
 </code></pre>
-<h3 id="jafka">jafka</h3>
+<h3 id="jafka">
+  jafka
+  <a class="anchor" href="#jafka">#</a>
+</h3>
 <pre><code>介绍
     基于kafka, 快速持久化(O(1)时间开销)
     高吞吐，一台普通服务器 100k/s
     完全分布式，Broker, Producer, Consumer原生支持分布式，自动负载均衡
     支持hadoop并行加载
 </code></pre>
-<h3 id="kafka">kafka</h3>
+<h3 id="kafka">
+  kafka
+  <a class="anchor" href="#kafka">#</a>
+</h3>
 <pre><code>介绍
     apache子项目，scala语言编写, 发布订阅队列
     相对activeMQ轻量
@@ -650,15 +838,27 @@ install
 工具
     manager # 监控
 </code></pre>
-<h3 id="nsq">nsq</h3>
+<h3 id="nsq">
+  nsq
+  <a class="anchor" href="#nsq">#</a>
+</h3>
 <pre><code>介绍
     go
 工具
     admin   # 监控
 </code></pre>
-<h3 id="memcacheq">memcacheQ</h3>
-<h3 id="zeromq">zeroMQ</h3>
-<h3 id="activemq">activeMQ</h3>
+<h3 id="memcacheq">
+  memcacheQ
+  <a class="anchor" href="#memcacheq">#</a>
+</h3>
+<h3 id="zeromq">
+  zeroMQ
+  <a class="anchor" href="#zeromq">#</a>
+</h3>
+<h3 id="activemq">
+  activeMQ
+  <a class="anchor" href="#activemq">#</a>
+</h3>
 <pre><code>介绍
     apache子项目, 类似zeroMQ
 通信方式
@@ -667,23 +867,44 @@ install
     发布订阅
         不成功消息丢失
 </code></pre>
-<h3 id="beanstalkd">beanstalkd</h3>
-<h3 id="mqtt">mqtt</h3>
+<h3 id="beanstalkd">
+  beanstalkd
+  <a class="anchor" href="#beanstalkd">#</a>
+</h3>
+<h3 id="mqtt">
+  mqtt
+  <a class="anchor" href="#mqtt">#</a>
+</h3>
 <pre><code># 最早由ibm提供的，二进制消息的mq
 </code></pre>
-<h3 id="emqttd">emqttd</h3>
+<h3 id="emqttd">
+  emqttd
+  <a class="anchor" href="#emqttd">#</a>
+</h3>
 <pre><code>介绍
     mqtt broker
 </code></pre>
-<h3 id="apollo">apollo</h3>
+<h3 id="apollo">
+  apollo
+  <a class="anchor" href="#apollo">#</a>
+</h3>
 <pre><code>介绍
     apache mqtt broker
 </code></pre>
-<h3 id="metaq">metaq</h3>
+<h3 id="metaq">
+  metaq
+  <a class="anchor" href="#metaq">#</a>
+</h3>
 <pre><code># 阿里mq
 </code></pre>
-<h2 id="heading-2">任务</h2>
-<h3 id="quartz">quartz</h3>
+<h2 id="任务">
+  任务
+  <a class="anchor" href="#%e4%bb%bb%e5%8a%a1">#</a>
+</h2>
+<h3 id="quartz">
+  quartz
+  <a class="anchor" href="#quartz">#</a>
+</h3>
 <pre><code># java作业调度
 配置applicationContext_job.xml
     job             # 任务内容
@@ -699,13 +920,22 @@ install
     等待中
         创建job时
 </code></pre>
-<h3 id="celery">celery</h3>
+<h3 id="celery">
+  celery
+  <a class="anchor" href="#celery">#</a>
+</h3>
 <pre><code># python
 </code></pre>
-<h3 id="rundeck">rundeck</h3>
+<h3 id="rundeck">
+  rundeck
+  <a class="anchor" href="#rundeck">#</a>
+</h3>
 <pre><code># java
 </code></pre>
-<h1 id="heading-3">存储服务</h1>
+<h1 id="存储服务">
+  存储服务
+  <a class="anchor" href="#%e5%ad%98%e5%82%a8%e6%9c%8d%e5%8a%a1">#</a>
+</h1>
 <pre><code>存储的概念和术语
     scsi: 小型计算机系统接口(Small Computer System Interface)
     fc: 光纤通道(Fibre channel)
@@ -716,7 +946,10 @@ install
         接口: scsi fc
         通信协议: ip scsi
 </code></pre>
-<h2 id="iscsi">iscsi</h2>
+<h2 id="iscsi">
+  iscsi
+  <a class="anchor" href="#iscsi">#</a>
+</h2>
 <pre><code># internet scsi
 优点
     可以网络传输
@@ -739,10 +972,16 @@ iscsi系统组成
     以太网交换机
     一台或多台服务器
 </code></pre>
-<h2 id="fastdfs">fastdfs</h2>
+<h2 id="fastdfs">
+  fastdfs
+  <a class="anchor" href="#fastdfs">#</a>
+</h2>
 <pre><code># 开源分布式文件系统
 </code></pre>
-<h2 id="cdn">cdn</h2>
+<h2 id="cdn">
+  cdn
+  <a class="anchor" href="#cdn">#</a>
+</h2>
 <pre><code>介绍
     流量不大时带宽比cdn便宜, 流量大时cdn便宜。
     界限为250Mbps左右，价格在9k/month
@@ -752,7 +991,10 @@ iscsi系统组成
 网宿
 蓝汛
 </code></pre>
-<h2 id="aws">aws服务器</h2>
+<h2 id="aws服务器">
+  aws服务器
+  <a class="anchor" href="#aws%e6%9c%8d%e5%8a%a1%e5%99%a8">#</a>
+</h2>
 <pre><code>命令
     aws
         s3
@@ -763,43 +1005,55 @@ iscsi系统组成
             rm --recursive s3://meiqia/crm-module/search
                 # 级联删除</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 13, 2020</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/support_service/_index.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/support_service/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">容器服务</a>
+    <li><a href="#容器服务">容器服务</a>
       <ul>
         <li><a href="#tomcat">tomcat</a></li>
         <li><a href="#netty">netty</a></li>
@@ -820,7 +1074,7 @@ iscsi系统组成
         <li><a href="#nodejs">node.js</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">通信服务</a>
+    <li><a href="#通信服务">通信服务</a>
       <ul>
         <li><a href="#log">log</a>
           <ul>
@@ -845,7 +1099,7 @@ iscsi系统组成
             <li><a href="#metaq">metaq</a></li>
           </ul>
         </li>
-        <li><a href="#heading-2">任务</a>
+        <li><a href="#任务">任务</a>
           <ul>
             <li><a href="#quartz">quartz</a></li>
             <li><a href="#celery">celery</a></li>
@@ -854,23 +1108,37 @@ iscsi系统组成
         </li>
       </ul>
     </li>
-    <li><a href="#heading-3">存储服务</a>
+    <li><a href="#存储服务">存储服务</a>
       <ul>
         <li><a href="#iscsi">iscsi</a></li>
         <li><a href="#fastdfs">fastdfs</a></li>
         <li><a href="#cdn">cdn</a></li>
-        <li><a href="#aws">aws服务器</a></li>
+        <li><a href="#aws服务器">aws服务器</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

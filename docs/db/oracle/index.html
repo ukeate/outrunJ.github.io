@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 安装 运行services.msc 找到OracleServiceORCL 服务 （最后是数据库名）改为手动 sqlplus / as sysdba 运行oracle测试是否安装成功 解锁scott用户 sqlplus / as sysdba alter user scott account unlock; alter user scott identified by tiger; 启动 OracleServiceORCL OracleOraDb11g_home1TNSListener 端口 1521 # 停了以后再开会变 权限 系统权限：创建数据库，创建用户 对象权限：表操作 sys create database权限 system 没有create database权限 scott hr 角色 # 超管以角色进入，普通用户输入用户名密码 dba dbaoperator 服务器的组成 oracle数据库 存储位置 oracle安装位置/oradata/ 每个数据库文件夹中有多个二进制文件（*.dbf） oracle实例(内存概念) 一个数据库进程可以有多个实例 一个实例可以有多个数据库进程和一个内存池(缓存) # 不同于windows进程，每个进程对应一个用户访问 服务名为OracleService数据库名 集群(多实例) 连接失败转移 负载均衡 连接类型 normal sysdba sysoper 分布式 认证 开发技术认证 Java认证 数据库开发语言SQL和PL/SQL认证 数据库技术认证 OCM【大师】 OCP【专家】 OCA【初级】 中间件技术认证 OracleServer认证，WEB服务器认证 专业领域技术认证 ERP CRM HR OA 支持的事务隔离 只支持读提交与序列化两种 版本 8i 9i 10i # i是internet 11g # 基于jdk6, g是grid网格(一个请求多个服务器运行) 12c # c是cloud SQL99标准 # 不区分大小写 PLSQL是Oracle对SQl99标准的扩展 结构代查询语言 DML select,insert,update,delete DDL create table,alter table, drop table DCL grant, revoke TCL(杜撰) commit, rollback,rollback to savepoint 加载过程 启动oracle服务 oradim -startup -sid 数据库名 # 相当于windows服务中启动该服务，会从windows注册表中加载配置 oradim -shutdown -sid orcl -shuttype srvc # 停止oracle 服务 普通登录 sqlplus system/asdf # 从注册表中查找默认的数据库名称进行登录 sqlplus system/asdf@orcl # 指定数据库名登录，必须有监听的时候该命令可以执行，监听的进程是独立于oracle之外的进程 管理员登录 sqlplus / as sysdba # windows管理员的身份进行登录，不需要用户名密码，可以在配置文件中禁用它 无连接登录 sqlplus /nolog #用来设置sql/plus 启动实例 cmd&gt; sqlplus / as sysdba # 连接到数据库的空闲实例 sql&gt; select status from v$instance # 查看实例状态 sql&gt; shutdown abort # 立即终止当前的实例,实例结束后用户仍然登录状态，但没有连接实例 sql&gt; startup nomount # 启动默认实例（不加载数据库） sql&gt; startup open # 启动、装载、打开默认的数据库 cmd&gt; set oracle_sid=orcl # 在windows下设置oracle的默认登录数据库 启动过程 加载参数文件database/init数据库名 分配sga (system global area)到内存空间，用于缓存数据库信息 创建后台进程 挂载数据库 sql&gt; startup mount 挂载过程 装载数据库文件夹中的文件 # sga中有已经初始化了ctl文件的路径，通过ctl文件装载数据库 ctl(从中得到数据库文件名) -&gt; dbf # 3种数据库文件: ." />
+<meta name="description" content="基础 #  安装 运行services.msc 找到OracleServiceORCL 服务 （最后是数据库名）改为手动 sqlplus / as sysdba 运行oracle测试是否安装成功 解锁scott用户 sqlplus / as sysdba alter user scott account unlock; alter user scott identified by tiger; 启动 OracleServiceORCL OracleOraDb11g_home1TNSListener 端口 1521 # 停了以后再开会变 权限 系统权限：创建数据库，创建用户 对象权限：表操作 sys create database权限 system 没有create database权限 scott hr 角色 # 超管以角色进入，普通用户输入用户名密码 dba dbaoperator 服务器的组成 oracle数据库 存储位置 oracle安装位置/oradata/ 每个数据库文件夹中有多个二进制文件（*.dbf） oracle实例(内存概念) 一个数据库进程可以有多个实例 一个实例可以有多个数据库进程和一个内存池(缓存) # 不同于windows进程，每个进程对应一个用户访问 服务名为OracleService数据库名 集群(多实例) 连接失败转移 负载均衡 连接类型 normal sysdba sysoper 分布式 认证 开发技术认证 Java认证 数据库开发语言SQL和PL/SQL认证 数据库技术认证 OCM【大师】 OCP【专家】 OCA【初级】 中间件技术认证 OracleServer认证，WEB服务器认证 专业领域技术认证 ERP CRM HR OA 支持的事务隔离 只支持读提交与序列化两种 版本 8i 9i 10i # i是internet 11g # 基于jdk6, g是grid网格(一个请求多个服务器运行) 12c # c是cloud SQL99标准 # 不区分大小写 PLSQL是Oracle对SQl99标准的扩展 结构代查询语言 DML select,insert,update,delete DDL create table,alter table, drop table DCL grant, revoke TCL(杜撰) commit, rollback,rollback to savepoint 加载过程 启动oracle服务 oradim -startup -sid 数据库名 # 相当于windows服务中启动该服务，会从windows注册表中加载配置 oradim -shutdown -sid orcl -shuttype srvc # 停止oracle 服务 普通登录 sqlplus system/asdf # 从注册表中查找默认的数据库名称进行登录 sqlplus system/asdf@orcl # 指定数据库名登录，必须有监听的时候该命令可以执行，监听的进程是独立于oracle之外的进程 管理员登录 sqlplus / as sysdba # windows管理员的身份进行登录，不需要用户名密码，可以在配置文件中禁用它 无连接登录 sqlplus /nolog #用来设置sql/plus 启动实例 cmd&gt; sqlplus / as sysdba # 连接到数据库的空闲实例 sql&gt; select status from v$instance # 查看实例状态 sql&gt; shutdown abort # 立即终止当前的实例,实例结束后用户仍然登录状态，但没有连接实例 sql&gt; startup nomount # 启动默认实例（不加载数据库） sql&gt; startup open # 启动、装载、打开默认的数据库 cmd&gt; set oracle_sid=orcl # 在windows下设置oracle的默认登录数据库 启动过程 加载参数文件database/init数据库名 分配sga (system global area)到内存空间，用于缓存数据库信息 创建后台进程 挂载数据库 sql&gt; startup mount 挂载过程 装载数据库文件夹中的文件 # sga中有已经初始化了ctl文件的路径，通过ctl文件装载数据库 ctl(从中得到数据库文件名) -&gt; dbf # 3种数据库文件: .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 #  安装 运行services.msc 找到OracleServiceORCL 服务 （最后是数据库名）改为手动 sqlplus / as sysdba 运行oracle测试是否安装成功 解锁scott用户 sqlplus / as sysdba alter user scott account unlock; alter user scott identified by tiger; 启动 OracleServiceORCL OracleOraDb11g_home1TNSListener 端口 1521 # 停了以后再开会变 权限 系统权限：创建数据库，创建用户 对象权限：表操作 sys create database权限 system 没有create database权限 scott hr 角色 # 超管以角色进入，普通用户输入用户名密码 dba dbaoperator 服务器的组成 oracle数据库 存储位置 oracle安装位置/oradata/ 每个数据库文件夹中有多个二进制文件（*.dbf） oracle实例(内存概念) 一个数据库进程可以有多个实例 一个实例可以有多个数据库进程和一个内存池(缓存) # 不同于windows进程，每个进程对应一个用户访问 服务名为OracleService数据库名 集群(多实例) 连接失败转移 负载均衡 连接类型 normal sysdba sysoper 分布式 认证 开发技术认证 Java认证 数据库开发语言SQL和PL/SQL认证 数据库技术认证 OCM【大师】 OCP【专家】 OCA【初级】 中间件技术认证 OracleServer认证，WEB服务器认证 专业领域技术认证 ERP CRM HR OA 支持的事务隔离 只支持读提交与序列化两种 版本 8i 9i 10i # i是internet 11g # 基于jdk6, g是grid网格(一个请求多个服务器运行) 12c # c是cloud SQL99标准 # 不区分大小写 PLSQL是Oracle对SQl99标准的扩展 结构代查询语言 DML select,insert,update,delete DDL create table,alter table, drop table DCL grant, revoke TCL(杜撰) commit, rollback,rollback to savepoint 加载过程 启动oracle服务 oradim -startup -sid 数据库名 # 相当于windows服务中启动该服务，会从windows注册表中加载配置 oradim -shutdown -sid orcl -shuttype srvc # 停止oracle 服务 普通登录 sqlplus system/asdf # 从注册表中查找默认的数据库名称进行登录 sqlplus system/asdf@orcl # 指定数据库名登录，必须有监听的时候该命令可以执行，监听的进程是独立于oracle之外的进程 管理员登录 sqlplus / as sysdba # windows管理员的身份进行登录，不需要用户名密码，可以在配置文件中禁用它 无连接登录 sqlplus /nolog #用来设置sql/plus 启动实例 cmd&gt; sqlplus / as sysdba # 连接到数据库的空闲实例 sql&gt; select status from v$instance # 查看实例状态 sql&gt; shutdown abort # 立即终止当前的实例,实例结束后用户仍然登录状态，但没有连接实例 sql&gt; startup nomount # 启动默认实例（不加载数据库） sql&gt; startup open # 启动、装载、打开默认的数据库 cmd&gt; set oracle_sid=orcl # 在windows下设置oracle的默认登录数据库 启动过程 加载参数文件database/init数据库名 分配sga (system global area)到内存空间，用于缓存数据库信息 创建后台进程 挂载数据库 sql&gt; startup mount 挂载过程 装载数据库文件夹中的文件 # sga中有已经初始化了ctl文件的路径，通过ctl文件装载数据库 ctl(从中得到数据库文件名) -&gt; dbf # 3种数据库文件: ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/db/oracle/" />
+<meta property="og:url" content="https://example.com/docs/db/oracle/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2019-07-19T17:40:27&#43;08:00" />
 
 <title>Oracle | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,78 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Oracle</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#类型">类型</a></li>
+    <li><a href="#数据字典">数据字典</a></li>
+    <li><a href="#存储过程">存储过程</a></li>
+    <li><a href="#触发器">触发器</a></li>
+    <li><a href="#函数及常量">函数及常量</a></li>
+    <li><a href="#游标">游标</a></li>
+    <li><a href="#闪回技术">闪回技术</a></li>
+    <li><a href="#审计">审计</a></li>
+    <li><a href="#工具">工具</a>
+      <ul>
+        <li><a href="#sqlplus">sqlplus</a></li>
+        <li><a href="#plsql">pl/sql</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>安装
     运行services.msc
     找到OracleServiceORCL 服务 （最后是数据库名）改为手动
@@ -319,13 +383,19 @@ SQL99标准     # 不区分大小写
     打开数据库       # 使外界可以访问
         sql&gt; alter database 数据库名 open                # 数据库文件夹中记录日志
 </code></pre>
-<h1 id="heading-1">类型</h1>
+<h1 id="类型">
+  类型
+  <a class="anchor" href="#%e7%b1%bb%e5%9e%8b">#</a>
+</h1>
 <pre><code>varchar2(7)        # 可变字符串
 char                # 字符
 number(precision [, scale])    # presision是有效位（从左边第一个不为0的数算起，小数点和负号不计入有效位数），scale是精确位（正数为小数的精确位，负数为整数的精确位）
 constant number                # 常量
 </code></pre>
-<h1 id="heading-2">数据字典</h1>
+<h1 id="数据字典">
+  数据字典
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ad%97%e5%85%b8">#</a>
+</h1>
 <pre><code>dual                # dual表只有一行，用于执行一些特殊操作
 dba_sequences
         select SEQUENCE_OWNER,SEQUENCE_NAME from dba_sequences
@@ -340,7 +410,10 @@ v$session
         select count(*) from v$session
                 # 查看当前数据库的连接
 </code></pre>
-<h1 id="heading-3">存储过程</h1>
+<h1 id="存储过程">
+  存储过程
+  <a class="anchor" href="#%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b">#</a>
+</h1>
 <pre><code>过程与函数
     返回值
         函数有且只一个返回值
@@ -471,7 +544,10 @@ v$session
 
         END emp_eval;
 </code></pre>
-<h1 id="heading-4">触发器</h1>
+<h1 id="触发器">
+  触发器
+  <a class="anchor" href="#%e8%a7%a6%e5%8f%91%e5%99%a8">#</a>
+</h1>
 <pre><code>分类
     # select 没有触发器
     语句级insert / delete           # 只在语句执行时触发
@@ -516,7 +592,10 @@ v$session
     end;
     /
 </code></pre>
-<h1 id="heading-5">函数及常量</h1>
+<h1 id="函数及常量">
+  函数及常量
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0%e5%8f%8a%e5%b8%b8%e9%87%8f">#</a>
+</h1>
 <pre><code>常量
     sysdate 当前日期
 
@@ -577,14 +656,20 @@ v$session
     max(sal)                # 统计最大值，可以用在日期上
     min(sal)                # 统计最小值 ，可以用在日期上
 </code></pre>
-<h1 id="heading-6">游标</h1>
+<h1 id="游标">
+  游标
+  <a class="anchor" href="#%e6%b8%b8%e6%a0%87">#</a>
+</h1>
 <pre><code>分类
     显示
         cursor is
     隐式
         执行insert, delete, update，返回单条记录的select时，pl/sql自动定义
 </code></pre>
-<h1 id="heading-7">闪回技术</h1>
+<h1 id="闪回技术">
+  闪回技术
+  <a class="anchor" href="#%e9%97%aa%e5%9b%9e%e6%8a%80%e6%9c%af">#</a>
+</h1>
 <pre><code>可以闪回的操作
         dml 
         ddl操作（回收站中存在）
@@ -607,7 +692,10 @@ v$session
                 flashback table emp to before drop rename to newemp;
                         # 两张同名的表首先恢复最近删除的表
 </code></pre>
-<h1 id="heading-8">审计</h1>
+<h1 id="审计">
+  审计
+  <a class="anchor" href="#%e5%ae%a1%e8%ae%a1">#</a>
+</h1>
 <pre><code>审计（Audit)
         用于监视用户所执行的数据库操作，并且Oracle会将审计跟踪结果存放到OS文件（默认位置为$ORACLE_BASE/admin/$ORACLE_SID/adump/）
         或数据库（存储在system表空间中的SYS.AUD$表中，可通过视图dba_audit_trail查看）中。
@@ -634,13 +722,19 @@ v$session
         Privilege        按权限来审计，当用户使用了该权限则被审计，如执行grant select any table to a，
         object                按对象审计，只审计on关键字指定对象的相关操作，如aduit alter,delete,drop,insert on cmy.t by scott; 
 </code></pre>
-<h1 id="heading-9">工具</h1>
+<h1 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h1>
 <pre><code>sqldeveloper
 isqlplus
 dbconsole
 toad
 </code></pre>
-<h2 id="sqlplus">sqlplus</h2>
+<h2 id="sqlplus">
+  sqlplus
+  <a class="anchor" href="#sqlplus">#</a>
+</h2>
 <pre><code>命令
     # ;或/结束
 
@@ -659,7 +753,10 @@ toad
         set timing on / set timing off  # 每执行一段语句显示语句的执行时间
         set time on / set time off      # 在输入标记前面显示当前时间
 </code></pre>
-<h2 id="plsql">pl/sql</h2>
+<h2 id="plsql">
+  pl/sql
+  <a class="anchor" href="#plsql">#</a>
+</h2>
 <pre><code>procedure language
 oracle对sql99的扩展
     增加了类型定义
@@ -897,52 +994,64 @@ oracle对sql99的扩展
     /
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified by shenwenqing | Jul 19, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified by shenwenqing | Jul 19, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 19, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/oracle.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/db/oracle.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">类型</a></li>
-    <li><a href="#heading-2">数据字典</a></li>
-    <li><a href="#heading-3">存储过程</a></li>
-    <li><a href="#heading-4">触发器</a></li>
-    <li><a href="#heading-5">函数及常量</a></li>
-    <li><a href="#heading-6">游标</a></li>
-    <li><a href="#heading-7">闪回技术</a></li>
-    <li><a href="#heading-8">审计</a></li>
-    <li><a href="#heading-9">工具</a>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#类型">类型</a></li>
+    <li><a href="#数据字典">数据字典</a></li>
+    <li><a href="#存储过程">存储过程</a></li>
+    <li><a href="#触发器">触发器</a></li>
+    <li><a href="#函数及常量">函数及常量</a></li>
+    <li><a href="#游标">游标</a></li>
+    <li><a href="#闪回技术">闪回技术</a></li>
+    <li><a href="#审计">审计</a></li>
+    <li><a href="#工具">工具</a>
       <ul>
         <li><a href="#sqlplus">sqlplus</a></li>
         <li><a href="#plsql">pl/sql</a></li>
@@ -950,13 +1059,27 @@ oracle对sql99的扩展
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

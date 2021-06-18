@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Go"><meta property="og:title" content="Go" />
-<meta property="og:description" content="基础 特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 引用包名在头 包依赖有向无环，可独立和并行编译 目标文件包含依赖包信息 强静态类型 有gc 变长栈，最小2kb, 最大1GB 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录, 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 GOOS # 指定操作系统, 如android, linux, darwin, windows GOARCH # 处理器架构，如amd64, 386, arm  命令 go help importpath # 说明 指定代码托管网站版本协议 gopath # vendor怎么使用 list # go list 说明 version env # 打印go环境信息 run # 编译并运行 -race # 检查运行中的竞态冲突并报告 build # 库被舍弃，main包编译成二进制执行文件 go build gopl." />
+<meta name="description" content="基础 #  特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 引用包名在头 包依赖有向无环，可独立和并行编译 目标文件包含依赖包信息 强静态类型 有gc 变长栈，最小2kb, 最大1GB 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录, 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 GOOS # 指定操作系统, 如android, linux, darwin, windows GOARCH # 处理器架构，如amd64, 386, arm  命令 #  go help importpath # 说明 指定代码托管网站版本协议 gopath # vendor怎么使用 list # go list 说明 version env # 打印go环境信息 run # 编译并运行 -race # 检查运行中的竞态冲突并报告 build # 库被舍弃，main包编译成二进制执行文件 go build gopl.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Go" />
+<meta property="og:description" content="基础 #  特点 易工程化 简单性而不方便性，避免工程复杂性乘法增长 # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置) 没有动态库, 没有泛型, 没有继承, 没有异常, 没有宏，没有注解，没有线程局部存储 类型系统，无类型风格 自然方式工作 不显式初始化和隐式构造函数 集合直接持有元素 标准库避免配置和解释 # 自带电池 项目结构简单 编译检查代码格式 csp(communicating sequential process)并发，变长栈运行轻量线程 编译为本地机器码 # 像c一样，所以又叫类c语言 编译快 引用包名在头 包依赖有向无环，可独立和并行编译 目标文件包含依赖包信息 强静态类型 有gc 变长栈，最小2kb, 最大1GB 大厂支持 历史 2007年设计，受影响于Alef(CSP系列), Oberon-2(ALGOL60, Modula-2系列), C # 目的解决google许多复杂性激增的软件系统 2009年发布, 作者是Robert Griesemer, Rob Pike, Ken Thompson 2012年1.0 并发编程特点 语言层面关键字 例程 流程控制: csp # channel为一等公民 通信方式: promise-future, channel, event 高效调度模型(调度器，资源占用小) O(1)的调度 一进程可支撑上百万例程,5kib/goroutine的开销, 变长栈存goroutine 编译 CGO_ENABLED=0 # 静态链接，不跨平台 初始化 包级别初始化在main前 局部变量在函数执行时 配置 GOROOT # go安装目录 GOPATH # 包目录, 默认要有go的bin目录 GOBIN # 当前bin目录 GO15VENDOREXPERIMENT # 依赖目录 GOOS # 指定操作系统, 如android, linux, darwin, windows GOARCH # 处理器架构，如amd64, 386, arm  命令 #  go help importpath # 说明 指定代码托管网站版本协议 gopath # vendor怎么使用 list # go list 说明 version env # 打印go环境信息 run # 编译并运行 -race # 检查运行中的竞态冲突并报告 build # 库被舍弃，main包编译成二进制执行文件 go build gopl." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/go/" />
-<meta property="article:published_time" content="2018-10-09T16:10:44+08:00" />
-<meta property="article:modified_time" content="2019-12-06T10:59:07+08:00" />
+<meta property="og:url" content="https://example.com/docs/pl/go/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-09T16:10:44&#43;08:00" />
+<meta property="article:modified_time" content="2019-12-06T10:59:07&#43;08:00" />
+
 <title>Go | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +212,87 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Go</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#mod">mod</a></li>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#内置">内置</a></li>
+      </ul>
+    </li>
+    <li><a href="#内部包">内部包</a></li>
+    <li><a href="#外部包">外部包</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#并发编程">并发编程</a></li>
+    <li><a href="#工具">工具</a>
+      <ul>
+        <li><a href="#glide">glide</a></li>
+        <li><a href="#govendor">govendor</a></li>
+        <li><a href="#godev">godev</a></li>
+        <li><a href="#gv">gv</a></li>
+        <li><a href="#gvt">gvt</a></li>
+        <li><a href="#gvm">gvm</a></li>
+        <li><a href="#gore">gore</a></li>
+        <li><a href="#go-torch">go-torch</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>特点
     易工程化
         简单性而不方便性，避免工程复杂性乘法增长            # 某部分变复杂，增加其他部分的复杂性(功能、选项、配置)
@@ -270,7 +342,10 @@ https://github.com/alex-shpak/hugo-book
     GOOS                    # 指定操作系统, 如android, linux, darwin, windows
     GOARCH                  # 处理器架构，如amd64, 386, arm
 </code></pre>
-<h1 id="heading-1">命令</h1>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
 <pre><code>go
     help
         importpath          # 说明 指定代码托管网站版本协议
@@ -354,7 +429,10 @@ godoc                       # 提供html页面
 gofmt
 golint                          # 检查风格
 </code></pre>
-<h1 id="mod">mod</h1>
+<h1 id="mod">
+  mod
+  <a class="anchor" href="#mod">#</a>
+</h1>
 <pre><code>环境变量
     GO111MODULE
         off                     # 总关闭
@@ -383,7 +461,10 @@ golint                          # 检查风格
             verify              # 验证mod
             why                 # 打印依赖原因
 </code></pre>
-<h1 id="heading-2">语法</h1>
+<h1 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h1>
 <pre><code>包                              # 路径引用，命名空间
     不能循环依赖
     main包                      # 入口包, 产生可执行文件，也可当库导入
@@ -736,7 +817,10 @@ golint                          # 检查风格
             })
         }
 </code></pre>
-<h2 id="heading-3">内置</h2>
+<h2 id="内置">
+  内置
+  <a class="anchor" href="#%e5%86%85%e7%bd%ae">#</a>
+</h2>
 <pre><code>零值                              # 保障变量良好定义，没有未初始化变量
     数字0, 布尔false, 字符串&quot;&quot;
     接口和引用类型(slice, 指针, map, channel, 函数)nil
@@ -991,7 +1075,10 @@ cgo
             这里用了C.bz_stream和C.BZ2_bzCompressInit
     go也可编译成静态库链接进C, 或编译成动态库通过C加载和共享
 </code></pre>
-<h1 id="heading-4">内部包</h1>
+<h1 id="内部包">
+  内部包
+  <a class="anchor" href="#%e5%86%85%e9%83%a8%e5%8c%85">#</a>
+</h1>
 <pre><code># golang.org/pkg 找到索引
 errors
     New()
@@ -1371,11 +1458,17 @@ unsafe                  # 由编译器实现，暴露了内存布局。
     Alignof             # 报告类型对齐方式
     Offsetof()          # 成员相对起始偏移量, 计算空位
 </code></pre>
-<h1 id="heading-5">外部包</h1>
+<h1 id="外部包">
+  外部包
+  <a class="anchor" href="#%e5%a4%96%e9%83%a8%e5%8c%85">#</a>
+</h1>
 <pre><code># godoc.org 搜索
 goimports           # 格式化imports顺序
 </code></pre>
-<h1 id="heading-6">测试</h1>
+<h1 id="测试">
+  测试
+  <a class="anchor" href="#%e6%b5%8b%e8%af%95">#</a>
+</h1>
 <pre><code>规则
     文件名以_test.go结尾
     汇报PASS或FAIL, 平均执行时间
@@ -1415,7 +1508,10 @@ Example函数                       # 示例，无参无结果。
         // output: aa
     }
 </code></pre>
-<h1 id="heading-7">并发编程</h1>
+<h1 id="并发编程">
+  并发编程
+  <a class="anchor" href="#%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b">#</a>
+</h1>
 <pre><code>同步
     func
     channel                                 # 和调度器深度关联，控制goroutine的阻塞和唤醒
@@ -1733,8 +1829,14 @@ Example函数                       # 示例，无参无结果。
         }
         concurrent(done, do, 999, 100, 1e3)
 </code></pre>
-<h1 id="heading-8">工具</h1>
-<h2 id="glide">glide</h2>
+<h1 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h1>
+<h2 id="glide">
+  glide
+  <a class="anchor" href="#glide">#</a>
+</h2>
 <pre><code>介绍
     包管理
 目录
@@ -1797,22 +1899,37 @@ glide.yaml
                 subpackages:
                 - internal
 </code></pre>
-<h2 id="govendor">govendor</h2>
+<h2 id="govendor">
+  govendor
+  <a class="anchor" href="#govendor">#</a>
+</h2>
 <pre><code>介绍
     包管理
 使用
     go get -u -v github.com/kardianos/govendor
 </code></pre>
-<h2 id="godev">godev</h2>
+<h2 id="godev">
+  godev
+  <a class="anchor" href="#godev">#</a>
+</h2>
 <pre><code># 依赖管理
 </code></pre>
-<h2 id="gv">gv</h2>
+<h2 id="gv">
+  gv
+  <a class="anchor" href="#gv">#</a>
+</h2>
 <pre><code># 依赖管理
 </code></pre>
-<h2 id="gvt">gvt</h2>
+<h2 id="gvt">
+  gvt
+  <a class="anchor" href="#gvt">#</a>
+</h2>
 <pre><code># 依赖管理
 </code></pre>
-<h2 id="gvm">gvm</h2>
+<h2 id="gvm">
+  gvm
+  <a class="anchor" href="#gvm">#</a>
+</h2>
 <pre><code># 版本管理
 命令
     gvm
@@ -1823,63 +1940,81 @@ glide.yaml
         implode
             # 删除所有go版本和gvm本身
 </code></pre>
-<h2 id="gore">gore</h2>
+<h2 id="gore">
+  gore
+  <a class="anchor" href="#gore">#</a>
+</h2>
 <pre><code># repl
 </code></pre>
-<h2 id="go-torch">go-torch</h2>
+<h2 id="go-torch">
+  go-torch
+  <a class="anchor" href="#go-torch">#</a>
+</h2>
 <pre><code># 性能火焰图
 go-torch -b cpu.prof
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/06c4b3e553b33ac7276318c2fe746a2bce5cde05" title='Last modified by shenwenqing | Dec 6, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Dec 6, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/go.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/go.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">命令</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#命令">命令</a></li>
     <li><a href="#mod">mod</a></li>
-    <li><a href="#heading-2">语法</a>
+    <li><a href="#语法">语法</a>
       <ul>
-        <li><a href="#heading-3">内置</a></li>
+        <li><a href="#内置">内置</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">内部包</a></li>
-    <li><a href="#heading-5">外部包</a></li>
-    <li><a href="#heading-6">测试</a></li>
-    <li><a href="#heading-7">并发编程</a></li>
-    <li><a href="#heading-8">工具</a>
+    <li><a href="#内部包">内部包</a></li>
+    <li><a href="#外部包">外部包</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#并发编程">并发编程</a></li>
+    <li><a href="#工具">工具</a>
       <ul>
         <li><a href="#glide">glide</a></li>
         <li><a href="#govendor">govendor</a></li>
@@ -1893,13 +2028,27 @@ go-torch -b cpu.prof
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

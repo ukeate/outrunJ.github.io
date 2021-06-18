@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker"><meta property="og:title" content="Docker" />
-<meta property="og:description" content="基础 介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build ." />
+<meta name="description" content="基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker" />
+<meta property="og:description" content="基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/ops/docker/" />
-<meta property="article:published_time" content="2018-10-11T18:18:21+08:00" />
-<meta property="article:modified_time" content="2021-03-12T17:11:25+08:00" />
+<meta property="og:url" content="https://example.com/docs/ops/docker/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T18:18:21&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-12T17:11:25&#43;08:00" />
+
 <title>Docker | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +212,69 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Docker</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#dockerfile">Dockerfile</a></li>
+    <li><a href="#docker-compose">docker-compose</a></li>
+    <li><a href="#方案">方案</a></li>
+    <li><a href="#工具">工具</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>介绍
     基于linux LXC，可以实现虚拟化
 优点
@@ -236,7 +290,10 @@ https://github.com/alex-shpak/hugo-book
         OPTIONS='--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8'
         DOCKER_CERT_PATH=/etc/docker
 </code></pre>
-<h1 id="heading-1">命令</h1>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
 <pre><code>docker
     -h
     version
@@ -342,7 +399,10 @@ https://github.com/alex-shpak/hugo-book
         ps
         rm
 </code></pre>
-<h1 id="dockerfile">Dockerfile</h1>
+<h1 id="dockerfile">
+  Dockerfile
+  <a class="anchor" href="#dockerfile">#</a>
+</h1>
 <pre><code>指令
     FROM nginx                          # 基于镜像
     MAINTAINER outrun                   # 指定维护者信息
@@ -355,7 +415,10 @@ https://github.com/alex-shpak/hugo-book
     CMD [&quot;-config&quot;, &quot;config.toml&quot;]      # docker run 时运行
     RUN echo 'test'                     # build过程中执行的命令
 </code></pre>
-<h1 id="docker-compose">docker-compose</h1>
+<h1 id="docker-compose">
+  docker-compose
+  <a class="anchor" href="#docker-compose">#</a>
+</h1>
 <pre><code>docker-compose
     -h                              # 帮助
     -f                              # 指定模板
@@ -402,7 +465,10 @@ https://github.com/alex-shpak/hugo-book
         volumes:
           - ./data:/bitnami                                         # 本地:镜像
 </code></pre>
-<h1 id="heading-2">方案</h1>
+<h1 id="方案">
+  方案
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88">#</a>
+</h1>
 <pre><code>进入容器
     docker exec -it mysql bash
 制作镜像并运行
@@ -436,63 +502,92 @@ https://github.com/alex-shpak/hugo-book
 登录运行容器
     docker exec -it --user root 8ce /bin/sh
 </code></pre>
-<h1 id="heading-3">工具</h1>
+<h1 id="工具">
+  工具
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
+</h1>
 <pre><code>harbor
     企业级register镜像服务器
 pipwork
     shell写的docker网格配置工具</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 12, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/docker.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/ops/docker.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">命令</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#命令">命令</a></li>
     <li><a href="#dockerfile">Dockerfile</a></li>
     <li><a href="#docker-compose">docker-compose</a></li>
-    <li><a href="#heading-2">方案</a></li>
-    <li><a href="#heading-3">工具</a></li>
+    <li><a href="#方案">方案</a></li>
+    <li><a href="#工具">工具</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

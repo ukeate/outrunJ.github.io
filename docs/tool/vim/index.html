@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VIM"><meta property="og:title" content="VIM" />
-<meta property="og:description" content="编译 --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode 普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &lt;C - v&gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&lt;,&#39;&gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &lt;C - g&gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate 思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl &#43; c # 同Esc motions ." />
+<meta name="description" content="编译 #  --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 #  vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode #  普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &lt;C - v&gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&lt;,&#39;&gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &lt;C - g&gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate #  思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl &#43; c # 同Esc motions .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="VIM" />
+<meta property="og:description" content="编译 #  --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 #  vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode #  普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &lt;C - v&gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&lt;,&#39;&gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &lt;C - g&gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate #  思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl &#43; c # 同Esc motions ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/tool/vim/" />
-<meta property="article:published_time" content="2018-10-11T18:31:16+08:00" />
-<meta property="article:modified_time" content="2019-09-24T08:48:46+08:00" />
+<meta property="og:url" content="https://example.com/docs/tool/vim/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T18:31:16&#43;08:00" />
+<meta property="article:modified_time" content="2019-09-24T08:48:46&#43;08:00" />
+
 <title>VIM | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,40 +212,93 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>VIM</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#编译">编译</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#mode">mode</a></li>
+    <li><a href="#operate">operate</a></li>
+    <li><a href="#locate-oper">locate oper</a></li>
+    <li><a href="#edit-oper">edit oper</a>
+      <ul>
+        <li><a href="#patterns-oper">patterns oper</a></li>
+      </ul>
+    </li>
+    <li><a href="#registers-oper">registers oper</a></li>
+    <li><a href="#file-oper">file oper</a></li>
+    <li><a href="#settings">settings</a></li>
+    <li><a href="#plugins">plugins</a></li>
+    <li><a href="#方案">方案</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">编译</h1>
+      
+  <article class="markdown"><h1 id="编译">
+  编译
+  <a class="anchor" href="#%e7%bc%96%e8%af%91">#</a>
+</h1>
 <pre><code>--with-features=tiny                # 只包含最基本功能。small, normal, big, huge, :h feature-list查看
 </code></pre>
-<h1 id="heading-1">命令</h1>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
 <pre><code>vim -u NONE -N                      # -u NONE 不加载配置文件和插件，并进入vi兼容模式
     -u code/essential.vim           # 加载指定配置文件
     -N set nocompatible             # 不进入vi兼容模式
     --version                       # 可查看特性
 </code></pre>
-<h1 id="mode">mode</h1>
+<h1 id="mode">
+  mode
+  <a class="anchor" href="#mode">#</a>
+</h1>
 <pre><code>普通模式
 插入模式
 可视模式
@@ -250,7 +319,10 @@ https://github.com/alex-shpak/hugo-book
     q:                              # 命令历史
     q/                              # 搜索历史
 </code></pre>
-<h1 id="operate">operate</h1>
+<h1 id="operate">
+  operate
+  <a class="anchor" href="#operate">#</a>
+</h1>
 <pre><code>思想
     {operator}{motion}
     {operator}{text-objects}
@@ -285,7 +357,10 @@ Ex command                          # 可视模式下选中行, : 时前面有'&
         :grep t * # 在当前所有文件中匹配t, 自动加-n参数(显示行号)
         :ls
 </code></pre>
-<h1 id="locate-oper">locate oper</h1>
+<h1 id="locate-oper">
+  locate oper
+  <a class="anchor" href="#locate-oper">#</a>
+</h1>
 <pre><code>motion
     ^/$/0/&lt;home&gt;/g_/h/l/j/k/w/W/e/E/b/B/ge/gE/gg/G/[[/]]/(/)/{/}/nH/M/nL/点鼠标
         # 移动motion
@@ -341,7 +416,10 @@ shortcut key
     &lt;c - f&gt;/b                       # 向下/上滚动一屏
     &lt;c - i&gt;/o                       # 到下个/上个跳动过的位置
 </code></pre>
-<h1 id="edit-oper">edit oper</h1>
+<h1 id="edit-oper">
+  edit oper
+  <a class="anchor" href="#edit-oper">#</a>
+</h1>
 <pre><code>shortcut key
     &lt;C - r&gt;                         # 撤销的撤销
     &lt;C - a&gt;/x                       # 数字增加/减少1, 对0开关数字进行八进制操作, 0x进行十进制操作。可以设置nrformats改变
@@ -465,7 +543,10 @@ text-object
     视图模式下
         vit                         # 在可视模式下选中标签内容，如&lt;a&gt;xxx&lt;/a&gt;的xxx
 </code></pre>
-<h2 id="patterns-oper">patterns oper</h2>
+<h2 id="patterns-oper">
+  patterns oper
+  <a class="anchor" href="#patterns-oper">#</a>
+</h2>
 <pre><code>operator
     &amp;                               # 重复:s上次执行的命令, 不包含g
         g&amp; 全局重复:s上次的命令
@@ -485,7 +566,10 @@ Ex command
         v/text/command 查找到行不执行命令,其它行执行
     :&amp;                              # 同operator中&amp;
 </code></pre>
-<h1 id="registers-oper">registers oper</h1>
+<h1 id="registers-oper">
+  registers oper
+  <a class="anchor" href="#registers-oper">#</a>
+</h1>
 <pre><code>register                            # 寄存器
     :reg                            # 查看所有寄存器 或 :reg 1 查看寄存器1的内容
     &quot;0p                             # &quot;0&lt;operator&gt; 粘贴寄存器0的内容
@@ -519,7 +603,10 @@ shortcut key
     内置宏
         :                           # 上次的Ex命令
 </code></pre>
-<h1 id="file-oper">file oper</h1>
+<h1 id="file-oper">
+  file oper
+  <a class="anchor" href="#file-oper">#</a>
+</h1>
 <pre><code>shell
     $ vim file1 file2..
     $ vimtutor                      # vim的教程
@@ -615,7 +702,10 @@ shortcut keys
         ctrl + w + w                # 跳到下一个
         ctrl + w + p                # 跳到前一个
 </code></pre>
-<h1 id="settings">settings</h1>
+<h1 id="settings">
+  settings
+  <a class="anchor" href="#settings">#</a>
+</h1>
 <pre><code>设置文件
     /etc/vimrc
     ~/.vimrc                        # vim的配置文件, 优先于.exrc
@@ -680,7 +770,10 @@ shortcut keys
     fileType plugin on              # 激活内置插件, 检测文件类型
     filetype on                     # 同上
 </code></pre>
-<h1 id="plugins">plugins</h1>
+<h1 id="plugins">
+  plugins
+  <a class="anchor" href="#plugins">#</a>
+</h1>
 <pre><code>netrw
     介绍
         自带插件
@@ -733,7 +826,10 @@ nerdTreeToggle
     介绍
         目录显示插件
 </code></pre>
-<h1 id="heading-2">方案</h1>
+<h1 id="方案">
+  方案
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88">#</a>
+</h1>
 <pre><code>加分号
     jA;
     j.
@@ -765,44 +861,56 @@ console输出乱码
     set encoding=utf-8
     set fileencodings=utf-8,chinese,latin-1</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 24, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/tool/vim.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/tool/vim.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">编译</a></li>
-    <li><a href="#heading-1">命令</a></li>
+    <li><a href="#编译">编译</a></li>
+    <li><a href="#命令">命令</a></li>
     <li><a href="#mode">mode</a></li>
     <li><a href="#operate">operate</a></li>
     <li><a href="#locate-oper">locate oper</a></li>
@@ -815,16 +923,30 @@ console输出乱码
     <li><a href="#file-oper">file oper</a></li>
     <li><a href="#settings">settings</a></li>
     <li><a href="#plugins">plugins</a></li>
-    <li><a href="#heading-2">方案</a></li>
+    <li><a href="#方案">方案</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

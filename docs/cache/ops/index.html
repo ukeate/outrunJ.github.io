@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ops"><meta property="og:title" content="" />
-<meta property="og:description" content="源 163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  linux日志 dmesg journalctl -x # 显示解释 -e # 显示到底部 -u # 指定unit名, 如kubelet --no-pager # 不输出到管道来分页 -f # 追加显示 -q # 只显示warn以上信息 --user-unit # 指定用户 --since &quot;2018-03-26&quot; --until &quot;2018-03-26 03:00&quot; journalctl -f --user-unit onedrive journalctl -xeu kubelet --no-pager 快捷键 ctrl alt f1/f2/." />
+<meta name="description" content="源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  linux日志 #  dmesg journalctl -x # 显示解释 -e # 显示到底部 -u # 指定unit名, 如kubelet --no-pager # 不输出到管道来分页 -f # 追加显示 -q # 只显示warn以上信息 --user-unit # 指定用户 --since &quot;2018-03-26&quot; --until &quot;2018-03-26 03:00&quot; journalctl -f --user-unit onedrive journalctl -xeu kubelet --no-pager 快捷键 ctrl alt f1/f2/.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  linux日志 #  dmesg journalctl -x # 显示解释 -e # 显示到底部 -u # 指定unit名, 如kubelet --no-pager # 不输出到管道来分页 -f # 追加显示 -q # 只显示warn以上信息 --user-unit # 指定用户 --since &quot;2018-03-26&quot; --until &quot;2018-03-26 03:00&quot; journalctl -f --user-unit onedrive journalctl -xeu kubelet --no-pager 快捷键 ctrl alt f1/f2/." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/cache/ops/" />
+<meta property="og:url" content="https://example.com/docs/cache/ops/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2021-02-04T15:02:50&#43;08:00" />
 
 <title>Ops | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,76 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Ops</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#源">源</a></li>
+    <li><a href="#linux日志">linux日志</a></li>
+    <li><a href="#网络">网络</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#docker">docker</a></li>
+    <li><a href="#kubenetes">kubenetes</a>
+      <ul>
+        <li><a href="#minikube">minikube</a></li>
+        <li><a href="#kubeadm">kubeadm</a></li>
+        <li><a href="#kubectl">kubectl</a></li>
+        <li><a href="#chrome">chrome</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">源</h1>
+      
+  <article class="markdown"><h1 id="源">
+  源
+  <a class="anchor" href="#%e6%ba%90">#</a>
+</h1>
 <pre><code>163: http://mirrors.163.com/
 阿里云mirror: https://developer.aliyun.com/mirror
     ubuntu
@@ -232,7 +294,10 @@ https://github.com/alex-shpak/hugo-book
         docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0
         docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0
 </code></pre>
-<h1 id="linux">linux日志</h1>
+<h1 id="linux日志">
+  linux日志
+  <a class="anchor" href="#linux%e6%97%a5%e5%bf%97">#</a>
+</h1>
 <pre><code>dmesg
 journalctl
     -x
@@ -258,7 +323,10 @@ journalctl -xeu kubelet --no-pager
 快捷键
     ctrl alt f1/f2/...
 </code></pre>
-<h1 id="heading-1">网络</h1>
+<h1 id="网络">
+  网络
+  <a class="anchor" href="#%e7%bd%91%e7%bb%9c">#</a>
+</h1>
 <pre><code>ifconfig docker0 down
     ifconfig docker0 up
 tcpdump -n tcp port 8383 -i lo and src host 183.14.132.117
@@ -268,7 +336,10 @@ tcpdump -n tcp port 8383 -i lo and src host 183.14.132.117
     -i 网卡
     -vvv            # 最详细输出
 </code></pre>
-<h1 id="heading-2">命令</h1>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
 <pre><code>envsubst '${THREAD_NUM}' &lt; decoder.conf.template &gt; decoder.conf
 grep
     -v grep         # 过滤掉grep
@@ -341,7 +412,10 @@ rsync
             wget --post-data=&quot;username=u1&amp;password=asdf&quot; --save-cookies=cookie --keep-session-cookies &quot;http://www.abc.com/logging.php&quot;
             wget -x -P curSite -r -l 1 -k -L -np --load-cookies=cookie --keep-session-cookies &quot;https://www.abc.com/display/1&quot;
 </code></pre>
-<h1 id="docker">docker</h1>
+<h1 id="docker">
+  docker
+  <a class="anchor" href="#docker">#</a>
+</h1>
 <pre><code>目录
     /var/lib/docker
 系统
@@ -393,8 +467,14 @@ registry
 system
     docker system prune -a
 </code></pre>
-<h1 id="kubenetes">kubenetes</h1>
-<h2 id="minikube">minikube</h2>
+<h1 id="kubenetes">
+  kubenetes
+  <a class="anchor" href="#kubenetes">#</a>
+</h1>
+<h2 id="minikube">
+  minikube
+  <a class="anchor" href="#minikube">#</a>
+</h2>
 <pre><code>docker login --username=934260428@qq.com registry.cn-hangzhou.aliyuncs.com
 命令
     minikube
@@ -442,10 +522,16 @@ system
         dashboard-metrics-scraper
         kubernetes-dashboard
 </code></pre>
-<h2 id="kubeadm">kubeadm</h2>
+<h2 id="kubeadm">
+  kubeadm
+  <a class="anchor" href="#kubeadm">#</a>
+</h2>
 <pre><code>kubeadm init
 </code></pre>
-<h2 id="kubectl">kubectl</h2>
+<h2 id="kubectl">
+  kubectl
+  <a class="anchor" href="#kubectl">#</a>
+</h2>
 <pre><code>配置
     envsubst &lt; iot.yml |kubectl apply -f -
 
@@ -568,50 +654,65 @@ Other Commands:
     node上跑pod个数
         kubectl get po --all-namespaces -o wide | grep cn-shanghai.i-uf6iudwa5b1tvdxb3yy8 |  wc -l 
 </code></pre>
-<h2 id="chrome">chrome</h2>
+<h2 id="chrome">
+  chrome
+  <a class="anchor" href="#chrome">#</a>
+</h2>
 <pre><code>chrome://net-internals/#dns
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/cache/ops.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/cache/ops.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">源</a></li>
-    <li><a href="#linux">linux日志</a></li>
-    <li><a href="#heading-1">网络</a></li>
-    <li><a href="#heading-2">命令</a></li>
+    <li><a href="#源">源</a></li>
+    <li><a href="#linux日志">linux日志</a></li>
+    <li><a href="#网络">网络</a></li>
+    <li><a href="#命令">命令</a></li>
     <li><a href="#docker">docker</a></li>
     <li><a href="#kubenetes">kubenetes</a>
       <ul>
@@ -623,13 +724,27 @@ Other Commands:
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

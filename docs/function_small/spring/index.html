@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Spring"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 特点 容器, 也容纳管理了第三方框架 # 目的是解耦框架api 轻量级，模块化，无(少)侵入 IOC(inversion of control) 容器用工厂装配对象并管理, 面向接口编程 优点 降低代码量 容易测试 最小侵入性松耦合 方式 Setter 构造器 静态工厂、实例工厂 DI(dependency injection) 容器向类添加属性 # 反射，用带参构造或set方法 AOP(aspect oriented programming) # 继承是纵向组织，AOP横切入业务 # oop是静态概念，aop是动态概念（aop的切面可以替换或不使用） 动态代理实现切入代码 权限控制 事务管理 记录日志 概念 连接点:普通方法 切入点:名称满足条件的连接点 增强（通知）类:服务对象 # 切入点与增强是多对多的 切面:切入点 &#43; 增强类 # 我们切入的是横切面 目标对象（服务对象）：要注入的对象 通知 before # 执行前 after # 执行后 after-returning # 正常退出 after-throwing # 异常退出 around # 执行前后 代理对象(业务对象)：被注入的对象 模块 dao, orm, aop, jee, web, core 结构 核心容器(core container) Core # 最底层，资源访问，类型转换 Beans # IOC, DI, BeanFactory Context # 以Core、Beans为基础，ApplicationContext。资源绑定，数据验证，国际化，JavaEE支持，容器生命周期，事件传播 EL # 表达式语言 AOP, Aspects # Aspects对AspectsJ集成, 功能多于spring asp 数据访问/集成 JDBC ORM OXM # object xml 映射 JMS # 消息与异步通信 事务 Web/Remoting Web # ioc窗口，rmi, hessian,burlap, web service Web-Servlet Web-Struts Web-Porlet # portal认证 Test 设计模式 代理 目标对象实现接口，使用Proxy 未实现接口，使用CGLIB 单例 bean默认单例 模板, 解决代码重复问题 RestTemplate, JmsTemplate, JpaTemplate 控制器 DispatherServlet对请求分发 视图帮助(view helper) 提供jsp标签、高效宏 帮助在视图中写代码 依赖注入 BeanFactory, ApplicationContext核心理念 工厂 BeanFactory 循环依赖问题 构造器, 正在创建在Bean池标记，创建完删除标记，标记冲突报错 # 所以用@Autowired决定注入时机，不写在构造方法里 单例， 三级缓存, 提前暴露使双方都可初始化 setter, 提前暴露bean 版本 2." />
+<meta name="description" content="基础 #  特点 容器, 也容纳管理了第三方框架 # 目的是解耦框架api 轻量级，模块化，无(少)侵入 IOC(inversion of control) 容器用工厂装配对象并管理, 面向接口编程 优点 降低代码量 容易测试 最小侵入性松耦合 方式 Setter 构造器 静态工厂、实例工厂 DI(dependency injection) 容器向类添加属性 # 反射，用带参构造或set方法 AOP(aspect oriented programming) # 继承是纵向组织，AOP横切入业务 # oop是静态概念，aop是动态概念（aop的切面可以替换或不使用） 动态代理实现切入代码 权限控制 事务管理 记录日志 概念 连接点:普通方法 切入点:名称满足条件的连接点 增强（通知）类:服务对象 # 切入点与增强是多对多的 切面:切入点 &#43; 增强类 # 我们切入的是横切面 目标对象（服务对象）：要注入的对象 通知 before # 执行前 after # 执行后 after-returning # 正常退出 after-throwing # 异常退出 around # 执行前后 代理对象(业务对象)：被注入的对象 模块 dao, orm, aop, jee, web, core 结构 核心容器(core container) Core # 最底层，资源访问，类型转换 Beans # IOC, DI, BeanFactory Context # 以Core、Beans为基础，ApplicationContext。资源绑定，数据验证，国际化，JavaEE支持，容器生命周期，事件传播 EL # 表达式语言 AOP, Aspects # Aspects对AspectsJ集成, 功能多于spring asp 数据访问/集成 JDBC ORM OXM # object xml 映射 JMS # 消息与异步通信 事务 Web/Remoting Web # ioc窗口，rmi, hessian,burlap, web service Web-Servlet Web-Struts Web-Porlet # portal认证 Test 设计模式 代理 目标对象实现接口，使用Proxy 未实现接口，使用CGLIB 单例 bean默认单例 模板, 解决代码重复问题 RestTemplate, JmsTemplate, JpaTemplate 控制器 DispatherServlet对请求分发 视图帮助(view helper) 提供jsp标签、高效宏 帮助在视图中写代码 依赖注入 BeanFactory, ApplicationContext核心理念 工厂 BeanFactory 循环依赖问题 构造器, 正在创建在Bean池标记，创建完删除标记，标记冲突报错 # 所以用@Autowired决定注入时机，不写在构造方法里 单例， 三级缓存, 提前暴露使双方都可初始化 setter, 提前暴露bean 版本 2.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="基础 #  特点 容器, 也容纳管理了第三方框架 # 目的是解耦框架api 轻量级，模块化，无(少)侵入 IOC(inversion of control) 容器用工厂装配对象并管理, 面向接口编程 优点 降低代码量 容易测试 最小侵入性松耦合 方式 Setter 构造器 静态工厂、实例工厂 DI(dependency injection) 容器向类添加属性 # 反射，用带参构造或set方法 AOP(aspect oriented programming) # 继承是纵向组织，AOP横切入业务 # oop是静态概念，aop是动态概念（aop的切面可以替换或不使用） 动态代理实现切入代码 权限控制 事务管理 记录日志 概念 连接点:普通方法 切入点:名称满足条件的连接点 增强（通知）类:服务对象 # 切入点与增强是多对多的 切面:切入点 &#43; 增强类 # 我们切入的是横切面 目标对象（服务对象）：要注入的对象 通知 before # 执行前 after # 执行后 after-returning # 正常退出 after-throwing # 异常退出 around # 执行前后 代理对象(业务对象)：被注入的对象 模块 dao, orm, aop, jee, web, core 结构 核心容器(core container) Core # 最底层，资源访问，类型转换 Beans # IOC, DI, BeanFactory Context # 以Core、Beans为基础，ApplicationContext。资源绑定，数据验证，国际化，JavaEE支持，容器生命周期，事件传播 EL # 表达式语言 AOP, Aspects # Aspects对AspectsJ集成, 功能多于spring asp 数据访问/集成 JDBC ORM OXM # object xml 映射 JMS # 消息与异步通信 事务 Web/Remoting Web # ioc窗口，rmi, hessian,burlap, web service Web-Servlet Web-Struts Web-Porlet # portal认证 Test 设计模式 代理 目标对象实现接口，使用Proxy 未实现接口，使用CGLIB 单例 bean默认单例 模板, 解决代码重复问题 RestTemplate, JmsTemplate, JpaTemplate 控制器 DispatherServlet对请求分发 视图帮助(view helper) 提供jsp标签、高效宏 帮助在视图中写代码 依赖注入 BeanFactory, ApplicationContext核心理念 工厂 BeanFactory 循环依赖问题 构造器, 正在创建在Bean池标记，创建完删除标记，标记冲突报错 # 所以用@Autowired决定注入时机，不写在构造方法里 单例， 三级缓存, 提前暴露使双方都可初始化 setter, 提前暴露bean 版本 2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/function_small/spring/" />
+<meta property="og:url" content="https://example.com/docs/function_small/spring/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-05-13T18:01:09&#43;08:00" />
 
 <title>Spring | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,117 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Spring</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#api">api</a></li>
+    <li><a href="#注解">注解</a></li>
+    <li><a href="#模块">模块</a>
+      <ul>
+        <li><a href="#监听器">监听器</a></li>
+        <li><a href="#properties">properties</a></li>
+        <li><a href="#bean">bean</a></li>
+        <li><a href="#aop">aop</a></li>
+        <li><a href="#dao">dao</a></li>
+        <li><a href="#事务">事务</a></li>
+        <li><a href="#spring-mybatis">spring mybatis</a></li>
+        <li><a href="#spring-struts2">spring struts2</a></li>
+        <li><a href="#spring-mvc">spring mvc</a></li>
+        <li><a href="#quartz定时器">quartz:定时器</a></li>
+        <li><a href="#远程调用">远程调用</a></li>
+        <li><a href="#websocket">websocket</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring-boot">spring boot</a>
+      <ul>
+        <li><a href="#基础文件">基础文件</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#注解-1">注解</a></li>
+        <li><a href="#类">类</a></li>
+        <li><a href="#插件">插件</a>
+          <ul>
+            <li><a href="#maven">maven</a></li>
+          </ul>
+        </li>
+        <li><a href="#组件">组件</a>
+          <ul>
+            <li><a href="#spring">spring</a></li>
+            <li><a href="#测试">测试</a></li>
+            <li><a href="#数据库">数据库</a></li>
+            <li><a href="#web">web</a></li>
+            <li><a href="#日志">日志</a></li>
+            <li><a href="#jackson">jackson</a></li>
+            <li><a href="#scheduled">Scheduled</a></li>
+            <li><a href="#热部署">热部署</a></li>
+            <li><a href="#jsp">jsp</a></li>
+            <li><a href="#lombok">lombok</a></li>
+            <li><a href="#remote-shell">remote shell</a></li>
+            <li><a href="#actuator">actuator</a></li>
+            <li><a href="#spring-boot-admin">spring boot admin</a></li>
+            <li><a href="#spring-initializer">spring initializer</a></li>
+            <li><a href="#spring-security">spring security</a></li>
+            <li><a href="#spring-security-oauth2">spring security oauth2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#spring-integration">spring integration</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>特点
     容器, 也容纳管理了第三方框架         # 目的是解耦框架api
     轻量级，模块化，无(少)侵入
@@ -303,7 +406,10 @@ AOP(aspect oriented programming)
     3.2
         基于注解的注入测试类@RunW..
 </code></pre>
-<h1 id="heading-1">使用</h1>
+<h1 id="使用">
+  使用
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
+</h1>
 <pre><code>jar包 ：
     核心包：/dist/modules                # 或是/dist中的spring.jar包
         core模块
@@ -328,7 +434,10 @@ AOP(aspect oriented programming)
         Boy boy = (Boy)ac.getBean(&quot;boyID&quot;);
     }
 </code></pre>
-<h1 id="api">api</h1>
+<h1 id="api">
+  api
+  <a class="anchor" href="#api">#</a>
+</h1>
 <pre><code>ApplicationContext是一个接口，表示spring容器/ioc容器
 
 ClassPathXmlApplicationContext        # 只从类路径中读取xml配置文件（src/目录下能访问的路径）省略src/目录
@@ -361,7 +470,10 @@ Web
         ClassPathXmlApplicationContext      # 从classpath找设置
         WebXmlApplicationContext
 </code></pre>
-<h1 id="heading-2">注解</h1>
+<h1 id="注解">
+  注解
+  <a class="anchor" href="#%e6%b3%a8%e8%a7%a3">#</a>
+</h1>
 <pre><code>applicationContext.xml
     &lt;context:annotation-config/&gt;
     &lt;!-- 添加注解扫描功能,启动的时候哪些包要检查是否有注解 --&gt;
@@ -405,8 +517,14 @@ aop
     @Around(value=&quot;execution(* cn.it.shop.service.impl.GoodsServiceImpl.queryByWord(..))&quot;)
         # 配置通知，在通知中配置切点,注意这里没有pointcut,只有value
 </code></pre>
-<h1 id="heading-3">模块</h1>
-<h2 id="heading-4">监听器</h2>
+<h1 id="模块">
+  模块
+  <a class="anchor" href="#%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<h2 id="监听器">
+  监听器
+  <a class="anchor" href="#%e7%9b%91%e5%90%ac%e5%99%a8">#</a>
+</h2>
 <pre><code>原理
     org.springframework.web.context.ContextLoaderListener中
         this.contextLoader.initWebApplicationContext(event.getServletContext());
@@ -425,7 +543,10 @@ aop
 
     ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext)
 </code></pre>
-<h2 id="properties">properties</h2>
+<h2 id="properties">
+  properties
+  <a class="anchor" href="#properties">#</a>
+</h2>
 <pre><code>spring xml配置文件中使用properties配置的属性
     配置一个bean的class类是org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer的单例bean
         &lt;property name=&quot;locations&quot; value=&quot;classpath:public.properties&quot; &gt;
@@ -446,7 +567,10 @@ java类中用spring的注解注入properties配置的属性
         ## 字符串的拼接可以用+连接
         # 第一次配置@Value的时候不会成功，改一次值再试就可以了
 </code></pre>
-<h2 id="bean">bean</h2>
+<h2 id="bean">
+  bean
+  <a class="anchor" href="#bean">#</a>
+</h2>
 <pre><code>创建bean的顺序
     xml中按配置顺序的先后
     注解中按照字母的顺序
@@ -591,7 +715,10 @@ scope
                     &lt;props&gt;
                         &lt;prop key=&quot;&quot;&gt;&lt;/prop&gt;                        # 属性类型，只能配置基本类型 （包括包装类型与String）
 </code></pre>
-<h2 id="aop">aop</h2>
+<h2 id="aop">
+  aop
+  <a class="anchor" href="#aop">#</a>
+</h2>
 <pre><code>实现      # 基于Aspectj
 原理
     启动容器时，创建目标对象与代理对象
@@ -657,7 +784,10 @@ scope
         return goods;                # 本切面返回的数据会作为切点返回的数据返回给调用它的函数
     }
 </code></pre>
-<h2 id="dao">dao</h2>
+<h2 id="dao">
+  dao
+  <a class="anchor" href="#dao">#</a>
+</h2>
 <pre><code>使用
     1.xml文件中
     &lt;!-- 配置C3P0连接池 --&gt;
@@ -711,7 +841,10 @@ scope
             记录
             jt.queryForInt(sql);
 </code></pre>
-<h2 id="heading-5">事务</h2>
+<h2 id="事务">
+  事务
+  <a class="anchor" href="#%e4%ba%8b%e5%8a%a1">#</a>
+</h2>
 <pre><code>TransactionInterceptor
     transactionManager          # 指定事务治理类
     transactionAttributes       # key方法名 value事务属性
@@ -853,7 +986,10 @@ scope
         &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;xxxx&quot;/&gt;
     &lt;/aop:config&gt;
 </code></pre>
-<h2 id="spring-mybatis">spring mybatis</h2>
+<h2 id="spring-mybatis">
+  spring mybatis
+  <a class="anchor" href="#spring-mybatis">#</a>
+</h2>
 <pre><code>基础
     #与$
         #相当于解析成引号, 防止sql注入
@@ -1047,7 +1183,10 @@ api
                 #{modified,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER})
             &lt;/insert&gt;
 </code></pre>
-<h2 id="spring-struts2">spring struts2</h2>
+<h2 id="spring-struts2">
+  spring struts2
+  <a class="anchor" href="#spring-struts2">#</a>
+</h2>
 <pre><code>原理
     tomcat启动日志：没有整合时不能加载struts-plugin.xml（spring-struts-plugin.jar包中的配置文件 ）
     struts中struts-default中常量配置加载com.opensymphony.xword2.ObjectFactory类作为默认struts创建action的类
@@ -1078,7 +1217,10 @@ api
         struts.xml配置中的&lt;action class=&quot;SysStaffActionID&quot;&gt;
     最后给Dao中的方法加入事务
 </code></pre>
-<h2 id="spring-mvc">spring mvc</h2>
+<h2 id="spring-mvc">
+  spring mvc
+  <a class="anchor" href="#spring-mvc">#</a>
+</h2>
 <pre><code>原理
     DispatchServlet doService()捕获请求, doDispatch()用HandlerMapping映射url得到HandlerExcutionChain(执行链, 包括拦截器和handler)
     handler getHandlerAdapter得到适配器来处理handler, 返回ModelAndView
@@ -1110,7 +1252,10 @@ api
         tomcat配置文件修改项目编码
         new String(Request.getParameter(&quot;a&quot;).getBytes(&quot;ISO8859-1&quot;), &quot;utf-8&quot;)
 </code></pre>
-<h2 id="quartz">quartz:定时器</h2>
+<h2 id="quartz定时器">
+  quartz:定时器
+  <a class="anchor" href="#quartz%e5%ae%9a%e6%97%b6%e5%99%a8">#</a>
+</h2>
 <pre><code>执行：ApplicationContext类加载后自动执行
 导包：quartz-all.jar包 与  commons-collections.jar包 与 commons-logging.jar
 xml配置：
@@ -1182,7 +1327,10 @@ xml配置：
         0 0/1 * * * ?                        每分钟解发一次
         0 0 0/1 * * ?                        每小时解发一次
 </code></pre>
-<h2 id="heading-6">远程调用</h2>
+<h2 id="远程调用">
+  远程调用
+  <a class="anchor" href="#%e8%bf%9c%e7%a8%8b%e8%b0%83%e7%94%a8">#</a>
+</h2>
 <pre><code># rmi:remote message invoke
 服务端
     1.自定义接口IServer,自定义抽象方法int rax(int)
@@ -1221,7 +1369,10 @@ xml配置：
         ac.getBean方法中得到RmiProxyFactoryBean实际类型（可变类型）的实例，强转成服务端自定义的接口IServer的实现类（实现类由服务器决定）
         执行IServer实现类中的方法int rax(int)，实现了远程调用
 </code></pre>
-<h2 id="websocket">websocket</h2>
+<h2 id="websocket">
+  websocket
+  <a class="anchor" href="#websocket">#</a>
+</h2>
 <pre><code>handler
     extends TextWebSocketHandler
         @Override
@@ -1274,7 +1425,10 @@ runner
         run()
             service.init()
 </code></pre>
-<h1 id="spring-boot">spring boot</h1>
+<h1 id="spring-boot">
+  spring boot
+  <a class="anchor" href="#spring-boot">#</a>
+</h1>
 <pre><code>介绍
     减少配置, 习惯大于配置
     支持groovy, gradle
@@ -1283,7 +1437,10 @@ runner
         --server.port=8080                                      # --后内容，相当于application.yml设置
         --spring.profiles.active=two                            # 选择applicaton-two.yml配置
 </code></pre>
-<h2 id="heading-7">基础文件</h2>
+<h2 id="基础文件">
+  基础文件
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e6%96%87%e4%bb%b6">#</a>
+</h2>
 <pre><code>目录
     src
         main
@@ -1309,7 +1466,10 @@ XxxApplication.java                                     # 程序入口
 application.yml                                         # application.yml或application.properties, 放在src/main/resources或config目录下
 pom.xml
 </code></pre>
-<h2 id="heading-8">配置</h2>
+<h2 id="配置">
+  配置
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae">#</a>
+</h2>
 <pre><code>区分环境
     application-{profile}.properties                                    # profile比如是dev, test, prod
     设置spring.profiles.active=dev来区分
@@ -1357,16 +1517,28 @@ pom.xml
         &lt;/plugins&gt;
     &lt;/build&gt;
 </code></pre>
-<h2 id="heading-9">注解</h2>
+<h2 id="注解-1">
+  注解
+  <a class="anchor" href="#%e6%b3%a8%e8%a7%a3-1">#</a>
+</h2>
 <pre><code>@SpringBootApplication                      # spring boot 启动类
     组合了@Configuration, @EnableAutoConfiguration, @ComponentScan
 </code></pre>
-<h2 id="heading-10">类</h2>
+<h2 id="类">
+  类
+  <a class="anchor" href="#%e7%b1%bb">#</a>
+</h2>
 <pre><code>ApplicationRunner                           # 继承该类，注解@Component, 随容器启动运行
     run()
 </code></pre>
-<h2 id="heading-11">插件</h2>
-<h3 id="maven">maven</h3>
+<h2 id="插件">
+  插件
+  <a class="anchor" href="#%e6%8f%92%e4%bb%b6">#</a>
+</h2>
+<h3 id="maven">
+  maven
+  <a class="anchor" href="#maven">#</a>
+</h3>
 <pre><code>命令
     mvn spring-boot:run
 pom.xml
@@ -1375,10 +1547,16 @@ pom.xml
         &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;       # 方便启动停止应用, 如mvn spring-boot:run
     &lt;/plugin&gt;
 </code></pre>
-<h2 id="heading-12">组件</h2>
+<h2 id="组件">
+  组件
+  <a class="anchor" href="#%e7%bb%84%e4%bb%b6">#</a>
+</h2>
 <pre><code>starter POMs            # spring-boot-starter开头的组件
 </code></pre>
-<h3 id="spring">spring</h3>
+<h3 id="spring">
+  spring
+  <a class="anchor" href="#spring">#</a>
+</h3>
 <pre><code>配置
     随机数用${random}
         ${random.value} 字符串
@@ -1450,7 +1628,10 @@ controller
     注解
         @Controller                                 # 修饰类
 </code></pre>
-<h3 id="heading-13">测试</h3>
+<h3 id="测试">
+  测试
+  <a class="anchor" href="#%e6%b5%8b%e8%af%95">#</a>
+</h3>
 <pre><code>pom.xml
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -1483,7 +1664,10 @@ XxxApplicationTests.java                        # junit测试
         }
     }
 </code></pre>
-<h3 id="heading-14">数据库</h3>
+<h3 id="数据库">
+  数据库
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ba%93">#</a>
+</h3>
 <pre><code>pom.xml
     spring-boot-starter-jdbc
     spring-boot-starter-data-jpa                            # spring data JPA
@@ -1500,7 +1684,10 @@ application.yml
 注解
     @Transactional                                  # 修饰方法，开启事务，或在事务中
 </code></pre>
-<h4 id="mybatis">mybatis</h4>
+<h4 id="mybatis">
+  mybatis
+  <a class="anchor" href="#mybatis">#</a>
+</h4>
 <pre><code>pom.xml
     &lt;!-- mybatis --&gt;
     &lt;dependency&gt;
@@ -1669,7 +1856,10 @@ api
         useLog4jLogging()
         useStdOutLogging()
 </code></pre>
-<h3 id="web">web</h3>
+<h3 id="web">
+  web
+  <a class="anchor" href="#web">#</a>
+</h3>
 <pre><code># 用的spring mvc
 pom.xml
     &lt;dependency&gt;
@@ -1707,7 +1897,10 @@ application.yml
             }
         }
 </code></pre>
-<h3 id="heading-15">日志</h3>
+<h3 id="日志">
+  日志
+  <a class="anchor" href="#%e6%97%a5%e5%bf%97">#</a>
+</h3>
 <pre><code>application.yml
     logging:
         level:
@@ -1724,13 +1917,19 @@ application.yml
     @ApiOperation(value=&quot;&quot;, notes=&quot;&quot;)           # 修改方法, 文档
     @ApiIgnore                                  # 修饰方法, 文档忽略
 </code></pre>
-<h3 id="jackson">jackson</h3>
+<h3 id="jackson">
+  jackson
+  <a class="anchor" href="#jackson">#</a>
+</h3>
 <pre><code>注解
     @JsonInclude                                # 修饰类, 序列化时包含
         @JsonInclude(JsonInclude.Include.NON_EMPTY)                 # null或&quot;&quot;时不序列化
     @JsonIgnore                                 # 修饰属性
 </code></pre>
-<h3 id="scheduled">Scheduled</h3>
+<h3 id="scheduled">
+  Scheduled
+  <a class="anchor" href="#scheduled">#</a>
+</h3>
 <pre><code>scheduled
     注解
         @Scheduled                                  # 修饰方法, 定时调度
@@ -1768,7 +1967,10 @@ async
         future.get()
     }
 </code></pre>
-<h3 id="heading-16">热部署</h3>
+<h3 id="热部署">
+  热部署
+  <a class="anchor" href="#%e7%83%ad%e9%83%a8%e7%bd%b2">#</a>
+</h3>
 <pre><code>pom.xml
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -1782,7 +1984,10 @@ application.yml
             enabled: true
             additional-paths: src/main/java
 </code></pre>
-<h3 id="jsp">jsp</h3>
+<h3 id="jsp">
+  jsp
+  <a class="anchor" href="#jsp">#</a>
+</h3>
 <pre><code>pom.xml
     &lt;!-- servlet依赖. --&gt;
     &lt;dependency&gt;
@@ -1820,7 +2025,10 @@ src/main/webapp/WEB-INF/views/view1.jsp
     &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot; pageEncoding=&quot;utf-8&quot;%&gt;
     jsp ${a}
 </code></pre>
-<h3 id="lombok">lombok</h3>
+<h3 id="lombok">
+  lombok
+  <a class="anchor" href="#lombok">#</a>
+</h3>
 <pre><code>注解
     @Builder                            # 修饰类, 可build方式设置属性
     @Getter                             # 修饰类, 生成getter
@@ -1832,11 +2040,17 @@ src/main/webapp/WEB-INF/views/view1.jsp
     @RequiredArgsConstructor            # 修饰类, 生成带常量、@NotNull修饰变量参数的构造方法
         @RequiredArgsConstructor(onConstructor_ = @Autowired)               # 构造类时，自动对private final 属性@Autowire
 </code></pre>
-<h3 id="remote-shell">remote shell</h3>
+<h3 id="remote-shell">
+  remote shell
+  <a class="anchor" href="#remote-shell">#</a>
+</h3>
 <pre><code>pom.xml
     spring-boot-starter-remote-shell
 </code></pre>
-<h3 id="actuator">actuator</h3>
+<h3 id="actuator">
+  actuator
+  <a class="anchor" href="#actuator">#</a>
+</h3>
 <pre><code>pom.xml
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -1889,7 +2103,10 @@ src/main/webapp/WEB-INF/views/view1.jsp
         }
     }
 </code></pre>
-<h3 id="spring-boot-admin">spring boot admin</h3>
+<h3 id="spring-boot-admin">
+  spring boot admin
+  <a class="anchor" href="#spring-boot-admin">#</a>
+</h3>
 <pre><code>application.yml
     spring:
         application:
@@ -1909,11 +2126,17 @@ src/main/webapp/WEB-INF/views/view1.jsp
             sensitive: false
             enabled: true
 </code></pre>
-<h3 id="spring-initializer">spring initializer</h3>
+<h3 id="spring-initializer">
+  spring initializer
+  <a class="anchor" href="#spring-initializer">#</a>
+</h3>
 <pre><code>介绍
     生成spring基础项目
 </code></pre>
-<h3 id="spring-security">spring security</h3>
+<h3 id="spring-security">
+  spring security
+  <a class="anchor" href="#spring-security">#</a>
+</h3>
 <pre><code>配置
     application.yml
         security:   
@@ -1943,7 +2166,10 @@ api
             passwordEncoder
         authenticationManagerBean()                     # 指定管理bean
 </code></pre>
-<h3 id="spring-security-oauth2">spring security oauth2</h3>
+<h3 id="spring-security-oauth2">
+  spring security oauth2
+  <a class="anchor" href="#spring-security-oauth2">#</a>
+</h3>
 <pre><code>pom.xml
     spring-cloud-starter-oauth2
 结构    
@@ -2038,86 +2264,101 @@ api
     oauth_code
     oauth_refresh_token
 </code></pre>
-<h1 id="spring-integration">spring integration</h1>
+<h1 id="spring-integration">
+  spring integration
+  <a class="anchor" href="#spring-integration">#</a>
+</h1>
 <pre><code># 服务编排</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 13, 2020</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/function_small/spring.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/function_small/spring.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">使用</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#使用">使用</a></li>
     <li><a href="#api">api</a></li>
-    <li><a href="#heading-2">注解</a></li>
-    <li><a href="#heading-3">模块</a>
+    <li><a href="#注解">注解</a></li>
+    <li><a href="#模块">模块</a>
       <ul>
-        <li><a href="#heading-4">监听器</a></li>
+        <li><a href="#监听器">监听器</a></li>
         <li><a href="#properties">properties</a></li>
         <li><a href="#bean">bean</a></li>
         <li><a href="#aop">aop</a></li>
         <li><a href="#dao">dao</a></li>
-        <li><a href="#heading-5">事务</a></li>
+        <li><a href="#事务">事务</a></li>
         <li><a href="#spring-mybatis">spring mybatis</a></li>
         <li><a href="#spring-struts2">spring struts2</a></li>
         <li><a href="#spring-mvc">spring mvc</a></li>
-        <li><a href="#quartz">quartz:定时器</a></li>
-        <li><a href="#heading-6">远程调用</a></li>
+        <li><a href="#quartz定时器">quartz:定时器</a></li>
+        <li><a href="#远程调用">远程调用</a></li>
         <li><a href="#websocket">websocket</a></li>
       </ul>
     </li>
     <li><a href="#spring-boot">spring boot</a>
       <ul>
-        <li><a href="#heading-7">基础文件</a></li>
-        <li><a href="#heading-8">配置</a></li>
-        <li><a href="#heading-9">注解</a></li>
-        <li><a href="#heading-10">类</a></li>
-        <li><a href="#heading-11">插件</a>
+        <li><a href="#基础文件">基础文件</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#注解-1">注解</a></li>
+        <li><a href="#类">类</a></li>
+        <li><a href="#插件">插件</a>
           <ul>
             <li><a href="#maven">maven</a></li>
           </ul>
         </li>
-        <li><a href="#heading-12">组件</a>
+        <li><a href="#组件">组件</a>
           <ul>
             <li><a href="#spring">spring</a></li>
-            <li><a href="#heading-13">测试</a></li>
-            <li><a href="#heading-14">数据库</a></li>
+            <li><a href="#测试">测试</a></li>
+            <li><a href="#数据库">数据库</a></li>
             <li><a href="#web">web</a></li>
-            <li><a href="#heading-15">日志</a></li>
+            <li><a href="#日志">日志</a></li>
             <li><a href="#jackson">jackson</a></li>
             <li><a href="#scheduled">Scheduled</a></li>
-            <li><a href="#heading-16">热部署</a></li>
+            <li><a href="#热部署">热部署</a></li>
             <li><a href="#jsp">jsp</a></li>
             <li><a href="#lombok">lombok</a></li>
             <li><a href="#remote-shell">remote shell</a></li>
@@ -2133,13 +2374,27 @@ api
     <li><a href="#spring-integration">spring integration</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

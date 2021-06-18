@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="程序语言原理"><meta property="og:title" content="程序语言原理" />
-<meta property="og:description" content="基础 注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&lt;vector&lt;int&gt; &gt; # c&#43;&#43;的语法缺陷, &gt;&gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin ." />
+<meta name="description" content="基础 #  注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&lt;vector&lt;int&gt; &gt; # c&#43;&#43;的语法缺陷, &gt;&gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="程序语言原理" />
+<meta property="og:description" content="基础 #  注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&lt;vector&lt;int&gt; &gt; # c&#43;&#43;的语法缺陷, &gt;&gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/principle/" />
-<meta property="article:published_time" content="2018-10-10T15:13:01+08:00" />
-<meta property="article:modified_time" content="2019-09-24T08:48:46+08:00" />
+<meta property="og:url" content="https://example.com/docs/pl/principle/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-10T15:13:01&#43;08:00" />
+<meta property="article:modified_time" content="2019-09-24T08:48:46&#43;08:00" />
+
 <title>程序语言原理 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +212,67 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>程序语言原理</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#异步编程">异步编程</a></li>
+    <li><a href="#编译">编译</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>注意
     比较语言，共通处(抽象的元知识)是要点
     在历史上判断设计者意图     # 利于了解知道的根基
@@ -415,7 +467,10 @@ https://github.com/alex-shpak/hugo-book
                                     scala声明创建实例需要的方法, 另一Trait声明提供的方法，组合匹配后可创建实例
                                     对Trait改写定义新的Trait(继承), Trait组合成新Trait
 </code></pre>
-<h1 id="heading-1">原理</h1>
+<h1 id="原理">
+  原理
+  <a class="anchor" href="#%e5%8e%9f%e7%90%86">#</a>
+</h1>
 <pre><code>gc
     # garbage collector
     为什么gc
@@ -457,7 +512,10 @@ https://github.com/alex-shpak/hugo-book
             加载该类的ClassLoader已回收
             该类的class对象没有被引用，无法反射该类的方法
 </code></pre>
-<h1 id="heading-2">异步编程</h1>
+<h1 id="异步编程">
+  异步编程
+  <a class="anchor" href="#%e5%bc%82%e6%ad%a5%e7%bc%96%e7%a8%8b">#</a>
+</h1>
 <pre><code>事件  # 高阶函数的优势
     解耦业务逻辑
 问题
@@ -490,7 +548,10 @@ https://github.com/alex-shpak/hugo-book
             auto()          # 计算依赖顺序执行
         bagpipe库(node.js)   # 限制并发, 任务可排队或拒绝, 超时控制
 </code></pre>
-<h1 id="heading-3">编译</h1>
+<h1 id="编译">
+  编译
+  <a class="anchor" href="#%e7%bc%96%e8%af%91">#</a>
+</h1>
 <pre><code># 流程
     词法分析，语法分析，语义分析，中间代码生成，中间代码优化，目标代码生成，表格管理，错误处理
     语义分析 -&gt; 类型检查/推导 -&gt; 代码优化 -&gt; 机器码生成
@@ -615,55 +676,81 @@ https://github.com/alex-shpak/hugo-book
     四元式翻译
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 24, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/principle.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/principle.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">原理</a></li>
-    <li><a href="#heading-2">异步编程</a></li>
-    <li><a href="#heading-3">编译</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#异步编程">异步编程</a></li>
+    <li><a href="#编译">编译</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

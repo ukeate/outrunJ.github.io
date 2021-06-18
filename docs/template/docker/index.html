@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="docker模板"><meta property="og:title" content="docker模板" />
-<meta property="og:description" content="registry htpasswd -Bbn outrun asdf &gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &quot;true&quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&quot;insecure-registries&quot;:[&quot;127.0.0.1:5000&quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{." />
+<meta name="description" content="registry #  htpasswd -Bbn outrun asdf &gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &quot;true&quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&quot;insecure-registries&quot;:[&quot;127.0.0.1:5000&quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins #  docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter #  # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="docker模板" />
+<meta property="og:description" content="registry #  htpasswd -Bbn outrun asdf &gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &quot;true&quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&quot;insecure-registries&quot;:[&quot;127.0.0.1:5000&quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins #  docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter #  # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/template/docker/" />
-<meta property="article:modified_time" content="2021-03-12T17:11:25+08:00" />
+<meta property="og:url" content="https://example.com/docs/template/docker/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2021-03-12T17:11:25&#43;08:00" />
+
 <title>docker模板 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -59,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -76,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -83,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -103,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -185,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -195,31 +212,90 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>docker模板</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#registry">registry</a></li>
+    <li><a href="#jenkins">jenkins</a></li>
+    <li><a href="#nsenter">nsenter</a></li>
+    <li><a href="#redis">redis</a></li>
+    <li><a href="#node项目">node项目</a></li>
+    <li><a href="#rabbitmq">rabbitmq</a></li>
+    <li><a href="#nsq">nsq</a></li>
+    <li><a href="#mosquitto">mosquitto</a></li>
+    <li><a href="#gitlab">gitlab</a></li>
+    <li><a href="#nexus">nexus</a></li>
+    <li><a href="#zipkin">zipkin</a></li>
+    <li><a href="#nginx">nginx</a></li>
+    <li><a href="#nginx-php-fpm">nginx-php-fpm</a></li>
+    <li><a href="#mysql">mysql</a></li>
+    <li><a href="#mongodb">mongodb</a></li>
+    <li><a href="#es">es</a></li>
+    <li><a href="#cassandra">cassandra</a></li>
+    <li><a href="#neo4j">neo4j</a></li>
+    <li><a href="#haproxy">haproxy</a></li>
+    <li><a href="#zookeeper">zookeeper</a></li>
+    <li><a href="#kafka">kafka</a></li>
+    <li><a href="#consul">consul</a></li>
+    <li><a href="#emq">emq</a></li>
+    <li><a href="#hadoop">hadoop</a></li>
+    <li><a href="#confluence">confluence</a></li>
+    <li><a href="#dokuwiki">dokuwiki</a></li>
+    <li><a href="#wordpress">wordpress</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="registry">registry</h1>
+      
+  <article class="markdown"><h1 id="registry">
+  registry
+  <a class="anchor" href="#registry">#</a>
+</h1>
 <pre><code>htpasswd  -Bbn outrun asdf &gt; auth/htpasswd
 docker-compose.yml
     registry:
@@ -252,13 +328,19 @@ docker-compose up -d
         # v2表示版本 registry:2
     docker pull 127.0.0.1:5000/java/device:1.0
 </code></pre>
-<h1 id="jenkins">jenkins</h1>
+<h1 id="jenkins">
+  jenkins
+  <a class="anchor" href="#jenkins">#</a>
+</h1>
 <pre><code>docker pull jenins
 mkdir /var/jenkins_home
 docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins
     # -u 0 用root帐户启动
 </code></pre>
-<h1 id="nsenter">nsenter</h1>
+<h1 id="nsenter">
+  nsenter
+  <a class="anchor" href="#nsenter">#</a>
+</h1>
 <pre><code># 不需ssh进入容器shell
 docker run -v /usr/local/bin:/target jpetazzo/nsenter
     # 安装
@@ -268,7 +350,10 @@ docker inspect --format {{.State.Pid}} 214
     # 容器id得到pid
 nsenter --target 4629 --mount --uts --ipc --net  --pid
 </code></pre>
-<h1 id="redis">redis</h1>
+<h1 id="redis">
+  redis
+  <a class="anchor" href="#redis">#</a>
+</h1>
 <pre><code>run方式
     docker run --name redis-server -p 6379:6379 -d redis redis-server --appendonly yes
         # 启动redis
@@ -288,14 +373,20 @@ docker-compose.yml
         redis-server
 docker-compose up -d
 </code></pre>
-<h1 id="node">node项目</h1>
+<h1 id="node项目">
+  node项目
+  <a class="anchor" href="#node%e9%a1%b9%e7%9b%ae">#</a>
+</h1>
 <pre><code>docker run --rm -i -t -v /var/node/docker_node:/var/node/docker_node -w /var/node/docker_node/ outrun11/node_pm2 npm install
     # 部署项目
 mkdir /var/log/pm2
 
 docker run -d --name 'nodeCountAccess' -p 8000:8000 -v /var/node/docker_node:/var/node/docker_node  -v /var/log/pm2:/root/.pm2/logs --link redis-server:redis -w /var/node/docker_node/ outrun11/node_pm2 pm2 start --no-daemon app.js
 </code></pre>
-<h1 id="rabbitmq">rabbitmq</h1>
+<h1 id="rabbitmq">
+  rabbitmq
+  <a class="anchor" href="#rabbitmq">#</a>
+</h1>
 <pre><code>run方式
     docker run -d -e RABBITMQ_NODENAME=my-rabbit --name some-rabbit -p 5672:5672 rabbitmq
 docker-compose.yml
@@ -320,7 +411,10 @@ docker-compose.yml
             max-file: &quot;10&quot;
 docker-compose up -d
 </code></pre>
-<h1 id="nsq">nsq</h1>
+<h1 id="nsq">
+  nsq
+  <a class="anchor" href="#nsq">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -349,7 +443,10 @@ docker-compose up -d
         - &quot;4171:4171&quot;
 docker-compose up -d
 </code></pre>
-<h1 id="mosquitto">mosquitto</h1>
+<h1 id="mosquitto">
+  mosquitto
+  <a class="anchor" href="#mosquitto">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -362,7 +459,10 @@ docker-compose up -d
         - '1883:1883'
 docker-compose up -d
 </code></pre>
-<h1 id="gitlab">gitlab</h1>
+<h1 id="gitlab">
+  gitlab
+  <a class="anchor" href="#gitlab">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -397,7 +497,10 @@ docker-compose up -d
             - ./logs:/var/log/gitlab
 docker-compose up -d
 </code></pre>
-<h1 id="nexus">nexus</h1>
+<h1 id="nexus">
+  nexus
+  <a class="anchor" href="#nexus">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.1'
     services:
@@ -411,7 +514,10 @@ docker-compose up -d
         - ./data:/nexus-data
 docker-compose up -d
 </code></pre>
-<h1 id="zipkin">zipkin</h1>
+<h1 id="zipkin">
+  zipkin
+  <a class="anchor" href="#zipkin">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.1'
     services:
@@ -430,7 +536,10 @@ docker-compose up -d
         - 9411:9411
 docker-compose up -d
 </code></pre>
-<h1 id="nginx">nginx</h1>
+<h1 id="nginx">
+  nginx
+  <a class="anchor" href="#nginx">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.1'
     services:
@@ -449,7 +558,10 @@ docker-compose up -d
         - TZ=Asia/Shanghai
 docker-compose up -d
 </code></pre>
-<h1 id="nginx-php-fpm">nginx-php-fpm</h1>
+<h1 id="nginx-php-fpm">
+  nginx-php-fpm
+  <a class="anchor" href="#nginx-php-fpm">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.1'
     services:
@@ -462,7 +574,10 @@ docker-compose up -d
             - ./www:/var/www            # php文件要放在./www/html中
 docker-compose up -d
 </code></pre>
-<h1 id="mysql">mysql</h1>
+<h1 id="mysql">
+  mysql
+  <a class="anchor" href="#mysql">#</a>
+</h1>
 <pre><code>run方式
     docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=asdf -v /data/var/mysql/:/var/lib/mysql -d mysql
     docker stop 5c5
@@ -506,7 +621,10 @@ docker-compose.yml
             - 8080:8080
 docker-compose up -d
 </code></pre>
-<h1 id="mongodb">mongodb</h1>
+<h1 id="mongodb">
+  mongodb
+  <a class="anchor" href="#mongodb">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.1'
     services:
@@ -533,7 +651,10 @@ docker-compose up -d
         ME_CONFIG_MONGODB_ADMINPASSWORD: asdf
 docker-compose up -d
 </code></pre>
-<h1 id="es">es</h1>
+<h1 id="es">
+  es
+  <a class="anchor" href="#es">#</a>
+</h1>
 <pre><code>run方式
     docker run -it  -v /home/test/es/config/:/usr/share/elasticsearch/config/ -v /home/test/es/plugins/:/usr/share/elasticsearch/plugins/ elasticsearch:5.4.3 /bin/bash
     docker run -d -p 9200:9200 -p 9300:9300 --name es  -v /home/test/es/config/:/usr/share/elasticsearch/config/ -v /home/test/es/plugins/:/usr/share/elasticsearch/plugins/ elasticsearch:5.4.3
@@ -573,7 +694,10 @@ elasticsearch.yml
     # xpack.monitoring.enabled=false
 docker-compose up -d
 </code></pre>
-<h1 id="cassandra">cassandra</h1>
+<h1 id="cassandra">
+  cassandra
+  <a class="anchor" href="#cassandra">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -594,7 +718,10 @@ docker-compose up -d
             - ./n1data:/var/lib/cassandra
 docker-compose up -d
 </code></pre>
-<h1 id="neo4j">neo4j</h1>
+<h1 id="neo4j">
+  neo4j
+  <a class="anchor" href="#neo4j">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -615,7 +742,10 @@ docker-compose up -d
             - NEO4J_AUTH=neo4j/123456           # 用户密码改不了
 docker-compose up -d
 </code></pre>
-<h1 id="haproxy">haproxy</h1>
+<h1 id="haproxy">
+  haproxy
+  <a class="anchor" href="#haproxy">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -647,7 +777,10 @@ docker-compose up -d
         # server web2 nginx:80 check
 docker-compose up -d
 </code></pre>
-<h1 id="zookeeper">zookeeper</h1>
+<h1 id="zookeeper">
+  zookeeper
+  <a class="anchor" href="#zookeeper">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -657,7 +790,10 @@ docker-compose up -d
             - &quot;2181:2181&quot;
 docker-compose up -d
 </code></pre>
-<h1 id="kafka">kafka</h1>
+<h1 id="kafka">
+  kafka
+  <a class="anchor" href="#kafka">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -686,7 +822,10 @@ docker-compose up -d
 
 docker-compose up -d
 </code></pre>
-<h1 id="consul">consul</h1>
+<h1 id="consul">
+  consul
+  <a class="anchor" href="#consul">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: &quot;3.0&quot;
     services:
@@ -700,7 +839,10 @@ docker-compose up -d
         command: -server -ui-dir /ui -data-dir /tmp/consul --bootstrap-expect=1
 docker-compose up -d
 </code></pre>
-<h1 id="emq">emq</h1>
+<h1 id="emq">
+  emq
+  <a class="anchor" href="#emq">#</a>
+</h1>
 <pre><code>配置
     18083: 管理控制台
         admin public
@@ -721,7 +863,10 @@ docker-compose.yml
         - 10014:8083
 docker-compose up -d
 </code></pre>
-<h1 id="hadoop">hadoop</h1>
+<h1 id="hadoop">
+  hadoop
+  <a class="anchor" href="#hadoop">#</a>
+</h1>
 <pre><code>docker
     docker run -it sequenceiq/hadoop-docker:latest /etc/bootstrap.sh -bash
 docker-compose.yml
@@ -750,7 +895,10 @@ docker-compose.yml
             - namenode
 docker-compose up -d
 </code></pre>
-<h1 id="confluence">confluence</h1>
+<h1 id="confluence">
+  confluence
+  <a class="anchor" href="#confluence">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -780,7 +928,10 @@ docker-compose up -d
             - postgres:postgres
 docker-compose up -d
 </code></pre>
-<h1 id="dokuwiki">dokuwiki</h1>
+<h1 id="dokuwiki">
+  dokuwiki
+  <a class="anchor" href="#dokuwiki">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3'
     services:
@@ -799,7 +950,10 @@ docker-compose up -d
             - ./data:/home/outrun/scripts/config/dokuwiki/data
 docker-compose up -d
 </code></pre>
-<h1 id="wordpress">wordpress</h1>
+<h1 id="wordpress">
+  wordpress
+  <a class="anchor" href="#wordpress">#</a>
+</h1>
 <pre><code>docker-compose.yml
     version: '3.3'
     services:
@@ -827,47 +981,59 @@ docker-compose up -d
 docker-compose up -d
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 12, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/template/docker.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/template/docker.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
     <li><a href="#registry">registry</a></li>
     <li><a href="#jenkins">jenkins</a></li>
     <li><a href="#nsenter">nsenter</a></li>
     <li><a href="#redis">redis</a></li>
-    <li><a href="#node">node项目</a></li>
+    <li><a href="#node项目">node项目</a></li>
     <li><a href="#rabbitmq">rabbitmq</a></li>
     <li><a href="#nsq">nsq</a></li>
     <li><a href="#mosquitto">mosquitto</a></li>
@@ -892,13 +1058,27 @@ docker-compose up -d
     <li><a href="#wordpress">wordpress</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

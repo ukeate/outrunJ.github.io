@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="数据库"><meta property="og:title" content="数据库" />
+<meta name="description" content="基础 #  数据库类型 关系型数据库 模糊型数据库 # 存放模糊数据，提供函数 如模糊数，包括模糊区间数，模糊中心数，模糊集合数 隶属函数 统计数据库 # 管理统计数据 这类数据库包含有大量的数据记录，但其目的是向用户提供各种统计汇总信息，而不是提供单个记录的信息。 网状数据库(层次数据库) # 处理以记录类型为结点的网状数据模型 处理方法是将网状结构分解成若干棵二级树结构，称为系。 演绎数据库 # 指具有演绎推理能力 实现 数据库管理系统 规则管理系统 外延数据库 将推理用的事实数据存放在数据库中 内涵数据库 用逻辑规则定义要导出的事实 主要研究内容: 如何有效地计算逻辑规则推理。 递归查询的优化 规则的一致性维护 其它数据存储方式 文件系统 版本控制 保存持久状态 CQRS(command query responsibility segregation) 查询(query) 命令(command) 领域模型(domain model) 领域事件(domain event) 对象数据库 趋势 分布式new sql # tidb Polyglot persistence (混合持久化) # 将对不同数据库的操作封装成服务 事务隔离级别 读未提交（Read Uncommitted） # 读其它事务未提交的数据 现象 不允许更新丢失 允许脏读(dirty read) # 事务中读到不存在数据, 是其它事务修改中的数据 原理 可同时读 不同时写，多事务写 实现 排他写锁 读提交（Read Committed） # 读其它事务提交的数据 现象 不允许脏读 允许不可重复读(nonRepeatable read) # 事务中前后查询不一致 原理 可同时读 单事务写 实现 瞬间共享读锁 排他写锁 可重复读（Repeatable Read） # 读到的数据加锁，解决不可重复读问题 现象 不允许脏读 不允许不可重复读 允许幻读(phantom read) # 事务中存在未生效行，是其它事务的插入或删除 原理 读到的数据(加锁)不写 单事务写 实现 # 读涉及范围加锁 共享读锁 排他写锁 序列化（Serializable） # 或叫串行化 原理 事务序列化执行 实现 读锁写锁互斥 事务特点(ACID) 原子性(atomicity) # 什么都做或都不做 一致性(correspondence) # 事务前后数据库状态一致, 事务中断时也不会有暂时状态 隔离性(isolation) # 事务间不干扰 持久性(durability) # 提交结果是永久的 索引存储 B&#43; tree LSM(log-structured merge) tree fractal tree OLTP和OLAP CAP(一致性、可用性、分区容错性)中, OLTP要求ca或cp, OLAP要求ap OLTP要求写优化, OLAP要求查优化 OLTP要求优化latency, OLAP要求优化throughput OLTP基于row, OLAP基于column OLTP看中IOPS, OLAP看中data-size传输 分布式数据库 面临问题 ACID CAP scale out self-healing 运维友好 sql 事务 性能 api用明文或二进制 升级方案 硬件，网络，网络模型，存储模型，语言 分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案  rds #  # relational database service 缺点 阻抗失谐 # 和内存中的模型存在差异 安全 sql注入 # 应该写符号编译sql 范式 # Normal Form 用于避免冗余数据 第一范式(1NF) 列不可再细分列(原子性) 第二范式(2NF) 必须有主键，允许联合主键 其它列依赖完整主键(不能只依赖一部分) 第三范式(3NF) 其它列直接依赖主键(非传递依赖，如A依赖B, B依赖主键) 实例 postgres sqlserver mysql mariadb percona # mysql分支, Oracle发布的最接近官方mysql的发行版 drizzle # mysql分支 oracle db2 oceandb h2database # java编写，可嵌入java使用 tidb  sqlite #  命令 sqlite3 数据库文件 语法 .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="数据库" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/docs/db/" />
 
 <title>数据库 | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,7 +27,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <link rel="alternate" type="application/rss+xml" href="https://example.com/docs/db/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
@@ -38,21 +36,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +60,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +83,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +91,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +117,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +200,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +211,109 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>数据库</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#rds">rds</a>
+      <ul>
+        <li><a href="#sqlite">sqlite</a></li>
+        <li><a href="#sql">sql</a></li>
+        <li><a href="#存储过程">存储过程</a></li>
+        <li><a href="#触发器">触发器</a></li>
+        <li><a href="#视图">视图</a></li>
+        <li><a href="#索引">索引</a></li>
+        <li><a href="#序列">序列</a></li>
+        <li><a href="#性能优化">性能优化</a></li>
+      </ul>
+    </li>
+    <li><a href="#nosql">nosql</a>
+      <ul>
+        <li><a href="#图">图</a>
+          <ul>
+            <li><a href="#neo4j">neo4j</a></li>
+          </ul>
+        </li>
+        <li><a href="#列族">列族</a>
+          <ul>
+            <li><a href="#cassandra">cassandra</a></li>
+            <li><a href="#hbase">hbase</a></li>
+          </ul>
+        </li>
+        <li><a href="#文档">文档</a>
+          <ul>
+            <li><a href="#couchdb">couchDB</a></li>
+          </ul>
+        </li>
+        <li><a href="#键值">键值</a></li>
+        <li><a href="#时序">时序</a></li>
+      </ul>
+    </li>
+    <li><a href="#newsql">newsql</a>
+      <ul>
+        <li><a href="#tidb">tidb</a></li>
+      </ul>
+    </li>
+    <li><a href="#流式数据库">流式数据库</a></li>
+    <li><a href="#proxy">proxy</a>
+      <ul>
+        <li><a href="#mycat">mycat</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>数据库类型
     关系型数据库
     模糊型数据库
@@ -327,7 +420,10 @@ OLTP和OLAP
         硬件，网络，网络模型，存储模型，语言
         分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案
 </code></pre>
-<h1 id="rds">rds</h1>
+<h1 id="rds">
+  rds
+  <a class="anchor" href="#rds">#</a>
+</h1>
 <pre><code># relational database service
 缺点
     阻抗失谐    # 和内存中的模型存在差异
@@ -358,14 +454,20 @@ OLTP和OLAP
         # java编写，可嵌入java使用
     tidb
 </code></pre>
-<h2 id="sqlite">sqlite</h2>
+<h2 id="sqlite">
+  sqlite
+  <a class="anchor" href="#sqlite">#</a>
+</h2>
 <pre><code>命令
     sqlite3 数据库文件
 语法
     .table              # 查看所有表
     .schema             # 查看建表语句
 </code></pre>
-<h2 id="sql">sql</h2>
+<h2 id="sql">
+  sql
+  <a class="anchor" href="#sql">#</a>
+</h2>
 <pre><code>语法
     注释
         --      # 单行注释
@@ -682,7 +784,10 @@ OLTP和OLAP
                 # 级联约束
     检查约束    # oracle支持
 </code></pre>
-<h2 id="heading-1">存储过程</h2>
+<h2 id="存储过程">
+  存储过程
+  <a class="anchor" href="#%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b">#</a>
+</h2>
 <pre><code>优势
     高效, 首次运行进行预编译
     模块化
@@ -698,7 +803,10 @@ OLTP和OLAP
     需要专人维护
     逻辑变更时修改不灵活
 </code></pre>
-<h2 id="heading-2">触发器</h2>
+<h2 id="触发器">
+  触发器
+  <a class="anchor" href="#%e8%a7%a6%e5%8f%91%e5%99%a8">#</a>
+</h2>
 <pre><code>用途
     表级联更改
     实现比check约束复杂的逻辑
@@ -707,7 +815,10 @@ OLTP和OLAP
 基础
     同一表不能建立2个相同类型触发器
 </code></pre>
-<h2 id="heading-3">视图</h2>
+<h2 id="视图">
+  视图
+  <a class="anchor" href="#%e8%a7%86%e5%9b%be">#</a>
+</h2>
 <pre><code>特点
     优点
         简化查询
@@ -755,7 +866,10 @@ OLTP和OLAP
 
     SHOW CREATE VIEW view_name
 </code></pre>
-<h2 id="heading-4">索引</h2>
+<h2 id="索引">
+  索引
+  <a class="anchor" href="#%e7%b4%a2%e5%bc%95">#</a>
+</h2>
 <pre><code>特点
     第一次查询时创建
     加快查询的速度，表删除时索引自动删除
@@ -802,7 +916,10 @@ show keys from tb1;
     Index_type    # 用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）。
     Comment       # 更多评注。
 </code></pre>
-<h2 id="heading-5">序列</h2>
+<h2 id="序列">
+  序列
+  <a class="anchor" href="#%e5%ba%8f%e5%88%97">#</a>
+</h2>
 <pre><code># 共享对象唯一的数值，不一定连续
 create sequence tb1_seq
     INCREMENT BY 10              # 步长是10
@@ -817,7 +934,10 @@ alter sequence tb1_seq increment by 10;
     start with 100;                         # 错误 ，不能变更启动序列，只能在创建序列时指定
 drop sequence seq
 </code></pre>
-<h2 id="heading-6">性能优化</h2>
+<h2 id="性能优化">
+  性能优化
+  <a class="anchor" href="#%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96">#</a>
+</h2>
 <pre><code>设计
     库
         分库
@@ -962,7 +1082,10 @@ mysql
         子查询id
             select a.* from 表1 a, (select id from 表1 where 条件 limit 100000,20) b where a.id=b.id
 </code></pre>
-<h1 id="nosql">nosql</h1>
+<h1 id="nosql">
+  nosql
+  <a class="anchor" href="#nosql">#</a>
+</h1>
 <pre><code>介绍
     aggregate-oriented (面向聚合)
         键值
@@ -994,7 +1117,10 @@ mysql
             读取多于某值个节点数据并相同时，认为读到最新数据
         用zookeeper等外部“事务”程序库同步读写操作
 </code></pre>
-<h2 id="heading-7">图</h2>
+<h2 id="图">
+  图
+  <a class="anchor" href="#%e5%9b%be">#</a>
+</h2>
 <pre><code>介绍
     领域
     关系是一等公民
@@ -1016,7 +1142,10 @@ mysql
     pregel
         # google图数据库
 </code></pre>
-<h3 id="neo4j">neo4j</h3>
+<h3 id="neo4j">
+  neo4j
+  <a class="anchor" href="#neo4j">#</a>
+</h3>
 <pre><code>介绍
     使用zookeeper
 特点
@@ -1043,7 +1172,7 @@ double                  # 64位浮点数
 char                    # 16位字符
 string
 命令
-create                  # 创建, 自动生成<!-- raw HTML omitted -->属性, 最大约为35亿
+create                  # 创建, 自动生成<id>属性, 最大约为35亿
 CREATE (dept:Dept:Dept2 { deptno:1,name:&ldquo;a&rdquo;})
 # 节点名:多标签 {属性}
 CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
@@ -1132,7 +1261,10 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
             RETURN STARTNODE(r) # 返回开始节点
             RETURN ENDNODE(r)
 </code></pre>
-<h2 id="heading-8">列族</h2>
+<h2 id="列族">
+  列族
+  <a class="anchor" href="#%e5%88%97%e6%97%8f">#</a>
+</h2>
 <pre><code>特点
     键空间
 适用
@@ -1153,7 +1285,10 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     clickhouse
         # 用于OLAP, 实时分析
 </code></pre>
-<h3 id="cassandra">cassandra</h3>
+<h3 id="cassandra">
+  cassandra
+  <a class="anchor" href="#cassandra">#</a>
+</h3>
 <pre><code>特点
     适用大规模数据
     良好的分布式扩展性
@@ -1169,7 +1304,10 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     use aaa
         # 用aaa键空间
 </code></pre>
-<h3 id="hbase">hbase</h3>
+<h3 id="hbase">
+  hbase
+  <a class="anchor" href="#hbase">#</a>
+</h3>
 <pre><code>特点
     hdfs存储，分布式，面向列
     可利用map reduce
@@ -1186,7 +1324,10 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
         观察者observer（监听器）
         终端endpoint（rpc调用代码）
 </code></pre>
-<h2 id="heading-9">文档</h2>
+<h2 id="文档">
+  文档
+  <a class="anchor" href="#%e6%96%87%e6%a1%a3">#</a>
+</h2>
 <pre><code>适用
     事件记录
     内容管理
@@ -1206,14 +1347,20 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
         # 带事务的mongo
     tokumx
 </code></pre>
-<h3 id="couchdb">couchDB</h3>
+<h3 id="couchdb">
+  couchDB
+  <a class="anchor" href="#couchdb">#</a>
+</h3>
 <pre><code>特点
     apache托管,  alang语言开发的，面向文档的分布式数据库
     json结构，易于存储cms, 电话本，地址本等半结构化数据。存储类似于lucene的index
     易添加，不易修改
     主主双向复制
 </code></pre>
-<h2 id="heading-10">键值</h2>
+<h2 id="键值">
+  键值
+  <a class="anchor" href="#%e9%94%ae%e5%80%bc">#</a>
+</h2>
 <pre><code>适用
     session
     用户配置信息
@@ -1236,10 +1383,16 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     rocksDB
     groupCache  # go编写
 </code></pre>
-<h2 id="heading-11">时序</h2>
+<h2 id="时序">
+  时序
+  <a class="anchor" href="#%e6%97%b6%e5%ba%8f">#</a>
+</h2>
 <pre><code>influxDB    # go编写
 </code></pre>
-<h1 id="newsql">newsql</h1>
+<h1 id="newsql">
+  newsql
+  <a class="anchor" href="#newsql">#</a>
+</h1>
 <pre><code>工具
     分布式
         google spanner
@@ -1255,13 +1408,25 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     tokudb
     memsql
 </code></pre>
-<h2 id="tidb">tidb</h2>
-<h1 id="heading-12">流式数据库</h1>
+<h2 id="tidb">
+  tidb
+  <a class="anchor" href="#tidb">#</a>
+</h2>
+<h1 id="流式数据库">
+  流式数据库
+  <a class="anchor" href="#%e6%b5%81%e5%bc%8f%e6%95%b0%e6%8d%ae%e5%ba%93">#</a>
+</h1>
 <pre><code>piplelineDB
     # 依赖zeromq, 记录时间段内的事件
 </code></pre>
-<h1 id="proxy">proxy</h1>
-<h2 id="mycat">mycat</h2>
+<h1 id="proxy">
+  proxy
+  <a class="anchor" href="#proxy">#</a>
+</h1>
+<h2 id="mycat">
+  mycat
+  <a class="anchor" href="#mycat">#</a>
+</h2>
 <pre><code># 目录结构
         bin
                 mycat                        # 服务器启动等
@@ -1400,75 +1565,87 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     o-&gt; 同样配置dn1, dn2 的两个普通外键关系表之间数据插入可能会出错(如: 表2数据在dn1中, 其外键关联表2在dn2中的数据时)
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/db/_index.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/db/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
+    <li><a href="#基础">基础</a></li>
     <li><a href="#rds">rds</a>
       <ul>
         <li><a href="#sqlite">sqlite</a></li>
         <li><a href="#sql">sql</a></li>
-        <li><a href="#heading-1">存储过程</a></li>
-        <li><a href="#heading-2">触发器</a></li>
-        <li><a href="#heading-3">视图</a></li>
-        <li><a href="#heading-4">索引</a></li>
-        <li><a href="#heading-5">序列</a></li>
-        <li><a href="#heading-6">性能优化</a></li>
+        <li><a href="#存储过程">存储过程</a></li>
+        <li><a href="#触发器">触发器</a></li>
+        <li><a href="#视图">视图</a></li>
+        <li><a href="#索引">索引</a></li>
+        <li><a href="#序列">序列</a></li>
+        <li><a href="#性能优化">性能优化</a></li>
       </ul>
     </li>
     <li><a href="#nosql">nosql</a>
       <ul>
-        <li><a href="#heading-7">图</a>
+        <li><a href="#图">图</a>
           <ul>
             <li><a href="#neo4j">neo4j</a></li>
           </ul>
         </li>
-        <li><a href="#heading-8">列族</a>
+        <li><a href="#列族">列族</a>
           <ul>
             <li><a href="#cassandra">cassandra</a></li>
             <li><a href="#hbase">hbase</a></li>
           </ul>
         </li>
-        <li><a href="#heading-9">文档</a>
+        <li><a href="#文档">文档</a>
           <ul>
             <li><a href="#couchdb">couchDB</a></li>
           </ul>
         </li>
-        <li><a href="#heading-10">键值</a></li>
-        <li><a href="#heading-11">时序</a></li>
+        <li><a href="#键值">键值</a></li>
+        <li><a href="#时序">时序</a></li>
       </ul>
     </li>
     <li><a href="#newsql">newsql</a>
@@ -1476,7 +1653,7 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
         <li><a href="#tidb">tidb</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">流式数据库</a></li>
+    <li><a href="#流式数据库">流式数据库</a></li>
     <li><a href="#proxy">proxy</a>
       <ul>
         <li><a href="#mycat">mycat</a></li>
@@ -1484,13 +1661,27 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

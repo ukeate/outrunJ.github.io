@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jquery"><meta property="og:title" content="Jquery" />
-<meta property="og:description" content="对象命名方式 var $a = $(&quot;#inputID&quot;);  选择器（选择多个时形成数组） 基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!" />
+<meta name="description" content="对象命名方式 #  var $a = $(&quot;#inputID&quot;);  选择器（选择多个时形成数组） #  基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Jquery" />
+<meta property="og:description" content="对象命名方式 #  var $a = $(&quot;#inputID&quot;);  选择器（选择多个时形成数组） #  基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/frontend/jquery/" />
-<meta property="article:published_time" content="2018-10-11T07:34:03+08:00" />
-<meta property="article:modified_time" content="2019-06-17T13:24:09+08:00" />
+<meta property="og:url" content="https://example.com/docs/frontend/jquery/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T07:34:03&#43;08:00" />
+<meta property="article:modified_time" content="2019-06-17T13:24:09&#43;08:00" />
+
 <title>Jquery | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,34 +212,89 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Jquery</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#对象命名方式">对象命名方式</a></li>
+    <li><a href="#选择器选择多个时形成数组">选择器（选择多个时形成数组）</a></li>
+    <li><a href="#基础函数">基础函数</a></li>
+    <li><a href="#筛选">筛选</a></li>
+    <li><a href="#事件函数">事件函数</a></li>
+    <li><a href="#css函数">css函数</a></li>
+    <li><a href="#效果函数">效果函数</a></li>
+    <li><a href="#工具函数">工具函数</a></li>
+    <li><a href="#其它函数">其它函数</a></li>
+    <li><a href="#特殊使用">特殊使用</a></li>
+    <li><a href="#与dom之间的转换">与dom之间的转换</a></li>
+    <li><a href="#ajax">ajax</a></li>
+    <li><a href="#插件">插件</a>
+      <ul>
+        <li><a href="#习惯">习惯</a></li>
+        <li><a href="#自定义">自定义</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#jquery-mobile">jquery mobile</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">对象命名方式</h1>
+      
+  <article class="markdown"><h1 id="对象命名方式">
+  对象命名方式
+  <a class="anchor" href="#%e5%af%b9%e8%b1%a1%e5%91%bd%e5%90%8d%e6%96%b9%e5%bc%8f">#</a>
+</h1>
 <pre><code>var $a = $(&quot;#inputID&quot;);        
 </code></pre>
-<h1 id="heading-1">选择器（选择多个时形成数组）</h1>
+<h1 id="选择器选择多个时形成数组">
+  选择器（选择多个时形成数组）
+  <a class="anchor" href="#%e9%80%89%e6%8b%a9%e5%99%a8%e9%80%89%e6%8b%a9%e5%a4%9a%e4%b8%aa%e6%97%b6%e5%bd%a2%e6%88%90%e6%95%b0%e7%bb%84">#</a>
+</h1>
 <pre><code>基本选择器
     $(&quot;#inputID&quot;);                # id选择
     $(&quot;input&quot;); // 标签名,默认获取第一个                # 标签名选择
@@ -286,7 +357,10 @@ https://github.com/alex-shpak/hugo-book
     $(&quot;:checkbox:checked&quot;);    # 所有已选中的checkbox(有checked属性的)元素    $(&quot;:checkbox:not(:checked)&quot;);  未选中的checkbox
     $(&quot;:select option:selected&quot;);      # 所有已选中的option元素
 </code></pre>
-<h1 id="heading-2">基础函数</h1>
+<h1 id="基础函数">
+  基础函数
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>对象访问
     size()          # 同length,返回元素个数
     length          # 同size(),返回元素个数
@@ -307,7 +381,10 @@ https://github.com/alex-shpak/hugo-book
         toggleClass(&quot;myClass&quot;);        # 切换样式，有变无，无变有
         hasClass(&quot;myClass&quot;)            # 返回是否有样式
 </code></pre>
-<h1 id="heading-3">筛选</h1>
+<h1 id="筛选">
+  筛选
+  <a class="anchor" href="#%e7%ad%9b%e9%80%89">#</a>
+</h1>
 <pre><code>过滤
         eq(index)                                                # 从0开始的第index元素
         is(expr)                                                # 判断元素中是否有符合expr的元素（如&quot;form&quot;），有则返回true,无则返回false
@@ -337,7 +414,10 @@ https://github.com/alex-shpak/hugo-book
         after(content)              # 元素同级之后插入
         before(content)            # 元素同级之前插入
 </code></pre>
-<h1 id="heading-4">事件函数</h1>
+<h1 id="事件函数">
+  事件函数
+  <a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>change(fn)              # $(&quot;select&quot;).change(function(){})  dom 中的onchange事件，元素内容变化时触发
 submit(fn)              # $(&quot;form&quot;).submit(function(){})  选中表单提交时触发，多用于简单检测输入
                 # 该事件函数中写return false;代表不提交表单
@@ -349,14 +429,20 @@ mousemove(function(e){})          # 鼠标移动时执行 ie 中已经定义参�
 keyup(fn)                  # ie 中 event.keyCode得到按键编码(firefox 中传递参数e,e.which得到按键编码)
 ready(fn)              # $(document).ready(fn) 相当于window.load()事件，但可以写多个
 </code></pre>
-<h1 id="css">css函数</h1>
+<h1 id="css函数">
+  css函数
+  <a class="anchor" href="#css%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>    css(&quot;background-color&quot;,&quot;red&quot;);                # 设置style属性
     addClass(&quot;myClass&quot;)                                # 添加css样式
 removeClass(&quot;myClass&quot;)              # 删除样式
 toggleClass(&quot;myClass&quot;)              # 切换样式，有则删除，无则添加
 hasClass(&quot;myClass&quot;)                # 是否有样式，返回true或false
 </code></pre>
-<h1 id="heading-5">效果函数</h1>
+<h1 id="效果函数">
+  效果函数
+  <a class="anchor" href="#%e6%95%88%e6%9e%9c%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>slideUp(speed,fn)      # 向上滑动,如$(&quot;div&quot;).slideUp(200);
 slideToggle(speed,fn)  # 滑上滑下切换,如$(&quot;div&quot;).slideToggle(200);
 
@@ -367,24 +453,39 @@ fadeIn(speed,fn)        # 淡入显示图片
 fadeOut(speed,fn)      # 淡出隐藏图片
 animate(styles,speed,easing,callback)                # 自定义动画。只有数字值可创建动画（比如 &quot;margin:30px&quot;）
 </code></pre>
-<h1 id="heading-6">工具函数</h1>
+<h1 id="工具函数">
+  工具函数
+  <a class="anchor" href="#%e5%b7%a5%e5%85%b7%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>$.trim(str)            # 去除str字符串开头和结尾的空白
 </code></pre>
-<h1 id="heading-7">其它函数</h1>
+<h1 id="其它函数">
+  其它函数
+  <a class="anchor" href="#%e5%85%b6%e5%ae%83%e5%87%bd%e6%95%b0">#</a>
+</h1>
 <pre><code>serialize()            # 序列表单内容为字符串  ajax提交表单时可以        var sendData = $(&quot;form&quot;).serialize();  给sendData赋值传递表单信息
 </code></pre>
-<h1 id="heading-8">特殊使用</h1>
+<h1 id="特殊使用">
+  特殊使用
+  <a class="anchor" href="#%e7%89%b9%e6%ae%8a%e4%bd%bf%e7%94%a8">#</a>
+</h1>
 <pre><code>$(document)    # 得到document区  ，可以定义事件，如$(document).mousemove(fn);
                 $(document).ready(fn); 相当于$(fn)
 $(fn)          # 相当于window.load ,在页面加载时执行，可以写多个，（而window.load只能一个生效，后面的会覆盖前面的）
 $(&quot;&lt;div id='2013'&gt;ss&lt;/idv&gt;&quot;);      # 创建一个元素
 </code></pre>
-<h1 id="dom">与dom之间的转换</h1>
+<h1 id="与dom之间的转换">
+  与dom之间的转换
+  <a class="anchor" href="#%e4%b8%8edom%e4%b9%8b%e9%97%b4%e7%9a%84%e8%bd%ac%e6%8d%a2">#</a>
+</h1>
 <pre><code>    var $input = $(inputElemenet); // 注意，没有双引号
     var inputElement = $input.get(0); // jquery相当于存储了dom对象的数组 
       var inputElement = $input[0];
 </code></pre>
-<h1 id="ajax">ajax</h1>
+<h1 id="ajax">
+  ajax
+  <a class="anchor" href="#ajax">#</a>
+</h1>
 <pre><code>load(url)                      # $(&quot;span&quot;).css(&quot;color&quot;,&quot;red&quot;).load(url)        无参以get方式提交，返回的值直接作为&lt;span&gt;标签内的文本节点值
 load(url,sendData);            # 有参以post的方式提交
                                 ## var sendData = {&quot;username&quot;:&quot;user&quot;,&quot;password&quot;:&quot;psw&quot;};  sendData的内容用json的语法写
@@ -395,7 +496,10 @@ load(url,sendData,function(backData,textStatus,ajax){});          # 加上处理
 $.get(url,sendData,function(backData,textStatus,ajax){});          # 用get方式提交ajax模拟的表单
 $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方式提交ajax模拟的表单 响应头 content-type = &quot;application/x-www-form-urlencoded&quot; 会自动设置好
 </code></pre>
-<h1 id="heading-9">插件</h1>
+<h1 id="插件">
+  插件
+  <a class="anchor" href="#%e6%8f%92%e4%bb%b6">#</a>
+</h1>
 <pre><code>jquery提供
     fixedtableheader
     tablesort
@@ -682,14 +786,20 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
 
                     });
 </code></pre>
-<h2 id="heading-10">习惯</h2>
+<h2 id="习惯">
+  习惯
+  <a class="anchor" href="#%e4%b9%a0%e6%83%af">#</a>
+</h2>
 <pre><code>命名方式规律
         jquery.插件名.功能名.js
         
 存储
         网站js/下        分子文件夹存放不同插件的文件
 </code></pre>
-<h2 id="heading-11">自定义</h2>
+<h2 id="自定义">
+  自定义
+  <a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89">#</a>
+</h2>
 <pre><code>函数
         jQuery.extend(object);          # 直接调用
         jQuery.fn.extend(object);      # 对象调用 $.extend($.fn,{})或$fn.extend({})
@@ -716,80 +826,112 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
         alert($(&quot;html&quot;).max1(2, 1));
         alert($(&quot;html&quot;).min1(1, 2));
 </code></pre>
-<h1 id="heading-12">问题</h1>
+<h1 id="问题">
+  问题
+  <a class="anchor" href="#%e9%97%ae%e9%a2%98">#</a>
+</h1>
 <pre><code>页面中引用jquery
         只能用&lt;script&gt;&lt;/script&gt;的形式，而不能用&lt;script/&gt;的形式
         引用的src必须写相对路径
         引用的&lt;script&gt;&lt;/script&gt;代码必须写在使用之前
         webroot/web-inf/不能用相对路径访问webRoot/下的文件，所以不能包含jquery文件。所以要用${pageContext.request.contextPath}/来访问
 </code></pre>
-<h1 id="jquery-mobile">jquery mobile</h1>
+<h1 id="jquery-mobile">
+  jquery mobile
+  <a class="anchor" href="#jquery-mobile">#</a>
+</h1>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jun 17, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/frontend/jquery.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/frontend/jquery.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">对象命名方式</a></li>
-    <li><a href="#heading-1">选择器（选择多个时形成数组）</a></li>
-    <li><a href="#heading-2">基础函数</a></li>
-    <li><a href="#heading-3">筛选</a></li>
-    <li><a href="#heading-4">事件函数</a></li>
-    <li><a href="#css">css函数</a></li>
-    <li><a href="#heading-5">效果函数</a></li>
-    <li><a href="#heading-6">工具函数</a></li>
-    <li><a href="#heading-7">其它函数</a></li>
-    <li><a href="#heading-8">特殊使用</a></li>
-    <li><a href="#dom">与dom之间的转换</a></li>
+    <li><a href="#对象命名方式">对象命名方式</a></li>
+    <li><a href="#选择器选择多个时形成数组">选择器（选择多个时形成数组）</a></li>
+    <li><a href="#基础函数">基础函数</a></li>
+    <li><a href="#筛选">筛选</a></li>
+    <li><a href="#事件函数">事件函数</a></li>
+    <li><a href="#css函数">css函数</a></li>
+    <li><a href="#效果函数">效果函数</a></li>
+    <li><a href="#工具函数">工具函数</a></li>
+    <li><a href="#其它函数">其它函数</a></li>
+    <li><a href="#特殊使用">特殊使用</a></li>
+    <li><a href="#与dom之间的转换">与dom之间的转换</a></li>
     <li><a href="#ajax">ajax</a></li>
-    <li><a href="#heading-9">插件</a>
+    <li><a href="#插件">插件</a>
       <ul>
-        <li><a href="#heading-10">习惯</a></li>
-        <li><a href="#heading-11">自定义</a></li>
+        <li><a href="#习惯">习惯</a></li>
+        <li><a href="#自定义">自定义</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">问题</a></li>
+    <li><a href="#问题">问题</a></li>
     <li><a href="#jquery-mobile">jquery mobile</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

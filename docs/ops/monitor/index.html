@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Monitor"><meta property="og:title" content="Monitor" />
-<meta property="og:description" content="统计方式 选时间段 时序数据表 max、min、avg  物理机 Load Average 介绍 数字n表示n倍  cpu Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 Mysql 总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2." />
+<meta name="description" content="统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Monitor" />
+<meta property="og:description" content="统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/ops/monitor/" />
-<meta property="article:published_time" content="2018-10-11T18:47:57+08:00" />
-<meta property="article:modified_time" content="2021-02-04T15:02:50+08:00" />
+<meta property="og:url" content="https://example.com/docs/ops/monitor/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T18:47:57&#43;08:00" />
+<meta property="article:modified_time" content="2021-02-04T15:02:50&#43;08:00" />
+
 <title>Monitor | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,41 +212,104 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Monitor</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#统计方式">统计方式</a></li>
+    <li><a href="#物理机">物理机</a>
+      <ul>
+        <li><a href="#load-average">Load Average</a></li>
+        <li><a href="#cpu">cpu</a></li>
+        <li><a href="#mem">mem</a></li>
+        <li><a href="#disk">disk</a></li>
+        <li><a href="#network">network</a></li>
+      </ul>
+    </li>
+    <li><a href="#程序">程序</a></li>
+    <li><a href="#mysql">Mysql</a></li>
+    <li><a href="#单节点">单节点</a>
+      <ul>
+        <li><a href="#node-summary">Node Summary</a></li>
+        <li><a href="#innodb">InnoDB</a></li>
+      </ul>
+    </li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#主从复制">主从复制</a></li>
+    <li><a href="#oracle">Oracle</a></li>
+    <li><a href="#postgresql">PostgreSQL</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">统计方式</h1>
+      
+  <article class="markdown"><h1 id="统计方式">
+  统计方式
+  <a class="anchor" href="#%e7%bb%9f%e8%ae%a1%e6%96%b9%e5%bc%8f">#</a>
+</h1>
 <pre><code>选时间段
     时序数据表
     max、min、avg
 </code></pre>
-<h1 id="heading-1">物理机</h1>
-<h2 id="load-average">Load Average</h2>
+<h1 id="物理机">
+  物理机
+  <a class="anchor" href="#%e7%89%a9%e7%90%86%e6%9c%ba">#</a>
+</h1>
+<h2 id="load-average">
+  Load Average
+  <a class="anchor" href="#load-average">#</a>
+</h2>
 <pre><code>介绍
     数字n表示n倍
 </code></pre>
-<h2 id="cpu">cpu</h2>
+<h2 id="cpu">
+  cpu
+  <a class="anchor" href="#cpu">#</a>
+</h2>
 <pre><code>Usage: 100%
     system
     user
@@ -243,7 +322,10 @@ Processes: 10ops
     Runnable
     Blocked
 </code></pre>
-<h2 id="mem">mem</h2>
+<h2 id="mem">
+  mem
+  <a class="anchor" href="#mem">#</a>
+</h2>
 <pre><code>Physical Memory: RAM(Random-Access Memory)存储器
     used
     free
@@ -260,7 +342,10 @@ Swap Activity
     swap in(read)
     swap out(write)
 </code></pre>
-<h2 id="disk">disk</h2>
+<h2 id="disk">
+  disk
+  <a class="anchor" href="#disk">#</a>
+</h2>
 <pre><code>space
     增长趋势
 I/O Activity
@@ -276,7 +361,10 @@ I/O Load: 3
     write
     read
 </code></pre>
-<h2 id="network">network</h2>
+<h2 id="network">
+  network
+  <a class="anchor" href="#network">#</a>
+</h2>
 <pre><code>traffic: MB/s
     inbound
     outbound
@@ -291,8 +379,14 @@ TCP Retransmission
     segments retransmitted: 0ops
     retransmit ratio: 0%
 </code></pre>
-<h1 id="heading-2">程序</h1>
-<h1 id="mysql">Mysql</h1>
+<h1 id="程序">
+  程序
+  <a class="anchor" href="#%e7%a8%8b%e5%ba%8f">#</a>
+</h1>
+<h1 id="mysql">
+  Mysql
+  <a class="anchor" href="#mysql">#</a>
+</h1>
 <pre><code>总览
     Services: 38
     Min MySQL Uptime: 20 hours
@@ -305,7 +399,10 @@ TCP Retransmission
     Top Service Active Client Threads: 99%
     Top Service Threads Cached: 100%
 </code></pre>
-<h1 id="heading-3">单节点</h1>
+<h1 id="单节点">
+  单节点
+  <a class="anchor" href="#%e5%8d%95%e8%8a%82%e7%82%b9">#</a>
+</h1>
 <pre><code>总计 
     Uptime: 29 weeks
     Version: 5.7.26
@@ -422,7 +519,10 @@ Table Definition Cache
     Open Table Definitions: 700
     Opened Table Definitions: 0
 </code></pre>
-<h2 id="node-summary">Node Summary</h2>
+<h2 id="node-summary">
+  Node Summary
+  <a class="anchor" href="#node-summary">#</a>
+</h2>
 <pre><code>总计
     Node Name
     Uptime: 1.4 years
@@ -447,7 +547,10 @@ Network Traffic
     Outbound: 3MBs
     Inbound: 330 kBs
 </code></pre>
-<h2 id="innodb">InnoDB</h2>
+<h2 id="innodb">
+  InnoDB
+  <a class="anchor" href="#innodb">#</a>
+</h2>
 <pre><code>总计
     Buffer Pool Size: 16GiB
     Buffer Pool Size of Total RAM: 52%
@@ -566,7 +669,10 @@ Online Operations(MariaDB)
     Defragmentation
     Online DDL
 </code></pre>
-<h1 id="overview">Overview</h1>
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
 <pre><code>I/O Thread Running
 SQL Thread Running
 Read Only
@@ -627,7 +733,10 @@ Open and Cached Table Definitions
     Service Opened Table Definitions: 210 ops
     Service Open Table Definitions: 1.4k
 </code></pre>
-<h1 id="heading-4">主从复制</h1>
+<h1 id="主从复制">
+  主从复制
+  <a class="anchor" href="#%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6">#</a>
+</h1>
 <pre><code>Replication Delay:  10
 Binlogs Size:  10GiB
 Binlog Data Written Hourly
@@ -636,7 +745,10 @@ Binlog Cache Use Hourly: 300k
 Relay Log Space: 300MiB
 Relay Log Written Hourly
 </code></pre>
-<h1 id="oracle">Oracle</h1>
+<h1 id="oracle">
+  Oracle
+  <a class="anchor" href="#oracle">#</a>
+</h1>
 <pre><code>状态: alive
 活动会话(user)
 进程计数
@@ -660,7 +772,10 @@ Relay Log Written Hourly
     dml_locks
     enqueue_locks
 </code></pre>
-<h1 id="postgresql">PostgreSQL</h1>
+<h1 id="postgresql">
+  PostgreSQL
+  <a class="anchor" href="#postgresql">#</a>
+</h1>
 <pre><code>总览
     services个数
     Active Connections
@@ -741,44 +856,56 @@ Checkpoint Stats
     Service Files Synchronization to Disk: 0.1 ops
     Service Written Files to Disk: 400 wps</code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/ops/monitor.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/ops/monitor.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">统计方式</a></li>
-    <li><a href="#heading-1">物理机</a>
+    <li><a href="#统计方式">统计方式</a></li>
+    <li><a href="#物理机">物理机</a>
       <ul>
         <li><a href="#load-average">Load Average</a></li>
         <li><a href="#cpu">cpu</a></li>
@@ -787,27 +914,41 @@ Checkpoint Stats
         <li><a href="#network">network</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">程序</a></li>
+    <li><a href="#程序">程序</a></li>
     <li><a href="#mysql">Mysql</a></li>
-    <li><a href="#heading-3">单节点</a>
+    <li><a href="#单节点">单节点</a>
       <ul>
         <li><a href="#node-summary">Node Summary</a></li>
         <li><a href="#innodb">InnoDB</a></li>
       </ul>
     </li>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#heading-4">主从复制</a></li>
+    <li><a href="#主从复制">主从复制</a></li>
     <li><a href="#oracle">Oracle</a></li>
     <li><a href="#postgresql">PostgreSQL</a></li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

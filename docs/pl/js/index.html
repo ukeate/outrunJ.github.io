@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JS"><meta property="og:title" content="JS" />
-<meta property="og:description" content="基础 特性 原型链, 面向对象, 动态语言(已超出脚本语言的范畴) 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义 v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化 历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript ECMAScript 3(ES3) 作为标准广泛使用 ECMAScript 5(ES5) 定义了新的语言标准 JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 JavaScript1.8 在实现es7 JavaScript解释器或引擎(engine)也有版本号 Google的叫做V8(现在是4.0) 微软改动并取名Jscript  标准 ECMAScript 6 介绍 目标是js可写 复杂的应用程序 函数库 代码自动自成器(code generator) mozilla基于ECMAScript6 发布 JavaScript2.0 V8, node.js使用 let # 块级作用域中声明变量 const # 声明常量 Set对象 # 同java Set, 是一个数组 属性 size 方法 add(value) delete(value) has(value) clear() Map对象 # 键值对，键可以是对象 使用 var m = new Map(); o = {p: &quot;Helllo&quot;}; m." />
+<meta name="description" content="基础 #  特性 原型链, 面向对象, 动态语言(已超出脚本语言的范畴) 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义 v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化 历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript ECMAScript 3(ES3) 作为标准广泛使用 ECMAScript 5(ES5) 定义了新的语言标准 JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 JavaScript1.8 在实现es7 JavaScript解释器或引擎(engine)也有版本号 Google的叫做V8(现在是4.0) 微软改动并取名Jscript  标准 #  ECMAScript 6 #  介绍 目标是js可写 复杂的应用程序 函数库 代码自动自成器(code generator) mozilla基于ECMAScript6 发布 JavaScript2.0 V8, node.js使用 let # 块级作用域中声明变量 const # 声明常量 Set对象 # 同java Set, 是一个数组 属性 size 方法 add(value) delete(value) has(value) clear() Map对象 # 键值对，键可以是对象 使用 var m = new Map(); o = {p: &quot;Helllo&quot;}; m.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="JS" />
+<meta property="og:description" content="基础 #  特性 原型链, 面向对象, 动态语言(已超出脚本语言的范畴) 弱类型，变量都是var 解释器有自己的内存管理机制(garbage collection) 自由数据类型转换 # 产生了==, ===的判断相等的不同定义 v8引擎 直接生成机器码 分代式GC java jvm工程师参数了优化 历史 Netscape(现Mozilla)创建JavaScript, 但JavaScript是Sun(现Oracle)的注册商标 作为标准提交给ECMA(欧洲计算机制造协会), 改名为ECMAScript ECMAScript 3(ES3) 作为标准广泛使用 ECMAScript 5(ES5) 定义了新的语言标准 JavaScript1.5是Mozilla的版本号, 相当于ES3,包含一些非标准语言扩展 JavaScript1.8 在实现es7 JavaScript解释器或引擎(engine)也有版本号 Google的叫做V8(现在是4.0) 微软改动并取名Jscript  标准 #  ECMAScript 6 #  介绍 目标是js可写 复杂的应用程序 函数库 代码自动自成器(code generator) mozilla基于ECMAScript6 发布 JavaScript2.0 V8, node.js使用 let # 块级作用域中声明变量 const # 声明常量 Set对象 # 同java Set, 是一个数组 属性 size 方法 add(value) delete(value) has(value) clear() Map对象 # 键值对，键可以是对象 使用 var m = new Map(); o = {p: &quot;Helllo&quot;}; m." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/js/" />
-<meta property="article:published_time" content="2018-10-09T10:31:30+08:00" />
-<meta property="article:modified_time" content="2019-09-24T08:48:46+08:00" />
+<meta property="og:url" content="https://example.com/docs/pl/js/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-09T10:31:30&#43;08:00" />
+<meta property="article:modified_time" content="2019-09-24T08:48:46&#43;08:00" />
+
 <title>JS | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-
-
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-
-
-<script defer src="/en.search.min.3f1084847c9cf7577ab4e64d66a78fdb18326afac6c6c10cb174c077fb110bdf.js" integrity="sha256-PxCEhHyc91d6tOZNZqeP2xgyavrGxsEMsXTAd/sRC98="></script>
+<script defer src="/en.search.min.3b8ea99ab1c8993dff5d9a050d4dd04a1fb945e56641622fce426a51a319c101.js" integrity="sha256-O46pmrHImT3/XZoFDU3QSh&#43;5ReVmQWIvzkJqUaMZwQE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -29,7 +29,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,21 +37,23 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
 <h2 class="book-brand">
-  <a href="https://example.com/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -60,7 +61,13 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <ul>
+
+
+
+
+
+
+  <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
 <ul>
@@ -77,6 +84,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/people">人员</a></li>
 <li><a href="/docs/design/project">工程</a></li>
 <li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
@@ -84,7 +92,13 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/go">GO</a></li>
 <li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java">Java</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
@@ -104,6 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/function_small/nodejs">Node.js</a></li>
 <li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
 <li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
 </ul>
 </li>
 <li><a href="/docs/function_big"><strong>大功能</strong></a>
@@ -186,7 +201,8 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/template"><strong>模板配置</strong></a>
 <ul>
-<li><a href="/docs/template/linux">docker</a></li>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
 </ul>
 </li>
@@ -196,31 +212,195 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>JS</strong>
-</header>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#标准">标准</a>
+      <ul>
+        <li><a href="#ecmascript-6">ECMAScript 6</a></li>
+        <li><a href="#commonjs">commonJS</a></li>
+        <li><a href="#amd">AMD</a></li>
+        <li><a href="#cmd">CMD</a></li>
+      </ul>
+    </li>
+    <li><a href="#词法">词法</a>
+      <ul>
+        <li><a href="#直接量">直接量</a></li>
+      </ul>
+    </li>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#严格模式">严格模式</a></li>
+        <li><a href="#模块化">模块化</a></li>
+        <li><a href="#类型与变量">类型与变量</a>
+          <ul>
+            <li><a href="#类型">类型</a></li>
+            <li><a href="#作用域">作用域</a></li>
+          </ul>
+        </li>
+        <li><a href="#表达式">表达式</a>
+          <ul>
+            <li><a href="#运算符">运算符</a></li>
+            <li><a href="#eval">eval</a></li>
+          </ul>
+        </li>
+        <li><a href="#语句">语句</a>
+          <ul>
+            <li><a href="#模式匹配">模式匹配</a></li>
+          </ul>
+        </li>
+        <li><a href="#函数">函数</a>
+          <ul>
+            <li><a href="#generator">generator</a></li>
+            <li><a href="#promise">promise</a></li>
+            <li><a href="#async">async</a></li>
+            <li><a href="#class">class</a></li>
+            <li><a href="#decorator">decorator</a></li>
+          </ul>
+        </li>
+        <li><a href="#对象">对象</a>
+          <ul>
+            <li><a href="#属性">属性</a></li>
+            <li><a href="#数组">数组</a></li>
+            <li><a href="#集合">集合</a></li>
+            <li><a href="#proxy">proxy</a></li>
+            <li><a href="#reflect">reflect</a></li>
+          </ul>
+        </li>
+        <li><a href="#正则">正则</a>
+          <ul>
+            <li><a href="#特点">特点</a></li>
+            <li><a href="#常用">常用</a></li>
+            <li><a href="#元字符扩展">元字符扩展</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#风格">风格</a></li>
+    <li><a href="#浏览器">浏览器</a></li>
+    <li><a href="#常用函数">常用函数</a>
+      <ul>
+        <li><a href="#基础扩展">基础扩展</a></li>
+        <li><a href="#函数式">函数式</a></li>
+        <li><a href="#generator-1">generator</a></li>
+      </ul>
+    </li>
+    <li><a href="#api">api</a>
+      <ul>
+        <li><a href="#全局">全局</a></li>
+        <li><a href="#构造函数">构造函数</a>
+          <ul>
+            <li><a href="#包装对象函数">包装对象函数</a></li>
+            <li><a href="#object">Object</a></li>
+            <li><a href="#array">Array</a></li>
+            <li><a href="#function">Function</a></li>
+            <li><a href="#date">Date</a></li>
+            <li><a href="#error">Error</a></li>
+            <li><a href="#regexp">RegExp</a></li>
+            <li><a href="#set">Set</a></li>
+            <li><a href="#weakset">WeakSet</a></li>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#weakmap">WeakMap</a></li>
+            <li><a href="#proxy-1">Proxy</a></li>
+            <li><a href="#arraybuffer">ArrayBuffer</a></li>
+            <li><a href="#typedarray">(TypedArray)</a></li>
+            <li><a href="#dataview">DataView</a></li>
+            <li><a href="#websocket">WebSocket</a></li>
+            <li><a href="#filereader">FileReader</a></li>
+            <li><a href="#promise-1">Promise</a></li>
+          </ul>
+        </li>
+        <li><a href="#全局对象">全局对象</a>
+          <ul>
+            <li><a href="#顶级全局对象">顶级全局对象</a></li>
+            <li><a href="#math">Math</a></li>
+            <li><a href="#json">JSON</a></li>
+            <li><a href="#reflect-1">Reflect</a></li>
+            <li><a href="#symbol">Symbol</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#dom">dom</a>
+      <ul>
+        <li><a href="#window对象">window对象</a>
+          <ul>
+            <li><a href="#document">document</a></li>
+            <li><a href="#element">element</a></li>
+            <li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
+            <li><a href="#localstorage">localStorage</a></li>
+            <li><a href="#worker">Worker</a></li>
+            <li><a href="#eventsource">EventSource</a></li>
+          </ul>
+        </li>
+        <li><a href="#控件">控件</a>
+          <ul>
+            <li><a href="#activexobject">ActiveXObject</a></li>
+          </ul>
+        </li>
+        <li><a href="#canvas">canvas</a>
+          <ul>
+            <li><a href="#优化">优化</a></li>
+            <li><a href="#webgl">webgl</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="heading">基础</h1>
+      
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h1>
 <pre><code>特性
     原型链, 面向对象, 动态语言(已超出脚本语言的范畴)
     弱类型，变量都是var
@@ -241,8 +421,14 @@ v8引擎
             Google的叫做V8(现在是4.0)
     微软改动并取名Jscript
 </code></pre>
-<h1 id="heading-1">标准</h1>
-<h2 id="ecmascript-6">ECMAScript 6</h2>
+<h1 id="标准">
+  标准
+  <a class="anchor" href="#%e6%a0%87%e5%87%86">#</a>
+</h1>
+<h2 id="ecmascript-6">
+  ECMAScript 6
+  <a class="anchor" href="#ecmascript-6">#</a>
+</h2>
 <pre><code>介绍
     目标是js可写
         复杂的应用程序
@@ -279,7 +465,10 @@ Map对象                              # 键值对，键可以是对象
 yield关键字
 class关键字
 </code></pre>
-<h2 id="commonjs">commonJS</h2>
+<h2 id="commonjs">
+  commonJS
+  <a class="anchor" href="#commonjs">#</a>
+</h2>
 <pre><code>介绍
     模块化标准
     require同步加载, 再执行代码，会阻塞。对服务器不是问题，对浏览器是大问题
@@ -295,7 +484,10 @@ commonJs规范下的javascript
     let {stat, exists, readFile} = require('fs')
         # 加载fs所有方法生成_fs, 再取其中3个方法。没法做静态优化
 </code></pre>
-<h2 id="amd">AMD</h2>
+<h2 id="amd">
+  AMD
+  <a class="anchor" href="#amd">#</a>
+</h2>
 <pre><code>介绍
     模块化标准
     异步加载, 预执行
@@ -305,14 +497,20 @@ commonJs规范下的javascript
     });
         # 加载成功后进行回调
 </code></pre>
-<h2 id="cmd">CMD</h2>
+<h2 id="cmd">
+  CMD
+  <a class="anchor" href="#cmd">#</a>
+</h2>
 <pre><code>介绍
     sea.js提出
     懒执行
 使用
     define(function(require, exports, module){ ... })
 </code></pre>
-<h1 id="heading-2">词法</h1>
+<h1 id="词法">
+  词法
+  <a class="anchor" href="#%e8%af%8d%e6%b3%95">#</a>
+</h1>
 <pre><code>unicode编写的
     转义
         'café'表示为'caf\u00e9'
@@ -339,7 +537,10 @@ commonJs规范下的javascript
     ECMAScript3将所有java关键字列为保留字
     全局属性和对象和函数
 </code></pre>
-<h2 id="heading-3">直接量</h2>
+<h2 id="直接量">
+  直接量
+  <a class="anchor" href="#%e7%9b%b4%e6%8e%a5%e9%87%8f">#</a>
+</h2>
 <pre><code>直接量(numeric literal)
     1
     1.2
@@ -382,7 +583,10 @@ commonJs规范下的javascript
         `hello ${name}                          # ${}中可用任意表达式，包括函数
         how are you`
 </code></pre>
-<h1 id="heading-4">语法</h1>
+<h1 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h1>
 <pre><code>可省略的分号
     通用规则: 独占一行，并与下一行不能整体解析时
         var a = f
@@ -393,7 +597,10 @@ commonJs规范下的javascript
         ++, -- 永远解析为前缀, 所以作后缀时要加分号   # 如　x [换行] ++ [换行] y, 解析为 x; ++y
     '}'之前的分号
 </code></pre>
-<h2 id="heading-5">严格模式</h2>
+<h2 id="严格模式">
+  严格模式
+  <a class="anchor" href="#%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f">#</a>
+</h2>
 <pre><code>区别
     所有变量都要先声明
     增加了保留字(如await, protected, static, interface)
@@ -417,7 +624,10 @@ commonJs规范下的javascript
         delete不可配置属性抛出异常
     es5, es6中尾调用优化只在严格模式下开启             # 因为arguments.caller会跟踪函数调用栈, 无法开启
 </code></pre>
-<h2 id="heading-6">模块化</h2>
+<h2 id="模块化">
+  模块化
+  <a class="anchor" href="#%e6%a8%a1%e5%9d%97%e5%8c%96">#</a>
+</h2>
 <pre><code>介绍
     es6中模块化思想是尽量静态化，编译时确定模块依赖关系与输入输出
     CommonJS(CMD)与AMD都只能在运行时确定
@@ -525,7 +735,10 @@ es6
             m.even(20)    // true                   # 20 变到 0 even执行了11次
             m.counter    // 17                      ＃es6中引用加载机制保证even, odd函数能加载，所以可执行。而CommonJS中循环引用，even和odd函数都不会加载
 </code></pre>
-<h2 id="heading-7">类型与变量</h2>
+<h2 id="类型与变量">
+  类型与变量
+  <a class="anchor" href="#%e7%b1%bb%e5%9e%8b%e4%b8%8e%e5%8f%98%e9%87%8f">#</a>
+</h2>
 <pre><code>声明
     特点
         存值之前是undefined
@@ -607,7 +820,10 @@ es6
     0 == false
     &quot;0&quot; == false
 </code></pre>
-<h3 id="heading-8">类型</h3>
+<h3 id="类型">
+  类型
+  <a class="anchor" href="#%e7%b1%bb%e5%9e%8b">#</a>
+</h3>
 <pre><code>数字
     基础
         所有数字用二进制浮点数表示(64位, 如java中的double)
@@ -700,7 +916,10 @@ Symbol
         可以做属性名a[sym1] = 1, 不能用点运算符赋值或取值
         常用于设置常量结构体来switch，以消除魔术字符串
 </code></pre>
-<h3 id="heading-9">作用域</h3>
+<h3 id="作用域">
+  作用域
+  <a class="anchor" href="#%e4%bd%9c%e7%94%a8%e5%9f%9f">#</a>
+</h3>
 <pre><code>全局变量
     就是定义顶级对象的属性                         # 这点在ECMAScript规范中强制规定
     在js代码任何地方都有定义
@@ -812,7 +1031,10 @@ this
                 handleError(ex);                # 委托给处理器方法, 没有局部变量的访问，作用域链的临时改变就不会影响代码性能了。
             }                                   # 优化后的代码，handleError方法是catch子句中唯一执行的代码。该函数接收异常对象作为参数，这样你可以更加灵活和统一的处理错误。
 </code></pre>
-<h2 id="heading-10">表达式</h2>
+<h2 id="表达式">
+  表达式
+  <a class="anchor" href="#%e8%a1%a8%e8%be%be%e5%bc%8f">#</a>
+</h2>
 <pre><code>介绍
     表达式(expression), 由解释器计算(evaluate)
 原始表达式(primary expression)
@@ -867,7 +1089,10 @@ this
     (a=b) == 0
     i = j = k = 0;
 </code></pre>
-<h3 id="heading-11">运算符</h3>
+<h3 id="运算符">
+  运算符
+  <a class="anchor" href="#%e8%bf%90%e7%ae%97%e7%ac%a6">#</a>
+</h3>
 <pre><code>概念
     可符号，可关键字
     一元、二元、三元运算符                         # - +(正负号)是一元，*是二元, ?!是三元
@@ -1011,7 +1236,10 @@ this
         负数开方
         无法转换为数字
 </code></pre>
-<h3 id="eval">eval</h3>
+<h3 id="eval">
+  eval
+  <a class="anchor" href="#eval">#</a>
+</h3>
 <pre><code>介绍
     计算由源代码组成的字符串, 用eval(&quot;&quot;)来运行
     eval()是一个函数，但设计上更像运算符。
@@ -1048,7 +1276,10 @@ eval()
         eval中的字符串以&quot;use strict&quot;指令开始
         可以使用和更改局部变量，不可以定义新的变量
 </code></pre>
-<h2 id="heading-12">语句</h2>
+<h2 id="语句">
+  语句
+  <a class="anchor" href="#%e8%af%ad%e5%8f%a5">#</a>
+</h2>
 <pre><code>介绍
     语句以分号结束
     表达式计算出值，语句来执行。
@@ -1219,7 +1450,10 @@ tag函数                                         # 用于过滤html字符串, �
     [for (s of b1) for (w of b2) s+w]    // ['1a', '1b', '2a', '2b']
     let c = (for (n of generator()) n * n)
 </code></pre>
-<h3 id="heading-13">模式匹配</h3>
+<h3 id="模式匹配">
+  模式匹配
+  <a class="anchor" href="#%e6%a8%a1%e5%bc%8f%e5%8c%b9%e9%85%8d">#</a>
+</h3>
 <pre><code>特点
     模式匹配只对自身属性起作用
 
@@ -1278,7 +1512,10 @@ tag函数                                         # 用于过滤html字符串, �
     for(let [, val] of map){}                   # 遍历map
     const {SourceMapConsumer, SourceNode} = require('source-map')   # 输入模块方法
 </code></pre>
-<h2 id="heading-14">函数</h2>
+<h2 id="函数">
+  函数
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0">#</a>
+</h2>
 <pre><code>特点
     js的函数是参数化的
         在js中，函数即对象，可以随意传递，可以设置属性和调用该函数的函数
@@ -1473,7 +1710,10 @@ tag函数                                         # 用于过滤html字符串, �
             typeof RegExp可能是&quot;function&quot;也可以是&quot;object&quot;
             最好不要对可调用RegExp对象有太多依赖，其可调用特性将来可能被删除
 </code></pre>
-<h3 id="generator">generator</h3>
+<h3 id="generator">
+  generator
+  <a class="anchor" href="#generator">#</a>
+</h3>
 <pre><code>基本
     generator生成的遍历器g, g[Symbol.iterator]()得到自己。继承它prototype上的方法
         generator中this添加的属性, 生成的遍历器实例中没有, generator new相当于执行得到遍历器
@@ -1522,7 +1762,10 @@ return
     非promise
         thunk函数, 把回调函数抽离出来
 </code></pre>
-<h3 id="promise">promise</h3>
+<h3 id="promise">
+  promise
+  <a class="anchor" href="#promise">#</a>
+</h3>
 <pre><code>三种状态
     进行中(pending)
     完成(fulfilled)
@@ -1534,7 +1777,10 @@ return
     所以返回promise对象时, then的回调相当于返回promise的then的回调
     新建即执行，不能取消。内部错误不抛出。无法得到具体pending状态
 </code></pre>
-<h3 id="async">async</h3>
+<h3 id="async">
+  async
+  <a class="anchor" href="#async">#</a>
+</h3>
 <pre><code>特点
     generator的语法糖, 自动执行generator, 处理promise
     内置执行器，返回promise对象
@@ -1546,7 +1792,10 @@ return
         await p2.catch(function (e) {})
     }
 </code></pre>
-<h3 id="class">class</h3>
+<h3 id="class">
+  class
+  <a class="anchor" href="#class">#</a>
+</h3>
 <pre><code>特点
     所有方法在prototype上(constructor, static外)，不可枚举
     无变量提升
@@ -1616,7 +1865,10 @@ return
     o-&gt; 用mixin来混合继承
     class A extends mix(B, C)
 </code></pre>
-<h3 id="decorator">decorator</h3>
+<h3 id="decorator">
+  decorator
+  <a class="anchor" href="#decorator">#</a>
+</h3>
 <pre><code>介绍
     编译时执行
     相当于 class A {}, A = decorator(A) || A;
@@ -1645,7 +1897,10 @@ class Person {
     name() {return 0}
 }
 </code></pre>
-<h2 id="heading-15">对象</h2>
+<h2 id="对象">
+  对象
+  <a class="anchor" href="#%e5%af%b9%e8%b1%a1">#</a>
+</h2>
 <pre><code>基础
     一种复合值。属性的无序集合，属性由名/值对组成，看作字符串到值的映射。
         这种数据结构叫做散列(hash), 散列表(hashtable), 字典(dictionary), 关联数组(associative array)
@@ -1743,7 +1998,10 @@ class Person {
         Obj.prototype.extend                        # 添加或重写当前对象的属性
         Object.prototype.extend                     # 所有对象上添加属性
 </code></pre>
-<h3 id="heading-16">属性</h3>
+<h3 id="属性">
+  属性
+  <a class="anchor" href="#%e5%b1%9e%e6%80%a7">#</a>
+</h3>
 <pre><code>查询和设置
     . []
         ECMAScript 3中, 点运算符后的标识符不能是保留字。ECMAScript5(包括ECMAScript3的某些实现)中可以
@@ -1957,7 +2215,10 @@ getter和setter
         var o = {x: &quot;don't change this value&quot;};
         library_function(inherit(o));                   # 可以防止对o的意外修改
 </code></pre>
-<h3 id="heading-17">数组</h3>
+<h3 id="数组">
+  数组
+  <a class="anchor" href="#%e6%95%b0%e7%bb%84">#</a>
+</h3>
 <pre><code>介绍
     数字索引                                             # 最大索引 2^32 - 2, 实现经过优化, 数字索引访问比访问常规属性快很多
     元素无类型
@@ -2061,7 +2322,10 @@ getter和setter
         reader.readAsArrayBuffer(file);
         reader.onload = function() { var arrayBuffer = reader.result; }
 </code></pre>
-<h3 id="heading-18">集合</h3>
+<h3 id="集合">
+  集合
+  <a class="anchor" href="#%e9%9b%86%e5%90%88">#</a>
+</h3>
 <pre><code>Set
     数据唯一
     Nan等于自身
@@ -2111,7 +2375,10 @@ WeakMap
             result = iterator.next();
         }
 </code></pre>
-<h3 id="proxy">proxy</h3>
+<h3 id="proxy">
+  proxy
+  <a class="anchor" href="#proxy">#</a>
+</h3>
 <pre><code>介绍
     元编程(meta programming), 在对象外层进行代理
     在obj.proxy上设置Proxy对象，该对象的操作会变成对Proxy对象的操作
@@ -2125,14 +2392,20 @@ var obj = new Proxy({}, {
     }
 });
 </code></pre>
-<h3 id="reflect">reflect</h3>
+<h3 id="reflect">
+  reflect
+  <a class="anchor" href="#reflect">#</a>
+</h3>
 <pre><code>介绍
     将Object上一些明显属于语言内部的方法(如Object.defineProperty)放到Reflect上
     修改Object上原有方法，变得更合理, 如Object.defineProperty在无法定义属性时抛出异常, 而Reflect.definePropert则返回false
     让Object操作变成函数作为, 如name in obj, delete obj[name]变成Reflect.has, Reflect.deleteProperty
     让Proxy上方法与Reflect方法对应，让Proxy的对象操作默认行为在Reflect上执行
 </code></pre>
-<h2 id="heading-19">正则</h2>
+<h2 id="正则">
+  正则
+  <a class="anchor" href="#%e6%ad%a3%e5%88%99">#</a>
+</h2>
 <pre><code>基本字符
     会精确匹配一段字符，如hi。这段字符可以出现多次
 字面量
@@ -2225,7 +2498,10 @@ var obj = new Proxy({}, {
         &gt;                                     # 最外层右括号
         )
 </code></pre>
-<h3 id="heading-20">特点</h3>
+<h3 id="特点">
+  特点
+  <a class="anchor" href="#%e7%89%b9%e7%82%b9">#</a>
+</h3>
 <pre><code>o-&gt; js中不支持 回顾后发断言
 o-&gt; 可以跟三个flag，比如/something/igm
     i表示不区分大小写
@@ -2258,7 +2534,10 @@ o-&gt; api
     IgnorePatternWhitespace                     # 忽略空白，会忽略表达式中非转义空白并启用#作为标记注释
     ExplicitCapture                             # 显式捕获，仅捕获已被显式命名的组
 </code></pre>
-<h3 id="heading-21">常用</h3>
+<h3 id="常用">
+  常用
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8">#</a>
+</h3>
 <pre><code>&lt;a[^&gt;]+&gt;
     # 用尖括号括起来的以a开头的字符串
 ^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
@@ -2308,7 +2587,10 @@ o-&gt; api
 '1111111'.replace(/([\d]{3})(?=[\d]+)/g, '$1-')
     # 替换为 '111-111-1'
 </code></pre>
-<h3 id="heading-22">元字符扩展</h3>
+<h3 id="元字符扩展">
+  元字符扩展
+  <a class="anchor" href="#%e5%85%83%e5%ad%97%e7%ac%a6%e6%89%a9%e5%b1%95">#</a>
+</h3>
 <pre><code>\a              # 报警字符
 \t              # 制表符
 \v              # 竖向制表符
@@ -2333,7 +2615,10 @@ o-&gt; api
     (?(exp)yes) 只使用空表达式为no
     (?(name)yes|no) 命名为name的组捕获到内容，使用yes
 </code></pre>
-<h1 id="heading-23">风格</h1>
+<h1 id="风格">
+  风格
+  <a class="anchor" href="#%e9%a3%8e%e6%a0%bc">#</a>
+</h1>
 <pre><code>o-&gt; 最好js和html用独立的引号风格，如
         html双引号, js单引号
 o-&gt; 始终用var之类来声明变量，不用未声明变量
@@ -2397,13 +2682,22 @@ function factorial (n, total = 1) {
     return factorial(n - 1, n * total);
 }
 </code></pre>
-<h1 id="heading-24">浏览器</h1>
+<h1 id="浏览器">
+  浏览器
+  <a class="anchor" href="#%e6%b5%8f%e8%a7%88%e5%99%a8">#</a>
+</h1>
 <pre><code>js执行顺序
     当页面载入时，会执行位于 body 部分的 JavaScript。
     当被调用时，位于 head 部分的 JavaScript 才会被执行。
 </code></pre>
-<h1 id="heading-25">常用函数</h1>
-<h2 id="heading-26">基础扩展</h2>
+<h1 id="常用函数">
+  常用函数
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b0">#</a>
+</h1>
+<h2 id="基础扩展">
+  基础扩展
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e6%89%a9%e5%b1%95">#</a>
+</h2>
 <pre><code>循环变量作用域
     function constfunc(v){
         return function(){return v}
@@ -2522,7 +2816,10 @@ function factorial (n, total = 1) {
         }
     }
 </code></pre>
-<h2 id="heading-27">函数式</h2>
+<h2 id="函数式">
+  函数式
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0%e5%bc%8f">#</a>
+</h2>
 <pre><code>thunk
     function thunk (fileName) {
         return function (callback) {
@@ -2602,7 +2899,10 @@ trait
     @traits(A, B)
     class C()
 </code></pre>
-<h2 id="generator-1">generator</h2>
+<h2 id="generator-1">
+  generator
+  <a class="anchor" href="#generator-1">#</a>
+</h2>
 <pre><code>状态机 generator clock
     var clock = function* (_) {
         while(true) {
@@ -2673,8 +2973,14 @@ mixins注解
     @mixins(Foo)
     class MyClass()
 </code></pre>
-<h1 id="api">api</h1>
-<h2 id="heading-28">全局</h2>
+<h1 id="api">
+  api
+  <a class="anchor" href="#api">#</a>
+</h1>
+<h2 id="全局">
+  全局
+  <a class="anchor" href="#%e5%85%a8%e5%b1%80">#</a>
+</h2>
 <pre><code>属性
     Infinity                                # 表示正无穷大
     NaN                                     # 指示是不是数字, Infinity与NaNECMAScript中可读写， ECMAScript修正为只读, Infinity与NaN与任何值不相等(包括自身), 建议用非来判断
@@ -2698,13 +3004,22 @@ mixins注解
     fetch
         fetch(url).then(function (request) { return request.arrayBuffer })
 </code></pre>
-<h2 id="heading-29">构造函数</h2>
-<h3 id="heading-30">包装对象函数</h3>
+<h2 id="构造函数">
+  构造函数
+  <a class="anchor" href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0">#</a>
+</h2>
+<h3 id="包装对象函数">
+  包装对象函数
+  <a class="anchor" href="#%e5%8c%85%e8%a3%85%e5%af%b9%e8%b1%a1%e5%87%bd%e6%95%b0">#</a>
+</h3>
 <pre><code>介绍
     基本类型(数字，布尔，字符串)在构建时，会通过new String(s)的方式转换成对象，有了对象的方法，这个过程就是包装对象
 undefined没有包装对象，所以访问属性会造成类型错误。
 </code></pre>
-<h4 id="string">String</h4>
+<h4 id="string">
+  String
+  <a class="anchor" href="#string">#</a>
+</h4>
 <pre><code>介绍
     是Object类型, 是基本类型string的包装类型
         引用字符串类型的属性时,js会调用new String(s)来转换成对象
@@ -2761,7 +3076,10 @@ undefined没有包装对象，所以访问属性会造成类型错误。
         replace(pattern, &quot;&quot;)                # 所有匹配替换
         split(pattern)                      # 匹配分割
 </code></pre>
-<h4 id="number">Number</h4>
+<h4 id="number">
+  Number
+  <a class="anchor" href="#number">#</a>
+</h4>
 <pre><code>属性
     NaN
     POSITIVE_INFINITY
@@ -2790,8 +3108,14 @@ undefined没有包装对象，所以访问属性会造成类型错误。
         toExponential(1)                    # 转换为指数, 参数为指数前保留几位小数
         toPrecision(4)                      # 保留有效数字，多出位数转换成指数, 以上三个方法自动补0
 </code></pre>
-<h4 id="boolean">Boolean</h4>
-<h3 id="object">Object</h3>
+<h4 id="boolean">
+  Boolean
+  <a class="anchor" href="#boolean">#</a>
+</h4>
+<h3 id="object">
+  Object
+  <a class="anchor" href="#object">#</a>
+</h3>
 <pre><code>属性
     __proto__
         用来读取或设置当前对象的prototype对象，只有浏览器必须部署这个属性
@@ -2848,7 +3172,10 @@ undefined没有包装对象，所以访问属性会造成类型错误。
     seal                                    # 创建“密封”对象, 在现有对象上调用preventExtensions并把现在属性标记为configurable: false
     freeze                                  # 调用seal并标记现有属性为writable: false
 </code></pre>
-<h3 id="array">Array</h3>
+<h3 id="array">
+  Array
+  <a class="anchor" href="#array">#</a>
+</h3>
 <pre><code>静态方法
     isArray(a)                              # ECMAScript 5 判断是否数组
             [] instanceof Array的问题
@@ -2957,7 +3284,10 @@ undefined没有包装对象，所以访问属性会造成类型错误。
             keys
             values
 </code></pre>
-<h3 id="function">Function</h3>
+<h3 id="function">
+  Function
+  <a class="anchor" href="#function">#</a>
+</h3>
 <pre><code>使用
     var f = new Function(&quot;x&quot;, &quot;y&quot;, &quot;return x*y;&quot;);
         # 任意数量实参。最后一个实参是函数体，语句间用分号隔开
@@ -2998,7 +3328,10 @@ undefined没有包装对象，所以访问属性会造成类型错误。
         ECMAScript规定返回和函数声明语法相关的字符串
         大多数toString()方法返回函数的完整源码，内置函数往往返回类似&quot;[native code]&quot;的字符串作函数体
 </code></pre>
-<h3 id="date">Date</h3>
+<h3 id="date">
+  Date
+  <a class="anchor" href="#date">#</a>
+</h3>
 <pre><code>var now = new Date()
 var then = new Date(2011, 0, 1)
 var later = new Date(2011, 0, 1, 17, 10, 30)
@@ -3013,8 +3346,14 @@ now.setMonth(now.getMonth - 1);
     getHours()
     getUTCHours()
 </code></pre>
-<h3 id="error">Error</h3>
-<h3 id="regexp">RegExp</h3>
+<h3 id="error">
+  Error
+  <a class="anchor" href="#error">#</a>
+</h3>
+<h3 id="regexp">
+  RegExp
+  <a class="anchor" href="#regexp">#</a>
+</h3>
 <pre><code>构造
     new RegExp('xyz', 'i'); // /xyz/i
     new RegExp(/abc/ig, 'i') // /abc/i
@@ -3041,7 +3380,10 @@ now.setMonth(now.getMonth - 1);
                 index
                     # 在index上匹配成功
 </code></pre>
-<h3 id="set">Set</h3>
+<h3 id="set">
+  Set
+  <a class="anchor" href="#set">#</a>
+</h3>
 <pre><code>构造
     new Set()
     new Set([1, 2, 3])
@@ -3057,7 +3399,10 @@ now.setMonth(now.getMonth - 1);
     entries()                               # 返回[key, key]的遍历器
     forEach(function (value, key, obj) {}, boundThis)
 </code></pre>
-<h3 id="weakset">WeakSet</h3>
+<h3 id="weakset">
+  WeakSet
+  <a class="anchor" href="#weakset">#</a>
+</h3>
 <pre><code>构造
     new WeakSet()
     new WeakSet([1, 2, 3])                  # 任何可遍历对象
@@ -3067,7 +3412,10 @@ now.setMonth(now.getMonth - 1);
     delete(x)
     has(x)
 </code></pre>
-<h3 id="map">Map</h3>
+<h3 id="map">
+  Map
+  <a class="anchor" href="#map">#</a>
+</h3>
 <pre><code>构造
     new Map()
     new Map([['a', 1], ['b', 2]])
@@ -3084,14 +3432,20 @@ now.setMonth(now.getMonth - 1);
     entries()                               # map[Symbol.iterator] === map.entries
     forEach(function(value, key, map) {}, boundThis)
 </code></pre>
-<h3 id="weakmap">WeakMap</h3>
+<h3 id="weakmap">
+  WeakMap
+  <a class="anchor" href="#weakmap">#</a>
+</h3>
 <pre><code>方法
     get
     set
     delete
     has
 </code></pre>
-<h3 id="proxy-1">Proxy</h3>
+<h3 id="proxy-1">
+  Proxy
+  <a class="anchor" href="#proxy-1">#</a>
+</h3>
 <pre><code>new Proxy(target, handlers)                 # target表示要拦截的对象, handler是回调方法
 拦截器
     get(target, propKey, receiver)          # 属性读取。propKey是属性名, receiver是继承该proxy的对象
@@ -3112,7 +3466,10 @@ now.setMonth(now.getMonth - 1);
     revocable(target, handler)              # 返回有proxy, revoke属性的对象实例, proxy是Proxy实例, 调用revoke()函数可以取消Proxy
         et {proxy, revoke} = Proxy.revocable({}, {})
 </code></pre>
-<h3 id="arraybuffer">ArrayBuffer</h3>
+<h3 id="arraybuffer">
+  ArrayBuffer
+  <a class="anchor" href="#arraybuffer">#</a>
+</h3>
 <pre><code>构造
     var buf = new ArrayBuffer(32)           # 生成32字节的内存区域，每个字节默认值为0
     if(buf.byteLength === 32)               # 由于内存可能不够大，要检查是否分配成功
@@ -3122,7 +3479,10 @@ now.setMonth(now.getMonth - 1);
     slice(0, 3)                             # 拷贝前3个字节，生成新的ArrayBuffer
     isView(v)                               # 检查某视图是否为该buf的视图
 </code></pre>
-<h3 id="typedarray">(TypedArray)</h3>
+<h3 id="typedarray">
+  (TypedArray)
+  <a class="anchor" href="#typedarray">#</a>
+</h3>
 <pre><code>9种类型数组
     Int8Array
     Uint8Array
@@ -3161,7 +3521,10 @@ now.setMonth(now.getMonth - 1);
         a.subarray(2, 3)                    # 从index2复制到index3(不包含), 参数2不填默认复制到结尾
     slice
 </code></pre>
-<h3 id="dataview">DataView</h3>
+<h3 id="dataview">
+  DataView
+  <a class="anchor" href="#dataview">#</a>
+</h3>
 <pre><code>构造
     new DataView(buf)                       # DataView(ArrayBuffer buffer [, startIndex [, length]])
 属性
@@ -3185,13 +3548,19 @@ now.setMonth(now.getMonth - 1);
     setFloat32
     setFloat64
 </code></pre>
-<h3 id="websocket">WebSocket</h3>
+<h3 id="websocket">
+  WebSocket
+  <a class="anchor" href="#websocket">#</a>
+</h3>
 <pre><code>构造
     new WebSocket('ws://127.0.0.1:8081')
 属性
     binaryType                              # 设置成'arraybuffer'来接收和发送arraybuffer
 </code></pre>
-<h3 id="filereader">FileReader</h3>
+<h3 id="filereader">
+  FileReader
+  <a class="anchor" href="#filereader">#</a>
+</h3>
 <pre><code>构造
     var fileInput = document.getElementById('fileInput');
     var file = fileInput.files[0];
@@ -3202,7 +3571,10 @@ now.setMonth(now.getMonth - 1);
     reader.addEventListener('load', processimage, false);
     function processimage(e) { var buffer = e.target.result; }
 </code></pre>
-<h3 id="promise-1">Promise</h3>
+<h3 id="promise-1">
+  Promise
+  <a class="anchor" href="#promise-1">#</a>
+</h3>
 <pre><code>构造
     var promise = new Promise(function (resolve, reject) {resolve(0); /* reject(err)*/})
 方法
@@ -3219,8 +3591,14 @@ now.setMonth(now.getMonth - 1);
     done                                    # 不在规范内, 总是在回调链尾端, 保证抛出任何可能出现的错误
     finally                                 # 不在规范内, 接受一个回调函数，永远执行
 </code></pre>
-<h2 id="heading-31">全局对象</h2>
-<h3 id="heading-32">顶级全局对象</h3>
+<h2 id="全局对象">
+  全局对象
+  <a class="anchor" href="#%e5%85%a8%e5%b1%80%e5%af%b9%e8%b1%a1">#</a>
+</h2>
+<h3 id="顶级全局对象">
+  顶级全局对象
+  <a class="anchor" href="#%e9%a1%b6%e7%ba%a7%e5%85%a8%e5%b1%80%e5%af%b9%e8%b1%a1">#</a>
+</h3>
 <pre><code>介绍
     js代码最外层的this
     初始化时, 定义所有预定义全局值
@@ -3230,7 +3608,10 @@ Window
     介绍
         初始化时定义了一部分其他全局属性
 </code></pre>
-<h3 id="math">Math</h3>
+<h3 id="math">
+  Math
+  <a class="anchor" href="#math">#</a>
+</h3>
 <pre><code>属性
     PI
     E                                       # 自然对数底数
@@ -3275,12 +3656,18 @@ Window
     log(10)                                 # 自然对数
     exp(3)                                  # e的3次幂
 </code></pre>
-<h3 id="json">JSON</h3>
+<h3 id="json">
+  JSON
+  <a class="anchor" href="#json">#</a>
+</h3>
 <pre><code>方法
     parse(str)
     stringify(obj)
 </code></pre>
-<h3 id="reflect-1">Reflect</h3>
+<h3 id="reflect-1">
+  Reflect
+  <a class="anchor" href="#reflect-1">#</a>
+</h3>
 <pre><code>静态方法
     ownKeys(target)                         # 返回对象自身所有属性
     enumerate(target)                       # 返回Iterator，遍历对象自身和继承的所有可枚举属性, 同for ... in
@@ -3297,7 +3684,10 @@ Window
     getPrototypeOf(target)
     setPrototypeOf(target, prototype)
 </code></pre>
-<h3 id="symbol">Symbol</h3>
+<h3 id="symbol">
+  Symbol
+  <a class="anchor" href="#symbol">#</a>
+</h3>
 <pre><code>属性
     hasInstance                             # Obj[Symbol.hasInstance]方法在instanceof运算时调用，如Foo[Symbol.hasInstance](foo)
     isConcatSpreadable                      # arr.concat时是否要展开
@@ -3326,9 +3716,18 @@ Window
     for('foo')                              # 搜索以'foo'作参数登记的Symbol值, 没有时会新建、登记并返回, 这种登记是全局的
     keyFor(s)                               # 返回s登录的字符串，没有时返回undefined
 </code></pre>
-<h1 id="dom">dom</h1>
-<h2 id="window">window对象</h2>
-<h3 id="document">document</h3>
+<h1 id="dom">
+  dom
+  <a class="anchor" href="#dom">#</a>
+</h1>
+<h2 id="window对象">
+  window对象
+  <a class="anchor" href="#window%e5%af%b9%e8%b1%a1">#</a>
+</h2>
+<h3 id="document">
+  document
+  <a class="anchor" href="#document">#</a>
+</h3>
 <pre><code>属性
     id
     innerHTML                               # 非标准但通用
@@ -3338,7 +3737,10 @@ Window
 方法
     getElementById(&quot;&quot;)
 </code></pre>
-<h3 id="element">element</h3>
+<h3 id="element">
+  element
+  <a class="anchor" href="#element">#</a>
+</h3>
 <pre><code>属性
     innerHTML
     style
@@ -3350,7 +3752,10 @@ Window
     createTextNode(msg)
     appendChild(ele)
 </code></pre>
-<h3 id="xmlhttprequest">XMLHttpRequest</h3>
+<h3 id="xmlhttprequest">
+  XMLHttpRequest
+  <a class="anchor" href="#xmlhttprequest">#</a>
+</h3>
 <pre><code>var req = new XMLHttpRequest()
 方法
     open(&quot;GET&quot;, url)
@@ -3361,8 +3766,14 @@ Window
         }
     }
 </code></pre>
-<h3 id="localstorage">localStorage</h3>
-<h3 id="worker">Worker</h3>
+<h3 id="localstorage">
+  localStorage
+  <a class="anchor" href="#localstorage">#</a>
+</h3>
+<h3 id="worker">
+  Worker
+  <a class="anchor" href="#worker">#</a>
+</h3>
 <pre><code>介绍
     it is a javascript running in the background, without affecting the performance of the page.
     dom中的js线程在执行时会阻塞
@@ -3395,7 +3806,10 @@ Window
     }
     timedCount();
 </code></pre>
-<h3 id="eventsource">EventSource</h3>
+<h3 id="eventsource">
+  EventSource
+  <a class="anchor" href="#eventsource">#</a>
+</h3>
 <pre><code>介绍
     浏览器推送
 事件
@@ -3418,12 +3832,21 @@ Window
     flush();
     ?&gt;
 </code></pre>
-<h2 id="heading-33">控件</h2>
-<h3 id="activexobject">ActiveXObject</h3>
+<h2 id="控件">
+  控件
+  <a class="anchor" href="#%e6%8e%a7%e4%bb%b6">#</a>
+</h2>
+<h3 id="activexobject">
+  ActiveXObject
+  <a class="anchor" href="#activexobject">#</a>
+</h3>
 <pre><code>new ActiveXObject(&quot;Excel.Application&quot;);         # Microsoft.XMLHTTP, ie中适用
 Server.CreateObject(&quot;Microsoft.XMLHTTP&quot;)        # 在chrome中不起作用, 可以用 new XMLHttpRequest()创建
 </code></pre>
-<h2 id="canvas">canvas</h2>
+<h2 id="canvas">
+  canvas
+  <a class="anchor" href="#canvas">#</a>
+</h2>
 <pre><code>概念
     原点: canvas左上角
     默认Style为black
@@ -3480,10 +3903,16 @@ image
         }
         ctx.putImageData(imgData,10,10);
 </code></pre>
-<h3 id="heading-34">优化</h3>
+<h3 id="优化">
+  优化
+  <a class="anchor" href="#%e4%bc%98%e5%8c%96">#</a>
+</h3>
 <pre><code>canvas.width = canvas.width                     # 一种巧妙的方法清除并重置画布
 </code></pre>
-<h3 id="webgl">webgl</h3>
+<h3 id="webgl">
+  webgl
+  <a class="anchor" href="#webgl">#</a>
+</h3>
 <pre><code>介绍
     由Khronos Group维护                          # 还维护了OpenGL和COLLADA
     使用OpenGL渲染语言GLSL ES
@@ -3566,44 +3995,56 @@ image
         # 国内首个webgl网站
 </code></pre>
 </article>
+ 
+      
 
-      <div class="book-footer justify-between">
-  
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
 
-  
-  
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank">
-      <img src="/svg/calendar.svg" alt="Calendar" />
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 24, 2019</span>
     </a>
   </div>
-  
-  
 
-  
+
+
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/docs/pl/js.md" target="_blank">
-      <img src="/svg/edit.svg" alt="Edit" />
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/js.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
   </div>
-  
 
 </div>
 
+ 
+        
+      </footer>
+
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
   
-
-  <aside class="book-toc levels-6 fixed">
-    <nav id="TableOfContents">
+<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">基础</a></li>
-    <li><a href="#heading-1">标准</a>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#标准">标准</a>
       <ul>
         <li><a href="#ecmascript-6">ECMAScript 6</a></li>
         <li><a href="#commonjs">commonJS</a></li>
@@ -3611,33 +4052,33 @@ image
         <li><a href="#cmd">CMD</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">词法</a>
+    <li><a href="#词法">词法</a>
       <ul>
-        <li><a href="#heading-3">直接量</a></li>
+        <li><a href="#直接量">直接量</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">语法</a>
+    <li><a href="#语法">语法</a>
       <ul>
-        <li><a href="#heading-5">严格模式</a></li>
-        <li><a href="#heading-6">模块化</a></li>
-        <li><a href="#heading-7">类型与变量</a>
+        <li><a href="#严格模式">严格模式</a></li>
+        <li><a href="#模块化">模块化</a></li>
+        <li><a href="#类型与变量">类型与变量</a>
           <ul>
-            <li><a href="#heading-8">类型</a></li>
-            <li><a href="#heading-9">作用域</a></li>
+            <li><a href="#类型">类型</a></li>
+            <li><a href="#作用域">作用域</a></li>
           </ul>
         </li>
-        <li><a href="#heading-10">表达式</a>
+        <li><a href="#表达式">表达式</a>
           <ul>
-            <li><a href="#heading-11">运算符</a></li>
+            <li><a href="#运算符">运算符</a></li>
             <li><a href="#eval">eval</a></li>
           </ul>
         </li>
-        <li><a href="#heading-12">语句</a>
+        <li><a href="#语句">语句</a>
           <ul>
-            <li><a href="#heading-13">模式匹配</a></li>
+            <li><a href="#模式匹配">模式匹配</a></li>
           </ul>
         </li>
-        <li><a href="#heading-14">函数</a>
+        <li><a href="#函数">函数</a>
           <ul>
             <li><a href="#generator">generator</a></li>
             <li><a href="#promise">promise</a></li>
@@ -3646,39 +4087,39 @@ image
             <li><a href="#decorator">decorator</a></li>
           </ul>
         </li>
-        <li><a href="#heading-15">对象</a>
+        <li><a href="#对象">对象</a>
           <ul>
-            <li><a href="#heading-16">属性</a></li>
-            <li><a href="#heading-17">数组</a></li>
-            <li><a href="#heading-18">集合</a></li>
+            <li><a href="#属性">属性</a></li>
+            <li><a href="#数组">数组</a></li>
+            <li><a href="#集合">集合</a></li>
             <li><a href="#proxy">proxy</a></li>
             <li><a href="#reflect">reflect</a></li>
           </ul>
         </li>
-        <li><a href="#heading-19">正则</a>
+        <li><a href="#正则">正则</a>
           <ul>
-            <li><a href="#heading-20">特点</a></li>
-            <li><a href="#heading-21">常用</a></li>
-            <li><a href="#heading-22">元字符扩展</a></li>
+            <li><a href="#特点">特点</a></li>
+            <li><a href="#常用">常用</a></li>
+            <li><a href="#元字符扩展">元字符扩展</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#heading-23">风格</a></li>
-    <li><a href="#heading-24">浏览器</a></li>
-    <li><a href="#heading-25">常用函数</a>
+    <li><a href="#风格">风格</a></li>
+    <li><a href="#浏览器">浏览器</a></li>
+    <li><a href="#常用函数">常用函数</a>
       <ul>
-        <li><a href="#heading-26">基础扩展</a></li>
-        <li><a href="#heading-27">函数式</a></li>
+        <li><a href="#基础扩展">基础扩展</a></li>
+        <li><a href="#函数式">函数式</a></li>
         <li><a href="#generator-1">generator</a></li>
       </ul>
     </li>
     <li><a href="#api">api</a>
       <ul>
-        <li><a href="#heading-28">全局</a></li>
-        <li><a href="#heading-29">构造函数</a>
+        <li><a href="#全局">全局</a></li>
+        <li><a href="#构造函数">构造函数</a>
           <ul>
-            <li><a href="#heading-30">包装对象函数</a></li>
+            <li><a href="#包装对象函数">包装对象函数</a></li>
             <li><a href="#object">Object</a></li>
             <li><a href="#array">Array</a></li>
             <li><a href="#function">Function</a></li>
@@ -3698,9 +4139,9 @@ image
             <li><a href="#promise-1">Promise</a></li>
           </ul>
         </li>
-        <li><a href="#heading-31">全局对象</a>
+        <li><a href="#全局对象">全局对象</a>
           <ul>
-            <li><a href="#heading-32">顶级全局对象</a></li>
+            <li><a href="#顶级全局对象">顶级全局对象</a></li>
             <li><a href="#math">Math</a></li>
             <li><a href="#json">JSON</a></li>
             <li><a href="#reflect-1">Reflect</a></li>
@@ -3711,7 +4152,7 @@ image
     </li>
     <li><a href="#dom">dom</a>
       <ul>
-        <li><a href="#window">window对象</a>
+        <li><a href="#window对象">window对象</a>
           <ul>
             <li><a href="#document">document</a></li>
             <li><a href="#element">element</a></li>
@@ -3721,14 +4162,14 @@ image
             <li><a href="#eventsource">EventSource</a></li>
           </ul>
         </li>
-        <li><a href="#heading-33">控件</a>
+        <li><a href="#控件">控件</a>
           <ul>
             <li><a href="#activexobject">ActiveXObject</a></li>
           </ul>
         </li>
         <li><a href="#canvas">canvas</a>
           <ul>
-            <li><a href="#heading-34">优化</a></li>
+            <li><a href="#优化">优化</a></li>
             <li><a href="#webgl">webgl</a></li>
           </ul>
         </li>
@@ -3736,13 +4177,27 @@ image
     </li>
   </ul>
 </nav>
-  </aside>
 
 
-
+ 
+      </div>
+    </aside>
+    
   </main>
 
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
