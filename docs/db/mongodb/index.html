@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="特点 #   数据结构json(bson) 易写入，易修改 c&#43;&#43;编写 分布式 介于关系数据库 和 非关系数据库之间 查询语句强 支持索引 bson格式  注意 #   document不能大于4Mb 可以非安全模式异步马上成功 每个连接用队列存储命令  数据结构定义 #   collection # 表 document # 记录 field(key, value) # 字段(field)与值(value) 与关系型数据库的区别 document中的field不要key俱全或一样 find()命令查询  bson的数据类型 #   ＃bson 是json的扩展 # 增加了数据类型 # 把json数据转换成二进制码存到文件 null boolean undefined 数组 # 如{gps: [20, 56]} 32位和64位整数 # shell中不支持 ## node.js python java等高级语言的驱动中支持 64位浮点 # shell使用的全是这种类型, 如{x:3.14} utf-8 # 字符串类型 ObjectID Date # 如{x:new Date()} 正则 # 如{x:/uspcat/i} javascript块代码 # 如{x:function(){}} ## 相当于存储过程 内嵌文档 # 如{x: {xx: &quot;a&quot;}} 二进制 # shell中不能使用  ObjectId #   大小 12字节 显示为24个十六进制字符 # 空间换时间的思想 细节 前4字节是unix时间戳 后3字节集群machine hash 后2字节pid 后3字节inc自增计数器, 在前面都相等时全局自增  命名 #   数据库与集合名 不能是空字符串 特殊字符 &#39; (空格) , $ / \ \0 应该全小写 小于64字节 数据库名不与保留库名相同，如 admin, local, config 集合名 db-text合法，但不能db.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Mongodb" />
+<meta property="og:description" content="特点 #   数据结构json(bson) 易写入，易修改 c&#43;&#43;编写 分布式 介于关系数据库 和 非关系数据库之间 查询语句强 支持索引 bson格式  注意 #   document不能大于4Mb 可以非安全模式异步马上成功 每个连接用队列存储命令  数据结构定义 #   collection # 表 document # 记录 field(key, value) # 字段(field)与值(value) 与关系型数据库的区别 document中的field不要key俱全或一样 find()命令查询  bson的数据类型 #   ＃bson 是json的扩展 # 增加了数据类型 # 把json数据转换成二进制码存到文件 null boolean undefined 数组 # 如{gps: [20, 56]} 32位和64位整数 # shell中不支持 ## node.js python java等高级语言的驱动中支持 64位浮点 # shell使用的全是这种类型, 如{x:3.14} utf-8 # 字符串类型 ObjectID Date # 如{x:new Date()} 正则 # 如{x:/uspcat/i} javascript块代码 # 如{x:function(){}} ## 相当于存储过程 内嵌文档 # 如{x: {xx: &quot;a&quot;}} 二进制 # shell中不能使用  ObjectId #   大小 12字节 显示为24个十六进制字符 # 空间换时间的思想 细节 前4字节是unix时间戳 后3字节集群machine hash 后2字节pid 后3字节inc自增计数器, 在前面都相等时全局自增  命名 #   数据库与集合名 不能是空字符串 特殊字符 &#39; (空格) , $ / \ \0 应该全小写 小于64字节 数据库名不与保留库名相同，如 admin, local, config 集合名 db-text合法，但不能db." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/db/mongodb/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T16:00:15&#43;08:00" />
+<meta property="article:modified_time" content="2019-06-17T13:24:09&#43;08:00" />
+
+<title>Mongodb | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+<script defer src="/en.search.min.4713efcb58a55d14fc2f78628198caee516083e957e4cd56442b06c9762a2d21.js" integrity="sha256-RxPvy1ilXRT8L3higZjK7lFgg&#43;lX5M1WRCsGyXYqLSE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<ul>
+<li><a href="/docs/function_small/principle">原理</a></li>
+<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
+<li><a href="/docs/function_small/nginx">Nginx</a></li>
+<li><a href="/docs/function_small/nodejs">Node.js</a></li>
+<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
+<li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
+</ul>
+</li>
+<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<ul>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<ul>
+<li><a href="/docs/support_service/principle">原理</a></li>
+<li><a href="/docs/support_service/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<ul>
+<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">JQuery</a></li>
+<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/frontend/angular">Angular</a></li>
+<li><a href="/docs/frontend/react">React</a></li>
+<li><a href="/docs/frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">Linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">监控</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">Docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">Vim</a></li>
+<li><a href="/docs/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/apple">Apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>cache</strong></a>
+<ul>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/mashibing">MCA</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a>
+<ul>
+<li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+<li><a href="/docs/template"><strong>模板配置</strong></a>
+<ul>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
+<li><a href="/docs/template/awesome">awesome</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Mongodb</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#特点">特点</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#数据结构定义">数据结构定义</a></li>
+    <li><a href="#bson的数据类型">bson的数据类型</a></li>
+    <li><a href="#objectid">ObjectId</a></li>
+    <li><a href="#命名">命名</a></li>
+    <li><a href="#api">api</a>
+      <ul>
+        <li><a href="#aggregate">aggregate</a></li>
+        <li><a href="#expressions">expressions</a></li>
+        <li><a href="#对象">对象</a></li>
+        <li><a href="#复制">复制</a></li>
+        <li><a href="#分片">分片</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell">shell</a></li>
+    <li><a href="#java-client">java client</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="特点">
+  特点
+  <a class="anchor" href="#%e7%89%b9%e7%82%b9">#</a>
+</h1>
+<pre><code>    数据结构json(bson)
+    易写入，易修改
+    c++编写
+    分布式
+    介于关系数据库 和 非关系数据库之间
+    查询语句强
+    支持索引
+    bson格式
+</code></pre>
+<h1 id="注意">
+  注意
+  <a class="anchor" href="#%e6%b3%a8%e6%84%8f">#</a>
+</h1>
+<pre><code>    document不能大于4Mb
+    可以非安全模式异步马上成功
+    每个连接用队列存储命令
+</code></pre>
+<h1 id="数据结构定义">
+  数据结构定义
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e5%ae%9a%e4%b9%89">#</a>
+</h1>
+<pre><code>    collection                                        # 表
+            document                                # 记录
+                    field(key, value)                # 字段(field)与值(value)
+    与关系型数据库的区别
+            document中的field不要key俱全或一样
+            find()命令查询
+</code></pre>
+<h1 id="bson的数据类型">
+  bson的数据类型
+  <a class="anchor" href="#bson%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b">#</a>
+</h1>
+<pre><code>    ＃bson 是json的扩展
+     # 增加了数据类型
+     # 把json数据转换成二进制码存到文件
+    null
+    boolean
+    undefined
+    数组                                # 如{gps: [20, 56]}
+    32位和64位整数                # shell中不支持
+                                    ## node.js python java等高级语言的驱动中支持
+    64位浮点                        # shell使用的全是这种类型, 如{x:3.14}
+    utf-8                                # 字符串类型
+    ObjectID
+    Date                                # 如{x:new Date()}
+    正则                                # 如{x:/uspcat/i}
+    javascript块代码                # 如{x:function(){}}
+                                    ## 相当于存储过程
+    内嵌文档                        # 如{x: {xx: &quot;a&quot;}}
+    二进制                                # shell中不能使用
+</code></pre>
+<h1 id="objectid">
+  ObjectId
+  <a class="anchor" href="#objectid">#</a>
+</h1>
+<pre><code>    大小
+            12字节
+            显示为24个十六进制字符
+            # 空间换时间的思想
+    细节
+            前4字节是unix时间戳
+            后3字节集群machine hash
+            后2字节pid
+            后3字节inc自增计数器, 在前面都相等时全局自增
+</code></pre>
+<h1 id="命名">
+  命名
+  <a class="anchor" href="#%e5%91%bd%e5%90%8d">#</a>
+</h1>
+<pre><code>    数据库与集合名
+            不能是空字符串
+            特殊字符
+                    ' (空格) , $ / \ \0
+            应该全小写
+            小于64字节
+            数据库名不与保留库名相同，如
+                    admin, local, config
+    集合名
+            db-text合法，但不能db.db-text得到，要db.getCollection(&quot;db-text&quot;).text得到
+                    # db-text 会认为是减法
+                    ## 数据库名可以是db-text
+            可以a.b来命名来划分子集合
+                    不能以system.开头命名
+</code></pre>
+<h1 id="api">
+  api
+  <a class="anchor" href="#api">#</a>
+</h1>
+<pre><code>collection
+        增
+                save
+                        # 不存在时插入，存在时更新
+                        # {$ref: 'user', $id: 1} 来保存引用
+                insert
+        删
+                remove('id': 'bar')        # 删除一条数据
+                                                                        #remove()删除所有数据
+                drop()                                # 删除persons collection, 不释放文件空间
+                dropIndexes()                        # 删除所有索引
+        改
+                update(finder, updater, options或upser, multi)
+                        # $set
+                        # {age: {$gt: 18}, $isolated : 1} $isolated事务隔离该字段到本语句执行结束, does not work with sharded clusters
+                findAndModify
+        查
+                findOne()
+                find(finder, filter)
+                        # limit(3).skip(10).sort({name: -1, age: 1})
+                        ## sort({$natural: 1}) 固定集合排序
+                        # explain() 返回带统计信息的文档
+                        ## 是否用到索引，耗时，需要扫描多少文件
+                        # hint({}) 强制使用某索引查询
+                        # null可以匹配null, 也可以匹配{$exists: false}        
+                        # 正则可以匹配自身，也可以模式字符串
+                count()                                # document的条数
+                aggregate
+
+db
+        # 默认存在的数据库admin, config, local
+        sources
+                # 从节点中设置的源collection
+        help()
+        persons.help()
+                # 显示某集合的帮助
+        auth('username', 'pwd')
+                # 切换用户
+        addUser()
+                # addUser('admin', 'asdf')
+                # addUser('readonly', 'asdf', true)
+        listCommands()
+        shutdownServer()
+        eval()
+                # 执行
+        stats()                                        
+                # 当前数据库的状态
+                ## 包括名称，collection数，索引数等
+        createCollection()
+                # {'user', {capped: true, size: 100, max: 10}} 
+                ## 创建固定集合, 100字节, 文档数上限为10
+                ## 固定集合插入快，不能删除，无_id, 有尾部游标
+        getCollection(&quot;persons&quot;).text
+                # 同db.persons        
+        dropDatabase()
+                # 删除当前数据库        
+        repairDatabase()
+                # 释放空间
+        serverStatus()
+                # 返回数据库的metrics 数据
+        serverStatus().metrics.cursor
+                # 返回指针信息
+        ensureIndex({x: 1, y: -1}, {name: 'xy'})
+                # 建立x的升序, y的降序联合索引
+                # 只使用索引的前部, 即对x的查询可以用该索引
+                # {&quot;gps&quot;: '2d'} {'gps': '2dsphere'}
+                ## 支持gps写成 [0, 0] {x: 0, y: 0} {latitude: 0, longitude: 0} 格式
+                # 可以索引内嵌文档
+                # {unique: true} 来建立唯一索引
+                # {dropDups: true} 将唯一索引中重复的文档都删掉
+        dropIndexes
+        system
+                indexes
+                        # 保留集合，索引
+                namespaces
+                        # 也包含索引信息
+                js
+                        insert({_id: 'fn', value: function() {}})
+                                # 用db.eval('fn()') 执行
+        runCommand()
+                # {'dropIndexes': 'col', 'index': 'ind'}
+                # 可以返回命名执行的状态信息
+                {buildInfo: 1}
+                {collStats: 'user'}
+                {distinct: 'user', key: a, query: {b: 0}}
+                {drop: 'user'}
+                {dropDatabase: 1}
+                {dropIndexes: 'user', index: 'ind'}
+                {getLastError: 1}
+                        # 上次更新的作用信息
+                        {getLastError: 1, w: 3}
+                                # 阻塞复制，有3个节点
+                {isMaster: 1}
+                {findAndModify: 'user', query: {a: 0}, sort: {a: 1}, update: {$set: {a: 1}}}
+                {listCommands: 1}
+                {listDatabases: 1}
+                {ping: 1}
+                {renameCollection: 'user', to: 'user1'}
+                {repairDatabase: 1}
+                        # 修复并压缩当前数据库
+                {serverStatus: 1}
+                        # globalLock: 全局写入锁占用了多少时间
+                        # mem: 内存映射了多少数据
+                        # indexCounters: B树磁盘检索(misses)和内存检索(hits)的次数
+                        # backgroundFluhing: 后台做了多少次fsync及用的时间
+                        # opcounters: 每种主要操作的次数
+                        # asserts: 断言的次数
+                {convertToCapped: 'user', size: 100}
+                        # 转为固定集合
+                {fsync: 1, lock: 1}
+                        # 缓冲写入磁盘，并加写入锁。后可以直接复制磁盘数据来备份
+                        # db.$cmd.sys.unlock.findOne() 解锁
+                        # db.currentOp() 查看为空时已解锁
+                {resync: 1}
+                        # 从节点重新同步
+                {collMod: 'users', usePowerOf2Sizes: true}
+                        # 每次增大空间总是2的倍数，适用于常写的集合
+rs
+        isMaster
+        slaveOk
+dcl
+        help                                        # 显示帮助
+        show dbs                                # 显示所有数据库
+        use mydb                                # 选择数据库(默认为test)
+                                                ## 如果没有该数据库，则创建(插入第一条数据时实际创建)
+        db                                        # 显示当前数据库名
+        show collections                        # 查看当前数据库的collections
+        db.eval()                                # 执行shell语法字符串
+
+        用户管理命令
+                use test                                # 选择需要添加用户的数据库
+                db.addUser('name','pwd')                # 第三个参数代表是否只读 true代表是 ,  false代表否
+                                                        ## db 代表本数据库，也就是test
+                db.system.users.find()                        # 查看用户列表
+                db.auth('name','pwd')                # 用户认证，反回１代表认证成功
+                db.removeUser('name')
+                show users                                # 查看所有用户
+
+                        # 注
+                                权限生效需要mongod　以　-auth参数启动
+                                admin数据库中的user是超级管理员 , 其他数据库中的user只限于本数据库
+
+ttl(time to live)
+        # mongodb每1分钟检查一次数据删除
+        db.log_events.ensureIndex({&quot;createdAt&quot;: 1}, {expireAfterSeconds: 3600 })
+        db.log_events.insert({
+                &quot;createdAt&quot;: new Date(),
+                &quot;logEvent&quot;: 2,
+                &quot;logMessage&quot;: &quot;Success!&quot;
+        })
+                # 插入的这条数据在1小时后删除
+        db.log_events.ensureIndex({&quot;expireAt&quot;: 1}, {expireAfterSeconds: 0})        
+        db.log_events.insert({
+                &quot;expireAt&quot;: new Date('July 22, 2013 14:00:00'),
+                &quot;logEvent&quot;: 2,
+                &quot;logMessage&quot;: &quot;Success!&quot;
+        })
+                # 插入的这条数据在July 22, 2013 14:00:00删除
+</code></pre>
+<h2 id="aggregate">
+  aggregate
+  <a class="anchor" href="#aggregate">#</a>
+</h2>
+<pre><code>mapReduce(
+        function() {emit(this.cust_id, this.amount);},
+                # map
+        function(key, values) {return Array.sum(values)},
+                # reduce
+        {
+                query: {status: 'A'},
+                        # query
+                out: 'order_totals'
+                        # output
+        } 
+)
+
+distinct()
+
+count()
+
+group({
+        key: {a: 1},
+                # $keyf: function(x) {return x.category} 定义分组函数
+        cond: {a: {$lt: 3}}.
+        $reduce: function(cur, result) {result.count += cur.count},
+        initial: {count: 0},
+        finalize: function (prev) {}
+})
+        # 返回的文档 {retval: [], count: 0, keys: 0, ok: 0}
+aggregate([
+        {$redact: {$cond: {
+                if: {$eq: ['$level', 5]},
+                then: '$$PRUNE',
+                else: '$$DESCEND'
+        }}}
+        {$match: {status: 'A'}},
+        {$geoNear: {...}},
+        {$project: {name: {$toUpper: '$_id'}, _id: 0}},
+        {$unwind: '$sizes'},
+        {$group: {_id: '$state', totalPop: {$sum: '$pop'}}},
+        {$skip: 10},
+        {$limit: 5},
+        {$sort: {age: -1}},
+        {$out: 'authors'}
+])
+
+例子
+    o-&gt; 得到tags数组的长度
+    db.users.aggregate([{
+            $group: {
+                    _id: '$username',
+                    tags_count: {$first: {$size: '$tags'}}
+            }
+    }])
+    db.users.aggregate([{
+            $project: {
+                    tags_count: {$size: '$tags'}
+            }
+    }])
+</code></pre>
+<h2 id="expressions">
+  expressions
+  <a class="anchor" href="#expressions">#</a>
+</h2>
+<pre><code>$and
+$or
+$not
+$setEquals
+$setIntersection
+$setUnion
+$setDefference
+$setIsSubset
+$anyElementTrue
+$allElementsTrue
+$cmp
+$eq
+$gt
+$gte
+$lt
+$lte
+$ne
+$add
+$subtract
+$multiply
+$divide
+$mod
+$concat
+$substr
+$toLower
+$toUpper
+$strcasecmp
+$meta
+$size
+$map
+$let
+$literal
+$dayOfYear
+$dayOfMonth
+$dayOfWeek
+$year
+$month
+$week
+$hour
+$minute
+$second
+$millisecond
+$dateToString
+$cond
+$ifNull
+$sum
+$avg
+$first
+$last
+$max
+$min
+$push
+$addToSet
+$near
+$within
+$box
+$center
+</code></pre>
+<h2 id="对象">
+  对象
+  <a class="anchor" href="#%e5%af%b9%e8%b1%a1">#</a>
+</h2>
+<pre><code>全局函数
+        printjson
+        connect('localhost:27017/mydb')
+                # 连接另一个服务器
+        runProgram
+对象类型
+        cursor
+                hasNext()
+                        # 立即返回前100个数据与4Mb数据的较小者。取数据时直接读缓存
+                next()
+                forEach
+</code></pre>
+<h2 id="复制">
+  复制
+  <a class="anchor" href="#%e5%a4%8d%e5%88%b6">#</a>
+</h2>
+<pre><code>复制
+        mongod --master --oplogSize 100
+        mongod --slave --source localhost:27017
+                # --source指定主节点
+                # --only 指定只复制特定的数据库
+                # --slavedelay 主从复制时的延时
+                # --fastsync 从节点是主节点快照时，加这个选项，同步速度快
+                # --autoresync 重新同步
+                # --oplogSize 主节点oplog的大小
+        db.sources.insert({host: 'localhost:27017'})
+                # 从节点设置主节点
+
+副本集
+        #  没有主节点，集群自己选举主节点
+        # 数据太多从节点会自动停止同步
+        mongod --dbpath '/var/local/mongo1' --port 27017 --replSet rs0
+                # 三个实例replSet 名必叫 rs0
+        use admin
+        rs.initiate({
+                _id: 'a',
+                members: [{
+                        _id: 1,
+                        host: 'localhost1:27017'
+                }, {
+                        _id: 2,
+                        host: 'localhost1:27018'
+                }]
+        })
+                # 其中一台执行初始化
+        rs.add('localhost:27019')
+        rs.status()
+        db.getMongo().setSlaveOk()
+        rs.isMaster()
+        rs.conf()
+        db.getReplicationInfo()
+        db.printReplicationInfo()
+        db.printSlaveReplicationInfo()
+        use local        
+        db.addUser('name', 'pwd')
+                # 复制认证时用
+</code></pre>
+<h2 id="分片">
+  分片
+  <a class="anchor" href="#%e5%88%86%e7%89%87">#</a>
+</h2>
+<pre><code>mongods --port 3000 --configdb localhost:27017
+        # 多个地址用,隔开
+        # 每个片都就是副本集
+mongo localhost:3000/admin
+db.runCommand({addshard: 'localhost:27017‘, allowLocal: true})
+        # 在localhost上运行时, 要设allowLocal
+        # 'a/localhost:27017' 让mongo知道这个片所在的副本集
+db.runCommand({enablesharding: 'db1'})
+db.runCommand({shardcollection: 'db1.user', key: {_id: 1}})
+db.printShardingStatus()
+db.runCommand({removeshard: 'localhost:27017'})
+</code></pre>
+<h1 id="shell">
+  shell
+  <a class="anchor" href="#shell">#</a>
+</h1>
+<pre><code>mongo 127.0.0.1:27017/admin
+        # 启动sell , 默认数据库为test
+mongod –port 10000 –fork –logpath= logpath=/data/mongodb/log/mongodb.log -- logappend -- dbpath=/data/mongodb/data/db –config ~/.mongodb.conf 
+        # 启动服务 -auth开启身份验证
+        # --rest 开启http管理，其端口号比mongo端口号大1000
+        ## --nohttpinterface关闭http管理
+        # --bindip localhost 设置只能有某ip访问
+        # --noscripting 完全禁止服务端js执行
+        # --repair 启动并修复
+        # 不要发送SIGKILL信号关闭(kill -9), 应发送SIGINT或SIGTERM
+        mongod --remove                                
+                # 结束服务
+        // mongodb.conf
+                port = 5586
+                fork = true
+                logpath = mongodb.log
+mongodump --host 127.0.0.1 --port 27017 --out ./dir/name
+        # 备份数据库
+mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径
+mongorestore --host 127.0.0.1 --port 27017 --directoryperdb ./dir/name
+        # mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 --drop 文件存在路径
+        # --drop 是先删除现有的数据
+mongoexport -d tank -c users -o /home/outrun/mongo
+        # 导出整张表
+        ## mongoexport -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -c 表名 -f 字段 -q 条件导出 --csv -o 文件名
+        # mongoexport -d tank -c users --csv -f uid,name,sex -o tank/users.csv 
+        ## 导出表的部分字段
+        # mongoexport -d tank -c users -q '{uid:{$gt:1}}' -o tank/users.json
+        ## 根据条件导出数据
+mongoimport -d tank -c users --upsert tank/users.dat
+        # mongoimport -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -c 表名 --upsert --drop 文件名 
+        ## 还原整表导出的非csv文件,  --upsert 表示插入或更新现有数据
+        # mongoimport -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -c 表名 --upsertFields 字段 --drop 文件名
+        ## 还原部分字段导出的文件, --upsertFields跟upsert一样
+        ## 如 mongoimport -d tank -c users  --upsertFields uid,name,sex  tank/users.dat
+        # mongoimport -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -c 表名 --type 类型 --headerline --upsert --drop 文件名  
+        ## 还原导出的csv文件
+        ## mongoimport -d tank -c users --type csv --headerline --file tank/users.csv
+mongofiles put foo.txt
+        # 使用gridfs
+        list
+        get foo.txt
+        search
+                # 按文件名查找
+        delete foo.txt
+mongostat
+        # 实时输出mongo状态
+</code></pre>
+<h1 id="java-client">
+  java client
+  <a class="anchor" href="#java-client">#</a>
+</h1>
+<pre><code>1.导入mongo-java-drver-2.9.3.jar
+2.api
+        Mongo m = new Mongo(&quot;localhost&quot;, 27017);
+        DB db = m.getDB(&quot;mydb&quot;);
+        boolean auth = db.authenticate(&quot;root&quot;, &quot;root&quot;.toCharArray());
+        System.out.println(&quot;身份认证&quot; + auth);
+        // 获得所有数据库名
+        for (String s : m.getDatabaseNames()) {
+                System.out.println(&quot;db : &quot; + s);
+        }
+        // 删除数据库
+        m.dropDatabase(&quot;my_new_db&quot;);
+        // 获得collection列表
+        Set&lt;String&gt; colls = db.getCollectionNames();
+        for (String s : colls) {
+                System.out.println(&quot;collection : &quot; + s);
+        }
+        // 获得一个collection
+        DBCollection coll = db.getCollection(&quot;testCollection&quot;);
+        // 创建document(包括内嵌文档)
+        DBObject doc = new BasicDBObject().append(&quot;appendField&quot;, &quot;appendField&quot;);
+        doc.put(&quot;name&quot;, &quot;MongoDB&quot;);
+        doc.put(&quot;type&quot;, &quot;database&quot;);
+        doc.put(&quot;count&quot;, 1);
+        DBObject info = new BasicDBObject();
+        info.put(&quot;x&quot;, 203);
+        info.put(&quot;y&quot;, 102);
+        doc.put(&quot;info&quot;, info);
+        // 插入文档
+        coll.insert(doc);
+        // 查询文档
+        DBObject doc2 = coll.findOne();
+        System.out.println(doc2);
+        // 统计文档数
+        long count = coll.getCount();
+        System.out.println(count);
+        // 用游标遍历
+        DBCursor cursor = coll.find();
+        while (cursor.hasNext()) {
+                DBObject object = cursor.next();
+                System.out.println(object);
+        }
+        // 查询
+        DBObject query = new BasicDBObject();
+        query.put(&quot;i&quot;, 71);
+        cursor = coll.find(query);
+        // 条件查询
+        query = new BasicDBObject();
+        query.put(&quot;i&quot;, new BasicDBObject(&quot;$gt&quot;, 50)); // i&gt;50
+        cursor = coll.find(query);
+        // 创建索引
+        coll.createIndex(new BasicDBObject(&quot;i&quot;, 1)); // 1代表升序 , -1是降序
+        // 查询索引
+        List&lt;DBObject&gt; list = coll.getIndexInfo();
+                for (DBObject index : list) {
+                System.out.println(&quot;索引 : &quot; + index);
+        }
+类型
+    // 自动生成的唯一ID
+    ObjectId id = new ObjectId();
+    System.out.println(id);
+</code></pre>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 17, 2019</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/db/mongodb.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#特点">特点</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#数据结构定义">数据结构定义</a></li>
+    <li><a href="#bson的数据类型">bson的数据类型</a></li>
+    <li><a href="#objectid">ObjectId</a></li>
+    <li><a href="#命名">命名</a></li>
+    <li><a href="#api">api</a>
+      <ul>
+        <li><a href="#aggregate">aggregate</a></li>
+        <li><a href="#expressions">expressions</a></li>
+        <li><a href="#对象">对象</a></li>
+        <li><a href="#复制">复制</a></li>
+        <li><a href="#分片">分片</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell">shell</a></li>
+    <li><a href="#java-client">java client</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

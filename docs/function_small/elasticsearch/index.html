@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.83.0-DEV" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="介绍 #  分布式实时lucene  使用 #  ./bin/elasticsearch curl http://localhost:9200  命令 #  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 #  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 #  config/elasticsearch.yml action.auto_create_index: -l*, &#43;z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &quot;*&quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="介绍 #  分布式实时lucene  使用 #  ./bin/elasticsearch curl http://localhost:9200  命令 #  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 #  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 #  config/elasticsearch.yml action.auto_create_index: -l*, &#43;z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &quot;*&quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/function_small/elasticsearch/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-05-13T18:01:09&#43;08:00" />
+
+<title>Elasticsearch | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
+<script defer src="/en.search.min.4713efcb58a55d14fc2f78628198caee516083e957e4cd56442b06c9762a2d21.js" integrity="sha256-RxPvy1ilXRT8L3higZjK7lFgg&#43;lX5M1WRCsGyXYqLSE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/design"><strong>设计</strong></a>
+<ul>
+<li><a href="/docs/design/drive">驱动</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/project">工程</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/design_mode">Java设计模式</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<ul>
+<li><a href="/docs/pl/java/juc">Java并发</a></li>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java容器</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<ul>
+<li><a href="/docs/function_small/principle">原理</a></li>
+<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
+<li><a href="/docs/function_small/nginx">Nginx</a></li>
+<li><a href="/docs/function_small/nodejs">Node.js</a></li>
+<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
+<li><a href="/docs/function_small/spring">Spring</a></li>
+<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
+</ul>
+</li>
+<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<ul>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<ul>
+<li><a href="/docs/support_service/principle">原理</a></li>
+<li><a href="/docs/support_service/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<ul>
+<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="/docs/frontend"><strong>前端</strong></a>
+<ul>
+<li><a href="/docs/frontend/jquery">JQuery</a></li>
+<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/frontend/angular">Angular</a></li>
+<li><a href="/docs/frontend/react">React</a></li>
+<li><a href="/docs/frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/ops"><strong>运维</strong></a>
+<ul>
+<li><a href="/docs/ops/linux">Linux</a></li>
+<li><a href="/docs/ops/tool">工具</a></li>
+<li><a href="/docs/ops/monitor">监控</a></li>
+<li><a href="/docs/ops/security">安全</a></li>
+<li><a href="/docs/ops/docker">Docker</a></li>
+</ul>
+</li>
+<li><a href="/docs/test"><strong>测试</strong></a>
+<ul>
+<li><a href="/docs/test/debug">调试</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<ul>
+<li><a href="/docs/tool/vim">Vim</a></li>
+<li><a href="/docs/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/apple">Apple</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>cache</strong></a>
+<ul>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/mashibing">MCA</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>博客</strong></a>
+<ul>
+<li><a href="/about_me">关于我</a></li>
+</ul>
+</li>
+<li><a href="/docs/template"><strong>模板配置</strong></a>
+<ul>
+<li><a href="/docs/template/docker">docker</a></li>
+<li><a href="/docs/template/linux">linux</a></li>
+<li><a href="/docs/template/awesome">awesome</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Elasticsearch</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#概念存储">概念存储</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#接口">接口</a></li>
+    <li><a href="#插件">插件</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="介绍">
+  介绍
+  <a class="anchor" href="#%e4%bb%8b%e7%bb%8d">#</a>
+</h1>
+<pre><code>分布式实时lucene
+</code></pre>
+<h1 id="使用">
+  使用
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
+</h1>
+<pre><code>./bin/elasticsearch
+curl http://localhost:9200
+</code></pre>
+<h1 id="命令">
+  命令
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
+</h1>
+<pre><code>elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name
+</code></pre>
+<h1 id="概念存储">
+  概念存储
+  <a class="anchor" href="#%e6%a6%82%e5%bf%b5%e5%ad%98%e5%82%a8">#</a>
+</h1>
+<pre><code>index
+    type
+        # document中加_type field实现
+        # 所以不同type中的field在index要唯一，否则冲突
+        # 对field排序会载入所有type的document
+        document
+            # 对应lucene中的key value倒排文档
+            # 对就一个请求的json对象
+            field
+                mapping
+                    # 定义type的field，映射json到document field
+</code></pre>
+<h1 id="设置">
+  设置
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae">#</a>
+</h1>
+<pre><code>config/elasticsearch.yml
+    action.auto_create_index: -l*, +z*
+        # 自动创建，以z开头和非l开头的索引
+    action.destructive_requires_name: true
+        # 允许通配删index
+    http.cors.enables: true
+    http.cors.allow-origin: &quot;*&quot;
+    cluster.name: c1
+    node.name: n1
+    node.master: true
+    node.data: true
+    transport.host: localhost
+    transport.tcp.port: 9300
+    network.host: 0.0.0.0
+        # 修改es监听地址，别的机器也可以访问。同时设置bind_host和publish_host
+        # 需要设置transport.host:localhost
+    network.bind_host
+        # 节点绑定ip
+    network.publish_host
+        # 发布地址，其它节点通过这个地址通信
+    http.port: 9200
+    transport.tcp.port
+        # 通信端口，默认9300
+    discovery.zen.minimum_master_nodes: 2
+
+o-&gt; 可用配置
+cluster.name: myES_Cluster
+node.name: ESNODE_CYR
+node.master: true
+node.data: true
+transport.host: localhost
+transport.tcp.port: 9300
+http.port: 9200
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 2
+</code></pre>
+<h1 id="接口">
+  接口
+  <a class="anchor" href="#%e6%8e%a5%e5%8f%a3">#</a>
+</h1>
+<pre><code>索引
+    put /index1
+        # 创建index
+        # get查询，delete删除
+        settings
+        mappings
+        aliases:
+    put /index1/_mapping/type2
+    put /index1/type2/_mapping
+        # 创建type或给已有type加mappings
+        # get得到mapping信息
+        properties
+    put /index1/_settings
+    put /index1/type1/1
+        # 插入doc
+        # get得到doc
+        name: &quot;name1&quot;
+_cat
+    get /_cat/health?v
+        # 集群健康
+    get /_cat/nodes?v
+        # 集群节点
+    get /_cat/indices?v
+        # 所有索引
+_aliases
+    post /_aliases
+        # 索引别名
+        actions:
+            add:
+                alias: &quot;my_index&quot;
+                index: &quot;my_index_v1&quot;
+            remove
+_template
+    put /_template/tpl1
+        template: &quot;te*&quot;
+            # 匹配所有re开头的index
+        settings:
+        mappings:
+_search
+    post /index1/type1/_search
+        # from size实时分页
+        # scroll快照分页
+        ?from=0&amp;size=50
+        ?scroll=1m&amp;size=50
+            # 过期时间1分钟，每次返回50条
+        ?search_type=scan&amp;scroll=1m
+            # scroll-scan分页不排序，更快,
+_analyze
+    post /index1/_analyze
+        text: &quot;刘德华&quot;
+        analyzer: &quot;analyzer1&quot;
+_close
+    post /index1/_close
+        # 关闭索引，此后可以改settings
+_open
+    post /index1/_open
+_cache
+    post /index1/type1/_cache/clear?filter_keys=k1
+        # 清空query filter的缓存
+数据对象
+_search
+    query
+        match
+            # 理解如何分词的, 会对field分词再查询
+            field1:
+                query: &quot;a b&quot;
+                operator: &quot;and&quot;
+                minimum_should_match: &quot;75%&quot;
+                    # 匹配的query分词的最低占比
+        match_all
+            # 默认，会查出所有文档
+        multi_match
+            query: &quot;a b&quot;
+            fields: [&quot;field1&quot;, &quot;field2&quot;]
+        match_phrase
+            # 所有term命中，并且位置邻接
+            field1: &quot;a b&quot;
+        term
+            # 确切查询
+            field1: &quot;value1&quot;
+        terms
+            # 多条件and
+            field1: [1,2,3]
+        range
+            field1:
+                gt: 20
+                gte:
+                lt:
+                lte:
+        exists:
+            field: &quot;field1&quot;
+        missing:
+            field: &quot;field1&quot;
+        regexp
+            postcode: &quot;W[0-9].+&quot;
+        wildcard
+            postcode: &quot;W?F*HW&quot;
+        prefix
+            # 以某些字符开头
+            field1: &quot;a&quot;
+        bool
+            # 分值计算来自must和should语句, must_not不影响
+            must
+                match
+            must_not
+            should: []
+            minimum_should_match: 2
+        filtered
+            query
+            filter:
+                # filter的field会缓存起来
+                ## geo, and, or, not, script, numeric_range的默认不缓存
+                term:
+                    field1: &quot;a&quot;
+                    _cache_key: &quot;k1&quot;
+                    _cache: false
+                range:
+                    field1:
+                        gte: 0
+    aggs
+        diy1:
+            avg:
+                field: &quot;field1&quot;
+        diy2:
+            terms:
+                # 聚合查询中的所有term
+                field: &quot;field1&quot;
+    post_filter:
+        # 对搜索结果进行过滤
+        term:
+            field1: &quot;a&quot;
+    sort: []
+        # 默认升序，_score默认降序
+        field1
+            order: &quot;desc&quot;
+                # asc
+            mode: &quot;min&quot;
+                # 对数组元素排序时的取值, 还有max, sum, avg, median
+            missing: &quot;field1&quot;
+        &quot;_score&quot;,
+    highlight
+        pre_tags: [&quot;&lt;tag1&gt;&quot;]
+        post_tags: [&quot;&lt;/tag1&gt;&quot;]
+        fields:
+            content: {}
+    simple_query_string:
+        query: &quot;&quot;
+        analyzer:
+        fields: [&quot;body^5&quot;, &quot;_all&quot;]
+        default_operator: &quot;and&quot;
+mappings:
+    type1:
+        dynamic: true
+            # 默认true,自动给未知field建索引
+            # false: 忽略未知field， strict: 未知field报错
+        include_in_all: false
+            # 默认不include
+        _all:
+            # meta field
+            enabled: false
+                    # 关闭all作用域
+            analyzer:
+                    # 其实是search_analyzer
+            term_vector: no
+                    # 对field建立词频向量空间
+            store: &quot;false&quot;
+        _source:
+            #  是否保存内容
+            enabled: true
+        properties:
+            field1:
+                type: “text”
+                    # text分词，keyword不分词，numeric, date, string
+                    # multi_field可定义多个field
+                fields:[]
+                    field1:
+                        type
+                store: &quot;yes&quot;
+                index: &quot;not_analyzed&quot;
+                    # analyzed
+                analyzer: &quot;ik_max_word&quot;
+                search_analyzer: &quot;ik_max_word&quot;
+                    # 默认为analyzer
+                include_in_all: &quot;true&quot;
+                    # 是否加入_all作用域
+                boost: 8
+aliases:
+    alias1:
+        filter:
+            term: user: &quot;kimchy&quot;
+        routing: &quot;kimchy&quot;
+settings:
+    # 有些设置不能动态修改
+    index:
+        number_of_shards: 3
+        number_of_replicas: 2
+        max_result_window: 10000
+            # from + size的上限，默认10000
+        analysis:
+            tokenizer:
+                # 处理原始输入
+                tokenizer1
+                    type: &quot;pinyin&quot;
+                    pinyin_field1:
+            filter:
+                # tokenizer作为输入
+                filter1:
+                    type: &quot;pinyin&quot;
+                    pinyin_field1:
+            analyzer:
+                # 组合tokenizer和filter
+                analyzer1:
+                    type: &quot;custom&quot;
+                    tokenizer: &quot;ik_smart&quot;
+                    filter: [&quot;filter1&quot;, &quot;word_delimiter&quot;]
+</code></pre>
+<h1 id="插件">
+  插件
+  <a class="anchor" href="#%e6%8f%92%e4%bb%b6">#</a>
+</h1>
+<pre><code>使用
+    复制到/plugins
+    场景中，指定type:&quot;xx&quot;使用
+## ik
+    介绍
+        elasticsearch-analysis-ik
+    安装
+        mvn package
+        unzip -d /elasticsearch/plugins/ik ./target/releases/elasticsearch-analysis-ik-1.8.0.zip
+        重启elasticsearch
+    分词器
+        ik_max_word
+            curl -XGET 'http://localhost:9200/_analyze?pretty&amp;analyzer=ik_max_word' -d '联想是全球最大的笔记本厂商'
+        ik_smart
+            curl -XGET 'http://localhost:9200/_analyze?pretty&amp;analyzer=ik_smart' -d '联想是全球最大的笔记本厂商'
+    mapping type
+        {
+        &quot;properties&quot;: {
+            &quot;content&quot;: {
+            &quot;type&quot;: &quot;text&quot;,
+            &quot;store&quot;: &quot;no&quot;,
+            &quot;term_vector&quot;: &quot;with_positions_offsets&quot;,
+            &quot;analyzer&quot;: &quot;ik_smart&quot;,
+            &quot;search_analyzer&quot;: &quot;ik_smart&quot;,
+            &quot;include_in_all&quot;: &quot;true&quot;,
+            &quot;boost&quot;: 8
+            }
+        }
+        }
+## pinyin
+    介绍
+        elasticsearch-analysis-pinyin
+
+
+    o-&gt;
+    &quot;analysis&quot; : {
+        &quot;analyzer&quot; : {
+            &quot;pinyin_analyzer&quot; : {
+                &quot;tokenizer&quot; : &quot;my_pinyin&quot;,
+                &quot;filter&quot; : &quot;word_delimiter&quot;
+            }
+        },
+        &quot;tokenizer&quot; : {
+            &quot;my_pinyin&quot; : {
+                # 单字
+                &quot;type&quot; : &quot;pinyin&quot;,
+                &quot;first_letter&quot; : &quot;none&quot;,
+                &quot;padding_char&quot; : &quot; &quot;
+            },
+            &quot;my_pinyin_fisrt_letter&quot; : {
+                # 首字母, 如北京为bj
+                &quot;type&quot; : &quot;pinyin&quot;,
+                &quot;first_letter&quot; : true,
+                &quot;padding_char&quot; : &quot; &quot;
+            },
+        }
+    }
+    o-&gt; pinyin
+    &quot;analysis&quot; : {
+        &quot;tokenizer&quot; : {
+            &quot;my_pinyin&quot; : {
+                &quot;type&quot; : &quot;pinyin&quot;,
+                &quot;keep_separate_first_letter&quot; : false,
+                &quot;keep_full_pinyin&quot; : true,
+                &quot;keep_original&quot; : true,
+                &quot;limit_first_letter_length&quot; : 16,
+                &quot;lowercase&quot; : true,
+                &quot;remove_duplicated_term&quot; : true
+            }
+        },
+        &quot;analyzer&quot; : {
+            &quot;pinyin_analyzer&quot; : {
+                &quot;tokenizer&quot; : &quot;my_pinyin&quot;
+            }
+        }
+    }
+    &quot;properties&quot;: {
+        &quot;name&quot;: {
+            &quot;type&quot;: &quot;keyword&quot;,
+            &quot;fields&quot;: {
+                &quot;pinyin&quot;: {
+                    &quot;type&quot;: &quot;text&quot;,
+                    &quot;store&quot;: &quot;no&quot;,
+                    &quot;term_vector&quot;: &quot;with_offsets&quot;,
+                    &quot;analyzer&quot;: &quot;pinyin_analyzer&quot;,
+                    &quot;boost&quot;: 10
+                }
+            }
+        }
+    }
+
+    o-&gt; ik-pinyin
+    &quot;analysis&quot;: {
+        &quot;filter&quot;: {
+            &quot;pinyin1&quot;: {
+                &quot;type&quot;: &quot;pinyin&quot;
+            }
+        },
+        &quot;analyzer&quot;: {
+            &quot;ik_pinyin_analyzer&quot;: {
+                &quot;filter&quot;: [&quot;pinyin1&quot;,&quot;word_delimiter&quot;],
+                &quot;type&quot;: &quot;custom&quot;,
+                &quot;tokenizer&quot;: &quot;ik_smart&quot;
+            }
+        }
+    },
+</code></pre>
+<p>工具
+kopf
+bigdesk
+head
+使用
+<a href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a>
+cnpm i
+npm i -g grunt-cli
+grunt server
+curl localhost:9100
+配置
+Gruntfile.js
+port:9100
+client
+olivere/elastic
+Search
+# SearchService
+Do
+Index
+Query
+Sort
+From
+Pretty
+Index
+# IndexService
+Do
+Index
+Type
+Id
+BodyJson
+Refresh
+Suggest
+# SuggestService
+query
+SimpleQueryString</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>May 13, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/function_small/elasticsearch.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#概念存储">概念存储</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#接口">接口</a></li>
+    <li><a href="#插件">插件</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
