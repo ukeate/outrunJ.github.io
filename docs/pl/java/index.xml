@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>Spring</title>
+      <link>https://example.com/docs/pl/java/spring/</link>
+      <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
+      
+      <guid>https://example.com/docs/pl/java/spring/</guid>
+      <description>NamedContextFactory #  class Spec1 implements NamedContextFactory.Specification { @Override public String getName(){} @Override public Class&amp;lt;?&amp;gt;[] getConfiguration(){} } public class MyFactory extends NamedContextFactory&amp;lt;Specification1&amp;gt; { public MyFactory(Class&amp;lt;?&amp;gt; clazz) { super(clazz, &amp;quot;my&amp;quot;, &amp;quot;my.name&amp;quot;) } } @Configuration public class Config0 { @Bean Bean0 getBean(){ return new Bean0() } } parent = new AnnotationConfigApplicationContext() parent.register(Config0.class) parent.refresh() factory = new MyFactory(Config00.class) factory.setApplicationContext(parent) spec1 = new Spec1(&amp;quot;1&amp;quot;, new Class[]{Config1.class}) factory.setConfigurations(List.of(spec1)) factory.getInstance(&amp;quot;1&amp;quot;, Bean0.class) // 子域共享 factory.getInstance(&amp;quot;1&amp;quot;, Bean00.class) // 子域复制 factory.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://example.com/docs/pl/java/collection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -11,7 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/develop/</guid>
-      <description>go #  go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java #  java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod java -Xmx2g  hugo #  go install --tags extended  快捷键 #  独立 &amp;lt;M - s&amp;gt; # 帮助 &amp;lt;M - w&amp;gt; # 菜单 client &amp;lt;M - 回车&amp;gt; # 终端 &amp;lt;M - ctrl - r&amp;gt; # reload &amp;lt;M - c&amp;gt; # 自定义chromium &amp;lt;M - f&amp;gt; # 全屏 &amp;lt;M - shift - c&amp;gt; # 关闭 &amp;lt;M - 数字&amp;gt; # 切换到tag &amp;lt;M - j&amp;gt; &amp;lt;M - k&amp;gt; # 本tag切换client &amp;lt;M - 空格&amp;gt; # 变布局  端口 #  8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 #  # 同步备份 .</description>
+      <description>git #  git clone ssh://git@192.168.0.1:2232/jinancloud/jncloud-one.git  go #  go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &amp;quot;TestCreate&amp;quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java #  java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod java -Xmx2g  hugo #  go install --tags extended  快捷键 #  独立 &amp;lt;M - s&amp;gt; # 帮助 &amp;lt;M - w&amp;gt; # 菜单 client &amp;lt;M - 回车&amp;gt; # 终端 &amp;lt;M - ctrl - r&amp;gt; # reload &amp;lt;M - c&amp;gt; # 自定义chromium &amp;lt;M - f&amp;gt; # 全屏 &amp;lt;M - shift - c&amp;gt; # 关闭 &amp;lt;M - 数字&amp;gt; # 切换到tag &amp;lt;M - j&amp;gt; &amp;lt;M - k&amp;gt; # 本tag切换client &amp;lt;M - 空格&amp;gt; # 变布局  端口 #  8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 #  # 同步备份 .</description>
     </item>
     
     <item>
@@ -20,7 +20,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/ops/</guid>
-      <description>源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  linux日志 #  dmesg journalctl -x # 显示解释 -e # 显示到底部 -u # 指定unit名, 如kubelet --no-pager # 不输出到管道来分页 -f # 追加显示 -q # 只显示warn以上信息 --user-unit # 指定用户 --since &amp;quot;2018-03-26&amp;quot; --until &amp;quot;2018-03-26 03:00&amp;quot; journalctl -f --user-unit onedrive journalctl -xeu kubelet --no-pager 快捷键 ctrl alt f1/f2/.</description>
+      <description>环境 #  scp eureka-server-1.0-SNAPSHOT.jar shenwq@36.137.165.51:~  源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  分析 #  nmon pidstat -p 434 -u 1 # CPU -r 1 # 内存 -d 1 # 磁盘 -w # 上下文切换 iftop -n # 网络流量 iotop p # 显示pid o # 只显示活跃  java #  -Dserver.</description>
     </item>
     
     <item>
@@ -40,19 +40,21 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/work_code/</guid>
-      <description>跳转点 #  积分类 ScmSettlementPointServiceFacade
-精度 Integer precision = paramClientService.getPricePrecision(dto.getTenantId());
-标准单位转订货单位 scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )
-物品 goodsClientService.findGoodsList
-计算类类似 DispatchOutPriceCalculator detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))
-枚举 出库状态 ScmDispatchOutStatusEnum
-查分库 tenantUtil, DynamicDataSource
+      <description>框架编写 #  优雅关闭相关的，使用到的是enable** choice-driver-shutdown jwt相关 choice-driver-jwt 通用 choice-driver-common choice-driver-all gray-spring-boot
+0 FAT
+1 eureka.instance.prefer-ip-address=true eureka.instance.instance-id=fat:jncloud-account eureka.instance.ip-address=192.168.0.9
+2 TEST04 dev -&amp;gt; fat
+3 0.9
+4 fat:
+5 36.137.165.51:31019
+6 redis
+7 删除
 命令 #  git update-index &amp;ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
 搜索词 #  分库 DynamicDataSource determineCurrentLookupKey
 snip #  org.apache.ibatis.mapping.MappedStatement#getBoundSql
 PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
 com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
-// 设置属性 System.getProperties().set() // 查属性 ServletContext sc = ContextLoader.</description>
+// 设置属性 System.</description>
     </item>
     
   </channel>

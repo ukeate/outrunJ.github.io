@@ -5,43 +5,47 @@
   <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="跳转点 #  积分类 ScmSettlementPointServiceFacade
-精度 Integer precision = paramClientService.getPricePrecision(dto.getTenantId());
-标准单位转订货单位 scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )
-物品 goodsClientService.findGoodsList
-计算类类似 DispatchOutPriceCalculator detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))
-枚举 出库状态 ScmDispatchOutStatusEnum
-查分库 tenantUtil, DynamicDataSource
+<meta name="description" content="框架编写 #  优雅关闭相关的，使用到的是enable** choice-driver-shutdown jwt相关 choice-driver-jwt 通用 choice-driver-common choice-driver-all gray-spring-boot
+0 FAT
+1 eureka.instance.prefer-ip-address=true eureka.instance.instance-id=fat:jncloud-account eureka.instance.ip-address=192.168.0.9
+2 TEST04 dev -&gt; fat
+3 0.9
+4 fat:
+5 36.137.165.51:31019
+6 redis
+7 删除
 命令 #  git update-index &ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
 搜索词 #  分库 DynamicDataSource determineCurrentLookupKey
 snip #  org.apache.ibatis.mapping.MappedStatement#getBoundSql
 PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
 com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
-// 设置属性 System.getProperties().set() // 查属性 ServletContext sc = ContextLoader.">
+// 设置属性 System.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="跳转点 #  积分类 ScmSettlementPointServiceFacade
-精度 Integer precision = paramClientService.getPricePrecision(dto.getTenantId());
-标准单位转订货单位 scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )
-物品 goodsClientService.findGoodsList
-计算类类似 DispatchOutPriceCalculator detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))
-枚举 出库状态 ScmDispatchOutStatusEnum
-查分库 tenantUtil, DynamicDataSource
+<meta property="og:description" content="框架编写 #  优雅关闭相关的，使用到的是enable** choice-driver-shutdown jwt相关 choice-driver-jwt 通用 choice-driver-common choice-driver-all gray-spring-boot
+0 FAT
+1 eureka.instance.prefer-ip-address=true eureka.instance.instance-id=fat:jncloud-account eureka.instance.ip-address=192.168.0.9
+2 TEST04 dev -&gt; fat
+3 0.9
+4 fat:
+5 36.137.165.51:31019
+6 redis
+7 删除
 命令 #  git update-index &ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
 搜索词 #  分库 DynamicDataSource determineCurrentLookupKey
 snip #  org.apache.ibatis.mapping.MappedStatement#getBoundSql
 PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
 com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
-// 设置属性 System.getProperties().set() // 查属性 ServletContext sc = ContextLoader." />
+// 设置属性 System." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/cache/work_code/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-06-18T13:03:49&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-20T17:46:29&#43;08:00" />
 
 <title>Work Code | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.9477975b422e0aa565f271c982790e07d9749f4e83edfc43434db5224ca60577.js" integrity="sha256-lHeXW0IuCqVl8nHJgnkOB9l0n06D7fxDQ021IkymBXc="></script>
+<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -58,7 +62,7 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
-  
+  <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body dir="ltr">
@@ -227,6 +231,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/template/docker">docker</a></li>
 <li><a href="/docs/template/linux">linux</a></li>
 <li><a href="/docs/template/awesome">awesome</a></li>
+<li><a href="/docs/template/script">script</a></li>
 </ul>
 </li>
 </ul>
@@ -276,7 +281,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#跳转点">跳转点</a></li>
+    <li><a href="#框架编写">框架编写</a></li>
     <li><a href="#命令">命令</a></li>
     <li><a href="#搜索词">搜索词</a></li>
     <li><a href="#snip">snip</a></li>
@@ -293,23 +298,31 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="跳转点">
-  跳转点
-  <a class="anchor" href="#%e8%b7%b3%e8%bd%ac%e7%82%b9">#</a>
+  <article class="markdown"><h1 id="框架编写">
+  框架编写
+  <a class="anchor" href="#%e6%a1%86%e6%9e%b6%e7%bc%96%e5%86%99">#</a>
 </h1>
-<p>积分类 ScmSettlementPointServiceFacade</p>
-<p>精度
-Integer precision = paramClientService.getPricePrecision(dto.getTenantId());</p>
-<p>标准单位转订货单位
-scmDataProcessorService.transferUnitQty2OrdOrPrucQtyWayFloor(prepareDTO.getTenantId(), detail.getWareQty(), detail.getPurcUnitRates(), precision )</p>
-<p>物品
-goodsClientService.findGoodsList</p>
-<p>计算类类似 DispatchOutPriceCalculator
-detail.setPurcUnitPriceNotax(BigDecimalUtils.div(detail.getGoodsAmtNotax(), detail.getPurcUnitNum(), pricePrecision))</p>
-<p>枚举
-出库状态 ScmDispatchOutStatusEnum</p>
-<p>查分库
-tenantUtil, DynamicDataSource</p>
+<p>优雅关闭相关的，使用到的是enable**
+choice-driver-shutdown
+jwt相关
+choice-driver-jwt
+通用
+choice-driver-common
+choice-driver-all
+gray-spring-boot</p>
+<p>0
+FAT</p>
+<p>1
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=fat:jncloud-account
+eureka.instance.ip-address=192.168.0.9</p>
+<p>2 TEST04 dev -&gt; fat</p>
+<p>3 0.9</p>
+<p>4 fat:</p>
+<p>5
+36.137.165.51:31019</p>
+<p>6 redis</p>
+<p>7 删除</p>
 <h1 id="命令">
   命令
   <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
@@ -397,9 +410,9 @@ and uniq_key in
 
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1bb58a2a578f674675d9eb7e3d272d9330ca1ccd" title='Last modified by 申文庆 | Jun 18, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/85037724496007b4fb43a38ab26f3d478a466b5f" title='Last modified by outrunJ | Sep 20, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jun 18, 2021</span>
+      <span>Sep 20, 2021</span>
     </a>
   </div>
 
@@ -436,7 +449,7 @@ and uniq_key in
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#跳转点">跳转点</a></li>
+    <li><a href="#框架编写">框架编写</a></li>
     <li><a href="#命令">命令</a></li>
     <li><a href="#搜索词">搜索词</a></li>
     <li><a href="#snip">snip</a></li>
