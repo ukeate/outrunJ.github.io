@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="基础 #  特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&gt; watcher -&gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.">
@@ -16,8 +14,9 @@
 <title>Nodejs | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1378,7 +1376,6 @@ __filename
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 13, 2020</span>
@@ -1394,7 +1391,13 @@ __filename
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1471,7 +1474,6 @@ __filename
 
   
 </body>
-
 </html>
 
 

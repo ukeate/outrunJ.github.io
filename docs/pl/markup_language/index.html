@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="xml #  介绍 可扩展性标记语言，使用DTD和XML Schema标准化XML结构 优点: 格式统一，符合标准，用于互不兼容系统 缺点: 格式复杂，占流量大，解析占资源 解析器 DOM # 树形结构 SAX # 事件模型 标签头 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 命名空间 &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt; # xmlns:beans=&quot;http://www.springframework.org/schema/beans&quot; # 引用其它uri空间 ## jar 包中的dtd/xsd文件直接用相对路径引用即可（相当于src/目录下的文件） &lt;h:table xmlns:h=&quot;http://www.w3.org/TR/html4/&quot;&gt; &lt;h:tr&gt; &lt;h:td&gt;Apples&lt;/h:td&gt; &lt;h:td&gt;Bananas&lt;/h:td&gt; &lt;/h:tr&gt; &lt;/h:table&gt; # 命名空间约束文件的查找 1.联网 2.myeclipse中的xml 3.同目录下 4.jar包中 # xmlns:只能有一个没有别名 注意 命名空间不可以分层使用，如 &lt;r:g:element&gt; 是不允许的 例子 &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot; ?&gt; &lt;c:customer xmlns:c=&quot;http://www.customer.com/&quot;&gt; &lt;c:name&gt;ZhangSan&lt;/c:name&gt; &lt;c:phone&gt;09098768&lt;/c:phone&gt; &lt;c:host xmlns:e=&quot;http://www.employee.com/&quot;&gt; &lt;e:name&gt;LiSi&lt;/e:name&gt; &lt;e:phone&gt;89675412&lt;/e:phone&gt; &lt;/c:host&gt; &lt;/c:customer&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt; &lt;book xmlns=&quot;http://www.">
@@ -14,8 +12,9 @@
 <title>Markup Language | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,10 +31,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -45,7 +42,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -55,6 +52,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -221,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -690,7 +688,6 @@ schema文件路径解析
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/73a77c6af4d765d39748ef9051676b998297b0a4" title='Last modified by shenwenqing | Aug 24, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Aug 24, 2019</span>
@@ -706,7 +703,13 @@ schema文件路径解析
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -753,7 +756,6 @@ schema文件路径解析
 
   
 </body>
-
 </html>
 
 

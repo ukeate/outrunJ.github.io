@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="功能实现 #  重复提交 #  直接redirect csrf令牌  权限 #  过滤器 页面权限 拦截器aop 数据权限  seo #  静态化  web状态 #  cookie url中sessionId  加密 #  base64 sha  复杂业务 #  关注/信箱 #  要求 user人数10w, 活跃1w。 大部分user关注1k人, 一部分大v被关注100w人。 每人每天发100条博文 user新博文数量提醒，消息标记已读 表 user user_followers user_followed user_posts(u_id, created_ts) user_messages(u_id, p_id, is_read) # 10w * 100条数据 / 天 定时任务拉取 user_followed拉u_id, user_posts表按时段拉id, 更新user_messages 优点 平均, 少次, 增量。 缺点 及时性中 每次对所有用户操作 数据 10w*1k*100条数据 / 天 发布时推送 有p_id, user_followers, 更新user_messages 优点 及时性高 缺点 计算集中, 可能高峰 数据 最高 100w*100条数据 / 次 10w*100次 / 天 messages处理 存部分messages 不活跃user不存message 在登录状态，定时拉取 优点 减少message 缺点 计算集中 数据 1k * N(N&lt;100)条 / 次 1w * 1k * 100条数据 / 天 messages结构变化 u_id: [{p_id: uint, is_read: bool}] # 条数稳定为10w 用mongodb或redis 消息队列?">
@@ -16,8 +14,9 @@
 <title>架构-方案 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1132,7 +1130,6 @@ DevOps</code></pre>
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
@@ -1148,7 +1145,13 @@ DevOps</code></pre>
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1250,7 +1253,6 @@ DevOps</code></pre>
 
   
 </body>
-
 </html>
 
 

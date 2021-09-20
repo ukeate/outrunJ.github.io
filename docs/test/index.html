@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="基础 #  分类 功能测试 黑盒 灰盒 # 集成测试阶段，黑盒但关注程序内部 白盒 性能测试 压力测试 负载测试 基准测试 # 统计多少时间内执行了多少次某个方法 回归测试 # 改旧代码后，保证旧代码可用 冒烟测试 # 功能验证，不一定是改旧代码 前端测试 structure/behavior(数据结构/行为)问题 # 判断是否有此耦合，用一个测试验证: 是否为应用逻辑编写一个单元测试而不需要dom结构存在 ## angular中没有这种问题，因为所有定位元素和处理事件的工作都是在angular内部完成的 ## 在测试时创建dom，就增加了测试的复杂性。而且页面变化时有更多维护要做。访问dom的操作很慢，测试反馈时间长  数据库 #  sysbench # mysql 压测 --db-driver=mysql --mysql-host=visitor-bench.ctysoosgzk4k.rds.cn-north-1.amazonaws.com.cn --mysql-user=root --mysql-password=12345678 --threads=512 --events=1000000 --time=0 --report-interval=15 ./bench_visit_page_insert.lua run  接口 #  loadrunner #   脚本参数 get web_url(&quot;login&quot;, &quot;URL=http://192.168.0.14:9081/ryx-login/sso/login&quot;, &quot;Resource=0&quot;, &quot;RecContentType=text/html&quot;, &quot;Referer=&quot;, &quot;Snapshot=t1.inf&quot;, &quot;Mode=HTML&quot;, EXTRARES, &quot;Url=../ycls/img/banner1.jpg&quot;, ENDITEM, &quot;Url=../ycls/img/banner2.jpg&quot;, ENDITEM, &quot;Url=.">
@@ -14,8 +12,9 @@
 <title>测试 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,10 +31,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -45,7 +42,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -55,6 +52,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -221,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -839,7 +837,6 @@ jasmine
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
@@ -855,7 +852,13 @@ jasmine
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -931,7 +934,6 @@ jasmine
 
   
 </body>
-
 </html>
 
 

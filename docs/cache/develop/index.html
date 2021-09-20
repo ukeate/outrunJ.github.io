@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="git #  git clone ssh://git@192.168.0.1:2232/jinancloud/jncloud-one.git  go #  go test -bench=. --cpuprofile=cpu.prof --memprofile=mem.prof -config ../conf/config_lc.toml -test.run TestCreateType go test -cover -args -config config.toml -test.run &quot;TestCreate&quot; go tool pprof service.test cpu.prof go-torch -b cpu.prof go list -m -u all # 列可升级包 go list -u need-upgrade-package # 升级可升级包 go get -u # 升级所有依赖  java #  java -jar xxx.jar java -jar a.jar --spring.config.location=/application.yml # 指定spring config --spring.profiles.active=prod java -Xmx2g  hugo #  go install --tags extended  快捷键 #  独立 &lt;M - s&gt; # 帮助 &lt;M - w&gt; # 菜单 client &lt;M - 回车&gt; # 终端 &lt;M - ctrl - r&gt; # reload &lt;M - c&gt; # 自定义chromium &lt;M - f&gt; # 全屏 &lt;M - shift - c&gt; # 关闭 &lt;M - 数字&gt; # 切换到tag &lt;M - j&gt; &lt;M - k&gt; # 本tag切换client &lt;M - 空格&gt; # 变布局  端口 #  8123 polipo 1080 shadowsocks 1315 blog 7000,7001,7199,9042,9160 cassandra 9092 kafka 2181 kafka zookeeper 9020 kafka-manager 8001 nginx 3306 mysql 5432 postgres 54321 timescaledb 8002 adminer 27017 mongo 8003 mongo-express 6379 redis 7474,7687 neo4j 4369, 5671, 5672, 15671, 15672 rabbitmq 9411 zipkin 9200 es 9100 es-head 5601 kibana 10001 haproxy 5433,8090,8091 confluence 8004 dokuwiki 8005 wordpress 8006 nginx-php-fpm 9090, 1883, 5683 thingsBoard 9000 provider 9001,9002 consumer 9003,9004 discovery 9005,9006 consumer-metadb 9010 monitor 9011 api-gateway 9012 config-server 9013 config-client 9014 zipkin-server 9015 admin-server 9016 auth 9017 auth-client  配置 #  # 同步备份 .">
@@ -16,8 +14,9 @@
 <title>Develop | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -436,7 +434,6 @@ client
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/85037724496007b4fb43a38ab26f3d478a466b5f" title='Last modified by outrunJ | Sep 20, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 20, 2021</span>
@@ -452,7 +449,13 @@ client
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -502,7 +505,6 @@ client
 
   
 </body>
-
 </html>
 
 

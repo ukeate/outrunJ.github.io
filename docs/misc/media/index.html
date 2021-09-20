@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="原理 #  硬件 #  CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元  标准 #  Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库  算法 #  基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型  2d #  分形 #  介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华.">
@@ -16,8 +14,9 @@
 <title>媒体 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -608,7 +606,6 @@ gimp
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/66fa298a6aeb531ad416239a0744631ee2141f3d" title='Last modified by shenwenqing | Dec 8, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Dec 8, 2019</span>
@@ -624,7 +621,13 @@ gimp
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -682,7 +685,6 @@ gimp
 
   
 </body>
-
 </html>
 
 

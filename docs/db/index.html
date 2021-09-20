@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="基础 #  数据库类型 关系型数据库 模糊型数据库 # 存放模糊数据，提供函数 如模糊数，包括模糊区间数，模糊中心数，模糊集合数 隶属函数 统计数据库 # 管理统计数据 这类数据库包含有大量的数据记录，但其目的是向用户提供各种统计汇总信息，而不是提供单个记录的信息。 网状数据库(层次数据库) # 处理以记录类型为结点的网状数据模型 处理方法是将网状结构分解成若干棵二级树结构，称为系。 演绎数据库 # 指具有演绎推理能力 实现 数据库管理系统 规则管理系统 外延数据库 将推理用的事实数据存放在数据库中 内涵数据库 用逻辑规则定义要导出的事实 主要研究内容: 如何有效地计算逻辑规则推理。 递归查询的优化 规则的一致性维护 其它数据存储方式 文件系统 版本控制 保存持久状态 CQRS(command query responsibility segregation) 查询(query) 命令(command) 领域模型(domain model) 领域事件(domain event) 对象数据库 趋势 分布式new sql # tidb Polyglot persistence (混合持久化) # 将对不同数据库的操作封装成服务 事务隔离级别 读未提交（Read Uncommitted） # 读其它事务未提交的数据 现象 不允许更新丢失 允许脏读(dirty read) # 事务中读到不存在数据, 是其它事务修改中的数据 原理 可同时读 不同时写，多事务写 实现 排他写锁 读提交（Read Committed） # 读其它事务提交的数据 现象 不允许脏读 允许不可重复读(nonRepeatable read) # 事务中前后查询不一致 原理 可同时读 单事务写 实现 瞬间共享读锁 排他写锁 可重复读（Repeatable Read） # 读到的数据加锁，解决不可重复读问题 现象 不允许脏读 不允许不可重复读 允许幻读(phantom read) # 事务中存在未生效行，是其它事务的插入或删除 原理 读到的数据(加锁)不写 单事务写 实现 # 读涉及范围加锁 共享读锁 排他写锁 序列化（Serializable） # 或叫串行化 原理 事务序列化执行 实现 读锁写锁互斥 事务特点(ACID) 原子性(atomicity) # 什么都做或都不做 一致性(correspondence) # 事务前后数据库状态一致, 事务中断时也不会有暂时状态 隔离性(isolation) # 事务间不干扰 持久性(durability) # 提交结果是永久的 索引存储 B&#43; tree LSM(log-structured merge) tree fractal tree OLTP和OLAP CAP(一致性、可用性、分区容错性)中, OLTP要求ca或cp, OLAP要求ap OLTP要求写优化, OLAP要求查优化 OLTP要求优化latency, OLAP要求优化throughput OLTP基于row, OLAP基于column OLTP看中IOPS, OLAP看中data-size传输 分布式数据库 面临问题 ACID CAP scale out self-healing 运维友好 sql 事务 性能 api用明文或二进制 升级方案 硬件，网络，网络模型，存储模型，语言 分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案  rds #  # relational database service 缺点 阻抗失谐 # 和内存中的模型存在差异 安全 sql注入 # 应该写符号编译sql 范式 # Normal Form 用于避免冗余数据 第一范式(1NF) 列不可再细分列(原子性) 第二范式(2NF) 必须有主键，允许联合主键 其它列依赖完整主键(不能只依赖一部分) 第三范式(3NF) 其它列直接依赖主键(非传递依赖，如A依赖B, B依赖主键) 实例 postgres sqlserver mysql mariadb percona # mysql分支, Oracle发布的最接近官方mysql的发行版 drizzle # mysql分支 oracle db2 oceandb h2database # java编写，可嵌入java使用 tidb  sqlite #  命令 sqlite3 数据库文件 语法 .">
@@ -14,8 +12,9 @@
 <title>数据库 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,10 +31,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -45,7 +42,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -55,6 +52,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -221,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1573,7 +1571,6 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 4, 2021</span>
@@ -1589,7 +1586,13 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1671,7 +1674,6 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
 
   
 </body>
-
 </html>
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="特点 #   数据结构json(bson) 易写入，易修改 c&#43;&#43;编写 分布式 介于关系数据库 和 非关系数据库之间 查询语句强 支持索引 bson格式  注意 #   document不能大于4Mb 可以非安全模式异步马上成功 每个连接用队列存储命令  数据结构定义 #   collection # 表 document # 记录 field(key, value) # 字段(field)与值(value) 与关系型数据库的区别 document中的field不要key俱全或一样 find()命令查询  bson的数据类型 #   ＃bson 是json的扩展 # 增加了数据类型 # 把json数据转换成二进制码存到文件 null boolean undefined 数组 # 如{gps: [20, 56]} 32位和64位整数 # shell中不支持 ## node.js python java等高级语言的驱动中支持 64位浮点 # shell使用的全是这种类型, 如{x:3.14} utf-8 # 字符串类型 ObjectID Date # 如{x:new Date()} 正则 # 如{x:/uspcat/i} javascript块代码 # 如{x:function(){}} ## 相当于存储过程 内嵌文档 # 如{x: {xx: &quot;a&quot;}} 二进制 # shell中不能使用  ObjectId #   大小 12字节 显示为24个十六进制字符 # 空间换时间的思想 细节 前4字节是unix时间戳 后3字节集群machine hash 后2字节pid 后3字节inc自增计数器, 在前面都相等时全局自增  命名 #   数据库与集合名 不能是空字符串 特殊字符 &#39; (空格) , $ / \ \0 应该全小写 小于64字节 数据库名不与保留库名相同，如 admin, local, config 集合名 db-text合法，但不能db.">
@@ -16,8 +14,9 @@
 <title>Mongodb | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -860,7 +858,6 @@ mongostat
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jun 17, 2019</span>
@@ -876,7 +873,13 @@ mongostat
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -929,7 +932,6 @@ mongostat
 
   
 </body>
-
 </html>
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="产品 #  愿景 定义产品的目的和原因，将到达的地点 ux 微交互 # 细节决定成败  RoadMap #  介绍 到达愿景的策略路径，提供一系列与产品战略相一致的战术步骤 为什么 简单、清晰的通讯文档 少的多的会议 健康的团队辩论：交付成果与目标联系起来 做出每个人都理解的产品决定，不再打击创意 高维度的概述 动态演变 要素 时间周期 时间区间，只定时间范围 big-view(product) 全局理解产品的未来, 交付顺序 统一视野(vision), 范围(scope)，时间期限(time line) pre-view(release) release中的产品功能, 和前几个迭代从backlog中要交付的工作项(item) now-view(iteration) 团队在一次迭代中要交付的需求(requirements) 优先级，留空间适应变化 项目事件 完成产品总体计划必要的工作项, 详尽且切合目的 分解目的，制定步骤 路标 关键工作项完成的时间节点(里程碑) 结果反馈：审视是否偏离，试验中改进 确定在每个时间范围内实现可衡量的结果。定义为目标关键结果(OKR)、关键性能指标(KPI) 种类 基于目标 current near term future 基于功能 5000新用户 步骤 确定目标 分解目标，穷尽事项，组织，优先级排序 使用优化框架 effort / impact impact / goal 卡洛斯模型? 注意 定义战略主题(名词)，抓住核心用户行为的本质、产品能力、竞争优势、技术改进 保持路线图战略，避免战术 每个计划阶段都考虑优先级, 每个目标、动作、发布、特性的价值可见性 始终在试验(ABE), 为了正确定义目标和后续特征 先做出有根据的猜测 测试 基于反馈迭代  业务 #  目标 降低人才素质需求 减少开发时间 分类 创造虚拟空间 自动化 辅助决策 思路 逻辑: 因果(演绎), 时间, 空间, 优先 方法: 5w2h(who, when, where, why, what, how, how much) 建模: 中心 # 调整抽象领域和层次(视问题决定) 自上而下 # 问题明确，展开 自下而上 # 内容分类、剪枝、归纳 分解 MECE(mutually exclusive collectively exhaustive) 正交 穷尽 经验 优秀的产品都有全局把控感(confluence, jira) 设计思想多源自: 操作系统、编译器、函数式 深入一线(面对客户) 思考全面, 全局 考虑需求本质，考虑上下游全局 想清楚再行动 过程 发掘(discovery) 价值定位(价值驱动) 客户体验梳理和设计 愿景 干系人 电梯演讲收敛 定义(define) 用户旅程，业务流程 事件风暴 -&gt; 映射技术 -&gt; 架构 设计(design) 总体 识别问题域, 归纳服务, 上下游关系 架构图, api, 技术栈 提升方向, 改进 迭代 价值/成本分布图 milestone演进 业务技术/需求拆解全景图(白板贴标) mvp(minimum viable product最小可行计划)迭代计划 开发(develop) 度量, 质量指标 工具选择, 规范 架构守护，治理 实施策略 交付 产品生命周期管理 目标, 资本 机会点-&gt;需求 角度决定设计 找到不动点 如对cache的设计 业务角度 选择简单易用的缓存框架 有人会用，学习成本别太高 关注数据模型结构设计 缓存更新真麻烦 paas角度 声明式使用，配置文件设置 缓存对比，选择强大且稳定的 存取接口设计，方便易用 数据变动监听，自动刷新缓存 平台角度 缓存服务器集群方式 存储空间监控 命中率监控 避免缓存集中失效引起雪崩 不过度设计 # 不超出需求，不用复杂方式实现 # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性 范围减少 # 28原则，最小可行产品 设计减少 # 易理解，低成本，可扩展 实施减少 # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决 二八定律 墨菲定律 事情不是表面看起来那么简单 事情都会比预计时间长 可能出错总会出错 如果你担心发生，它更可能发生 维护 设计时考虑扩展性 DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.">
@@ -16,8 +14,9 @@
 <title>工程 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1110,7 +1108,6 @@ SLA(service level agreement)制定(吞吐量、响应时间、可用性、降级
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f0342d0f176ce583a1dd94abb23c3da90bf04712" title='Last modified by 申文庆 | Mar 12, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 12, 2021</span>
@@ -1126,7 +1123,13 @@ SLA(service level agreement)制定(吞吐量、响应时间、可用性、降级
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1192,7 +1195,6 @@ SLA(service level agreement)制定(吞吐量、响应时间、可用性、降级
 
   
 </body>
-
 </html>
 
 

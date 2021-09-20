@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="线性 #  列表(list) 数组(array) # 相同数据类型元素的序列，下标(index)访问 low high 字符串 二进制串(binary string) # 位串(bit string) 链表(linked list) 节点(node) 指针(pointer) 表头(header) 单链表(singly linked list) 双链表(doubly linked list) 栈(stack) # 插入和删除只能在端部进行的列表，应用于递归 栈顶(top) LIFO last-in-first-out 队列(queue) 队头(front) 队尾(rear) 入队(enqueue) FIFO first-in-first-out 优先队列(priority queue) # 数据项多来自于全序域(常整数或实数) 查找最大元素，删除最大元素，插入新元素 堆(heap)实现  散列表 #  介绍 有序输入时，树效率低，如果不要求查找有序结果，可以用散列 概念 hash table hashing(散列) item(项) key(关键字) # 项中某部分 hash function(散列函数) # 映射函数 collsion(冲突) # 多个关键字散列到同项的状况 load factor(装填因子) # λ 元素个数对表长度的比， # 如果散列是均匀的，表示了一个项中关键字的平均长度 # 一次成功查找要遍历约1 &#43; (λ / 2)个链，1表示被匹配的项 rehashing(再散列) 一半时进行 直到插入失败再进行 middle-of-the-road # 到达某load factor时进行 caching the hash code(闪存散列代码) 算法 separate chaining(分离链接法) # 解决冲突 probing hash table(探测散列表) 线性探测法 primary clustering(聚集) # 线性探测法中形成数据区块 平方探测法 secondary clustering(二次聚集) # 模拟结果指出，对每次查找，会引起另外的少于一半的探测 double hashing(双散列) # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同 extendible hashing(可扩散列) D directory(目录) # 一个分区中bit的个数，所以M最多2^D 性质 # 基于位模式(bit patterm)是均匀分布的事实, 是&quot;分支系数(branch factor)&quot;, N 是记录总数(随时间变化) 树叶期望个数为(N/M)log(2)(e) 所以平均树叶满的程度为ln2 = 0.">
@@ -16,8 +14,9 @@
 <title>数据结构 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -670,7 +668,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1624b7c458b9b92db635cf69fcb6a45d3a51ab2b" title='Last modified by shenwenqing | Nov 9, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Nov 9, 2019</span>
@@ -686,7 +683,13 @@ https://github.com/alex-shpak/hugo-book
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -736,7 +739,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 </body>
-
 </html>
 
 

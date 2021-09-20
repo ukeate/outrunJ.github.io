@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="事件 #  blur change click dblclick focus keydown keypress keyup load mousedown mousemove mouseout mouseover mouseup reset select submit unload Abort # 中断图片下载时激发 AfterPrint # 打印文档后激发 AfterUpdate # 传送完数据 BeforeCopy # 复制到剪贴板前 BeforeCut # 剪切到剪贴板前 BeforeEditFocus BeforePaste BeforePrint BeforeUnload BeforeUpdate Bounce CellChange CtextMenu Copy Cut DataAvailable DatasetChanged DatasetComplete Drag DragDrop DragEnd DragEnter DragLeave DragOver DragStart Drop Error ErrorUpdate FilterChange Finish Help LoseCapture Move Paste PropertyChange ReadyStateChange Resize RowEnter RowExit RowsDelete RowsInserted Scroll SelectStart Start Stop  标签 #  &lt;var&gt; # 标识常量 &lt;samp&gt; # 标识输出内容的样式 &lt;pre&gt; # 代码块 &lt;code&gt; # 一段代码  属性 #  全局属性 # 配置所有元素共有行为 accesskey # 快捷键 ## 需要按alt &#43; 指定的键 class contenteditable # 内容是否可修改, 如p标签 contextmenu # 定义右键菜单，未实现 dir # 文字对齐方式 draggable dropzone hidden id lang spellcheck style tabindex # tab键切换元素的顺序 title  浏览器特性 #  视频播放 支持vaapi, chrome 加上--enable-vaapi参数可以开启硬件加速解码  方案 #  标签 &lt;input&gt;表单 单选框 &lt;input type=&quot;radio&quot; name=&quot;name&quot; checked value=&quot;1&quot;&gt; &lt;input type=&quot;radio&quot; name=&quot;name&quot; value=&quot;1&quot;&gt; 下拉框 &lt;select id=&quot;mySelect&quot; size=10 multiple&gt; # 长度等于10 ，多选 &lt;option selected=&quot;selected&quot;&gt;Apple&lt;/option&gt; &lt;option&gt;Orange&lt;/option&gt; &lt;/select&gt; 勾选框 &lt;input type=&quot;checkbox&quot; name=&quot;&quot; /&gt; 按钮 &lt;input type=&quot;button&quot;/&gt; &lt;button&gt; # &lt;button&gt;&lt;img src=&quot;&quot;&gt;搜索&lt;/button&gt; button之间可以加图片 &lt;table&gt;表格 &lt;caption&gt; # 标题 &lt;thead&gt; &lt;th&gt; &lt;td&gt;&lt;td&gt; &lt;/th&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;&lt;td&gt; &lt;/tr&gt; &lt;tfoot&gt; 属性 &lt;tr style=&quot;display: none;&quot;&gt; # 设置属性为隐藏 &lt;form&gt;表单 enctype属性 application/x-www-form-urlencoded(默认) # 在发送编码所有字符（空格转换为 &quot;&#43;&quot; 加号，特殊符号转换为 ASCII HEX 值） multipart/form-data # 不对字符进行编码，在上传文件时使用 text/plain # 空格转换为&#43;，但是不对特殊字符进行编码 &lt;hr&gt;分割线 字体 &lt;h1&gt;&lt;/h1&gt; .">
@@ -16,8 +14,9 @@
 <title>Html | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -620,7 +618,6 @@ Stop
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/921e1cbc545d52464858f27385a71ff10c83a8ff" title='Last modified by shenwenqing | Sep 24, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 24, 2019</span>
@@ -636,7 +633,13 @@ Stop
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -678,7 +681,6 @@ Stop
 
   
 </body>
-
 </html>
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="介绍 #  google发布 提倡SPA(Single Page Apps), 运行快，一次加载 mvvm  特点 #  前端mvc 双向数据绑定 指令和语义化标签 模块化工具 依赖注入 html模板 常用工具封装，如$http $cookies $location  directive #  内置 ng-app # 声明app名, 在最外层 ng-submit # &lt;form ng-submit=&quot;submit()&quot;&gt; ng-controller ng-repeat # $index返回当前引用的元素序号，$first, $middle, $last 返回布尔值 ng-model # 绑定当前元素的值 ng-click ng-eventhandler=&quot;expression&quot;类的指令可以在所有浏览器中有相同的行为，angular将会屏蔽差异性 不会在全局命名空间中进行操作，指定的表达式只能访问元素控制器作用域范围内的函数和数据 ng-bind ng-change &lt;form ng-submit=&quot;aaFunc()&quot;&gt; # 会阻止浏览器默认的提交操作 ng-dblclick ng-show ng-hide ng-class # 可以是类名字符串，空格分隔，可以是类名数组，可以是类名到布尔值的映射 ng-class=&quot;{true: &#39;active&#39;, false: &#39;inactive&#39;}[isActive]&quot; ng-class=&quot;{&#39;selected&#39;: isSelected, &#39;car&#39;: isCar}&quot; ng-style # templete中写css不好维护 ng-src=&quot;/images/cats/{{favoriteCat}}&quot; # src，href属性中简单使用templete,由于浏览器优先并行加载图片和其它内容,angular没有机会拦截到数据绑定请求，所以无法运行 ng-href ng-options &lt;select ng-model=&quot;x&quot; ng-options=&quot;(m.">
@@ -16,8 +14,9 @@
 <title>Angular | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -557,7 +555,6 @@ filter
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/69e5913a4ee9adc667a30da82b8033ce8a7f23c2" title='Last modified by shenwenqing | Sep 29, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Sep 29, 2019</span>
@@ -573,7 +570,13 @@ filter
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -618,7 +621,6 @@ filter
 
   
 </body>
-
 </html>
 
 

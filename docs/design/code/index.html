@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="认知 #  原理 模拟执行 负担 概念量 封装粒度大 多态、运行时多态、静态多态 临时状态 用工作流, 而非队列 日志(event)搜索/集中/回放 抽出权限层 非轻量级 胶水层厚 无稳定方案, 复用困难 流程长度 最好 单线程 # 不插入行为 上下文集中 this.scene.commit()集中状态转移时间线 单一方式  原则 #  观念 KISS(keep it simple stupid) YAGNI(You Ain’t Gonna Need It) 取好名字占设计一半 约定大于配置 并发的世界，并发的软件 分布式的世界，分布式的软件 不可预测的世界，容错性强的软件 复杂的世界，简单的软件 代码即数据 物体上绑定行为数据 传递代码数据(函数一等公民) 防御性编程 接口前validator 启动时自检断言 异常处理 不可过度 设计 solid原则 单一职则(single responsibility) 一个类负责一个功能 开闭(open/closed) 对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态 里氏替换原则(liskov substitution) 子类继承超类的所有 接口分离(interface segregation) 最小功能隔离 依赖反转(dependency inversion) 低层依赖高层, 具体依赖抽象 非侵入 # non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 拆分 边界 正交 unix rules 模块化(modularity) # 模块由精心设计的接口连接 清晰化(clarity) # 可读性、可维护性 组合(composition) 分离(separation) 简单(simplicity) 节俭(parsimony) # 越小越好 透明(transparency) # log, tracing 鲁棒(robustness) 可展示(representation) # 逻辑简单，数据复杂 最小惊吓(least surprise) # 少打破用户预期 安静(silence) 修复(repair) # 产生足够报错 经济(economy) # 减少开发时间 生成(generation) # 避免手写, 用高阶抽象生成代码 优化(optimization) # 优化和收益平衡 分化(diversity) # 一开始设计不限制、优雅开放灵活 扩展(extensibility) # 协议可扩展 优化 需要时再优化，设计时考虑扩展性 dry(don&#39;t repeat yourself), 不可过度 找瓶颈 产出 设计清晰 选型简单 代码精炼 抽象优雅  设计 #  创建 factory, abstract factory # 工厂 builder # 构建者 prototype # 原型复制来产生对象 singleton # 单例 结构 adapter # 适配器 bridge # 抽象与实现分离 composite # 抽取公共行为 decorator # 装饰 facade # 外观。提供子类的默认视图 flyweight # 享元 proxy # 代理 行为 interpreter # 解释器 template method # 模板方法、泛型 chain of responsibility # 责任链 command # 命令 iterator # 迭代器 mediator # 消息传递中介 memento # 保存、恢复状态 observer # 观察者 state # 不同状态定义不同行为 strategy # 同行为的不同算法、替换算法 visitor # 访问者。抽象行为本身，不同访问对象不同行为 元素模式 抽象各模式成元素，简化表示 actor # 消息通信 reactor # 事件轮循，注册回调，如libevent proactor # 注册事件回调，os通知触发回调 惰性求值 链式定义(配方)，后自动触发(js tick调度)终止操作 dsl测试(如jasmine.">
@@ -16,8 +14,9 @@
 <title>代码 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -572,7 +570,6 @@ thunk
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/1bb58a2a578f674675d9eb7e3d272d9330ca1ccd" title='Last modified by 申文庆 | Jun 18, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jun 18, 2021</span>
@@ -588,7 +585,13 @@ thunk
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -636,7 +639,6 @@ thunk
 
   
 </body>
-
 </html>
 
 

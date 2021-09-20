@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="基础 #  安装 运行services.msc 找到OracleServiceORCL 服务 （最后是数据库名）改为手动 sqlplus / as sysdba 运行oracle测试是否安装成功 解锁scott用户 sqlplus / as sysdba alter user scott account unlock; alter user scott identified by tiger; 启动 OracleServiceORCL OracleOraDb11g_home1TNSListener 端口 1521 # 停了以后再开会变 权限 系统权限：创建数据库，创建用户 对象权限：表操作 sys create database权限 system 没有create database权限 scott hr 角色 # 超管以角色进入，普通用户输入用户名密码 dba dbaoperator 服务器的组成 oracle数据库 存储位置 oracle安装位置/oradata/ 每个数据库文件夹中有多个二进制文件（*.dbf） oracle实例(内存概念) 一个数据库进程可以有多个实例 一个实例可以有多个数据库进程和一个内存池(缓存) # 不同于windows进程，每个进程对应一个用户访问 服务名为OracleService数据库名 集群(多实例) 连接失败转移 负载均衡 连接类型 normal sysdba sysoper 分布式 认证 开发技术认证 Java认证 数据库开发语言SQL和PL/SQL认证 数据库技术认证 OCM【大师】 OCP【专家】 OCA【初级】 中间件技术认证 OracleServer认证，WEB服务器认证 专业领域技术认证 ERP CRM HR OA 支持的事务隔离 只支持读提交与序列化两种 版本 8i 9i 10i # i是internet 11g # 基于jdk6, g是grid网格(一个请求多个服务器运行) 12c # c是cloud SQL99标准 # 不区分大小写 PLSQL是Oracle对SQl99标准的扩展 结构代查询语言 DML select,insert,update,delete DDL create table,alter table, drop table DCL grant, revoke TCL(杜撰) commit, rollback,rollback to savepoint 加载过程 启动oracle服务 oradim -startup -sid 数据库名 # 相当于windows服务中启动该服务，会从windows注册表中加载配置 oradim -shutdown -sid orcl -shuttype srvc # 停止oracle 服务 普通登录 sqlplus system/asdf # 从注册表中查找默认的数据库名称进行登录 sqlplus system/asdf@orcl # 指定数据库名登录，必须有监听的时候该命令可以执行，监听的进程是独立于oracle之外的进程 管理员登录 sqlplus / as sysdba # windows管理员的身份进行登录，不需要用户名密码，可以在配置文件中禁用它 无连接登录 sqlplus /nolog #用来设置sql/plus 启动实例 cmd&gt; sqlplus / as sysdba # 连接到数据库的空闲实例 sql&gt; select status from v$instance # 查看实例状态 sql&gt; shutdown abort # 立即终止当前的实例,实例结束后用户仍然登录状态，但没有连接实例 sql&gt; startup nomount # 启动默认实例（不加载数据库） sql&gt; startup open # 启动、装载、打开默认的数据库 cmd&gt; set oracle_sid=orcl # 在windows下设置oracle的默认登录数据库 启动过程 加载参数文件database/init数据库名 分配sga (system global area)到内存空间，用于缓存数据库信息 创建后台进程 挂载数据库 sql&gt; startup mount 挂载过程 装载数据库文件夹中的文件 # sga中有已经初始化了ctl文件的路径，通过ctl文件装载数据库 ctl(从中得到数据库文件名) -&gt; dbf # 3种数据库文件: .">
@@ -16,8 +14,9 @@
 <title>Oracle | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1002,7 +1000,6 @@ oracle对sql99的扩展
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/37e76d5e09e9780b64056ab9c8a3827a2628f8fb" title='Last modified by shenwenqing | Jul 19, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 19, 2019</span>
@@ -1018,7 +1015,13 @@ oracle对sql99的扩展
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1069,7 +1072,6 @@ oracle对sql99的扩展
 
   
 </body>
-
 </html>
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="名词 #  Alb automaticLoopBack 自动回环，虚拟接口 sdn software defined network 软件定义网络  Serverless #  knative # google开源，serverless标准化方案，基于kubernetes和istio 模块 build serving eventing  ServiceMesh #  Service Fabric #  # 微软  Istio #  #google IBM, lyft开源，基于envoy 组成 数据面板 控制面板  Knative #  介绍 管理kubernetes, Istio 模块 build serve config route event  Traefik #  # go实现，多后台如kubernetes, swarm, marathon, mesos  Linkerd #  # buoyant出品  Conduit #  # 面向kubernetes轻量化mesh  Fingle #  # twitter出品  Envoy #  # lyft出品  Nginmesh #  # nginx推出  PaaS #  # platform as a service  CloudStack #  # 托管在apache的开源、高可用、高扩展性的云计算平台 # 支持主流hypervisors # 一个开源云计算解决方案，可以加速iaaS的部署、管理、配置  CloudFoundry #  # pivotal开源, 根据应用模板，动态生成很多tomcat, mysql, nosql, 动态控制这些实例的启停。  OpenStack #  # 云操作系统，管理虚拟资源  Container Orchestration #     特性 dubbo spring cloud kubernetes     配置管理 - config kubernetes configMap   服务发现 zookeeper eureka, consul, zookeeper kubernetes services   负载均衡 自带 ribbon kubernetes services   网关 - zuul kubernetes services   分布式追踪 - spring cloud sleuth open tracing   容错 不完善 hystrix kubernetes health check   通信方式 rpc http, message    安全模块 - spring cloud security -   分布式日志  ELK EFK   任务管理  spring batch kubernetes jobs    Kubernetes #  # google开源的，borg的发展，在docker技术上，管理容器化应用 特点 不限语言 无侵入, 服务只写业务 适合微服务 # 调整服务副本数, 横向扩容 无缝迁移到公有云 # cluster ip实现不改配置迁移 自动化资源管理 服务发现，用dns解析服务名 内嵌负载均衡 部署实施 治理 监控 故障发现、自我修复 透明服务注册、发现 服务滚动升级、在线扩容, 根据负载自动扩容缩容 可扩展资源自动调度、多粒度资源配额 多层安全防护、准入 多租户 完善的工具 pod运行容器 etcd保存所有状态 架构 cluster master api server # 对外http rest接口, 管理资源对象(pod, RC, service)增删改查 controller manager # 管理控制器, node, pod, endpoint, namespace, serviceAccount, resourceQuota自动化管理 scheduler # 接收controller manager命令执行pod调度 etcd # 配置 node # 一master多node 特点 node宕机，pod调度到其它节点 pod # 一node几百个pod, 基本操作单元，代表一个运行进程，内部封装一个(或多个紧密相关的)容器。 特点 pod内通信高效，放密切相关服务进程 可以判断一组相关容器的状态(用pause) pause解决共享ip、容器通信、共享文件的问题 pod间通信用虚拟二层协议(flannel, openvswitch)实现 普通pod在etcd存储，再调度到某node实例化，静态pod在node中存储，在node实例化 对pod可进行资源(cpu,内存)限额 label # 标签，用标签选择器选择。key和value由用户指定，可附加到node, pod, service, rc等 pause容器 # 根容器，共享网络栈、挂载卷 docker/rocket # 容器 kubelet # master监视pod, 创建、修改、监控、删除 kube-proxy # 代理pod接口 fluentd # 日志收集、存储、查询 kube-dns # 服务dns解析 概念 service # 服务网关 特点 唯一名字 唯一虚拟ip(cluster ip, service ip, vip) # 可多端口，每端口有名字 提供远程服务 # 目前socket 应用到一组pod event # 探针检测失败记录，用于排查故障 rc # replication controller 副本数 筛选标签 pod模板 改变pod镜像版本，滚动升级 replica set # 1.">
@@ -14,8 +12,9 @@
 <title>支撑-分布式 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,10 +31,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -45,7 +42,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -55,6 +52,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -221,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1575,7 +1573,6 @@ exhibitor
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/bb518fda779fa027ef720b5d806c6d229daf7420" title='Last modified by shenwenqing | May 13, 2020' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 13, 2020</span>
@@ -1591,7 +1588,13 @@ exhibitor
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -1761,7 +1764,6 @@ exhibitor
 
   
 </body>
-
 </html>
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="约定 #  巴科斯范式 #  &quot;word&quot; 表示字符本身 double_quote 表示&quot;本身 &quot;&quot; 外表示语法字符 &lt;&gt; 表示必选项 [] 表示可选项 {} 表示可重复0到多次 | 表示or ::= 表示“被定义为”  工具 #  知识库 #  confluence # 收费 NextCloud # 私有网盘 tiddlyWiki # 可在线定义目录树 github # 用wiki页面 gitbook mediaWiki # 维基百科样式，只有单页目录树 dokuWiki # 只有网站地图 xwiki # 目录树, acl 语雀 hdwiki # 百科, 已停更 notion # 任务管理 minidoc # 原smartWiki(php), 改成golang开发的minidoc 有道云笔记 幕布 石墨 etherpad.org # 在线协作无缝编辑 dropbox # 文档协作 坚果云 # 文档协作  网盘 #  google drive 百度云  沟通 #  Mattermost # 开源 team # 微软, 聊天 slack # 聊天 hipChat # Atlassian, 聊天 企业微信 钉钉 倍洽 飞书 瀑布IM  邮件 #  gmail 阿里云邮箱 腾讯企业邮 zoho 网易企业邮  原型 #  zeplin # 设计和前端协同工具 蓝湖 # 免费  团队协作 #  jira # 进度管理跟踪, 敏捷开发 microsoft Project # 瀑布式开发 rational # IBM, 进度管理 teambition # 进度管理 basecamp # 进度管理 testlink # 测试收集, 进度管理 redmine # 开源, ror开发, 项目管理, 把成员、任务、文档、讨论等资源整合在一起。支持git, svn, cvs等 youtrack # jetbrains, 项目管理 禅道 # 项目管理, 开源 trac # wiki, issue tapd # 腾讯项目管理 优势 打通企业微信 功能 worktile # microsoft项目管理 notion 明道云 云之家 eteams 今目标 tower masterlab # 开源 openProject # 开源 peerProject # 开源 trello # 进度管理  代码管理 #  github gitee coding bitbucket gitea # 开源 gitlab gogs # 开源  测试 #  semaphore codeClimate  文档 #  swagger  镜像 #  harbor nexus  部署 #  drone Travis-CI CircleCI GitLab-CI  集群 #  kuboard prometheus grafana zabbix  日志 #  ElasticStack ">
@@ -14,8 +12,9 @@
 <title>设计 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,10 +31,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -45,7 +42,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -55,6 +52,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -221,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -500,7 +498,6 @@ zabbix
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/839c2a85fb929760c13ae35ee0fe2d013893ee0f" title='Last modified by shenwenqing | Jul 3, 2020' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jul 3, 2020</span>
@@ -516,7 +513,13 @@ zabbix
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -574,7 +577,6 @@ zabbix
 
   
 </body>
-
 </html>
 
 

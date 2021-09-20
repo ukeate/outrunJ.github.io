@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta name="generator" content="Hugo 0.83.0-DEV" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="对象命名方式 #  var $a = $(&quot;#inputID&quot;);  选择器（选择多个时形成数组） #  基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!">
@@ -16,8 +14,9 @@
 <title>Jquery | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=">
-<script defer src="/en.search.min.d4551fe2bbacf208117baa7f96cca41b7d6e76435607a2aeaa3b24e95eaa0ed7.js" integrity="sha256-1FUf4rus8ggRe6p/lsykG31udkNWB6Kuqjsk6V6qDtc="></script>
+<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -33,10 +32,8 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
-
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -46,7 +43,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
   </a>
 </h2>
 
@@ -56,6 +53,7 @@ https://github.com/alex-shpak/hugo-book
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
+
 
 
 
@@ -222,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -849,7 +847,6 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
   <div class="flex flex-wrap justify-between">
 
 
-
   <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jun 17, 2019</span>
@@ -865,7 +862,13 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
     </a>
   </div>
 
+
 </div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
 
  
         
@@ -921,7 +924,6 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
 
   
 </body>
-
 </html>
 
 
