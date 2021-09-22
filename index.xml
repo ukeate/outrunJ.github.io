@@ -28,10 +28,10 @@
     
     <item>
       <title>LinuxTool</title>
-      <link>https://example.com/docs/ops/tool/</link>
+      <link>https://example.com/docs/computer/linux/linux_tool/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/ops/tool/</guid>
+      <guid>https://example.com/docs/computer/linux/linux_tool/</guid>
       <description>包 #  net-tools ifconfig  内核 #  modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.</description>
     </item>
     
@@ -41,7 +41,7 @@
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
       <guid>https://example.com/docs/ops/monitor/</guid>
-      <description>统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
+      <description>基础 #  监控的方式 主动、被动、旁路（舆情） 监控类型 服务端监控、客户端监控 目标 全、块、准 指标 请求量、成功率、耗时  统计 #  指标 访问、访客 停留时长 跳出率 退出率 转化率 参与度 显示方式 选时间段 时序数据表 max、min、avg 埋点 通过可视化工具配置，非硬编码 第三方 友盟 百度移动 魔方 App Annie talking data 神策数据  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  应用监控 #  Prometheus # 监控, go实现 Grafana # 监控 Zabbix # 分布式监控 Nagios # 监控 Ganglia Zenoss Open-falcon emq # mqtt broker, erlang开发, 管理控制台  APM #  # Application Performance Management SkyWalking CAT Jaeger Pinpoint Zipkin Dapper # C#  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
     </item>
     
     <item>
@@ -55,19 +55,19 @@
     
     <item>
       <title>Eclipse</title>
-      <link>https://example.com/docs/tool/eclipse/</link>
+      <link>https://example.com/docs/computer/tool/eclipse/</link>
       <pubDate>Thu, 11 Oct 2018 18:33:08 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/eclipse/</guid>
+      <guid>https://example.com/docs/computer/tool/eclipse/</guid>
       <description>方案 #  user library发布 项目右键 -&amp;gt; properties -&amp;gt; Deployment Assembly -&amp;gt; add -&amp;gt; javaBuild Path Entries中选择发布包 tomcat设置发布到外部 new server -&amp;gt; 直接finish 右键server -&amp;gt; open 修改server location -&amp;gt; use Tomcat installation 修改server location -&amp;gt; deploy path为webapps 修改TimeOuts -&amp;gt;所有时间为1200 java版本 window -&amp;gt; preferences -&amp;gt; java -&amp;gt; compiler window -&amp;gt; preferences -&amp;gt; java -&amp;gt; installed JREs 编码 general -&amp;gt; workspace Text file encoding general -&amp;gt; content types Text -&amp;gt; java source file defalt encoding输入UTF-8并点击update 快捷键 general -&amp;gt; editors -&amp;gt; keys content assist # 代码提示 word comletion # 代码补全  插件 #  market place http://www.</description>
     </item>
     
     <item>
       <title>VIM</title>
-      <link>https://example.com/docs/tool/vim/</link>
+      <link>https://example.com/docs/computer/tool/vim/</link>
       <pubDate>Thu, 11 Oct 2018 18:31:16 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/vim/</guid>
+      <guid>https://example.com/docs/computer/tool/vim/</guid>
       <description>编译 #  --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 #  vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode #  普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &amp;lt;C - v&amp;gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&amp;lt;,&#39;&amp;gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &amp;lt;C - g&amp;gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate #  思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl + c # 同Esc motions .</description>
     </item>
     
@@ -100,73 +100,82 @@
     
     <item>
       <title>Nginx</title>
-      <link>https://example.com/docs/function_small/nginx/</link>
+      <link>https://example.com/docs/middleware/nginx/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/function_small/nginx/</guid>
+      <guid>https://example.com/docs/middleware/nginx/</guid>
       <description>基础 #  结构 一个主进程(root权限运行)和多个工作进程(普通权限运行) 优点 异步非阻塞 非常稳定 反向代理 后端服务io能力不高，nginx buffer http请求直到完整，再发送到后端。同样buffer响应 相对apache 轻量 apache阻塞 占资源低 模块化设计 社区活跃, bug少 多进程模型 使用epoll 多worker处理，业务阻塞时切换调度, 结束阻塞时分配 模块 handler filter upstream load-balance 功能 http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理 命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.</description>
     </item>
     
     <item>
       <title>Nodejs</title>
-      <link>https://example.com/docs/function_small/nodejs/</link>
+      <link>https://example.com/docs/middleware/nodejs/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/function_small/nodejs/</guid>
+      <guid>https://example.com/docs/middleware/nodejs/</guid>
       <description>基础 #  特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&amp;gt; watcher -&amp;gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.</description>
     </item>
     
     <item>
-      <title>Spring Cloud</title>
-      <link>https://example.com/docs/support_distributed/spring_cloud/</link>
+      <title>RxJava</title>
+      <link>https://example.com/docs/pl/java/rxjava/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/support_distributed/spring_cloud/</guid>
+      <guid>https://example.com/docs/pl/java/rxjava/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud</title>
+      <link>https://example.com/docs/middleware/distributed/spring_cloud/</link>
+      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
+      
+      <guid>https://example.com/docs/middleware/distributed/spring_cloud/</guid>
       <description>亿级流量 #  流量接入层 #  二级域名 泛域名 A记录 dns解析 udp 向网关请求dns解析 httpDNS 用ip请求http服务, 返回域名解析的ip 因为用ip请求，适合app，不适合网页 lvs + keepalive # 多lvs时用dns负载 nginx openresty kong 动静分离 cdn dns动态域名解析 cdn分发服务 源服务拉取FastDFS CDN节点分发  WEB服务层 #  webflux 不基于重量的servlet标准 基于netty  Eureka #  使用 @EnableEurekaServer application.properties eureka.client.register-with-eureka=false # 是否注册自己 eureka.client.fetch-registry=false # 是否拉取eureka eureka.client.service-url.defaultZone=http://localhost:7900/eureka/ # 设置注册中心的URL eureka.instance.hostname=euk1.com spring.application.name=EurekeServer # eureka集群中各节点要同名 行为 register # 注册 renew # 通过心跳, 默认30s。三次失败删除实例 fetch registry # 拉注册的信息 cancel # 发取消请求，删除实例 time lag # 同步时间延迟 communication mechanism # 通讯机制，默认jersey和jackson 功能 唯一标识 # service id 主机名:application.</description>
     </item>
     
     <item>
       <title>Bootstrap</title>
-      <link>https://example.com/docs/frontend/bootstrap/</link>
+      <link>https://example.com/docs/middleware/library_frontend/bootstrap/</link>
       <pubDate>Thu, 11 Oct 2018 09:39:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/frontend/bootstrap/</guid>
+      <guid>https://example.com/docs/middleware/library_frontend/bootstrap/</guid>
       <description>介绍 #  在jquery基础上的组件框架  移动 #  &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&amp;quot;&amp;gt;  css #  全局 container # div, 唯一包裹容器 container-fluid # 占全部视口 栅格 # 必须放在row内 col-xs-1 # 适用于大于等于分界点的屏幕 ## 大于12的最后那个col另起一行排列 # xs &amp;lt; 768px 宽度, container 最大宽度: 自动 # sm &amp;gt;= 768px, 750px # md &amp;gt;= 992px, 970px # lg &amp;gt;= 1200px, 1170px col-md-offset-4 # 向右偏移4 col-md-pull-9 # 向后推9, 改变元素的顺序 col-md-push-3 o-&amp;gt; mixin make-row 如 .wrapper {.</description>
     </item>
     
     <item>
       <title>Threejs</title>
-      <link>https://example.com/docs/frontend/threejs/</link>
+      <link>https://example.com/docs/middleware/library_frontend/threejs/</link>
       <pubDate>Thu, 11 Oct 2018 07:58:16 +0800</pubDate>
       
-      <guid>https://example.com/docs/frontend/threejs/</guid>
+      <guid>https://example.com/docs/middleware/library_frontend/threejs/</guid>
       <description>介绍 #  协调程序加载项的类库  使用 #  var preload = new createjs.LoadQueue(false, &amp;quot;assets/&amp;quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&amp;quot;image&amp;quot;], callback: function(src){ var id = src.toLowerCase().split(&amp;quot;/&amp;quot;).pop().split(&amp;quot;.&amp;quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &amp;quot;Autumn.png&amp;quot;, &amp;quot;BlueBird.png&amp;quot;, &amp;quot;Nepal.jpg&amp;quot;, &amp;quot;Texas.jpg&amp;quot; ]);  api #  涉及dom #  属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls.</description>
     </item>
     
     <item>
       <title>Angular</title>
-      <link>https://example.com/docs/frontend/angular/</link>
+      <link>https://example.com/docs/middleware/library_frontend/angular/</link>
       <pubDate>Thu, 11 Oct 2018 07:47:51 +0800</pubDate>
       
-      <guid>https://example.com/docs/frontend/angular/</guid>
+      <guid>https://example.com/docs/middleware/library_frontend/angular/</guid>
       <description>介绍 #  google发布 提倡SPA(Single Page Apps), 运行快，一次加载 mvvm  特点 #  前端mvc 双向数据绑定 指令和语义化标签 模块化工具 依赖注入 html模板 常用工具封装，如$http $cookies $location  directive #  内置 ng-app # 声明app名, 在最外层 ng-submit # &amp;lt;form ng-submit=&amp;quot;submit()&amp;quot;&amp;gt; ng-controller ng-repeat # $index返回当前引用的元素序号，$first, $middle, $last 返回布尔值 ng-model # 绑定当前元素的值 ng-click ng-eventhandler=&amp;quot;expression&amp;quot;类的指令可以在所有浏览器中有相同的行为，angular将会屏蔽差异性 不会在全局命名空间中进行操作，指定的表达式只能访问元素控制器作用域范围内的函数和数据 ng-bind ng-change &amp;lt;form ng-submit=&amp;quot;aaFunc()&amp;quot;&amp;gt; # 会阻止浏览器默认的提交操作 ng-dblclick ng-show ng-hide ng-class # 可以是类名字符串，空格分隔，可以是类名数组，可以是类名到布尔值的映射 ng-class=&amp;quot;{true: &#39;active&#39;, false: &#39;inactive&#39;}[isActive]&amp;quot; ng-class=&amp;quot;{&#39;selected&#39;: isSelected, &#39;car&#39;: isCar}&amp;quot; ng-style # templete中写css不好维护 ng-src=&amp;quot;/images/cats/{{favoriteCat}}&amp;quot; # src，href属性中简单使用templete,由于浏览器优先并行加载图片和其它内容,angular没有机会拦截到数据绑定请求，所以无法运行 ng-href ng-options &amp;lt;select ng-model=&amp;quot;x&amp;quot; ng-options=&amp;quot;(m.</description>
     </item>
     
     <item>
       <title>Jquery</title>
-      <link>https://example.com/docs/frontend/jquery/</link>
+      <link>https://example.com/docs/middleware/library_frontend/jquery/</link>
       <pubDate>Thu, 11 Oct 2018 07:34:03 +0800</pubDate>
       
-      <guid>https://example.com/docs/frontend/jquery/</guid>
+      <guid>https://example.com/docs/middleware/library_frontend/jquery/</guid>
       <description>对象命名方式 #  var $a = $(&amp;quot;#inputID&amp;quot;);  选择器（选择多个时形成数组） #  基本选择器 $(&amp;quot;#inputID&amp;quot;); # id选择 $(&amp;quot;input&amp;quot;); // 标签名,默认获取第一个 # 标签名选择 $(&amp;quot;.className&amp;quot;); // 按样式名定位 # 样式名选择 $(&amp;quot;#div1ID,.myClass,p&amp;quot;); # 选择多个 $(&amp;quot;*&amp;quot;); # 所有元素 层级选择器 $(&amp;quot;form input&amp;quot;) # form所有后代元素中input元素的个数 $(&amp;quot;form&amp;gt;input&amp;quot;) # form子元素中input元素个数，不包括下层元素 $(&amp;quot;form+input&amp;quot;) # form同级并且下面的第一个input元素 $(&amp;quot;form~input&amp;quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&amp;quot;ul li:first&amp;quot;) # ul中第一个子元素li $(&amp;quot;ul li:last&amp;quot;) # ul中最后一个子元素li $(&amp;quot;input:not(:checked)&amp;quot;) # input标签中所有未选中的元素 $(&amp;quot;table tr:even&amp;quot;) # 表格的奇数行（索引号为偶数） $(&amp;quot;table tr:odd&amp;quot;) # 表格的偶数行（索引号为奇数） $(&amp;quot;table tr:eq(1)&amp;quot;) # table中索引号等于1的行 $(&amp;quot;table tr:gt(0)&amp;quot;) # table中索引号大于0的行（不包括0） $(&amp;quot;table tr:lt(2)&amp;quot;) # table中索引号小于2的行（不包括2） $(&amp;quot;:header&amp;quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&amp;quot;div:contains(&#39;Join&#39;)&amp;quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&amp;quot;p:empty&amp;quot;) # p 标签的html()的内容为空的元素 $(&amp;quot;div:has(p)&amp;quot;) # div标签中包含p标签的该div标签 $(&amp;quot;p:parent&amp;quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&amp;quot;tr:hidden&amp;quot;) # 查找隐藏的tr元素，如&amp;lt;tr style=&amp;quot;display:none&amp;quot;&amp;gt; &amp;lt;td&amp;gt;Value 1&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; $(&amp;quot;tr:visible&amp;quot;) # 查找可见的tr元素 属性选择器 $(&amp;quot;div[id]&amp;quot;) # 含有id属性的div元素 $(&amp;quot;input[name=&#39;newsletter&#39;]&amp;quot;) # 所有name属性是newsletter的input元素 $(&amp;quot;input[name!</description>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://example.com/docs/frontend/react/</link>
+      <link>https://example.com/docs/middleware/library_frontend/react/</link>
       <pubDate>Thu, 11 Oct 2018 07:32:08 +0800</pubDate>
       
-      <guid>https://example.com/docs/frontend/react/</guid>
+      <guid>https://example.com/docs/middleware/library_frontend/react/</guid>
       <description>介绍 #  facebook推出的用于build user interfaces 的类库  使用 #  o-&amp;gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname + &#39;/app/main.js&#39;], output: { path: __dirname + &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname + &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.</description>
     </item>
     
@@ -253,19 +262,19 @@
     
     <item>
       <title>架构-方案</title>
-      <link>https://example.com/docs/function_big/solution/</link>
+      <link>https://example.com/docs/function/solution/</link>
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
       
-      <guid>https://example.com/docs/function_big/solution/</guid>
+      <guid>https://example.com/docs/function/solution/</guid>
       <description>功能实现 #  重复提交 #  直接redirect csrf令牌  权限 #  过滤器 页面权限 拦截器aop 数据权限  seo #  静态化  web状态 #  cookie url中sessionId  加密 #  base64 sha  复杂业务 #  关注/信箱 #  要求 user人数10w, 活跃1w。 大部分user关注1k人, 一部分大v被关注100w人。 每人每天发100条博文 user新博文数量提醒，消息标记已读 表 user user_followers user_followed user_posts(u_id, created_ts) user_messages(u_id, p_id, is_read) # 10w * 100条数据 / 天 定时任务拉取 user_followed拉u_id, user_posts表按时段拉id, 更新user_messages 优点 平均, 少次, 增量。 缺点 及时性中 每次对所有用户操作 数据 10w*1k*100条数据 / 天 发布时推送 有p_id, user_followers, 更新user_messages 优点 及时性高 缺点 计算集中, 可能高峰 数据 最高 100w*100条数据 / 次 10w*100次 / 天 messages处理 存部分messages 不活跃user不存message 在登录状态，定时拉取 优点 减少message 缺点 计算集中 数据 1k * N(N&amp;lt;100)条 / 次 1w * 1k * 100条数据 / 天 messages结构变化 u_id: [{p_id: uint, is_read: bool}] # 条数稳定为10w 用mongodb或redis 消息队列?</description>
     </item>
     
     <item>
       <title>支撑-原理</title>
-      <link>https://example.com/docs/support_service/principle/</link>
+      <link>https://example.com/docs/computer/principle/</link>
       <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
       
-      <guid>https://example.com/docs/support_service/principle/</guid>
+      <guid>https://example.com/docs/computer/principle/</guid>
       <description>主机 #  cpu #  介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 gpu在pci总线上 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 内存到显存数据传输最花费时间。 原理 处理单元(processing unit) 算术逻辑单元(arithmetic logic unit) 处理寄存器(processor register) 控制单元(control unit) 指令寄存器(instruction register) 程序计数器(program counter) 指令集架构(ISA, instruction set architecture) # 机器码易兼容, 软件易编程, 易升级cpu 精简指令集RISC(reduced instruction set computing) 复杂指令集CISC(complex instruction set computer) 时钟频率(clock speed) 生产 生产线散热决定生存率，决定cpu型号 多级缓存 L1, L2, L3, L4 虚拟化 虚拟机监视器(VMM, virtual machine monitors) 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 硬件并行 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 指令分步骤(指令流), 每步专门部件处理 多指令流并行, 部件不空闲等待单指令流结束 六级流水线步骤 取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO) 多发射(超标量) 一时钟周期处理多指令 超线程 模拟多个逻辑线程 乱序执行 猜测执行 数据级 向量体系结构、图形处理器 单指令多数据(SIMD)架构 线程级 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互 请求级 # OS或程序耦合任务间并行 程序并行 数据级(DLP, data-level parallel) 任务级(TLP, task-level parallel) # 多处理器, 超线程, 虽只有4个核，但可用核返回8 内存 共享内存模型 分布式内存模型 进程: 独有内存 线程: 共享进程内存(地址空间、文件描述符) 一个进程下的轻量进程 POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似 自己的信号掩码 cpu affinity(倾向在某cpu尽量长时间运行) cgroups  进程调度 #  等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
     </item>
     
@@ -361,10 +370,10 @@
     
     <item>
       <title>JavaWeb</title>
-      <link>https://example.com/docs/function_big/javaweb/</link>
+      <link>https://example.com/docs/function/javaweb/</link>
       <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
       
-      <guid>https://example.com/docs/function_big/javaweb/</guid>
+      <guid>https://example.com/docs/function/javaweb/</guid>
       <description>基础 #  分层 视图层 jsp 控制层 servlet 业务层 过滤数据 manager层 封装第三方，service能力下沉，dao中间件 数据访问层对象 封装对象 数据库 java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  jsp #  基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层 域对象 pageContext # 当前页面有效 request # 一次请求范围 session # 会话 application context # 同一服务器 内置对象 Request Response Session Out # 输出流 PageContext # context Page # jsp的this Exception # &amp;lt;%@ page isErrorPage=&amp;quot;true&amp;quot;%&amp;gt; 时使用，显示异常信息 Application # 服务器 Config # 服务器配置  jsp-el表达式 #  ${ } 11个内置对象 pageContext // pageContext page // map （相当于pageScope，不过写法上省略了Scope） requestScope // map sessionScope // map applicationScope // map param // map ,用${param.</description>
     </item>
     
@@ -393,15 +402,6 @@
       
       <guid>https://example.com/docs/pl/java/jvm/</guid>
       <description>基础 #  定义 JVM规范说明书, JVMS(Java Virtual Machine Specifications) Java语言规范, JLS(Java Language Specification) 虚拟机 指令集 内存管理 过程 x.java -&amp;gt; javac -&amp;gt; x.class -&amp;gt; ClassLoader -&amp;gt; (字节码解释器、JIT) -&amp;gt; 执行引擎 JVM语言 Scala, Kotlin, Groovy, Clojure, jython, jruby等100多个 JVM实现 HotSpot # Oracle官方, 8之后收费, OpenJDK为开源版本 Jrockit # Oracle收购, 合并入HotSpot J9 # IBM Microsoft VM TaobaoVM # HotSpot深度定制 LiquidVM # 直接匹配专门硬件 azul zing # 收费，快, GC1mm, HotSpot参考写的G1 JRE, JDK JRE = jvm + core lib JDK = JRE + development kit  JVM构造 #  指标 #  吞吐量: 代码时间 / (代码时间 + GC时间) 响应时间: STW越短, 响应时间越好  指令(Instructions) #  分类 基于栈的指令类 # 简单, HotSpot 基于寄存器的指令集 # 复杂但快, HotSpot局部变量表 8大原子操作(JSR-133已放弃这个描述，但指令没变化) lock # 主内存，标识变量线程独占 unlock # 主内存，解锁独占 read # 主内存，读到工作内存 load # 工作内存，read后的值放入线程本地变量副本 use # 工作内存，传值给执行引擎 assign # 工作内存，执行引擎结果赋值给线程本地变量 store # 工作内存，存值到主内存给write备用 write # 主内存，写变量值 方法指令 # 在methods的Code中罗列 aload_0 # 变量表第0项入栈 invokespecial #1 # 调private(无多态)的方法 invokevirtual # 调有多态可能性的方法 invokestatic # 调静态方法 invokeinterface # 调interface方法 invokedynamic # 1.</description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>https://example.com/docs/pl/java/spring/</link>
-      <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
-      
-      <guid>https://example.com/docs/pl/java/spring/</guid>
-      <description>NamedContextFactory #  class Spec1 implements NamedContextFactory.Specification { @Override public String getName(){} @Override public Class&amp;lt;?&amp;gt;[] getConfiguration(){} } public class MyFactory extends NamedContextFactory&amp;lt;Specification1&amp;gt; { public MyFactory(Class&amp;lt;?&amp;gt; clazz) { super(clazz, &amp;quot;my&amp;quot;, &amp;quot;my.name&amp;quot;) } } @Configuration public class Config0 { @Bean Bean0 getBean(){ return new Bean0() } } parent = new AnnotationConfigApplicationContext() parent.register(Config0.class) parent.refresh() factory = new MyFactory(Config00.class) factory.setApplicationContext(parent) spec1 = new Spec1(&amp;quot;1&amp;quot;, new Class[]{Config1.class}) factory.setConfigurations(List.of(spec1)) factory.getInstance(&amp;quot;1&amp;quot;, Bean0.class) // 子域共享 factory.getInstance(&amp;quot;1&amp;quot;, Bean00.class) // 子域复制 factory.</description>
     </item>
     
     <item>
@@ -451,6 +451,15 @@
     
     <item>
       <title></title>
+      <link>https://example.com/docs/cache/template/script/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/cache/template/script/</guid>
+      <description>默认声卡 #  pactl list short sources pactl list short sinks pactl set-default-source alsa_input.pci-0000_00_1b.0.analog-stereo pactl set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo  亮度 #  #!/usr/bin/expect -f spawn sudo vim /sys/class/backlight/intel_backlight/brightness expect &amp;quot;*password*&amp;quot; send -- &amp;quot;asdf\r&amp;quot; interact  电量 #  cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity  </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/cache/work/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -485,6 +494,24 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title></title>
+      <link>https://example.com/docs/computer/performance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/computer/performance/</guid>
+      <description>基础 #  性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 #  cpu gpu  存储 #     类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&amp;gt; 荷兰 -&amp;gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 #  带宽 热门并发1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/db/elasticsearch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/db/elasticsearch/</guid>
+      <description>介绍 #  分布式实时lucene  使用 #  ./bin/elasticsearch curl http://localhost:9200  命令 #  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 #  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 #  config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &amp;quot;*&amp;quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/db/mysql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -512,65 +539,38 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title></title>
-      <link>https://example.com/docs/function_big/hadoop/</link>
+      <link>https://example.com/docs/function/small_function/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/function_big/hadoop/</guid>
-      <description>介绍 #  大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.5: 300w-500w MySQL8: 1亿、1GB Doug Cutting GFS -&amp;gt; HDFS 存储 Map-Reduce -&amp;gt; MapReduce 计算 BigTable -&amp;gt; HBase 表式存储 发展 2003-2004: Google公开部分GFS和MapReduce 2005: Hadoop成为Apache Lucene子项目Nutch了一部分 2006.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/function_small/aliyun/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/function_small/aliyun/</guid>
-      <description>实时计算 #  集群 计算单元 vertex拓扑 名词 DataHub源表 RDS维表 RDS结果表 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/function_small/elasticsearch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/function_small/elasticsearch/</guid>
-      <description>介绍 #  分布式实时lucene  使用 #  ./bin/elasticsearch curl http://localhost:9200  命令 #  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 #  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 #  config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &amp;quot;*&amp;quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/function_small/hibernate/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/function_small/hibernate/</guid>
-      <description>基础 #  优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载  优化 #  数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略  基本概念 #  o-&amp;gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&amp;gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&amp;gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&amp;gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&amp;gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  使用 #  1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/function_small/principle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/function_small/principle/</guid>
+      <guid>https://example.com/docs/function/small_function/</guid>
       <description>阻塞 #  阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 #  实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 #  并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/function_small/spring/</link>
+      <link>https://example.com/docs/middleware/big_data/hadoop/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/function_small/spring/</guid>
-      <description>基础 #  特点 容器, 也容纳管理了第三方框架 # 目的是解耦框架api 轻量级，模块化，无(少)侵入 IOC(inversion of control) 容器用工厂装配对象并管理, 面向接口编程 优点 降低代码量 容易测试 最小侵入性松耦合 方式 Setter 构造器 静态工厂、实例工厂 DI(dependency injection) 容器向类添加属性 # 反射，用带参构造或set方法 AOP(aspect oriented programming) # 继承是纵向组织，AOP横切入业务 # oop是静态概念，aop是动态概念（aop的切面可以替换或不使用） 动态代理实现切入代码 权限控制 事务管理 记录日志 概念 连接点:普通方法 切入点:名称满足条件的连接点 增强（通知）类:服务对象 # 切入点与增强是多对多的 切面:切入点 + 增强类 # 我们切入的是横切面 目标对象（服务对象）：要注入的对象 通知 before # 执行前 after # 执行后 after-returning # 正常退出 after-throwing # 异常退出 around # 执行前后 代理对象(业务对象)：被注入的对象 模块 dao, orm, aop, jee, web, core 结构 核心容器(core container) Core # 最底层，资源访问，类型转换 Beans # IOC, DI, BeanFactory Context # 以Core、Beans为基础，ApplicationContext。资源绑定，数据验证，国际化，JavaEE支持，容器生命周期，事件传播 EL # 表达式语言 AOP, Aspects # Aspects对AspectsJ集成, 功能多于spring asp 数据访问/集成 JDBC ORM OXM # object xml 映射 JMS # 消息与异步通信 事务 Web/Remoting Web # ioc窗口，rmi, hessian,burlap, web service Web-Servlet Web-Struts Web-Porlet # portal认证 Test 设计模式 代理 目标对象实现接口，使用Proxy 未实现接口，使用CGLIB 单例 bean默认单例 模板, 解决代码重复问题 RestTemplate, JmsTemplate, JpaTemplate 控制器 DispatherServlet对请求分发 视图帮助(view helper) 提供jsp标签、高效宏 帮助在视图中写代码 依赖注入 BeanFactory, ApplicationContext核心理念 工厂 BeanFactory 循环依赖问题 构造器, 正在创建在Bean池标记，创建完删除标记，标记冲突报错 # 所以用@Autowired决定注入时机，不写在构造方法里 单例， 三级缓存, 提前暴露使双方都可初始化 setter, 提前暴露bean 版本 2.</description>
+      <guid>https://example.com/docs/middleware/big_data/hadoop/</guid>
+      <description>介绍 #  大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.5: 300w-500w MySQL8: 1亿、1GB Doug Cutting GFS -&amp;gt; HDFS 存储 Map-Reduce -&amp;gt; MapReduce 计算 BigTable -&amp;gt; HBase 表式存储 发展 2003-2004: Google公开部分GFS和MapReduce 2005: Hadoop成为Apache Lucene子项目Nutch了一部分 2006.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/ops/linux/</link>
+      <link>https://example.com/docs/middleware/distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/ops/linux/</guid>
-      <description>基础 #  历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 #  /var /log /boot.</description>
+      <guid>https://example.com/docs/middleware/distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</guid>
+      <description>��������[s�����)8�+���p	#g���}�L�y�@$L�	YV:V:vlǖ퉜&amp;amp;���[&amp;lsquo;v��mS��-&amp;amp;&amp;amp;%=�+�삶R�@�����,��ϳ��o��كw�;�*���뇝�*FF��ua�������v���s�6}��iEn���tų��J������������ �5��~����-TO�U*�4���^u�8���b��q��bu�m|܊µN��58�aT9����S�Q]4��j琶Wݖ�y�Ǔ�6��8�4��E�ͶWî���c�LhG�;t���.�i����&#39;i��~[}Љ&amp;quot;qۍZ~g\�&amp;amp;H:� ����1,f�W}2��r�rA�rQ�r~wi5�����q��0&amp;lt;����њ7�N��p�fV+N�q��O�A7��˯�m�~s[��&amp;lt;���:bB+�~3^Y:�����7�~���ˁwЧ�;qa�o���ّ�{��9�����xh����xh��M�{�e�&amp;gt;fBK+��������vL����D�nxѠ��1]���ǩ���?���P��˿�����p���Fq�D���LuC��X�����Q��5p�cݵ�_S�55��d����h���vZ��Z��B��u�A�r��l�^ൗa�%g���dܲ׮�#�C�Ck��[+�!b���ǌ�uW����G�q@��ԍ7oT�묵���lM���f�#=e�/��;3vF���1�:Y;SǍ�P&amp;rsquo;�Oq��Fa&#39;&amp;gt;HH�^9���&amp;gt;���V+�|HǑ��^pڋ��;�$��cW����6��O4��r��&amp;quot;|5qΧ���!!�a���d���&amp;gt;��_���ȲI&amp;lt;^؇��4¹id&amp;quot;���_�����H�Ԝ��2�(�Q�p&amp;lt;WH ��&amp;quot;}�	������n��[�ǟ���������_�&amp;lt;��s����.������W�֕ޥ۽��ӻ�P�bp2ScIM,��&amp;quot;��%B홽o6b�����3r�6G#+�U��e�SLQA!&#39;���o2��d^&amp;gt;��w���^��|���ͽ������m~O{��|�&amp;lt;�=����/�#ӮQG�E�.%х����8b��/BK��u&amp;quot;&amp;quot;&amp;quot;�x��2X��3r��L�5g�gv���]~������,;���nj�(�X82(�,*L�,eA�冊��%}��)�B� �Sj%O�R���+Ll�Y��0y�a�����E���b��=�0�1S����IY(�Ed@�@���Ug$:L��0�V�D�Ӹ�����M����r�a����R�: �K�&amp;amp;r��J�B�Y�ҿ�jSS�ҿ#Up��^��ū�����,IE%��T���e�!����{����PNV��Ȥ�e��*�\��l�:q̖:�X&amp;amp;~0h@4�U&#39;��5OCDCd~�����I��FI(1e 2���VY,��HA�j� B��l��F��NC�e�f�f0�z뮦�zz�(թ�%��ɽ�ΐap1�C��d-�.u���&amp;amp;��i,[m�V~�4A4A��[_���MD9A,�Ŭ�)�+5E��i�G�1a�&amp;amp;TL���i,��������,��o|ۻvA3��&amp;quot;��[&amp;quot;�!�&amp;quot;����&amp;quot;ؒ:�K�ÀCLd��I��&amp;lt;�͒K^&amp;gt;�ӿ�W͒XBE&#39;�+]�#��$�w��gk2�(�*ܩS[悋za*1�۰,T9�A#����5[@Cd����_&amp;gt;�����ޓ��m�SD�N��rqDc� ��������8����(\�	~���[�)�\�+��؎%�̬�oȠ���0�х�q�r&#39;M�+���ݖS��Է8��јb�-(��Q�����Bv�H1�֢�ka���F��$҅����k�Xq��4O�����F�o��n��8��Q��p����S���eQ[ܫ��G��w�cK�!&amp;quot;\qn�c&amp;amp;:�,ab�L]�s���YU��˴I�\V�,=U~��b�������?&amp;gt;���J�3�m��}��(ir�n��-���?{W�!����u�Q�vBQ��dnn|�:9�Ƚ=�?�s�P�&amp;quot;A��R�0��[��w］�Fޮ�t�j [Di��S!�e�9�&amp;amp;&amp;amp;:��AG����u��MΘH����t(�(t�ԱM^�6�۳�f���������E/�\����������I9�	��vD�xf�ؤ�����9Ack��h&amp;lt;Ș��!�&amp;amp;K6��Z0�7��[T��!��(EφMQ������[/��e���s�;w%�.�����Ɗr����b��N-�i�(�J����L6�Yj3�O�Z&amp;quot;U�BY�@i���e w0�L)I���v,M��*2++�y�����7�&amp;gt;����Xo��u�t.�Q����8f����w&amp;amp;O���^ �Loa,#�1-Y�H�r,�D�w�&amp;quot;L�1�&amp;quot;2U�&amp;quot;n��r�X�g�g� 0/#�,J�V-��|k͋*��?�o��RP�Mm���M����h�9�d��g	�9cf�:7dP�8��gU����G���1����TSD�6��G{7uAG��62����^n)7�����hq��0,G��:�h�2���&amp;quot;���7,o�e�u�J���tp�����u��f��r���������d��{��H���k���b�ҡB�$Qkp�����������B���&amp;amp;��S3@3@g����$�&amp;gt;s}[��;��[����sEmŷ&amp;amp;,��lwNg�;T/@ό�d�[�!���A��yzI{�I��y�nx�ɹ�	��&amp;quot;�}r���t�����</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/middleware/library/hibernate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/middleware/library/hibernate/</guid>
+      <description>基础 #  优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载  优化 #  数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略  基本概念 #  o-&amp;gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&amp;gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&amp;gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&amp;gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&amp;gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  使用 #  1.</description>
     </item>
     
     <item>
@@ -584,46 +584,28 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title></title>
-      <link>https://example.com/docs/support_distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</link>
+      <link>https://example.com/docs/pl/java/spring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/support_distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</guid>
-      <description>��������[s�����)8�+���p	#g���}�L�y�@$L�	YV:V:vlǖ퉜&amp;amp;���[&amp;lsquo;v��mS��-&amp;amp;&amp;amp;%=�+�삶R�@�����,��ϳ��o��كw�;�*���뇝�*FF��ua�������v���s�6}��iEn���tų��J������������ �5��~����-TO�U*�4���^u�8���b��q��bu�m|܊µN��58�aT9����S�Q]4��j琶Wݖ�y�Ǔ�6��8�4��E�ͶWî���c�LhG�;t���.�i����&#39;i��~[}Љ&amp;quot;qۍZ~g\�&amp;amp;H:� ����1,f�W}2��r�rA�rQ�r~wi5�����q��0&amp;lt;����њ7�N��p�fV+N�q��O�A7��˯�m�~s[��&amp;lt;���:bB+�~3^Y:�����7�~���ˁwЧ�;qa�o���ّ�{��9�����xh����xh��M�{�e�&amp;gt;fBK+��������vL����D�nxѠ��1]���ǩ���?���P��˿�����p���Fq�D���LuC��X�����Q��5p�cݵ�_S�55��d����h���vZ��Z��B��u�A�r��l�^ൗa�%g���dܲ׮�#�C�Ck��[+�!b���ǌ�uW����G�q@��ԍ7oT�묵���lM���f�#=e�/��;3vF���1�:Y;SǍ�P&amp;rsquo;�Oq��Fa&#39;&amp;gt;HH�^9���&amp;gt;���V+�|HǑ��^pڋ��;�$��cW����6��O4��r��&amp;quot;|5qΧ���!!�a���d���&amp;gt;��_���ȲI&amp;lt;^؇��4¹id&amp;quot;���_�����H�Ԝ��2�(�Q�p&amp;lt;WH ��&amp;quot;}�	������n��[�ǟ���������_�&amp;lt;��s����.������W�֕ޥ۽��ӻ�P�bp2ScIM,��&amp;quot;��%B홽o6b�����3r�6G#+�U��e�SLQA!&#39;���o2��d^&amp;gt;��w���^��|���ͽ������m~O{��|�&amp;lt;�=����/�#ӮQG�E�.%х����8b��/BK��u&amp;quot;&amp;quot;&amp;quot;�x��2X��3r��L�5g�gv���]~������,;���nj�(�X82(�,*L�,eA�冊��%}��)�B� �Sj%O�R���+Ll�Y��0y�a�����E���b��=�0�1S����IY(�Ed@�@���Ug$:L��0�V�D�Ӹ�����M����r�a����R�: �K�&amp;amp;r��J�B�Y�ҿ�jSS�ҿ#Up��^��ū�����,IE%��T���e�!����{����PNV��Ȥ�e��*�\��l�:q̖:�X&amp;amp;~0h@4�U&#39;��5OCDCd~�����I��FI(1e 2���VY,��HA�j� B��l��F��NC�e�f�f0�z뮦�zz�(թ�%��ɽ�ΐap1�C��d-�.u���&amp;amp;��i,[m�V~�4A4A��[_���MD9A,�Ŭ�)�+5E��i�G�1a�&amp;amp;TL���i,��������,��o|ۻvA3��&amp;quot;��[&amp;quot;�!�&amp;quot;����&amp;quot;ؒ:�K�ÀCLd��I��&amp;lt;�͒K^&amp;gt;�ӿ�W͒XBE&#39;�+]�#��$�w��gk2�(�*ܩS[悋za*1�۰,T9�A#����5[@Cd����_&amp;gt;�����ޓ��m�SD�N��rqDc� ��������8����(\�	~���[�)�\�+��؎%�̬�oȠ���0�х�q�r&#39;M�+���ݖS��Է8��јb�-(��Q�����Bv�H1�֢�ka���F��$҅����k�Xq��4O�����F�o��n��8��Q��p����S���eQ[ܫ��G��w�cK�!&amp;quot;\qn�c&amp;amp;:�,ab�L]�s���YU��˴I�\V�,=U~��b�������?&amp;gt;���J�3�m��}��(ir�n��-���?{W�!����u�Q�vBQ��dnn|�:9�Ƚ=�?�s�P�&amp;quot;A��R�0��[��w］�Fޮ�t�j [Di��S!�e�9�&amp;amp;&amp;amp;:��AG����u��MΘH����t(�(t�ԱM^�6�۳�f���������E/�\����������I9�	��vD�xf�ؤ�����9Ack��h&amp;lt;Ș��!�&amp;amp;K6��Z0�7��[T��!��(EφMQ������[/��e���s�;w%�.�����Ɗr����b��N-�i�(�J����L6�Yj3�O�Z&amp;quot;U�BY�@i���e w0�L)I���v,M��*2++�y�����7�&amp;gt;����Xo��u�t.�Q����8f����w&amp;amp;O���^ �Loa,#�1-Y�H�r,�D�w�&amp;quot;L�1�&amp;quot;2U�&amp;quot;n��r�X�g�g� 0/#�,J�V-��|k͋*��?�o��RP�Mm���M����h�9�d��g	�9cf�:7dP�8��gU����G���1����TSD�6��G{7uAG��62����^n)7�����hq��0,G��:�h�2���&amp;quot;���7,o�e�u�J���tp�����u��f��r���������d��{��H���k���b�ҡB�$Qkp�����������B���&amp;amp;��S3@3@g����$�&amp;gt;s}[��;��[����sEmŷ&amp;amp;,��lwNg�;T/@ό�d�[�!���A��yzI{�I��y�nx�ɹ�	��&amp;quot;�}r���t�����</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/support_service/performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/support_service/performance/</guid>
-      <description>基础 #  性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 #  cpu gpu  存储 #     类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&amp;gt; 荷兰 -&amp;gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 #  带宽 热门并发1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/template/script/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/template/script/</guid>
-      <description>默认声卡 #  pactl list short sources pactl list short sinks pactl set-default-source alsa_input.pci-0000_00_1b.0.analog-stereo pactl set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo  亮度 #  #!/usr/bin/expect -f spawn sudo vim /sys/class/backlight/intel_backlight/brightness expect &amp;quot;*password*&amp;quot; send -- &amp;quot;asdf\r&amp;quot; interact  电量 #  cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity  </description>
+      <guid>https://example.com/docs/pl/java/spring/</guid>
+      <description>基础 #  特点 容器, 也容纳管理了第三方框架 # 目的是解耦框架api 轻量级，模块化，无(少)侵入 IOC(inversion of control) 容器用工厂装配对象并管理, 面向接口编程 优点 降低代码量 容易测试 最小侵入性松耦合 方式 Setter 构造器 静态工厂、实例工厂 DI(dependency injection) 容器向类添加属性 # 反射，用带参构造或set方法 AOP(aspect oriented programming) # 继承是纵向组织，AOP横切入业务 # oop是静态概念，aop是动态概念（aop的切面可以替换或不使用） 动态代理实现切入代码 权限控制 事务管理 记录日志 概念 连接点:普通方法 切入点:名称满足条件的连接点 增强（通知）类:服务对象 # 切入点与增强是多对多的 切面:切入点 + 增强类 # 我们切入的是横切面 目标对象（服务对象）：要注入的对象 通知 before # 执行前 after # 执行后 after-returning # 正常退出 after-throwing # 异常退出 around # 执行前后 代理对象(业务对象)：被注入的对象 模块 dao, orm, aop, jee, web, core 结构 核心容器(core container) Core # 最底层，资源访问，类型转换 Beans # IOC, DI, BeanFactory Context # 以Core、Beans为基础，ApplicationContext。资源绑定，数据验证，国际化，JavaEE支持，容器生命周期，事件传播 EL # 表达式语言 AOP, Aspects # Aspects对AspectsJ集成, 功能多于spring asp 数据访问/集成 JDBC ORM OXM # object xml 映射 JMS # 消息与异步通信 事务 Web/Remoting Web # ioc窗口，rmi, hessian,burlap, web service Web-Servlet Web-Struts Web-Porlet # portal认证 Test 设计模式 代理 目标对象实现接口，使用Proxy 未实现接口，使用CGLIB 单例 bean默认单例 模板, 解决代码重复问题 RestTemplate, JmsTemplate, JpaTemplate 控制器 DispatherServlet对请求分发 视图帮助(view helper) 提供jsp标签、高效宏 帮助在视图中写代码 依赖注入 BeanFactory, ApplicationContext核心理念 工厂 BeanFactory 循环依赖问题 构造器, 正在创建在Bean池标记，创建完删除标记，标记冲突报错 # 所以用@Autowired决定注入时机，不写在构造方法里 单例， 三级缓存, 提前暴露使双方都可初始化 setter, 提前暴露bean 版本 2.</description>
     </item>
     
     <item>
       <title>Apple</title>
-      <link>https://example.com/docs/tool/apple/</link>
+      <link>https://example.com/docs/computer/tool/apple/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/tool/apple/</guid>
+      <guid>https://example.com/docs/computer/tool/apple/</guid>
       <description>ipad #  操作 下边向上(短)：桌面 下边向上(停): dock dock拖app: 小窗、分屏 小窗向边(短): 隐藏 小窗向边(停): 分屏 小窗向上：分离 下角向内(短): 切app 下角向内(停): app表 右上角向下: 控制中心 左上角向下：通知 桌面向下: 搜索 3指左右: app内切换 4指左右：切app 4指向内(短): 桌面 4指向内(停): app表 home一下：桌面 home两下：app表 siri 问答: 笑话, 常识, 抛硬币 safari: 搜索 设置: 蓝牙,飞行模式 时钟 6点起床 德国时间 倒计时 日历: 9点开会 提醒：提醒和给妈妈打电话 备忘录：记下我花了10块钱 地图：回家路线 打车 打电话, 发信息 照片 体育：比赛消息 音乐 邮件 天气 计算器 股票: xx涨了吗 朋友：xx在哪里 发微博 指定xx: 打开trello发送a 附近店 相机：自拍模式  mac #  操作 四指 向内：启动台 向外：桌面 三指 左右：切桌面 向上：app列表 向下：expose(单程序多窗口) 二指 上下：滚动 左右：前进后退 右边：通知中心 缩放,旋转 点一下：菜单 点二下：小缩放 一指 点一下：选中 点二下：打开 点一段：拖 点二段：查询 快捷键 系统： 锁屏：control + command + q 关屏：shift + control + 关机 注销：shift + command + q 睡眠：option + command + 关机 强退：control + command + 关机 程序坞： option + command + d 调度中心： app列表: control + 上 expose: control + 下 左右桌面：control + 左右 桌面：f11 窗口： 切换：command + tab 程序内切换：command + ` 关闭：command + w 退出：command + q 强制退出：option + command + esc 隐藏：command + h 最大化: control + command + f 最小化：command + m 放大、缩小：command + +和- 新标签：command + t 新建: command + n 打开：command + o 保存：command + s 另存为：shift + command + s 刷新：command + r 打印：command + p 搜索：command + f 文件： 全选、复制、剪切、粘贴、撤销: command + a c x v z 粘贴移到: option + command + v 删除: command + return 访达： 预览：空格 简介：command + i 回收站： 清空：shift + command + return 截屏： 整屏存文件：shift + command + 3 区域存文件：shift + command + 4 窗口区域：shift + command + 4 + 空格 录屏：shift + command + 5 输入法：control + 空格 </description>
     </item>
     
     <item>
       <title>awesome</title>
-      <link>https://example.com/docs/template/awesome/</link>
+      <link>https://example.com/docs/cache/template/awesome/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/template/awesome/</guid>
+      <guid>https://example.com/docs/cache/template/awesome/</guid>
       <description>autorun.sh #  #!/usr/bin/env bash # nothing to use function run { if ! pgrep $1 ; then $@&amp;amp; fi } if randr | grep -q &#39;eDP1 connected&#39; ; then run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off fi  rc.</description>
     </item>
     
@@ -638,37 +620,37 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title>docker模板</title>
-      <link>https://example.com/docs/template/docker/</link>
+      <link>https://example.com/docs/cache/template/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/template/docker/</guid>
+      <guid>https://example.com/docs/cache/template/docker/</guid>
       <description>registry #  htpasswd -Bbn outrun asdf &amp;gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &amp;quot;true&amp;quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&amp;quot;insecure-registries&amp;quot;:[&amp;quot;127.0.0.1:5000&amp;quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins #  docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter #  # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{.</description>
     </item>
     
     <item>
       <title>iPad</title>
-      <link>https://example.com/docs/tool/ipad/</link>
+      <link>https://example.com/docs/computer/tool/ipad/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/tool/ipad/</guid>
+      <guid>https://example.com/docs/computer/tool/ipad/</guid>
       <description>alfred #  搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流  fantastical #  个人总结 名字 date 9th from 9.30p to 10.32p alert 30min 对象 Account - Calendar Sets - Cals(Subscription+Interesting) + Item(Events + Tasks) nlp 语法 事件 [with 人物] [at 地点] [at 日期时间] [on 日期] [from 日期时间] [to 日期时间] [of every 日期时间] 提醒 URL 日历 日期 特定 日期 11月1日 11/1 11.1 星期 周一 mon/tue/wed/tur/fri/sat/sun 相对 日期 15天后 after 15 days 星期 下周一 next mon 重复 日期 每月2号 every 2 星期 每周二 every tue 每隔两周的周三 on wed every 2 weeks 复合 7月1日到8月1日之间的每个周一周二 on mons tues from 7/1 to 8/1 区间 12月17日到次年1月3日是寒假 寒假 12/17-1/3 12/17~1/3 时间 24小时制 13 12小时制 下午一点 1p 1pm 分钟 下午一点半 13:30 1.</description>
     </item>
     
     <item>
       <title>Jetbrains</title>
-      <link>https://example.com/docs/tool/jetbrains/</link>
+      <link>https://example.com/docs/computer/tool/jetbrains/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/tool/jetbrains/</guid>
+      <guid>https://example.com/docs/computer/tool/jetbrains/</guid>
       <description>intellij idea #  注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
     </item>
     
     <item>
       <title>linux模板</title>
-      <link>https://example.com/docs/template/linux/</link>
+      <link>https://example.com/docs/cache/template/linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/template/linux/</guid>
+      <guid>https://example.com/docs/cache/template/linux/</guid>
       <description>/etc/fstab #  /dev/nvme0n1p5 /home ext4 defaults 0 2 /dev/nvme0n1p3 /home/outrun/nvme0n1p3 ntfs-3g defaults 0 0 # /dev/nvme0n1p6 UUID=b00fac49-46d7-43ef-aea7-256d82b862b2	/ ext4 rw,relatime,data=ordered	0 1 # /dev/nvme0n1p1 LABEL=ESP UUID=FE8F-730F /boot/EFI vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2  /etc/resolv.conf #  nameserver 114.114.114.114  /etc/X11/xorg.conf.d/70-synaptics.conf #  Section &amp;quot;InputClass&amp;quot; Identifier &amp;quot;touchpad&amp;quot; Driver &amp;quot;synaptics&amp;quot; MatchIsTouchpad &amp;quot;on&amp;quot; Option &amp;quot;TapButton1&amp;quot; &amp;quot;1&amp;quot; Option &amp;quot;TapButton2&amp;quot; &amp;quot;3&amp;quot; Option &amp;quot;TapButton3&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;VertEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;VertTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircularScrolling&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircScrollTrigger&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;EmulateTwoFingerMinZ&amp;quot; &amp;quot;40&amp;quot; Option &amp;quot;EmulateTwoFingerMinW&amp;quot; &amp;quot;8&amp;quot; Option &amp;quot;FingerLow&amp;quot; &amp;quot;30&amp;quot; Option &amp;quot;FingerHigh&amp;quot; &amp;quot;50&amp;quot; Option &amp;quot;MaxTapTime&amp;quot; &amp;quot;125&amp;quot; Option &amp;quot;VertScrollDelta&amp;quot; &amp;quot;-50&amp;quot; Option &amp;quot;HorizScrollDelta&amp;quot; &amp;quot;-50&amp;quot; EndSection  /etc/systemd/system/docker.</description>
     </item>
     
@@ -683,19 +665,19 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title>程序调试</title>
-      <link>https://example.com/docs/test/debug/</link>
+      <link>https://example.com/docs/ops/test/debug/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/test/debug/</guid>
+      <guid>https://example.com/docs/ops/test/debug/</guid>
       <description>分析方向 #  cpu #  方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数  内存 #  对象 对象个数、空间比例 调用栈分配比例  线程/协程 #  泄露 I/O阻塞 锁阻塞 channel阻塞  GC问题 #  少建对象  Linux #  time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig  Java #  VisualVM #  JProfiler #  # 收费, java  perfino #  # 监测jvm  YourKit #  # 收费, java, 有调用链  Spring Insight #  # java spring  Golang #  go命令 go tool pprof Xx.</description>
     </item>
     
     <item>
       <title>采用</title>
-      <link>https://example.com/docs/tool/adopt/</link>
+      <link>https://example.com/docs/computer/tool/adopt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/tool/adopt/</guid>
+      <guid>https://example.com/docs/computer/tool/adopt/</guid>
       <description>趋向 #  本地(app) -&amp;gt; 线上(browser)  采用 #  工具 #  sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 分享: snipaste, flameshot 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 #  系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
     </item>
     

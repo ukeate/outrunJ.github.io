@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>outrun的笔记</title>
+    <link>https://example.com/docs/middleware/big_data/</link>
+    <description>Recent content on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/middleware/big_data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://example.com/docs/middleware/big_data/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/middleware/big_data/hadoop/</guid>
+      <description>介绍 #  大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.5: 300w-500w MySQL8: 1亿、1GB Doug Cutting GFS -&amp;gt; HDFS 存储 Map-Reduce -&amp;gt; MapReduce 计算 BigTable -&amp;gt; HBase 表式存储 发展 2003-2004: Google公开部分GFS和MapReduce 2005: Hadoop成为Apache Lucene子项目Nutch了一部分 2006.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,21 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 10 Oct 2018 17:33:07 +0800</lastBuildDate><atom:link href="https://example.com/docs/ops/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LinuxTool</title>
-      <link>https://example.com/docs/ops/tool/</link>
-      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
-      
-      <guid>https://example.com/docs/ops/tool/</guid>
-      <description>包 #  net-tools ifconfig  内核 #  modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.</description>
-    </item>
-    
-    <item>
       <title>Monitor</title>
       <link>https://example.com/docs/ops/monitor/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
       <guid>https://example.com/docs/ops/monitor/</guid>
-      <description>统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
+      <description>基础 #  监控的方式 主动、被动、旁路（舆情） 监控类型 服务端监控、客户端监控 目标 全、块、准 指标 请求量、成功率、耗时  统计 #  指标 访问、访客 停留时长 跳出率 退出率 转化率 参与度 显示方式 选时间段 时序数据表 max、min、avg 埋点 通过可视化工具配置，非硬编码 第三方 友盟 百度移动 魔方 App Annie talking data 神策数据  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  应用监控 #  Prometheus # 监控, go实现 Grafana # 监控 Zabbix # 分布式监控 Nagios # 监控 Ganglia Zenoss Open-falcon emq # mqtt broker, erlang开发, 管理控制台  APM #  # Application Performance Management SkyWalking CAT Jaeger Pinpoint Zipkin Dapper # C#  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
     </item>
     
     <item>
@@ -40,15 +31,6 @@
       
       <guid>https://example.com/docs/ops/docker/</guid>
       <description>基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/ops/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/ops/linux/</guid>
-      <description>基础 #  历史 40年代：汇编语言 60年代：汇编语言unux 70年代初：c语言、c语言unux、unux开源（美国反垄断法制裁AT&amp;amp;T） 70年代末：AT&amp;amp;T分裂，unix闭源 80年代：minix 90年代：linux # 80、90年代之间：gun计划 文件权限 drwxr-xr-x # d代表目录 lrwxrwxrwx # l代表软连接 drwxrwxrwt # 末尾的t代表粘滞位(sticky bit)，用户只能删除自己建东西 ## chmod 1777来设置 扩展名 .bin # 二进制可执行文件，加上执行权限./执行即可 .tar.gz # gzip压缩,tar打包的文件 .tar.tgz ＃ 同gzip .tar.bz2 .tar.xz 环境变量 http_proxy=http://1.1.1.1：8082 # http代理 https_proxy=http://1.1.1.1：8082 # https代理 no_proxy=&#39;m.test.com,127.0.0.1&#39; # 代理白名单 PATH # 命名查找路径 SHELL # shell命令位置 PWD # 当前用户目录 HOME # 同上 LOGNAME # 用户名 USER # 同上 LANG # 语言环境 _ # 查看环境变量的命令  文件位置 #  /var /log /boot.</description>
     </item>
     
   </channel>

@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.">
+<meta name="description" content="基础 #  监控的方式 主动、被动、旁路（舆情） 监控类型 服务端监控、客户端监控 目标 全、块、准 指标 请求量、成功率、耗时  统计 #  指标 访问、访客 停留时长 跳出率 退出率 转化率 参与度 显示方式 选时间段 时序数据表 max、min、avg 埋点 通过可视化工具配置，非硬编码 第三方 友盟 百度移动 魔方 App Annie talking data 神策数据  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  应用监控 #  Prometheus # 监控, go实现 Grafana # 监控 Zabbix # 分布式监控 Nagios # 监控 Ganglia Zenoss Open-falcon emq # mqtt broker, erlang开发, 管理控制台  APM #  # Application Performance Management SkyWalking CAT Jaeger Pinpoint Zipkin Dapper # C#  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Monitor" />
-<meta property="og:description" content="统计方式 #  选时间段 时序数据表 max、min、avg  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  程序 #  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2." />
+<meta property="og:description" content="基础 #  监控的方式 主动、被动、旁路（舆情） 监控类型 服务端监控、客户端监控 目标 全、块、准 指标 请求量、成功率、耗时  统计 #  指标 访问、访客 停留时长 跳出率 退出率 转化率 参与度 显示方式 选时间段 时序数据表 max、min、avg 埋点 通过可视化工具配置，非硬编码 第三方 友盟 百度移动 魔方 App Annie talking data 神策数据  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  应用监控 #  Prometheus # 监控, go实现 Grafana # 监控 Zabbix # 分布式监控 Nagios # 监控 Ganglia Zenoss Open-falcon emq # mqtt broker, erlang开发, 管理控制台  APM #  # Application Performance Management SkyWalking CAT Jaeger Pinpoint Zipkin Dapper # C#  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/ops/monitor/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-11T18:47:57&#43;08:00" />
-<meta property="article:modified_time" content="2021-02-04T15:02:50&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-22T21:45:53&#43;08:00" />
 
 <title>Monitor | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.c2987544f98c25b91860898eff151d7ec5d03c04f5238774aee2684572e91150.js" integrity="sha256-wph1RPmMJbkYYImO/xUdfsXQPAT1I4d0ruJoRXLpEVA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.dc45ca1d9e2588f08ff69642ba68906aadd5e91f47b7f7f3af989ab6bdd4c61b.js" integrity="sha256-3EXKHZ4liPCP9pZCumiQaq3V6R9Ht/fzr5iatr3Uxhs=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -67,13 +67,6 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/algorithm"><strong>算法</strong></a>
-<ul>
-<li><a href="/docs/algorithm/math">数学</a></li>
-<li><a href="/docs/algorithm/thought">思想</a></li>
-<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
 <li><a href="/docs/design"><strong>设计</strong></a>
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
@@ -85,22 +78,49 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design/design_mode">Java设计模式</a></li>
 </ul>
 </li>
+<li><a href="/docs/algorithm"><strong>算法</strong></a>
+<ul>
+<li><a href="/docs/algorithm/math">数学</a></li>
+<li><a href="/docs/algorithm/thought">思想</a></li>
+<li><a href="/docs/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/computer"><strong>计算机</strong></a>
+<ul>
+<li><a href="/docs/computer/principle">原理</a></li>
+<li><a href="/docs/computer/performance">性能</a></li>
+<li><a href="/docs/computer/linux"><strong><strong>Linux</strong></strong></a>
+<ul>
+<li><a href="/docs/computer/linux/linux_tool">Linux工具</a></li>
+</ul>
+</li>
+<li><a href="/docs/computer/tool"><strong><strong>图形工具</strong></strong></a>
+<ul>
+<li><a href="/docs/computer/tool/vim">Vim</a></li>
+<li><a href="/docs/computer/tool/eclipse">Eclipse</a></li>
+<li><a href="/docs/computer/tool/apple">Apple</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/pl"><strong>程序语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
-<li><a href="/docs/pl/go">GO</a></li>
-<li><a href="/docs/pl/js">JS</a></li>
-<li><a href="/docs/pl/java"><em><strong>Java</strong></em></a>
+<li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
 <ul>
-<li><a href="/docs/pl/java/juc">Java并发</a></li>
 <li><a href="/docs/pl/java/jvm">JVM</a></li>
-<li><a href="/docs/pl/java/collection">Java容器</a></li>
+<li><a href="/docs/pl/java/collection">Java Collection</a></li>
+<li><a href="/docs/pl/java/juc">Java Concurrent</a></li>
+<li><a href="/docs/pl/java/spring">Spring</a></li>
+<li><a href="/docs/pl/java/rxjava">RxJava</a></li>
 </ul>
 </li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
 <li><a href="/docs/pl/python">Python</a></li>
 <li><a href="/docs/pl/haskell">Haskell</a></li>
 <li><a href="/docs/pl/clojure">Clojure</a></li>
-<li><a href="/docs/pl/markup_language"><em><strong>标记语言</strong></em></a>
+<li><a href="/docs/pl/markup_language"><strong><strong>标记语言</strong></strong></a>
 <ul>
 <li><a href="/docs/pl/markup_language/html">HTML</a></li>
 <li><a href="/docs/pl/markup_language/css">CSS</a></li>
@@ -108,33 +128,34 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
-<li><a href="/docs/function_small"><strong>小功能</strong></a>
+<li><a href="/docs/middleware"><strong>中间件</strong></a>
 <ul>
-<li><a href="/docs/function_small/principle">原理</a></li>
-<li><a href="/docs/function_small/hibernate">Hibernate</a></li>
-<li><a href="/docs/function_small/nginx">Nginx</a></li>
-<li><a href="/docs/function_small/nodejs">Node.js</a></li>
-<li><a href="/docs/function_small/elasticsearch">Elasticsearch</a></li>
-<li><a href="/docs/function_small/spring">Spring</a></li>
-<li><a href="/docs/function_small/aliyun">阿里云组件</a></li>
+<li><a href="/docs/middleware/nginx">Nginx</a></li>
+<li><a href="/docs/middleware/nodejs">Node.js</a></li>
+<li><a href="/docs/middleware/library"><strong><strong>库</strong></strong></a>
+<ul>
+<li><a href="/docs/middleware/library/hibernate">Hibernate</a></li>
 </ul>
 </li>
-<li><a href="/docs/function_big"><strong>大功能</strong></a>
+<li><a href="/docs/middleware/distributed"><strong><strong>分布式</strong></strong></a>
 <ul>
-<li><a href="/docs/function_big/solution">方案</a></li>
-<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
-<li><a href="/docs/function_big/hadoop">Hadoop</a></li>
+<li><a href="/docs/middleware/distributed/spring_cloud">Spring Cloud</a></li>
 </ul>
 </li>
-<li><a href="/docs/support_service"><strong>支撑-服务</strong></a>
+<li><a href="/docs/middleware/library_frontend"><strong><strong>前端库</strong></strong></a>
 <ul>
-<li><a href="/docs/support_service/principle">原理</a></li>
-<li><a href="/docs/support_service/performance">性能</a></li>
+<li><a href="/docs/middleware/library_frontend/jquery">JQuery</a></li>
+<li><a href="/docs/middleware/library_frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/middleware/library_frontend/angular">Angular</a></li>
+<li><a href="/docs/middleware/library_frontend/react">React</a></li>
+<li><a href="/docs/middleware/library_frontend/threejs">Three.js</a></li>
 </ul>
 </li>
-<li><a href="/docs/support_distributed"><strong>支撑-分布式</strong></a>
+<li><a href="/docs/middleware/big_data"><strong><strong>大数据</strong></strong></a>
 <ul>
-<li><a href="/docs/support_distributed/spring_cloud">Spring Cloud</a></li>
+<li><a href="/docs/middleware/big_data/hadoop">Hadoop</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="/docs/db"><strong>数据库</strong></a>
@@ -144,36 +165,40 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/oracle">Oracle</a></li>
 <li><a href="/docs/db/postgresql">PgSQL</a></li>
 <li><a href="/docs/db/redis">Redis</a></li>
+<li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/frontend"><strong>前端</strong></a>
+<li><a href="/docs/function_big"><strong>功能</strong></a>
 <ul>
-<li><a href="/docs/frontend/jquery">JQuery</a></li>
-<li><a href="/docs/frontend/bootstrap">Bootstrap</a></li>
-<li><a href="/docs/frontend/angular">Angular</a></li>
-<li><a href="/docs/frontend/react">React</a></li>
-<li><a href="/docs/frontend/threejs">Three.js</a></li>
+<li><a href="/docs/function/small_function">小功能</a></li>
+<li><a href="/docs/function_big/solution">方案</a></li>
+<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
 </ul>
 </li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
 <ul>
-<li><a href="/docs/ops/linux">Linux</a></li>
-<li><a href="/docs/ops/tool">工具</a></li>
 <li><a href="/docs/ops/monitor">监控</a></li>
 <li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
+<li><a href="/docs/ops/test"><strong><strong>测试</strong></strong></a>
+<ul>
+<li><a href="/docs/ops/test/debug">调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/test"><strong>测试</strong></a>
-<ul>
-<li><a href="/docs/test/debug">调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool"><strong>图形工具</strong></a>
+<li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/develop">开发</a></li>
+<li><a href="/docs/cache/template"><strong><strong>模板配置</strong></strong></a>
+<ul>
+<li><a href="/docs/cache/template/docker">docker</a></li>
+<li><a href="/docs/cache/template/linux">linux</a></li>
+<li><a href="/docs/cache/template/awesome">awesome</a></li>
+<li><a href="/docs/cache/template/script">script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -185,23 +210,9 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/book">书</a></li>
 </ul>
 </li>
-<li><a href="/docs/cache"><strong>cache</strong></a>
-<ul>
-<li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
-</ul>
-</li>
-<li><a href="/posts"><strong>博客</strong></a>
+<li><a href="/posts"><strong>Posts</strong></a>
 <ul>
 <li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
-<li><a href="/docs/template"><strong>模板配置</strong></a>
-<ul>
-<li><a href="/docs/template/docker">docker</a></li>
-<li><a href="/docs/template/linux">linux</a></li>
-<li><a href="/docs/template/awesome">awesome</a></li>
-<li><a href="/docs/template/script">script</a></li>
 </ul>
 </li>
 </ul>
@@ -251,7 +262,8 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#统计方式">统计方式</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#统计">统计</a></li>
     <li><a href="#物理机">物理机</a>
       <ul>
         <li><a href="#load-average">Load Average</a></li>
@@ -261,16 +273,20 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#network">network</a></li>
       </ul>
     </li>
-    <li><a href="#程序">程序</a></li>
-    <li><a href="#mysql">Mysql</a></li>
-    <li><a href="#单节点">单节点</a>
+    <li><a href="#应用监控">应用监控</a></li>
+    <li><a href="#apm">APM</a></li>
+    <li><a href="#mysql">Mysql</a>
       <ul>
-        <li><a href="#node-summary">Node Summary</a></li>
-        <li><a href="#innodb">InnoDB</a></li>
+        <li><a href="#单节点">单节点</a>
+          <ul>
+            <li><a href="#node-summary">Node Summary</a></li>
+            <li><a href="#innodb">InnoDB</a></li>
+          </ul>
+        </li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#主从复制">主从复制</a></li>
       </ul>
     </li>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#主从复制">主从复制</a></li>
     <li><a href="#oracle">Oracle</a></li>
     <li><a href="#postgresql">PostgreSQL</a></li>
   </ul>
@@ -285,13 +301,43 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="统计方式">
-  统计方式
-  <a class="anchor" href="#%e7%bb%9f%e8%ae%a1%e6%96%b9%e5%bc%8f">#</a>
+  <article class="markdown"><h1 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
 </h1>
-<pre><code>选时间段
-    时序数据表
-    max、min、avg
+<pre><code>监控的方式
+    主动、被动、旁路（舆情）
+监控类型
+    服务端监控、客户端监控
+目标
+    全、块、准
+指标
+    请求量、成功率、耗时    
+</code></pre>
+<h1 id="统计">
+  统计
+  <a class="anchor" href="#%e7%bb%9f%e8%ae%a1">#</a>
+</h1>
+<pre><code>指标
+    访问、访客
+    停留时长
+    跳出率
+    退出率
+    转化率
+    参与度
+显示方式
+    选时间段
+        时序数据表
+        max、min、avg
+埋点
+    通过可视化工具配置，非硬编码
+第三方
+    友盟
+    百度移动
+    魔方
+    App Annie
+    talking data
+    神策数据
 </code></pre>
 <h1 id="物理机">
   物理机
@@ -377,10 +423,37 @@ TCP Retransmission
     segments retransmitted: 0ops
     retransmit ratio: 0%
 </code></pre>
-<h1 id="程序">
-  程序
-  <a class="anchor" href="#%e7%a8%8b%e5%ba%8f">#</a>
+<h1 id="应用监控">
+  应用监控
+  <a class="anchor" href="#%e5%ba%94%e7%94%a8%e7%9b%91%e6%8e%a7">#</a>
 </h1>
+<pre><code>Prometheus
+    # 监控, go实现
+Grafana
+    # 监控
+Zabbix
+    # 分布式监控
+Nagios
+    # 监控
+Ganglia
+Zenoss
+Open-falcon
+emq
+    # mqtt broker, erlang开发, 管理控制台
+</code></pre>
+<h1 id="apm">
+  APM
+  <a class="anchor" href="#apm">#</a>
+</h1>
+<pre><code># Application Performance Management
+SkyWalking
+CAT
+Jaeger
+Pinpoint
+Zipkin
+Dapper
+    # C#
+</code></pre>
 <h1 id="mysql">
   Mysql
   <a class="anchor" href="#mysql">#</a>
@@ -397,10 +470,10 @@ TCP Retransmission
     Top Service Active Client Threads: 99%
     Top Service Threads Cached: 100%
 </code></pre>
-<h1 id="单节点">
+<h2 id="单节点">
   单节点
   <a class="anchor" href="#%e5%8d%95%e8%8a%82%e7%82%b9">#</a>
-</h1>
+</h2>
 <pre><code>总计 
     Uptime: 29 weeks
     Version: 5.7.26
@@ -517,10 +590,10 @@ Table Definition Cache
     Open Table Definitions: 700
     Opened Table Definitions: 0
 </code></pre>
-<h2 id="node-summary">
+<h3 id="node-summary">
   Node Summary
   <a class="anchor" href="#node-summary">#</a>
-</h2>
+</h3>
 <pre><code>总计
     Node Name
     Uptime: 1.4 years
@@ -545,10 +618,10 @@ Network Traffic
     Outbound: 3MBs
     Inbound: 330 kBs
 </code></pre>
-<h2 id="innodb">
+<h3 id="innodb">
   InnoDB
   <a class="anchor" href="#innodb">#</a>
-</h2>
+</h3>
 <pre><code>总计
     Buffer Pool Size: 16GiB
     Buffer Pool Size of Total RAM: 52%
@@ -667,10 +740,10 @@ Online Operations(MariaDB)
     Defragmentation
     Online DDL
 </code></pre>
-<h1 id="overview">
+<h2 id="overview">
   Overview
   <a class="anchor" href="#overview">#</a>
-</h1>
+</h2>
 <pre><code>I/O Thread Running
 SQL Thread Running
 Read Only
@@ -731,10 +804,10 @@ Open and Cached Table Definitions
     Service Opened Table Definitions: 210 ops
     Service Open Table Definitions: 1.4k
 </code></pre>
-<h1 id="主从复制">
+<h2 id="主从复制">
   主从复制
   <a class="anchor" href="#%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6">#</a>
-</h1>
+</h2>
 <pre><code>Replication Delay:  10
 Binlogs Size:  10GiB
 Binlog Data Written Hourly
@@ -862,9 +935,9 @@ Checkpoint Stats
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/4b8167b270d869a4f1818240fa7c9ffb0fba2cc4" title='Last modified by 申文庆 | Feb 4, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 4, 2021</span>
+      <span>Sep 22, 2021</span>
     </a>
   </div>
 
@@ -907,7 +980,8 @@ Checkpoint Stats
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#统计方式">统计方式</a></li>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#统计">统计</a></li>
     <li><a href="#物理机">物理机</a>
       <ul>
         <li><a href="#load-average">Load Average</a></li>
@@ -917,16 +991,20 @@ Checkpoint Stats
         <li><a href="#network">network</a></li>
       </ul>
     </li>
-    <li><a href="#程序">程序</a></li>
-    <li><a href="#mysql">Mysql</a></li>
-    <li><a href="#单节点">单节点</a>
+    <li><a href="#应用监控">应用监控</a></li>
+    <li><a href="#apm">APM</a></li>
+    <li><a href="#mysql">Mysql</a>
       <ul>
-        <li><a href="#node-summary">Node Summary</a></li>
-        <li><a href="#innodb">InnoDB</a></li>
+        <li><a href="#单节点">单节点</a>
+          <ul>
+            <li><a href="#node-summary">Node Summary</a></li>
+            <li><a href="#innodb">InnoDB</a></li>
+          </ul>
+        </li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#主从复制">主从复制</a></li>
       </ul>
     </li>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#主从复制">主从复制</a></li>
     <li><a href="#oracle">Oracle</a></li>
     <li><a href="#postgresql">PostgreSQL</a></li>
   </ul>

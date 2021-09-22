@@ -1,28 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>支撑-分布式 on outrun的笔记</title>
-    <link>https://example.com/docs/support_distributed/</link>
-    <description>Recent content in 支撑-分布式 on outrun的笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Oct 2018 10:33:48 +0800</lastBuildDate><atom:link href="https://example.com/docs/support_distributed/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Spring Cloud</title>
-      <link>https://example.com/docs/support_distributed/spring_cloud/</link>
-      <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
-      
-      <guid>https://example.com/docs/support_distributed/spring_cloud/</guid>
-      <description>亿级流量 #  流量接入层 #  二级域名 泛域名 A记录 dns解析 udp 向网关请求dns解析 httpDNS 用ip请求http服务, 返回域名解析的ip 因为用ip请求，适合app，不适合网页 lvs + keepalive # 多lvs时用dns负载 nginx openresty kong 动静分离 cdn dns动态域名解析 cdn分发服务 源服务拉取FastDFS CDN节点分发  WEB服务层 #  webflux 不基于重量的servlet标准 基于netty  Eureka #  使用 @EnableEurekaServer application.properties eureka.client.register-with-eureka=false # 是否注册自己 eureka.client.fetch-registry=false # 是否拉取eureka eureka.client.service-url.defaultZone=http://localhost:7900/eureka/ # 设置注册中心的URL eureka.instance.hostname=euk1.com spring.application.name=EurekeServer # eureka集群中各节点要同名 行为 register # 注册 renew # 通过心跳, 默认30s。三次失败删除实例 fetch registry # 拉注册的信息 cancel # 发取消请求，删除实例 time lag # 同步时间延迟 communication mechanism # 通讯机制，默认jersey和jackson 功能 唯一标识 # service id 主机名:application.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/support_distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/support_distributed/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</guid>
-      <description>��������[s�����)8�+���p	#g���}�L�y�@$L�	YV:V:vlǖ퉜&amp;amp;���[&amp;lsquo;v��mS��-&amp;amp;&amp;amp;%=�+�삶R�@�����,��ϳ��o��كw�;�*���뇝�*FF��ua�������v���s�6}��iEn���tų��J������������ �5��~����-TO�U*�4���^u�8���b��q��bu�m|܊µN��58�aT9����S�Q]4��j琶Wݖ�y�Ǔ�6��8�4��E�ͶWî���c�LhG�;t���.�i����&#39;i��~[}Љ&amp;quot;qۍZ~g\�&amp;amp;H:� ����1,f�W}2��r�rA�rQ�r~wi5�����q��0&amp;lt;����њ7�N��p�fV+N�q��O�A7��˯�m�~s[��&amp;lt;���:bB+�~3^Y:�����7�~���ˁwЧ�;qa�o���ّ�{��9�����xh����xh��M�{�e�&amp;gt;fBK+��������vL����D�nxѠ��1]���ǩ���?���P��˿�����p���Fq�D���LuC��X�����Q��5p�cݵ�_S�55��d����h���vZ��Z��B��u�A�r��l�^ൗa�%g���dܲ׮�#�C�Ck��[+�!b���ǌ�uW����G�q@��ԍ7oT�묵���lM���f�#=e�/��;3vF���1�:Y;SǍ�P&amp;rsquo;�Oq��Fa&#39;&amp;gt;HH�^9���&amp;gt;���V+�|HǑ��^pڋ��;�$��cW����6��O4��r��&amp;quot;|5qΧ���!!�a���d���&amp;gt;��_���ȲI&amp;lt;^؇��4¹id&amp;quot;���_�����H�Ԝ��2�(�Q�p&amp;lt;WH ��&amp;quot;}�	������n��[�ǟ���������_�&amp;lt;��s����.������W�֕ޥ۽��ӻ�P�bp2ScIM,��&amp;quot;��%B홽o6b�����3r�6G#+�U��e�SLQA!&#39;���o2��d^&amp;gt;��w���^��|���ͽ������m~O{��|�&amp;lt;�=����/�#ӮQG�E�.%х����8b��/BK��u&amp;quot;&amp;quot;&amp;quot;�x��2X��3r��L�5g�gv���]~������,;���nj�(�X82(�,*L�,eA�冊��%}��)�B� �Sj%O�R���+Ll�Y��0y�a�����E���b��=�0�1S����IY(�Ed@�@���Ug$:L��0�V�D�Ӹ�����M����r�a����R�: �K�&amp;amp;r��J�B�Y�ҿ�jSS�ҿ#Up��^��ū�����,IE%��T���e�!����{����PNV��Ȥ�e��*�\��l�:q̖:�X&amp;amp;~0h@4�U&#39;��5OCDCd~�����I��FI(1e 2���VY,��HA�j� B��l��F��NC�e�f�f0�z뮦�zz�(թ�%��ɽ�ΐap1�C��d-�.u���&amp;amp;��i,[m�V~�4A4A��[_���MD9A,�Ŭ�)�+5E��i�G�1a�&amp;amp;TL���i,��������,��o|ۻvA3��&amp;quot;��[&amp;quot;�!�&amp;quot;����&amp;quot;ؒ:�K�ÀCLd��I��&amp;lt;�͒K^&amp;gt;�ӿ�W͒XBE&#39;�+]�#��$�w��gk2�(�*ܩS[悋za*1�۰,T9�A#����5[@Cd����_&amp;gt;�����ޓ��m�SD�N��rqDc� ��������8����(\�	~���[�)�\�+��؎%�̬�oȠ���0�х�q�r&#39;M�+���ݖS��Է8��јb�-(��Q�����Bv�H1�֢�ka���F��$҅����k�Xq��4O�����F�o��n��8��Q��p����S���eQ[ܫ��G��w�cK�!&amp;quot;\qn�c&amp;amp;:�,ab�L]�s���YU��˴I�\V�,=U~��b�������?&amp;gt;���J�3�m��}��(ir�n��-���?{W�!����u�Q�vBQ��dnn|�:9�Ƚ=�?�s�P�&amp;quot;A��R�0��[��w］�Fޮ�t�j [Di��S!�e�9�&amp;amp;&amp;amp;:��AG����u��MΘH����t(�(t�ԱM^�6�۳�f���������E/�\����������I9�	��vD�xf�ؤ�����9Ack��h&amp;lt;Ș��!�&amp;amp;K6��Z0�7��[T��!��(EφMQ������[/��e���s�;w%�.�����Ɗr����b��N-�i�(�J����L6�Yj3�O�Z&amp;quot;U�BY�@i���e w0�L)I���v,M��*2++�y�����7�&amp;gt;����Xo��u�t.�Q����8f����w&amp;amp;O���^ �Loa,#�1-Y�H�r,�D�w�&amp;quot;L�1�&amp;quot;2U�&amp;quot;n��r�X�g�g� 0/#�,J�V-��|k͋*��?�o��RP�Mm���M����h�9�d��g	�9cf�:7dP�8��gU����G���1����TSD�6��G{7uAG��62����^n)7�����hq��0,G��:�h�2���&amp;quot;���7,o�e�u�J���tp�����u��f��r���������d��{��H���k���b�ҡB�$Qkp�����������B���&amp;amp;��S3@3@g����$�&amp;gt;s}[��;��[����sEmŷ&amp;amp;,��lwNg�;T/@ό�d�[�!���A��yzI{�I��y�nx�ɹ�	��&amp;quot;�}r���t�����</description>
-    </item>
-    
-  </channel>
-</rss>

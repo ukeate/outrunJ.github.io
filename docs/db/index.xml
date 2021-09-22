@@ -25,6 +25,15 @@
     
     <item>
       <title></title>
+      <link>https://example.com/docs/db/elasticsearch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/db/elasticsearch/</guid>
+      <description>介绍 #  分布式实时lucene  使用 #  ./bin/elasticsearch curl http://localhost:9200  命令 #  elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name  概念存储 #  index type # document中加_type field实现 # 所以不同type中的field在index要唯一，否则冲突 # 对field排序会载入所有type的document document # 对应lucene中的key value倒排文档 # 对就一个请求的json对象 field mapping # 定义type的field，映射json到document field  设置 #  config/elasticsearch.yml action.auto_create_index: -l*, +z* # 自动创建，以z开头和非l开头的索引 action.destructive_requires_name: true # 允许通配删index http.cors.enables: true http.cors.allow-origin: &amp;quot;*&amp;quot; cluster.name: c1 node.name: n1 node.master: true node.data: true transport.host: localhost transport.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.com/docs/db/mysql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
