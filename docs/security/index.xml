@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on outrun的笔记</title>
+    <link>https://example.com/docs/security/</link>
+    <description>Recent content in Security on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 11 Oct 2018 18:47:57 +0800</lastBuildDate><atom:link href="https://example.com/docs/security/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.dc45ca1d9e2588f08ff69642ba68906aadd5e91f47b7f7f3af989ab6bdd4c61b.js" integrity="sha256-3EXKHZ4liPCP9pZCumiQaq3V6R9Ht/fzr5iatr3Uxhs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.d926d1fb9e18628ea859402588a224d4bb16b0b554527ea75fe12a65fc4c63c2.js" integrity="sha256-2SbR&#43;54YYo6oWUAliKIk1LsWsLVUUn6nX&#43;EqZfxMY8I=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -69,12 +69,16 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
-<li><a href="/docs/design/biz">行业</a></li>
-<li><a href="/docs/design/organize">组织</a></li>
-<li><a href="/docs/design/people">人员</a></li>
-<li><a href="/docs/design/project">工程</a></li>
-<li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/design_mode">Java设计模式</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project"><strong><strong>工程</strong></strong></a>
+<ul>
+<li><a href="/docs/design/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
 </ul>
 </li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
@@ -177,7 +181,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops"><strong>运维</strong></a>
 <ul>
 <li><a href="/docs/ops/monitor">监控</a></li>
-<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 <li><a href="/docs/ops/test"><strong><strong>测试</strong></strong></a>
 <ul>
@@ -186,6 +189,7 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/security"><strong>安全/协议</strong></a></li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
@@ -326,11 +330,12 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#zookeeper">Zookeeper</a></li>
             <li><a href="#eureka">Eureka</a></li>
             <li><a href="#consul">Consul</a></li>
+            <li><a href="#etcd">Etcd</a></li>
           </ul>
         </li>
+        <li><a href="#路由控制">路由控制</a></li>
         <li><a href="#配置">配置</a>
           <ul>
-            <li><a href="#etcd">Etcd</a></li>
             <li><a href="#spring-cloud-config">Spring Cloud Config</a></li>
             <li><a href="#diamond">Diamond</a></li>
             <li><a href="#archaius">Archaius</a></li>
@@ -395,6 +400,20 @@ https://github.com/alex-shpak/hugo-book
         </li>
       </ul>
     </li>
+    <li><a href="#数据库">数据库</a>
+      <ul>
+        <li><a href="#读写分离">读写分离</a></li>
+        <li><a href="#分片">分片</a></li>
+        <li><a href="#分布式文件系统">分布式文件系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#一致性">一致性</a>
+      <ul>
+        <li><a href="#分布式锁">分布式锁</a></li>
+        <li><a href="#一致性哈希">一致性哈希</a></li>
+      </ul>
+    </li>
+    <li><a href="#id生成器">ID生成器</a></li>
   </ul>
 </nav>
 
@@ -1013,6 +1032,7 @@ sdn        software defined network 软件定义网络
 </h3>
 <pre><code>介绍
     google chubby的开源实现。用于服务发现
+    保证CP
     分布式, hadoop中hbase的组件
     fast paxos算法        # paxos存在活锁问题, fast paxos通过选举产生leader, 只有leader才能提交proposer
 功能
@@ -1032,24 +1052,35 @@ exhibitor
   Eureka
   <a class="anchor" href="#eureka">#</a>
 </h3>
-<pre><code># Netflix
+<pre><code># Netflix，保证AP
 </code></pre>
 <h3 id="consul">
   Consul
   <a class="anchor" href="#consul">#</a>
 </h3>
-<pre><code># Apache
+<pre><code># Apache，保证CA
+</code></pre>
+<h3 id="etcd">
+  Etcd
+  <a class="anchor" href="#etcd">#</a>
+</h3>
+<pre><code># kubernetes用，保证CP
+</code></pre>
+<h2 id="路由控制">
+  路由控制
+  <a class="anchor" href="#%e8%b7%af%e7%94%b1%e6%8e%a7%e5%88%b6">#</a>
+</h2>
+<pre><code>负载均衡策略
+    随机、轮询、调用延迟判断、一致性哈希、粘滞连接
+本地路由优先策略
+    优先JVM（injvm），优先相同物理机（innative）
+配置方式
+    统一注册表、本地配置、动态下发
 </code></pre>
 <h2 id="配置">
   配置
   <a class="anchor" href="#%e9%85%8d%e7%bd%ae">#</a>
 </h2>
-<h3 id="etcd">
-  Etcd
-  <a class="anchor" href="#etcd">#</a>
-</h3>
-<pre><code># kubernetes中用到的服务发现仓库
-</code></pre>
 <h3 id="spring-cloud-config">
   Spring Cloud Config
   <a class="anchor" href="#spring-cloud-config">#</a>
@@ -1574,7 +1605,116 @@ exhibitor
         ip addr
             # 显示VIP当前绑定的服务器
         tail -f /var/log/messages
-            # 日志</code></pre>
+            # 日志
+</code></pre>
+<h1 id="数据库">
+  数据库
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ba%93">#</a>
+</h1>
+<h2 id="读写分离">
+  读写分离
+  <a class="anchor" href="#%e8%af%bb%e5%86%99%e5%88%86%e7%a6%bb">#</a>
+</h2>
+<pre><code>MySQL主从复制
+Haproxy + 多Slave
+DRBD + Heartbeat + MySQL
+MySQL Cluster
+</code></pre>
+<h2 id="分片">
+  分片
+  <a class="anchor" href="#%e5%88%86%e7%89%87">#</a>
+</h2>
+<pre><code>问题
+    事务
+    Join
+    迁移
+    扩容
+    ID生成
+    分页
+方案
+    事务补偿        # 数据对账：基于日志对比、同步标准数据源
+    分区            # MySQL机制分文件存储，客户端无感知
+    分表            # 客户端管理分表路由
+    分库
+        为什么 
+            单库无法承接连接数时分库，MySQL单库5千万条，Oracle单库一亿条
+        策略
+            数值范围
+            取模
+            日期
+框架
+    Sharding-JDBC
+    TSharding
+代理
+    Atlas
+    MyCAT
+    Vitess
+</code></pre>
+<h2 id="分布式文件系统">
+  分布式文件系统
+  <a class="anchor" href="#%e5%88%86%e5%b8%83%e5%bc%8f%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f">#</a>
+</h2>
+<pre><code>HDFS            # 批量读写，高吞吐量，不适合小文件
+FastDFS         # 轻量级，适合小文件
+</code></pre>
+<h1 id="一致性">
+  一致性
+  <a class="anchor" href="#%e4%b8%80%e8%87%b4%e6%80%a7">#</a>
+</h1>
+<pre><code>CAP
+    一致性
+        强一致性、弱一致性（秒级），最终一致性
+    可用性
+    分区容错性（网络故障）
+BASE
+    Basically Available（基本可用），Soft state（软状态），Eventually consistent（最终一致性）
+幂等性
+</code></pre>
+<h2 id="分布式锁">
+  分布式锁
+  <a class="anchor" href="#%e5%88%86%e5%b8%83%e5%bc%8f%e9%94%81">#</a>
+</h2>
+<pre><code>算法
+    PAXOS
+    Zab
+        # Zookeeper使用
+    Raft
+        # 三角色：Leader（领袖），Follower（群众），Candidtate（候选人）
+    Gossip
+        # Cassandra使用
+    两阶段提交、多阶段提交
+    TCC事务
+实现方式
+    数据库
+        有单点问题
+    缓存
+        非阻塞性能好
+        有锁不释放问题
+        实现
+            RedLock setnx
+            Memcached add
+    Zookeeper
+        有序临时节点，集群透明解决单点问题，锁被释放，锁可重入
+        性能不如缓存，吞吐量随集群规模变大而下降
+</code></pre>
+<h2 id="一致性哈希">
+  一致性哈希
+  <a class="anchor" href="#%e4%b8%80%e8%87%b4%e6%80%a7%e5%93%88%e5%b8%8c">#</a>
+</h2>
+<pre><code>扩容映射
+</code></pre>
+<h1 id="id生成器">
+  ID生成器
+  <a class="anchor" href="#id%e7%94%9f%e6%88%90%e5%99%a8">#</a>
+</h1>
+<pre><code>Snowflake算法           # Twitter
+    41位时间戳+10位机器标识（比如IP，服务器名称等）+12位序列号(本地计数器)
+MySQL自增ID + &quot;REPLACE INTO XXX:SELECT LAST_INSERT_ID();&quot;
+    # Flicker
+MongoDB ObjectId
+    不能自增
+UUID
+    无序，过长，影响检索性能</code></pre>
 </article>
  
       
@@ -1584,9 +1724,9 @@ exhibitor
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/39cb0a9023cf1b9cebe0a6a93e401486c42ffc35" title='Last modified by outrunJ | Sep 24, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Sep 24, 2021</span>
     </a>
   </div>
 
@@ -1694,11 +1834,12 @@ exhibitor
             <li><a href="#zookeeper">Zookeeper</a></li>
             <li><a href="#eureka">Eureka</a></li>
             <li><a href="#consul">Consul</a></li>
+            <li><a href="#etcd">Etcd</a></li>
           </ul>
         </li>
+        <li><a href="#路由控制">路由控制</a></li>
         <li><a href="#配置">配置</a>
           <ul>
-            <li><a href="#etcd">Etcd</a></li>
             <li><a href="#spring-cloud-config">Spring Cloud Config</a></li>
             <li><a href="#diamond">Diamond</a></li>
             <li><a href="#archaius">Archaius</a></li>
@@ -1763,6 +1904,20 @@ exhibitor
         </li>
       </ul>
     </li>
+    <li><a href="#数据库">数据库</a>
+      <ul>
+        <li><a href="#读写分离">读写分离</a></li>
+        <li><a href="#分片">分片</a></li>
+        <li><a href="#分布式文件系统">分布式文件系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#一致性">一致性</a>
+      <ul>
+        <li><a href="#分布式锁">分布式锁</a></li>
+        <li><a href="#一致性哈希">一致性哈希</a></li>
+      </ul>
+    </li>
+    <li><a href="#id生成器">ID生成器</a></li>
   </ul>
 </nav>
 

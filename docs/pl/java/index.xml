@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 09 Oct 2018 08:48:07 +0800</lastBuildDate><atom:link href="https://example.com/docs/pl/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RxJava</title>
-      <link>https://example.com/docs/pl/java/rxjava/</link>
+      <title>Java响应式编程</title>
+      <link>https://example.com/docs/pl/java/java_reactive/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/pl/java/rxjava/</guid>
-      <description></description>
+      <guid>https://example.com/docs/pl/java/java_reactive/</guid>
+      <description>Reactor #  RxJava #  Vert.x #  </description>
     </item>
     
     <item>

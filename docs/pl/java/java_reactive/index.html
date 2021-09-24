@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="RxJava" />
-<meta property="og:description" content="" />
+<meta name="description" content="Reactor #  RxJava #  Vert.x #  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Java响应式编程" />
+<meta property="og:description" content="Reactor #  RxJava #  Vert.x #  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/java/rxjava/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://example.com/docs/pl/java/java_reactive/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-11T10:33:48&#43;08:00" />
-<meta property="article:modified_time" content="2021-09-22T21:45:53&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-24T19:45:57&#43;08:00" />
 
-<title>RxJava | outrun的笔记</title>
+<title>Java响应式编程 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.dc45ca1d9e2588f08ff69642ba68906aadd5e91f47b7f7f3af989ab6bdd4c61b.js" integrity="sha256-3EXKHZ4liPCP9pZCumiQaq3V6R9Ht/fzr5iatr3Uxhs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.d926d1fb9e18628ea859402588a224d4bb16b0b554527ea75fe12a65fc4c63c2.js" integrity="sha256-2SbR&#43;54YYo6oWUAliKIk1LsWsLVUUn6nX&#43;EqZfxMY8I=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -70,12 +70,16 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/design"><strong>设计</strong></a>
 <ul>
 <li><a href="/docs/design/drive">驱动</a></li>
-<li><a href="/docs/design/biz">行业</a></li>
-<li><a href="/docs/design/organize">组织</a></li>
-<li><a href="/docs/design/people">人员</a></li>
-<li><a href="/docs/design/project">工程</a></li>
-<li><a href="/docs/design/code">代码</a></li>
 <li><a href="/docs/design/design_mode">Java设计模式</a></li>
+<li><a href="/docs/design/code">代码</a></li>
+<li><a href="/docs/design/project"><strong><strong>工程</strong></strong></a>
+<ul>
+<li><a href="/docs/design/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/design/people">人员</a></li>
+<li><a href="/docs/design/organize">组织</a></li>
+<li><a href="/docs/design/biz">行业</a></li>
 </ul>
 </li>
 <li><a href="/docs/algorithm"><strong>算法</strong></a>
@@ -178,7 +182,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/ops"><strong>运维</strong></a>
 <ul>
 <li><a href="/docs/ops/monitor">监控</a></li>
-<li><a href="/docs/ops/security">安全</a></li>
 <li><a href="/docs/ops/docker">Docker</a></li>
 <li><a href="/docs/ops/test"><strong><strong>测试</strong></strong></a>
 <ul>
@@ -187,6 +190,7 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/security"><strong>安全/协议</strong></a></li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
@@ -246,7 +250,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>RxJava</strong>
+  <strong>Java响应式编程</strong>
 
   <label for="toc-control">
     
@@ -260,7 +264,13 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#reactor">Reactor</a></li>
+    <li><a href="#rxjava">RxJava</a></li>
+    <li><a href="#vertx">Vert.x</a></li>
+  </ul>
+</nav>
 
 
 
@@ -271,7 +281,19 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"></article>
+  <article class="markdown"><h1 id="reactor">
+  Reactor
+  <a class="anchor" href="#reactor">#</a>
+</h1>
+<h1 id="rxjava">
+  RxJava
+  <a class="anchor" href="#rxjava">#</a>
+</h1>
+<h1 id="vertx">
+  Vert.x
+  <a class="anchor" href="#vertx">#</a>
+</h1>
+</article>
  
       
 
@@ -280,16 +302,16 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/39cb0a9023cf1b9cebe0a6a93e401486c42ffc35" title='Last modified by outrunJ | Sep 24, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Sep 24, 2021</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/java/rxjava.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/pl/java/java_reactive.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -309,6 +331,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -319,7 +345,13 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#reactor">Reactor</a></li>
+    <li><a href="#rxjava">RxJava</a></li>
+    <li><a href="#vertx">Vert.x</a></li>
+  </ul>
+</nav>
 
 
  
