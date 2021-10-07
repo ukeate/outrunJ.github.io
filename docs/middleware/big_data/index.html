@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="流式计算 #  Storm Flink Kafka Stream  Hadoop #  HDFS MapReduce Yarn  Spark #  ">
+<meta name="description" content="历史 #  Hadoop #  HDFS MapReduce Yarn  离线计算 #  MapReduce 每个task启动一个jvm Hive 封装的HDFS和MapReduce  流式计算 #  Storm #  只能流式计算  Spark #  生态好于Storm 集群 Master Worker Driver Executor	组件 Spark Core 批计算，取代MR 粗粒度资源申请，task自行分配启动快，executor不kill 内存计算 chain Spark Streamming 流计算，取代Storm 批计算无限缩小，实时性差 默认无状态 用updateStateByKey保存上次计算结果，变成有状态 借助Redis或ES存 Spark SQL 数据处理 Spark MlLib 机器学习 使用 val session = SparkSessionBase.createSparkSession() var sc = session.sparkContext var rdd = sc.makeRDD(List(1,2,3,4,5,6)) val mapRDD = rdd.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.d926d1fb9e18628ea859402588a224d4bb16b0b554527ea75fe12a65fc4c63c2.js" integrity="sha256-2SbR&#43;54YYo6oWUAliKIk1LsWsLVUUn6nX&#43;EqZfxMY8I=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3db969ae0859a5b9ee9fd168a831ecd69b0bee04d6e4d8490384fa24b30b6f6b.js" integrity="sha256-PblprghZpbnun9FoqDHs1psL7gTW5NhJA4T6JLMLb2s=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -32,6 +32,7 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
   <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="baidu_union_verify" content="aacbc30462cce84b2333063d99284e3b">
 </head>
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
@@ -265,9 +266,17 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#流式计算">流式计算</a></li>
+    <li><a href="#历史">历史</a></li>
     <li><a href="#hadoop">Hadoop</a></li>
-    <li><a href="#spark">Spark</a></li>
+    <li><a href="#离线计算">离线计算</a></li>
+    <li><a href="#流式计算">流式计算</a>
+      <ul>
+        <li><a href="#storm">Storm</a></li>
+        <li><a href="#spark">Spark</a></li>
+        <li><a href="#flink">Flink</a></li>
+        <li><a href="#kafka-stream">Kafka Stream</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -280,14 +289,10 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="流式计算">
-  流式计算
-  <a class="anchor" href="#%e6%b5%81%e5%bc%8f%e8%ae%a1%e7%ae%97">#</a>
+  <article class="markdown"><h1 id="历史">
+  历史
+  <a class="anchor" href="#%e5%8e%86%e5%8f%b2">#</a>
 </h1>
-<pre><code>Storm
-Flink
-Kafka Stream
-</code></pre>
 <h1 id="hadoop">
   Hadoop
   <a class="anchor" href="#hadoop">#</a>
@@ -296,10 +301,117 @@ Kafka Stream
 MapReduce
 Yarn
 </code></pre>
-<h1 id="spark">
+<h1 id="离线计算">
+  离线计算
+  <a class="anchor" href="#%e7%a6%bb%e7%ba%bf%e8%ae%a1%e7%ae%97">#</a>
+</h1>
+<pre><code>MapReduce
+	每个task启动一个jvm
+Hive
+	封装的HDFS和MapReduce
+</code></pre>
+<h1 id="流式计算">
+  流式计算
+  <a class="anchor" href="#%e6%b5%81%e5%bc%8f%e8%ae%a1%e7%ae%97">#</a>
+</h1>
+<h2 id="storm">
+  Storm
+  <a class="anchor" href="#storm">#</a>
+</h2>
+<pre><code>只能流式计算
+</code></pre>
+<h2 id="spark">
   Spark
   <a class="anchor" href="#spark">#</a>
-</h1>
+</h2>
+<pre><code>生态好于Storm
+集群
+	Master
+	Worker
+	Driver
+	Executor	
+组件
+	Spark Core 批计算，取代MR
+        粗粒度资源申请，task自行分配启动快，executor不kill
+        内存计算
+        chain
+	Spark Streamming 流计算，取代Storm
+        批计算无限缩小，实时性差
+        默认无状态
+            用updateStateByKey保存上次计算结果，变成有状态
+            借助Redis或ES存
+	Spark SQL 数据处理
+	Spark MlLib 机器学习
+使用
+	val session = SparkSessionBase.createSparkSession()
+	var sc = session.sparkContext
+	var rdd = sc.makeRDD(List(1,2,3,4,5,6))
+	val mapRDD = rdd.map(x -&gt; {
+        x
+	})
+	val filterRDD = mapRDD.filter(x =&gt; {
+        true
+	})
+	filterRDD.count
+</code></pre>
+<h2 id="flink">
+  Flink
+  <a class="anchor" href="#flink">#</a>
+</h2>
+<pre><code>特点
+	高吞吐、低延迟、高性能
+	支持事件时间(Event Time)
+	擅长有状态的计算	
+        内存
+        磁盘
+        RocksDB
+	灵活的窗口（Window）操作： time, count, session
+	基于轻量级分布式快照（CheckPoint）实现容错，保证exactly-once
+	基于JVM实现独立内存管理
+	Save Points方便代码升级
+批计算是流计算的特例
+	unbound streams		# 定义开始不定义结束，流计算
+	bounded streams		# 定义开始也定义结束，批计算
+迟到数据问题
+	温度窗口
+	水位线(Watermark)
+集群
+	JobManager(JVM进程)
+	TaskManager(JVM进程)
+        Task Slot	
+            一组固定的资源，隔离内存，不隔离核
+            一般与核数对应，核支持超线程时一个算两个
+配置
+	/etc
+        /flink-conf.yaml
+        /slaves
+        /masters
+组件
+	部署
+        Single JVM		# 多线程模拟
+        Standalone
+        YARN	
+	库
+        CEP				# 复杂事件库
+        Table
+        FlinkML
+        Gelly
+使用
+	import org.apache.flink.streaming.api.scala._
+
+	val env = StreamExecutionEnvironment.getExecutionEnvironment
+	val initStream:DataStream[String] = env.socketTextStream(&quot;node01&quot;, 8888)
+	val wordStream = initStream.flatMap(_.split(&quot; &quot;))
+	val pairStream = wordStream.map((_, 1))
+	val keyByStream = pairStream.keyBy(0)
+	val restStream = keyByStream.sum(1)
+	restStream.print()
+	env.execute(&quot;job1&quot;)
+</code></pre>
+<h2 id="kafka-stream">
+  Kafka Stream
+  <a class="anchor" href="#kafka-stream">#</a>
+</h2>
 </article>
  
       
@@ -309,9 +421,9 @@ Yarn
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f193d50df702080301bdf2c86192d1330b2f3a68" title='Last modified by outrunJ | Oct 7, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Oct 7, 2021</span>
     </a>
   </div>
 
@@ -354,9 +466,17 @@ Yarn
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#流式计算">流式计算</a></li>
+    <li><a href="#历史">历史</a></li>
     <li><a href="#hadoop">Hadoop</a></li>
-    <li><a href="#spark">Spark</a></li>
+    <li><a href="#离线计算">离线计算</a></li>
+    <li><a href="#流式计算">流式计算</a>
+      <ul>
+        <li><a href="#storm">Storm</a></li>
+        <li><a href="#spark">Spark</a></li>
+        <li><a href="#flink">Flink</a></li>
+        <li><a href="#kafka-stream">Kafka Stream</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
