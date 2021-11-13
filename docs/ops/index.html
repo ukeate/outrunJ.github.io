@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.3db969ae0859a5b9ee9fd168a831ecd69b0bee04d6e4d8490384fa24b30b6f6b.js" integrity="sha256-PblprghZpbnun9FoqDHs1psL7gTW5NhJA4T6JLMLb2s=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7459a9a0bbf6438c097c8739251fa7dcff04ccaa69bc60b37654d8c4f8911f41.js" integrity="sha256-dFmpoLv2Q4wJfIc5JR&#43;n3P8EzKppvGCzdlTYxPiRH0E=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -98,11 +98,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/computer/linux/linux_tool">Linux工具</a></li>
 </ul>
 </li>
-<li><a href="/docs/computer/tool"><strong><strong>图形工具</strong></strong></a>
+<li><a href="/docs/computer/tool"><strong><strong>工具</strong></strong></a>
 <ul>
 <li><a href="/docs/computer/tool/vim">Vim</a></li>
 <li><a href="/docs/computer/tool/eclipse">Eclipse</a></li>
 <li><a href="/docs/computer/tool/apple">Apple</a></li>
+<li><a href="/docs/computer/tool/physics">实物工具</a></li>
 </ul>
 </li>
 </ul>
@@ -172,11 +173,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/function_big"><strong>功能</strong></a>
+<li><a href="/docs/function"><strong>功能</strong></a>
 <ul>
 <li><a href="/docs/function/small_function">小功能</a></li>
-<li><a href="/docs/function_big/solution">方案</a></li>
-<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function/solution">方案</a></li>
+<li><a href="/docs/function/javaweb">JavaWeb</a></li>
 </ul>
 </li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
@@ -581,6 +582,29 @@ chef
   <a class="anchor" href="#ansible">#</a>
 </h2>
 <pre><code># python实现的自动化部署工具
+模式
+    ad-hoc              # 批量命令
+    playbook            # 任务编排，执行yml文件
+安装
+    pip install ansible
+配置
+    优先级
+        export ANSIBLE_CONFIG=/etc/ansible.cfg
+        ~/.ansible.cfg
+        /etc/ansible.cfg
+    ansible.cfg
+        inventory = /etc/ansible/hosts
+        library = /usr/share/ansible
+        forks = 5
+        sudo_user = root
+        remote_port = 22
+        host_key_checking = False
+        timeout = 60
+        log_path = /var/log/ansible.log
+    hosts
+        [mysql_test]
+        192.168.0.1
+        192.168.0.2
 命令
     ansible
         通配符
@@ -620,6 +644,12 @@ chef
 
         o-&gt; 例子
         ansible '*' -m command -a 'uptime'
+    ansible-doc         # 文档
+    ansible-galaxy      # 上传/下载模块
+    ansible-playbook    # 任务编排
+    ansible-pull        # 拉配置
+    ansible-vault       # 文件加密
+    ansible-console     # REPL
 </code></pre>
 <h1 id="资源管理">
   资源管理
@@ -875,6 +905,10 @@ redmine
         git tag -d v1.0
         git push origin --delete tag v1.0
             # git push origin :refs/tags/v1.0c
+    fork跨网站git
+        git remote add upstream git@github.com:xuyuadmin/xxljob.git
+        git fetch upstream
+        git merge upstream/master --allow-unrelated-histories
     统计某人代码
         git log --author=&quot;$(git config --get user.name)&quot; --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf &quot;added lines: %s removed lines : %s total lines: %s\n&quot;,add,subs,loc }' -
     统计所有人代码
@@ -1996,9 +2030,9 @@ client配置
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/ba176d7370de2dbe3e3b6bb08e9c1026facbb09b" title='Last modified by outrunJ | Nov 13, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Nov 13, 2021</span>
     </a>
   </div>
 

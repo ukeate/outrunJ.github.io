@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.3db969ae0859a5b9ee9fd168a831ecd69b0bee04d6e4d8490384fa24b30b6f6b.js" integrity="sha256-PblprghZpbnun9FoqDHs1psL7gTW5NhJA4T6JLMLb2s=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7459a9a0bbf6438c097c8739251fa7dcff04ccaa69bc60b37654d8c4f8911f41.js" integrity="sha256-dFmpoLv2Q4wJfIc5JR&#43;n3P8EzKppvGCzdlTYxPiRH0E=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -98,11 +98,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/computer/linux/linux_tool">Linux工具</a></li>
 </ul>
 </li>
-<li><a href="/docs/computer/tool"><strong><strong>图形工具</strong></strong></a>
+<li><a href="/docs/computer/tool"><strong><strong>工具</strong></strong></a>
 <ul>
 <li><a href="/docs/computer/tool/vim">Vim</a></li>
 <li><a href="/docs/computer/tool/eclipse">Eclipse</a></li>
 <li><a href="/docs/computer/tool/apple">Apple</a></li>
+<li><a href="/docs/computer/tool/physics">实物工具</a></li>
 </ul>
 </li>
 </ul>
@@ -172,11 +173,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/function_big"><strong>功能</strong></a>
+<li><a href="/docs/function"><strong>功能</strong></a>
 <ul>
 <li><a href="/docs/function/small_function">小功能</a></li>
-<li><a href="/docs/function_big/solution">方案</a></li>
-<li><a href="/docs/function_big/javaweb">JavaWeb</a></li>
+<li><a href="/docs/function/solution">方案</a></li>
+<li><a href="/docs/function/javaweb">JavaWeb</a></li>
 </ul>
 </li>
 <li><a href="/docs/ops"><strong>运维</strong></a>
@@ -359,7 +360,7 @@ https://github.com/alex-shpak/hugo-book
     </li>
     <li><a href="#日志">日志</a>
       <ul>
-        <li><a href="#elk">elk</a></li>
+        <li><a href="#elk">ELK</a></li>
         <li><a href="#logio">log.io</a></li>
       </ul>
     </li>
@@ -1174,10 +1175,13 @@ iscsi系统组成
   <a class="anchor" href="#%e6%97%a5%e5%bf%97">#</a>
 </h1>
 <h2 id="elk">
-  elk
+  ELK
   <a class="anchor" href="#elk">#</a>
 </h2>
 <pre><code># elasticsearch, logstash, kibana
+FileBeat
+    命令
+    filebeat --environment systemd -c /etc/filebeat/filebeat.yml --path.home /usr/share/filebeat --path.config /etc/filebeat --path.data /var/lib/filebeat --path.logs /var/log/filebeat
 </code></pre>
 <h2 id="logio">
   log.io
@@ -1204,9 +1208,9 @@ iscsi系统组成
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/ba176d7370de2dbe3e3b6bb08e9c1026facbb09b" title='Last modified by outrunJ | Nov 13, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Nov 13, 2021</span>
     </a>
   </div>
 
@@ -1342,7 +1346,7 @@ iscsi系统组成
     </li>
     <li><a href="#日志">日志</a>
       <ul>
-        <li><a href="#elk">elk</a></li>
+        <li><a href="#elk">ELK</a></li>
         <li><a href="#logio">log.io</a></li>
       </ul>
     </li>
