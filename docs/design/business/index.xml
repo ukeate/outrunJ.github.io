@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大业务 on outrun的笔记</title>
+    <link>https://example.com/docs/design/business/</link>
+    <description>Recent content in 大业务 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://example.com/docs/design/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>行业</title>
+      <link>https://example.com/docs/design/business/trade/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
+      
+      <guid>https://example.com/docs/design/business/trade/</guid>
+      <description>云 #  本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合  产业互联网 #  供应链 #  为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸  AI #  优化、预测 拟合函数, 高阶微积分, 梯度下降  媒体 #  场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
+    </item>
+    
+    <item>
+      <title>企业级系统</title>
+      <link>https://example.com/docs/design/business/enterprise_system/</link>
+      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
+      
+      <guid>https://example.com/docs/design/business/enterprise_system/</guid>
+      <description>ERP #  # Enterprise Resources Planning, 企业资源计划  CMS #  # Content Management System grav # 开源cms  wordpress #  # php  dedecms #  # 织梦cms, SEO优化  帝国cms #  # SEO优化  phpcms #  phpwind #  # 开源, 社区管理系统  drupal #  # 开源, cms  工作流 #  activiti # 5,6已暂停维护，7叫作Activiti Cloud BPM flowable # activiti继任 YAML # 工作流 bossa # 工作流引擎 azkaban # 开源oa  JBPM #  # 常识 适用对象：业务逻辑不复杂，业务流程会变化 # s2sh适合业务逻辑复杂，但是业务流程不会变化的项目 jbpm封装hibernate 包含对象 模型 实例（由活动组成，包括活动、箭头等） 任务（需要人办理的活动） # 使用 myeclipse添加jbpm xml画图插件 MyEclipse -&amp;gt; MyEclipse Configuration Center -&amp;gt; Software -&amp;gt; Browse Software(add site) -&amp;gt; add from archive file找到jbpm-gpd-site.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/design/business/framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/design/business/framework/</guid>
+      <description>博客框架 #  cleaver #  # 基于node幻灯片  hexo #  介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;amp;&amp;amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/design/business/function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/design/business/function/</guid>
+      <description>阻塞 #  阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 #  实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 #  并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
+    </item>
+    
+  </channel>
+</rss>

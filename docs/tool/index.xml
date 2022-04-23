@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on outrun的笔记</title>
+    <link>https://example.com/docs/tool/</link>
+    <description>Recent content in 工具 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实物工具</title>
+      <link>https://example.com/docs/tool/physics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/tool/physics/</guid>
+      <description>HHKB HyBrid #  生产日期 20210108 购买日期 202104  配对方式 #  1.按Fn + q键进入配对模式。 2.再按Fn + z + ~ 键清空键盘配对信息,键盘自动关闭。 3.长按开关键重新打开键盘后按Fn + q键进入配对模式,再按Fn + Ctrl + 1/2/3/4指定一个序号。 4.然后关闭电脑蓝牙功能再打开进行搜索。  切换 #  Fn + Ctrl + 1/2/3/4 Fn + Ctrl + 0  Swiftpoint ProPoint #  Blix Komfort Prima #  </description>
+    </item>
+    
+  </channel>
+</rss>

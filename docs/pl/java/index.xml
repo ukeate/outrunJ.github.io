@@ -16,6 +16,15 @@
     </item>
     
     <item>
+      <title>JavaWeb</title>
+      <link>https://example.com/docs/pl/java/javaweb/</link>
+      <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
+      
+      <guid>https://example.com/docs/pl/java/javaweb/</guid>
+      <description>基础 #  分层 视图层 jsp 控制层 servlet 业务层 过滤数据 manager层 封装第三方，service能力下沉，dao中间件 数据访问层对象 封装对象 数据库 java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  jsp #  基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层 域对象 pageContext # 当前页面有效 request # 一次请求范围 session # 会话 application context # 同一服务器 内置对象 Request Response Session Out # 输出流 PageContext # context Page # jsp的this Exception # &amp;lt;%@ page isErrorPage=&amp;quot;true&amp;quot;%&amp;gt; 时使用，显示异常信息 Application # 服务器 Config # 服务器配置  jsp-el表达式 #  ${ } 11个内置对象 pageContext // pageContext page // map （相当于pageScope，不过写法上省略了Scope） requestScope // map sessionScope // map applicationScope // map param // map ,用${param.</description>
+    </item>
+    
+    <item>
       <title>Java并发</title>
       <link>https://example.com/docs/pl/java/juc/</link>
       <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>

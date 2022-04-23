@@ -20,7 +20,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/ops/</guid>
-      <description>环境 #  scp eureka-server-1.0-SNAPSHOT.jar shenwq@36.137.165.51:~  源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  分析 #  nmon pidstat -p 434 -u 1 # CPU -r 1 # 内存 -d 1 # 磁盘 -w # 上下文切换 iftop -n # 网络流量 iotop p # 显示pid o # 只显示活跃  java #  -Dserver.</description>
+      <description>查日志 #  ERROR __tag__:__path__:/var/log/nginx/error.log  环境 #  scp eureka-server-1.0-SNAPSHOT.jar shenwq@36.137.165.51:~  源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  分析 #  nmon pidstat -p 434 -u 1 # CPU -r 1 # 内存 -d 1 # 磁盘 -w # 上下文切换 iftop -n # 网络流量 iotop p # 显示pid o # 只显示活跃  java #  -Dserver.</description>
     </item>
     
     <item>

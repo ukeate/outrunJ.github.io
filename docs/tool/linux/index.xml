@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>outrun的笔记</title>
+    <link>https://example.com/docs/tool/linux/</link>
+    <description>Recent content on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/tool/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LinuxTool</title>
+      <link>https://example.com/docs/tool/linux/linux_tool/</link>
+      <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
+      
+      <guid>https://example.com/docs/tool/linux/linux_tool/</guid>
+      <description>包 #  net-tools ifconfig  内核 #  modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.</description>
+    </item>
+    
+  </channel>
+</rss>

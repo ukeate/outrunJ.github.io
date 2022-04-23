@@ -56,47 +56,56 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>LinuxTool</title>
-      <link>https://example.com/docs/computer/linux/linux_tool/</link>
+      <link>https://example.com/docs/tool/linux/linux_tool/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/computer/linux/linux_tool/</guid>
+      <guid>https://example.com/docs/tool/linux/linux_tool/</guid>
       <description>包 #  net-tools ifconfig  内核 #  modprobe vboxdrv # 内核 lsmod # 显示当前系统加载的模块，如systemctl中start了的模块 sysdig sysdig -c topprocs_cpu # 进程cpu top evt.cpu=0 # 只统计cpu0 topprocs_net # 进程带宽 top topprocs_file # 进程硬盘i/o top topfiles_bytes # 文件读写 top proc.name=httpd # 指定进程名 topfiles_time # 文件时间 top topprocs_errors # 进程error top topfiles_errors # 文件error top topscalls_time # 系统调用时间 top topscalls &amp;quot;evt.failed=true&amp;quot; # 系统调用出错 top topconns # 网络连接 top fdcount_by proc.name &amp;quot;fd.type=file&amp;quot; # 进程文件描述符 fdbytes_by fd.</description>
     </item>
     
     <item>
       <title>Monitor</title>
-      <link>https://example.com/docs/ops/monitor/</link>
+      <link>https://example.com/docs/tool/ops/monitor/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/ops/monitor/</guid>
+      <guid>https://example.com/docs/tool/ops/monitor/</guid>
       <description>基础 #  监控的方式 主动、被动、旁路（舆情） 监控类型 服务端监控、客户端监控 目标 全、块、准 指标 请求量、成功率、耗时  统计 #  指标 访问、访客 停留时长 跳出率 退出率 转化率 参与度 显示方式 选时间段 时序数据表 max、min、avg 埋点 通过可视化工具配置，非硬编码 第三方 友盟 百度移动 魔方 App Annie talking data 神策数据  物理机 #  Load Average #  介绍 数字n表示n倍  cpu #  Usage: 100% system user IO wait Saturation: 1.0core Max Core Usage: 1.0core Interrupts and Context Switches: 10k Processes: 10ops create(Forks) Runnable Blocked  mem #  Physical Memory: RAM(Random-Access Memory)存储器 used free buffers Virtual Memory 介绍 映射到RAM或Disk used available Swap Space used free Swap Activity swap in(read) swap out(write)  disk #  space 增长趋势 I/O Activity read(page in) write(page out) File Descriptors: 1Milion limit allocated I/O Latency: 5ms write read I/O Load: 3 write read  network #  traffic: MB/s inbound outbound Utillization Hourly: GB sent received Local Network Errors: 0ops transmit drop receive drop transmit errors TCP Retransmission segments retransmitted: 0ops retransmit ratio: 0%  应用监控 #  Prometheus # 监控, go实现 Grafana # 监控 Zabbix # 分布式监控 Nagios # 监控 Ganglia Zenoss Open-falcon emq # mqtt broker, erlang开发, 管理控制台  APM #  # Application Performance Management SkyWalking CAT Jaeger Pinpoint Zipkin Dapper # C#  Mysql #  总览 Services: 38 Min MySQL Uptime: 20 hours Max MySQL Uptime: 2.</description>
     </item>
     
     <item>
       <title>Eclipse</title>
-      <link>https://example.com/docs/computer/tool/eclipse/</link>
+      <link>https://example.com/docs/tool/develop/eclipse/</link>
       <pubDate>Thu, 11 Oct 2018 18:33:08 +0800</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/eclipse/</guid>
+      <guid>https://example.com/docs/tool/develop/eclipse/</guid>
       <description>方案 #  user library发布 项目右键 -&amp;gt; properties -&amp;gt; Deployment Assembly -&amp;gt; add -&amp;gt; javaBuild Path Entries中选择发布包 tomcat设置发布到外部 new server -&amp;gt; 直接finish 右键server -&amp;gt; open 修改server location -&amp;gt; use Tomcat installation 修改server location -&amp;gt; deploy path为webapps 修改TimeOuts -&amp;gt;所有时间为1200 java版本 window -&amp;gt; preferences -&amp;gt; java -&amp;gt; compiler window -&amp;gt; preferences -&amp;gt; java -&amp;gt; installed JREs 编码 general -&amp;gt; workspace Text file encoding general -&amp;gt; content types Text -&amp;gt; java source file defalt encoding输入UTF-8并点击update 快捷键 general -&amp;gt; editors -&amp;gt; keys content assist # 代码提示 word comletion # 代码补全  插件 #  market place http://www.</description>
     </item>
     
     <item>
       <title>VIM</title>
-      <link>https://example.com/docs/computer/tool/vim/</link>
+      <link>https://example.com/docs/tool/develop/vim/</link>
       <pubDate>Thu, 11 Oct 2018 18:31:16 +0800</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/vim/</guid>
+      <guid>https://example.com/docs/tool/develop/vim/</guid>
       <description>编译 #  --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 #  vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode #  普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &amp;lt;C - v&amp;gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&amp;lt;,&#39;&amp;gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &amp;lt;C - g&amp;gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate #  思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl + c # 同Esc motions .</description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://example.com/docs/ops/docker/</link>
+      <link>https://example.com/docs/tool/ops/docker/</link>
       <pubDate>Thu, 11 Oct 2018 18:18:21 +0800</pubDate>
       
-      <guid>https://example.com/docs/ops/docker/</guid>
-      <description>基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  docker -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .</description>
+      <guid>https://example.com/docs/tool/ops/docker/</guid>
+      <description>基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  nsenter #  # 不需ssh进入容器shell docker inspect --format {{.State.Pid}} nginx nsenter -t4629 -n  docker #  -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;amp;&amp;amp; /bin/sh -c &amp;quot;while true; do echo hello; sleep 1; done&amp;quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://example.com/docs/tool/ops/k8s/</link>
+      <pubDate>Thu, 11 Oct 2018 18:18:21 +0800</pubDate>
+      
+      <guid>https://example.com/docs/tool/ops/k8s/</guid>
+      <description>常用 #  kubectl get kubectl describe kubectl logs kubectl apply -f a.yml envsubst &amp;lt; jnc.yml |kubectl apply -f - kubectl label ns jnc istio-injection=enabled --overwrite kubectl label ns jnc istio-injection- resources(kubectl get) mutatingwebhookconfigurations.admissionregistration.k8s.io # 查看sidecar  目录 #  /etc/kubernetes /etc/resolve.conf  命令 #  kubeadm #  kubeadm init  kubectl #  全局参数 --help # -h --output=&amp;quot;jsonpath={.data.\.dockerconfigjson}&amp;quot; --output=yaml --context=iot --namespace=iot --all-namespaces=true -n [namespace] --all # 如匹配所有deploy文件 Other Commands api-resources # 查所有resource namespace/ns endpoints/ep nodes/no configmap/cm replicationcontrollers/rc deployments/deploy statefulsets/sts service/svc ingresses/ing persistentvolumes/pv persistentvolumeclaims/pvc storageclasses/sc pods/po cronjobs/cj daemonset/ds # 每个node运行一个 certificatesigningrequests/csr # csr证书 api-versions # 所有可用的apiVersion config # 设置集群 config set current-context c1 plugin # 设置插件 version Basic Commands: create -f y1.</description>
     </item>
     
     <item>
@@ -128,19 +137,19 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>Nginx</title>
-      <link>https://example.com/docs/middleware/nginx/</link>
+      <link>https://example.com/docs/middleware/container/nginx/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/nginx/</guid>
+      <guid>https://example.com/docs/middleware/container/nginx/</guid>
       <description>基础 #  结构 一个主进程(root权限运行)和多个工作进程(普通权限运行) 优点 异步非阻塞 非常稳定 反向代理 后端服务io能力不高，nginx buffer http请求直到完整，再发送到后端。同样buffer响应 相对apache 轻量 apache阻塞 占资源低 模块化设计 社区活跃, bug少 多进程模型 使用epoll 多worker处理，业务阻塞时切换调度, 结束阻塞时分配 模块 handler filter upstream load-balance 功能 http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理 命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.</description>
     </item>
     
     <item>
       <title>Nodejs</title>
-      <link>https://example.com/docs/middleware/nodejs/</link>
+      <link>https://example.com/docs/middleware/container/nodejs/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/nodejs/</guid>
+      <guid>https://example.com/docs/middleware/container/nodejs/</guid>
       <description>基础 #  特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&amp;gt; watcher -&amp;gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.</description>
     </item>
     
@@ -218,10 +227,10 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>人员</title>
-      <link>https://example.com/docs/design/people/</link>
+      <link>https://example.com/docs/architect/organize/people/</link>
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/design/people/</guid>
+      <guid>https://example.com/docs/architect/organize/people/</guid>
       <description>人, 事, 团队 #  人 业内口碑 成分 技能，素质，精神 行动 感性，理性，惯性 发展 上限 下限 成本 低成本召回 事 知原理 是什么，为什么，怎么样，拆解 事与团队 事造就团队，好团队不一定出好成果 团队 存在合理性 有目标，成员能力认可，成员感性认可 小精英团队，才能解决问题 分配事 因特质分配，如稳定，峰值，沟通 成果评价 产出判断 分配利益和荣耀 时间和代码量评价不了程序员的工作, 可以匿名互评(口碑) 团队提升 培训无意义，自觉成长 成员 项目经理 设计 开发 测试人员 运维 系统工程师 设计、实现产品 数据分析师 技术总监 架构师 权衡, 出方案  职工 #  态度 把握分寸 靠谱(事事有交代) 负责(顾全局) 主动 超出预期 负责态度, 提高团队效率，而非自己效率 # 严肃判断 沟通 及早沟通、同步 文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 电话 # 即时性相反 留响应时间, 同组 -&amp;gt; 跨组 -&amp;gt; 跨部门 -&amp;gt; 跨公司 明确通知人时, 邮件, im特殊指定 文档 周报 文档简单有计划，为节省向别人解释的时间 建设性意见(提选择题) 只交“产品”: 背景清晰, 扼要, 完整, 引入独有经验  工程师 #  本质 解决问题 普遍问题 技能: 工具使用(写工具), 表面学习, 笨办法, 不会读文档, 只会知识迁移 设计: 不知经典设计, 不知设计哲学, 不知目的, 无法反应需求, 没有品位, 读不懂设计 知识更新: 学不动, 基础差(用二手资料), 无认知体系(认为都是新东西), 重复学习无用知识 沟通: 不专业(不用专业名词), 不主动, 不沟通对方, 不抓重点, 思路不连贯, 阅历不足(不会写文档), 不问为什么 能力 特点 知识、经验、技能、协作 # (1+天赋)x知识x工程习惯 犯错(多做多错) 方法 抽象 # 设计就是从升维中拆分和简化 沉淀 # 没有沉淀的学习不好回顾修改, 像没有测试的代码 品位 优点，缺点 # 找潜质, 并非此长彼短，是两个维度,有一定抑制作用 创造力，纪律 勤奋，聪明 稳定，峰值 深度，速度 细节，大局 开发 考虑工作的复用性 加入项目，需要可对所有代码修改 善用工具 自己的事主动跟进 owner 自我负责, 自我驱动, 持续改进 能部署, 能手工排查问题，手工修复数据, 开发调试工具, 数据修复工具 模块职责单一, 明白当前负责和极限性能 能降级, 知道下游调用和降级影响。了解上游依赖和上游降级影响 配好log、监控、告警, 告警及时响应  架构师 #  场景/用例/问题 -&amp;gt; 方案/方案权衡 -&amp;gt; 落地路径 分级 初级 代码 命名：精确性、简单性、一致性、区别性、业务性 逻辑: 缩进、换行 代码体积: 行、方法、类 抽象能力 边界 中级 流量、并发等 高级 理解业务核心价值、业务实现方式 业务技术支撑方式 业务趋势  艺术家 #  岗位 #  项目经理(pm, project manager) 技术经理(tm, technical manager) 产品设计经理(pdm, product design manager) 运营经理(pom) 测试经理(qam) 客服经理(csm, customer success manager) 开发组长(tl, team leader) 架构师(pa) 开发工程师(de, development engineer) 数据库管理员(dba, database administrator) 系统管理员(sa) 界面设计师(ui, user interface) 用户体验设计师(ue, user experience) 产品运营师(po, product operator) 产品设计师(pd, product designer) 测试工程师(qa, quality assurance) 配置管理员(pcm) 发布员(pb) 软件过程专员(sqa, software quality assurance) 运维工程师(sre, site reliability engineer)  招聘 #  双向选择 精确率&amp;amp;召回率 方面 沟通 喜欢技术，逻辑能力, 编码能力, 设计能力 基本概念, 边界考虑充足, 进阶答案, 衍生问题的解决 是否有自己思考，对自己负责  </description>
     </item>
     
@@ -235,20 +244,11 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>组织</title>
-      <link>https://example.com/docs/design/organize/</link>
-      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/organize/</guid>
-      <description>组织 #  系统划分与组织划分 康威定律 系统架构是公司组织架构的反映 按业务闭环进行系统拆分/组织架构划分，实现闭环/高内聚低耦合，减少沟通成本 沟通出现问题，考虑调整组织架构 在该拆分时拆分 为了简单 开发和运维分离 业务和基础架构分离 无状态和有状态分离 业务间乘法(正交)而非加法 # 升维的特点, 正交叠加 多层抽象, 不断隐去底层(约定大于配置) # 升维的特点, 抽象观察  管理 #  责任 #  提供 问题: 定义, 分解, 什么是问题, 前人如何处理 # 工程为解决问题 思考: 方向, 为了解决问题, 找到关键, 找到应学知识 # 创造性工作要思考 体系: 领域的体系, 领域体系形成原因, 为了高效思考和学习, 有体系的做事 参考: 参考书籍, 如何筛选, 如何搜索, 社区 不提供 知识点, 答案, 规定, 代码 分任务 出问题，写相关文档 砸需求，看弹性 任务列表: 难度, 优先级, 排期, 地平线目标, 现状, wishlist nice to have给新人  方法 #  人员 TeamLeader -&amp;gt; Owner 需求磨砺核心业务资产(事情成就精英团队，而非精英团队成就事) 问题定义 完成不动点需求 正交、简单(要求想清楚、灵活) 维护概念完整性、一致性(纯洁) 术语不变、不矛盾、不重叠 考虑上下游 代码问题 问题原因：开发的碎片化(重复的代码、由于不知道或怕改错) 解决方法 代码Review，集体评审 持续集成(*lint, CI/CD): 早合并、自动构建、测试 问题管理 需求池 优先级、排期、checklist、周update 文档知识库(Confluence, Notion) 问题追踪（Jira) 迭代(周冲刺, hackson) 产出评估角度 口碑、解决问题。 良心，内驱力 Owner, 鼓励设计、技术自由(开发人员诉求技术，厌倦业务) 效率第一: 加班是能力问题 时间，代码量 犯错问题: 总会犯错，多做多错 不能赶期，不怕delay  制度 #  模型 #  开发模型 #  TDD(test-driven development) 先单元测试 BDD(behavior-driven development) TDD的变种, 重点描述行为 面向需求 组织上小而全 开发全栈减少沟通 设计上面向领域  迭代模型 #  极限编程（XP） # eXtreme Programming 4大价值 沟通：鼓励口头沟通，提高效率 简单：够用就好 反馈：及时反馈、通知相关人 勇气：拥抱变化，敢于重构 5个原则 快速反馈 简单性假设 逐步修改 提倡更改（小步快跑） 优质工作（质量是前提） 5个工作 阶段性冲刺 冲刺计划会议 每日站立会议 冲刺后review 回顾会议 结对编程 PDCA循环质量管理 Plan, Do, Check, Act FMEA 分析潜在的失效模式  工程模型 #  历史 程序设计阶段1946-1955 节省空间 软件设计阶段1956-1970 硬件发展，软件危机 软件工程阶段1970-今 组件化  瀑布模型 #  # 每一次执行工作流的深度不同 可行性分析 实现会不会复杂，尽量简单 需求分析 分类 生存点 痒点 兴奋点 # 不会按时交付（只完成主要，然后延期，用户测试） 客户沟通，同类产品比较，行业标准 功能 正确, 可行, 必要, 有序, 明确, 一致 性能 完善, 简短 设计 先出成果再优化 任务分配(进度条) 命名标准 文档 可移植、可维护易扩展 排期 实现 测试 运维  螺旋模型 #  # 边分析边开发边交付（一环一环向目标实现） 敏捷开发 项目面临的问题 人员流动 代码维护 种类 极限编程(xp) 特点 简易、交流、回馈 方法 解耦低速设备，提高响应速度 迭代 迭代周期 一个迭代周期中不新添加需求 一个迭代周期中包含多次迭代 一个阶段的结束称之为里程碑 初始化阶段增量 项目启动 建立业务模型 定义业务问题域 找出主要风险因素 定义项目需求的外延 创建业务问题域的相关说明文档 细代阶段增量 高层的分析与设计 建立项目的基础框架 监督主要的风险因素 制订达成项目目标的创建计划 构建阶段增量 代码及功能的实现 移交阶段增量 向用户发布产品 beta测试(alpha测试是内部测试， beta测试是用户测试) 执行性能调优，用户培训和接收测试  转型 #  流程 (2-4)周实地调研痛点 确定目标 要求: 领先、高效、高品质 列出实际问题 评估 cmmi(敏捷成熟度模型): 代码、架构、工具 实施变化 战略 试点团队(灰部应用于组织): 完成产品指标  工具功能 #  控制面板 项目 分配给我 活动日志 人员 团队 权限 项目 配置 事务 类型 布局 # 列表项，详细项 时间追踪 配置链接关系 优先级 解决方案 工作流 # 对不同项目和事务类型, 配置状态转换图 页面方案 # 对不同项目和事务类型，不同状态转换时，配置字段布局 自定义字段 # 对不同页面 权限 权限 角色、应用程序、组、用户、项目负责人、当前经办人、自定义字段值等 事务(issue) 状态 todo, 正在进行, done 打开, 已重新打开, 已解决, 已关闭 backlog, in review, selected for development, building, build broken waiting for support, respond to customer, escalate, cancel, canceled, done waiting for approval, work in progress [工作流状态] 类别 待办 正在进行 完成 无类别 名称 长篇故事(史诗) 故事 分类: 需求, 设计 验收条件 任务, 子任务, 缺陷, 新增功能, 改进 服务请求, 服务请求审批, 问题, 事件(系统中断) 订单 全局顺序 属性 经办人，报告人 优先级 highest, hign, medium, low, lowest 链接 clones is cloned by duplicates is duplicated by blocks is blocked by causes is caused by relates to csv导入 筛选器 未清, 我发起, 已完成, 最近 活动 评论, 历史, 工作日志 冲刺(sprint) 状态 待办, 进行, 完成 发布 版本 报告(report) 敏捷 燃耗图, 燃尽图, 版本报告, 长篇故事报告, 控制图，长篇故事燃尽图, 发布燃尽图 冲刺报告, 速率表 累积流程图 事务 饼图, 单次分组, 解决时间, 平均周期, 事务持续时间, 已创建已解决对比, 最新创建 预测 版本工作量, 人员工作量, 时间跟踪 其它 工作负荷 服务台(itsm) 分类 对内 对外 途径 邮件, 帮助中心, 小程序 队列 分类 状态workflow 经办人 客户 报告 系统 审计日志 </description>
-    </item>
-    
-    <item>
       <title>行业</title>
-      <link>https://example.com/docs/design/biz/</link>
+      <link>https://example.com/docs/design/business/trade/</link>
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/design/biz/</guid>
+      <guid>https://example.com/docs/design/business/trade/</guid>
       <description>云 #  本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合  产业互联网 #  供应链 #  为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸  AI #  优化、预测 拟合函数, 高阶微积分, 梯度下降  媒体 #  场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
     </item>
     
@@ -262,47 +262,47 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>驱动</title>
-      <link>https://example.com/docs/design/drive/</link>
-      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/drive/</guid>
-      <description>第一性原理 #  特点 物理学模式 唯一 穷尽 佐证 分形 方法 归零 问为什么 解构 重构 思维转变 改变归纳法（工程学），人们认识事物的习惯 改变类比思考，它偏离了根源 改变从问题出发不断归因的思考，它只能改进 用演绎法（物理学），更不偏离真相，但需要思考成本 用第一性原理思考：用物理学的角度看待世界，利用基本原则，进行物理推理，再一层层往上走 物理学角度，最不偏离事实 从问题出发找到方案再找到方案的原理，推出其它方案 限制 归纳法只能证伪、演绎法只能证明 演绎的逻辑来自归纳法，所以才有奇怪的不证自明的公理  设计行为 #  动机 能力 提示  计划 #  为什么 重要性 时间是最重要的资源 做事目的性 有全局性: 有方向, 轻重有序，平时活动与目标联系起来 怎么坚持 实行的决心 养成习惯(抗干扰不费意志) 28定律筛选，降低预期，细想出实施过程 怎么样 聚焦（殚精竭虑，第一） 目标列项: 时间（黄金时间、常规时间、碎片时间）分配  学习 #  预习 为什么 上课时：扫除知识障碍、针对性解决问题、笔记有针对性 提高自学能力 改变被动局面，成为良性循环 是什么 初步理解 关联旧知识 找不理解 做笔记和习题 怎么样 先粗读, 再反复细读 先读最困惑点 问为什么 请教别人 实践 笔记 重点、结构、摘要 分类 问题 查阅资料 理解思路 逐步提高 由点到面，由浅入深 学习 怎么样 集中注意 获取知识主动权 作者思路，比较思维方法 方法 分析综合法、归纳演绎法、比较分类法 规律 同一律、矛盾律、排中律 # 形式逻辑学 对立统一、量变到质变、否定之否定 # 辩证逻辑学 学科特点 理科: 逻辑性，抽象思维 文科: 知识有独立性，形象思维 教师特点 保持连续性，不中断钻牛角尖 笔记 思维方法、过程、结果 完整简洁 当堂掌握 领会、巩固、运用 重点是认知过程而非结论 复习 贵在及时 怎么样 尝试回忆 读原文 整理笔记 参考资料 系统复习 为什么 牢固、完整 系统、实用 怎么样 之前之后回忆 有重点阅读 熟记 整理笔记 练习 记忆能力 有记忆意识 理解后记忆 艾宾浩斯曲线 过度学习来记忆 分散记忆好于集中记忆 先整体理解, 后分段记忆, 最后综合复习 多感官 思维能力 积极思维状态 基本思维方法 分类、抽象概括 系统化, 使用时具体化 思维形式 整体思维 相似思维 逆向思维 创造思维  读源码 #  目标 了解思路 难点 理解非自己的思路 了解数据结构、设计模式 原则 跑不起来不读 带目的性读，解决问题就好 一条线索到底 无关细节略过 画类图、类调用泳道图  高效模型 #  人 #  组织 简单，分离 管理 无为 沟通 在线文档 &amp;gt; 邮件 &amp;gt; im &amp;gt; 口头/电话 多方口头时，要维护自有重点 谈判 抛回对方问题，使其思考，后做到已方稍强  事 #  计划 把握纲领，不能变 先核心再扩展 # 稳定隔离 第一性原理 做重要不紧急 边界分割 # 正交 拆分并只安排步骤 思考框架：现状、目标、实现路径 意义(目标导向)。通常是解决问题 拆分到最细节的方案, 分配到人、工作量、联调提测时间 迷雾即瓶颈 曼陀罗思考法 实行 原型 风险点 # 技术 只输出产品，电梯演讲(简单, 清晰, 轻松, 主线, 一套) 输入时保持输出 把控变化，提供适应方案 内部有 &amp;gt; 外部有 &amp;gt; 半成品 &amp;gt; 自实现 解耦低速设备 update全员参与, 或文档 灰度替换 总结 向流程和工具找问题  发现问题(创造新视角) #  分类 已知的已知, 已知的未知，未知的未知 知 事实，解释 方法 解决问题到发现问题 从知到无知的视角转换 存量到流量 封闭体系到开放体系 固定维度到可变维度 元级超越维度 抽象化、类推 轴 why型思维  解决问题 #  提问 提原始问题，因为相对自己的看法，可能有更优解 描述问题，尝试与尝试结果 描述环境 要结构化、解决导向的提问, 否则散乱无意义 定义 为什么，是什么，怎么样，展望 zoom in, zoom out 解决 定位、权衡、落地、风控 解决数量级问题 </description>
-    </item>
-    
-    <item>
-      <title>代码</title>
-      <link>https://example.com/docs/design/code/</link>
-      <pubDate>Wed, 10 Oct 2018 17:40:53 +0800</pubDate>
-      
-      <guid>https://example.com/docs/design/code/</guid>
-      <description>认知 #  原理 模拟执行 负担 概念量 封装粒度大 多态、运行时多态、静态多态 临时状态 用工作流, 而非队列 日志(event)搜索/集中/回放 抽出权限层 非轻量级 胶水层厚 无稳定方案, 复用困难 流程长度 最好 单线程 # 不插入行为 上下文集中 this.scene.commit()集中状态转移时间线 单一方式  原则 #  观念 KISS(keep it simple stupid) YAGNI(You Ain’t Gonna Need It) 取好名字占设计一半 约定大于配置 并发的世界，并发的软件 分布式的世界，分布式的软件 不可预测的世界，容错性强的软件 复杂的世界，简单的软件 代码即数据 物体上绑定行为数据 传递代码数据(函数一等公民) 防御性编程 接口前validator 启动时自检断言 异常处理 不可过度 设计 solid原则 单一职则(single responsibility) 一个类负责一个功能 开闭(open/closed) 对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态 里氏替换原则(liskov substitution) 子类继承超类的所有 接口分离(interface segregation) 最小功能隔离 依赖反转(dependency inversion) 低层依赖高层, 具体依赖抽象 非侵入 # non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 拆分 边界 正交 unix rules 模块化(modularity) # 模块由精心设计的接口连接 清晰化(clarity) # 可读性、可维护性 组合(composition) 分离(separation) 简单(simplicity) 节俭(parsimony) # 越小越好 透明(transparency) # log, tracing 鲁棒(robustness) 可展示(representation) # 逻辑简单，数据复杂 最小惊吓(least surprise) # 少打破用户预期 安静(silence) 修复(repair) # 产生足够报错 经济(economy) # 减少开发时间 生成(generation) # 避免手写, 用高阶抽象生成代码 优化(optimization) # 优化和收益平衡 分化(diversity) # 一开始设计不限制、优雅开放灵活 扩展(extensibility) # 协议可扩展 优化 需要时再优化，设计时考虑扩展性 dry(don&#39;t repeat yourself), 不可过度 找瓶颈 产出 设计清晰 选型简单 代码精炼 抽象优雅  设计 #  创建 factory, abstract factory # 工厂 builder # 构建者 prototype # 原型复制来产生对象 singleton # 单例 结构 adapter # 适配器 bridge # 抽象与实现分离 composite # 抽取公共行为 decorator # 装饰 facade # 外观。提供子类的默认视图 flyweight # 享元 proxy # 代理 行为 interpreter # 解释器 template method # 模板方法、泛型 chain of responsibility # 责任链 command # 命令 iterator # 迭代器 mediator # 消息传递中介 memento # 保存、恢复状态 observer # 观察者 state # 不同状态定义不同行为 strategy # 同行为的不同算法、替换算法 visitor # 访问者。抽象行为本身，不同访问对象不同行为 元素模式 抽象各模式成元素，简化表示 actor # 消息通信 reactor # 事件轮循，注册回调，如libevent proactor # 注册事件回调，os通知触发回调 惰性求值 链式定义(配方)，后自动触发(js tick调度)终止操作 dsl测试(如jasmine.</description>
-    </item>
-    
-    <item>
       <title>工程</title>
-      <link>https://example.com/docs/design/project/ddd/</link>
+      <link>https://example.com/docs/architect/project/ddd/</link>
       <pubDate>Wed, 10 Oct 2018 17:39:31 +0800</pubDate>
       
-      <guid>https://example.com/docs/design/project/ddd/</guid>
+      <guid>https://example.com/docs/architect/project/ddd/</guid>
       <description>介绍 #  介绍 Domain-driven Design 针对传统软件开发流程（分析-设计-编码）各阶段业务割裂问题，一开始定义好领域 目标 维护概念完整性(纯洁)，避免语义泄露和腐化  概念 #  领域（Domain） 界限上下文（Bounded Context） 领域模型（Domain Model） 领域通用语言 分层架构 展示层、应用层、领域层、基础设施层 最佳实践 关联尽量少、尽量单项、尽量降低整体复杂度 实体（Entity） 领域中的唯一标识，属性尽量少 值对象（Value Object） 没有唯一标识，属性值不变 领域服务（Domain Service） 协调多个领域对象，只有方法没有状态 应用层服务、领域层服务、基础层服务 聚合、聚合根（Aggregate, Aggregate Root） 聚合定义了一组有内聚关系的对象集合，聚合根是对聚合引用的唯一元素 修改聚合必须在事务级别 70%的聚合只有一个实体, 30%有2到3个实体。 只有一个实体时，实体就是聚合根。多实体时思考哪个对象有独立存在的意义，且可与外部直接交互 工厂（Factory） 工厂模式 仓储（Repository） 持久化到DB，管理对象 只对聚合设计仓储  建模 #  重点 #  简单、容易、清晰 使用不动点 领域专注 聚合内强一致，跨聚合最终一致 内部概念完整一致(unification) 术语不变、不矛盾、不重叠  数据模型（DO） #  失血 DO和DAO无业务逻辑，纯数据 贫血 持久化逻辑在DAO中 充血 service很薄，持久化的逻辑在DO中，无DAO或与DO双向依赖 肿胀 无service，全部逻辑放DO  过程 #  分析模型 # 业务领域分析, 不考虑代码 问题 含意不完整，不可图形或文字表达，错误假设 会深入某细节 忽略某细节直到设计或实现, 如持久化、性能 目标 领域模型 架构设计 事件风暴 # 是开发建模，不是用户需求故事 准备 功能确认: 近期milestone 找正确的人: 领域专家, 前后端，架构师 引导者: 准备资料, 排程, 时间, 2/3时间预警 事件风暴 领域事件: 用户可感知状态 分支小组 -&amp;gt; 个人发散 -&amp;gt; 小组一致 -&amp;gt; 整体一致 # 不能一致表示准备不足 逻辑顺序 -&amp;gt; 最终流程 命令风暴 # 为什么, 分色 事件触发原因、方式 用户角色 读模型: 用户前置需求 写模型: 动词 描述 聚合 取名, 分职责 持续探索 领域模型一开始就结合编码设计 # 设计围绕模型, 模型受设计反馈改善 开发时意识到模型变更, 会保持完整性 每个开发在修改前需要了解模型 面向对象更易于建模, 过程化易于流程，如数学 重构 要求 设计灵活 使用经过验证的构造 目标 领域理解更深、更清晰 深刻(incisive)、深层(deep)的模型 技术的动机的代码转换 实现 小幅可控 基于测试 突破 新的概念或抽象 隐含的概念被凸显 倾听领域语言 过分复杂是因为关键点被替代 领域文献 # 深层视图 约束 # 表达不变量 过程(process) # 面向对象中的面向过程, 多个过程时用策略 规约 # 测试对象返回布尔值, 重构成对象而非写在application  战略建模 #  # 形成上下文映射图 问题空间 领域 # 与公司组织关联 子域 # 最好对应一个限界上下文 核心域(core domain) # 项目动机, 公司核心竞争力, 尽量小, 最高优先级 通用子域(generic subdomain) # 作用于整个系统的支撑子域 支撑子域 # 重要非核心 集成 合作关系(partnership) # 同时成功失败 共享内核(shared kernel) # 小型内核, 持续集成功能 客户/供应(customer-supplier development) # 上下游 遵从(conformist) # 下游遵从上游 防腐层(anticorruption layer) # 翻译转换领域服务 开放主机服务(open host service) # 公开协议，子系统访问 发布语言(published language) # dsl, 通常与开放主机服务一起 分隔(separate way) # 声明无关联 大泥球(big ball of mud) # 已有纠缠的系统，隔离出来 解决方案空间 通用语言 一个限界上下文一个通用语言 清晰(概念无二义性), 简洁 # 如卖家和买家都叫用户，就是不清晰。如用type标记用户是卖家或买家，就是不简洁。所以直接用两个对象 限界上下文 # 条件的集合 目的 确保术语含义明确 切分规模, 易于保持领域纯洁 设定进化框架而非模块，包含模块 考虑因素 团队组织结构 应用特定部分惯例、物理表现 挑战 团队开发碎片化 # 写重复的代码，由于不知道或怕改错 持续集成 早合并 自动构建测试 # 检测不一致 模块 作用 降低模型规模复杂度 代码高内聚低耦合 设计 通信性内聚(communicational cohesion) 功能性内聚(functional cohesion) 每模块统一接口 名称反映深层理解 灵活性，进化性 上下文映射 # 领域间集成关系 模式 共享内核(shared kernel) # 为减少重复, 共享领域子集，多方测试 客户-供应商(customer-supplier) # 做反馈的需求, 需求测试, 自动化验收 顺从者 # 供应商不做需求, 客户用适配器对接组件 防腐层(anticorruption layer) # 双向领域模型转换器, 保持内部模型纯洁 从前 原始数据(api, db)无模型无语义的处理 实现 对外多门面(facade) 每个门面一个适配器(adapter) 适配器间用转换器(translator) 隔离通道(separate way) 开放主机服务(open host service) # 实现开放服务协议 提炼 # 多次重构后还很大 实现 分离基本概念和普通概念, 提炼核心域和子域 子域 使用第三方服务 外包 修改已有模型 六边形架构 领域模型简洁自治 对外适配器防腐, 保护限界上下文 # 如面向接口 消息, 内存, 数据库 soap, rest CQRS(command query responsibility segregationg) # 修改只记事件(日志), 查询时计算 查询方式 单数据库/读写分离，查询时计算事件 读写分离, 读库异步计算事件保存冗余, 读库负载均衡  战术建模 #  # 组成限界上下文 领域 实体(entity) # 标识和延续性, 有id, 持续变化。 值对象(value object) # 无id, 只有属性, 最好不可变(可共享)。尽量建模值对象。可包含实体引用或值对象。 生命周期 聚合(aggregate) # 定义对象所有权和边界 简化 关联 # 可导航到的关联 1对1 # 对象引用 1对n # 包含集合 n对n # 删除关联，关系加约束或转换 目的 一致性 强化不变量 实现 聚合根(root) # 聚合根间是最终一致性 是个实体,有id 外部访问的唯一对象 向外传递副本 工厂(factory) # 在领域中没有定义, 但程序需要 目的 并非对象创建对象 对象创建存在自有知识 创建过程原子性 对已有持久化对象重建并修复 问题 外部访问根内对象，需关联不必要的根实体 实现 不用工厂 构造不复杂 不涉及其它对象 客户希望用策略创建 类是具体类型, 无层级 聚合根提供方法 单独工厂 # 违反了封装原则, 但保持了简单 资源库(repository) # 内存假象 目的 不关联根获取对象引用 不暴露细节, 会减少领域专注 防止代码扩散 减少变更修改 维护聚合封装性 容易的基础设施被滥用, 产生除聚合根外导航 实现 封装所有获取对象逻辑 基础设施, 全局可访问 不同对象不同策略访问、存储 # 领域与基础设施解耦 接口是领域模型, 实现像基础设施 参数筛选或规约(specification)筛选(筛选器) entity 介绍 entity即状态 应用开发即处理entity的表现 主从 主存储(可变) # 关键是选择主存储 多派生一致性好保障 派生表达业务的难易成度 只读派生(representation, 不可变) 多份存储, 一致性 派生, 合并, 转化 类型 东西(可变) # 单据叠加成东西, 东西叠加成东西 单据(可变) # 事件叠加成单据 事件(event, 不可变) 命令(command, 不可变) 视图(view model, 不可变) 子集(subset, 不可变) 视图(aggregation, 不可变) 表单(可变) # 是主存储 物理介质 OLTP(mysql) # 点查询 OLAP(clickHouse) # 范围查询 queue(kafka) # 顺序读, 低延迟 业务服务 # 业务逻辑, 像虚拟的表 分组entity主存储(BC, bounded context) 目的 分解 管理复杂度 系统 组织部门 实现内部一致性 概念, 数据 对主存储进行受控的修改 边界entity # 用于集成，不一定是主存储 形式 授权、binlog、工作流、视图数据、租户作为其它租户user 东西、单据、event 介质 queue, 带权限db, rpc虚拟表 触发 queue, ui, api 触发由worker托管, 输入是queue或rpc socket 粒度 分entity 分步骤 分entity字段 原则 BC尽可能少而大 关系 时间错开 外键关系 # BC挂载到BC, 如后台系统与计费系统的定价, 运营人员与服务系统的配置, 流程节点系统对流程的依赖 rpc, 数据库, 数据复制 报表关系 时效性高 一般做复制 # 所以边界entity是数据变更event 触发关系 # fire and forget 交棒关系 下游给上游command/event, 上游触发 上游实现降级 # 下游不可用时，安慰语 时间同时 accountable/responsible关系 # 负责人与实现人 原则 accountable尽量小 只调度 与responsible的边界entity是rpc虚拟表, 请求command, 返回event 补偿实现一致 # 如超卖 responsible提供自己界面 # accountable不控制 抢资源关系 锁服务 服务(service) # 无法划分对象的动作, 无状态。按功能分组, 多对象的连接点 可在application, domain, infrastructure  最终一致性建模 #  In-Memory #  聚合根在内存，同步最新状态  事件溯源（Event Sourcing） #   没有CRUD，只有Append Event。数据不可变 对象最新状态通过事件溯源获得  Actor #  通过Mailbox取代调用，保证消息线性处理  EDA(Event-driven Architecture) #  节点只处理逻辑，节点间Event通信 是最终一致性的架构  CQRS #  介绍 Command Query Responsibility Seperation CQ接口分离、代码分离，分别设计 概念  分层 #  用户接口(user interface) 应用(application) # 尽可能小。数据验证，事务。故事, 表达出操作的事情 application service unit work presentation model 领域(domain) # 专注领域。准确定义业务对象 aggregate, entity, value object domain service, domain event 基础设施(infrastructure) # 辅助层 repository global support 项目文件 [ui] mall # 商城api [saleDomain] [application] mall.</description>
     </item>
     
     <item>
-      <title>架构-方案</title>
-      <link>https://example.com/docs/function/solution/</link>
+      <title>AI</title>
+      <link>https://example.com/docs/architect/strategy/ai/</link>
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
       
-      <guid>https://example.com/docs/function/solution/</guid>
-      <description>功能实现 #  重复提交 #  直接redirect csrf令牌  权限 #  过滤器 页面权限 拦截器aop 数据权限  seo #  静态化  web状态 #  cookie url中sessionId  加密 #  base64 sha  复杂业务 #  关注/信箱 #  要求 user人数10w, 活跃1w。 大部分user关注1k人, 一部分大v被关注100w人。 每人每天发100条博文 user新博文数量提醒，消息标记已读 表 user user_followers user_followed user_posts(u_id, created_ts) user_messages(u_id, p_id, is_read) # 10w * 100条数据 / 天 定时任务拉取 user_followed拉u_id, user_posts表按时段拉id, 更新user_messages 优点 平均, 少次, 增量。 缺点 及时性中 每次对所有用户操作 数据 10w*1k*100条数据 / 天 发布时推送 有p_id, user_followers, 更新user_messages 优点 及时性高 缺点 计算集中, 可能高峰 数据 最高 100w*100条数据 / 次 10w*100次 / 天 messages处理 存部分messages 不活跃user不存message 在登录状态，定时拉取 优点 减少message 缺点 计算集中 数据 1k * N(N&amp;lt;100)条 / 次 1w * 1k * 100条数据 / 天 messages结构变化 u_id: [{p_id: uint, is_read: bool}] # 条数稳定为10w 用mongodb或redis 消息队列?</description>
+      <guid>https://example.com/docs/architect/strategy/ai/</guid>
+      <description>基础 #  模型的作用 调模型参数自动做特征工程 交互 用户数据 -&amp;gt; 向量化 -&amp;gt; 向量 -&amp;gt; 模型 -&amp;gt; 输出 算法分类 离线: 复杂模型 在线: 时间短  框架 #  tensorflow # 神经网络计算 convnet.js # js深度学习 scikit-learn # python机器学习  特征工程 #  向量化, 量化才能优化, bitmap存储(位数即维数) one-hot: 太长，无序，歧义 业务导向存储 分段标识，如年龄区间[0,1,0,0] 需要经验及产品设计  模型 #  分类 传统模型 速度快 深度模型 业务复杂, 数据量大时用 模型 线性回归 逻辑回归 朴素贝叶斯 支撑向量机  用户画像 #  在Hive中存 </description>
+    </item>
+    
+    <item>
+      <title>IoT</title>
+      <link>https://example.com/docs/architect/strategy/iot/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/strategy/iot/</guid>
+      <description>框架 #  # Internet of Things Kaa SiteWhere # tomcat, mongodb, hbase, influxdb, grafana ThingSpeak # matlab可视化 DeviceHive # 开源, docker, k8s, es, spark, cassandra, kafka Zetta Thinger.io wso2  业务 #  目的 解决可读性可操作性 模块 展示 dashboard 在线设备 消息量 规则引擎消息流转次数 运维大盘 产品品类 地区排名 指标趋势 设备在线率 设备排行 事件数 事件类型 停用时长 延迟 开发服务 studio 开发 web 移动 自动化服务 设备 产品 # 软硬分离的桥梁 设备开发 -&amp;gt; 设备模拟(在线写c, js) -&amp;gt; 软件开发 配置(使用移动端) 运营运维 后台 监控 插件开发 服务编排 行业服务 智能生活 os # 高性能、极简开发、云端一体、丰富组件、安全防护 项目生成 领域模板 插件选择 网络 网关 凭证 无线 车联网、智能家居、穿戴、媒体内容分发、环境监测、智慧农业 设备 节点 接入 多协议: MQTT、CoAP、HTTP 多平台(设备端代码): c、node.</description>
+    </item>
+    
+    <item>
+      <title>中台</title>
+      <link>https://example.com/docs/architect/strategy/middle_platform/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/strategy/middle_platform/</guid>
+      <description>业务中台 #  权限 #  类型 ACL(access control list) # 访问权限列表 RBAC(role base access control) # 基于角色的访问控制 ABAC(attribute base access control) # 基于属性(计算属性)的访问控制 DAC(discretionary access control) # 自主访问控制 主体对所属对象有全部控制权 主体执行的程序权限相同 主体权限可分配给其它用户 MAC(mandatory access control) # 强制访问控制 管理分配权限，主体不能改变 主体只能访问他的对象，也不能写低级别对象 成员 user role group 访问权限 权限1: 游客，用户，rememberMe 权限2: uri前缀(功能模块) 权限3: uri后缀(静态资源过滤) 判断位置: 过滤器中 资源权限 权限: kind:part1:part2... 判断位置: 渲染数据前 数据权限 资源层级 权限: 2 判断位置: 进方法前 单表 权限: 表名:列名:值 判断位置: 写sql前 方法权限 权限: 方法域:方法名 判断位置: 进方法前 性能 grantTable缓存u_id, res_id关系  审批 #  模板 准入规则 起始、终止节点 节点, 节点成员, 替换成员, 节点事件(脚本), 跳转公式 审批流程 创建, 状态查询 审批  海 #  type # 记录类型 property # 类型动作, 关联到节点, 记录进出节点的动作。如对成员可读、可写, 记录负责人，对记录执行脚本, 记录回收计划 model # 模式 节点树、一个激活 节点 节点组 两节点方向 成员 节点成员1对多 成员分组(group, role)也是成员 记录 节点记录1对1 流转 # 记录按规则在节点流转, 指定某些节点, 或某些记录。动作流程短路 motion # 一次动作，如新建，移动，删除。 规则 # 该次动作对记录的验证 fomula # 计算motion次序 历史 # 动作历史 权限 kind # pass或 type、model、property、节点、节点from, 节点to 的任意组合 access # 分不同kind划分具体权限, 如(节点from, 节点to)kind的转移权限 pass权限 # 如创建type, 创建model, 某节点所有权限等 计划 # 定时或周期的流转  适配器boss #  action # 存http地址，参数名，验证器 code # 业务，如用户套餐 mode: get/post/put/delete # 如获得套餐，添加套餐，修改套餐，删除套餐 ctx # 参数map, action调用前后修改 next # 下个触发action history_action # action调用历史 suite # 带参action, thunk待触发 price # 标价 tag # 用作商品分类 order # 用户关联到suite, 计费 category # 生成action模板 apps/plugins # 由category生成, 多个带形参(如app_id)action, 封装成的模板。添加实例填入实参 role permission # action code type # action, suite等 access # crud和其它自定义权限  工作流 #  本质 状态管理 工作流重流程轻数据，业务重数据轻流程。工作流修改数据，数据触发工作流 标准 BPMN # omg制定 workflow XPDL # WfMC制定, xml, 复杂 思路 # 模型驱动架构(MDA) petri nets 有限状态机(FSM) # 并行(流水线)状态机 活动图 # JBoss使用 事件过程驱动链(EPC) 微内核 # 安全性高, 降耦合 已有实现 开源 yawl, jbpm, activiti, osworkflow, jboss, shark, obe 商业 aws, salesforce, sap等 分层 外设层 # 交互协议 网关(WAPI) 交互代理 # 网关与内核通信形式 引擎 # engine specification, case net netRunner continueIfPossible # 遍历task, fire task, condition task join, split # and所有, xor只一个, or规则 workitem flow persisting gateway 引擎运行服务 # 为引擎提供服务, 如解析流程定义、流程实例存储、参与者(workItem)解析、脚本计算、事件监听等 扩展实现 支撑 组织模型适配 人工task实现人工接口 流程实例存储 执行器中嵌入 其它应用适配 # 如邮件 内核获取环境资源 执行器定义扩展 应用适配扩展接口 操作流程定义 任务分配 辅助 条件验证 # 可以有外部验证器 分支时判断 事件处理/function处理 抽象的客户操作 # 如退回、跳转等 增强 自定义策略(workItem), 如代理人处理、工作日历(任务期限) 工作项分配、执行、提交 事件监听 超时处理 订阅应用事件, 应用时间触发器 基础组件  数据中台 #  </description>
     </item>
     
     <item>
       <title>支撑-原理</title>
-      <link>https://example.com/docs/computer/principle/</link>
+      <link>https://example.com/docs/tool/computer/principle/</link>
       <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
       
-      <guid>https://example.com/docs/computer/principle/</guid>
+      <guid>https://example.com/docs/tool/computer/principle/</guid>
       <description>主机 #  cpu #  介绍 单cpu串行工作，前任务完成，后任务才开始 # 串行不适合图形处理(多点，线，面要同时乘投影矩阵) cpu把大量空间和电量分配给控制器和缓存，不能集成太多计算单元 cpu内存通过cpu总线连接, cpu总线与pci总线通过主桥(北桥)连接 gpu在pci总线上 控制逻辑在cpu中运行, 生成渲染数据, 到内存, 再到显存显卡计算。 内存到显存数据传输最花费时间。 原理 处理单元(processing unit) 算术逻辑单元(arithmetic logic unit) 处理寄存器(processor register) 控制单元(control unit) 指令寄存器(instruction register) 程序计数器(program counter) 指令集架构(ISA, instruction set architecture) # 机器码易兼容, 软件易编程, 易升级cpu 精简指令集RISC(reduced instruction set computing) 复杂指令集CISC(complex instruction set computer) 时钟频率(clock speed) 生产 生产线散热决定生存率，决定cpu型号 多级缓存 L1, L2, L3, L4 虚拟化 虚拟机监视器(VMM, virtual machine monitors) 分类 指令流的重数分类 SI(single instruction stream)单指令流 MI(multiple instruction stream)多指令流 操作数流的重数分类 SD(single data stream)单数据流 MD(multiple data stream)多数据流 SISD 串行计算机 SIMD 阵列机(多处理单元) MISD 很少 MIMD 多处理机 多计算机 硬件并行 位级(bit-level): 32位, 64位计算机 指令级(instruction-level) # 处理器内部并行度很高 流水线 指令分步骤(指令流), 每步专门部件处理 多指令流并行, 部件不空闲等待单指令流结束 六级流水线步骤 取指(FI), 译码(DI), 计算操作数地址(CO), 取操作数(FO), 执行指令(EI), 写操作数(WO) 多发射(超标量) 一时钟周期处理多指令 超线程 模拟多个逻辑线程 乱序执行 猜测执行 数据级 向量体系结构、图形处理器 单指令多数据(SIMD)架构 线程级 # 紧耦合硬件模型中开发数据级或任务级并行，线程间有交互 请求级 # OS或程序耦合任务间并行 程序并行 数据级(DLP, data-level parallel) 任务级(TLP, task-level parallel) # 多处理器, 超线程, 虽只有4个核，但可用核返回8 内存 共享内存模型 分布式内存模型 进程: 独有内存 线程: 共享进程内存(地址空间、文件描述符) 一个进程下的轻量进程 POSIX线程api是对已有unix进程模型扩展, 与进程多方面类似 自己的信号掩码 cpu affinity(倾向在某cpu尽量长时间运行) cgroups  进程调度 #  等级 高级调度(High-Level Scheduling) 作业调度, 后备作业调入内存运行 低级调度(Low-Level Scheduling) 进程调度, 就绪队列中某进程获得cpu 中级调度(Intermediate-Level Scheduling) 虚拟存储器引入, 内外存对换区进行进程对换 方式 非剥夺方式 处理机分配给某进程后一直运行下去,直到阻塞时,才分配处理机到另一个进程 剥夺方式 进程运行时,系统基于某种原则,剥夺分配给它的处理机.</description>
     </item>
     
@@ -322,6 +322,15 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       
       <guid>https://example.com/docs/pl/principle/</guid>
       <description>基础 #  注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; # c++的语法缺陷, &amp;gt;&amp;gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin .</description>
+    </item>
+    
+    <item>
+      <title>企业级系统</title>
+      <link>https://example.com/docs/design/business/enterprise_system/</link>
+      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
+      
+      <guid>https://example.com/docs/design/business/enterprise_system/</guid>
+      <description>ERP #  # Enterprise Resources Planning, 企业资源计划  CMS #  # Content Management System grav # 开源cms  wordpress #  # php  dedecms #  # 织梦cms, SEO优化  帝国cms #  # SEO优化  phpcms #  phpwind #  # 开源, 社区管理系统  drupal #  # 开源, cms  工作流 #  activiti # 5,6已暂停维护，7叫作Activiti Cloud BPM flowable # activiti继任 YAML # 工作流 bossa # 工作流引擎 azkaban # 开源oa  JBPM #  # 常识 适用对象：业务逻辑不复杂，业务流程会变化 # s2sh适合业务逻辑复杂，但是业务流程不会变化的项目 jbpm封装hibernate 包含对象 模型 实例（由活动组成，包括活动、箭头等） 任务（需要人办理的活动） # 使用 myeclipse添加jbpm xml画图插件 MyEclipse -&amp;gt; MyEclipse Configuration Center -&amp;gt; Software -&amp;gt; Browse Software(add site) -&amp;gt; add from archive file找到jbpm-gpd-site.</description>
     </item>
     
     <item>
@@ -398,10 +407,10 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>JavaWeb</title>
-      <link>https://example.com/docs/function/javaweb/</link>
+      <link>https://example.com/docs/pl/java/javaweb/</link>
       <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
       
-      <guid>https://example.com/docs/function/javaweb/</guid>
+      <guid>https://example.com/docs/pl/java/javaweb/</guid>
       <description>基础 #  分层 视图层 jsp 控制层 servlet 业务层 过滤数据 manager层 封装第三方，service能力下沉，dao中间件 数据访问层对象 封装对象 数据库 java web 13种技术 JDBC Java Database Connectivty JNDI Java Name and Directory Interface EJB Enterprise JavaBean RMI Remote Method Invoke Java IDL/CORBA JSP Java Server Pages Java Servlet XML Extensible Markup Language JMS Java Message Service JTS Java Transaction Service JTA Java Transaction Architecture JavaMail JAF JavaBeans Activation Framework  jsp #  基于servlet, html页面嵌java代码，第一次访问时解释成servlet。位于视图层 域对象 pageContext # 当前页面有效 request # 一次请求范围 session # 会话 application context # 同一服务器 内置对象 Request Response Session Out # 输出流 PageContext # context Page # jsp的this Exception # &amp;lt;%@ page isErrorPage=&amp;quot;true&amp;quot;%&amp;gt; 时使用，显示异常信息 Application # 服务器 Config # 服务器配置  jsp-el表达式 #  ${ } 11个内置对象 pageContext // pageContext page // map （相当于pageScope，不过写法上省略了Scope） requestScope // map sessionScope // map applicationScope // map param // map ,用${param.</description>
     </item>
     
@@ -416,10 +425,10 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>Java设计模式</title>
-      <link>https://example.com/docs/design/design_mode/</link>
+      <link>https://example.com/docs/architect/code/design_mode/</link>
       <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
       
-      <guid>https://example.com/docs/design/design_mode/</guid>
+      <guid>https://example.com/docs/architect/code/design_mode/</guid>
       <description>六个原则 #  单一职责原则(SRP, Single Responsibility Principle) 一个类只做一件事，应该只有一个引起它修改的原因 开闭原则(OCP, Open-Close Principle) 对修改封闭，对扩展开放 里氏替换原则(LSP, the Liskov Substitution Principle) 子类可以完全替换父类。也就是继承只扩展新功能 依赖倒置原则(DIP, the Dependency Inversion Principle) 细节依赖于抽象,抽象不依赖于细节。抽象放在高层，并保持稳定 接口隔离原则(ISP, the Interface Segregation Principle) 客户端不依赖它不需要的接口。冗余依赖应该将接口拆分 迪米特法则（最少知道原则）(LoD, Law of Demeter) 一个类不应该知道自己操作的细节。只和朋友谈话，不和朋友的朋友谈话  构建型 #  工厂方法(Factory Method) #  # 简单工厂, 根据参数创建不同的类 # 静态工厂，单例工厂 public interface Sender{ public void Send(); } public class MySender implements Sender{ @Override public void Send(){} } public SenderFactory { public static Sender produceStatic() { return new MySender(); } public Sender produce(){ return new MySender(); } public Sender produce(int i){ return new MySender(); } } # 工厂子类继承工厂接口, 不同产品对应不同工厂 public interface AbstractFactory { public MySender produce(); } public class MyFactory implements AbstractFactory { @Override public MySender produce(){ return new MySender(); } }  抽象工厂(Abstract Factory) #  # 生产抽象产品 public interface AbstractFactory { public Sender produce(); } public class MyFactory implements AbstractFactory { @Override public Sender produce(){ return new MySender(); } }  单例(Singleton) #  确保只有一个实例 # 大多有资源管理器的功能 # 反射机制会使所有单例失效：私有构造方法可以被访问 应用 线程池 缓存 日志对象 对话框 打印机 显卡驱动程序 o-&amp;gt; 饿汉 public class Singleton { public static Singleton instance = new Singleton(); private Singleton(){} public static Singleton getInstance(){ return instance; } } o-&amp;gt; 懒汉式 public class Singleton { private static Singleton single=null; private Singleton() {} public synchronized static Singleton getInstance() { if (single == null) { single = new Singleton(); } return single; } } o-&amp;gt; 懒汉，双重检测(DCL) # 解决问题并发创建问题。在不同jvm或多核cpu上，有无序写入bug。 # 解决bug: 1 直接创建static属性, 2 get方法修饰synchronized public class Singleton { private static volatile Singleton singleton = null; # volatile: t1编译singleton = new Singleton()时重排序把没初始化对象赋值给singleton时, t2判断singleton为null。 private Singleton(){} public static Singleton getInstance(){ if (singleton == null) { // t1,t2并发进入 synchronized (Singleton.</description>
     </item>
     
@@ -434,29 +443,47 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>算法思想</title>
-      <link>https://example.com/docs/algorithm/thought/</link>
+      <link>https://example.com/docs/design/algorithm/thought/</link>
       <pubDate>Mon, 08 Oct 2018 22:21:21 +0800</pubDate>
       
-      <guid>https://example.com/docs/algorithm/thought/</guid>
+      <guid>https://example.com/docs/design/algorithm/thought/</guid>
       <description>口诀 #  难题首选动归 受阻贪心暴力 考虑分治思想 配合排序哈希  递归(recursion) #  介绍 利用递归，把状态的管理责任推给运行时 递归转迭代 可加上memory做优化  分治(divide and conquer) #  介绍 广义分治法 例子 二分检索 找最大/最小元素 归并分类 快速分类 选择问题 斯特拉森矩阵乘法  贪心(greedy) #  案例 Dijkstra最短路径 最小生成树Prim, Kruskal 背包问题 作业排序 最优归并模式  动态规划(dynamic planning) #  方法 常用滚动数组降低空间复杂度 案例 多段图 结点间最短路径 最优二叉检索树 0/1背包问题 可靠性设计 货郎担问题(旅行商问题) 流水线调度问题  检索与周游(retrieval/travel) #  案例 深度优先检索 广度优先检索 与/或图 对策树  回溯(backtracking) #  案例 8皇后问题 图的着色 哈密顿环 背包问题  暴力(brute force) #  介绍 分支限界条件加快效率 例子 DFS, BFS   分支-限界(branch and bound) 案例 LC检索 0/1背包问题 货郎担问题  并行(parallel) #  时间复杂度(time complexity) #  O()表示上界(&amp;lt;=), Ω() [omega]表示下界(&amp;gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &amp;gt;= n0时, T(N) &amp;lt;= cf(N), 记为T(N) = O(f(N)) N &amp;gt;= n0时, T(N) &amp;gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1.</description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>https://example.com/docs/algorithm/data_structure/</link>
+      <link>https://example.com/docs/design/algorithm/data_structure/</link>
       <pubDate>Sun, 07 Oct 2018 13:46:46 +0800</pubDate>
       
-      <guid>https://example.com/docs/algorithm/data_structure/</guid>
+      <guid>https://example.com/docs/design/algorithm/data_structure/</guid>
       <description>线性 #  列表(list) 数组(array) # 相同数据类型元素的序列，下标(index)访问 low high 字符串 二进制串(binary string) # 位串(bit string) 链表(linked list) 节点(node) 指针(pointer) 表头(header) 单链表(singly linked list) 双链表(doubly linked list) 栈(stack) # 插入和删除只能在端部进行的列表，应用于递归 栈顶(top) LIFO last-in-first-out 队列(queue) 队头(front) 队尾(rear) 入队(enqueue) FIFO first-in-first-out 优先队列(priority queue) # 数据项多来自于全序域(常整数或实数) 查找最大元素，删除最大元素，插入新元素 堆(heap)实现  散列表 #  介绍 有序输入时，树效率低，如果不要求查找有序结果，可以用散列 概念 hash table hashing(散列) item(项) key(关键字) # 项中某部分 hash function(散列函数) # 映射函数 collsion(冲突) # 多个关键字散列到同项的状况 load factor(装填因子) # λ 元素个数对表长度的比， # 如果散列是均匀的，表示了一个项中关键字的平均长度 # 一次成功查找要遍历约1 + (λ / 2)个链，1表示被匹配的项 rehashing(再散列) 一半时进行 直到插入失败再进行 middle-of-the-road # 到达某load factor时进行 caching the hash code(闪存散列代码) 算法 separate chaining(分离链接法) # 解决冲突 probing hash table(探测散列表) 线性探测法 primary clustering(聚集) # 线性探测法中形成数据区块 平方探测法 secondary clustering(二次聚集) # 模拟结果指出，对每次查找，会引起另外的少于一半的探测 double hashing(双散列) # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同 extendible hashing(可扩散列) D directory(目录) # 一个分区中bit的个数，所以M最多2^D 性质 # 基于位模式(bit patterm)是均匀分布的事实, 是&amp;quot;分支系数(branch factor)&amp;quot;, N 是记录总数(随时间变化) 树叶期望个数为(N/M)log(2)(e) 所以平均树叶满的程度为ln2 = 0.</description>
     </item>
     
     <item>
       <title>数学</title>
-      <link>https://example.com/docs/algorithm/math/</link>
+      <link>https://example.com/docs/design/algorithm/math/</link>
       <pubDate>Sun, 07 Oct 2018 12:46:46 +0800</pubDate>
       
-      <guid>https://example.com/docs/algorithm/math/</guid>
+      <guid>https://example.com/docs/design/algorithm/math/</guid>
       <description>指数 #  X^A * X^B = X^(A + B) X^A / X^B = X^(A - B) (X^A)^B = X^(A * B) X^N + X^N = 2X^N &amp;lt;&amp;gt; X^(2N) 2^N + 2^N = 2^(N + 1)  对数 #  约定 计算机科学中, log默认为log(2) X^A = B, log(X)(B) = A log(A)(B) = log(C)(B)/log(C)(A) logAB = logA + logB  级数 #  ∑(i=0)(N)2^i = 2^(N + 1) - 1 ∑(i=0)(N)A^i = (A^(N + 1) - 1) / (A - 1) 如果0 &amp;lt; A &amp;lt; 1, 则 &amp;lt;= 1 / (1 - A) ∑(i=1)(∞)i/2^i = 2 ∑(i=1)(N)i = N(N + 1) / 2 ≈ N^2 / 2 ∑(i=1)(N)i^2 = N(N + 1)(2N + 1) / 6 ≈ N^3 / 3 ∑(i=1)(N)i^k ≈ N^(k + 1) / |k + 1| k &amp;lt;&amp;gt; -1 k = -1时, Hn = ∑(i=1)(N)1 / i ≈ log(e)(N), Hn是调和级数 该近似式误差趋向于 λ ≈ 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/architect/security/error_debug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/architect/security/error_debug/</guid>
+      <description>基础 #  线上故障等级 P0 致命问题 P1 严重问题 P2 一般问题 P3 轻微问题 线上故障分类 外部依赖类 运营质量类 需求质量类 系统质量类  混沌工程 #  混沌工程画像 ApplicationData 进程Hang、Kill，启动异常，心跳异常，环境错误，包错误或损坏，配置错误、误删、获取超时 Data 系统单点，异步阻塞同步，依赖超时，依赖异常，业务线程池满，监控错误，OOM Runtime 负载均衡失效，缓存热点，缓存限流 Middleware 数据库热点，数据库宕机，数据同步延迟，数据库主备延迟，数据库连接满，数据库热点 OS CPU抢占，内存抢占，内存错乱，上下文切换 Virtualization 服务器宕机、假死，断电，超卖，混部 Storage 磁盘满、慢、坏，不可写，不可读 Networking 网络抖动、丢包、超时，网卡满，断网 工具 ChaosBlade  Java #  Idea Debugger  Redis #  MySQL #  Using intersect 多余查询条件虽然命中索引，但会产生多余的索引查询使SQL变慢，应该使用唯一的单值索引 force index指定期望的索引 用count(*)不要count(1) use filesort可能会文件排序  Trace #  Pinpoint记录 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/architect/strategy/big_data/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/architect/strategy/big_data/hadoop/</guid>
+      <description>介绍 #  发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
     </item>
     
     <item>
@@ -474,16 +501,7 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/ops/</guid>
-      <description>环境 #  scp eureka-server-1.0-SNAPSHOT.jar shenwq@36.137.165.51:~  源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  分析 #  nmon pidstat -p 434 -u 1 # CPU -r 1 # 内存 -d 1 # 磁盘 -w # 上下文切换 iftop -n # 网络流量 iotop p # 显示pid o # 只显示活跃  java #  -Dserver.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/cache/template/script/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/cache/template/script/</guid>
-      <description>默认声卡 #  pactl list short sources pactl list short sinks pactl set-default-source alsa_input.pci-0000_00_1b.0.analog-stereo pactl set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo  亮度 #  #!/usr/bin/expect -f spawn sudo vim /sys/class/backlight/intel_backlight/brightness expect &amp;quot;*password*&amp;quot; send -- &amp;quot;asdf\r&amp;quot; interact  电量 #  cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity  </description>
+      <description>查日志 #  ERROR __tag__:__path__:/var/log/nginx/error.log  环境 #  scp eureka-server-1.0-SNAPSHOT.jar shenwq@36.137.165.51:~  源 #  163: http://mirrors.163.com/ 阿里云mirror: https://developer.aliyun.com/mirror ubuntu sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list 阿里云maven: https://maven.aliyun.com/mvn/view 阿里云个人docker 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0  分析 #  nmon pidstat -p 434 -u 1 # CPU -r 1 # 内存 -d 1 # 磁盘 -w # 上下文切换 iftop -n # 网络流量 iotop p # 显示pid o # 只显示活跃  java #  -Dserver.</description>
     </item>
     
     <item>
@@ -518,15 +536,6 @@ snip #  org.apache.ibatis.mapping.MappedStatement#getBoundSql
 PageHelper.startPage(Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageNum()).orElse(1), Optional.ofNullable(scmDirectSendCheckQueryDTO.getPageSize()).orElse(10));
 com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.enums.EnumSalesOrderStatus 订单状态 com.choice.scm.utils.common.ScmConstants.SCM_ORDER_TYPE 汇总类型 com.choice.scm.utils.common.BillTypeEnum 出库类型 com.choice.scm.entity.dispatch.enums.ScmDispatchOutStatusEnum: 配送出库状态
 // 设置属性 System.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/computer/performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/computer/performance/</guid>
-      <description>基础 #  性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 #  cpu gpu  存储 #     类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&amp;gt; 荷兰 -&amp;gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 #  带宽 热门并发1.</description>
     </item>
     
     <item>
@@ -567,20 +576,20 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title></title>
-      <link>https://example.com/docs/function/small_function/</link>
+      <link>https://example.com/docs/design/business/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/function/small_function/</guid>
-      <description>阻塞 #  阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 #  实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 #  并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
+      <guid>https://example.com/docs/design/business/framework/</guid>
+      <description>博客框架 #  cleaver #  # 基于node幻灯片  hexo #  介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;amp;&amp;amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/middleware/big_data/hadoop/</link>
+      <link>https://example.com/docs/design/business/function/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/middleware/big_data/hadoop/</guid>
-      <description>介绍 #  大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.5: 300w-500w MySQL8: 1亿、1GB Doug Cutting GFS -&amp;gt; HDFS 存储 Map-Reduce -&amp;gt; MapReduce 计算 BigTable -&amp;gt; HBase 表式存储 发展 2003-2004: Google公开部分GFS和MapReduce 2005: Hadoop成为Apache Lucene子项目Nutch了一部分 2006.</description>
+      <guid>https://example.com/docs/design/business/function/</guid>
+      <description>阻塞 #  阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP  事件 #  实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent)  并发并行 #  并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
     </item>
     
     <item>
@@ -611,21 +620,21 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     </item>
     
     <item>
-      <title>Apple</title>
-      <link>https://example.com/docs/computer/tool/apple/</link>
+      <title></title>
+      <link>https://example.com/docs/tool/computer/performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/apple/</guid>
-      <description>ipad #  操作 下边向上(短)：桌面 下边向上(停): dock dock拖app: 小窗、分屏 小窗向边(短): 隐藏 小窗向边(停): 分屏 小窗向上：分离 下角向内(短): 切app 下角向内(停): app表 右上角向下: 控制中心 左上角向下：通知 桌面向下: 搜索 3指左右: app内切换 4指左右：切app 4指向内(短): 桌面 4指向内(停): app表 home一下：桌面 home两下：app表 siri 问答: 笑话, 常识, 抛硬币 safari: 搜索 设置: 蓝牙,飞行模式 时钟 6点起床 德国时间 倒计时 日历: 9点开会 提醒：提醒和给妈妈打电话 备忘录：记下我花了10块钱 地图：回家路线 打车 打电话, 发信息 照片 体育：比赛消息 音乐 邮件 天气 计算器 股票: xx涨了吗 朋友：xx在哪里 发微博 指定xx: 打开trello发送a 附近店 相机：自拍模式  mac #  操作 四指 向内：启动台 向外：桌面 三指 左右：切桌面 向上：app列表 向下：expose(单程序多窗口) 二指 上下：滚动 左右：前进后退 右边：通知中心 缩放,旋转 点一下：菜单 点二下：小缩放 一指 点一下：选中 点二下：打开 点一段：拖 点二段：查询 快捷键 系统： 锁屏：control + command + q 关屏：shift + control + 关机 注销：shift + command + q 睡眠：option + command + 关机 强退：control + command + 关机 程序坞： option + command + d 调度中心： app列表: control + 上 expose: control + 下 左右桌面：control + 左右 桌面：f11 窗口： 切换：command + tab 程序内切换：command + ` 关闭：command + w 退出：command + q 强制退出：option + command + esc 隐藏：command + h 最大化: control + command + f 最小化：command + m 放大、缩小：command + +和- 新标签：command + t 新建: command + n 打开：command + o 保存：command + s 另存为：shift + command + s 刷新：command + r 打印：command + p 搜索：command + f 文件： 全选、复制、剪切、粘贴、撤销: command + a c x v z 粘贴移到: option + command + v 删除: command + return 访达： 预览：空格 简介：command + i 回收站： 清空：shift + command + return 截屏： 整屏存文件：shift + command + 3 区域存文件：shift + command + 4 窗口区域：shift + command + 4 + 空格 录屏：shift + command + 5 输入法：control + 空格 </description>
+      <guid>https://example.com/docs/tool/computer/performance/</guid>
+      <description>基础 #  性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划  计算 #  cpu gpu  存储 #     类型 时间 描述     L1 cache 0.5ns    branch mispredict(分支、转移) 5ns    L2 cache 7ns 14x L1 cache   Mutex lock/unlock 25ns    Main memory 100ns 20x L2 cache, 200x L1 cache   1k字节压缩Zippy 3,000ns = 3us    在1Gbps网络上发送1k字节 10,000ns = 10us    SSD随机读4k 150,000ns = 150us 1GB/秒   内存顺序读1MB 250,000ns = 250us    同一数据中心往返 500,000ns = 500us    SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存   磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返   磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD   发包: 美国 -&amp;gt; 荷兰 -&amp;gt; 加拿大 150,000,000ns = 150,000us = 150ms     传输 #  带宽 热门并发1.</description>
     </item>
     
     <item>
-      <title>awesome</title>
-      <link>https://example.com/docs/cache/template/awesome/</link>
+      <title>Apple</title>
+      <link>https://example.com/docs/tool/develop/apple/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cache/template/awesome/</guid>
-      <description>autorun.sh #  #!/usr/bin/env bash # nothing to use function run { if ! pgrep $1 ; then $@&amp;amp; fi } if randr | grep -q &#39;eDP1 connected&#39; ; then run xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 2560x1080 --pos 3360x720 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP2 --off fi  rc.</description>
+      <guid>https://example.com/docs/tool/develop/apple/</guid>
+      <description>ipad #  操作 下边向上(短)：桌面 下边向上(停): dock dock拖app: 小窗、分屏 小窗向边(短): 隐藏 小窗向边(停): 分屏 小窗向上：分离 下角向内(短): 切app 下角向内(停): app表 右上角向下: 控制中心 左上角向下：通知 桌面向下: 搜索 3指左右: app内切换 4指左右：切app 4指向内(短): 桌面 4指向内(停): app表 home一下：桌面 home两下：app表 截图、导出pdf: 主按键 + 电源键 键盘：两指缩小浮动 分屏: 一指拉出dock, 一指拖出程序 siri 问答: 笑话, 常识, 抛硬币 safari: 搜索 设置: 蓝牙,飞行模式 时钟 6点起床 德国时间 倒计时 日历: 9点开会 提醒：提醒和给妈妈打电话 备忘录：记下我花了10块钱 地图：回家路线 打车 打电话, 发信息 照片 体育：比赛消息 音乐 邮件 天气 计算器 股票: xx涨了吗 朋友：xx在哪里 发微博 指定xx: 打开trello发送a 附近店 相机：自拍模式  alfred #  搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流  fantastical #  个人总结 名字 date 9th from 9.</description>
     </item>
     
     <item>
@@ -638,39 +647,12 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     </item>
     
     <item>
-      <title>docker模板</title>
-      <link>https://example.com/docs/cache/template/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/cache/template/docker/</guid>
-      <description>registry #  htpasswd -Bbn outrun asdf &amp;gt; auth/htpasswd docker-compose.yml registry: restart: always image: registry:latest # privileged: true ports: - 5000:5000 environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm REGISTRY_STORAGE_DELETE_ENABLED: &amp;quot;true&amp;quot; volumes: - ./data:/var/lib/registry - ./auth:/auth docker-compose up -d 客户端 /etc/docker/daemon.json {&amp;quot;insecure-registries&amp;quot;:[&amp;quot;127.0.0.1:5000&amp;quot;]} sudo systemctl daemon-reload sudo systemctl restart docker docker login 127.0.0.1:5000 docker tag java/device:1.0 127.0.0.1:5000/java/device:1.0 docker push 127.0.0.1:5000/java/device:1.0 curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog # v2表示版本 registry:2 docker pull 127.0.0.1:5000/java/device:1.0  jenkins #  docker pull jenins mkdir /var/jenkins_home docker run -d --name myjenkins -p 49001:8080 -u 0 -v /var/jenkins_home:/var/jenkins_home jenkins # -u 0 用root帐户启动  nsenter #  # 不需ssh进入容器shell docker run -v /usr/local/bin:/target jpetazzo/nsenter # 安装 docker ps # 查看要进入的容器id docker inspect --format {{.</description>
-    </item>
-    
-    <item>
-      <title>iPad</title>
-      <link>https://example.com/docs/computer/tool/ipad/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/computer/tool/ipad/</guid>
-      <description>alfred #  搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流  fantastical #  个人总结 名字 date 9th from 9.30p to 10.32p alert 30min 对象 Account - Calendar Sets - Cals(Subscription+Interesting) + Item(Events + Tasks) nlp 语法 事件 [with 人物] [at 地点] [at 日期时间] [on 日期] [from 日期时间] [to 日期时间] [of every 日期时间] 提醒 URL 日历 日期 特定 日期 11月1日 11/1 11.1 星期 周一 mon/tue/wed/tur/fri/sat/sun 相对 日期 15天后 after 15 days 星期 下周一 next mon 重复 日期 每月2号 every 2 星期 每周二 every tue 每隔两周的周三 on wed every 2 weeks 复合 7月1日到8月1日之间的每个周一周二 on mons tues from 7/1 to 8/1 区间 12月17日到次年1月3日是寒假 寒假 12/17-1/3 12/17~1/3 时间 24小时制 13 12小时制 下午一点 1p 1pm 分钟 下午一点半 13:30 1.</description>
-    </item>
-    
-    <item>
       <title>Jetbrains</title>
-      <link>https://example.com/docs/computer/tool/jetbrains/</link>
+      <link>https://example.com/docs/tool/develop/jetbrains/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/jetbrains/</guid>
-      <description>intellij idea #  注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
-    </item>
-    
-    <item>
-      <title>linux模板</title>
-      <link>https://example.com/docs/cache/template/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/cache/template/linux/</guid>
-      <description>/etc/fstab #  /dev/nvme0n1p5 /home ext4 defaults 0 2 /dev/nvme0n1p3 /home/outrun/nvme0n1p3 ntfs-3g defaults 0 0 # /dev/nvme0n1p6 UUID=b00fac49-46d7-43ef-aea7-256d82b862b2	/ ext4 rw,relatime,data=ordered	0 1 # /dev/nvme0n1p1 LABEL=ESP UUID=FE8F-730F /boot/EFI vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2  /etc/resolv.conf #  nameserver 114.114.114.114  /etc/X11/xorg.conf.d/70-synaptics.conf #  Section &amp;quot;InputClass&amp;quot; Identifier &amp;quot;touchpad&amp;quot; Driver &amp;quot;synaptics&amp;quot; MatchIsTouchpad &amp;quot;on&amp;quot; Option &amp;quot;TapButton1&amp;quot; &amp;quot;1&amp;quot; Option &amp;quot;TapButton2&amp;quot; &amp;quot;3&amp;quot; Option &amp;quot;TapButton3&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;VertEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;VertTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizEdgeScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;HorizTwoFingerScroll&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircularScrolling&amp;quot; &amp;quot;on&amp;quot; Option &amp;quot;CircScrollTrigger&amp;quot; &amp;quot;2&amp;quot; Option &amp;quot;EmulateTwoFingerMinZ&amp;quot; &amp;quot;40&amp;quot; Option &amp;quot;EmulateTwoFingerMinW&amp;quot; &amp;quot;8&amp;quot; Option &amp;quot;FingerLow&amp;quot; &amp;quot;30&amp;quot; Option &amp;quot;FingerHigh&amp;quot; &amp;quot;50&amp;quot; Option &amp;quot;MaxTapTime&amp;quot; &amp;quot;125&amp;quot; Option &amp;quot;VertScrollDelta&amp;quot; &amp;quot;-50&amp;quot; Option &amp;quot;HorizScrollDelta&amp;quot; &amp;quot;-50&amp;quot; EndSection  /etc/systemd/system/docker.</description>
+      <guid>https://example.com/docs/tool/develop/jetbrains/</guid>
+      <description>Intellij Idea #  注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
     </item>
     
     <item>
@@ -684,29 +666,31 @@ com.choice.scm.utils.enums.EnumSalesOrderType 订单类型 com.choice.scm.utils.
     
     <item>
       <title>实物工具</title>
-      <link>https://example.com/docs/computer/tool/physics/</link>
+      <link>https://example.com/docs/tool/physics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/physics/</guid>
-      <description>HHKB HyBrid #  生产日期 20210108 购买日期 202104  配对方式 #  1.按Fn + q键进入配对模式。 2.再按Fn + z + ~ 键清空键盘配对信息,键盘自动关闭。 3.长按开关键重新打开键盘后按Fn + q键进入配对模式,再按Fn + Ctrl + 1/2/3/4指定一个序号。 4.然后关闭电脑蓝牙功能再打开进行搜索。  切换 #  Fn + Ctrl + 1/2/3/4 Fn + Ctrl + 0 </description>
+      <guid>https://example.com/docs/tool/physics/</guid>
+      <description>HHKB HyBrid #  生产日期 20210108 购买日期 202104  配对方式 #  1.按Fn + q键进入配对模式。 2.再按Fn + z + ~ 键清空键盘配对信息,键盘自动关闭。 3.长按开关键重新打开键盘后按Fn + q键进入配对模式,再按Fn + Ctrl + 1/2/3/4指定一个序号。 4.然后关闭电脑蓝牙功能再打开进行搜索。  切换 #  Fn + Ctrl + 1/2/3/4 Fn + Ctrl + 0  Swiftpoint ProPoint #  Blix Komfort Prima #  </description>
     </item>
     
     <item>
       <title>程序调试</title>
-      <link>https://example.com/docs/ops/test/debug/</link>
+      <link>https://example.com/docs/tool/test/debug/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/ops/test/debug/</guid>
+      <guid>https://example.com/docs/tool/test/debug/</guid>
       <description>分析方向 #  cpu #  方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数  内存 #  对象 对象个数、空间比例 调用栈分配比例  线程/协程 #  泄露 I/O阻塞 锁阻塞 channel阻塞  GC问题 #  少建对象  Linux #  time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig  Java #  VisualVM #  JProfiler #  # 收费, java  perfino #  # 监测jvm  YourKit #  # 收费, java, 有调用链  Spring Insight #  # java spring  Golang #  go命令 go tool pprof Xx.</description>
     </item>
     
     <item>
-      <title>采用</title>
-      <link>https://example.com/docs/computer/tool/adopt/</link>
+      <title>那些年我做过的技术</title>
+      <link>https://example.com/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/computer/tool/adopt/</guid>
-      <description>趋向 #  本地(app) -&amp;gt; 线上(browser)  采用 #  工具 #  sidecar 信息: oneNote[oneDrive] 记录: todo, dayOne, 支付宝, moneyPro, 分享: snipaste, flameshot 输入 新 搜索: DEVONagent, wolframAlpha 渠道: pages, 知网, 博客, 知乎, 慕课, 网易公开课, 微信/qq, outlook 发散: 百度指数, DEVONSphere 盘: icloud, oneDrive x 2, 坚果云, 百度网盘 休闲: noizio, relaxMelodiesSeasions, earth3D 会议 notability[iCloud] GTD trello, microsoftToDo, things3 转换 文件 DEVONthink, siteSucker 字 字: wps-word, word, pdfElement, LaTeX, iAWriter, 代码: cacher[github], lepton[github], dash, snippetsLap, textastic misc: shortMenu 图 marginNote[iCloud], liquidText[iCloud] 影音 音频: permute3 图片: touchRetouch, auroraHDR, lensFlare, reflectStudio, superDenoising, Logoist, polarrPhoto, priimeStyles, tonality, QRFactory 视频: quickTime, gifox, gif brewery, gif maker, Hype3 3d: aurora3DMaker 修补 设备同步: synergy, pushbullet, sharemouse 人机: alfred, divvy, unclutter, workspaces, yoink, xscope, hazeOver, microSnitch 监视: istatistica, wifiExplorer 文件: FEFileExplorer 浏览器: tampermonkey 输出 字 大纲: drafts[iCloud], workflowy[workflowy], 幕布[幕布] 代码: jetbrains, vim, spacemacs 表达式: expressions 图 架构: visio, wps-ppt, ppt, OmniGraffle, 建模: plantUML, graphviz, 甘特图: OmniPlan, ganttProject, microsoftProject 表: excel, xmind[oneDrive], mindNode, ithoughts, scapple 数学: mathStudio, pocketCAS 画: procreator 库 结构: blog[github] 书: goodnotes  依赖 #  系统: 文件: tree, unrar, unzip, 7z, diff, du 系统: ntfs-3g, os-prober, network-manager, wireless-tools, systemctl, service 包: yaourt, yay, pkgfile, snap wps-office, ttf-wps-fonts 界面: awesome, i3-wm, arandr, xscreensaver, tmux, synergy, ibus, synaptics, pepper-flash, virtualbox 网络: chromium, firefox, thunderbird ops: shell: ^z, bg, fg, jobs, nohup, expect, 系统: sysdig, sysstat包(sar, sadf, mpstat, iostat, pidstat), ifconfig, top, htop, ps, df 网络: wireshark, netstat, ss, ping, telnet, iptables, wget, git, openssh, nc, nmap, nslookup vpn: openvpn, shadowsocks, polipo, v2ray vm: docker, docker-compose db: mysql, mariadb, postgresql, redis, mongodb, cassandra, neo4j elasticsearch, elasticsearch-head, elasticsearch-analysis-hanlp, elasticsearch-ik, elasticsearch-pinyin mq: nsq, rabbitmq, kafka, 容器: nginx, nginx-php 监控: zipkin, 应用: dokuwiki, tiddlywiki, wordpress, 服务: vsftpd, filezilla 分布式: ansible 程序: 基本: make, cmake, g++, gcc, lua, ruby, java: openjdk8, jdk8, jdk12, maven, tomcat go: go1.</description>
+      <guid>https://example.com/summary/</guid>
+      <description>从13年毕业到今天，参加工作有8年了
+背景经历 #  这8年，大约分三个阶段
+ 2012年-2015年 2015年-2019年 2019年-至今  </description>
     </item>
     
   </channel>
