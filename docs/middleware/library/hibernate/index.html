@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="基础 #  优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载  优化 #  数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略  基本概念 #  o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  使用 #  1.">
+<meta name="description" content="基础 # 优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载 优化 # 数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略 基本概念 # o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean 使用 # 1.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 #  优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载  优化 #  数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略  基本概念 #  o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean  使用 #  1." />
+<meta property="og:description" content="基础 # 优点 完全面向对象编程思想，无sql 减少代码 控制数据库访问，降低访问数据库的频率（第一次访问后，数据存储在内存的缓存中），提升效率 hibernate具有独立性（访问层随时可以更换） 特性 不写hbm.xml映射文件，而是基于注解的验证 对象、集合、属性的延迟加载 dao层之外使用延迟对象时，由于连接已关闭, 会报Nosession异常 目录 . # hibernate程序包 documentation # 文档 lib # 所有依赖包 project # 源码文件 加载顺序 后面的覆盖前面的 hibernate.properties中的配置被覆盖 # 因为该文件中的配置在new Configuration() 的时候就加载，而之后的xml配置文件是调用configuration.addResource()的方法加载的，新加载的配置覆盖了原来的配置 hibernate3.6之后可以基于注解对javaBean的数据进行验证（jsr303标准） 开发流程 加载配置: jdbc参数，数据库方言，hbm映射 创建SessionFactory # 内有连接池 创建session 事务处理 关闭session 关闭连接池 对象状态 𣊬时态 # 没有OID(持久化标识), 没有关联session 持久态 # 有OID, 与session关联, 事务未提交 脱管态 # 有OID, 没有关联session 缓存机制 一级缓存(session) 事务级，事务结束缓存失效 # 请求同一对象，取得同一实例 总是打开 二级缓存 SessionFactory级别，session共享 缓存散装持久化实例, 有不同缓存策略 先设置策略，再设置过期时间与cache提供器 优点 提高速度、减小压力 缓存失效时，不立即查找，而是合并sql查找 查询方式 HQL QBC(命名查询) SQL get与load get立即加载，load延时加载 get先查一级缓存，再查二级缓存，再查数据库, load查一级缓存，没有时创建代理对象，需要时再查二级缓存和数据库 # 代理对象只存id get没有时返回null, load抛异常 检索策略 # 取关联对象 立即检索 # 一次全加载, select多 延迟检索 # 访问游离状态代理类，需要在持久化状态时已被初始化 迫切左外连接检索 # 用外连接取代select，全加载 优化 # 数据库设计调整 HQL优化 api正确使用 配置参数 # 日志、查询缓存，fetch_size, batch_size等 映射文件优化 # id生成策略，二级缓存，延迟加载，关联优化 一级缓存管理, 二级缓存策略 事务控制策略 基本概念 # o-&gt; hibernate 相当于dao层，层次划分中是访问层，解决增、删、改、查、批处理五个问题 o-&gt; hibernate实现orm(对象关系映射标准，完全面向对象编程思想) DBUtils与i/mybatis 与hibernate 是同样的，同样实现的是orm标准 它们的区别在于 hibernate中不写sql语句 ibatis中写少量sql语句 DBUtils中写sql语句 它们的另一个相同点是 底层全都是jdbc o-&gt; 结构对应 javabean中的 类，对象，属性 数据库中的 表，记录，字段 o-&gt; hql hibernate query language，hibernate自己的sql语言，需要使用antlr jar包中的方法内部转换成sql语言才能使用 o-&gt; 正向工程：JavaBean生成表，反向工程：表生成JavaBean 使用 # 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/middleware/library/hibernate/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-09-22T21:45:53&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-22T21:45:53+08:00" />
 
 <title>Hibernate | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -68,47 +68,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -121,43 +82,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -199,7 +173,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -225,11 +199,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -239,13 +248,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -262,7 +269,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1162,7 +1169,7 @@ javaBean
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

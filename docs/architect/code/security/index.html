@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="服务器 # 木马 # 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled 经验 # libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr &#43;i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr &#43;i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写 DDoS # 防范方法 # 漏洞扫描 # DVWA # Damn Vulnerable Web Application，PHP &#43; MySQL模拟Web漏洞 W3af # Web应用扫描, Python实现 OpenVAS # 扫描主机漏洞 网络隔离 # 内外网分离 登录跳板机 Web安全 # XSS # # 向网页注入代码 CSRF # # Cross-Site Request Forgery, 跨站请求伪造 SQL注入 # Hash Dos # 上传大Json Object, 利用Hash算法的伪随机性，制造Value不同但Hash碰撞的数据，耗尽CPU 上传文件脚本 # 伪造Content-Type上传静态资源，再URL访问执行 防范方法 # 验证码 # 根据滑动响应时间、拖拽速度、时间、位置、轨迹、重试次数来评估风险 信息存储 # 密码非明文保存，加salt 身份证号、手机号加&quot;*&quot; 联系方式显示与否用户自己配置 加密 # 对称加密 DES # 56位秘钥，已被AES取代 3DES # 做3次DES AES # 128、192、256位秘钥 Blowfish # 1到448位变长秘钥 非对称加密 RSA # DSA # 性能快于RSA，只能数字签名 ECDSA # 螺旋曲线加密算法 ECC # 256位ECC秘钥相当于3072位RSA秘钥 哈希算法 MD5 # 不再安全 SHA-1 # 不再安全 SHA-256 授权、认证 # RBAC、ABAC SSO OAuth2.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Security" />
+<meta property="og:description" content="服务器 # 木马 # 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled 经验 # libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr &#43;i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr &#43;i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写 DDoS # 防范方法 # 漏洞扫描 # DVWA # Damn Vulnerable Web Application，PHP &#43; MySQL模拟Web漏洞 W3af # Web应用扫描, Python实现 OpenVAS # 扫描主机漏洞 网络隔离 # 内外网分离 登录跳板机 Web安全 # XSS # # 向网页注入代码 CSRF # # Cross-Site Request Forgery, 跨站请求伪造 SQL注入 # Hash Dos # 上传大Json Object, 利用Hash算法的伪随机性，制造Value不同但Hash碰撞的数据，耗尽CPU 上传文件脚本 # 伪造Content-Type上传静态资源，再URL访问执行 防范方法 # 验证码 # 根据滑动响应时间、拖拽速度、时间、位置、轨迹、重试次数来评估风险 信息存储 # 密码非明文保存，加salt 身份证号、手机号加&quot;*&quot; 联系方式显示与否用户自己配置 加密 # 对称加密 DES # 56位秘钥，已被AES取代 3DES # 做3次DES AES # 128、192、256位秘钥 Blowfish # 1到448位变长秘钥 非对称加密 RSA # DSA # 性能快于RSA，只能数字签名 ECDSA # 螺旋曲线加密算法 ECC # 256位ECC秘钥相当于3072位RSA秘钥 哈希算法 MD5 # 不再安全 SHA-1 # 不再安全 SHA-256 授权、认证 # RBAC、ABAC SSO OAuth2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/architect/code/security/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-11T18:47:57+08:00" />
+<meta property="article:modified_time" content="2022-08-01T13:53:50+08:00" />
+
+<title>Security | outrun的笔记</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154152836-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  <script data-ad-client="ca-pub-6239994681364905" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="baidu_union_verify" content="aacbc30462cce84b2333063d99284e3b">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" /><span>outrun的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><a href="/"><strong>介绍</strong></a></li>
+<li><a href="/docs/architect"><strong>架构</strong></a>
+<ul>
+<li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
+<li><a href="/docs/architect/strategy/big_data">大数据</a>
+<ul>
+<li><a href="/docs/architect/strategy/big_data/hadoop">Hadoop</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/strategy/ai">AI</a></li>
+<li><a href="/docs/architect/strategy/iot">IoT</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
+</ul>
+</li>
+<li><a href="/docs/tool"><strong>工具</strong></a>
+<ul>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
+<li><a href="/docs/tool/ops/docker">Docker</a></li>
+<li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
+</ul>
+</li>
+<li><a href="/docs/middleware"><strong>中间件</strong></a>
+<ul>
+<li><a href="/docs/middleware/container"><strong><strong>容器</strong></strong></a>
+<ul>
+<li><a href="/docs/middleware/container/nginx">Nginx</a></li>
+<li><a href="/docs/middleware/container/nodejs">Node.js</a></li>
+</ul>
+</li>
+<li><a href="/docs/middleware/distributed"><strong><strong>分布式</strong></strong></a>
+<ul>
+<li><a href="/docs/middleware/distributed/spring_cloud">Spring Cloud</a></li>
+</ul>
+</li>
+<li><a href="/docs/middleware/library"><strong><strong>库</strong></strong></a>
+<ul>
+<li><a href="/docs/middleware/library/hibernate">Hibernate</a></li>
+</ul>
+</li>
+<li><a href="/docs/middleware/library_frontend"><strong><strong>前端库</strong></strong></a>
+<ul>
+<li><a href="/docs/middleware/library_frontend/jquery">JQuery</a></li>
+<li><a href="/docs/middleware/library_frontend/bootstrap">Bootstrap</a></li>
+<li><a href="/docs/middleware/library_frontend/angular">Angular</a></li>
+<li><a href="/docs/middleware/library_frontend/react">React</a></li>
+<li><a href="/docs/middleware/library_frontend/threejs">Three.js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/db"><strong>数据库</strong></a>
+<ul>
+<li><a href="/docs/db/mongodb">MongoDB</a></li>
+<li><a href="/docs/db/mysql">Mysql</a></li>
+<li><a href="/docs/db/oracle">Oracle</a></li>
+<li><a href="/docs/db/postgresql">PgSQL</a></li>
+<li><a href="/docs/db/redis">Redis</a></li>
+<li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl"><strong>语言</strong></a>
+<ul>
+<li><a href="/docs/pl/principle">原理</a></li>
+<li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
+<ul>
+<li><a href="/docs/pl/java/jvm">JVM</a></li>
+<li><a href="/docs/pl/java/collection">Java Collection</a></li>
+<li><a href="/docs/pl/java/juc">Java Concurrent</a></li>
+<li><a href="/docs/pl/java/spring">Spring</a></li>
+<li><a href="/docs/pl/java/rxjava">RxJava</a></li>
+<li><a href="/docs/pl/java/javaweb">JavaWeb</a></li>
+</ul>
+</li>
+<li><a href="/docs/pl/go">GO</a></li>
+<li><a href="/docs/pl/js">JS</a></li>
+<li><a href="/docs/pl/python">Python</a></li>
+<li><a href="/docs/pl/haskell">Haskell</a></li>
+<li><a href="/docs/pl/clojure">Clojure</a></li>
+<li><a href="/docs/pl/markup_language"><strong><strong>标记语言</strong></strong></a>
+<ul>
+<li><a href="/docs/pl/markup_language/html">HTML</a></li>
+<li><a href="/docs/pl/markup_language/css">CSS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/docs/cache"><strong>Cache</strong></a>
+<ul>
+<li><a href="/docs/cache/ops">运维</a></li>
+<li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
+</ul>
+</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a>
+<ul>
+<li><a href="/docs/misc/infomation">信息</a></li>
+<li><a href="/docs/misc/media">媒体</a></li>
+<li><a href="/docs/misc/english">英语</a></li>
+<li><a href="/docs/misc/interview">题目</a></li>
+<li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
+</ul>
+</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Security</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#服务器">服务器</a>
+      <ul>
+        <li><a href="#木马">木马</a></li>
+        <li><a href="#经验">经验</a></li>
+        <li><a href="#ddos">DDoS</a></li>
+        <li><a href="#防范方法">防范方法</a>
+          <ul>
+            <li><a href="#漏洞扫描">漏洞扫描</a></li>
+            <li><a href="#网络隔离">网络隔离</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#web安全">Web安全</a>
+      <ul>
+        <li><a href="#xss">XSS</a></li>
+        <li><a href="#csrf">CSRF</a></li>
+        <li><a href="#sql注入">SQL注入</a></li>
+        <li><a href="#hash-dos">Hash Dos</a></li>
+        <li><a href="#上传文件脚本">上传文件脚本</a></li>
+        <li><a href="#防范方法-1">防范方法</a>
+          <ul>
+            <li><a href="#验证码">验证码</a></li>
+            <li><a href="#信息存储">信息存储</a></li>
+            <li><a href="#加密">加密</a></li>
+            <li><a href="#授权认证">授权、认证</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#代码安全">代码安全</a>
+      <ul>
+        <li><a href="#java反序列化漏洞">Java反序列化漏洞</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据安全">数据安全</a>
+      <ul>
+        <li><a href="#数据备份">数据备份</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题定义与排查方法">问题定义与排查方法</a>
+      <ul>
+        <li><a href="#基础">基础</a></li>
+        <li><a href="#混沌工程">混沌工程</a></li>
+        <li><a href="#java">Java</a></li>
+        <li><a href="#redis">Redis</a></li>
+        <li><a href="#mysql">MySQL</a></li>
+        <li><a href="#trace">Trace</a></li>
+      </ul>
+    </li>
+    <li><a href="#各开源协议">各开源协议</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="服务器">
+  服务器
+  <a class="anchor" href="#%e6%9c%8d%e5%8a%a1%e5%99%a8">#</a>
+</h1>
+<h2 id="木马">
+  木马
+  <a class="anchor" href="#%e6%9c%a8%e9%a9%ac">#</a>
+</h2>
+<pre><code>自变异木马
+    改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理
+    自删除
+    伪装成系统程序或绑定系统程序
+检查
+    可疑进程
+    定时任务
+    启动项
+        /etc/init.d或service --status-all
+        systemctl list-unit-files | grep enabled
+</code></pre>
+<h2 id="经验">
+  经验
+  <a class="anchor" href="#%e7%bb%8f%e9%aa%8c">#</a>
+</h2>
+<pre><code>libudev.so                      # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务
+    chmod 0000 /lib/libudev.so &amp;&amp; rm -rf /lib/libudev.so &amp;&amp; chattr +i /lib/
+    /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除
+    /etc/crontab/gcc.sh删除
+    sed '/gcc.sh/d' /etc/crontab &amp;&amp; chmod 0000 /etc/crontab &amp;&amp; chattr +i /etc/crontab 删除定时任务
+    重启
+    chattr -i /lib /etc/crontab 恢复可写
+</code></pre>
+<h2 id="ddos">
+  DDoS
+  <a class="anchor" href="#ddos">#</a>
+</h2>
+<h2 id="防范方法">
+  防范方法
+  <a class="anchor" href="#%e9%98%b2%e8%8c%83%e6%96%b9%e6%b3%95">#</a>
+</h2>
+<h3 id="漏洞扫描">
+  漏洞扫描
+  <a class="anchor" href="#%e6%bc%8f%e6%b4%9e%e6%89%ab%e6%8f%8f">#</a>
+</h3>
+<pre><code>DVWA
+    # Damn Vulnerable Web Application，PHP + MySQL模拟Web漏洞
+W3af
+    # Web应用扫描, Python实现
+OpenVAS
+    # 扫描主机漏洞
+</code></pre>
+<h3 id="网络隔离">
+  网络隔离
+  <a class="anchor" href="#%e7%bd%91%e7%bb%9c%e9%9a%94%e7%a6%bb">#</a>
+</h3>
+<pre><code>内外网分离
+登录跳板机
+</code></pre>
+<h1 id="web安全">
+  Web安全
+  <a class="anchor" href="#web%e5%ae%89%e5%85%a8">#</a>
+</h1>
+<h2 id="xss">
+  XSS
+  <a class="anchor" href="#xss">#</a>
+</h2>
+<pre><code># 向网页注入代码
+</code></pre>
+<h2 id="csrf">
+  CSRF
+  <a class="anchor" href="#csrf">#</a>
+</h2>
+<pre><code># Cross-Site Request Forgery, 跨站请求伪造
+</code></pre>
+<h2 id="sql注入">
+  SQL注入
+  <a class="anchor" href="#sql%e6%b3%a8%e5%85%a5">#</a>
+</h2>
+<h2 id="hash-dos">
+  Hash Dos
+  <a class="anchor" href="#hash-dos">#</a>
+</h2>
+<pre><code>上传大Json Object, 利用Hash算法的伪随机性，制造Value不同但Hash碰撞的数据，耗尽CPU
+</code></pre>
+<h2 id="上传文件脚本">
+  上传文件脚本
+  <a class="anchor" href="#%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6%e8%84%9a%e6%9c%ac">#</a>
+</h2>
+<pre><code>伪造Content-Type上传静态资源，再URL访问执行
+</code></pre>
+<h2 id="防范方法-1">
+  防范方法
+  <a class="anchor" href="#%e9%98%b2%e8%8c%83%e6%96%b9%e6%b3%95-1">#</a>
+</h2>
+<h3 id="验证码">
+  验证码
+  <a class="anchor" href="#%e9%aa%8c%e8%af%81%e7%a0%81">#</a>
+</h3>
+<pre><code>根据滑动响应时间、拖拽速度、时间、位置、轨迹、重试次数来评估风险
+</code></pre>
+<h3 id="信息存储">
+  信息存储
+  <a class="anchor" href="#%e4%bf%a1%e6%81%af%e5%ad%98%e5%82%a8">#</a>
+</h3>
+<pre><code>密码非明文保存，加salt
+身份证号、手机号加&quot;*&quot;
+联系方式显示与否用户自己配置
+</code></pre>
+<h3 id="加密">
+  加密
+  <a class="anchor" href="#%e5%8a%a0%e5%af%86">#</a>
+</h3>
+<pre><code>对称加密
+    DES             # 56位秘钥，已被AES取代
+    3DES            # 做3次DES
+    AES             # 128、192、256位秘钥
+    Blowfish        # 1到448位变长秘钥
+非对称加密
+    RSA             #
+    DSA             # 性能快于RSA，只能数字签名
+    ECDSA           # 螺旋曲线加密算法
+    ECC             # 256位ECC秘钥相当于3072位RSA秘钥
+哈希算法
+    MD5             # 不再安全
+    SHA-1           # 不再安全
+    SHA-256
+</code></pre>
+<h3 id="授权认证">
+  授权、认证
+  <a class="anchor" href="#%e6%8e%88%e6%9d%83%e8%ae%a4%e8%af%81">#</a>
+</h3>
+<pre><code>RBAC、ABAC
+SSO
+OAuth2.0
+OIDC
+    # OpenId Connect，OAuth2上构建的身份认证
+SAML
+    # Security Assertion Markup Language
+    用于SSO，XML格式
+    定义了三个角色：委托人、身份提供者(IDP)、服务提供者(SP)。用户SP做访问控制
+2FA
+    # Two-factor authentication, 双因素认证
+</code></pre>
+<h1 id="代码安全">
+  代码安全
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e5%ae%89%e5%85%a8">#</a>
+</h1>
+<h2 id="java反序列化漏洞">
+  Java反序列化漏洞
+  <a class="anchor" href="#java%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e6%bc%8f%e6%b4%9e">#</a>
+</h2>
+<pre><code>用户输入直接反序列化，可利用Apache Commons Collections执行任意代码
+</code></pre>
+<h1 id="数据安全">
+  数据安全
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ae%89%e5%85%a8">#</a>
+</h1>
+<h2 id="数据备份">
+  数据备份
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%a4%87%e4%bb%bd">#</a>
+</h2>
+<h1 id="问题定义与排查方法">
+  问题定义与排查方法
+  <a class="anchor" href="#%e9%97%ae%e9%a2%98%e5%ae%9a%e4%b9%89%e4%b8%8e%e6%8e%92%e6%9f%a5%e6%96%b9%e6%b3%95">#</a>
+</h1>
+<h2 id="基础">
+  基础
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80">#</a>
+</h2>
+<pre><code>线上故障等级
+	P0 致命问题
+	P1 严重问题
+	P2 一般问题
+	P3 轻微问题
+线上故障分类
+	外部依赖类
+	运营质量类
+	需求质量类
+	系统质量类
+</code></pre>
+<h2 id="混沌工程">
+  混沌工程
+  <a class="anchor" href="#%e6%b7%b7%e6%b2%8c%e5%b7%a5%e7%a8%8b">#</a>
+</h2>
+<pre><code>混沌工程画像
+	ApplicationData
+		进程Hang、Kill，启动异常，心跳异常，环境错误，包错误或损坏，配置错误、误删、获取超时
+	Data
+		系统单点，异步阻塞同步，依赖超时，依赖异常，业务线程池满，监控错误，OOM
+	Runtime
+		负载均衡失效，缓存热点，缓存限流
+	Middleware
+		数据库热点，数据库宕机，数据同步延迟，数据库主备延迟，数据库连接满，数据库热点
+	OS
+		CPU抢占，内存抢占，内存错乱，上下文切换
+	Virtualization
+		服务器宕机、假死，断电，超卖，混部
+	Storage
+		磁盘满、慢、坏，不可写，不可读
+	Networking
+		网络抖动、丢包、超时，网卡满，断网
+工具
+	ChaosBlade
+</code></pre>
+<h2 id="java">
+  Java
+  <a class="anchor" href="#java">#</a>
+</h2>
+<pre><code>Idea Debugger
+</code></pre>
+<h2 id="redis">
+  Redis
+  <a class="anchor" href="#redis">#</a>
+</h2>
+<h2 id="mysql">
+  MySQL
+  <a class="anchor" href="#mysql">#</a>
+</h2>
+<pre><code>Using intersect
+	多余查询条件虽然命中索引，但会产生多余的索引查询使SQL变慢，应该使用唯一的单值索引
+force index指定期望的索引
+用count(*)不要count(1)
+use filesort可能会文件排序
+</code></pre>
+<h2 id="trace">
+  Trace
+  <a class="anchor" href="#trace">#</a>
+</h2>
+<pre><code>Pinpoint记录
+</code></pre>
+<h1 id="各开源协议">
+  各开源协议
+  <a class="anchor" href="#%e5%90%84%e5%bc%80%e6%ba%90%e5%8d%8f%e8%ae%ae">#</a>
+</h1>
+<pre><code>GPL
+    介绍
+        GNU General Public License，GNU发布的通用协议，共3个版本，最新为GPLv3，Linux使用此协议
+    特点
+        发布的软件使用GPL的软件, 也要GPL
+LGPL
+    介绍
+        GNU Lesser General Public License，OpenOffice使用此协议
+    特点
+        类库引用可不开源，有代码修改要使用LGPL开源
+AGPL
+    介绍
+        Affero General Public License。类似的协议有CPAL、OSL
+    特点
+        除发布的软件，提供服务的软件，也要AGPL
+BSD
+    介绍
+        Berkly Software Distribution
+    特点
+        可以自由修改，修改可再次闭源发布。只需要BSD许可协议文件，但不能使用原作者名义宣传
+MPL
+    介绍
+        The Mozilla Public License
+    特点
+        可与其它授权的文件混合使用，新增代码可使用其它方式授权或闭源
+        使用MPL的部分，对MPL修改的部分，要MPL
+MIT
+    介绍
+        近1/3的开源 软件使用。如ssh, JQuery, Putty，XWindow
+    特点
+        类似BSD，可使用原作者名义推广
+Apache2.0
+    介绍
+        软件有Android, Apache Web Server, Swift
+    特点
+        类似BSD，被修改的原始文件要著名版权
+</code></pre>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 1, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/code/security.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#服务器">服务器</a>
+      <ul>
+        <li><a href="#木马">木马</a></li>
+        <li><a href="#经验">经验</a></li>
+        <li><a href="#ddos">DDoS</a></li>
+        <li><a href="#防范方法">防范方法</a>
+          <ul>
+            <li><a href="#漏洞扫描">漏洞扫描</a></li>
+            <li><a href="#网络隔离">网络隔离</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#web安全">Web安全</a>
+      <ul>
+        <li><a href="#xss">XSS</a></li>
+        <li><a href="#csrf">CSRF</a></li>
+        <li><a href="#sql注入">SQL注入</a></li>
+        <li><a href="#hash-dos">Hash Dos</a></li>
+        <li><a href="#上传文件脚本">上传文件脚本</a></li>
+        <li><a href="#防范方法-1">防范方法</a>
+          <ul>
+            <li><a href="#验证码">验证码</a></li>
+            <li><a href="#信息存储">信息存储</a></li>
+            <li><a href="#加密">加密</a></li>
+            <li><a href="#授权认证">授权、认证</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#代码安全">代码安全</a>
+      <ul>
+        <li><a href="#java反序列化漏洞">Java反序列化漏洞</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据安全">数据安全</a>
+      <ul>
+        <li><a href="#数据备份">数据备份</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题定义与排查方法">问题定义与排查方法</a>
+      <ul>
+        <li><a href="#基础">基础</a></li>
+        <li><a href="#混沌工程">混沌工程</a></li>
+        <li><a href="#java">Java</a></li>
+        <li><a href="#redis">Redis</a></li>
+        <li><a href="#mysql">MySQL</a></li>
+        <li><a href="#trace">Trace</a></li>
+      </ul>
+    </li>
+    <li><a href="#各开源协议">各开源协议</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

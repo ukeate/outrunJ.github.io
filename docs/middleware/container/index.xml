@@ -11,7 +11,7 @@
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
       <guid>https://example.com/docs/middleware/container/nginx/</guid>
-      <description>基础 #  结构 一个主进程(root权限运行)和多个工作进程(普通权限运行) 优点 异步非阻塞 非常稳定 反向代理 后端服务io能力不高，nginx buffer http请求直到完整，再发送到后端。同样buffer响应 相对apache 轻量 apache阻塞 占资源低 模块化设计 社区活跃, bug少 多进程模型 使用epoll 多worker处理，业务阻塞时切换调度, 结束阻塞时分配 模块 handler filter upstream load-balance 功能 http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理 命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.</description>
+      <description>基础 # 结构 一个主进程(root权限运行)和多个工作进程(普通权限运行) 优点 异步非阻塞 非常稳定 反向代理 后端服务io能力不高，nginx buffer http请求直到完整，再发送到后端。同样buffer响应 相对apache 轻量 apache阻塞 占资源低 模块化设计 社区活跃, bug少 多进程模型 使用epoll 多worker处理，业务阻塞时切换调度, 结束阻塞时分配 模块 handler filter upstream load-balance 功能 http 可以保持session， 相同的ip分配到同一个服务器上 缓存静态页面到内存，建立索引与自动索引 反向代理 负载均衡 模块化 过滤器 gzipping, byte ranges, chunked responses, SSI-filter 支持SSL与TLS SNI imap/pop3代理 命令 nginx -c /etc/nginx/nginx.conf nginx -s quit nginx -s stop nginx -s reload # 重载设置 ## service nginx reload nginx -v # 查看版本 ## -V nginx -t [-c nginx.</description>
     </item>
     
     <item>
@@ -20,7 +20,7 @@
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
       <guid>https://example.com/docs/middleware/container/nodejs/</guid>
-      <description>基础 #  特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&amp;gt; watcher -&amp;gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.</description>
+      <description>基础 # 特点 commonJS规范 javascript书写(v8引擎) js设计之初就可以运行在后端 v8 成熟的事件驱动模式 没有i/o库, 没有历史包袱 v8性能好 单线程 不用在意多线程状态同步(没有死锁, 没有上下文切换) 无法利用多核, 错误时应用退出，计算密集时无法调度 # child_process解决 事件驱动(event-driven), 回调 event loop [while(true)] -&amp;gt; watcher -&amp;gt; handles watcher产生事件后, event loop取到并执行其handle(回调函数) event loop每一周询问多个watcher是否有事件 event loop中没有watcher时进程退出 http模块就是启动了一个watcher,所以执行后进程不结束 其它watcher有 timer, fs, udp/req, process 不同操作系统中event driven的实现: windows: IOCP Linux: epoll Mac:kqueue 非阻塞io(non-blocking i/o model) io与数据处理分离（所以必须异步） 线程池结合event-driven实现 异步io go语言有协程(coroutine)而node.js没有，协程可以同步式编程 # 有第三方协程模块 promise(commonJs的规范, 其实现有whenJs, Q) # 书写难度降低 eventProxy # 朴灵 async/step commonJS 模块 var math = require(&#39;math&#39;) # 缓存优先，核心模块优先。依次找.</description>
     </item>
     
   </channel>

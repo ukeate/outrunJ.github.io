@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="基础 #  remote dictionary server 特点 no-sql, c编写 内存数据库 # 请求不经过parser和optimizer key-value 单线程 可持久化 与memcache区别 memcache全在内存，不能持久化，redis部分硬盘 memcache类型支持简单 # memcache类型只有字符串，append字符串, blacklist删除麻烦 emecache多线程, redis单线程 底层模型，与客户端通信协议不同，redis自己实现vm机制(冷热数据分离) value, memcache只能存1MB, redis可存1GB redis可设置expire, 支持排行榜, 浮点数 类型 string 整个或一部分操作 整数、浮点数自增自减 list 两边推入或弹出 偏移量trim 读单个多个元素 值查找移除元素 set 增删查单个元素 单个元素是否存在 交集、并集、差集 随机取元素 hash 增删查单个键值对 获取所有键值对 zset # 有序集合, 排序根据score, score为双精度浮点数 增删查单个元素 根据range或成员获取元素 应用 会话缓存(session cache) 全面缓存(FPC) 队列 排行榜/计数器 发布/订阅 命令 文件命令 redis-server # 端口为6379 redis-server /etc/redis.conf 来加载配置文件 redis-cli redis-benchmark # 性能测试工具 redis-cli命令 ping # 成功时返回 PONG shutdown # 关闭redis-server服务 -p 端口号 quit  功能 #  性能高 # 100k次读写/s 数据类型丰富 所有操作有原子性 支持发布/订阅，通知，key过期 发布订阅 subscribe psubscribe # 订阅给定模式匹配的所有频道 unsubscribe punsubscribe publish sort # 列表、集合、有序集合排序，返回结果或生成存储 过期 persist # 移除键过期时间 ttl # 键距离过期时间还有多少秒 pttl # 多少毫秒 expire # 给定键指定数秒后过期 pexpire # 指定的毫秒后过期 expireat # unix时间戳过期 pexpireat # 毫秒unix时间戳 事务 # 事务期其他客户端命令阻塞 multi # 创建事务队列，开始记录命令 exec # 提交事务队列 watch # 对键加锁 unwatch discard # 取消事务 持久化 bgsave # fork线程创建快照, windows不支持 save # 停止响应创建快照 sync # 向主服务器要求复制时，主服务器bgsave，非刚bgsave过 bgrewriteaof # 重写aof文件使它缩小 复制 slaveof 客户端分片 不完全事务  性能 #  内存数据库，需要预估内存，使用key过期节约 完整重同步占资源，可以部分重同步 重启数据加载慢 master内存快照时，save命令调rdbSave阻塞主线程 master AOF持久化，追加文件大时影响master重启恢复速度 用slave AOF master调用BGREWRITEAOF重写AOF文件时，cpu和内存负载高 主从复制最好同局域网  数据 #  set mykey somvalue get mykey del mykey incr decr incrby decrby incrbyfloat append getrange setrange getbit setbit bitcount # 二进制位串位为1的数量 bitop # 二进制位串执行and, or, xor, not rpush list-key item lpush lrange list-key 0 -1 # -1为结束索引 lindex list-key 1 rpop lpop list-key lrange ltrim # 修剪 blpop # timeout秒内阻塞并等待弹出元素 brpop rpoplpush # 一个列表中右弹元素推入另一个列表左端，最后返回这个元素 brpoplpush sadd set-key item smembers set-key sismember set-key item srem set-key item # 删除，返回删除的数量 scard # 元素数 srandmember # 随机返回一个或多个元素。count正数时，返回的元素不重复, 负数时可重复 spop # 随机移除一个元素 smove # 一个集合中移除，并在一个集合中添加。返回移除的数量 sdiff # 差集 sdiffstore # 差集生成集合 sinter # 交集 sinterstore sunion # 并集 sunionstore hset hash-key sub-key value hget hash-key sub-key hdel hash-key sub-key hlen hexists hash-key sub-key hkeys hash-key hvals hgetall hash-key hincrbyfloat hincrby hash-key field -1 hmget hmset hash-key field1 &quot;foo&quot; field2 &quot;bar&quot; zadd zset-key 728 member zrange zset-key 0 -1 withscores zrevrange zset-key 0 -1 withscores zrangebyscore zset-key 0 800 withscores # 根据score范围查找 zrevrangebyscore zrem zset-key member zremrangebyrank zremrangebyscore zincrby zinterstore sum 3 sub1 sub2 sub3 # 生成交集, 重复值score相加, 3 指定可变参数的数量 zunionstore # 并集 zcard # 成员数量 zcount # 分值之间的成员数量 zrank # 返回排名 zrevrank zscore # 返回分值  client #  jedis # java, 支持redis sharding, 即ShardedJedis结合ShardedJedisPool Jedis jedis = new Jedis(&quot;localhost&quot;); # 连接redis数据库 jedis.">
+<meta name="description" content="基础 # remote dictionary server 特点 no-sql, c编写 内存数据库 # 请求不经过parser和optimizer key-value 单线程 可持久化 与memcache区别 memcache全在内存，不能持久化，redis部分硬盘 memcache类型支持简单 # memcache类型只有字符串，append字符串, blacklist删除麻烦 emecache多线程, redis单线程 底层模型，与客户端通信协议不同，redis自己实现vm机制(冷热数据分离) value, memcache只能存1MB, redis可存1GB redis可设置expire, 支持排行榜, 浮点数 类型 string 整个或一部分操作 整数、浮点数自增自减 list 两边推入或弹出 偏移量trim 读单个多个元素 值查找移除元素 set 增删查单个元素 单个元素是否存在 交集、并集、差集 随机取元素 hash 增删查单个键值对 获取所有键值对 zset # 有序集合, 排序根据score, score为双精度浮点数 增删查单个元素 根据range或成员获取元素 应用 会话缓存(session cache) 全面缓存(FPC) 队列 排行榜/计数器 发布/订阅 命令 文件命令 redis-server # 端口为6379 redis-server /etc/redis.conf 来加载配置文件 redis-cli redis-benchmark # 性能测试工具 redis-cli命令 ping # 成功时返回 PONG shutdown # 关闭redis-server服务 -p 端口号 quit 功能 # 性能高 # 100k次读写/s 数据类型丰富 所有操作有原子性 支持发布/订阅，通知，key过期 发布订阅 subscribe psubscribe # 订阅给定模式匹配的所有频道 unsubscribe punsubscribe publish sort # 列表、集合、有序集合排序，返回结果或生成存储 过期 persist # 移除键过期时间 ttl # 键距离过期时间还有多少秒 pttl # 多少毫秒 expire # 给定键指定数秒后过期 pexpire # 指定的毫秒后过期 expireat # unix时间戳过期 pexpireat # 毫秒unix时间戳 事务 # 事务期其他客户端命令阻塞 multi # 创建事务队列，开始记录命令 exec # 提交事务队列 watch # 对键加锁 unwatch discard # 取消事务 持久化 bgsave # fork线程创建快照, windows不支持 save # 停止响应创建快照 sync # 向主服务器要求复制时，主服务器bgsave，非刚bgsave过 bgrewriteaof # 重写aof文件使它缩小 复制 slaveof 客户端分片 不完全事务 性能 # 内存数据库，需要预估内存，使用key过期节约 完整重同步占资源，可以部分重同步 重启数据加载慢 master内存快照时，save命令调rdbSave阻塞主线程 master AOF持久化，追加文件大时影响master重启恢复速度 用slave AOF master调用BGREWRITEAOF重写AOF文件时，cpu和内存负载高 主从复制最好同局域网 数据 # set mykey somvalue get mykey del mykey incr decr incrby decrby incrbyfloat append getrange setrange getbit setbit bitcount # 二进制位串位为1的数量 bitop # 二进制位串执行and, or, xor, not rpush list-key item lpush lrange list-key 0 -1 # -1为结束索引 lindex list-key 1 rpop lpop list-key lrange ltrim # 修剪 blpop # timeout秒内阻塞并等待弹出元素 brpop rpoplpush # 一个列表中右弹元素推入另一个列表左端，最后返回这个元素 brpoplpush sadd set-key item smembers set-key sismember set-key item srem set-key item # 删除，返回删除的数量 scard # 元素数 srandmember # 随机返回一个或多个元素。count正数时，返回的元素不重复, 负数时可重复 spop # 随机移除一个元素 smove # 一个集合中移除，并在一个集合中添加。返回移除的数量 sdiff # 差集 sdiffstore # 差集生成集合 sinter # 交集 sinterstore sunion # 并集 sunionstore hset hash-key sub-key value hget hash-key sub-key hdel hash-key sub-key hlen hexists hash-key sub-key hkeys hash-key hvals hgetall hash-key hincrbyfloat hincrby hash-key field -1 hmget hmset hash-key field1 &quot;foo&quot; field2 &quot;bar&quot; zadd zset-key 728 member zrange zset-key 0 -1 withscores zrevrange zset-key 0 -1 withscores zrangebyscore zset-key 0 800 withscores # 根据score范围查找 zrevrangebyscore zrem zset-key member zremrangebyrank zremrangebyscore zincrby zinterstore sum 3 sub1 sub2 sub3 # 生成交集, 重复值score相加, 3 指定可变参数的数量 zunionstore # 并集 zcard # 成员数量 zcount # 分值之间的成员数量 zrank # 返回排名 zrevrank zscore # 返回分值 client # jedis # java, 支持redis sharding, 即ShardedJedis结合ShardedJedisPool Jedis jedis = new Jedis(&quot;localhost&quot;); # 连接redis数据库 jedis.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="基础 #  remote dictionary server 特点 no-sql, c编写 内存数据库 # 请求不经过parser和optimizer key-value 单线程 可持久化 与memcache区别 memcache全在内存，不能持久化，redis部分硬盘 memcache类型支持简单 # memcache类型只有字符串，append字符串, blacklist删除麻烦 emecache多线程, redis单线程 底层模型，与客户端通信协议不同，redis自己实现vm机制(冷热数据分离) value, memcache只能存1MB, redis可存1GB redis可设置expire, 支持排行榜, 浮点数 类型 string 整个或一部分操作 整数、浮点数自增自减 list 两边推入或弹出 偏移量trim 读单个多个元素 值查找移除元素 set 增删查单个元素 单个元素是否存在 交集、并集、差集 随机取元素 hash 增删查单个键值对 获取所有键值对 zset # 有序集合, 排序根据score, score为双精度浮点数 增删查单个元素 根据range或成员获取元素 应用 会话缓存(session cache) 全面缓存(FPC) 队列 排行榜/计数器 发布/订阅 命令 文件命令 redis-server # 端口为6379 redis-server /etc/redis.conf 来加载配置文件 redis-cli redis-benchmark # 性能测试工具 redis-cli命令 ping # 成功时返回 PONG shutdown # 关闭redis-server服务 -p 端口号 quit  功能 #  性能高 # 100k次读写/s 数据类型丰富 所有操作有原子性 支持发布/订阅，通知，key过期 发布订阅 subscribe psubscribe # 订阅给定模式匹配的所有频道 unsubscribe punsubscribe publish sort # 列表、集合、有序集合排序，返回结果或生成存储 过期 persist # 移除键过期时间 ttl # 键距离过期时间还有多少秒 pttl # 多少毫秒 expire # 给定键指定数秒后过期 pexpire # 指定的毫秒后过期 expireat # unix时间戳过期 pexpireat # 毫秒unix时间戳 事务 # 事务期其他客户端命令阻塞 multi # 创建事务队列，开始记录命令 exec # 提交事务队列 watch # 对键加锁 unwatch discard # 取消事务 持久化 bgsave # fork线程创建快照, windows不支持 save # 停止响应创建快照 sync # 向主服务器要求复制时，主服务器bgsave，非刚bgsave过 bgrewriteaof # 重写aof文件使它缩小 复制 slaveof 客户端分片 不完全事务  性能 #  内存数据库，需要预估内存，使用key过期节约 完整重同步占资源，可以部分重同步 重启数据加载慢 master内存快照时，save命令调rdbSave阻塞主线程 master AOF持久化，追加文件大时影响master重启恢复速度 用slave AOF master调用BGREWRITEAOF重写AOF文件时，cpu和内存负载高 主从复制最好同局域网  数据 #  set mykey somvalue get mykey del mykey incr decr incrby decrby incrbyfloat append getrange setrange getbit setbit bitcount # 二进制位串位为1的数量 bitop # 二进制位串执行and, or, xor, not rpush list-key item lpush lrange list-key 0 -1 # -1为结束索引 lindex list-key 1 rpop lpop list-key lrange ltrim # 修剪 blpop # timeout秒内阻塞并等待弹出元素 brpop rpoplpush # 一个列表中右弹元素推入另一个列表左端，最后返回这个元素 brpoplpush sadd set-key item smembers set-key sismember set-key item srem set-key item # 删除，返回删除的数量 scard # 元素数 srandmember # 随机返回一个或多个元素。count正数时，返回的元素不重复, 负数时可重复 spop # 随机移除一个元素 smove # 一个集合中移除，并在一个集合中添加。返回移除的数量 sdiff # 差集 sdiffstore # 差集生成集合 sinter # 交集 sinterstore sunion # 并集 sunionstore hset hash-key sub-key value hget hash-key sub-key hdel hash-key sub-key hlen hexists hash-key sub-key hkeys hash-key hvals hgetall hash-key hincrbyfloat hincrby hash-key field -1 hmget hmset hash-key field1 &quot;foo&quot; field2 &quot;bar&quot; zadd zset-key 728 member zrange zset-key 0 -1 withscores zrevrange zset-key 0 -1 withscores zrangebyscore zset-key 0 800 withscores # 根据score范围查找 zrevrangebyscore zrem zset-key member zremrangebyrank zremrangebyscore zincrby zinterstore sum 3 sub1 sub2 sub3 # 生成交集, 重复值score相加, 3 指定可变参数的数量 zunionstore # 并集 zcard # 成员数量 zcount # 分值之间的成员数量 zrank # 返回排名 zrevrank zscore # 返回分值  client #  jedis # java, 支持redis sharding, 即ShardedJedis结合ShardedJedisPool Jedis jedis = new Jedis(&quot;localhost&quot;); # 连接redis数据库 jedis." />
+<meta property="og:description" content="基础 # remote dictionary server 特点 no-sql, c编写 内存数据库 # 请求不经过parser和optimizer key-value 单线程 可持久化 与memcache区别 memcache全在内存，不能持久化，redis部分硬盘 memcache类型支持简单 # memcache类型只有字符串，append字符串, blacklist删除麻烦 emecache多线程, redis单线程 底层模型，与客户端通信协议不同，redis自己实现vm机制(冷热数据分离) value, memcache只能存1MB, redis可存1GB redis可设置expire, 支持排行榜, 浮点数 类型 string 整个或一部分操作 整数、浮点数自增自减 list 两边推入或弹出 偏移量trim 读单个多个元素 值查找移除元素 set 增删查单个元素 单个元素是否存在 交集、并集、差集 随机取元素 hash 增删查单个键值对 获取所有键值对 zset # 有序集合, 排序根据score, score为双精度浮点数 增删查单个元素 根据range或成员获取元素 应用 会话缓存(session cache) 全面缓存(FPC) 队列 排行榜/计数器 发布/订阅 命令 文件命令 redis-server # 端口为6379 redis-server /etc/redis.conf 来加载配置文件 redis-cli redis-benchmark # 性能测试工具 redis-cli命令 ping # 成功时返回 PONG shutdown # 关闭redis-server服务 -p 端口号 quit 功能 # 性能高 # 100k次读写/s 数据类型丰富 所有操作有原子性 支持发布/订阅，通知，key过期 发布订阅 subscribe psubscribe # 订阅给定模式匹配的所有频道 unsubscribe punsubscribe publish sort # 列表、集合、有序集合排序，返回结果或生成存储 过期 persist # 移除键过期时间 ttl # 键距离过期时间还有多少秒 pttl # 多少毫秒 expire # 给定键指定数秒后过期 pexpire # 指定的毫秒后过期 expireat # unix时间戳过期 pexpireat # 毫秒unix时间戳 事务 # 事务期其他客户端命令阻塞 multi # 创建事务队列，开始记录命令 exec # 提交事务队列 watch # 对键加锁 unwatch discard # 取消事务 持久化 bgsave # fork线程创建快照, windows不支持 save # 停止响应创建快照 sync # 向主服务器要求复制时，主服务器bgsave，非刚bgsave过 bgrewriteaof # 重写aof文件使它缩小 复制 slaveof 客户端分片 不完全事务 性能 # 内存数据库，需要预估内存，使用key过期节约 完整重同步占资源，可以部分重同步 重启数据加载慢 master内存快照时，save命令调rdbSave阻塞主线程 master AOF持久化，追加文件大时影响master重启恢复速度 用slave AOF master调用BGREWRITEAOF重写AOF文件时，cpu和内存负载高 主从复制最好同局域网 数据 # set mykey somvalue get mykey del mykey incr decr incrby decrby incrbyfloat append getrange setrange getbit setbit bitcount # 二进制位串位为1的数量 bitop # 二进制位串执行and, or, xor, not rpush list-key item lpush lrange list-key 0 -1 # -1为结束索引 lindex list-key 1 rpop lpop list-key lrange ltrim # 修剪 blpop # timeout秒内阻塞并等待弹出元素 brpop rpoplpush # 一个列表中右弹元素推入另一个列表左端，最后返回这个元素 brpoplpush sadd set-key item smembers set-key sismember set-key item srem set-key item # 删除，返回删除的数量 scard # 元素数 srandmember # 随机返回一个或多个元素。count正数时，返回的元素不重复, 负数时可重复 spop # 随机移除一个元素 smove # 一个集合中移除，并在一个集合中添加。返回移除的数量 sdiff # 差集 sdiffstore # 差集生成集合 sinter # 交集 sinterstore sunion # 并集 sunionstore hset hash-key sub-key value hget hash-key sub-key hdel hash-key sub-key hlen hexists hash-key sub-key hkeys hash-key hvals hgetall hash-key hincrbyfloat hincrby hash-key field -1 hmget hmset hash-key field1 &quot;foo&quot; field2 &quot;bar&quot; zadd zset-key 728 member zrange zset-key 0 -1 withscores zrevrange zset-key 0 -1 withscores zrangebyscore zset-key 0 800 withscores # 根据score范围查找 zrevrangebyscore zrem zset-key member zremrangebyrank zremrangebyscore zincrby zinterstore sum 3 sub1 sub2 sub3 # 生成交集, 重复值score相加, 3 指定可变参数的数量 zunionstore # 并集 zcard # 成员数量 zcount # 分值之间的成员数量 zrank # 返回排名 zrevrank zscore # 返回分值 client # jedis # java, 支持redis sharding, 即ShardedJedis结合ShardedJedisPool Jedis jedis = new Jedis(&quot;localhost&quot;); # 连接redis数据库 jedis." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/db/redis/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2019-07-19T17:40:27&#43;08:00" />
+<meta property="article:modified_time" content="2019-07-19T17:40:27+08:00" />
 
 <title>Redis | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -68,47 +68,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -121,43 +82,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -199,7 +173,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -225,11 +199,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -239,13 +248,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -262,7 +269,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -654,7 +661,7 @@ codis
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

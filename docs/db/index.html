@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="基础 #  数据库类型 关系型数据库 模糊型数据库 # 存放模糊数据，提供函数 如模糊数，包括模糊区间数，模糊中心数，模糊集合数 隶属函数 统计数据库 # 管理统计数据 这类数据库包含有大量的数据记录，但其目的是向用户提供各种统计汇总信息，而不是提供单个记录的信息。 网状数据库(层次数据库) # 处理以记录类型为结点的网状数据模型 处理方法是将网状结构分解成若干棵二级树结构，称为系。 演绎数据库 # 指具有演绎推理能力 实现 数据库管理系统 规则管理系统 外延数据库 将推理用的事实数据存放在数据库中 内涵数据库 用逻辑规则定义要导出的事实 主要研究内容: 如何有效地计算逻辑规则推理。 递归查询的优化 规则的一致性维护 其它数据存储方式 文件系统 版本控制 保存持久状态 CQRS(command query responsibility segregation) 查询(query) 命令(command) 领域模型(domain model) 领域事件(domain event) 对象数据库 趋势 分布式new sql # tidb Polyglot persistence (混合持久化) # 将对不同数据库的操作封装成服务 事务隔离级别 读未提交（Read Uncommitted） # 读其它事务未提交的数据 现象 不允许更新丢失 允许脏读(dirty read) # 事务中读到不存在数据, 是其它事务修改中的数据 原理 可同时读 不同时写，多事务写 实现 排他写锁 读提交（Read Committed） # 读其它事务提交的数据 现象 不允许脏读 允许不可重复读(nonRepeatable read) # 事务中前后查询不一致 原理 可同时读 单事务写 实现 瞬间共享读锁 排他写锁 可重复读（Repeatable Read） # 读到的数据加锁，解决不可重复读问题 现象 不允许脏读 不允许不可重复读 允许幻读(phantom read) # 事务中存在未生效行，是其它事务的插入或删除 原理 读到的数据(加锁)不写 单事务写 实现 # 读涉及范围加锁 共享读锁 排他写锁 序列化（Serializable） # 或叫串行化 原理 事务序列化执行 实现 读锁写锁互斥 事务特点(ACID) 原子性(atomicity) # 什么都做或都不做 一致性(correspondence) # 事务前后数据库状态一致, 事务中断时也不会有暂时状态 隔离性(isolation) # 事务间不干扰 持久性(durability) # 提交结果是永久的 索引存储 B&#43; tree LSM(log-structured merge) tree fractal tree OLTP和OLAP CAP(一致性、可用性、分区容错性)中, OLTP要求ca或cp, OLAP要求ap OLTP要求写优化, OLAP要求查优化 OLTP要求优化latency, OLAP要求优化throughput OLTP基于row, OLAP基于column OLTP看中IOPS, OLAP看中data-size传输 分布式数据库 面临问题 ACID CAP scale out self-healing 运维友好 sql 事务 性能 api用明文或二进制 升级方案 硬件，网络，网络模型，存储模型，语言 分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案  rds #  # relational database service 缺点 阻抗失谐 # 和内存中的模型存在差异 安全 sql注入 # 应该写符号编译sql 范式 # Normal Form 用于避免冗余数据 第一范式(1NF) 列不可再细分列(原子性) 第二范式(2NF) 必须有主键，允许联合主键 其它列依赖完整主键(不能只依赖一部分) 第三范式(3NF) 其它列直接依赖主键(非传递依赖，如A依赖B, B依赖主键) 实例 postgres sqlserver mysql mariadb percona # mysql分支, Oracle发布的最接近官方mysql的发行版 drizzle # mysql分支 oracle db2 oceandb h2database # java编写，可嵌入java使用 tidb  sqlite #  命令 sqlite3 数据库文件 语法 .">
+<meta name="description" content="基础 # 数据库类型 关系型数据库 模糊型数据库 # 存放模糊数据，提供函数 如模糊数，包括模糊区间数，模糊中心数，模糊集合数 隶属函数 统计数据库 # 管理统计数据 这类数据库包含有大量的数据记录，但其目的是向用户提供各种统计汇总信息，而不是提供单个记录的信息。 网状数据库(层次数据库) # 处理以记录类型为结点的网状数据模型 处理方法是将网状结构分解成若干棵二级树结构，称为系。 演绎数据库 # 指具有演绎推理能力 实现 数据库管理系统 规则管理系统 外延数据库 将推理用的事实数据存放在数据库中 内涵数据库 用逻辑规则定义要导出的事实 主要研究内容: 如何有效地计算逻辑规则推理。 递归查询的优化 规则的一致性维护 其它数据存储方式 文件系统 版本控制 保存持久状态 CQRS(command query responsibility segregation) 查询(query) 命令(command) 领域模型(domain model) 领域事件(domain event) 对象数据库 趋势 分布式new sql # tidb Polyglot persistence (混合持久化) # 将对不同数据库的操作封装成服务 事务隔离级别 读未提交（Read Uncommitted） # 读其它事务未提交的数据 现象 不允许更新丢失 允许脏读(dirty read) # 事务中读到不存在数据, 是其它事务修改中的数据 原理 可同时读 不同时写，多事务写 实现 排他写锁 读提交（Read Committed） # 读其它事务提交的数据 现象 不允许脏读 允许不可重复读(nonRepeatable read) # 事务中前后查询不一致 原理 可同时读 单事务写 实现 瞬间共享读锁 排他写锁 可重复读（Repeatable Read） # 读到的数据加锁，解决不可重复读问题 现象 不允许脏读 不允许不可重复读 允许幻读(phantom read) # 事务中存在未生效行，是其它事务的插入或删除 原理 读到的数据(加锁)不写 单事务写 实现 # 读涉及范围加锁 共享读锁 排他写锁 序列化（Serializable） # 或叫串行化 原理 事务序列化执行 实现 读锁写锁互斥 事务特点(ACID) 原子性(atomicity) # 什么都做或都不做 一致性(correspondence) # 事务前后数据库状态一致, 事务中断时也不会有暂时状态 隔离性(isolation) # 事务间不干扰 持久性(durability) # 提交结果是永久的 索引存储 B&#43; tree LSM(log-structured merge) tree fractal tree OLTP和OLAP CAP(一致性、可用性、分区容错性)中, OLTP要求ca或cp, OLAP要求ap OLTP要求写优化, OLAP要求查优化 OLTP要求优化latency, OLAP要求优化throughput OLTP基于row, OLAP基于column OLTP看中IOPS, OLAP看中data-size传输 分布式数据库 面临问题 ACID CAP scale out self-healing 运维友好 sql 事务 性能 api用明文或二进制 升级方案 硬件，网络，网络模型，存储模型，语言 分布式协议，压缩方案，ha，api，运维方案，存储计算分离，缓存方案 rds # # relational database service 缺点 阻抗失谐 # 和内存中的模型存在差异 安全 sql注入 # 应该写符号编译sql 范式 # Normal Form 用于避免冗余数据 第一范式(1NF) 列不可再细分列(原子性) 第二范式(2NF) 必须有主键，允许联合主键 其它列依赖完整主键(不能只依赖一部分) 第三范式(3NF) 其它列直接依赖主键(非传递依赖，如A依赖B, B依赖主键) 实例 postgres sqlserver mysql mariadb percona # mysql分支, Oracle发布的最接近官方mysql的发行版 drizzle # mysql分支 oracle db2 oceandb h2database # java编写，可嵌入java使用 tidb sqlite # 命令 sqlite3 数据库文件 语法 .">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="数据库" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -12,9 +12,9 @@
 <title>数据库 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -67,47 +67,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -120,43 +81,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -198,7 +172,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -224,11 +198,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -238,13 +247,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -261,7 +268,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -310,6 +317,9 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#图">图</a>
           <ul>
             <li><a href="#neo4j">neo4j</a></li>
+            <li><a href="#hugegraph">HugeGraph</a></li>
+            <li><a href="#nebulagraph">NebulaGraph</a></li>
+            <li><a href="#tigergraph">TigerGraph</a></li>
           </ul>
         </li>
         <li><a href="#列族">列族</a>
@@ -1302,6 +1312,22 @@ CREATE (p1:Profile1)-[r1:LIKES]-&gt;(p2:Profile2)
             RETURN STARTNODE(r) # 返回开始节点
             RETURN ENDNODE(r)
 </code></pre>
+<h3 id="hugegraph">
+  HugeGraph
+  <a class="anchor" href="#hugegraph">#</a>
+</h3>
+<pre><code>百度开源
+</code></pre>
+<h3 id="nebulagraph">
+  NebulaGraph
+  <a class="anchor" href="#nebulagraph">#</a>
+</h3>
+<pre><code>分布式图数据库
+</code></pre>
+<h3 id="tigergraph">
+  TigerGraph
+  <a class="anchor" href="#tigergraph">#</a>
+</h3>
 <h2 id="列族">
   列族
   <a class="anchor" href="#%e5%88%97%e6%97%8f">#</a>
@@ -1623,9 +1649,9 @@ Sphinx
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Aug 1, 2022</span>
     </a>
   </div>
 
@@ -1643,7 +1669,7 @@ Sphinx
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  
@@ -1686,6 +1712,9 @@ Sphinx
         <li><a href="#图">图</a>
           <ul>
             <li><a href="#neo4j">neo4j</a></li>
+            <li><a href="#hugegraph">HugeGraph</a></li>
+            <li><a href="#nebulagraph">NebulaGraph</a></li>
+            <li><a href="#tigergraph">TigerGraph</a></li>
           </ul>
         </li>
         <li><a href="#列族">列族</a>

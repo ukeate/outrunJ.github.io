@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  nsenter #  # 不需ssh进入容器shell docker inspect --format {{.State.Pid}} nginx nsenter -t4629 -n  docker #  -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build .">
+<meta name="description" content="基础 # 介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 目录 /var/lib/docker 配置 # 镜象网站 https://hub.docker.com/ 阿里云个人仓库 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker 命令 # 常用系统命令 # systemctl daemon-reload systemctl restart docker docker # -h version login docker login -u outrun -p asdf search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --user root --name a --privileged --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e prune ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 build .">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Docker" />
-<meta property="og:description" content="基础 #  介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 镜象网站 https://hub.docker.com/ 目录 /var/lib/docker 配置 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker  命令 #  nsenter #  # 不需ssh进入容器shell docker inspect --format {{.State.Pid}} nginx nsenter -t4629 -n  docker #  -h version search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 login build ." />
+<meta property="og:description" content="基础 # 介绍 基于linux LXC，可以实现虚拟化 优点 低成本、高利用率、充分灵活、动态调度 核心网的最终形态 目录 /var/lib/docker 配置 # 镜象网站 https://hub.docker.com/ 阿里云个人仓库 入口: cr.console.aliyun.com docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0 /etc/sysconfig/docker # /etc/init.d/docker.conf OPTIONS=&#39;--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8&#39; DOCKER_CERT_PATH=/etc/docker 命令 # 常用系统命令 # systemctl daemon-reload systemctl restart docker docker # -h version login docker login -u outrun -p asdf search mysql # 搜索镜像 pull centos:7 # 下载镜像 centos:latest outrun11/test:nginx1 image ls pull rm images centos # 本地镜象列表 rmi centos:latest # 删除镜象 container run # 新建容器 --user root --name a --privileged --name # 显示名 -t # 伪tty, -i 交互的 -rm=true # 执行完后删除 -v /etc/:/opt/etc/ # 挂载本机/etc到容器/opt/etc, /etc/:/opt/etc/:ro 只读挂载, /etc/ 对外共享/etc -p 1234:80 # 端口映射本机1234端口到容器80 --volumes-from etc_share # 使用另一个容器对外共享的磁盘 -d # 后台运行 --link redis_server:redis # 连接容器的redis命令 -w /var/node # 当前工作目录 -e NODE_ENV=&#39;&#39; # 环境变量 --net=bridge # 网络模式，bridge使用虚拟网桥docker0, host共享主机命名空间, container与已存在的一个容器共享命名空间, none关闭网络功能, overlay --name nsqd -p 4150:4150 nsqio/nsq /nsqd # 端口 -it centos /bin/bash # 启动容器, 执行bash b15 /bin/echo &#39;hello&#39; # 启动容器 -it --rm=true --name=ls-volume -v /etc/:/opt/etc/ centos ls /opt/etc # 创建共享 -it -p 1337:1337 --name=etc_share -v /etc/ centos mkdir /etc/my_share &amp;&amp; /bin/sh -c &quot;while true; do echo hello; sleep 1; done&quot; # 持续运行 -it --rm=true --volumes-from etc_share --name=ls_etc centos ls /etc # 使用共享 exec # 已有容器中运行 -i -t ls start 026 # 启动已建立的容器, id可以只输入前几位 cp 026e:/docker/file /local/file stop 026 restart 026e attach 026 # 进入容器运行命令行, 可显示日志 kill 026e prune ps -a # 容器列表 rm # 移除容器 docker rm docker ps -aq # 移除所有未运行的容器 rm -f 026 build ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/tool/ops/docker/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-11T18:18:21&#43;08:00" />
-<meta property="article:modified_time" content="2022-04-23T22:18:41&#43;08:00" />
+<meta property="article:published_time" content="2018-10-11T18:18:21+08:00" />
+<meta property="article:modified_time" content="2022-08-01T13:53:50+08:00" />
 
 <title>Docker | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -68,47 +68,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -121,43 +82,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -199,7 +173,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -225,11 +199,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -239,13 +248,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -262,7 +269,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -294,10 +301,16 @@ https://github.com/alex-shpak/hugo-book
 <nav id="TableOfContents">
   <ul>
     <li><a href="#基础">基础</a></li>
+    <li><a href="#配置">配置</a></li>
     <li><a href="#命令">命令</a>
       <ul>
-        <li><a href="#nsenter">nsenter</a></li>
+        <li><a href="#常用系统命令">常用系统命令</a></li>
         <li><a href="#docker">docker</a></li>
+        <li><a href="#nsenter">nsenter</a>
+          <ul>
+            <li><a href="#场景">场景</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#dockerfile">Dockerfile</a></li>
@@ -331,27 +344,36 @@ https://github.com/alex-shpak/hugo-book
 优点
     低成本、高利用率、充分灵活、动态调度
     核心网的最终形态
-镜象网站
-    https://hub.docker.com/
 目录
     /var/lib/docker
-配置
-    /etc/sysconfig/docker
-        # /etc/init.d/docker.conf
-        OPTIONS='--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8'
-        DOCKER_CERT_PATH=/etc/docker
+</code></pre>
+<h1 id="配置">
+  配置
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae">#</a>
+</h1>
+<pre><code>镜象网站
+    https://hub.docker.com/
+阿里云个人仓库
+    入口: cr.console.aliyun.com
+        docker login -u 934260428@qq.com registry.cn-qingdao.aliyuncs.com
+        docker tag java/device:1.0 registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0
+        docker push registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0
+        docker pull registry.cn-qingdao.aliyuncs.com/mrs-iot/device:1.0
+/etc/sysconfig/docker
+    # /etc/init.d/docker.conf
+    OPTIONS='--selinux-enabled --log-driver=journald --insecure-registry 45.55.56.16:5000 --dns 8.8.8.8'
+    DOCKER_CERT_PATH=/etc/docker
 </code></pre>
 <h1 id="命令">
   命令
   <a class="anchor" href="#%e5%91%bd%e4%bb%a4">#</a>
 </h1>
-<h2 id="nsenter">
-  nsenter
-  <a class="anchor" href="#nsenter">#</a>
+<h2 id="常用系统命令">
+  常用系统命令
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4">#</a>
 </h2>
-<pre><code># 不需ssh进入容器shell
-docker inspect --format {{.State.Pid}} nginx
-nsenter -t4629 -n
+<pre><code>systemctl daemon-reload
+systemctl restart docker
 </code></pre>
 <h2 id="docker">
   docker
@@ -359,6 +381,8 @@ nsenter -t4629 -n
 </h2>
 <pre><code>-h
 version
+login
+    docker login -u outrun -p asdf
 search mysql                    # 搜索镜像
 pull centos:7                   # 下载镜像
     centos:latest
@@ -371,6 +395,9 @@ images centos                   # 本地镜象列表
 rmi centos:latest               # 删除镜象
 container
     run                         # 新建容器
+        --user root
+        --name a
+        --privileged
         --name                  # 显示名
         -t                      # 伪tty, -i 交互的
         -rm=true                # 执行完后删除
@@ -405,6 +432,7 @@ container
     restart 026e
     attach 026                  # 进入容器运行命令行, 可显示日志
     kill 026e
+    prune
 ps -a                           # 容器列表
 rm                              # 移除容器
     docker rm docker ps -aq
@@ -412,7 +440,6 @@ rm                              # 移除容器
     rm -f 026
 
 
-login
 build .                         # 用当前目录Dockerfile创建新镜像
     -t=&quot;nginx/test&quot;             # target
     --no-cache                  # 不用cache
@@ -436,8 +463,8 @@ service                         # 运行于swarm的服务
     scale                       # 加减副本
     update                      # 变更属性
     logs                        # 查日志
-
-
+system 
+    prune                       # 清理所有container, network, image, cache
 network                         # 网卡
     ls
     rm
@@ -445,21 +472,51 @@ network                         # 网卡
     inspect                     # 详情
     create
         -d nat                  # 指定驱动
-
-
 volume                          # 卷标, 默认挂载到/var/lib/docker/volumes
     create
     ls
     rm
     prune                       # 删除全部未使用
     inspect
-
-
 stack                           # 单文件定义多服务
     deploy
     ls
     ps
     rm
+
+常用
+    docker inspect 45370        # 详情
+        --format &quot;{{.State.Pid}}&quot;
+    docker login a.com -u outrun -p asdf
+    docker build -t java/gateway:1.0 .
+    docker push java/gateway:1.0
+    docker images|grep none|awk '{print $3}'|xargs docker rmi -f
+        # 删除none镜像
+    docker image inspect 4de
+    docker system prune -a
+    docker exec -it -u root ef2 /bin/bash
+    docker run --name gateway --rm -d java/gateway:1.0
+    docker run -it ubuntu
+    docker restart ef2
+    docker logs -f -t ef2
+    docker status 45370         # 显示资源占用
+    docker save -o a.tar.gz a
+    docker load &lt; a.tar.gz
+</code></pre>
+<h2 id="nsenter">
+  nsenter
+  <a class="anchor" href="#nsenter">#</a>
+</h2>
+<pre><code># 指定pid, 不需ssh进入容器运行shell
+docker inspect --format {{.State.Pid}} nginx
+nsenter -t4629 -n
+</code></pre>
+<h3 id="场景">
+  场景
+  <a class="anchor" href="#%e5%9c%ba%e6%99%af">#</a>
+</h3>
+<pre><code>查看/var/lib/docker/overlay2/id文件对应container
+    docker ps -q | xargs docker inspect --format '{{.State.Pid}}, {{.Id}}, {{.Name}}, {{.GraphDriver.Data.WorkDir}}' | grep bff250
 </code></pre>
 <h1 id="dockerfile">
   Dockerfile
@@ -541,7 +598,7 @@ stack                           # 单文件定义多服务
 </h2>
 <pre><code>htpasswd  -Bbn outrun asdf &gt; auth/htpasswd
 
-客户端
+客户端使用
     /etc/docker/daemon.json
         {&quot;insecure-registries&quot;:[&quot;127.0.0.1:5000&quot;]}
     sudo systemctl daemon-reload
@@ -554,6 +611,19 @@ stack                           # 单文件定义多服务
     curl --user outrun:asdf 127.0.0.1:5000/v2/_catalog
         # v2表示版本 registry:2
     docker pull 127.0.0.1:5000/java/device:1.0
+常用API
+    curl --user outrun:asdf -X GET  registry:5000/v2/_catalog
+        # 列表
+    curl --user outrun:asdf -X GET  registry:5000/v2/ubuntu/tags/list
+        # tags
+    curl --user outrun:asdf -X GET  registry:5000/v2/ubuntu/manifests/latest
+        # tag
+    curl --user outrun:asdf -X GET -v --silent -H &quot;Accept: application/vnd.docker.distribution.manifest.v2+json&quot; registry:5000/v2/ubuntu/manifests/latest 2&gt;&amp;1 | grep Docker-Content-Digest | awk '{print ($3)}'
+        # digest
+    curl --user outrun:asdf -X DELETE -v --silent -H &quot;Accept: application/vnd.docker.distribution.manifest.v2+json&quot; registry:5000/v2/ubuntu/manifests/sha256:134c7fe821b9d359490cd009ce7ca322453f4f2d018623f849e580a89a685e5d
+        # 删除
+    docker exec -it 4ebff4cdc646 /bin/registry garbage-collect  /etc/docker/registry/config.yml
+        # 删除后, 运行垃圾回收
 </code></pre>
 <h1 id="方案">
   方案
@@ -614,9 +684,9 @@ pipwork
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/9d2ea756f7e5d3ffd8c443f52554888da5999c1a" title='Last modified by outrunJ | Apr 23, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 23, 2022</span>
+      <span>Aug 1, 2022</span>
     </a>
   </div>
 
@@ -634,7 +704,7 @@ pipwork
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  
@@ -660,10 +730,16 @@ pipwork
 <nav id="TableOfContents">
   <ul>
     <li><a href="#基础">基础</a></li>
+    <li><a href="#配置">配置</a></li>
     <li><a href="#命令">命令</a>
       <ul>
-        <li><a href="#nsenter">nsenter</a></li>
+        <li><a href="#常用系统命令">常用系统命令</a></li>
         <li><a href="#docker">docker</a></li>
+        <li><a href="#nsenter">nsenter</a>
+          <ul>
+            <li><a href="#场景">场景</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#dockerfile">Dockerfile</a></li>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="基础 #  思路 分治 计算向数据移动 本地取数据	流程 采集 -&gt; kafka -&gt; ETL -&gt; kafka -&gt; 存储 -&gt; OLAP  运维 #  Ambari #  安装、部署、配置和管理  Flume #  cloudera开源, 日志收集  Ganglia #  分布式监控系统，php页面  HUE #  web管理Hadoop  存储 #  HDFS #  # Hadoop Distributed File System, 一开始为Nutch搜索引擎开发 存储模型 按字节切割,block存储,block多副本 不支持修改(因为修改文件而非block, 且会引发规模修改)，可以追加 主从架构 NameNode 树形目录 内存存储元数据，可持久化(EditLog事务日志, FsImage) NameNode启动时安全模式 SecondaryNameNode合并EditLog到新FsImage DataNode上报block列表 存副本策略 DataNode 本地文件形式存block, 存校验 与NameNode心跳，汇报block列表 Client 交互元数据和block API结构 推荐节点数不过5000 角色：一个进程 Block副本放置策略 Pipeline HA JournalNode NameNode同步EditLog FailoverController 利用ZooKeeper 同主机下监控NameNode 验证对方主机主NN是否真的挂掉，调用对方降级为Standby  HBase #  介绍 Hadoop Database, 实时分布式, bigtable列簇数据库, 非结构化，自动切分, 并发读写 只能row key查询, master有单点问题 版本 0.">
+<meta name="description" content="基础 # 思路 分治 计算向数据移动 本地取数据	流程 采集 -&gt; kafka -&gt; ETL -&gt; kafka -&gt; 存储 -&gt; OLAP 运维 # Ambari # 安装、部署、配置和管理 Flume # cloudera开源, 日志收集 Ganglia # 分布式监控系统，php页面 HUE # web管理Hadoop 存储 # HDFS # # Hadoop Distributed File System, 一开始为Nutch搜索引擎开发 存储模型 按字节切割,block存储,block多副本 不支持修改(因为修改文件而非block, 且会引发规模修改)，可以追加 主从架构 NameNode 树形目录 内存存储元数据，可持久化(EditLog事务日志, FsImage) NameNode启动时安全模式 SecondaryNameNode合并EditLog到新FsImage DataNode上报block列表 存副本策略 DataNode 本地文件形式存block, 存校验 与NameNode心跳，汇报block列表 Client 交互元数据和block API结构 推荐节点数不过5000 角色：一个进程 Block副本放置策略 Pipeline HA JournalNode NameNode同步EditLog FailoverController 利用ZooKeeper 同主机下监控NameNode 验证对方主机主NN是否真的挂掉，调用对方降级为Standby HBase # 介绍 Hadoop Database, 实时分布式, bigtable列簇数据库, 非结构化，自动切分, 并发读写 只能row key查询, master有单点问题 版本 0.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -12,9 +12,9 @@
 <title>Big Data | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -67,47 +67,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -120,43 +81,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -198,7 +172,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -224,11 +198,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -238,13 +247,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -261,7 +268,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -436,17 +443,17 @@ https://github.com/alex-shpak/hugo-book
 	不支持修改(因为修改文件而非block, 且会引发规模修改)，可以追加
 主从架构
 	NameNode
-        树形目录
-        内存存储元数据，可持久化(EditLog事务日志, FsImage)
-            NameNode启动时安全模式
-                SecondaryNameNode合并EditLog到新FsImage
-                DataNode上报block列表
-        存副本策略
+		树形目录
+		内存存储元数据，可持久化(EditLog事务日志, FsImage)
+			NameNode启动时安全模式
+				SecondaryNameNode合并EditLog到新FsImage
+				DataNode上报block列表
+		存副本策略
 	DataNode
-        本地文件形式存block, 存校验
-        与NameNode心跳，汇报block列表
+		本地文件形式存block, 存校验
+		与NameNode心跳，汇报block列表
 	Client
-        交互元数据和block
+		交互元数据和block
 API结构
 	推荐节点数不过5000
 	角色：一个进程
@@ -454,11 +461,11 @@ Block副本放置策略
 	Pipeline
 HA
 	JournalNode
-        NameNode同步EditLog
+		NameNode同步EditLog
 	FailoverController
-        利用ZooKeeper
-        同主机下监控NameNode
-        验证对方主机主NN是否真的挂掉，调用对方降级为Standby
+		利用ZooKeeper
+		同主机下监控NameNode
+		验证对方主机主NN是否真的挂掉，调用对方降级为Standby
 </code></pre>
 <h2 id="hbase">
   HBase
@@ -475,31 +482,31 @@ HA
 	修改只追加记录，合并时删除
 架构
 	Client
-        提供接口，维护客户端缓存
+		提供接口，维护客户端缓存
 	Zookeeper
-        只有一个活跃master
-        存Region寻址入口
-        实时监控region server在线信息，通知master
-        存schema、table元数据
+		只有一个活跃master
+		存Region寻址入口
+		实时监控region server在线信息，通知master
+		存schema、table元数据
 	Master
-        为region server分配region	
-        region server负载均衡
-        失效region server重新分配region
-        管理table CRUD
+		为region server分配region	
+		region server负载均衡
+		失效region server重新分配region
+		管理table CRUD
 	RegionServer
-        维护region
-        切分大region
+		维护region
+		切分大region
 	Region
-        表水平分region分配在多个region server, region增大时裂变
+		表水平分region分配在多个region server, region增大时裂变
 	HLog
-        写Store之前先写HLog, flush到HDFS, store写完后HDFS存储移到old，2天后删除	
+		写Store之前先写HLog, flush到HDFS, store写完后HDFS存储移到old，2天后删除	
 	Store
-        region由多个store组成, 一个store对应一个CF
-        store先写入memstore, 到阈值后启动flashcache写入storefile
-        storefile增长到阈值，进行合并
-            minor compaction
-            major compaction，默认最多256M
-        region所有storefile达到阈值，region分割
+		region由多个store组成, 一个store对应一个CF
+		store先写入memstore, 到阈值后启动flashcache写入storefile
+		storefile增长到阈值，进行合并
+			minor compaction
+			major compaction，默认最多256M
+		region所有storefile达到阈值，region分割
 </code></pre>
 <h2 id="hive">
   Hive
@@ -528,12 +535,12 @@ HA
 	爬虫
 实时
 	trigger、日志
-        canel
+		canel
 准实时
 	日志
 非实时
 	任务调度
-        quartz, xxl-job, 大数据
+		quartz, xxl-job, 大数据
 </code></pre>
 <h2 id="flume-1">
   Flume
@@ -572,7 +579,7 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
   MapReduce
   <a class="anchor" href="#mapreduce">#</a>
 </h3>
-<pre><code>    每个task启动一个jvm
+<pre><code>	每个task启动一个jvm
 </code></pre>
 <h2 id="pig">
   Pig
@@ -629,14 +636,14 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 组件
 	Spark RDD(Resiliennt Distributed Datasets)
 	Spark Core 批计算，取代MR
-        粗粒度资源申请，task自行分配启动快，executor不kill
-        内存计算
-        chain
+		粗粒度资源申请，task自行分配启动快，executor不kill
+		内存计算
+		chain
 	Spark Streamming 流计算，取代Storm
-        批计算无限缩小，实时性差
-        默认无状态
-            用updateStateByKey保存上次计算结果，变成有状态
-            借助Redis或ES存
+		批计算无限缩小，实时性差
+		默认无状态
+			用updateStateByKey保存上次计算结果，变成有状态
+			借助Redis或ES存
 	Spark SQL 数据处理
 	Spark MlLib 机器学习
 	Spark R 数据分析
@@ -645,10 +652,10 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 	var sc = session.sparkContext
 	var rdd = sc.makeRDD(List(1,2,3,4,5,6))
 	val mapRDD = rdd.map(x -&gt; {
-        x
+		x
 	})
 	val filterRDD = mapRDD.filter(x =&gt; {
-        true
+		true
 	})
 	filterRDD.count
 </code></pre>
@@ -660,9 +667,9 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 	高吞吐、低延迟、高性能
 	支持事件时间(Event Time)
 	擅长有状态的计算	
-        内存
-        磁盘
-        RocksDB
+		内存
+		磁盘
+		RocksDB
 	灵活的窗口（Window）操作： time, count, session
 	基于轻量级分布式快照（CheckPoint）实现容错，保证exactly-once
 	基于JVM实现独立内存管理
@@ -676,24 +683,24 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 集群
 	JobManager(JVM进程)
 	TaskManager(JVM进程)
-        Task Slot	
-            一组固定的资源，隔离内存，不隔离核
-            一般与核数对应，核支持超线程时一个算两个
+		Task Slot	
+			一组固定的资源，隔离内存，不隔离核
+			一般与核数对应，核支持超线程时一个算两个
 配置
 	/etc
-        /flink-conf.yaml
-        /slaves
-        /masters
+		/flink-conf.yaml
+		/slaves
+		/masters
 组件
 	部署
-        Single JVM		# 多线程模拟
-        Standalone
-        YARN	
+		Single JVM		# 多线程模拟
+		Standalone
+		YARN	
 	库
-        CEP				# 复杂事件库
-        Table
-        FlinkML
-        Gelly
+		CEP				# 复杂事件库
+		Table
+		FlinkML
+		Gelly
 使用
 	import org.apache.flink.streaming.api.scala._
 
@@ -726,23 +733,23 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 	Yet Another Resource Negotiator, 任务管理, 调度算力资源, 在HDFS上运行计算框架(如MapReduce, Storm, Spark)
 组成
 	ResourceManager(RM)
-        处理请求
-        监控NodeManager
-        启动、监控ApplicationMaster
-        资源分配调度
-        常驻
+		处理请求
+		监控NodeManager
+		启动、监控ApplicationMaster
+		资源分配调度
+		常驻
 	NodeManager(NM)
-        常驻
+		常驻
 	ApplicationMaster(AM)
-        数据切分
-        为应用程序申请资源再分配给内部任务
-        任务监控、容错
-        非常驻，job拉起
+		数据切分
+		为应用程序申请资源再分配给内部任务
+		任务监控、容错
+		非常驻，job拉起
 	Container
-        运行APP
-        某节点上多维度的资源
-        由NodeManager调度
-        非常驻
+		运行APP
+		某节点上多维度的资源
+		由NodeManager调度
+		非常驻
 </code></pre>
 <h2 id="mesos">
   Mesos
@@ -884,7 +891,7 @@ etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

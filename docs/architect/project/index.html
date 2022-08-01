@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="产品 #  愿景 定义产品的目的和原因，将到达的地点 ux 微交互 # 细节决定成败  RoadMap #  介绍 到达愿景的策略路径，提供一系列与产品战略相一致的战术步骤 为什么 简单、清晰的通讯文档 少的多的会议 健康的团队辩论：交付成果与目标联系起来 做出每个人都理解的产品决定，不再打击创意 高维度的概述 动态演变 要素 时间周期 时间区间，只定时间范围 big-view(product) 全局理解产品的未来, 交付顺序 统一视野(vision), 范围(scope)，时间期限(time line) pre-view(release) release中的产品功能, 和前几个迭代从backlog中要交付的工作项(item) now-view(iteration) 团队在一次迭代中要交付的需求(requirements) 优先级，留空间适应变化 项目事件 完成产品总体计划必要的工作项, 详尽且切合目的 分解目的，制定步骤 路标 关键工作项完成的时间节点(里程碑) 结果反馈：审视是否偏离，试验中改进 确定在每个时间范围内实现可衡量的结果。定义为目标关键结果(OKR)、关键性能指标(KPI) 种类 基于目标 current near term future 基于功能 5000新用户 步骤 确定目标 分解目标，穷尽事项，组织，优先级排序 使用优化框架 effort / impact impact / goal 卡洛斯模型? 注意 定义战略主题(名词)，抓住核心用户行为的本质、产品能力、竞争优势、技术改进 保持路线图战略，避免战术 每个计划阶段都考虑优先级, 每个目标、动作、发布、特性的价值可见性 始终在试验(ABE), 为了正确定义目标和后续特征 先做出有根据的猜测 测试 基于反馈迭代  业务 #  目标 降低人才素质需求 减少开发时间 分类 创造虚拟空间 自动化 辅助决策 思路 逻辑: 因果(演绎), 时间, 空间, 优先 方法: 5w2h(who, when, where, why, what, how, how much) 建模: 中心 # 调整抽象领域和层次(视问题决定) 自上而下 # 问题明确，展开 自下而上 # 内容分类、剪枝、归纳 分解 MECE(mutually exclusive collectively exhaustive) 正交 穷尽 经验 优秀的产品都有全局把控感(confluence, jira) 设计思想多源自: 操作系统、编译器、函数式 深入一线(面对客户) 思考全面, 全局 考虑需求本质，考虑上下游全局 想清楚再行动 过程 发掘(discovery) 价值定位(价值驱动) 客户体验梳理和设计 愿景 干系人 电梯演讲收敛 定义(define) 用户旅程，业务流程 事件风暴 -&gt; 映射技术 -&gt; 架构 设计(design) 总体 识别问题域, 归纳服务, 上下游关系 架构图, api, 技术栈 提升方向, 改进 迭代 价值/成本分布图 milestone演进 业务技术/需求拆解全景图(白板贴标) mvp(minimum viable product最小可行计划)迭代计划 开发(develop) 度量, 质量指标 工具选择, 规范 架构守护，治理 实施策略 交付 产品生命周期管理 目标, 资本 机会点-&gt;需求 角度决定设计 找到不动点 如对cache的设计 业务角度 选择简单易用的缓存框架 有人会用，学习成本别太高 关注数据模型结构设计 缓存更新真麻烦 paas角度 声明式使用，配置文件设置 缓存对比，选择强大且稳定的 存取接口设计，方便易用 数据变动监听，自动刷新缓存 平台角度 缓存服务器集群方式 存储空间监控 命中率监控 避免缓存集中失效引起雪崩 不过度设计 # 不超出需求，不用复杂方式实现 # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性 范围减少 # 28原则，最小可行产品 设计减少 # 易理解，低成本，可扩展 实施减少 # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决 二八定律 墨菲定律 事情不是表面看起来那么简单 事情都会比预计时间长 可能出错总会出错 如果你担心发生，它更可能发生 维护 设计时考虑扩展性 DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="工程" />
+<meta name="description" content="产品 # 愿景 定义产品的目的和原因，将到达的地点 ux 微交互 # 细节决定成败 RoadMap # 介绍 到达愿景的策略路径，提供一系列与产品战略相一致的战术步骤 为什么 简单、清晰的通讯文档 少的多的会议 健康的团队辩论：交付成果与目标联系起来 做出每个人都理解的产品决定，不再打击创意 高维度的概述 动态演变 要素 时间周期 时间区间，只定时间范围 big-view(product) 全局理解产品的未来, 交付顺序 统一视野(vision), 范围(scope)，时间期限(time line) pre-view(release) release中的产品功能, 和前几个迭代从backlog中要交付的工作项(item) now-view(iteration) 团队在一次迭代中要交付的需求(requirements) 优先级，留空间适应变化 项目事件 完成产品总体计划必要的工作项, 详尽且切合目的 分解目的，制定步骤 路标 关键工作项完成的时间节点(里程碑) 结果反馈：审视是否偏离，试验中改进 确定在每个时间范围内实现可衡量的结果。定义为目标关键结果(OKR)、关键性能指标(KPI) 种类 基于目标 current near term future 基于功能 5000新用户 步骤 确定目标 分解目标，穷尽事项，组织，优先级排序 使用优化框架 effort / impact impact / goal 卡洛斯模型? 注意 定义战略主题(名词)，抓住核心用户行为的本质、产品能力、竞争优势、技术改进 保持路线图战略，避免战术 每个计划阶段都考虑优先级, 每个目标、动作、发布、特性的价值可见性 始终在试验(ABE), 为了正确定义目标和后续特征 先做出有根据的猜测 测试 基于反馈迭代 业务 # 目标 降低人才素质需求 减少开发时间 分类 创造虚拟空间 自动化 辅助决策 思路 逻辑: 因果(演绎), 时间, 空间, 优先 方法: 5w2h(who, when, where, why, what, how, how much) 建模: 中心 # 调整抽象领域和层次(视问题决定) 自上而下 # 问题明确，展开 自下而上 # 内容分类、剪枝、归纳 分解 MECE(mutually exclusive collectively exhaustive) 正交 穷尽 经验 优秀的产品都有全局把控感(confluence, jira) 设计思想多源自: 操作系统、编译器、函数式 深入一线(面对客户) 思考全面, 全局 考虑需求本质，考虑上下游全局 想清楚再行动 过程 发掘(discovery) 价值定位(价值驱动) 客户体验梳理和设计 愿景 干系人 电梯演讲收敛 定义(define) 用户旅程，业务流程 事件风暴 -&gt; 映射技术 -&gt; 架构 设计(design) 总体 识别问题域, 归纳服务, 上下游关系 架构图, api, 技术栈 提升方向, 改进 迭代 价值/成本分布图 milestone演进 业务技术/需求拆解全景图(白板贴标) mvp(minimum viable product最小可行计划)迭代计划 开发(develop) 度量, 质量指标 工具选择, 规范 架构守护，治理 实施策略 交付 产品生命周期管理 目标, 资本 机会点-&gt;需求 角度决定设计 找到不动点 如对cache的设计 业务角度 选择简单易用的缓存框架 有人会用，学习成本别太高 关注数据模型结构设计 缓存更新真麻烦 paas角度 声明式使用，配置文件设置 缓存对比，选择强大且稳定的 存取接口设计，方便易用 数据变动监听，自动刷新缓存 平台角度 缓存服务器集群方式 存储空间监控 命中率监控 避免缓存集中失效引起雪崩 不过度设计 # 不超出需求，不用复杂方式实现 # 少就是多，应一减再减。简单才能强大，也会提高性能和扩展性 范围减少 # 28原则，最小可行产品 设计减少 # 易理解，低成本，可扩展 实施减少 # 找开源-&gt;找内部已实现-&gt;找方案描述-&gt;自己解决 二八定律 墨菲定律 事情不是表面看起来那么简单 事情都会比预计时间长 可能出错总会出错 如果你担心发生，它更可能发生 维护 设计时考虑扩展性 DID(design, implement, deploy)(设计20倍, 实现3-20倍, 部署1.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="工程设计" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/docs/architect/project/" />
 
-<title>工程 | outrun的笔记</title>
+<title>工程设计 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -67,47 +67,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -120,43 +81,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -198,7 +172,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -224,11 +198,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -238,13 +247,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -261,7 +268,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -276,7 +283,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>工程</strong>
+  <strong>工程设计</strong>
 
   <label for="toc-control">
     
@@ -559,9 +566,9 @@ ux
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/9d2ea756f7e5d3ffd8c443f52554888da5999c1a" title='Last modified by outrunJ | Apr 23, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 23, 2022</span>
+      <span>Aug 1, 2022</span>
     </a>
   </div>
 
@@ -579,7 +586,7 @@ ux
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

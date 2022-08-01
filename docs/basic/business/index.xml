@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大业务 on outrun的笔记</title>
+    <link>https://example.com/docs/basic/business/</link>
+    <description>Recent content in 大业务 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://example.com/docs/basic/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>行业</title>
+      <link>https://example.com/docs/basic/business/trade/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
+      
+      <guid>https://example.com/docs/basic/business/trade/</guid>
+      <description>云 # 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合 产业互联网 # 供应链 # 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸 AI # 优化、预测 拟合函数, 高阶微积分, 梯度下降 媒体 # 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/basic/business/function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/basic/business/function/</guid>
+      <description>阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/basic/business/ops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/basic/business/ops/</guid>
+      <description> 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # </description>
+    </item>
+    
+    <item>
+      <title>测试方法</title>
+      <link>https://example.com/docs/basic/business/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/basic/business/test/</guid>
+      <description>规划 # 蓝图 规范 &amp;amp; 稳定 用例规范，测试方案规范，自动化代码规范，工单处理标准，提测准人/出标准，Bug规范 线上异常监控，PPE环境监控，发布接管，线上问题对接，线上告警，自动巡检 内容 基础：功能测试，兼容性测试，性能测试，数据治理，安全测试，线上问题，环境治理，故障演练 提效：API自动化，框架&amp;amp;测试代码自动生成，自动部署&amp;amp;持续集成，数据工厂，UI自动化，Doom引流 赋能：测试用例开放，代码质量度量，story_QA，测试工具&amp;amp;平台开放，自由组装case场景，精准推荐 探索：探索性测试，契约测试，AI技术赋能测试 度量 线上：发布次数，紧急发布/回滚，工单预警数，生产冒烟数，线上工单数，复盘数 线下：代码质量数据，缺陷修复效率，Bug打回数据，自动化通过率，项目进度度量，Story owner度量 基础 # 功能测试 业务梳理：业务结构图，服务调用图，数据流，特殊逻辑时序图 用例设计：模板化，框架化 安全测试 清扫漏洞: 敏感信息，接口安全问题 工具：BurpSuite, 自研代码安全扫描工具 常态化: 下沉QA流程，研发流程加入 兼容性测试 包括：App，H5，操作系统，Web浏览器，API 线上问题治理 工具：工单系统 线上反馈线上化：钉钉机器人接入，Bug自动转移 数据沉淀及可视化 FAQ 运营自查：-&amp;gt;QA-&amp;gt;开发产品 问题解决 功能缺陷类: 开发解决-&amp;gt;QA-&amp;gt;运营 答疑问：加入自查文档 功能优化类：指派给产品 问题规约 宣导：线上群公告，线下组织文档操作和业务培训 问题分类和定级 1/5/30原则：1分钟感知，5分钟响应，30分钟解决 FAQ持续转化输出 提效 # API测试 工具: Jenkins+Newman, JMeter, 思想: 模块化，测试库，数据驱动，关键字驱动，BDD 框架 Jenkins+Python(UnitTest/Pytest, Requests, HTMLTestRunner/Allure) Jenkins+Java+Maven+JUnit/TestNG+HttpClient/RestAssured+ExtentReport/Allure 框架思想 框架分层解耦: 用例层，组件/业务层，API层，公共基础层 数据分类处理: 公共数据，隔离数据，运行时数据 多协议封装: 接口协议，接口定义及调用 多环境处理: 发布流，框架管理(切换、可维护性可扩展性) 结果自动验证 框架扩展: Pytest 对比策略 数据库设计: 自动化用例nodeid，请求URL，运行环境，用例路径，request_id，请求体，cURL，Response 对比引擎设计：JSONPath匹配对比策略 API覆盖率统计 分类 白盒覆盖率: 代码 灰盒覆盖率：接口 黑盒覆盖率：需求 实践 分子：结合日志，生成RequestID扩展py.</description>
+    </item>
+    
+  </channel>
+</rss>

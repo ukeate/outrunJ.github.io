@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="认知 #  原理 模拟执行 负担 概念量 封装粒度大 多态、运行时多态、静态多态 临时状态 用工作流, 而非队列 日志(event)搜索/集中/回放 抽出权限层 非轻量级 胶水层厚 无稳定方案, 复用困难 流程长度 最好 单线程 # 不插入行为 上下文集中 this.scene.commit()集中状态转移时间线 单一方式  原则 #  观念 KISS(keep it simple stupid) YAGNI(You Ain’t Gonna Need It) 取好名字占设计一半 约定大于配置 并发的世界，并发的软件 分布式的世界，分布式的软件 不可预测的世界，容错性强的软件 复杂的世界，简单的软件 代码即数据 物体上绑定行为数据 传递代码数据(函数一等公民) 防御性编程 接口前validator 启动时自检断言 异常处理 不可过度 设计 solid原则 单一职则(single responsibility) 一个类负责一个功能 开闭(open/closed) 对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态 里氏替换原则(liskov substitution) 子类继承超类的所有 接口分离(interface segregation) 最小功能隔离 依赖反转(dependency inversion) 低层依赖高层, 具体依赖抽象 非侵入 # non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 拆分 边界 正交 unix rules 模块化(modularity) # 模块由精心设计的接口连接 清晰化(clarity) # 可读性、可维护性 组合(composition) 分离(separation) 简单(simplicity) 节俭(parsimony) # 越小越好 透明(transparency) # log, tracing 鲁棒(robustness) 可展示(representation) # 逻辑简单，数据复杂 最小惊吓(least surprise) # 少打破用户预期 安静(silence) 修复(repair) # 产生足够报错 经济(economy) # 减少开发时间 生成(generation) # 避免手写, 用高阶抽象生成代码 优化(optimization) # 优化和收益平衡 分化(diversity) # 一开始设计不限制、优雅开放灵活 扩展(extensibility) # 协议可扩展 优化 需要时再优化，设计时考虑扩展性 dry(don&#39;t repeat yourself), 不可过度 找瓶颈 产出 设计清晰 选型简单 代码精炼 抽象优雅  设计 #  创建 factory, abstract factory # 工厂 builder # 构建者 prototype # 原型复制来产生对象 singleton # 单例 结构 adapter # 适配器 bridge # 抽象与实现分离 composite # 抽取公共行为 decorator # 装饰 facade # 外观。提供子类的默认视图 flyweight # 享元 proxy # 代理 行为 interpreter # 解释器 template method # 模板方法、泛型 chain of responsibility # 责任链 command # 命令 iterator # 迭代器 mediator # 消息传递中介 memento # 保存、恢复状态 observer # 观察者 state # 不同状态定义不同行为 strategy # 同行为的不同算法、替换算法 visitor # 访问者。抽象行为本身，不同访问对象不同行为 元素模式 抽象各模式成元素，简化表示 actor # 消息通信 reactor # 事件轮循，注册回调，如libevent proactor # 注册事件回调，os通知触发回调 惰性求值 链式定义(配方)，后自动触发(js tick调度)终止操作 dsl测试(如jasmine.">
+<meta name="description" content="人类认知原理 # 原理 模拟执行 负担 概念量 封装粒度大 多态、运行时多态、静态多态 临时状态 用工作流, 而非队列 日志(event)搜索/集中/回放 抽出权限层 非轻量级 胶水层厚 无稳定方案, 复用困难 流程长度 最好 单线程 # 不插入行为 上下文集中 this.scene.commit()集中状态转移时间线 单一方式 软件设计原则 # 统一原则 # 观念 KISS(keep it simple stupid) YAGNI(You Ain’t Gonna Need It) 取好名字占设计一半 约定大于配置 并发的世界，并发的软件 分布式的世界，分布式的软件 不可预测的世界，容错性强的软件 复杂的世界，简单的软件 代码即数据 物体上绑定行为数据 传递代码数据(函数一等公民) 防御性编程 接口前validator 启动时自检断言 异常处理 不可过度 设计 solid原则 单一职则(single responsibility) 一个类负责一个功能 开闭(open/closed) 对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态 里氏替换原则(liskov substitution) 子类继承超类的所有 接口分离(interface segregation) 最小功能隔离 依赖反转(dependency inversion) 低层依赖高层, 具体依赖抽象 非侵入 # non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 拆分 边界 正交 unix rules 模块化(modularity) # 模块由精心设计的接口连接 清晰化(clarity) # 可读性、可维护性 组合(composition) 分离(separation) 简单(simplicity) 节俭(parsimony) # 越小越好 透明(transparency) # log, tracing 鲁棒(robustness) 可展示(representation) # 逻辑简单，数据复杂 最小惊吓(least surprise) # 少打破用户预期 安静(silence) 修复(repair) # 产生足够报错 经济(economy) # 减少开发时间 生成(generation) # 避免手写, 用高阶抽象生成代码 优化(optimization) # 优化和收益平衡 分化(diversity) # 一开始设计不限制、优雅开放灵活 扩展(extensibility) # 协议可扩展 优化 需要时再优化，设计时考虑扩展性 dry(don&#39;t repeat yourself), 不可过度 找瓶颈 产出 设计清晰 选型简单 代码精炼 抽象优雅 代码风格 # 命名 包名类名为名词, 方法名为动词 参数、方法名称在上下文语义中合理 , 像写文章一样 横向代码单屏内分行 性能 避免嵌套循环，特别是数据库操作 结构 # 高内聚，低耦合 抽取方法 业务逻辑分层 框架无侵入性 技巧 注释驱动写复杂业务 自解释代码 安全 密码二次验证 离机锁屏 用户名、密码、ip、端口不提交 代码安全, 如sql注入, XSS 代码质量 # 代码 功能、结构、资源 非遗留代码 写了测试 改代码 bug 重构 # 只改结构 确定修改点 找出测试点 解依赖 伪/仿对象 接缝 全局函数 提取重写方法 宏预处理 替换连接的代码 对象 # 耦合对象不好初始化 子类化重写方法 接口提取 创建简化接口 创建简化类与对象，引用原对象 暴露静态方法 对象提取公共方法，只测公共方法 传方法参数 写测试 优化 # 只改资源 具体实现原则 # 数据结构 # 状态机解决流程问题 AST解决主义问题 面向对象(Object Oriented) # 特性 ooad # Object Oriented Analysis and Design ooa # analysis 建立针对业务问题域的清晰视图 列出核心任务 针对问题域建立公共词汇表 列出针对问题域的最佳解决方案 ood # design 细化类关系，明确可见性 增加属性 分配职责(方法) 消息驱动系统中消息传递方式 局部应用设计模式 类图时序图 oop # program 抽象: abstract 接口 无实现 可多重继承 抽象类 可以有私有方法变量 实现部分方法 封装: encapsulation # 数据和方法绑定 继承: inheritance 多态: polymorphism overload为编译时 override为运行时 关联: association # has a 双向关联 两个类互相知道对方公共属性和操作 单向关联（大多数） 一个类知道另一个类的公共属性和操作 聚合: aggregation a包含b, b可以不在a创建时创建 组合: composition 比聚合强，a包含b, b在a创建时创建 内聚与耦合: cohesion &amp; coupling # 高内聚低耦合 依赖: dependency # use a 泛化: generalization # is a 泛型 函数式 # 数组 [1, 1, 3, 5, 5].">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="代码" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -12,9 +12,9 @@
 <title>代码 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.eddc90f1d1267cb826e7cffc53c434e50061c4bfe41146a43670842ce6cb3bf6.css" integrity="sha256-7dyQ8dEmfLgm58/8U8Q05QBhxL/kEUakNnCELObLO/Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6b8a90cd4c824e561f7bc995a79fe5edaa661546e10651a9d8794c1274766816.js" integrity="sha256-a4qQzUyCTlYfe8mVp5/l7apmFUbhBlGp2HlMEnR2aBY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a49cd50c32ea1b75896f9bb5acf1f42a5e283f6d3c5c9311850bf487538e7b99.js" integrity="sha256-pJzVDDLqG3WJb5u1rPH0Kl4oP208XJMRhQv0h1OOe5k=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -67,47 +67,8 @@ https://github.com/alex-shpak/hugo-book
 
   <ul>
 <li><a href="/"><strong>介绍</strong></a></li>
-<li><a href="/docs/design"><strong>设计</strong></a>
-<ul>
-<li><a href="/docs/design/algorithm"><strong><strong>算法</strong></strong></a>
-<ul>
-<li><a href="/docs/design/algorithm/math">数学</a></li>
-<li><a href="/docs/design/algorithm/thought">思想</a></li>
-<li><a href="/docs/design/algorithm/data_structure">数据结构</a></li>
-</ul>
-</li>
-<li><a href="/docs/design/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/design/business/trade">行业发展</a></li>
-<li><a href="/docs/design/business/enterprise_system">企业级系统</a></li>
-<li><a href="/docs/design/business/framework">服务与框架</a></li>
-<li><a href="/docs/design/business/function">功能</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/organize"><strong><strong>组织</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/organize/people">人员</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/security"><strong><strong>安全/协议</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/security/error_debug">问题排查</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/project"><strong><strong>工程</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/project/ddd">DDD</a></li>
-</ul>
-</li>
-<li><a href="/docs/architect/code"><strong><strong>代码</strong></strong></a>
-<ul>
-<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
-</ul>
-</li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
@@ -120,43 +81,56 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/iot">IoT</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/project/ddd">DDD</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/code/design_mode">设计模式</a></li>
+<li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
 <ul>
-<li><a href="/docs/tool/computer"><strong><strong>计算机</strong></strong></a>
-<ul>
-<li><a href="/docs/tool/computer/principle">原理</a></li>
-<li><a href="/docs/tool/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/tool/linux"><strong><strong>Linux</strong></strong></a>
+<li><a href="/docs/tool/linux"><strong><strong>Linux系统</strong></strong></a>
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
+<li><a href="/docs/tool/linux/scene">Linux场景</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/ops/monitor">监控</a></li>
+<li><a href="/docs/tool/ops/monitor">监控指标</a></li>
 <li><a href="/docs/tool/ops/docker">Docker</a></li>
 <li><a href="/docs/tool/ops/k8s">Kubernetes</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/develop"><strong><strong>开发工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/vim">Vim</a></li>
-<li><a href="/docs/tool/eclipse">Eclipse</a></li>
-<li><a href="/docs/tool/apple">Apple</a></li>
-<li><a href="/docs/tool/jetbrains">Jetbrains</a></li>
+<li><a href="/docs/tool/develop/vim">Vim</a></li>
+<li><a href="/docs/tool/develop/eclipse">Eclipse</a></li>
+<li><a href="/docs/tool/develop/apple">Apple</a></li>
+<li><a href="/docs/tool/develop/jetbrains">Jetbrains</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/test"><strong><strong>测试工具</strong></strong></a>
 <ul>
-<li><a href="/docs/tool/test/debug">调试</a></li>
+<li><a href="/docs/tool/test/debug">代码调试</a></li>
 </ul>
 </li>
-<li><a href="/docs/tool/physics">实物工具</a></li>
+<li><a href="/docs/tool/product"><strong><strong>产品工具</strong></strong></a>
+<ul>
+<li><a href="/docs/tool/product/enterprise_system">企业级系统</a></li>
+<li><a href="/docs/tool/product/framework">服务与框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/tool/physics"><strong><strong>实物工具</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/middleware"><strong>中间件</strong></a>
@@ -198,7 +172,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/db/elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
-<li><a href="/docs/pl"><strong>程序语言</strong></a>
+<li><a href="/docs/pl"><strong>语言</strong></a>
 <ul>
 <li><a href="/docs/pl/principle">原理</a></li>
 <li><a href="/docs/pl/java"><strong><strong>Java</strong></strong></a>
@@ -224,11 +198,46 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </li>
+<li><a href="/docs/basic"><strong>基本功</strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm"><strong><strong>算法</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/algorithm/math">数学</a></li>
+<li><a href="/docs/basic/algorithm/thought">思想</a></li>
+<li><a href="/docs/basic/algorithm/data_structure">数据结构</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/computer"><strong><strong>计算机</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/computer/principle">原理</a></li>
+<li><a href="/docs/basic/computer/performance">性能</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/business/trade">行业发展</a></li>
+<li><a href="/docs/basic/business/function">功能</a></li>
+<li><a href="/docs/basic/business/ops">运维</a></li>
+<li><a href="/docs/basic/business/test">测试</a></li>
+</ul>
+</li>
+<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
+<ul>
+<li><a href="/docs/basic/soft/person">个人</a></li>
+<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
 <ul>
 <li><a href="/docs/cache/ops">运维</a></li>
-<li><a href="/docs/cache/develop">开发</a></li>
 <li><a href="/docs/cache/template">模板配置</a></li>
+<li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
 <li><a href="/docs/misc"><strong>Misc</strong></a>
@@ -238,13 +247,11 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/misc/english">英语</a></li>
 <li><a href="/docs/misc/interview">题目</a></li>
 <li><a href="/docs/misc/book">书</a></li>
+<li><a href="/docs/misc/about_me">关于我</a></li>
+<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
-<li><a href="/posts"><strong>Posts</strong></a>
-<ul>
-<li><a href="/about_me">关于我</a></li>
-</ul>
-</li>
+<li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
 
@@ -261,7 +268,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -292,18 +299,21 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#认知">认知</a></li>
-    <li><a href="#原则">原则</a></li>
-    <li><a href="#设计">设计</a>
+    <li><a href="#人类认知原理">人类认知原理</a></li>
+    <li><a href="#软件设计原则">软件设计原则</a>
+      <ul>
+        <li><a href="#统一原则">统一原则</a></li>
+        <li><a href="#代码风格">代码风格</a></li>
+        <li><a href="#代码质量">代码质量</a></li>
+      </ul>
+    </li>
+    <li><a href="#具体实现原则">具体实现原则</a>
       <ul>
         <li><a href="#数据结构">数据结构</a></li>
         <li><a href="#面向对象object-oriented">面向对象(Object Oriented)</a></li>
         <li><a href="#函数式">函数式</a></li>
       </ul>
     </li>
-    <li><a href="#风格">风格</a></li>
-    <li><a href="#质量">质量</a></li>
-    <li><a href="#工具">工具</a></li>
   </ul>
 </nav>
 
@@ -316,9 +326,9 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="认知">
-  认知
-  <a class="anchor" href="#%e8%ae%a4%e7%9f%a5">#</a>
+  <article class="markdown"><h1 id="人类认知原理">
+  人类认知原理
+  <a class="anchor" href="#%e4%ba%ba%e7%b1%bb%e8%ae%a4%e7%9f%a5%e5%8e%9f%e7%90%86">#</a>
 </h1>
 <pre><code>原理
     模拟执行
@@ -340,10 +350,14 @@ https://github.com/alex-shpak/hugo-book
         this.scene.commit()集中状态转移时间线
     单一方式
 </code></pre>
-<h1 id="原则">
-  原则
-  <a class="anchor" href="#%e5%8e%9f%e5%88%99">#</a>
+<h1 id="软件设计原则">
+  软件设计原则
+  <a class="anchor" href="#%e8%bd%af%e4%bb%b6%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99">#</a>
 </h1>
+<h2 id="统一原则">
+  统一原则
+  <a class="anchor" href="#%e7%bb%9f%e4%b8%80%e5%8e%9f%e5%88%99">#</a>
+</h2>
 <pre><code>观念
     KISS(keep it simple stupid)
     YAGNI(You Ain’t Gonna Need It)
@@ -407,46 +421,68 @@ https://github.com/alex-shpak/hugo-book
     代码精炼
     抽象优雅
 </code></pre>
-<h1 id="设计">
-  设计
-  <a class="anchor" href="#%e8%ae%be%e8%ae%a1">#</a>
-</h1>
-<pre><code>创建
-    factory, abstract factory       # 工厂
-    builder                         # 构建者
-    prototype                       # 原型复制来产生对象
-    singleton                       # 单例
+<h2 id="代码风格">
+  代码风格
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e9%a3%8e%e6%a0%bc">#</a>
+</h2>
+<pre><code>命名
+    包名类名为名词, 方法名为动词
+    参数、方法名称在上下文语义中合理 , 像写文章一样
+    横向代码单屏内分行
+性能
+    避免嵌套循环，特别是数据库操作
 结构
-    adapter                         # 适配器
-    bridge                          # 抽象与实现分离
-    composite                       # 抽取公共行为
-    decorator                       # 装饰
-    facade                          # 外观。提供子类的默认视图
-    flyweight                       # 享元
-    proxy                           # 代理
-行为
-    interpreter                     # 解释器
-    template method                 # 模板方法、泛型
-    chain of responsibility         # 责任链
-    command                         # 命令
-    iterator                        # 迭代器
-    mediator                        # 消息传递中介
-    memento                         # 保存、恢复状态
-    observer                        # 观察者
-    state                           # 不同状态定义不同行为
-    strategy                        # 同行为的不同算法、替换算法
-    visitor                         # 访问者。抽象行为本身，不同访问对象不同行为
-元素模式
-    抽象各模式成元素，简化表示
-actor                               # 消息通信
-reactor                             # 事件轮循，注册回调，如libevent
-proactor                            # 注册事件回调，os通知触发回调
-
-
-惰性求值
-    链式定义(配方)，后自动触发(js tick调度)终止操作
-dsl测试(如jasmine.js)
+    # 高内聚，低耦合
+    抽取方法
+    业务逻辑分层
+    框架无侵入性
+技巧
+    注释驱动写复杂业务
+    自解释代码
+安全
+    密码二次验证
+    离机锁屏
+    用户名、密码、ip、端口不提交
+    代码安全, 如sql注入, XSS
 </code></pre>
+<h2 id="代码质量">
+  代码质量
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e8%b4%a8%e9%87%8f">#</a>
+</h2>
+<pre><code>代码
+    功能、结构、资源
+非遗留代码
+    写了测试
+改代码
+    bug
+    重构
+        # 只改结构
+    确定修改点
+        找出测试点
+        解依赖
+            伪/仿对象
+            接缝
+                全局函数
+                    提取重写方法
+                宏预处理
+                替换连接的代码
+                对象
+                    # 耦合对象不好初始化
+                    子类化重写方法
+                    接口提取
+                    创建简化接口
+                    创建简化类与对象，引用原对象
+                    暴露静态方法
+                    对象提取公共方法，只测公共方法
+                传方法参数
+        写测试
+    优化
+        # 只改资源
+</code></pre>
+<h1 id="具体实现原则">
+  具体实现原则
+  <a class="anchor" href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0%e5%8e%9f%e5%88%99">#</a>
+</h1>
 <h2 id="数据结构">
   数据结构
   <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">#</a>
@@ -531,77 +567,7 @@ cps(continuation passing style)
 curry
     f(1,2,3)改写成f(1).f(2).f(3)
 thunk
-    触发函数, 如 f(){_f(1)}
-</code></pre>
-<h1 id="风格">
-  风格
-  <a class="anchor" href="#%e9%a3%8e%e6%a0%bc">#</a>
-</h1>
-<pre><code>命名
-    包名类名为名词, 方法名为动词
-    参数、方法名称在上下文语义中合理 , 像写文章一样
-    横向代码单屏内分行
-性能
-    避免嵌套循环，特别是数据库操作
-结构
-    # 高内聚，低耦合
-    抽取方法
-    业务逻辑分层
-    框架无侵入性
-技巧
-    注释驱动写复杂业务
-    自解释代码
-安全
-    密码二次验证
-    离机锁屏
-    用户名、密码、ip、端口不提交
-    代码安全, 如sql注入, XSS
-</code></pre>
-<h1 id="质量">
-  质量
-  <a class="anchor" href="#%e8%b4%a8%e9%87%8f">#</a>
-</h1>
-<pre><code>代码
-    功能、结构、资源
-非遗留代码
-    写了测试
-改代码
-    bug
-    重构
-        # 只改结构
-    确定修改点
-        找出测试点
-        解依赖
-            伪/仿对象
-            接缝
-                全局函数
-                    提取重写方法
-                宏预处理
-                替换连接的代码
-                对象
-                    # 耦合对象不好初始化
-                    子类化重写方法
-                    接口提取
-                    创建简化接口
-                    创建简化类与对象，引用原对象
-                    暴露静态方法
-                    对象提取公共方法，只测公共方法
-                传方法参数
-        写测试
-    优化
-        # 只改资源
-</code></pre>
-<h1 id="工具">
-  工具
-  <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
-</h1>
-<pre><code>CLI(command client)和GUI
-    GUI更快更容易
-    CLI的优势
-        更通用，更底层，更强大
-        定制化脚本
-        更少占用内存
-        可定义别名</code></pre>
+    触发函数, 如 f(){_f(1)}</code></pre>
 </article>
  
       
@@ -611,9 +577,9 @@ thunk
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/9d2ea756f7e5d3ffd8c443f52554888da5999c1a" title='Last modified by outrunJ | Apr 23, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 23, 2022</span>
+      <span>Aug 1, 2022</span>
     </a>
   </div>
 
@@ -631,7 +597,7 @@ thunk
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  
@@ -656,18 +622,21 @@ thunk
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#认知">认知</a></li>
-    <li><a href="#原则">原则</a></li>
-    <li><a href="#设计">设计</a>
+    <li><a href="#人类认知原理">人类认知原理</a></li>
+    <li><a href="#软件设计原则">软件设计原则</a>
+      <ul>
+        <li><a href="#统一原则">统一原则</a></li>
+        <li><a href="#代码风格">代码风格</a></li>
+        <li><a href="#代码质量">代码质量</a></li>
+      </ul>
+    </li>
+    <li><a href="#具体实现原则">具体实现原则</a>
       <ul>
         <li><a href="#数据结构">数据结构</a></li>
         <li><a href="#面向对象object-oriented">面向对象(Object Oriented)</a></li>
         <li><a href="#函数式">函数式</a></li>
       </ul>
     </li>
-    <li><a href="#风格">风格</a></li>
-    <li><a href="#质量">质量</a></li>
-    <li><a href="#工具">工具</a></li>
   </ul>
 </nav>
 

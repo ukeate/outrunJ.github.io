@@ -6,12 +6,30 @@
     <description>Recent content in 工具 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>企业级系统</title>
+      <link>https://example.com/docs/tool/product/enterprise_system/</link>
+      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
+      
+      <guid>https://example.com/docs/tool/product/enterprise_system/</guid>
+      <description>ERP # # Enterprise Resources Planning, 企业资源计划 CMS # # Content Management System grav # 开源cms wordpress # # php dedecms # # 织梦cms, SEO优化 帝国cms # # SEO优化 phpcms # phpwind # # 开源, 社区管理系统 drupal # # 开源, cms 工作流 # activiti # 5,6已暂停维护，7叫作Activiti Cloud BPM flowable # activiti继任 YAML # 工作流 bossa # 工作流引擎 azkaban # 开源oa JBPM # # 常识 适用对象：业务逻辑不复杂，业务流程会变化 # s2sh适合业务逻辑复杂，但是业务流程不会变化的项目 jbpm封装hibernate 包含对象 模型 实例（由活动组成，包括活动、箭头等） 任务（需要人办理的活动） # 使用 myeclipse添加jbpm xml画图插件 MyEclipse -&amp;gt; MyEclipse Configuration Center -&amp;gt; Software -&amp;gt; Browse Software(add site) -&amp;gt; add from archive file找到jbpm-gpd-site.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/tool/product/framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/tool/product/framework/</guid>
+      <description>博客框架 # cleaver # # 基于node幻灯片 hexo # 介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;amp;&amp;amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址 hexo deploy # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支 上github，点settings找到github pages, 找到自己发布的站点 无法访问静态资源 设置域名 申请域名 dnspod 中 绑定ip hugo # 简介 hugo由go编写，开源，特点为编译快 本文基于hugo0.</description>
+    </item>
+    
+    <item>
       <title>实物工具</title>
       <link>https://example.com/docs/tool/physics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/tool/physics/</guid>
-      <description>HHKB HyBrid #  生产日期 20210108 购买日期 202104  配对方式 #  1.按Fn + q键进入配对模式。 2.再按Fn + z + ~ 键清空键盘配对信息,键盘自动关闭。 3.长按开关键重新打开键盘后按Fn + q键进入配对模式,再按Fn + Ctrl + 1/2/3/4指定一个序号。 4.然后关闭电脑蓝牙功能再打开进行搜索。  切换 #  Fn + Ctrl + 1/2/3/4 Fn + Ctrl + 0  Swiftpoint ProPoint #  Blix Komfort Prima #  </description>
+      <description> HHKB HyBrid # 生产日期 20210108 购买日期 202104 配对方式 # 1.按Fn + q键进入配对模式。 2.再按Fn + z + ~ 键清空键盘配对信息,键盘自动关闭。 3.长按开关键重新打开键盘后按Fn + q键进入配对模式,再按Fn + Ctrl + 1/2/3/4指定一个序号。 4.然后关闭电脑蓝牙功能再打开进行搜索。 切换 # Fn + Ctrl + 1/2/3/4 Fn + Ctrl + 0 Swiftpoint ProPoint # Blix Komfort Prima # </description>
     </item>
     
   </channel>

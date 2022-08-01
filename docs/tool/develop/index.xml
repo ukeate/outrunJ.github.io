@@ -11,7 +11,7 @@
       <pubDate>Thu, 11 Oct 2018 18:33:08 +0800</pubDate>
       
       <guid>https://example.com/docs/tool/develop/eclipse/</guid>
-      <description>方案 #  user library发布 项目右键 -&amp;gt; properties -&amp;gt; Deployment Assembly -&amp;gt; add -&amp;gt; javaBuild Path Entries中选择发布包 tomcat设置发布到外部 new server -&amp;gt; 直接finish 右键server -&amp;gt; open 修改server location -&amp;gt; use Tomcat installation 修改server location -&amp;gt; deploy path为webapps 修改TimeOuts -&amp;gt;所有时间为1200 java版本 window -&amp;gt; preferences -&amp;gt; java -&amp;gt; compiler window -&amp;gt; preferences -&amp;gt; java -&amp;gt; installed JREs 编码 general -&amp;gt; workspace Text file encoding general -&amp;gt; content types Text -&amp;gt; java source file defalt encoding输入UTF-8并点击update 快捷键 general -&amp;gt; editors -&amp;gt; keys content assist # 代码提示 word comletion # 代码补全  插件 #  market place http://www.</description>
+      <description>方案 # user library发布 项目右键 -&amp;gt; properties -&amp;gt; Deployment Assembly -&amp;gt; add -&amp;gt; javaBuild Path Entries中选择发布包 tomcat设置发布到外部 new server -&amp;gt; 直接finish 右键server -&amp;gt; open 修改server location -&amp;gt; use Tomcat installation 修改server location -&amp;gt; deploy path为webapps 修改TimeOuts -&amp;gt;所有时间为1200 java版本 window -&amp;gt; preferences -&amp;gt; java -&amp;gt; compiler window -&amp;gt; preferences -&amp;gt; java -&amp;gt; installed JREs 编码 general -&amp;gt; workspace Text file encoding general -&amp;gt; content types Text -&amp;gt; java source file defalt encoding输入UTF-8并点击update 快捷键 general -&amp;gt; editors -&amp;gt; keys content assist # 代码提示 word comletion # 代码补全 插件 # market place http://www.</description>
     </item>
     
     <item>
@@ -20,7 +20,7 @@
       <pubDate>Thu, 11 Oct 2018 18:31:16 +0800</pubDate>
       
       <guid>https://example.com/docs/tool/develop/vim/</guid>
-      <description>编译 #  --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看  命令 #  vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性  mode #  普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &amp;lt;C - v&amp;gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&amp;lt;,&#39;&amp;gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &amp;lt;C - g&amp;gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史  operate #  思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl + c # 同Esc motions .</description>
+      <description>编译 # --with-features=tiny # 只包含最基本功能。small, normal, big, huge, :h feature-list查看 命令 # vim -u NONE -N # -u NONE 不加载配置文件和插件，并进入vi兼容模式 -u code/essential.vim # 加载指定配置文件 -N set nocompatible # 不进入vi兼容模式 --version # 可查看特性 mode # 普通模式 插入模式 可视模式 v/V # 面向字/面向行 可视模式 &amp;lt;C - v&amp;gt; # 面向块 可视模式 gv # 重选上次选区 o # 切换到选区的开头, 再按切换回尾端　替换模式 R 命令行模式(Ex命令) : # 可视模式中选定范围，切换到命令行时，自动输入range&#39;&amp;lt;,&#39;&amp;gt;代表选中区 操作符待决模式 # operator 与 motion之间的空闲时期 # 两个字符的operator, 字符间的空闲时期不是该模式，是命名空间，是普通模式的扩充 # 有了这个模式，能创建自定义映射项来激活或终结操作符待决模式，就可以自定义operator和motion 选择模式 # 类似windows中选中 &amp;lt;C - g&amp;gt;在可视和选择模式切换 历史 q: # 命令历史 q/ # 搜索历史 operate # 思想 {operator}{motion} {operator}{text-objects} shortcut key ctrl + c # 同Esc motions .</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/tool/develop/apple/</guid>
-      <description>ipad #  操作 下边向上(短)：桌面 下边向上(停): dock dock拖app: 小窗、分屏 小窗向边(短): 隐藏 小窗向边(停): 分屏 小窗向上：分离 下角向内(短): 切app 下角向内(停): app表 右上角向下: 控制中心 左上角向下：通知 桌面向下: 搜索 3指左右: app内切换 4指左右：切app 4指向内(短): 桌面 4指向内(停): app表 home一下：桌面 home两下：app表 截图、导出pdf: 主按键 + 电源键 键盘：两指缩小浮动 分屏: 一指拉出dock, 一指拖出程序 siri 问答: 笑话, 常识, 抛硬币 safari: 搜索 设置: 蓝牙,飞行模式 时钟 6点起床 德国时间 倒计时 日历: 9点开会 提醒：提醒和给妈妈打电话 备忘录：记下我花了10块钱 地图：回家路线 打车 打电话, 发信息 照片 体育：比赛消息 音乐 邮件 天气 计算器 股票: xx涨了吗 朋友：xx在哪里 发微博 指定xx: 打开trello发送a 附近店 相机：自拍模式  alfred #  搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流  fantastical #  个人总结 名字 date 9th from 9.</description>
+      <description>ipad # 操作 下边向上(短)：桌面 下边向上(停): dock dock拖app: 小窗、分屏 小窗向边(短): 隐藏 小窗向边(停): 分屏 小窗向上：分离 下角向内(短): 切app 下角向内(停): app表 右上角向下: 控制中心 左上角向下：通知 桌面向下: 搜索 3指左右: app内切换 4指左右：切app 4指向内(短): 桌面 4指向内(停): app表 home一下：桌面 home两下：app表 截图、导出pdf: 主按键 + 电源键 键盘：两指缩小浮动 分屏: 一指拉出dock, 一指拖出程序 siri 问答: 笑话, 常识, 抛硬币 safari: 搜索 设置: 蓝牙,飞行模式 时钟 6点起床 德国时间 倒计时 日历: 9点开会 提醒：提醒和给妈妈打电话 备忘录：记下我花了10块钱 地图：回家路线 打车 打电话, 发信息 照片 体育：比赛消息 音乐 邮件 天气 计算器 股票: xx涨了吗 朋友：xx在哪里 发微博 指定xx: 打开trello发送a 附近店 相机：自拍模式 alfred # 搜索 指定网站搜索 文件 剪贴板 计算器 自定义脚本 打字 命令 工作流 fantastical # 个人总结 名字 date 9th from 9.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/tool/develop/jetbrains/</guid>
-      <description>Intellij Idea #  注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
+      <description>Intellij Idea # 注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
     </item>
     
   </channel>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on outrun的笔记</title>
+    <link>https://example.com/docs/basic/algorithm/</link>
+    <description>Recent content in 算法 on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/basic/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法思想</title>
+      <link>https://example.com/docs/basic/algorithm/thought/</link>
+      <pubDate>Mon, 08 Oct 2018 22:21:21 +0800</pubDate>
+      
+      <guid>https://example.com/docs/basic/algorithm/thought/</guid>
+      <description>口诀 # 难题首选动归 受阻贪心暴力 考虑分治思想 配合排序哈希 递归(recursion) # 介绍 利用递归，把状态的管理责任推给运行时 递归转迭代 可加上memory做优化 分治(divide and conquer) # 介绍 广义分治法 例子 二分检索 找最大/最小元素 归并分类 快速分类 选择问题 斯特拉森矩阵乘法 贪心(greedy) # 案例 Dijkstra最短路径 最小生成树Prim, Kruskal 背包问题 作业排序 最优归并模式 动态规划(dynamic planning) # 方法 常用滚动数组降低空间复杂度 案例 多段图 结点间最短路径 最优二叉检索树 0/1背包问题 可靠性设计 货郎担问题(旅行商问题) 流水线调度问题 检索与周游(retrieval/travel) # 案例 深度优先检索 广度优先检索 与/或图 对策树 回溯(backtracking) # 案例 8皇后问题 图的着色 哈密顿环 背包问题 暴力(brute force) # 介绍 分支限界条件加快效率 例子 DFS, BFS 分支-限界(branch and bound) 案例 LC检索 0/1背包问题 货郎担问题 并行(parallel) # 时间复杂度(time complexity) # O()表示上界(&amp;lt;=), Ω() [omega]表示下界(&amp;gt;=), Θ() [Theta] 表示上下界相同, o()表示非Θ()的O() N &amp;gt;= n0时, T(N) &amp;lt;= cf(N), 记为T(N) = O(f(N)) N &amp;gt;= n0时, T(N) &amp;gt;= cg(N), 记为T(N) = Ω(g(N)) T(N) = Θ(h(N)) 当且仅当T(N) = O(h(N)) 和 T(N) = Ω(h(N)) 上界(upper bound) 下界(lower bound) 法则 # 约定, 不存在特定的时间单位 # 约定, 机器模型中, 1.</description>
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>https://example.com/docs/basic/algorithm/data_structure/</link>
+      <pubDate>Sun, 07 Oct 2018 13:46:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/basic/algorithm/data_structure/</guid>
+      <description>线性 # 列表(list) 数组(array) # 相同数据类型元素的序列，下标(index)访问 low high 字符串 二进制串(binary string) # 位串(bit string) 链表(linked list) 节点(node) 指针(pointer) 表头(header) 单链表(singly linked list) 双链表(doubly linked list) 栈(stack) # 插入和删除只能在端部进行的列表，应用于递归 栈顶(top) LIFO last-in-first-out 队列(queue) 队头(front) 队尾(rear) 入队(enqueue) FIFO first-in-first-out 优先队列(priority queue) # 数据项多来自于全序域(常整数或实数) 查找最大元素，删除最大元素，插入新元素 堆(heap)实现 散列表 # 介绍 有序输入时，树效率低，如果不要求查找有序结果，可以用散列 概念 hash table hashing(散列) item(项) key(关键字) # 项中某部分 hash function(散列函数) # 映射函数 collsion(冲突) # 多个关键字散列到同项的状况 load factor(装填因子) # λ 元素个数对表长度的比， # 如果散列是均匀的，表示了一个项中关键字的平均长度 # 一次成功查找要遍历约1 + (λ / 2)个链，1表示被匹配的项 rehashing(再散列) 一半时进行 直到插入失败再进行 middle-of-the-road # 到达某load factor时进行 caching the hash code(闪存散列代码) 算法 separate chaining(分离链接法) # 解决冲突 probing hash table(探测散列表) 线性探测法 primary clustering(聚集) # 线性探测法中形成数据区块 平方探测法 secondary clustering(二次聚集) # 模拟结果指出，对每次查找，会引起另外的少于一半的探测 double hashing(双散列) # 模拟表明, 两个散列都mod质数时，探测次数几乎和随机冲突解决方法相同 extendible hashing(可扩散列) D directory(目录) # 一个分区中bit的个数，所以M最多2^D 性质 # 基于位模式(bit patterm)是均匀分布的事实, 是&amp;quot;分支系数(branch factor)&amp;quot;, N 是记录总数(随时间变化) 树叶期望个数为(N/M)log(2)(e) 所以平均树叶满的程度为ln2 = 0.</description>
+    </item>
+    
+    <item>
+      <title>数学</title>
+      <link>https://example.com/docs/basic/algorithm/math/</link>
+      <pubDate>Sun, 07 Oct 2018 12:46:46 +0800</pubDate>
+      
+      <guid>https://example.com/docs/basic/algorithm/math/</guid>
+      <description>指数 # X^A * X^B = X^(A + B) X^A / X^B = X^(A - B) (X^A)^B = X^(A * B) X^N + X^N = 2X^N &amp;lt;&amp;gt; X^(2N) 2^N + 2^N = 2^(N + 1) 对数 # 约定 计算机科学中, log默认为log(2) X^A = B, log(X)(B) = A log(A)(B) = log(C)(B)/log(C)(A) logAB = logA + logB 级数 # ∑(i=0)(N)2^i = 2^(N + 1) - 1 ∑(i=0)(N)A^i = (A^(N + 1) - 1) / (A - 1) 如果0 &amp;lt; A &amp;lt; 1, 则 &amp;lt;= 1 / (1 - A) ∑(i=1)(∞)i/2^i = 2 ∑(i=1)(N)i = N(N + 1) / 2 ≈ N^2 / 2 ∑(i=1)(N)i^2 = N(N + 1)(2N + 1) / 6 ≈ N^3 / 3 ∑(i=1)(N)i^k ≈ N^(k + 1) / |k + 1| k &amp;lt;&amp;gt; -1 k = -1时, Hn = ∑(i=1)(N)1 / i ≈ log(e)(N), Hn是调和级数 该近似式误差趋向于 λ ≈ 0.</description>
+    </item>
+    
+  </channel>
+</rss>
