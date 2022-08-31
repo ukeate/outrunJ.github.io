@@ -7,16 +7,16 @@
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="测试方法" />
 <meta property="og:description" content="规划 # 蓝图 规范 &amp; 稳定 用例规范，测试方案规范，自动化代码规范，工单处理标准，提测准人/出标准，Bug规范 线上异常监控，PPE环境监控，发布接管，线上问题对接，线上告警，自动巡检 内容 基础：功能测试，兼容性测试，性能测试，数据治理，安全测试，线上问题，环境治理，故障演练 提效：API自动化，框架&amp;测试代码自动生成，自动部署&amp;持续集成，数据工厂，UI自动化，Doom引流 赋能：测试用例开放，代码质量度量，story_QA，测试工具&amp;平台开放，自由组装case场景，精准推荐 探索：探索性测试，契约测试，AI技术赋能测试 度量 线上：发布次数，紧急发布/回滚，工单预警数，生产冒烟数，线上工单数，复盘数 线下：代码质量数据，缺陷修复效率，Bug打回数据，自动化通过率，项目进度度量，Story owner度量 基础 # 功能测试 业务梳理：业务结构图，服务调用图，数据流，特殊逻辑时序图 用例设计：模板化，框架化 安全测试 清扫漏洞: 敏感信息，接口安全问题 工具：BurpSuite, 自研代码安全扫描工具 常态化: 下沉QA流程，研发流程加入 兼容性测试 包括：App，H5，操作系统，Web浏览器，API 线上问题治理 工具：工单系统 线上反馈线上化：钉钉机器人接入，Bug自动转移 数据沉淀及可视化 FAQ 运营自查：-&gt;QA-&gt;开发产品 问题解决 功能缺陷类: 开发解决-&gt;QA-&gt;运营 答疑问：加入自查文档 功能优化类：指派给产品 问题规约 宣导：线上群公告，线下组织文档操作和业务培训 问题分类和定级 1/5/30原则：1分钟感知，5分钟响应，30分钟解决 FAQ持续转化输出 提效 # API测试 工具: Jenkins&#43;Newman, JMeter, 思想: 模块化，测试库，数据驱动，关键字驱动，BDD 框架 Jenkins&#43;Python(UnitTest/Pytest, Requests, HTMLTestRunner/Allure) Jenkins&#43;Java&#43;Maven&#43;JUnit/TestNG&#43;HttpClient/RestAssured&#43;ExtentReport/Allure 框架思想 框架分层解耦: 用例层，组件/业务层，API层，公共基础层 数据分类处理: 公共数据，隔离数据，运行时数据 多协议封装: 接口协议，接口定义及调用 多环境处理: 发布流，框架管理(切换、可维护性可扩展性) 结果自动验证 框架扩展: Pytest 对比策略 数据库设计: 自动化用例nodeid，请求URL，运行环境，用例路径，request_id，请求体，cURL，Response 对比引擎设计：JSONPath匹配对比策略 API覆盖率统计 分类 白盒覆盖率: 代码 灰盒覆盖率：接口 黑盒覆盖率：需求 实践 分子：结合日志，生成RequestID扩展py." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/basic/business/test/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://example.com/docs/architect/method/test_plan/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-01T16:13:17+08:00" />
+<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
 
 <title>测试方法 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.277a9035eafde5d9231afd4ae37f960861f685a6d301b8f6fa61dc457fb17789.js" integrity="sha256-J3qQNer95dkjGv1K43&#43;WCGH2habTAbj2&#43;mHcRX&#43;xd4k=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.c6bed496193f4d2a7786d338fa26d93f4d4c89d2ed2f237e9b52d9c60903cd60.js" integrity="sha256-xr7Ulhk/TSp3htM4&#43;ibZP01MidLtLyN&#43;m1LZxgkDzWA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -70,7 +70,18 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
+<li><a href="/docs/architect/method"><strong><strong>规划与方法</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
+<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
+<li><a href="/docs/architect/method/architect">服务治理</a></li>
+<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
+<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
+<li><a href="/docs/architect/method/product_plan">产品规划</a></li>
+<li><a href="/docs/architect/method/advice_plan">咨询规划</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/strategy"><strong><strong>战略性技术</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
 <li><a href="/docs/architect/strategy/big_data">大数据</a>
@@ -85,6 +96,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/project/ddd">DDD</a></li>
+<li><a href="/docs/architect/project/frontend">前端设计</a></li>
 </ul>
 </li>
 <li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
@@ -93,7 +105,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
@@ -212,14 +223,6 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/basic/computer/principle">原理</a></li>
 <li><a href="/docs/basic/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/business/trade">行业发展</a></li>
-<li><a href="/docs/basic/business/function">功能</a></li>
-<li><a href="/docs/basic/business/ops">运维</a></li>
-<li><a href="/docs/basic/business/test">测试</a></li>
 </ul>
 </li>
 <li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
@@ -707,16 +710,16 @@ Story QA
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/84db4830c839f44e56052fa998aab64bfae58783" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/c2379c526692becfdd022edb864ac10e504beeb8" title='Last modified by outrun | Aug 31, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 1, 2022</span>
+      <span>Aug 31, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/basic/business/test.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/method/test_plan.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

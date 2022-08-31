@@ -272,10 +272,10 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>行业</title>
-      <link>https://example.com/docs/basic/business/trade/</link>
+      <link>https://example.com/docs/architect/method/product_plan/</link>
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/basic/business/trade/</guid>
+      <guid>https://example.com/docs/architect/method/product_plan/</guid>
       <description>云 # 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合 产业互联网 # 供应链 # 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸 AI # 优化、预测 拟合函数, 高阶微积分, 梯度下降 媒体 # 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
     </item>
     
@@ -325,6 +325,15 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
+      <title>服务治理</title>
+      <link>https://example.com/docs/architect/method/architect/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/method/architect/</guid>
+      <description>原则 # 高并发 高可用 高可靠 SLA(service level agreement)制定(吞吐量、响应时间、可用性、降级方案) 容量规划(流量、容量) 监控报警(机器负载、响应时间、可用率) tracing 应急预案(容灾、降级、限流、隔离、切流量、可回滚) 成本 经济学原理 比较优势 服务器类型 分工协作 组合 货币解耦 MQ 规模效益 集群 高可用 # 负载均衡 # 流量切换 # 某服务器挂了 DNS切换 httpDNS # app配置，绕过运营商localDNS lvs/haproxy # 切换故障的nginx nginx # 切换故障应用 限流 # 思路 恶意请求流量只访问cache 穿透到应用的流量用nginx limit 恶意ip nginx deny 降级 # 开关集中化管理, 推送开关配置 开关前置 # nginx层做开关 可降级读服务 # 只读本地缓存、只读分布式缓存、只读默认数据 业务降级 # 部分业务异步，处理高优先级，分配流量保障系统可用 隔离 # 线程隔离 进程隔离 集群隔离 机房隔离 读写隔离 动静隔离 爬虫隔离 热点隔离 资源隔离 回滚 # 事务 代码库 部署版本 数据版本 静态资源版本 超时与重试 # 压测与预案 # 线下、线上 高并发 # 缓存 # 客户端 浏览器缓存 # Pragma, Expires, Cache-control ajax app缓存 # 大促时更新静态资源, 地图 客户端网络 # 代理服务器缓存 广域网 代理服务器(如CDN) 推送 或 拉取(回源) 镜像服务器 P2P 源站 接入层缓存 # 如页面缓存，用redis url重写 一致性哈希 proxy_cache # 内存/SSD缓存内容 proxy_cache_lock # 一段时间的回源合并成一个 shared_dict # lua, 重启缓存不丢失 应用层缓存 # 如搜索，建议物品等 堆内缓存 堆外缓存 # local redis cache 分布式缓存(接入层后) redis集群 # 异步化写入, lua-resty-lock(非阻塞锁) 对象缓存 # db和应用间的查询结果集 静态化, 伪静态化 服务器操作系统缓存 连接池线程池 # 异步化 # 队列 # 作用 服务解耦 异步处理 流量削峰/缓冲 # 如促销期 问题 丢失/失败 # 持久化，日志，报警, 数据校对修正(worker扫库) 重复 # 业务上防重 例子 redis扣库存-&amp;gt;记录日志-&amp;gt;同步worker-&amp;gt;DB 消息总线可扩展 # x扩展不行，y扩展用专用总线(降低了灵活性), z扩展根据客户 减少拥挤 # 消息划分价值 扩容 # 无状态 # 应用无状态，配置有状态 尽可能浏览器端维护会话 分布式缓存放状态 拆分 # 加法组合，乘法功能 # 项目死于1到10，或10到100，因为解耦不够，无法重构 业务拆分 功能细分 读写 # 读缓存，写分库分表，聚合数据 AOP # 如CDN 模块 # 代码特征，如基础模块分库分表，数据库连接池 数据异构 例子 聚合数据表(一般KV存储) # 数据闭环(不依赖其它服务) 历史归档 并发化 选择工具 数据库 # rdb, nosql, hadoop 防火墙 # 墙需要的东西 日志 # 采集分析 用同品牌设备 慎用第三方 容错 隔离 # 不同步调用，限制异步调用(数量和超时)，能迅速发现故障 不单点 # 一切都出故障 不系统串联 功能支持启用禁用 # 实现wire on/wire off框架 服务方法 # 成本分析 # # autonomy.</description>
+    </item>
+    
+    <item>
       <title>支撑-原理</title>
       <link>https://example.com/docs/basic/computer/principle/</link>
       <pubDate>Wed, 10 Oct 2018 15:25:12 +0800</pubDate>
@@ -358,6 +367,24 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       
       <guid>https://example.com/docs/tool/product/enterprise_system/</guid>
       <description>ERP # # Enterprise Resources Planning, 企业资源计划 CMS # # Content Management System grav # 开源cms wordpress # # php dedecms # # 织梦cms, SEO优化 帝国cms # # SEO优化 phpcms # phpwind # # 开源, 社区管理系统 drupal # # 开源, cms 工作流 # activiti # 5,6已暂停维护，7叫作Activiti Cloud BPM flowable # activiti继任 YAML # 工作流 bossa # 工作流引擎 azkaban # 开源oa JBPM # # 常识 适用对象：业务逻辑不复杂，业务流程会变化 # s2sh适合业务逻辑复杂，但是业务流程不会变化的项目 jbpm封装hibernate 包含对象 模型 实例（由活动组成，包括活动、箭头等） 任务（需要人办理的活动） # 使用 myeclipse添加jbpm xml画图插件 MyEclipse -&amp;gt; MyEclipse Configuration Center -&amp;gt; Software -&amp;gt; Browse Software(add site) -&amp;gt; add from archive file找到jbpm-gpd-site.</description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>https://example.com/docs/architect/project/frontend/</link>
+      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/project/frontend/</guid>
+      <description> 组件化Layout # layout service # 缓存layout到redis crud layout功能 layout对象 index # 缩略信息 plugins components table layout # 组合方式 水平，垂直，tab </description>
+    </item>
+    
+    <item>
+      <title>大业务</title>
+      <link>https://example.com/docs/architect/method/project_plan/</link>
+      <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/method/project_plan/</guid>
+      <description>轻应用架构 # node.js + mongodb mysql 数据 # 数据迁移 # 去掉约束 排序（中断继续） 数据存储 # 缓存 queue + map # queue存储、限量, map查询，指向queue中元素 缓存 # queue + map # queue存储、限量, map查询，指向queue中元素 实时并发 # 异步方案 # node.js + mongodb tornado + celery + rabbitmq + 优先级 quartz 消息 # 功能 好友 单聊, 群聊 语音, 视频 im # 浏览器聊天(tcp, 不https) 协议 XMPP # 基于xml MQTT # 简单，但自己实现好友、群组 SIP # 复杂 私有协议 # 工作量大，扩展性差 go高并发实时消息推送 # 问题 长连接 # 支持多种协议(http、tcp) server push HTTP long polling(keep-alive) 基于TCP自定义 心跳侦测 高并发 #&amp;gt;= 10,000,000 C1000K 多种发送方式 单播: 点对点聊天 多播: 定点推送 广播: 全网推送 持久/非持久 准实时 # 200ms ~ 2s gc卡顿是大问题 客户端多样性 同帐号多端接入 网络变化 电信、联通切换 wifi, 4g, 3g 断线、重连、断线、重连 系统架构 组件 room # 接入客户端 分布式全对称 一个client一个goroutine 每个server一个channel存消息队列 book记录user与server映射 统一http server收消息并将消息路由到room和server manager掌控room的服务：内部单播、多播、广播 admin负责room进程管理 center # 运营人员从后台接入 提供操纵接口给应用服务器调用 restful 长时操作，有任务概念来管理 提供统计接口 register # room和center注册 key-value的map，value是struct 记录用户连到哪个room 记录在线时长等信息 hash算法定位register进程 不直接用redis是为了添加业务逻辑 saver # room和center调用 # 使用redis 分布式全对称 提供存储接口 采用encoding/gob编码格式的rpc idgenerator # saver和center调用 全局消息id生成器, int64 分布式，每个进程负责一块id区域 后台goroutine每隔一秒写一次磁盘，记录当前id 启动时跳过一段id，防止一秒内未写入磁盘的id重复生成 存储 redis 存核心数据 db_users: zset, 存各产品用户集合 db_slots: list, 存用户离线消息队列 db_buckets: dict, 存消息id -&amp;gt; 消息体 数据 16机器，标配24硬件线程, 64g内存 linux kernel 2.</description>
     </item>
     
     <item>
@@ -497,29 +524,38 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title></title>
-      <link>https://example.com/docs/architect/strategy/big_data/hadoop/</link>
+      <link>https://example.com/docs/architect/method/advice_plan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/strategy/big_data/hadoop/</guid>
-      <description>介绍 # 发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
+      <guid>https://example.com/docs/architect/method/advice_plan/</guid>
+      <description> 优化咨询 # 问题 客户反馈 单体应用 模块耦合程度 微服务划分与边界 单节点数据库 查询崩溃 IoT控制 命令超时失败, 响应慢 出错业务处理 发现问题 现有代码逻辑梳理 通过链路追踪，找性能瓶颈 SQL平台建设，发现数据库性能问题，优化SQL 服务器节点监控，应用监控，数据库监控 解决问题 代码 纯代码优化：N+1调用，事务问题 逻辑优化：订单失败，复杂业务流程优化 发布流程优化CI/CD 中间件优化：优雅停机，灰度方案节点打标，全链路日志 性能优化：业务并行处理，业务异步处理 数据库 不合理调用治理：批量更新，大事务， 慢SQL治理 数据库备份：主从优化，定时备份 配置调优 架构 高可用：服务发现，分布式 业务缓存优化，减少数据库调用：热点数据，对象缓存，多级缓存 分布式任务平台：分片执行 任务中心：批量平台 稳定性 告警平台 异常告警(空指针，接口调用成功率) 监控告警(服务器使用率) 业务告警(下单失败) 限流熔断 网关限流，业务限流，接口限流，外部调用限流 业务平滑处理 运营工具 业务数据多维分析 </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/basic/business/function/</link>
+      <link>https://example.com/docs/architect/method/code_plan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/basic/business/function/</guid>
+      <guid>https://example.com/docs/architect/method/code_plan/</guid>
       <description>阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/basic/business/ops/</link>
+      <link>https://example.com/docs/architect/method/ops_plan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/basic/business/ops/</guid>
+      <guid>https://example.com/docs/architect/method/ops_plan/</guid>
       <description> 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/docs/architect/strategy/big_data/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/architect/strategy/big_data/hadoop/</guid>
+      <description>介绍 # 发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
     </item>
     
     <item>
@@ -546,7 +582,7 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/ops/</guid>
-      <description> java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &amp;lt;intf&amp;gt; lladdr 00:bb:cc:dd:ee:ff </description>
+      <description> java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &amp;lt;intf&amp;gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 -l pyenv virtualenv 3.7.6 37 eval &amp;quot;$(pyenv init -)&amp;quot; eval &amp;quot;$(pyenv virtualenv-init -)&amp;quot; pyenv activate 37 pyenv deactivate </description>
     </item>
     
     <item>
@@ -679,10 +715,10 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     
     <item>
       <title>测试方法</title>
-      <link>https://example.com/docs/basic/business/test/</link>
+      <link>https://example.com/docs/architect/method/test_plan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/basic/business/test/</guid>
+      <guid>https://example.com/docs/architect/method/test_plan/</guid>
       <description>规划 # 蓝图 规范 &amp;amp; 稳定 用例规范，测试方案规范，自动化代码规范，工单处理标准，提测准人/出标准，Bug规范 线上异常监控，PPE环境监控，发布接管，线上问题对接，线上告警，自动巡检 内容 基础：功能测试，兼容性测试，性能测试，数据治理，安全测试，线上问题，环境治理，故障演练 提效：API自动化，框架&amp;amp;测试代码自动生成，自动部署&amp;amp;持续集成，数据工厂，UI自动化，Doom引流 赋能：测试用例开放，代码质量度量，story_QA，测试工具&amp;amp;平台开放，自由组装case场景，精准推荐 探索：探索性测试，契约测试，AI技术赋能测试 度量 线上：发布次数，紧急发布/回滚，工单预警数，生产冒烟数，线上工单数，复盘数 线下：代码质量数据，缺陷修复效率，Bug打回数据，自动化通过率，项目进度度量，Story owner度量 基础 # 功能测试 业务梳理：业务结构图，服务调用图，数据流，特殊逻辑时序图 用例设计：模板化，框架化 安全测试 清扫漏洞: 敏感信息，接口安全问题 工具：BurpSuite, 自研代码安全扫描工具 常态化: 下沉QA流程，研发流程加入 兼容性测试 包括：App，H5，操作系统，Web浏览器，API 线上问题治理 工具：工单系统 线上反馈线上化：钉钉机器人接入，Bug自动转移 数据沉淀及可视化 FAQ 运营自查：-&amp;gt;QA-&amp;gt;开发产品 问题解决 功能缺陷类: 开发解决-&amp;gt;QA-&amp;gt;运营 答疑问：加入自查文档 功能优化类：指派给产品 问题规约 宣导：线上群公告，线下组织文档操作和业务培训 问题分类和定级 1/5/30原则：1分钟感知，5分钟响应，30分钟解决 FAQ持续转化输出 提效 # API测试 工具: Jenkins+Newman, JMeter, 思想: 模块化，测试库，数据驱动，关键字驱动，BDD 框架 Jenkins+Python(UnitTest/Pytest, Requests, HTMLTestRunner/Allure) Jenkins+Java+Maven+JUnit/TestNG+HttpClient/RestAssured+ExtentReport/Allure 框架思想 框架分层解耦: 用例层，组件/业务层，API层，公共基础层 数据分类处理: 公共数据，隔离数据，运行时数据 多协议封装: 接口协议，接口定义及调用 多环境处理: 发布流，框架管理(切换、可维护性可扩展性) 结果自动验证 框架扩展: Pytest 对比策略 数据库设计: 自动化用例nodeid，请求URL，运行环境，用例路径，request_id，请求体，cURL，Response 对比引擎设计：JSONPath匹配对比策略 API覆盖率统计 分类 白盒覆盖率: 代码 灰盒覆盖率：接口 黑盒覆盖率：需求 实践 分子：结合日志，生成RequestID扩展py.</description>
     </item>
     

@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 组件化Layout # layout service # 缓存layout到redis crud layout功能 layout对象 index # 缩略信息 plugins components table layout # 组合方式 水平，垂直，tab ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="前端" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/docs/architect/frontend/" />
+<meta name="description" content=" 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content=" 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/docs/architect/method/ops_plan/" /><meta property="article:section" content="docs" />
 
-<title>前端 | outrun的笔记</title>
+<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
+
+<title>Ops Plan | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.277a9035eafde5d9231afd4ae37f960861f685a6d301b8f6fa61dc457fb17789.js" integrity="sha256-J3qQNer95dkjGv1K43&#43;WCGH2habTAbj2&#43;mHcRX&#43;xd4k=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.c6bed496193f4d2a7786d338fa26d93f4d4c89d2ed2f237e9b52d9c60903cd60.js" integrity="sha256-xr7Ulhk/TSp3htM4&#43;ibZP01MidLtLyN&#43;m1LZxgkDzWA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -26,7 +28,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/architect/frontend/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -69,7 +70,18 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/"><strong>介绍</strong></a></li>
 <li><a href="/docs/architect"><strong>架构</strong></a>
 <ul>
-<li><a href="/docs/architect/strategy"><strong><strong>战略性</strong></strong></a>
+<li><a href="/docs/architect/method"><strong><strong>规划与方法</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
+<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
+<li><a href="/docs/architect/method/architect">服务治理</a></li>
+<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
+<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
+<li><a href="/docs/architect/method/product_plan">产品规划</a></li>
+<li><a href="/docs/architect/method/advice_plan">咨询规划</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/strategy"><strong><strong>战略性技术</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
 <li><a href="/docs/architect/strategy/big_data">大数据</a>
@@ -84,6 +96,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/project/ddd">DDD</a></li>
+<li><a href="/docs/architect/project/frontend">前端设计</a></li>
 </ul>
 </li>
 <li><a href="/docs/architect/code"><strong><strong>代码原则</strong></strong></a>
@@ -92,7 +105,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/frontend"><strong><strong>前端</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
@@ -213,14 +225,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/basic/computer/performance">性能</a></li>
 </ul>
 </li>
-<li><a href="/docs/basic/business"><strong><strong>业务</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/business/trade">行业发展</a></li>
-<li><a href="/docs/basic/business/function">功能</a></li>
-<li><a href="/docs/basic/business/ops">运维</a></li>
-<li><a href="/docs/basic/business/test">测试</a></li>
-</ul>
-</li>
 <li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
 <ul>
 <li><a href="/docs/basic/soft/person">个人</a></li>
@@ -283,7 +287,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>前端</strong>
+  <strong>Ops Plan</strong>
 
   <label for="toc-control">
     
@@ -299,7 +303,8 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#组件化layout">组件化Layout</a></li>
+    <li><a href="#指标">指标</a></li>
+    <li><a href="#监控">监控</a></li>
   </ul>
 </nav>
 
@@ -312,22 +317,39 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="组件化layout">
-  组件化Layout
-  <a class="anchor" href="#%e7%bb%84%e4%bb%b6%e5%8c%96layout">#</a>
+  <article class="markdown"><h1 id="指标">
+  指标
+  <a class="anchor" href="#%e6%8c%87%e6%a0%87">#</a>
 </h1>
-<pre><code>layout service
-	# 缓存layout到redis
-	crud layout功能
-layout对象
-	index
-		# 缩略信息
-	plugins
-		components
-			table
-		layout
-			# 组合方式
-			水平，垂直，tab</code></pre>
+<pre><code>标准
+    ITIL(IT Infrastructure Library)
+    ITSM(IT System Management)
+目标
+    安全性
+        账号管理
+        漏洞修复
+        安全审计
+    可用性
+        服务监控
+        架构优化
+        冗余备份
+        预案演练
+        故障响应
+    运维成本
+        成本核算
+        服务选型
+        成本优化
+    运维效率
+        研发工作流支持
+        服务支持平台建设
+        运维自动化平台建设
+工作方式
+    邮件申请开通 LDAP, VPN, 测试, 线上
+</code></pre>
+<h1 id="监控">
+  监控
+  <a class="anchor" href="#%e7%9b%91%e6%8e%a7">#</a>
+</h1>
 </article>
  
       
@@ -337,16 +359,16 @@ layout对象
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/c2379c526692becfdd022edb864ac10e504beeb8" title='Last modified by outrun | Aug 31, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 1, 2022</span>
+      <span>Aug 31, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/frontend/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/method/ops_plan.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -382,7 +404,8 @@ layout对象
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#组件化layout">组件化Layout</a></li>
+    <li><a href="#指标">指标</a></li>
+    <li><a href="#监控">监控</a></li>
   </ul>
 </nav>
 
