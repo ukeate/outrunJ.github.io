@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.c6bed496193f4d2a7786d338fa26d93f4d4c89d2ed2f237e9b52d9c60903cd60.js" integrity="sha256-xr7Ulhk/TSp3htM4&#43;ibZP01MidLtLyN&#43;m1LZxgkDzWA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.5fdb242842423dc1a7d9291407be9480ffffa24e4f9fe6bdca124d4315634483.js" integrity="sha256-X9skKEJCPcGn2SkUB76UgP//ok5Pn&#43;a9yhJNQxVjRIM=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -306,6 +306,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#数据库">数据库</a></li>
     <li><a href="#接口">接口</a>
       <ul>
+        <li><a href="#jmeter">jmeter</a></li>
         <li><a href="#loadrunner">loadrunner</a></li>
         <li><a href="#phoenix">phoenix</a></li>
         <li><a href="#js">js</a>
@@ -405,6 +406,14 @@ https://github.com/alex-shpak/hugo-book
   接口
   <a class="anchor" href="#%e6%8e%a5%e5%8f%a3">#</a>
 </h1>
+<h2 id="jmeter">
+  jmeter
+  <a class="anchor" href="#jmeter">#</a>
+</h2>
+<pre><code>压测场景
+    HEAP=&quot;-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m&quot;
+    jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]
+</code></pre>
 <h2 id="loadrunner">
   loadrunner
   <a class="anchor" href="#loadrunner">#</a>
@@ -500,8 +509,6 @@ http_load
                 # -s 总计访问时间
 yslow
         # firefox插件，网页性能测试工具
-jmeter
-        # apache性能测试
 gatling
         # dsl脚本, 生成报表
 wrk
@@ -904,9 +911,9 @@ jasmine
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/9d2ea756f7e5d3ffd8c443f52554888da5999c1a" title='Last modified by outrunJ | Apr 23, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/0b53334e3a62d27d50f9cf8568e7b2b8d41f9b64" title='Last modified by outrun | Sep 14, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 23, 2022</span>
+      <span>Sep 14, 2022</span>
     </a>
   </div>
 
@@ -953,6 +960,7 @@ jasmine
     <li><a href="#数据库">数据库</a></li>
     <li><a href="#接口">接口</a>
       <ul>
+        <li><a href="#jmeter">jmeter</a></li>
         <li><a href="#loadrunner">loadrunner</a></li>
         <li><a href="#phoenix">phoenix</a></li>
         <li><a href="#js">js</a>
