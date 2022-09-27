@@ -9,14 +9,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/db/elasticsearch/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-09-22T21:45:53+08:00" />
+<meta property="article:modified_time" content="2022-09-27T16:27:03+08:00" />
 
 <title>Elasticsearch | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5fdb242842423dc1a7d9291407be9480ffffa24e4f9fe6bdca124d4315634483.js" integrity="sha256-X9skKEJCPcGn2SkUB76UgP//ok5Pn&#43;a9yhJNQxVjRIM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -103,6 +103,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/code/design_mode">设计模式</a></li>
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
 </ul>
@@ -225,16 +235,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/basic/computer/performance">性能</a></li>
 </ul>
 </li>
-<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/soft/person">个人</a></li>
-<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
-<ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
@@ -308,7 +308,28 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#命令">命令</a></li>
     <li><a href="#概念存储">概念存储</a></li>
     <li><a href="#设置">设置</a></li>
-    <li><a href="#接口">接口</a></li>
+    <li><a href="#接口">接口</a>
+      <ul>
+        <li><a href="#index">index</a></li>
+        <li><a href="#_cat">_cat</a></li>
+        <li><a href="#_cluster">_cluster</a></li>
+        <li><a href="#_aliases">_aliases</a></li>
+        <li><a href="#_template">_template</a></li>
+        <li><a href="#_search">_search</a></li>
+        <li><a href="#_analyze">_analyze</a></li>
+        <li><a href="#_close">_close</a></li>
+        <li><a href="#_open">_open</a></li>
+        <li><a href="#_cache">_cache</a></li>
+        <li><a href="#数据对象">数据对象</a>
+          <ul>
+            <li><a href="#_search-1">_search</a></li>
+            <li><a href="#mappings">mappings</a></li>
+            <li><a href="#aliases">aliases</a></li>
+            <li><a href="#settings">settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#插件">插件</a></li>
   </ul>
 </nav>
@@ -401,221 +422,271 @@ discovery.zen.minimum_master_nodes: 2
   接口
   <a class="anchor" href="#%e6%8e%a5%e5%8f%a3">#</a>
 </h1>
-<pre><code>索引
-    put /index1
-        # 创建index
-        # get查询，delete删除
-        settings
-        mappings
-        aliases:
-    put /index1/_mapping/type2
-    put /index1/type2/_mapping
-        # 创建type或给已有type加mappings
-        # get得到mapping信息
-        properties
-    put /index1/_settings
-    put /index1/type1/1
-        # 插入doc
-        # get得到doc
-        name: &quot;name1&quot;
-_cat
-    get /_cat/health?v
-        # 集群健康
-    get /_cat/nodes?v
-        # 集群节点
-    get /_cat/indices?v
-        # 所有索引
-_aliases
-    post /_aliases
-        # 索引别名
-        actions:
-            add:
-                alias: &quot;my_index&quot;
-                index: &quot;my_index_v1&quot;
-            remove
-_template
-    put /_template/tpl1
-        template: &quot;te*&quot;
-            # 匹配所有re开头的index
-        settings:
-        mappings:
-_search
-    post /index1/type1/_search
-        # from size实时分页
-        # scroll快照分页
-        ?from=0&amp;size=50
-        ?scroll=1m&amp;size=50
-            # 过期时间1分钟，每次返回50条
-        ?search_type=scan&amp;scroll=1m
-            # scroll-scan分页不排序，更快,
-_analyze
-    post /index1/_analyze
-        text: &quot;刘德华&quot;
-        analyzer: &quot;analyzer1&quot;
-_close
-    post /index1/_close
-        # 关闭索引，此后可以改settings
-_open
-    post /index1/_open
-_cache
-    post /index1/type1/_cache/clear?filter_keys=k1
-        # 清空query filter的缓存
-数据对象
-_search
-    query
-        match
-            # 理解如何分词的, 会对field分词再查询
-            field1:
-                query: &quot;a b&quot;
-                operator: &quot;and&quot;
-                minimum_should_match: &quot;75%&quot;
-                    # 匹配的query分词的最低占比
-        match_all
-            # 默认，会查出所有文档
-        multi_match
+<h2 id="index">
+  index
+  <a class="anchor" href="#index">#</a>
+</h2>
+<pre><code>get/put/delete /index1              # 创建index, get查询，delete删除
+    settings
+    mappings
+    aliases:
+put /index1/_mapping/type2
+get/put /index1/type2/_mapping      # 创建type或给已有type加mappings
+    properties
+put /index1/_settings
+get/put /index1/type1/1             # 插入doc
+    name: &quot;name1&quot;
+</code></pre>
+<h2 id="_cat">
+  _cat
+  <a class="anchor" href="#_cat">#</a>
+</h2>
+<pre><code>get /_cat/health?v                  # 集群健康
+get /_cat/nodes?v                   # 集群节点
+get /_cat/indices?v                 # 所有索引
+</code></pre>
+<h2 id="_cluster">
+  _cluster
+  <a class="anchor" href="#_cluster">#</a>
+</h2>
+<pre><code>get /_cluster/state?pretty          # 集群状态
+</code></pre>
+<h2 id="_aliases">
+  _aliases
+  <a class="anchor" href="#_aliases">#</a>
+</h2>
+<pre><code>post /_aliases                      # 索引别名
+    actions:
+        add:
+            alias: &quot;my_index&quot;
+            index: &quot;my_index_v1&quot;
+        remove
+</code></pre>
+<h2 id="_template">
+  _template
+  <a class="anchor" href="#_template">#</a>
+</h2>
+<pre><code>put /_template/tpl1
+    template: &quot;te*&quot;
+        # 匹配所有re开头的index
+    settings:
+    mappings:
+</code></pre>
+<h2 id="_search">
+  _search
+  <a class="anchor" href="#_search">#</a>
+</h2>
+<pre><code>post /index1/type1/_search
+    # from size实时分页
+    # scroll快照分页
+    ?from=0&amp;size=50
+    ?scroll=1m&amp;size=50
+        # 过期时间1分钟，每次返回50条
+    ?search_type=scan&amp;scroll=1m
+        # scroll-scan分页不排序，更快,
+</code></pre>
+<h2 id="_analyze">
+  _analyze
+  <a class="anchor" href="#_analyze">#</a>
+</h2>
+<pre><code>post /index1/_analyze
+    text: &quot;刘德华&quot;
+    analyzer: &quot;analyzer1&quot;
+</code></pre>
+<h2 id="_close">
+  _close
+  <a class="anchor" href="#_close">#</a>
+</h2>
+<pre><code>post /index1/_close
+    # 关闭索引，此后可以改settings
+</code></pre>
+<h2 id="_open">
+  _open
+  <a class="anchor" href="#_open">#</a>
+</h2>
+<pre><code>post /index1/_open
+</code></pre>
+<h2 id="_cache">
+  _cache
+  <a class="anchor" href="#_cache">#</a>
+</h2>
+<pre><code>post /index1/type1/_cache/clear?filter_keys=k1
+    # 清空query filter的缓存
+</code></pre>
+<h2 id="数据对象">
+  数据对象
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%af%b9%e8%b1%a1">#</a>
+</h2>
+<h3 id="_search-1">
+  _search
+  <a class="anchor" href="#_search-1">#</a>
+</h3>
+<pre><code>query
+    match
+        # 理解如何分词的, 会对field分词再查询
+        field1:
             query: &quot;a b&quot;
-            fields: [&quot;field1&quot;, &quot;field2&quot;]
-        match_phrase
-            # 所有term命中，并且位置邻接
-            field1: &quot;a b&quot;
-        term
-            # 确切查询
-            field1: &quot;value1&quot;
-        terms
-            # 多条件and
-            field1: [1,2,3]
-        range
-            field1:
-                gt: 20
-                gte:
-                lt:
-                lte:
-        exists:
-            field: &quot;field1&quot;
-        missing:
-            field: &quot;field1&quot;
-        regexp
-            postcode: &quot;W[0-9].+&quot;
-        wildcard
-            postcode: &quot;W?F*HW&quot;
-        prefix
-            # 以某些字符开头
-            field1: &quot;a&quot;
-        bool
-            # 分值计算来自must和should语句, must_not不影响
-            must
-                match
-            must_not
-            should: []
-            minimum_should_match: 2
-        filtered
-            query
-            filter:
-                # filter的field会缓存起来
-                ## geo, and, or, not, script, numeric_range的默认不缓存
-                term:
-                    field1: &quot;a&quot;
-                    _cache_key: &quot;k1&quot;
-                    _cache: false
-                range:
-                    field1:
-                        gte: 0
-    aggs
-        diy1:
-            avg:
-                field: &quot;field1&quot;
-        diy2:
-            terms:
-                # 聚合查询中的所有term
-                field: &quot;field1&quot;
-    post_filter:
-        # 对搜索结果进行过滤
-        term:
-            field1: &quot;a&quot;
-    sort: []
-        # 默认升序，_score默认降序
-        field1
-            order: &quot;desc&quot;
-                # asc
-            mode: &quot;min&quot;
-                # 对数组元素排序时的取值, 还有max, sum, avg, median
-            missing: &quot;field1&quot;
-        &quot;_score&quot;,
-    highlight
-        pre_tags: [&quot;&lt;tag1&gt;&quot;]
-        post_tags: [&quot;&lt;/tag1&gt;&quot;]
-        fields:
-            content: {}
-    simple_query_string:
-        query: &quot;&quot;
-        analyzer:
-        fields: [&quot;body^5&quot;, &quot;_all&quot;]
-        default_operator: &quot;and&quot;
-mappings:
-    type1:
-        dynamic: true
-            # 默认true,自动给未知field建索引
-            # false: 忽略未知field， strict: 未知field报错
-        include_in_all: false
-            # 默认不include
-        _all:
-            # meta field
-            enabled: false
-                    # 关闭all作用域
-            analyzer:
-                    # 其实是search_analyzer
-            term_vector: no
-                    # 对field建立词频向量空间
-            store: &quot;false&quot;
-        _source:
-            #  是否保存内容
-            enabled: true
-        properties:
-            field1:
-                type: “text”
-                    # text分词，keyword不分词，numeric, date, string
-                    # multi_field可定义多个field
-                fields:[]
-                    field1:
-                        type
-                store: &quot;yes&quot;
-                index: &quot;not_analyzed&quot;
-                    # analyzed
-                analyzer: &quot;ik_max_word&quot;
-                search_analyzer: &quot;ik_max_word&quot;
-                    # 默认为analyzer
-                include_in_all: &quot;true&quot;
-                    # 是否加入_all作用域
-                boost: 8
-aliases:
-    alias1:
+            operator: &quot;and&quot;
+            minimum_should_match: &quot;75%&quot;
+                # 匹配的query分词的最低占比
+    match_all
+        # 默认，会查出所有文档
+    multi_match
+        query: &quot;a b&quot;
+        fields: [&quot;field1&quot;, &quot;field2&quot;]
+    match_phrase
+        # 所有term命中，并且位置邻接
+        field1: &quot;a b&quot;
+    term
+        # 确切查询
+        field1: &quot;value1&quot;
+    terms
+        # 多条件and
+        field1: [1,2,3]
+    range
+        field1:
+            gt: 20
+            gte:
+            lt:
+            lte:
+    exists:
+        field: &quot;field1&quot;
+    missing:
+        field: &quot;field1&quot;
+    regexp
+        postcode: &quot;W[0-9].+&quot;
+    wildcard
+        postcode: &quot;W?F*HW&quot;
+    prefix
+        # 以某些字符开头
+        field1: &quot;a&quot;
+    bool
+        # 分值计算来自must和should语句, must_not不影响
+        must
+            match
+        must_not
+        should: []
+        minimum_should_match: 2
+    filtered
+        query
         filter:
-            term: user: &quot;kimchy&quot;
-        routing: &quot;kimchy&quot;
-settings:
-    # 有些设置不能动态修改
-    index:
-        number_of_shards: 3
-        number_of_replicas: 2
-        max_result_window: 10000
-            # from + size的上限，默认10000
-        analysis:
-            tokenizer:
-                # 处理原始输入
-                tokenizer1
-                    type: &quot;pinyin&quot;
-                    pinyin_field1:
-            filter:
-                # tokenizer作为输入
-                filter1:
-                    type: &quot;pinyin&quot;
-                    pinyin_field1:
-            analyzer:
-                # 组合tokenizer和filter
-                analyzer1:
-                    type: &quot;custom&quot;
-                    tokenizer: &quot;ik_smart&quot;
-                    filter: [&quot;filter1&quot;, &quot;word_delimiter&quot;]
+            # filter的field会缓存起来
+            ## geo, and, or, not, script, numeric_range的默认不缓存
+            term:
+                field1: &quot;a&quot;
+                _cache_key: &quot;k1&quot;
+                _cache: false
+            range:
+                field1:
+                    gte: 0
+aggs
+    diy1:
+        avg:
+            field: &quot;field1&quot;
+    diy2:
+        terms:
+            # 聚合查询中的所有term
+            field: &quot;field1&quot;
+post_filter:
+    # 对搜索结果进行过滤
+    term:
+        field1: &quot;a&quot;
+sort: []
+    # 默认升序，_score默认降序
+    field1
+        order: &quot;desc&quot;
+            # asc
+        mode: &quot;min&quot;
+            # 对数组元素排序时的取值, 还有max, sum, avg, median
+        missing: &quot;field1&quot;
+    &quot;_score&quot;,
+highlight
+    pre_tags: [&quot;&lt;tag1&gt;&quot;]
+    post_tags: [&quot;&lt;/tag1&gt;&quot;]
+    fields:
+        content: {}
+simple_query_string:
+    query: &quot;&quot;
+    analyzer:
+    fields: [&quot;body^5&quot;, &quot;_all&quot;]
+    default_operator: &quot;and&quot;
+</code></pre>
+<h3 id="mappings">
+  mappings
+  <a class="anchor" href="#mappings">#</a>
+</h3>
+<pre><code>type1:
+    dynamic: true
+        # 默认true,自动给未知field建索引
+        # false: 忽略未知field， strict: 未知field报错
+    include_in_all: false
+        # 默认不include
+    _all:
+        # meta field
+        enabled: false
+                # 关闭all作用域
+        analyzer:
+                # 其实是search_analyzer
+        term_vector: no
+                # 对field建立词频向量空间
+        store: &quot;false&quot;
+    _source:
+        #  是否保存内容
+        enabled: true
+    properties:
+        field1:
+            type: “text”
+                # text分词，keyword不分词，numeric, date, string
+                # multi_field可定义多个field
+            fields:[]
+                field1:
+                    type
+            store: &quot;yes&quot;
+            index: &quot;not_analyzed&quot;
+                # analyzed
+            analyzer: &quot;ik_max_word&quot;
+            search_analyzer: &quot;ik_max_word&quot;
+                # 默认为analyzer
+            include_in_all: &quot;true&quot;
+                # 是否加入_all作用域
+            boost: 8
+</code></pre>
+<h3 id="aliases">
+  aliases
+  <a class="anchor" href="#aliases">#</a>
+</h3>
+<pre><code>alias1:
+    filter:
+        term: user: &quot;kimchy&quot;
+    routing: &quot;kimchy&quot;
+</code></pre>
+<h3 id="settings">
+  settings
+  <a class="anchor" href="#settings">#</a>
+</h3>
+<pre><code># 有些设置不能动态修改
+index:
+    number_of_shards: 3
+    number_of_replicas: 2
+    max_result_window: 10000
+        # from + size的上限，默认10000
+    analysis:
+        tokenizer:
+            # 处理原始输入
+            tokenizer1
+                type: &quot;pinyin&quot;
+                pinyin_field1:
+        filter:
+            # tokenizer作为输入
+            filter1:
+                type: &quot;pinyin&quot;
+                pinyin_field1:
+        analyzer:
+            # 组合tokenizer和filter
+            analyzer1:
+                type: &quot;custom&quot;
+                tokenizer: &quot;ik_smart&quot;
+                filter: [&quot;filter1&quot;, &quot;word_delimiter&quot;]
 </code></pre>
 <h1 id="插件">
   插件
@@ -772,9 +843,9 @@ SimpleQueryString</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/e291a00972b570fc85fd45722f3a423fe96dd780" title='Last modified by outrunJ | Sep 22, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/6524a2f2aefb1d10b8ed0a97628bf62cfdd62ff2" title='Last modified by outrun | Sep 27, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 22, 2021</span>
+      <span>Sep 27, 2022</span>
     </a>
   </div>
 
@@ -822,7 +893,28 @@ SimpleQueryString</p>
     <li><a href="#命令">命令</a></li>
     <li><a href="#概念存储">概念存储</a></li>
     <li><a href="#设置">设置</a></li>
-    <li><a href="#接口">接口</a></li>
+    <li><a href="#接口">接口</a>
+      <ul>
+        <li><a href="#index">index</a></li>
+        <li><a href="#_cat">_cat</a></li>
+        <li><a href="#_cluster">_cluster</a></li>
+        <li><a href="#_aliases">_aliases</a></li>
+        <li><a href="#_template">_template</a></li>
+        <li><a href="#_search">_search</a></li>
+        <li><a href="#_analyze">_analyze</a></li>
+        <li><a href="#_close">_close</a></li>
+        <li><a href="#_open">_open</a></li>
+        <li><a href="#_cache">_cache</a></li>
+        <li><a href="#数据对象">数据对象</a>
+          <ul>
+            <li><a href="#_search-1">_search</a></li>
+            <li><a href="#mappings">mappings</a></li>
+            <li><a href="#aliases">aliases</a></li>
+            <li><a href="#settings">settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#插件">插件</a></li>
   </ul>
 </nav>

@@ -9,14 +9,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/architect/method/project_plan/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-10T14:51:24+08:00" />
-<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
+<meta property="article:modified_time" content="2022-09-27T16:27:03+08:00" />
 
 <title>大业务 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5fdb242842423dc1a7d9291407be9480ffffa24e4f9fe6bdca124d4315634483.js" integrity="sha256-X9skKEJCPcGn2SkUB76UgP//ok5Pn&#43;a9yhJNQxVjRIM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -103,6 +103,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/code/design_mode">设计模式</a></li>
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
 </ul>
@@ -225,16 +235,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/basic/computer/performance">性能</a></li>
 </ul>
 </li>
-<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/soft/person">个人</a></li>
-<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
-<ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
@@ -325,6 +325,11 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#微服务">微服务</a></li>
         <li><a href="#apaas">aPaaS</a></li>
         <li><a href="#saas">SaaS</a></li>
+      </ul>
+    </li>
+    <li><a href="#行为分析">行为分析</a>
+      <ul>
+        <li><a href="#埋点">埋点</a></li>
       </ul>
     </li>
   </ul>
@@ -646,6 +651,48 @@ o-&gt; 《一个可供中小团队参考的微服务架构技术栈》
 Golang + TypeScript + Python
 TiDB
 </code></pre>
+<h1 id="行为分析">
+  行为分析
+  <a class="anchor" href="#%e8%a1%8c%e4%b8%ba%e5%88%86%e6%9e%90">#</a>
+</h1>
+<h2 id="埋点">
+  埋点
+  <a class="anchor" href="#%e5%9f%8b%e7%82%b9">#</a>
+</h2>
+<pre><code>架构
+    数据采集
+        客户端采集
+        服务器采集
+        业务系统
+        第三方渠道
+    数据治理
+        ETL
+        实时ID mapping
+        元数据管理
+        数据质量管理: 数据校验, 实时导入监控，异常报警，debug数据查询，用户关联校验，数据质量看板
+    数据仓库
+        数据模型：Event, User, Item内容
+        实时导入系统
+        存储引擎、查询引擎
+    数据智能
+        特征工程
+        特征选择
+        模型训练: 深度学习, 自然语言处理，时序预测，GBDT/LR, AutoML
+        模型可视化
+        在线服务
+工具
+    采集: SDK(JS, Android, iOS, 小程序，服务端，全埋点), ID Mapping, 归因链路
+    实施工具: 事件管理，变量管理，命名工具，埋点SLA配置, 预警配置，session管理，生命周期管理，tag管理，测试工具，ABTest工具
+    分析工具: 事件分析，漏斗分析，分布分析，留存分析，数据看板，热图分析，归因分析，自定义SQL查询, API管理，广告和活动效果监测
+实现方式
+    代码埋点
+    全埋点、可视化全埋点（圈选）
+规范
+    结构与命名清晰
+    方便历史版本对比
+    每个埋点数据质量负责到人（开发、测试、数据负责人）
+    数据统一管理
+    尽量用工具自动化</code></pre>
 </article>
  
       
@@ -655,9 +702,9 @@ TiDB
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/c2379c526692becfdd022edb864ac10e504beeb8" title='Last modified by outrun | Aug 31, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/6524a2f2aefb1d10b8ed0a97628bf62cfdd62ff2" title='Last modified by outrun | Sep 27, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 31, 2022</span>
+      <span>Sep 27, 2022</span>
     </a>
   </div>
 
@@ -722,6 +769,11 @@ TiDB
         <li><a href="#微服务">微服务</a></li>
         <li><a href="#apaas">aPaaS</a></li>
         <li><a href="#saas">SaaS</a></li>
+      </ul>
+    </li>
+    <li><a href="#行为分析">行为分析</a>
+      <ul>
+        <li><a href="#埋点">埋点</a></li>
       </ul>
     </li>
   </ul>

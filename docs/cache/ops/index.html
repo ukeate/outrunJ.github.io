@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &lt;intf&gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 -l pyenv virtualenv 3.7.6 37 eval &quot;$(pyenv init -)&quot; eval &quot;$(pyenv virtualenv-init -)&quot; pyenv activate 37 pyenv deactivate ">
+<meta name="description" content=" java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &lt;intf&gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 --list pyenv virtualenv 3.7.6 37 eval &quot;$(pyenv init -)&quot; eval &quot;$(pyenv virtualenv-init -)&quot; pyenv activate 37 pyenv deactivate ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content=" java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &lt;intf&gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 -l pyenv virtualenv 3.7.6 37 eval &quot;$(pyenv init -)&quot; eval &quot;$(pyenv virtualenv-init -)&quot; pyenv activate 37 pyenv deactivate " />
+<meta property="og:description" content=" java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &lt;intf&gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 --list pyenv virtualenv 3.7.6 37 eval &quot;$(pyenv init -)&quot; eval &quot;$(pyenv virtualenv-init -)&quot; pyenv activate 37 pyenv deactivate " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/cache/ops/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
+<meta property="article:modified_time" content="2022-09-27T16:27:03+08:00" />
 
 <title>Ops | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5fdb242842423dc1a7d9291407be9480ffffa24e4f9fe6bdca124d4315634483.js" integrity="sha256-X9skKEJCPcGn2SkUB76UgP//ok5Pn&#43;a9yhJNQxVjRIM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -103,6 +103,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/code/design_mode">设计模式</a></li>
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
 </ul>
@@ -225,16 +235,6 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/basic/computer/performance">性能</a></li>
 </ul>
 </li>
-<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/soft/person">个人</a></li>
-<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
-<ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="/docs/cache"><strong>Cache</strong></a>
@@ -341,7 +341,7 @@ sudo ifconfig &lt;intf&gt; lladdr 00:bb:cc:dd:ee:ff
 </h1>
 <pre><code>pyenv versions
 pyenv install 3.7.6
-    -l
+    --list
 pyenv virtualenv 3.7.6 37
 eval &quot;$(pyenv init -)&quot;
 eval &quot;$(pyenv virtualenv-init -)&quot;
@@ -356,9 +356,9 @@ pyenv deactivate</code></pre>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/c2379c526692becfdd022edb864ac10e504beeb8" title='Last modified by outrun | Aug 31, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/6524a2f2aefb1d10b8ed0a97628bf62cfdd62ff2" title='Last modified by outrun | Sep 27, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 31, 2022</span>
+      <span>Sep 27, 2022</span>
     </a>
   </div>
 

@@ -14,7 +14,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5fdb242842423dc1a7d9291407be9480ffffa24e4f9fe6bdca124d4315634483.js" integrity="sha256-X9skKEJCPcGn2SkUB76UgP//ok5Pn&#43;a9yhJNQxVjRIM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,6 +102,16 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/code/design_mode">设计模式</a></li>
 <li><a href="/docs/architect/code/security">安全/协议</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<ul>
+<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
 </ul>
@@ -222,16 +232,6 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/basic/computer/principle">原理</a></li>
 <li><a href="/docs/basic/computer/performance">性能</a></li>
-</ul>
-</li>
-<li><a href="/docs/basic/soft"><strong><strong>软技能</strong></strong></a>
-<ul>
-<li><a href="/docs/basic/soft/person">个人</a></li>
-<li><a href="/docs/basic/soft/organize"><em><strong><strong>组织</strong></strong></em></a>
-<ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -2015,6 +2015,23 @@ client配置
         ftp
 命令
     systemctl start vsftpd
+最小可用配置
+    /etc/vsftpd.conf
+        listen=YES
+        local_enable=YES
+        xferlog_enable=YES
+        connect_from_port_20=YES
+        pam_service_name=vsftpd
+        seccomp_sandbox=NO
+
+        # Enable upload by local user.
+        write_enable=YES
+
+        # Enable read by anonymous user (without username and password).
+        secure_chroot_dir=/var/empty
+        anonymous_enable=YES
+        anon_root=/srv/ftp
+        no_anon_password=YES
 使用
     /etc/vsftpd.conf
         anonymous_enable=YES            # 允许匿名用户
@@ -2277,9 +2294,9 @@ zabbix
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/6524a2f2aefb1d10b8ed0a97628bf62cfdd62ff2" title='Last modified by outrun | Sep 27, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 1, 2022</span>
+      <span>Sep 27, 2022</span>
     </a>
   </div>
 
