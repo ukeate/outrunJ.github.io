@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="代码规划" />
 <meta property="og:description" content="阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/architect/method/code_plan/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-10-10T20:12:11+08:00" />
+<meta property="article:modified_time" content="2022-11-11T15:49:15+08:00" />
 
-<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
-
-<title>Code Plan | outrun的笔记</title>
+<title>代码规划 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.17f9d631ec7296c58e1c418cd66f4e1d4e7e8927a6712bfc0621149c5d4d8fed.js" integrity="sha256-F/nWMexylsWOHEGM1m9OHU5&#43;iSemcSv8BiEUnF1Nj&#43;0=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -72,25 +72,31 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/method"><strong><strong>规划与方法</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
-<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
-<li><a href="/docs/architect/method/architect">服务治理</a></li>
-<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
-<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
 <li><a href="/docs/architect/method/product_plan">产品规划</a></li>
 <li><a href="/docs/architect/method/advice_plan">咨询规划</a></li>
+<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
+<li><a href="/docs/architect/method/architect">服务治理</a></li>
+<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
+<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
+<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy"><strong><strong>战略性技术</strong></strong></a>
+<li><a href="/docs/architect/strategy"><strong><strong>战略技术方案</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
-<li><a href="/docs/architect/strategy/big_data">大数据</a>
+<li><a href="/docs/architect/strategy/big_data"><strong><strong>湖仓一体</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/strategy/big_data/hadoop">Hadoop</a></li>
+<li><a href="/docs/architect/strategy/big_data/ecology">生态体系</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy/ai">AI</a></li>
-<li><a href="/docs/architect/strategy/iot">IoT</a></li>
+<li><a href="/docs/architect/strategy/ai">人工智能</a></li>
+<li><a href="/docs/architect/strategy/iot">物联网</a></li>
+<li><a href="/docs/architect/strategy/block_chain">区块链</a></li>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
@@ -107,14 +113,14 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<li><a href="/docs/architect/manage/organize"><strong><strong>组织</strong></strong></a>
 <ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+<li><a href="/docs/architect/manage/organize/people">人员</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
@@ -123,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
 <li><a href="/docs/tool/linux/scene">Linux场景</a></li>
-<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
@@ -244,17 +250,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
-<li><a href="/docs/misc"><strong>Misc</strong></a>
-<ul>
-<li><a href="/docs/misc/infomation">信息</a></li>
-<li><a href="/docs/misc/media">媒体</a></li>
-<li><a href="/docs/misc/english">英语</a></li>
-<li><a href="/docs/misc/interview">题目</a></li>
-<li><a href="/docs/misc/book">书</a></li>
-<li><a href="/docs/misc/about_me">关于我</a></li>
-<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
-</ul>
-</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a></li>
 <li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
@@ -287,7 +283,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Code Plan</strong>
+  <strong>代码规划</strong>
 
   <label for="toc-control">
     
@@ -332,6 +328,23 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#业务场景">业务场景</a>
       <ul>
         <li><a href="#关注信箱">关注/信箱</a></li>
+      </ul>
+    </li>
+    <li><a href="#轻应用架构">轻应用架构</a></li>
+    <li><a href="#数据">数据</a>
+      <ul>
+        <li><a href="#数据迁移">数据迁移</a></li>
+        <li><a href="#数据存储">数据存储</a></li>
+        <li><a href="#缓存">缓存</a></li>
+      </ul>
+    </li>
+    <li><a href="#实时并发">实时并发</a>
+      <ul>
+        <li><a href="#异步方案">异步方案</a></li>
+        <li><a href="#消息">消息</a></li>
+        <li><a href="#go高并发实时消息推送">go高并发实时消息推送</a></li>
+        <li><a href="#直播">直播</a></li>
+        <li><a href="#游戏">游戏</a></li>
       </ul>
     </li>
   </ul>
@@ -791,7 +804,168 @@ messages处理
         用mongodb或redis
 消息队列?
     服务端存message状态，不能mq
-    如果客户端存状态，这就是个简单的mq问题</code></pre>
+    如果客户端存状态，这就是个简单的mq问题
+</code></pre>
+<h1 id="轻应用架构">
+  轻应用架构
+  <a class="anchor" href="#%e8%bd%bb%e5%ba%94%e7%94%a8%e6%9e%b6%e6%9e%84">#</a>
+</h1>
+<pre><code>node.js + mongodb
+mysql
+</code></pre>
+<h1 id="数据">
+  数据
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae">#</a>
+</h1>
+<h2 id="数据迁移">
+  数据迁移
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e8%bf%81%e7%a7%bb">#</a>
+</h2>
+<pre><code>去掉约束
+排序（中断继续）
+</code></pre>
+<h2 id="数据存储">
+  数据存储
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8">#</a>
+</h2>
+<pre><code>缓存
+    queue + map
+        # queue存储、限量, map查询，指向queue中元素
+</code></pre>
+<h2 id="缓存">
+  缓存
+  <a class="anchor" href="#%e7%bc%93%e5%ad%98">#</a>
+</h2>
+<pre><code>queue + map
+    # queue存储、限量, map查询，指向queue中元素
+</code></pre>
+<h1 id="实时并发">
+  实时并发
+  <a class="anchor" href="#%e5%ae%9e%e6%97%b6%e5%b9%b6%e5%8f%91">#</a>
+</h1>
+<h2 id="异步方案">
+  异步方案
+  <a class="anchor" href="#%e5%bc%82%e6%ad%a5%e6%96%b9%e6%a1%88">#</a>
+</h2>
+<pre><code>node.js + mongodb
+tornado + celery + rabbitmq + 优先级
+quartz
+</code></pre>
+<h2 id="消息">
+  消息
+  <a class="anchor" href="#%e6%b6%88%e6%81%af">#</a>
+</h2>
+<pre><code>功能
+    好友
+    单聊, 群聊
+    语音, 视频
+    im      # 浏览器聊天(tcp, 不https)
+协议
+    XMPP        # 基于xml
+    MQTT        # 简单，但自己实现好友、群组
+    SIP         # 复杂
+    私有协议     # 工作量大，扩展性差
+</code></pre>
+<h2 id="go高并发实时消息推送">
+  go高并发实时消息推送
+  <a class="anchor" href="#go%e9%ab%98%e5%b9%b6%e5%8f%91%e5%ae%9e%e6%97%b6%e6%b6%88%e6%81%af%e6%8e%a8%e9%80%81">#</a>
+</h2>
+<pre><code>问题
+    长连接             # 支持多种协议(http、tcp)
+        server push
+        HTTP long polling(keep-alive)
+        基于TCP自定义
+        心跳侦测
+    高并发             #&gt;= 10,000,000
+        C1000K
+    多种发送方式
+        单播: 点对点聊天
+        多播: 定点推送
+        广播: 全网推送
+    持久/非持久
+    准实时         # 200ms ~ 2s
+        gc卡顿是大问题
+    客户端多样性
+    同帐号多端接入
+    网络变化
+        电信、联通切换
+        wifi, 4g, 3g
+        断线、重连、断线、重连
+系统架构
+    组件
+        room
+            # 接入客户端
+            分布式全对称
+            一个client一个goroutine
+            每个server一个channel存消息队列
+            book记录user与server映射
+            统一http server收消息并将消息路由到room和server
+            manager掌控room的服务：内部单播、多播、广播
+            admin负责room进程管理
+        center
+            # 运营人员从后台接入
+            提供操纵接口给应用服务器调用
+            restful
+            长时操作，有任务概念来管理
+            提供统计接口
+        register
+            # room和center注册
+            key-value的map，value是struct
+            记录用户连到哪个room
+            记录在线时长等信息
+            hash算法定位register进程
+            不直接用redis是为了添加业务逻辑
+        saver
+            # room和center调用
+            # 使用redis
+            分布式全对称
+            提供存储接口
+            采用encoding/gob编码格式的rpc
+        idgenerator
+            # saver和center调用
+            全局消息id生成器, int64
+            分布式，每个进程负责一块id区域
+            后台goroutine每隔一秒写一次磁盘，记录当前id
+            启动时跳过一段id，防止一秒内未写入磁盘的id重复生成
+    存储
+        redis
+            存核心数据
+            db_users: zset, 存各产品用户集合
+            db_slots: list, 存用户离线消息队列
+            db_buckets: dict, 存消息id -&gt; 消息体
+数据
+    16机器，标配24硬件线程, 64g内存
+    linux kernel 2.6.32 x86_64
+    单机80万并发连接
+        load 0.2 ~ 0.4 cpu
+        总使用率7%~10%
+        内存占用20g
+    目前接入1280万在线用户
+    2分钟一次gc, 停顿2秒，tip上提供了并行gc
+    15亿个心跳包/天
+    持续运行一个月无异常
+</code></pre>
+<h2 id="直播">
+  直播
+  <a class="anchor" href="#%e7%9b%b4%e6%92%ad">#</a>
+</h2>
+<pre><code>《关于直播，所有的技术细节都在这里了》
+</code></pre>
+<h2 id="游戏">
+  游戏
+  <a class="anchor" href="#%e6%b8%b8%e6%88%8f">#</a>
+</h2>
+<pre><code>进程
+    gateway进程组
+        # 对外api
+    function进程组
+        # 注册玩家全局信息
+    session进程组
+        # 玩家状态
+    dbserver进程组
+        # 数据
+    多word进程组
+        # 不同地图的信息、逻辑</code></pre>
 </article>
  
       
@@ -801,9 +975,9 @@ messages处理
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/c2379c526692becfdd022edb864ac10e504beeb8" title='Last modified by outrun | Aug 31, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/dd93d5ad93ecf665f57c227c7ae8e043d0db2625" title='Last modified by outrun | Nov 11, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 31, 2022</span>
+      <span>Nov 11, 2022</span>
     </a>
   </div>
 
@@ -875,6 +1049,23 @@ messages处理
     <li><a href="#业务场景">业务场景</a>
       <ul>
         <li><a href="#关注信箱">关注/信箱</a></li>
+      </ul>
+    </li>
+    <li><a href="#轻应用架构">轻应用架构</a></li>
+    <li><a href="#数据">数据</a>
+      <ul>
+        <li><a href="#数据迁移">数据迁移</a></li>
+        <li><a href="#数据存储">数据存储</a></li>
+        <li><a href="#缓存">缓存</a></li>
+      </ul>
+    </li>
+    <li><a href="#实时并发">实时并发</a>
+      <ul>
+        <li><a href="#异步方案">异步方案</a></li>
+        <li><a href="#消息">消息</a></li>
+        <li><a href="#go高并发实时消息推送">go高并发实时消息推送</a></li>
+        <li><a href="#直播">直播</a></li>
+        <li><a href="#游戏">游戏</a></li>
       </ul>
     </li>
   </ul>

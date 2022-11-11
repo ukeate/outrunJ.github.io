@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="轻应用架构 # node.js &#43; mongodb mysql 数据 # 数据迁移 # 去掉约束 排序（中断继续） 数据存储 # 缓存 queue &#43; map # queue存储、限量, map查询，指向queue中元素 缓存 # queue &#43; map # queue存储、限量, map查询，指向queue中元素 实时并发 # 异步方案 # node.js &#43; mongodb tornado &#43; celery &#43; rabbitmq &#43; 优先级 quartz 消息 # 功能 好友 单聊, 群聊 语音, 视频 im # 浏览器聊天(tcp, 不https) 协议 XMPP # 基于xml MQTT # 简单，但自己实现好友、群组 SIP # 复杂 私有协议 # 工作量大，扩展性差 go高并发实时消息推送 # 问题 长连接 # 支持多种协议(http、tcp) server push HTTP long polling(keep-alive) 基于TCP自定义 心跳侦测 高并发 #&gt;= 10,000,000 C1000K 多种发送方式 单播: 点对点聊天 多播: 定点推送 广播: 全网推送 持久/非持久 准实时 # 200ms ~ 2s gc卡顿是大问题 客户端多样性 同帐号多端接入 网络变化 电信、联通切换 wifi, 4g, 3g 断线、重连、断线、重连 系统架构 组件 room # 接入客户端 分布式全对称 一个client一个goroutine 每个server一个channel存消息队列 book记录user与server映射 统一http server收消息并将消息路由到room和server manager掌控room的服务：内部单播、多播、广播 admin负责room进程管理 center # 运营人员从后台接入 提供操纵接口给应用服务器调用 restful 长时操作，有任务概念来管理 提供统计接口 register # room和center注册 key-value的map，value是struct 记录用户连到哪个room 记录在线时长等信息 hash算法定位register进程 不直接用redis是为了添加业务逻辑 saver # room和center调用 # 使用redis 分布式全对称 提供存储接口 采用encoding/gob编码格式的rpc idgenerator # saver和center调用 全局消息id生成器, int64 分布式，每个进程负责一块id区域 后台goroutine每隔一秒写一次磁盘，记录当前id 启动时跳过一段id，防止一秒内未写入磁盘的id重复生成 存储 redis 存核心数据 db_users: zset, 存各产品用户集合 db_slots: list, 存用户离线消息队列 db_buckets: dict, 存消息id -&gt; 消息体 数据 16机器，标配24硬件线程, 64g内存 linux kernel 2.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="大业务" />
-<meta property="og:description" content="轻应用架构 # node.js &#43; mongodb mysql 数据 # 数据迁移 # 去掉约束 排序（中断继续） 数据存储 # 缓存 queue &#43; map # queue存储、限量, map查询，指向queue中元素 缓存 # queue &#43; map # queue存储、限量, map查询，指向queue中元素 实时并发 # 异步方案 # node.js &#43; mongodb tornado &#43; celery &#43; rabbitmq &#43; 优先级 quartz 消息 # 功能 好友 单聊, 群聊 语音, 视频 im # 浏览器聊天(tcp, 不https) 协议 XMPP # 基于xml MQTT # 简单，但自己实现好友、群组 SIP # 复杂 私有协议 # 工作量大，扩展性差 go高并发实时消息推送 # 问题 长连接 # 支持多种协议(http、tcp) server push HTTP long polling(keep-alive) 基于TCP自定义 心跳侦测 高并发 #&gt;= 10,000,000 C1000K 多种发送方式 单播: 点对点聊天 多播: 定点推送 广播: 全网推送 持久/非持久 准实时 # 200ms ~ 2s gc卡顿是大问题 客户端多样性 同帐号多端接入 网络变化 电信、联通切换 wifi, 4g, 3g 断线、重连、断线、重连 系统架构 组件 room # 接入客户端 分布式全对称 一个client一个goroutine 每个server一个channel存消息队列 book记录user与server映射 统一http server收消息并将消息路由到room和server manager掌控room的服务：内部单播、多播、广播 admin负责room进程管理 center # 运营人员从后台接入 提供操纵接口给应用服务器调用 restful 长时操作，有任务概念来管理 提供统计接口 register # room和center注册 key-value的map，value是struct 记录用户连到哪个room 记录在线时长等信息 hash算法定位register进程 不直接用redis是为了添加业务逻辑 saver # room和center调用 # 使用redis 分布式全对称 提供存储接口 采用encoding/gob编码格式的rpc idgenerator # saver和center调用 全局消息id生成器, int64 分布式，每个进程负责一块id区域 后台goroutine每隔一秒写一次磁盘，记录当前id 启动时跳过一段id，防止一秒内未写入磁盘的id重复生成 存储 redis 存核心数据 db_users: zset, 存各产品用户集合 db_slots: list, 存用户离线消息队列 db_buckets: dict, 存消息id -&gt; 消息体 数据 16机器，标配24硬件线程, 64g内存 linux kernel 2." />
+<meta name="description" content="平台服务 # aPaaS # # platform as a service，介于IaaS和SaaS中间 将软件研发的平台做为服务，以SaaS的模式交付 组件化支撑和驱动 # 组件的发展决定paas广度，组件的聚合决定paas深度 # 对内固守组件边界，对外暴露标准接口 分层 平台组件 基础业务 # 不可见，影响全局，通用业务逻辑，对性能很敏感 业务 组件 设计 # 自描述的，这样就在设计和开发上解耦 确定边界 定义标准接口 确定核心功能 规范异常处理 开发 # 像开发dsl一样,来评判核心逻辑和接口，抽象度高 技术评审 定义接口 # 面向接口开发，也称为BDD dubbo、grpc等 restful 接口设计 标准化 说明 服务路由 版本管理 授权管理 核心理念 # 体现在 服务、工具、模型、规范 开放 而非 封闭 合作 而非 限制 共享 而非 替代 重点关注 基础业务 组织架构和用户组 审批流 权限 通用模型 透明分布式缓存模型 分布式存储模型 分布式事务模型 效率工具 数据迁移工具 缓存配置工具 SaaS # aws线上云 微服务 &#43; gRPC &#43; k8s &#43; Istio Golang &#43; TypeScript &#43; Python TiDB 行为分析 # 埋点 # 架构 数据采集 客户端采集 服务器采集 业务系统 第三方渠道 数据治理 ETL 实时ID mapping 元数据管理 数据质量管理: 数据校验, 实时导入监控，异常报警，debug数据查询，用户关联校验，数据质量看板 数据仓库 数据模型：Event, User, Item内容 实时导入系统 存储引擎、查询引擎 数据智能 特征工程 特征选择 模型训练: 深度学习, 自然语言处理，时序预测，GBDT/LR, AutoML 模型可视化 在线服务 工具 采集: SDK(JS, Android, iOS, 小程序，服务端，全埋点), ID Mapping, 归因链路 实施工具: 事件管理，变量管理，命名工具，埋点SLA配置, 预警配置，session管理，生命周期管理，tag管理，测试工具，ABTest工具 分析工具: 事件分析，漏斗分析，分布分析，留存分析，数据看板，热图分析，归因分析，自定义SQL查询, API管理，广告和活动效果监测 实现方式 代码埋点 全埋点、可视化全埋点（圈选） 规范 结构与命名清晰 方便历史版本对比 每个埋点数据质量负责到人（开发、测试、数据负责人） 数据统一管理 尽量用工具自动化 企业中台 # 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置 本地生活 # 服务与功能">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="项目规划" />
+<meta property="og:description" content="平台服务 # aPaaS # # platform as a service，介于IaaS和SaaS中间 将软件研发的平台做为服务，以SaaS的模式交付 组件化支撑和驱动 # 组件的发展决定paas广度，组件的聚合决定paas深度 # 对内固守组件边界，对外暴露标准接口 分层 平台组件 基础业务 # 不可见，影响全局，通用业务逻辑，对性能很敏感 业务 组件 设计 # 自描述的，这样就在设计和开发上解耦 确定边界 定义标准接口 确定核心功能 规范异常处理 开发 # 像开发dsl一样,来评判核心逻辑和接口，抽象度高 技术评审 定义接口 # 面向接口开发，也称为BDD dubbo、grpc等 restful 接口设计 标准化 说明 服务路由 版本管理 授权管理 核心理念 # 体现在 服务、工具、模型、规范 开放 而非 封闭 合作 而非 限制 共享 而非 替代 重点关注 基础业务 组织架构和用户组 审批流 权限 通用模型 透明分布式缓存模型 分布式存储模型 分布式事务模型 效率工具 数据迁移工具 缓存配置工具 SaaS # aws线上云 微服务 &#43; gRPC &#43; k8s &#43; Istio Golang &#43; TypeScript &#43; Python TiDB 行为分析 # 埋点 # 架构 数据采集 客户端采集 服务器采集 业务系统 第三方渠道 数据治理 ETL 实时ID mapping 元数据管理 数据质量管理: 数据校验, 实时导入监控，异常报警，debug数据查询，用户关联校验，数据质量看板 数据仓库 数据模型：Event, User, Item内容 实时导入系统 存储引擎、查询引擎 数据智能 特征工程 特征选择 模型训练: 深度学习, 自然语言处理，时序预测，GBDT/LR, AutoML 模型可视化 在线服务 工具 采集: SDK(JS, Android, iOS, 小程序，服务端，全埋点), ID Mapping, 归因链路 实施工具: 事件管理，变量管理，命名工具，埋点SLA配置, 预警配置，session管理，生命周期管理，tag管理，测试工具，ABTest工具 分析工具: 事件分析，漏斗分析，分布分析，留存分析，数据看板，热图分析，归因分析，自定义SQL查询, API管理，广告和活动效果监测 实现方式 代码埋点 全埋点、可视化全埋点（圈选） 规范 结构与命名清晰 方便历史版本对比 每个埋点数据质量负责到人（开发、测试、数据负责人） 数据统一管理 尽量用工具自动化 企业中台 # 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置 本地生活 # 服务与功能" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docs/architect/method/project_plan/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-10T14:51:24+08:00" />
-<meta property="article:modified_time" content="2022-09-27T16:27:03+08:00" />
+<meta property="article:modified_time" content="2022-11-11T15:49:15+08:00" />
 
-<title>大业务 | outrun的笔记</title>
+<title>项目规划 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.3cd4442b67d74da84abbcf20e37526ad12cc2af5c55e5d70fdb422da5d8f35c3.js" integrity="sha256-PNREK2fXTahKu88g43UmrRLMKvXFXl1w/bQi2l2PNcM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.17f9d631ec7296c58e1c418cd66f4e1d4e7e8927a6712bfc0621149c5d4d8fed.js" integrity="sha256-F/nWMexylsWOHEGM1m9OHU5&#43;iSemcSv8BiEUnF1Nj&#43;0=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -72,25 +72,31 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/architect/method"><strong><strong>规划与方法</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
-<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
-<li><a href="/docs/architect/method/architect">服务治理</a></li>
-<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
-<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
 <li><a href="/docs/architect/method/product_plan">产品规划</a></li>
 <li><a href="/docs/architect/method/advice_plan">咨询规划</a></li>
+<li><a href="/docs/architect/method/test_plan">测试规划</a></li>
+<li><a href="/docs/architect/method/architect">服务治理</a></li>
+<li><a href="/docs/architect/method/ops_plan">运维规划</a></li>
+<li><a href="/docs/architect/method/project_plan">项目规划</a></li>
+<li><a href="/docs/architect/method/code_plan">代码规划</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy"><strong><strong>战略性技术</strong></strong></a>
+<li><a href="/docs/architect/strategy"><strong><strong>战略技术方案</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
-<li><a href="/docs/architect/strategy/big_data">大数据</a>
+<li><a href="/docs/architect/strategy/big_data"><strong><strong>湖仓一体</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/strategy/big_data/hadoop">Hadoop</a></li>
+<li><a href="/docs/architect/strategy/big_data/ecology">生态体系</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy/ai">AI</a></li>
-<li><a href="/docs/architect/strategy/iot">IoT</a></li>
+<li><a href="/docs/architect/strategy/ai">人工智能</a></li>
+<li><a href="/docs/architect/strategy/iot">物联网</a></li>
+<li><a href="/docs/architect/strategy/block_chain">区块链</a></li>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
@@ -107,14 +113,14 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/architect/manage"><strong><strong>管理</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/manage/organize"><em><strong><strong>组织</strong></strong></em></a>
+<li><a href="/docs/architect/manage/organize"><strong><strong>组织</strong></strong></a>
 <ul>
-<li><a href="/docs/basic/soft/organize/people">人员</a></li>
+<li><a href="/docs/architect/manage/organize/people">人员</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/manage/doc">文档</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/summary">这些年我做过的技术</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool"><strong>工具</strong></a>
@@ -123,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="/docs/tool/linux/linux_tool">Linux工具</a></li>
 <li><a href="/docs/tool/linux/scene">Linux场景</a></li>
-<li><a href="/docs/tool/linux/linux_program">Linux系统编程函数</a></li>
+<li><a href="/docs/tool/linux/linux_program">Linux系统编程</a></li>
 </ul>
 </li>
 <li><a href="/docs/tool/ops"><strong><strong>运维工具</strong></strong></a>
@@ -244,17 +250,7 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/cache/soft_arch">软考</a></li>
 </ul>
 </li>
-<li><a href="/docs/misc"><strong>Misc</strong></a>
-<ul>
-<li><a href="/docs/misc/infomation">信息</a></li>
-<li><a href="/docs/misc/media">媒体</a></li>
-<li><a href="/docs/misc/english">英语</a></li>
-<li><a href="/docs/misc/interview">题目</a></li>
-<li><a href="/docs/misc/book">书</a></li>
-<li><a href="/docs/misc/about_me">关于我</a></li>
-<li><a href="/docs/misc/summary">这些年我做过的技术</a></li>
-</ul>
-</li>
+<li><a href="/docs/misc"><strong>Misc</strong></a></li>
 <li><a href="/posts"><strong>Posts</strong></a></li>
 </ul>
 
@@ -287,7 +283,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>大业务</strong>
+  <strong>项目规划</strong>
 
   <label for="toc-control">
     
@@ -303,26 +299,8 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#轻应用架构">轻应用架构</a></li>
-    <li><a href="#数据">数据</a>
+    <li><a href="#平台服务">平台服务</a>
       <ul>
-        <li><a href="#数据迁移">数据迁移</a></li>
-        <li><a href="#数据存储">数据存储</a></li>
-        <li><a href="#缓存">缓存</a></li>
-      </ul>
-    </li>
-    <li><a href="#实时并发">实时并发</a>
-      <ul>
-        <li><a href="#异步方案">异步方案</a></li>
-        <li><a href="#消息">消息</a></li>
-        <li><a href="#go高并发实时消息推送">go高并发实时消息推送</a></li>
-        <li><a href="#直播">直播</a></li>
-        <li><a href="#游戏">游戏</a></li>
-      </ul>
-    </li>
-    <li><a href="#soa">SOA</a>
-      <ul>
-        <li><a href="#微服务">微服务</a></li>
         <li><a href="#apaas">aPaaS</a></li>
         <li><a href="#saas">SaaS</a></li>
       </ul>
@@ -332,6 +310,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#埋点">埋点</a></li>
       </ul>
     </li>
+    <li><a href="#企业中台">企业中台</a></li>
+    <li><a href="#本地生活">本地生活</a></li>
   </ul>
 </nav>
 
@@ -344,253 +324,10 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="轻应用架构">
-  轻应用架构
-  <a class="anchor" href="#%e8%bd%bb%e5%ba%94%e7%94%a8%e6%9e%b6%e6%9e%84">#</a>
+  <article class="markdown"><h1 id="平台服务">
+  平台服务
+  <a class="anchor" href="#%e5%b9%b3%e5%8f%b0%e6%9c%8d%e5%8a%a1">#</a>
 </h1>
-<pre><code>node.js + mongodb
-mysql
-</code></pre>
-<h1 id="数据">
-  数据
-  <a class="anchor" href="#%e6%95%b0%e6%8d%ae">#</a>
-</h1>
-<h2 id="数据迁移">
-  数据迁移
-  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e8%bf%81%e7%a7%bb">#</a>
-</h2>
-<pre><code>去掉约束
-排序（中断继续）
-</code></pre>
-<h2 id="数据存储">
-  数据存储
-  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8">#</a>
-</h2>
-<pre><code>缓存
-    queue + map
-        # queue存储、限量, map查询，指向queue中元素
-</code></pre>
-<h2 id="缓存">
-  缓存
-  <a class="anchor" href="#%e7%bc%93%e5%ad%98">#</a>
-</h2>
-<pre><code>queue + map
-    # queue存储、限量, map查询，指向queue中元素
-</code></pre>
-<h1 id="实时并发">
-  实时并发
-  <a class="anchor" href="#%e5%ae%9e%e6%97%b6%e5%b9%b6%e5%8f%91">#</a>
-</h1>
-<h2 id="异步方案">
-  异步方案
-  <a class="anchor" href="#%e5%bc%82%e6%ad%a5%e6%96%b9%e6%a1%88">#</a>
-</h2>
-<pre><code>node.js + mongodb
-tornado + celery + rabbitmq + 优先级
-quartz
-</code></pre>
-<h2 id="消息">
-  消息
-  <a class="anchor" href="#%e6%b6%88%e6%81%af">#</a>
-</h2>
-<pre><code>功能
-    好友
-    单聊, 群聊
-    语音, 视频
-    im      # 浏览器聊天(tcp, 不https)
-协议
-    XMPP        # 基于xml
-    MQTT        # 简单，但自己实现好友、群组
-    SIP         # 复杂
-    私有协议     # 工作量大，扩展性差
-</code></pre>
-<h2 id="go高并发实时消息推送">
-  go高并发实时消息推送
-  <a class="anchor" href="#go%e9%ab%98%e5%b9%b6%e5%8f%91%e5%ae%9e%e6%97%b6%e6%b6%88%e6%81%af%e6%8e%a8%e9%80%81">#</a>
-</h2>
-<pre><code>问题
-    长连接             # 支持多种协议(http、tcp)
-        server push
-        HTTP long polling(keep-alive)
-        基于TCP自定义
-        心跳侦测
-    高并发             #&gt;= 10,000,000
-        C1000K
-    多种发送方式
-        单播: 点对点聊天
-        多播: 定点推送
-        广播: 全网推送
-    持久/非持久
-    准实时         # 200ms ~ 2s
-        gc卡顿是大问题
-    客户端多样性
-    同帐号多端接入
-    网络变化
-        电信、联通切换
-        wifi, 4g, 3g
-        断线、重连、断线、重连
-系统架构
-    组件
-        room
-            # 接入客户端
-            分布式全对称
-            一个client一个goroutine
-            每个server一个channel存消息队列
-            book记录user与server映射
-            统一http server收消息并将消息路由到room和server
-            manager掌控room的服务：内部单播、多播、广播
-            admin负责room进程管理
-        center
-            # 运营人员从后台接入
-            提供操纵接口给应用服务器调用
-            restful
-            长时操作，有任务概念来管理
-            提供统计接口
-        register
-            # room和center注册
-            key-value的map，value是struct
-            记录用户连到哪个room
-            记录在线时长等信息
-            hash算法定位register进程
-            不直接用redis是为了添加业务逻辑
-        saver
-            # room和center调用
-            # 使用redis
-            分布式全对称
-            提供存储接口
-            采用encoding/gob编码格式的rpc
-        idgenerator
-            # saver和center调用
-            全局消息id生成器, int64
-            分布式，每个进程负责一块id区域
-            后台goroutine每隔一秒写一次磁盘，记录当前id
-            启动时跳过一段id，防止一秒内未写入磁盘的id重复生成
-    存储
-        redis
-            存核心数据
-            db_users: zset, 存各产品用户集合
-            db_slots: list, 存用户离线消息队列
-            db_buckets: dict, 存消息id -&gt; 消息体
-数据
-    16机器，标配24硬件线程, 64g内存
-    linux kernel 2.6.32 x86_64
-    单机80万并发连接
-        load 0.2 ~ 0.4 cpu
-        总使用率7%~10%
-        内存占用20g
-    目前接入1280万在线用户
-    2分钟一次gc, 停顿2秒，tip上提供了并行gc
-    15亿个心跳包/天
-    持续运行一个月无异常
-</code></pre>
-<h2 id="直播">
-  直播
-  <a class="anchor" href="#%e7%9b%b4%e6%92%ad">#</a>
-</h2>
-<pre><code>《关于直播，所有的技术细节都在这里了》
-</code></pre>
-<h2 id="游戏">
-  游戏
-  <a class="anchor" href="#%e6%b8%b8%e6%88%8f">#</a>
-</h2>
-<pre><code>进程
-    gateway进程组
-        # 对外api
-    function进程组
-        # 注册玩家全局信息
-    session进程组
-        # 玩家状态
-    dbserver进程组
-        # 数据
-    多word进程组
-        # 不同地图的信息、逻辑
-</code></pre>
-<h1 id="soa">
-  SOA
-  <a class="anchor" href="#soa">#</a>
-</h1>
-<h2 id="微服务">
-  微服务
-  <a class="anchor" href="#%e5%be%ae%e6%9c%8d%e5%8a%a1">#</a>
-</h2>
-<pre><code>o-&gt;
-数据
-  租户
-  用户
-micro service
-  每个service监控
-  每个service不单点
-  单功能拆分，边界明确
-  service间只依赖sdk(好莱坞法则)，通过服务总线发现
-  servcie无状态接入
-  分类
-    内部服务 internal
-      # 内外服务用互相转化
-      文件上传
-      图像处理
-      数据挖掘
-      报表
-    外部服务 external
-      # 流控、质量监控、多链路备用、降级方案
-      邮件
-      短信
-      推送
-      cti
-      企业信息校验
-    业务服务 transaction
-      审批流
-      工作流
-      登录
-      海
-    核心服务 core
-      租户id服务
-      检索服务
-      报表服务
-      监控服务
-      k8s
-      服务总线
-    支持服务 supportive
-      文档
-      测试环境
-      沙盒同步
-    插件服务 plugin
-    集成服务 integration
-    事务服务
-      finance
-      CPQ
-      ERP
-    saas基础
-      计费
-      用户管理
-    联动
-      导入企业数据
-      调用aws或aliyun，提供webhook
-  服务的sdk
-    多语言sdk
-    降级
-    ha
-    apm
-  服务监控
-    # 用于发现问题、追查事故、评估缩容或扩容、评估降级
-    日志
-    接口
-      # 调用服务提供的监控接口
-    系统
-      # 容器提供
-    apm
-      # 客户端采样
-    可达性
-      # 由通用监控完成
-  工程
-    打包docker镜像
-  服务升级
-    灰度发布与AB test
-    提供api版本接口供客户端查询
-  服务总线
-    管理服务状态、位置
-
-o-&gt; 《一个可供中小团队参考的微服务架构技术栈》
-</code></pre>
 <h2 id="apaas">
   aPaaS
   <a class="anchor" href="#apaas">#</a>
@@ -692,7 +429,92 @@ TiDB
     方便历史版本对比
     每个埋点数据质量负责到人（开发、测试、数据负责人）
     数据统一管理
-    尽量用工具自动化</code></pre>
+    尽量用工具自动化
+</code></pre>
+<h1 id="企业中台">
+  企业中台
+  <a class="anchor" href="#%e4%bc%81%e4%b8%9a%e4%b8%ad%e5%8f%b0">#</a>
+</h1>
+<pre><code>数据
+  租户
+  用户
+micro service
+  每个service监控
+  每个service不单点
+  单功能拆分，边界明确
+  service间只依赖sdk(好莱坞法则)，通过服务总线发现
+  servcie无状态接入
+  分类
+    内部服务 internal
+      # 内外服务用互相转化
+      文件上传
+      图像处理
+      数据挖掘
+      报表
+    外部服务 external
+      # 流控、质量监控、多链路备用、降级方案
+      邮件
+      短信
+      推送
+      cti
+      企业信息校验
+    业务服务 transaction
+      审批流
+      工作流
+      登录
+      海
+    核心服务 core
+      租户id服务
+      检索服务
+      报表服务
+      监控服务
+      k8s
+      服务总线
+    支持服务 supportive
+      文档
+      测试环境
+      沙盒同步
+    插件服务 plugin
+    集成服务 integration
+    事务服务
+      finance
+      CPQ
+      ERP
+    saas基础
+      计费
+      用户管理
+    联动
+      导入企业数据
+      调用aws或aliyun，提供webhook
+  服务的sdk
+    多语言sdk
+    降级
+    ha
+    apm
+  服务监控
+    # 用于发现问题、追查事故、评估缩容或扩容、评估降级
+    日志
+    接口
+      # 调用服务提供的监控接口
+    系统
+      # 容器提供
+    apm
+      # 客户端采样
+    可达性
+      # 由通用监控完成
+  工程
+    打包docker镜像
+  服务升级
+    灰度发布与AB test
+    提供api版本接口供客户端查询
+  服务总线
+    管理服务状态、位置
+</code></pre>
+<h1 id="本地生活">
+  本地生活
+  <a class="anchor" href="#%e6%9c%ac%e5%9c%b0%e7%94%9f%e6%b4%bb">#</a>
+</h1>
+<p><a href="https://github.com/outrunJ/logseq/blob/main/jncloud/pages/%E5%AE%9E%E4%BD%93%E8%A7%86%E5%9B%BE.md">服务与功能</a></p>
 </article>
  
       
@@ -702,9 +524,9 @@ TiDB
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/6524a2f2aefb1d10b8ed0a97628bf62cfdd62ff2" title='Last modified by outrun | Sep 27, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/dd93d5ad93ecf665f57c227c7ae8e043d0db2625" title='Last modified by outrun | Nov 11, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 27, 2022</span>
+      <span>Nov 11, 2022</span>
     </a>
   </div>
 
@@ -747,26 +569,8 @@ TiDB
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#轻应用架构">轻应用架构</a></li>
-    <li><a href="#数据">数据</a>
+    <li><a href="#平台服务">平台服务</a>
       <ul>
-        <li><a href="#数据迁移">数据迁移</a></li>
-        <li><a href="#数据存储">数据存储</a></li>
-        <li><a href="#缓存">缓存</a></li>
-      </ul>
-    </li>
-    <li><a href="#实时并发">实时并发</a>
-      <ul>
-        <li><a href="#异步方案">异步方案</a></li>
-        <li><a href="#消息">消息</a></li>
-        <li><a href="#go高并发实时消息推送">go高并发实时消息推送</a></li>
-        <li><a href="#直播">直播</a></li>
-        <li><a href="#游戏">游戏</a></li>
-      </ul>
-    </li>
-    <li><a href="#soa">SOA</a>
-      <ul>
-        <li><a href="#微服务">微服务</a></li>
         <li><a href="#apaas">aPaaS</a></li>
         <li><a href="#saas">SaaS</a></li>
       </ul>
@@ -776,6 +580,8 @@ TiDB
         <li><a href="#埋点">埋点</a></li>
       </ul>
     </li>
+    <li><a href="#企业中台">企业中台</a></li>
+    <li><a href="#本地生活">本地生活</a></li>
   </ul>
 </nav>
 

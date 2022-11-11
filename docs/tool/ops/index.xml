@@ -30,7 +30,7 @@
       <pubDate>Thu, 11 Oct 2018 18:18:21 +0800</pubDate>
       
       <guid>https://example.com/docs/tool/ops/k8s/</guid>
-      <description>常用 # 查看 # 系统日志 journalctl -u kubelet | tail kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nmdw 日志 kubectl logs -f --since=5m --all-containers=true -lapp=[svcName] -o wide kubectl get pod [podName] -o yaml kubectl get pods --namespace=mdw-log -l app=logstash-logstash -w # 等待启动 kubectl describe pods [podName] kubectl rollout status deploy/[deployName] # 查升级记录 节点详情 kubectl get nodes -o json 查状态 kubectl rollout status deploy/[deployName] 进容器 kubectl exec -it [podName] -- /bin/bash 用busybox运行命令 kubectl run -it --image busybox -n [nameSpace] [name] --restart=Never --rm 查询所有nodeport kubectl get svc --all-namespaces -o go-template=&#39;{{range .</description>
+      <description>常用 # 查看 # 系统日志 journalctl -u kubelet | tail kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nmdw 日志 kubectl logs -f --since=5m --all-containers=true -lapp=[svcName] -o wide kubectl get pod [podName] -o yaml kubectl get pods -nmdw-log -l app=logstash-logstash -w # 等待启动 kubectl describe pods [podName] kubectl rollout status deploy/[deployName] # 查升级记录 kubectl get events -njnc -oyaml --field-selector=type=Normal # Normal, Warning 查ns所有资源 kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nairflow 查节点详情 kubectl get nodes -o json 查扩缩状态 kubectl rollout status deploy/[deployName] 查所有nodeport kubectl get svc --all-namespaces -o go-template=&#39;{{range .</description>
     </item>
     
   </channel>

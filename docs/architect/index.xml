@@ -6,5 +6,16 @@
     <description>Recent content in 架构 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 10 Oct 2018 16:49:27 +0800</lastBuildDate><atom:link href="https://example.com/docs/architect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>那些年我做过的技术</title>
+      <link>https://example.com/docs/architect/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/docs/architect/summary/</guid>
+      <description>从13年毕业到今天，参加工作有8年了
+背景经历 # 这8年，大约分三个阶段
+2012年-2015年 2015年-2019年 2019年-至今 </description>
+    </item>
+    
   </channel>
 </rss>

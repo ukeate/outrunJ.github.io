@@ -78,7 +78,7 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
       <guid>https://example.com/docs/tool/linux/linux_tool/</guid>
-      <description>辅助 # 快捷键 # ctrl alt f1/f2/... # 终端切换 帮助 # man -f # 简要介绍 -k # 通配搜索 whatis # man -f apropos # man -k 命令行 # clear pwd # 当前路径 bash -c # 执行命令字符串 set -o # 设置快捷键模式，默认emacs 快捷键 &amp;lt;Tab&amp;gt; bash补全 &amp;lt;C-c&amp;gt; 中断 &amp;lt;C-d&amp;gt; eof &amp;lt;C-tab&amp;gt; ls &amp;lt;C-l&amp;gt; clean &amp;lt;C-a&amp;gt; 移到行首 &amp;lt;C-e&amp;gt; 移到行尾 &amp;lt;C-u&amp;gt; 删除到行首 &amp;lt;C-k&amp;gt; 删除到行尾 &amp;lt;C-p&amp;gt; 上一个命令 &amp;lt;C-n&amp;gt; 下一个命令 &amp;lt;C-r&amp;gt; 查看历史 &amp;lt;C-s&amp;gt; 冻结 &amp;lt;C-q&amp;gt; 解冻 &amp;lt;C-t&amp;gt; 交换字符 &amp;lt;C-w&amp;gt; 删word &amp;lt;C-z&amp;gt; 暂停到后台 &amp;lt;C-\&amp;gt; 中断 &amp;lt;C-/&amp;gt; 撤消 &amp;lt;C-_&amp;gt; 删除一行 &amp;lt;M-r&amp;gt; 取消历史变更 zsh fish tmux session window pane ~/.</description>
+      <description>辅助 # 快捷键 # ctrl alt f1/f2/... # 终端切换 帮助 # man -f # 简要介绍 -k # 通配搜索 whatis # man -f apropos # man -k 命令行 # clear pwd # 当前路径 bash -c # 执行命令字符串 set -o # 设置快捷键模式，默认emacs 快捷键 &amp;lt;Tab&amp;gt; bash补全 &amp;lt;C-c&amp;gt; 中断 &amp;lt;C-d&amp;gt; eof &amp;lt;C-tab&amp;gt; ls &amp;lt;C-l&amp;gt; clean &amp;lt;C-a&amp;gt; 移到行首 &amp;lt;C-e&amp;gt; 移到行尾 &amp;lt;C-u&amp;gt; 删除到行首 &amp;lt;C-k&amp;gt; 删除到行尾 &amp;lt;C-p&amp;gt; 上一个命令 &amp;lt;C-n&amp;gt; 下一个命令 &amp;lt;C-r&amp;gt; 查看历史 # &amp;lt;C-s&amp;gt; 向前查看历史 &amp;lt;C-s&amp;gt; 冻结 &amp;lt;C-q&amp;gt; 解冻 &amp;lt;C-t&amp;gt; 交换字符 &amp;lt;C-w&amp;gt; 删word &amp;lt;C-z&amp;gt; 暂停到后台 &amp;lt;C-\&amp;gt; 中断 &amp;lt;C-/&amp;gt; 撤消 &amp;lt;C-_&amp;gt; 删除一行 &amp;lt;M-r&amp;gt; 取消历史变更 场景 禁用&amp;lt;C-s&amp;gt;&amp;lt;C-q&amp;gt;, 以使&amp;lt;C-s&amp;gt;变为向前查看历史 stty -ixon -ixoff stty STOP ^w # 把原&amp;lt;C-s&amp;gt;改成&amp;lt;C-w&amp;gt; zsh fish tmux session window pane ~/.</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       <pubDate>Thu, 11 Oct 2018 18:18:21 +0800</pubDate>
       
       <guid>https://example.com/docs/tool/ops/k8s/</guid>
-      <description>常用 # 查看 # 系统日志 journalctl -u kubelet | tail kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nmdw 日志 kubectl logs -f --since=5m --all-containers=true -lapp=[svcName] -o wide kubectl get pod [podName] -o yaml kubectl get pods --namespace=mdw-log -l app=logstash-logstash -w # 等待启动 kubectl describe pods [podName] kubectl rollout status deploy/[deployName] # 查升级记录 节点详情 kubectl get nodes -o json 查状态 kubectl rollout status deploy/[deployName] 进容器 kubectl exec -it [podName] -- /bin/bash 用busybox运行命令 kubectl run -it --image busybox -n [nameSpace] [name] --restart=Never --rm 查询所有nodeport kubectl get svc --all-namespaces -o go-template=&#39;{{range .</description>
+      <description>常用 # 查看 # 系统日志 journalctl -u kubelet | tail kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nmdw 日志 kubectl logs -f --since=5m --all-containers=true -lapp=[svcName] -o wide kubectl get pod [podName] -o yaml kubectl get pods -nmdw-log -l app=logstash-logstash -w # 等待启动 kubectl describe pods [podName] kubectl rollout status deploy/[deployName] # 查升级记录 kubectl get events -njnc -oyaml --field-selector=type=Normal # Normal, Warning 查ns所有资源 kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -nairflow 查节点详情 kubectl get nodes -o json 查扩缩状态 kubectl rollout status deploy/[deployName] 查所有nodeport kubectl get svc --all-namespaces -o go-template=&#39;{{range .</description>
     </item>
     
     <item>
@@ -235,21 +235,12 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>Infomation</title>
-      <link>https://example.com/docs/misc/infomation/</link>
-      <pubDate>Wed, 10 Oct 2018 20:56:27 +0800</pubDate>
+      <title>产品规划</title>
+      <link>https://example.com/docs/architect/method/product_plan/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/misc/infomation/</guid>
-      <description>信息公布 # 新资讯 hackernews infoq v2ex freebuf 36氪 http://tech.meituan.com/ # 美团tech http://www.yinwang.org/ https://yinwang0.wordpress.com/ # 王垠 https://softwarefoundations.cis.upenn.edu/ # pl基础 https://bbs.pediy.com/ # 看雪论坛 http://a.haskellcn.org/study # 廖雪峰blog http://calvin1978.blogcn.com/articles/javabookshelf.html # 江南白衣的书架 大前端 http://harttle.com/ # harttle博客 http://www.cnblogs.com/iamzhanglei/ # 当耐特前端 资料 http://www.linuxidc.com # linux资讯、书 java1234.com # pdf书籍资源 https://www.jiumodiary.com/ # 鸠摩搜书 https://z-lib.org/ # 最大eboot库 问答 quora stack overflow 知乎 segmentfault 框架 https://github.com/sindresorhus/awesome 各技术框架 github.com search &#39;stars:&amp;gt;1000&#39; # github星项目 http://a.haskellcn.org/study # haskell书目录 查询 http://www.123cha.com/alexa/ # 网站排名查询 天眼查 乌云网 # 白帽漏洞 做题 # http://www.</description>
-    </item>
-    
-    <item>
-      <title>English</title>
-      <link>https://example.com/docs/misc/english/</link>
-      <pubDate>Wed, 10 Oct 2018 20:53:25 +0800</pubDate>
-      
-      <guid>https://example.com/docs/misc/english/</guid>
-      <description>发音 # spelling and numbers Acronym ibM, miT, ph.D mbA lA iQ revP ciA fbI coD soS xyZ Spelling boX cooK wiLsoN sentence stress with descriptive phrases It&#39;s SHORT. It&#39;s a short NAIL It&#39;s CHOCOLATE. It&#39;s a chocolate CAKE. contrasting description and a set phrase It&#39;s a short NAIL. It&#39;s a FINGERnail It&#39;s a chocolate CAKE. It&#39;s a PANcake T,D,S or Z + Y T + Y = CH what&#39;s your name can&#39;t you do it?</description>
+      <guid>https://example.com/docs/architect/method/product_plan/</guid>
+      <description>云服务 # 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合 产业互联网 # 供应链 # 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸 人工智能 # 优化、预测 拟合函数, 高阶微积分, 梯度下降 元宇宙 # 传媒营销 # 媒体 # 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
     </item>
     
     <item>
@@ -262,6 +253,15 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
+      <title>代码规划</title>
+      <link>https://example.com/docs/architect/method/code_plan/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/method/code_plan/</guid>
+      <description>阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
+    </item>
+    
+    <item>
       <title>演说</title>
       <link>https://example.com/docs/basic/speach/</link>
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
@@ -271,21 +271,21 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>行业</title>
-      <link>https://example.com/docs/architect/method/product_plan/</link>
-      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architect/method/product_plan/</guid>
-      <description>云 # 本质 批发转零售 帮助别人成功而成功 产品型转服务型 优势 轻，方便 全 可计算 现象 外包被淘汰 行业 OS of business 功能 产品功能，样板 开发体验，文档 组件收费，容量收费，节省的成本收费 数据直接做决策 分类 service # 基础服务 plugins # 基础服务组合 app # plugins组合 产业互联网 # 供应链 # 为什么 大厂核心 各节点(库存)周转 是什么 资源 -&amp;gt; 渠道 -&amp;gt; 用户 反馈用户真实需求 上游关注制造业 下游关注erp 批量(精), 个性化(敏) 物流, 资金流(现金流), 信息流 库存管理 应对变化(保质期) 求零库存 供应商 评级 物流, 成本 难点 打通 怎么样 成本、利用率 可靠性, 反应力, 柔性(补错) 感知、预测 赋能 重点 按时制造 难点 协调(协议) 步骤 单品上下游延伸 AI # 优化、预测 拟合函数, 高阶微积分, 梯度下降 媒体 # 场景控制 3CAD character camera control art direction 特效 会场散射光束（博物馆） 雾中焦点的竖光（saber的剑） 画线的光点（最终幻想） 密集的星星，远近缩放，光圈(tree.</description>
-    </item>
-    
-    <item>
       <title>身体</title>
       <link>https://example.com/docs/basic/body/</link>
       <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
       
       <guid>https://example.com/docs/basic/body/</guid>
       <description> 造型期 # 体态 高低肩 骨盆前倾 体能 心肺 变速有氧：4、6、8各2min， 30min以上 力量 核心训练 健身计划 # 目标 指导 FITT Frequency: 一周3-5次 Intensity: 有氧 心率: 123-142 无氧 动作 间歇 个数 重量 Time: 60min力量 + 30min有氧 Type: 热身 抗阻力训练 拉伸 阶段 适应期(1-2月) 心肺功能: 功率 核心力量 保护腰：呼吸 + 静态 内脂 力量训练 动作规范 蹲、推、拉、举、旋转 进阶期(2-3月) 消耗 &amp;gt; 摄入 七大肌肉群：胸、肩、背、腹、腿、臀、手臂 三分化、四分化 爆发力 </description>
+    </item>
+    
+    <item>
+      <title>运维规划</title>
+      <link>https://example.com/docs/architect/method/ops_plan/</link>
+      <pubDate>Wed, 10 Oct 2018 20:12:11 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/method/ops_plan/</guid>
+      <description> 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # </description>
     </item>
     
     <item>
@@ -325,6 +325,15 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
+      <title>咨询规划</title>
+      <link>https://example.com/docs/architect/method/advice_plan/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      
+      <guid>https://example.com/docs/architect/method/advice_plan/</guid>
+      <description> Presentation # 指导思想: 成于结构，臻于对话 PPT画页 画的是冰山一角 类似手持卡片 类似左右脑: 逻辑+展示 具体内容 思维导图 维度筛选，MECE不重不漏 空姐现象 共知的事情特色讲，去掉已知部分 卖钻讲孔 电梯法则 告知全局，步骤清晰，回顾小结 递进逻辑：信息，分析，方法 目录 首页效应 目录，章节页，总结页 视觉 图形代替文字: 缩小了看一看 标题附主题语: 有兴趣有信息量 讲 替画重点（提示语如: 请注意，提问） 细讲：页只写观点，串联起来讲，只有30%内容重合 心态 注意力放在观众那边 沟通合作而非防御 房间有更聪明的人 数字化转型 # 什么是数字化，有什么用 发展 信息化: 烟囱式，信息/数据孤岛，管理/运营孤岛 互联网化 互联互通: 0边际成本互联互通，云计算-&amp;gt;雾计算 大数据化 数据互联: 互联一切-&amp;gt;一切互联，跨界应用 数据资源: 核心要素/资产，第一权利 数智化 人工智能：大数据-&amp;gt;大知识, 人类设计-&amp;gt;自动学习，替代与超越 计算智能-&amp;gt;感知智能-&amp;gt;认知智能 三位一体：(互联网+大数据+人工智能)+ Any 数字孪生、元宇宙 互联网+ 信息传递边际成本趋向于0 连接机制革命 任意两个资源(人或物)0边际成本互联互通: 信息0边际成本 传播机制: 线性、金字塔式-&amp;gt;非线性、网状、几何级、病毒式 带来什么 数字科技三位一体：(互联网+大数据+人工智能)+ 边际革命：0边际成本效应，边际成本递减，边际收益递增 数智：可知、可达、可控、可预测，程度剧变、实现边际成本剧变 量变-&amp;gt;质变（工具革命-&amp;gt;革命的工具） 局部改善-&amp;gt;全面优化-&amp;gt;全面重构 技术应用-&amp;gt;业务优化-&amp;gt;全面变革 农业时代，工业时代，数字时代，造物时代 为什么数字化转型 企业处境 各行各业先后 总量短缺-&amp;gt;结构过剩，卖方市场-&amp;gt;买方市场，存量经济的争夺内卷加剧 成熟稳定期-&amp;gt;跃迁剧变期 各行各业被迫转型：不断重新分工、重新分利 产业链 重构/(替代+重构) 战略问题 不是未来做什么，是做什么有未来 提高打鱼技术但鱼没有了 不要战术勤奋战略懒惰, 战术成功战略失败 不是选择题是必答题 什么是企业/产业数字化 IBA+经济 电子商贸，流通 不是虚拟经济，是实体经济的全新形态 IBA+交易 渠道体系革命 线上渠道为主，主导线上线下一体化 终端(触点)为王 与用户空间时间距离不断缩短 一切皆终端，终端多样化-&amp;gt;场景碎片化(场景嵌入)-&amp;gt;新旧场景兴衰 泛在智能交互，泛在智能感应(不断向生产环节渗透) 交易边际成本大幅下降, 交易可能性边界急剧膨胀，资源配置能力与利用效率极大提高 产业链重构：M2B2C, M2C, P2P 野蛮营销-&amp;gt;精准营销-&amp;gt;智能匹配 产品变渠道，产品渠道一体化 智能产品-&amp;gt;触点+服务与生态体系 产品成为持续服务的载体 制造业服务业化 智能化，机器体系对人的脑力及体力的强助力、替代、超越 精细化、高度集成化 去人化、极致自动化 柔性化，按需生产、柔性制造能力 IBA+生产 业务跨界与跃迁：供应链资源，数据资源，新“物种”(产品) 低碳、低能耗、低消耗: 自然资源稀缺性下降 IBA+交易+生产 交易生产一体化 由需到供，按需生产，按需服务，按需研发，按需投资，0库存 非标-&amp;gt;标准化-&amp;gt;去标准化(个性化生产) 卖产品-&amp;gt;卖生产服务，制造业服务业化 延展到整个国民经济生态体系，有计划的市场经济 数据驱动，智能决策 平台化+极致专业化分工 企业(管理与产权)形态、雇佣形态的演变 管控型-&amp;gt;交易型/平台型 企业人员规模缩小，企业边界模糊 企业、资本与劳动者关系演变 数字化转型 数字经济质跃工业经济 数字经济系统 经济环境: 人类经济活动(分工协作)的基础条件(信息不对称性，资源稀缺性)发生剧变 经济活动: 交易和生产的边际成本大幅下降，经济活动的效率大幅上升，经济活动的可能性边界急剧膨胀 从根本上超越工业经济 数字化经济含义 交易、生产：0边际成本 边际革命：人类逐步进入0边际成本时代 边际成本递减-&amp;gt;0边际成本-&amp;gt;边际成本为负 结果变成原因，逼近转型升级 数字化转型升级 以数字科技为应用手段，持续推进业务变革、组织变革 经济的数字化转型升级: 以数字科技应用为手段，推进经济模式、经济形态持续转型升级 企业数字化转型升级：以数字科技应用为手段，推进企业营销模式、服务模式、管理模式、生产模式、决策模式、商业模式、产权模式等持续转型升级 鸿沟：科技&amp;lt;-&amp;gt;业务 可能性(无限)-&amp;gt;现实性(有限) 科技-&amp;gt;技术应用(产品/模式/制度创新变革)-&amp;gt;业务问题-&amp;gt;科技应用创新不足是制约转型升级、创新发展的关键瓶颈 问题导向，需求拉动 科技应用价值问题：经济效益是检验科技领先的唯一标准 科技应用方向问题：0到0的创新比0到1的创新更关键 科技应用的路径问题：并非都是&amp;quot;富家子&amp;quot;&amp;quot;优等生&amp;quot; 转型是什么 三个层次 新赛道(局部): 新技术、新产品、新兴产业链 新形态(普遍): 新业态、新模式、新型产业链 新经济(全面): 新生态、新格局 企业：全面转型或K型经济 可行方法 你是谁：业务现状 你想变成谁 动因与目标(短期、长期) 问题导向与需求分析 你能变成谁 基础条件与既有资源 信息化数字化的基础 你如何变成谁 (周而复始)设计-&amp;gt;建设-&amp;gt;运营(业务+系统)-&amp;gt;跟踪与评估 得客户资源者得天下 流量-&amp;gt;留量 客户资源：客户数据+客户关系+客户渠道 以更低边际成本掌控更大的客户资源 谁掌握完备的客户资源 如何掌握完备的客户资源 未来已临 划时代的技术都是试金石 与时代赛跑 优化咨询 # 问题 客户反馈 单体应用 模块耦合程度 微服务划分与边界 单节点数据库 查询崩溃 IoT控制 命令超时失败, 响应慢 出错业务处理 发现问题 现有代码逻辑梳理 通过链路追踪，找性能瓶颈 SQL平台建设，发现数据库性能问题，优化SQL 服务器节点监控，应用监控，数据库监控 解决问题 代码 纯代码优化：N+1调用，事务问题 逻辑优化：订单失败，复杂业务流程优化 发布流程优化CI/CD 中间件优化：优雅停机，灰度方案节点打标，全链路日志 性能优化：业务并行处理，业务异步处理 数据库 不合理调用治理：批量更新，大事务， 慢SQL治理 数据库备份：主从优化，定时备份 配置调优 架构 高可用：服务发现，分布式 业务缓存优化，减少数据库调用：热点数据，对象缓存，多级缓存 分布式任务平台：分片执行 任务中心：批量平台 稳定性 告警平台 异常告警(空指针，接口调用成功率) 监控告警(服务器使用率) 业务告警(下单失败) 限流熔断 网关限流，业务限流，接口限流，外部调用限流 业务平滑处理 运营工具 业务数据多维分析 </description>
+    </item>
+    
+    <item>
       <title>服务治理</title>
       <link>https://example.com/docs/architect/method/architect/</link>
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
@@ -344,10 +353,10 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title>媒体</title>
-      <link>https://example.com/docs/misc/media/</link>
+      <link>https://example.com/docs/architect/strategy/meta/media/</link>
       <pubDate>Wed, 10 Oct 2018 15:13:01 +0800</pubDate>
       
-      <guid>https://example.com/docs/misc/media/</guid>
+      <guid>https://example.com/docs/architect/strategy/meta/media/</guid>
       <description>原理 # 硬件 # CRT cathode ray tube 阴极射线管显示器 随机扫描方式 光栅扫描方式 DPU distributed processing unit 分散处理单元 标准 # Core Graphics System CGI(computer graphics interface) # 与设备无关的方法，方便的直接控制图形设备 CGM(computer graphics metafile) # 设备无关的主义定义图形文件格式 GKS(graphics kernal system) # 应用程序与图形输入输出设备之间的功能接口 PHIGS(programmer&#39;s hierarchical interactive graphics system) # 为3d设计的工具库 GL(graphics library) # 广泛应用的标准图形程序库 算法 # 基元的显示 直线扫描转换 DDA 中点画线法 Bresenham画线 圆的扫描转换 中点画圆 Bresenham 区域填充 种子填充 多边形扫描转换 图形变换 二维图形变换 二维视见变换 三维图形变换 投影 平行正交 平行斜交 透视投影 裁剪 直线段裁剪算法 Cohen-Sutherland算法 中点分割算法 梁友栋-Barsky算法 多边形裁剪Sutherland-Hodgman算法 三维图形裁剪 梁友栋-Barsky算法 曲线和曲面 概念 插值 逼近 参数连续性 几何连续性 光顺(smoothness) Hermite插值曲线多项式 Coons曲面 Bezier曲线和曲面 B样条曲线和曲面 图形运算 交点计算 多边形表面交线计算 平面中的凸壳算法 Graham扫描 Jarvis行进 包含与重叠 凸多边形 多边形的三角剖分 形体的表示 概念 图形信息 几何信息 拓扑信息 非图形信息 颜色 亮度 质量 体积 二维 边界 拆线逼近曲线 选点 共线性 三点转角阈值 带树法 图形的四叉树表示法 三维 几何元素 点 边 环(有序有向边) 面 体 体素 一组单元实体: 长方体、圆柱体、圆锥体、球体 扫描体 代数半空间定义的形体 线框图 顶点表、边表、面表 边界表示法 实体 CSG(constructive solid geometry), 指任意复杂形体都可用的体素组合 特征表示 Brep表示 八叉树(四叉树的推广) 分形 规则分形 # 严格自相似性的分形 Von Koch算法 Julia集和Mandelbrot集 消除隐藏线和隐藏面 线面比较法消除隐藏线 浮动水平线消除曲面隐藏线 深度排序算法(优先级算法) 画家算法(深度优先级表法) z一缓冲算法(深度缓冲算法) 扫描线算法消除隐藏面 区域分割算法消除隐藏面 BSP(binary space partitioning)树算法判别物体可见性 八叉树算法消除隐藏面 光线投射算法找到可见面 # 对包含曲面(特别球面的场景效率高) 真实感 漫反射及光源照明 照明效应 漫射照明 具体光源照明的照射效应、透射效应 漫反射、镜面反射 环境光 漫反射 镜面反射与Phong模型 光的衰减 多边形网的明暗处理 常数明暗法 亮度插值明暗法(Gouraund着色) 法向量插值明暗法(Phong着色) 阴影 纹理(texture) 整体光 透射光亮度模拟 Whitted光照模型(以Phong为基础) 光线跟踪 # 适用光滑表面 包围盒 空间分割成网格单元 辐射度方法 # 描述封闭环境中的能量交换 # 可模拟彩色渗透现象 色彩模型 颜色 色彩(Hue) 色饱和度(Saturation) 明度(Brightness) CIE(国际照明委员会)色度图(红绿蓝) 混合系统 面向硬件 RGB 红绿蓝加色系统 CMY 青、品红、黄着色系统 彩色印刷、胶卷等非发光显示体中采用 面向用户 HSV(Hue, saturation, value) # 六棱锥模型 # 可与RGB空间互相转化 HLS(Hue, lightness, saturation)双六棱锥模型 2d # 分形 # 介绍 Fractal 具有自相似性质的多个形状 大的部分由小的部分组成，小的部分像大的部分 用递归算法模拟 Mandelbrot Set 介绍 分形领域最著名的科学家 本华.</description>
     </item>
     
@@ -379,12 +388,12 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>大业务</title>
+      <title>项目规划</title>
       <link>https://example.com/docs/architect/method/project_plan/</link>
       <pubDate>Wed, 10 Oct 2018 14:51:24 +0800</pubDate>
       
       <guid>https://example.com/docs/architect/method/project_plan/</guid>
-      <description>轻应用架构 # node.js + mongodb mysql 数据 # 数据迁移 # 去掉约束 排序（中断继续） 数据存储 # 缓存 queue + map # queue存储、限量, map查询，指向queue中元素 缓存 # queue + map # queue存储、限量, map查询，指向queue中元素 实时并发 # 异步方案 # node.js + mongodb tornado + celery + rabbitmq + 优先级 quartz 消息 # 功能 好友 单聊, 群聊 语音, 视频 im # 浏览器聊天(tcp, 不https) 协议 XMPP # 基于xml MQTT # 简单，但自己实现好友、群组 SIP # 复杂 私有协议 # 工作量大，扩展性差 go高并发实时消息推送 # 问题 长连接 # 支持多种协议(http、tcp) server push HTTP long polling(keep-alive) 基于TCP自定义 心跳侦测 高并发 #&amp;gt;= 10,000,000 C1000K 多种发送方式 单播: 点对点聊天 多播: 定点推送 广播: 全网推送 持久/非持久 准实时 # 200ms ~ 2s gc卡顿是大问题 客户端多样性 同帐号多端接入 网络变化 电信、联通切换 wifi, 4g, 3g 断线、重连、断线、重连 系统架构 组件 room # 接入客户端 分布式全对称 一个client一个goroutine 每个server一个channel存消息队列 book记录user与server映射 统一http server收消息并将消息路由到room和server manager掌控room的服务：内部单播、多播、广播 admin负责room进程管理 center # 运营人员从后台接入 提供操纵接口给应用服务器调用 restful 长时操作，有任务概念来管理 提供统计接口 register # room和center注册 key-value的map，value是struct 记录用户连到哪个room 记录在线时长等信息 hash算法定位register进程 不直接用redis是为了添加业务逻辑 saver # room和center调用 # 使用redis 分布式全对称 提供存储接口 采用encoding/gob编码格式的rpc idgenerator # saver和center调用 全局消息id生成器, int64 分布式，每个进程负责一块id区域 后台goroutine每隔一秒写一次磁盘，记录当前id 启动时跳过一段id，防止一秒内未写入磁盘的id重复生成 存储 redis 存核心数据 db_users: zset, 存各产品用户集合 db_slots: list, 存用户离线消息队列 db_buckets: dict, 存消息id -&amp;gt; 消息体 数据 16机器，标配24硬件线程, 64g内存 linux kernel 2.</description>
+      <description>平台服务 # aPaaS # # platform as a service，介于IaaS和SaaS中间 将软件研发的平台做为服务，以SaaS的模式交付 组件化支撑和驱动 # 组件的发展决定paas广度，组件的聚合决定paas深度 # 对内固守组件边界，对外暴露标准接口 分层 平台组件 基础业务 # 不可见，影响全局，通用业务逻辑，对性能很敏感 业务 组件 设计 # 自描述的，这样就在设计和开发上解耦 确定边界 定义标准接口 确定核心功能 规范异常处理 开发 # 像开发dsl一样,来评判核心逻辑和接口，抽象度高 技术评审 定义接口 # 面向接口开发，也称为BDD dubbo、grpc等 restful 接口设计 标准化 说明 服务路由 版本管理 授权管理 核心理念 # 体现在 服务、工具、模型、规范 开放 而非 封闭 合作 而非 限制 共享 而非 替代 重点关注 基础业务 组织架构和用户组 审批流 权限 通用模型 透明分布式缓存模型 分布式存储模型 分布式事务模型 效率工具 数据迁移工具 缓存配置工具 SaaS # aws线上云 微服务 + gRPC + k8s + Istio Golang + TypeScript + Python TiDB 行为分析 # 埋点 # 架构 数据采集 客户端采集 服务器采集 业务系统 第三方渠道 数据治理 ETL 实时ID mapping 元数据管理 数据质量管理: 数据校验, 实时导入监控，异常报警，debug数据查询，用户关联校验，数据质量看板 数据仓库 数据模型：Event, User, Item内容 实时导入系统 存储引擎、查询引擎 数据智能 特征工程 特征选择 模型训练: 深度学习, 自然语言处理，时序预测，GBDT/LR, AutoML 模型可视化 在线服务 工具 采集: SDK(JS, Android, iOS, 小程序，服务端，全埋点), ID Mapping, 归因链路 实施工具: 事件管理，变量管理，命名工具，埋点SLA配置, 预警配置，session管理，生命周期管理，tag管理，测试工具，ABTest工具 分析工具: 事件分析，漏斗分析，分布分析，留存分析，数据看板，热图分析，归因分析，自定义SQL查询, API管理，广告和活动效果监测 实现方式 代码埋点 全埋点、可视化全埋点（圈选） 规范 结构与命名清晰 方便历史版本对比 每个埋点数据质量负责到人（开发、测试、数据负责人） 数据统一管理 尽量用工具自动化 企业中台 # 数据 租户 用户 micro service 每个service监控 每个service不单点 单功能拆分，边界明确 service间只依赖sdk(好莱坞法则)，通过服务总线发现 servcie无状态接入 分类 内部服务 internal # 内外服务用互相转化 文件上传 图像处理 数据挖掘 报表 外部服务 external # 流控、质量监控、多链路备用、降级方案 邮件 短信 推送 cti 企业信息校验 业务服务 transaction 审批流 工作流 登录 海 核心服务 core 租户id服务 检索服务 报表服务 监控服务 k8s 服务总线 支持服务 supportive 文档 测试环境 沙盒同步 插件服务 plugin 集成服务 integration 事务服务 finance CPQ ERP saas基础 计费 用户管理 联动 导入企业数据 调用aws或aliyun，提供webhook 服务的sdk 多语言sdk 降级 ha apm 服务监控 # 用于发现问题、追查事故、评估缩容或扩容、评估降级 日志 接口 # 调用服务提供的监控接口 系统 # 容器提供 apm # 客户端采样 可达性 # 由通用监控完成 工程 打包docker镜像 服务升级 灰度发布与AB test 提供api版本接口供客户端查询 服务总线 管理服务状态、位置 本地生活 # 服务与功能</description>
     </item>
     
     <item>
@@ -524,47 +533,20 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title></title>
-      <link>https://example.com/docs/architect/manage/doc/</link>
+      <link>https://example.com/docs/architect/strategy/big_data/ecology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/manage/doc/</guid>
-      <description> Presentation # 指导思想: 成于结构，臻于对话 PPT画页 画的是冰山一角 类似手持卡片 类似左右脑: 逻辑+展示 具体内容 思维导图 维度筛选，MECE不重不漏 空姐现象 共知的事情特色讲，去掉已知部分 卖钻讲孔 电梯法则 告知全局，步骤清晰，回顾小结 递进逻辑：信息，分析，方法 目录 首页效应 目录，章节页，总结页 视觉 图形代替文字: 缩小了看一看 标题附主题语: 有兴趣有信息量 讲 替画重点（提示语如: 请注意，提问） 细讲：页只写观点，串联起来讲，只有30%内容重合 心态 注意力放在观众那边 沟通合作而非防御 房间有更聪明的人 </description>
+      <guid>https://example.com/docs/architect/strategy/big_data/ecology/</guid>
+      <description>Hadoop体系 # 发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/architect/method/advice_plan/</link>
+      <link>https://example.com/docs/architect/strategy/block_chain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/method/advice_plan/</guid>
-      <description> 优化咨询 # 问题 客户反馈 单体应用 模块耦合程度 微服务划分与边界 单节点数据库 查询崩溃 IoT控制 命令超时失败, 响应慢 出错业务处理 发现问题 现有代码逻辑梳理 通过链路追踪，找性能瓶颈 SQL平台建设，发现数据库性能问题，优化SQL 服务器节点监控，应用监控，数据库监控 解决问题 代码 纯代码优化：N+1调用，事务问题 逻辑优化：订单失败，复杂业务流程优化 发布流程优化CI/CD 中间件优化：优雅停机，灰度方案节点打标，全链路日志 性能优化：业务并行处理，业务异步处理 数据库 不合理调用治理：批量更新，大事务， 慢SQL治理 数据库备份：主从优化，定时备份 配置调优 架构 高可用：服务发现，分布式 业务缓存优化，减少数据库调用：热点数据，对象缓存，多级缓存 分布式任务平台：分片执行 任务中心：批量平台 稳定性 告警平台 异常告警(空指针，接口调用成功率) 监控告警(服务器使用率) 业务告警(下单失败) 限流熔断 网关限流，业务限流，接口限流，外部调用限流 业务平滑处理 运营工具 业务数据多维分析 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/architect/method/code_plan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/architect/method/code_plan/</guid>
-      <description>阻塞 # 阻塞(bio)指cpu等待io 非阻塞(nio)指调用io后立即返回，但要轮询事件状态 # 非阻塞指对cpu不阻塞，但业务线程阻塞 轮询(单线程) read 定时重复调用来检查 select 前后read, 中间select轮询检查文件描述符的事件状态 采用1024长度数组存储状态，只能同时检查1024个文件描述符 poll 前后read, 中间poll 用链表代替数组, 也避免了不必要的检查 epoll # linux 前后read, 中间epoll epoll检查不到事件，休眠epoll线程直到事件将它唤醒 kqueue # freeBSD中，类似epoll aio # async io, linux, 业务线程不阻塞 通过回调(信号)传递数据，不必像epoll线程(业务线程)阻塞等待 仅linux下有, 只O_DIRECT方式读取，不能利用系统缓存 IOCP # windows aio 模拟aio(io线程池) 业务线程的io操作, 起io线程, io线程完成通信到业务线程触发回调 库 glibc(有bug) libeio node.js的libuv封装 linux下自实现 windows下IOCP 事件 # 实现 回调 队列存事件, 单进程检测事件是否回调 库 libevent libev # bug比libevent少 工具 epoll(select, poll) libev(libevent) 并发并行 # 并发 多任务共享时间段, 类比: 任务队列 为什么并发 多任务能力 非阻塞 并行 多任务同时处理, 类比: 多核处理器 为什么并行 提高执行效率 分类 任务并行化 数据并行化 cpu交替任务 # EDSAC串行任务 协作式 # 可能独占，Windows3.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/architect/method/ops_plan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/architect/method/ops_plan/</guid>
-      <description> 指标 # 标准 ITIL(IT Infrastructure Library) ITSM(IT System Management) 目标 安全性 账号管理 漏洞修复 安全审计 可用性 服务监控 架构优化 冗余备份 预案演练 故障响应 运维成本 成本核算 服务选型 成本优化 运维效率 研发工作流支持 服务支持平台建设 运维自动化平台建设 工作方式 邮件申请开通 LDAP, VPN, 测试, 线上 监控 # </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/docs/architect/strategy/big_data/hadoop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/architect/strategy/big_data/hadoop/</guid>
-      <description>介绍 # 发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
+      <guid>https://example.com/docs/architect/strategy/block_chain/</guid>
+      <description> 隐私保护计算 # Privacy-Preserving Computing 目标 数据聚合时，增强对数据的保护，降低数据泄露风险 数据最小化，可用不可见 方法 多方安全计算 联邦学习 </description>
     </item>
     
     <item>
@@ -582,7 +564,7 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/cache/ops/</guid>
-      <description> java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &amp;lt;intf&amp;gt; lladdr 00:bb:cc:dd:ee:ff python # pyenv versions pyenv install 3.7.6 --list pyenv virtualenv 3.7.6 37 eval &amp;quot;$(pyenv init -)&amp;quot; eval &amp;quot;$(pyenv virtualenv-init -)&amp;quot; pyenv activate 37 pyenv deactivate </description>
+      <description> java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &amp;lt;intf&amp;gt; lladdr 00:bb:cc:dd:ee:ff </description>
     </item>
     
     <item>
@@ -678,30 +660,12 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     </item>
     
     <item>
-      <title>Book</title>
-      <link>https://example.com/docs/misc/book/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/misc/book/</guid>
-      <description> 《错误之书：改变你一生的9个秘密》 # 错误之一：活在别人为你设定的剧本里 错误之二：任由他人决定你的价值 错误之三：凡事总爱找借口 每一个借口背后都隐藏着通信成功的大门 错误之四：结交错误的朋友 远离说“不”的人、怀疑论者和负能量的人，多结交鼓励者、激励者和成功人士 错误之五：不愿走出舒适圈 胜利者其实一直在“自找苦吃”。 领袖们会不断地走出舒适圈，寻求突破。 平庸本就是享尽舒适的最终结局。 错误之六：让暂时的挫折变成永久的失败 不要让一时的现状决定 了你未来的命运。 一旦你给自己贴上负面标签，挫折就会变得异样复杂。 成功人士会将一时的失败视作能往成功之路的阶梯。 错误之七：放任自己，随波逐流 独树一帜，也就意味着不断超越自我 独树一帜既是真实的自我 错误之八：认为获得成功的途径是有限的 世上的机会是无限的，人的潜能也是无止境的。 我们唯一要担心的就是思维的限度。 错误之九：挥霍光阴，不加珍惜 每日的忧虑背后隐藏着时间的馈赠。抛开忧虑，珍惜当下。 《七个习惯》 # 一、主动 二、以终为始 三、第一原理 四、双赢 五、共情 六、1+1&amp;gt;2 七、更新 </description>
-    </item>
-    
-    <item>
       <title>Jetbrains</title>
       <link>https://example.com/docs/tool/develop/jetbrains/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/tool/develop/jetbrains/</guid>
       <description>Intellij Idea # 注意 Project 相当于workspace, module 相当于工程 注册 服务器 # 发布网站 http://idea.lanyus.com http://idea.qinxi1992.cn http://idea.lianghongbo.com/licens http://im.js.cn:8888 javaagent https://zhile.io/ 快捷键 settings -&amp;gt; Keymap 设置eclipse alt + enter # 改错 shift shift # 搜索跳转 shift + f4 # 新窗口打开文件 类注释 settings -&amp;gt; Editor -&amp;gt; File and Code Templates -&amp;gt; Includes -&amp;gt; File Header /** * * @Description: ${Description} * @author: ShenWenqing * @date: Created on ${DATE} ${TIME} * */ alt + enter 可生成 serialVersionUID settings -&amp;gt; Inspections 勾选 Serializable class without &#39;serialVersionUID&#39; JDK Project Settings -&amp;gt; Project settings -&amp;gt; Build Tools settings -&amp;gt; Compilers 编码 file -&amp;gt; settings -&amp;gt; appearence里use custom font设置中文字体 file -&amp;gt; settings -&amp;gt; editor -&amp;gt; file encodings 三处utf-8 idea安装目录/bin/idea.</description>
-    </item>
-    
-    <item>
-      <title>关于我</title>
-      <link>https://example.com/docs/misc/about_me/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/docs/misc/about_me/</guid>
-      <description> 介绍 # outrun，男，1990.4 934260428@qq.com runout.run </description>
     </item>
     
     <item>
@@ -714,7 +678,7 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     </item>
     
     <item>
-      <title>测试方法</title>
+      <title>测试规划</title>
       <link>https://example.com/docs/architect/method/test_plan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -742,10 +706,10 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     
     <item>
       <title>那些年我做过的技术</title>
-      <link>https://example.com/docs/misc/summary/</link>
+      <link>https://example.com/docs/architect/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/misc/summary/</guid>
+      <guid>https://example.com/docs/architect/summary/</guid>
       <description>从13年毕业到今天，参加工作有8年了
 背景经历 # 这8年，大约分三个阶段
 2012年-2015年 2015年-2019年 2019年-至今 </description>
