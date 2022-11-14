@@ -298,39 +298,12 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     </item>
     
     <item>
-      <title>AI</title>
-      <link>https://example.com/docs/architect/strategy/ai/</link>
-      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architect/strategy/ai/</guid>
-      <description> 基础 # 模型的作用 调模型参数自动做特征工程 交互 用户数据 -&amp;gt; 向量化 -&amp;gt; 向量 -&amp;gt; 模型 -&amp;gt; 输出 算法分类 离线: 复杂模型 在线: 时间短 框架 # tensorflow # 神经网络计算 convnet.js # js深度学习 scikit-learn # python机器学习 特征工程 # 向量化, 量化才能优化, bitmap存储(位数即维数) one-hot: 太长，无序，歧义 业务导向存储 分段标识，如年龄区间[0,1,0,0] 需要经验及产品设计 模型 # 分类 传统模型 速度快 深度模型 业务复杂, 数据量大时用 模型 线性回归 逻辑回归 朴素贝叶斯 支撑向量机 用户画像 # 在Hive中存 </description>
-    </item>
-    
-    <item>
-      <title>IoT</title>
-      <link>https://example.com/docs/architect/strategy/iot/</link>
-      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architect/strategy/iot/</guid>
-      <description>框架 # # Internet of Things Kaa SiteWhere # tomcat, mongodb, hbase, influxdb, grafana ThingSpeak # matlab可视化 DeviceHive # 开源, docker, k8s, es, spark, cassandra, kafka Zetta Thinger.io wso2 业务 # 目的 解决可读性可操作性 模块 展示 dashboard 在线设备 消息量 规则引擎消息流转次数 运维大盘 产品品类 地区排名 指标趋势 设备在线率 设备排行 事件数 事件类型 停用时长 延迟 开发服务 studio 开发 web 移动 自动化服务 设备 产品 # 软硬分离的桥梁 设备开发 -&amp;gt; 设备模拟(在线写c, js) -&amp;gt; 软件开发 配置(使用移动端) 运营运维 后台 监控 插件开发 服务编排 行业服务 智能生活 os # 高性能、极简开发、云端一体、丰富组件、安全防护 项目生成 领域模板 插件选择 网络 网关 凭证 无线 车联网、智能家居、穿戴、媒体内容分发、环境监测、智慧农业 设备 节点 接入 多协议: MQTT、CoAP、HTTP 多平台(设备端代码): c、node.</description>
-    </item>
-    
-    <item>
-      <title>中台</title>
-      <link>https://example.com/docs/architect/strategy/middle_platform/</link>
-      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
-      
-      <guid>https://example.com/docs/architect/strategy/middle_platform/</guid>
-      <description> 业务中台 # 权限 # 类型 ACL(access control list) # 访问权限列表 RBAC(role base access control) # 基于角色的访问控制 ABAC(attribute base access control) # 基于属性(计算属性)的访问控制 DAC(discretionary access control) # 自主访问控制 主体对所属对象有全部控制权 主体执行的程序权限相同 主体权限可分配给其它用户 MAC(mandatory access control) # 强制访问控制 管理分配权限，主体不能改变 主体只能访问他的对象，也不能写低级别对象 成员 user role group 访问权限 权限1: 游客，用户，rememberMe 权限2: uri前缀(功能模块) 权限3: uri后缀(静态资源过滤) 判断位置: 过滤器中 资源权限 权限: kind:part1:part2... 判断位置: 渲染数据前 数据权限 资源层级 权限: 2 判断位置: 进方法前 单表 权限: 表名:列名:值 判断位置: 写sql前 方法权限 权限: 方法域:方法名 判断位置: 进方法前 性能 grantTable缓存u_id, res_id关系 审批 # 模板 准入规则 起始、终止节点 节点, 节点成员, 替换成员, 节点事件(脚本), 跳转公式 审批流程 创建, 状态查询 审批 海 # type # 记录类型 property # 类型动作, 关联到节点, 记录进出节点的动作。如对成员可读、可写, 记录负责人，对记录执行脚本, 记录回收计划 model # 模式 节点树、一个激活 节点 节点组 两节点方向 成员 节点成员1对多 成员分组(group, role)也是成员 记录 节点记录1对1 流转 # 记录按规则在节点流转, 指定某些节点, 或某些记录。动作流程短路 motion # 一次动作，如新建，移动，删除。 规则 # 该次动作对记录的验证 fomula # 计算motion次序 历史 # 动作历史 权限 kind # pass或 type、model、property、节点、节点from, 节点to 的任意组合 access # 分不同kind划分具体权限, 如(节点from, 节点to)kind的转移权限 pass权限 # 如创建type, 创建model, 某节点所有权限等 计划 # 定时或周期的流转 适配器boss # action # 存http地址，参数名，验证器 code # 业务，如用户套餐 mode: get/post/put/delete # 如获得套餐，添加套餐，修改套餐，删除套餐 ctx # 参数map, action调用前后修改 next # 下个触发action history_action # action调用历史 suite # 带参action, thunk待触发 price # 标价 tag # 用作商品分类 order # 用户关联到suite, 计费 category # 生成action模板 apps/plugins # 由category生成, 多个带形参(如app_id)action, 封装成的模板。添加实例填入实参 role permission # action code type # action, suite等 access # crud和其它自定义权限 工作流 # 本质 状态管理 工作流重流程轻数据，业务重数据轻流程。工作流修改数据，数据触发工作流 标准 BPMN # omg制定 workflow XPDL # WfMC制定, xml, 复杂 思路 # 模型驱动架构(MDA) petri nets 有限状态机(FSM) # 并行(流水线)状态机 活动图 # JBoss使用 事件过程驱动链(EPC) 微内核 # 安全性高, 降耦合 已有实现 开源 yawl, jbpm, activiti, osworkflow, jboss, shark, obe 商业 aws, salesforce, sap等 分层 外设层 # 交互协议 网关(WAPI) 交互代理 # 网关与内核通信形式 引擎 # engine specification, case net netRunner continueIfPossible # 遍历task, fire task, condition task join, split # and所有, xor只一个, or规则 workitem flow persisting gateway 引擎运行服务 # 为引擎提供服务, 如解析流程定义、流程实例存储、参与者(workItem)解析、脚本计算、事件监听等 扩展实现 支撑 组织模型适配 人工task实现人工接口 流程实例存储 执行器中嵌入 其它应用适配 # 如邮件 内核获取环境资源 执行器定义扩展 应用适配扩展接口 操作流程定义 任务分配 辅助 条件验证 # 可以有外部验证器 分支时判断 事件处理/function处理 抽象的客户操作 # 如退回、跳转等 增强 自定义策略(workItem), 如代理人处理、工作日历(任务期限) 工作项分配、执行、提交 事件监听 超时处理 订阅应用事件, 应用时间触发器 基础组件 数据中台 # </description>
-    </item>
-    
-    <item>
       <title>咨询规划</title>
       <link>https://example.com/docs/architect/method/advice_plan/</link>
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
       
       <guid>https://example.com/docs/architect/method/advice_plan/</guid>
-      <description> Presentation # 指导思想: 成于结构，臻于对话 PPT画页 画的是冰山一角 类似手持卡片 类似左右脑: 逻辑+展示 具体内容 思维导图 维度筛选，MECE不重不漏 空姐现象 共知的事情特色讲，去掉已知部分 卖钻讲孔 电梯法则 告知全局，步骤清晰，回顾小结 递进逻辑：信息，分析，方法 目录 首页效应 目录，章节页，总结页 视觉 图形代替文字: 缩小了看一看 标题附主题语: 有兴趣有信息量 讲 替画重点（提示语如: 请注意，提问） 细讲：页只写观点，串联起来讲，只有30%内容重合 心态 注意力放在观众那边 沟通合作而非防御 房间有更聪明的人 数字化转型 # 什么是数字化，有什么用 发展 信息化: 烟囱式，信息/数据孤岛，管理/运营孤岛 互联网化 互联互通: 0边际成本互联互通，云计算-&amp;gt;雾计算 大数据化 数据互联: 互联一切-&amp;gt;一切互联，跨界应用 数据资源: 核心要素/资产，第一权利 数智化 人工智能：大数据-&amp;gt;大知识, 人类设计-&amp;gt;自动学习，替代与超越 计算智能-&amp;gt;感知智能-&amp;gt;认知智能 三位一体：(互联网+大数据+人工智能)+ Any 数字孪生、元宇宙 互联网+ 信息传递边际成本趋向于0 连接机制革命 任意两个资源(人或物)0边际成本互联互通: 信息0边际成本 传播机制: 线性、金字塔式-&amp;gt;非线性、网状、几何级、病毒式 带来什么 数字科技三位一体：(互联网+大数据+人工智能)+ 边际革命：0边际成本效应，边际成本递减，边际收益递增 数智：可知、可达、可控、可预测，程度剧变、实现边际成本剧变 量变-&amp;gt;质变（工具革命-&amp;gt;革命的工具） 局部改善-&amp;gt;全面优化-&amp;gt;全面重构 技术应用-&amp;gt;业务优化-&amp;gt;全面变革 农业时代，工业时代，数字时代，造物时代 为什么数字化转型 企业处境 各行各业先后 总量短缺-&amp;gt;结构过剩，卖方市场-&amp;gt;买方市场，存量经济的争夺内卷加剧 成熟稳定期-&amp;gt;跃迁剧变期 各行各业被迫转型：不断重新分工、重新分利 产业链 重构/(替代+重构) 战略问题 不是未来做什么，是做什么有未来 提高打鱼技术但鱼没有了 不要战术勤奋战略懒惰, 战术成功战略失败 不是选择题是必答题 什么是企业/产业数字化 IBA+经济 电子商贸，流通 不是虚拟经济，是实体经济的全新形态 IBA+交易 渠道体系革命 线上渠道为主，主导线上线下一体化 终端(触点)为王 与用户空间时间距离不断缩短 一切皆终端，终端多样化-&amp;gt;场景碎片化(场景嵌入)-&amp;gt;新旧场景兴衰 泛在智能交互，泛在智能感应(不断向生产环节渗透) 交易边际成本大幅下降, 交易可能性边界急剧膨胀，资源配置能力与利用效率极大提高 产业链重构：M2B2C, M2C, P2P 野蛮营销-&amp;gt;精准营销-&amp;gt;智能匹配 产品变渠道，产品渠道一体化 智能产品-&amp;gt;触点+服务与生态体系 产品成为持续服务的载体 制造业服务业化 智能化，机器体系对人的脑力及体力的强助力、替代、超越 精细化、高度集成化 去人化、极致自动化 柔性化，按需生产、柔性制造能力 IBA+生产 业务跨界与跃迁：供应链资源，数据资源，新“物种”(产品) 低碳、低能耗、低消耗: 自然资源稀缺性下降 IBA+交易+生产 交易生产一体化 由需到供，按需生产，按需服务，按需研发，按需投资，0库存 非标-&amp;gt;标准化-&amp;gt;去标准化(个性化生产) 卖产品-&amp;gt;卖生产服务，制造业服务业化 延展到整个国民经济生态体系，有计划的市场经济 数据驱动，智能决策 平台化+极致专业化分工 企业(管理与产权)形态、雇佣形态的演变 管控型-&amp;gt;交易型/平台型 企业人员规模缩小，企业边界模糊 企业、资本与劳动者关系演变 数字化转型 数字经济质跃工业经济 数字经济系统 经济环境: 人类经济活动(分工协作)的基础条件(信息不对称性，资源稀缺性)发生剧变 经济活动: 交易和生产的边际成本大幅下降，经济活动的效率大幅上升，经济活动的可能性边界急剧膨胀 从根本上超越工业经济 数字化经济含义 交易、生产：0边际成本 边际革命：人类逐步进入0边际成本时代 边际成本递减-&amp;gt;0边际成本-&amp;gt;边际成本为负 结果变成原因，逼近转型升级 数字化转型升级 以数字科技为应用手段，持续推进业务变革、组织变革 经济的数字化转型升级: 以数字科技应用为手段，推进经济模式、经济形态持续转型升级 企业数字化转型升级：以数字科技应用为手段，推进企业营销模式、服务模式、管理模式、生产模式、决策模式、商业模式、产权模式等持续转型升级 鸿沟：科技&amp;lt;-&amp;gt;业务 可能性(无限)-&amp;gt;现实性(有限) 科技-&amp;gt;技术应用(产品/模式/制度创新变革)-&amp;gt;业务问题-&amp;gt;科技应用创新不足是制约转型升级、创新发展的关键瓶颈 问题导向，需求拉动 科技应用价值问题：经济效益是检验科技领先的唯一标准 科技应用方向问题：0到0的创新比0到1的创新更关键 科技应用的路径问题：并非都是&amp;quot;富家子&amp;quot;&amp;quot;优等生&amp;quot; 转型是什么 三个层次 新赛道(局部): 新技术、新产品、新兴产业链 新形态(普遍): 新业态、新模式、新型产业链 新经济(全面): 新生态、新格局 企业：全面转型或K型经济 可行方法 你是谁：业务现状 你想变成谁 动因与目标(短期、长期) 问题导向与需求分析 你能变成谁 基础条件与既有资源 信息化数字化的基础 你如何变成谁 (周而复始)设计-&amp;gt;建设-&amp;gt;运营(业务+系统)-&amp;gt;跟踪与评估 得客户资源者得天下 流量-&amp;gt;留量 客户资源：客户数据+客户关系+客户渠道 以更低边际成本掌控更大的客户资源 谁掌握完备的客户资源 如何掌握完备的客户资源 未来已临 划时代的技术都是试金石 与时代赛跑 优化咨询 # 问题 客户反馈 单体应用 模块耦合程度 微服务划分与边界 单节点数据库 查询崩溃 IoT控制 命令超时失败, 响应慢 出错业务处理 发现问题 现有代码逻辑梳理 通过链路追踪，找性能瓶颈 SQL平台建设，发现数据库性能问题，优化SQL 服务器节点监控，应用监控，数据库监控 解决问题 代码 纯代码优化：N+1调用，事务问题 逻辑优化：订单失败，复杂业务流程优化 发布流程优化CI/CD 中间件优化：优雅停机，灰度方案节点打标，全链路日志 性能优化：业务并行处理，业务异步处理 数据库 不合理调用治理：批量更新，大事务， 慢SQL治理 数据库备份：主从优化，定时备份 配置调优 架构 高可用：服务发现，分布式 业务缓存优化，减少数据库调用：热点数据，对象缓存，多级缓存 分布式任务平台：分片执行 任务中心：批量平台 稳定性 告警平台 异常告警(空指针，接口调用成功率) 监控告警(服务器使用率) 业务告警(下单失败) 限流熔断 网关限流，业务限流，接口限流，外部调用限流 业务平滑处理 运营工具 业务数据多维分析 </description>
+      <description> Presentation # 指导思想: 成于结构，臻于对话 PPT画页 画的是冰山一角 类似手持卡片 类似左右脑: 逻辑+展示 具体内容 思维导图 维度筛选，MECE不重不漏 空姐现象 共知的事情特色讲，去掉已知部分 卖钻讲孔 电梯法则 告知全局，步骤清晰，回顾小结 递进逻辑：信息，分析，方法 目录 首页效应 目录，章节页，总结页 视觉 图形代替文字: 缩小了看一看 标题附主题语: 有兴趣有信息量 讲 替画重点（提示语如: 请注意，提问） 细讲：页只写观点，串联起来讲，只有30%内容重合 心态 注意力放在观众那边 沟通合作而非防御 房间有更聪明的人 数字化转型 # 什么是数字化，有什么用 发展 信息化: 烟囱式，信息/数据孤岛，管理/运营孤岛 互联网化 互联互通: 0边际成本互联互通，云计算-&amp;gt;雾计算 大数据化 数据互联: 互联一切-&amp;gt;一切互联，跨界应用 数据资源: 核心要素/资产，第一权利 数智化 人工智能：大数据-&amp;gt;大知识, 人类设计-&amp;gt;自动学习，替代与超越 计算智能-&amp;gt;感知智能-&amp;gt;认知智能 三位一体：(互联网+大数据+人工智能)+ Any 数字孪生、元宇宙 互联网+ 信息传递边际成本趋向于0 连接机制革命 任意两个资源(人或物)0边际成本互联互通: 信息0边际成本 传播机制: 线性、金字塔式-&amp;gt;非线性、网状、几何级、病毒式 带来什么 数字科技三位一体：(互联网+大数据+人工智能)+ 边际革命：0边际成本效应，边际成本递减，边际收益递增 数智：可知、可达、可控、可预测，程度剧变、实现边际成本剧变 量变-&amp;gt;质变（工具革命-&amp;gt;革命的工具） 局部改善-&amp;gt;全面优化-&amp;gt;全面重构 技术应用-&amp;gt;业务优化-&amp;gt;全面变革 农业时代，工业时代，数字时代，造物时代 为什么数字化转型 企业处境 各行各业先后 总量短缺-&amp;gt;结构过剩，卖方市场-&amp;gt;买方市场，存量经济的争夺内卷加剧 成熟稳定期-&amp;gt;跃迁剧变期 各行各业被迫转型：不断重新分工、重新分利 产业链 重构/(替代+重构) 战略问题 不是未来做什么，是做什么有未来 提高打鱼技术但鱼没有了 不要战术勤奋战略懒惰, 战术成功战略失败 不是选择题是必答题 什么是企业/产业数字化 IBA+经济 电子商贸，流通 不是虚拟经济，是实体经济的全新形态 IBA+交易 渠道体系革命 线上渠道为主，主导线上线下一体化 终端(触点)为王 与用户空间时间距离不断缩短 一切皆终端，终端多样化-&amp;gt;场景碎片化(场景嵌入)-&amp;gt;新旧场景兴衰 泛在智能交互，泛在智能感应(不断向生产环节渗透) 交易边际成本大幅下降, 交易可能性边界急剧膨胀，资源配置能力与利用效率极大提高 产业链重构：M2B2C, M2C, P2P 野蛮营销-&amp;gt;精准营销-&amp;gt;智能匹配 产品变渠道，产品渠道一体化 智能产品-&amp;gt;触点+服务与生态体系 产品成为持续服务的载体 制造业服务业化 智能化，机器体系对人的脑力及体力的强助力、替代、超越 精细化、高度集成化 去人化、极致自动化 柔性化，按需生产、柔性制造能力 IBA+生产 业务跨界与跃迁：供应链资源，数据资源，新“物种”(产品) 低碳、低能耗、低消耗: 自然资源稀缺性下降 IBA+交易+生产 交易生产一体化 由需到供，按需生产，按需服务，按需研发，按需投资，0库存 非标-&amp;gt;标准化-&amp;gt;去标准化(个性化生产) 卖产品-&amp;gt;卖生产服务，制造业服务业化 延展到整个国民经济生态体系，有计划的市场经济 数据驱动，智能决策 平台化+极致专业化分工 企业(管理与产权)形态、雇佣形态的演变 管控型-&amp;gt;交易型/平台型 企业人员规模缩小，企业边界模糊 企业、资本与劳动者关系演变 数字化转型 数字经济质跃工业经济 数字经济系统 经济环境: 人类经济活动(分工协作)的基础条件(信息不对称性，资源稀缺性)发生剧变 经济活动: 交易和生产的边际成本大幅下降，经济活动的效率大幅上升，经济活动的可能性边界急剧膨胀 从根本上超越工业经济 数字化经济含义 交易、生产：0边际成本 边际革命：人类逐步进入0边际成本时代 边际成本递减-&amp;gt;0边际成本-&amp;gt;边际成本为负 结果变成原因，逼近转型升级 数字化转型升级 以数字科技为应用手段，持续推进业务变革、组织变革 经济的数字化转型升级: 以数字科技应用为手段，推进经济模式、经济形态持续转型升级 企业数字化转型升级：以数字科技应用为手段，推进企业营销模式、服务模式、管理模式、生产模式、决策模式、商业模式、产权模式等持续转型升级 鸿沟：科技&amp;lt;-&amp;gt;业务 可能性(无限)-&amp;gt;现实性(有限) 科技-&amp;gt;技术应用(产品/模式/制度创新变革)-&amp;gt;业务问题-&amp;gt;科技应用创新不足是制约转型升级、创新发展的关键瓶颈 问题导向，需求拉动 科技应用价值问题：经济效益是检验科技领先的唯一标准 科技应用方向问题：0到0的创新比0到1的创新更关键 科技应用的路径问题：并非都是&amp;quot;富家子&amp;quot;&amp;quot;优等生&amp;quot; 转型是什么 三个层次 新赛道(局部): 新技术、新产品、新兴产业链 新形态(普遍): 新业态、新模式、新型产业链 新经济(全面): 新生态、新格局 企业：全面转型或K型经济 可行方法 你是谁：业务现状 你想变成谁 动因与目标(短期、长期) 问题导向与需求分析 你能变成谁 基础条件与既有资源 信息化数字化的基础 你如何变成谁 (周而复始)设计-&amp;gt;建设-&amp;gt;运营(业务+系统)-&amp;gt;跟踪与评估 得客户资源者得天下 流量-&amp;gt;留量 客户资源：客户数据+客户关系+客户渠道 以更低边际成本掌控更大的客户资源 谁掌握完备的客户资源 如何掌握完备的客户资源 未来已临 划时代的技术都是试金石 与时代赛跑 企业管理 # 战略 目标：使命，愿景 分层 企业层面战略 业务单元层面战略（竞争战略） 职能层面战略 管理 战略分析阶段 战略选择阶段 战略评价阶段 战略实施阶段 战略控制阶段 优化咨询 # 问题 客户反馈 单体应用 模块耦合程度 微服务划分与边界 单节点数据库 查询崩溃 IoT控制 命令超时失败, 响应慢 出错业务处理 发现问题 现有代码逻辑梳理 通过链路追踪，找性能瓶颈 SQL平台建设，发现数据库性能问题，优化SQL 服务器节点监控，应用监控，数据库监控 解决问题 代码 纯代码优化：N+1调用，事务问题 逻辑优化：订单失败，复杂业务流程优化 发布流程优化CI/CD 中间件优化：优雅停机，灰度方案节点打标，全链路日志 性能优化：业务并行处理，业务异步处理 数据库 不合理调用治理：批量更新，大事务， 慢SQL治理 数据库备份：主从优化，定时备份 配置调优 架构 高可用：服务发现，分布式 业务缓存优化，减少数据库调用：热点数据，对象缓存，多级缓存 分布式任务平台：分片执行 任务中心：批量平台 稳定性 告警平台 异常告警(空指针，接口调用成功率) 监控告警(服务器使用率) 业务告警(下单失败) 限流熔断 网关限流，业务限流，接口限流，外部调用限流 业务平滑处理 运营工具 业务数据多维分析 </description>
     </item>
     
     <item>
@@ -533,20 +506,20 @@ Notion的问题： 数据不能备份，数据不一定安全，不能定制化�
     
     <item>
       <title></title>
-      <link>https://example.com/docs/architect/strategy/big_data/ecology/</link>
+      <link>https://example.com/docs/architect/strategy/datalake/ecology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/strategy/big_data/ecology/</guid>
+      <guid>https://example.com/docs/architect/strategy/datalake/ecology/</guid>
       <description>Hadoop体系 # 发行版 Apache Hadoop CDH(Cloudera&#39;s Distribution Including Apache Hadoop) HDP(Hortonworks Data Platform) 宜信 D.Bus # 数据收集与计算 UAVStack # AIOps, 智能运维 UAV.Monitor # 监控 UAV.APM # 性能管理 UAV.ServiceGovern # 服务治理 UAV.MSCP # 微服务计算 Wormhole # SPaaS(Stream Processing as a Service) Gartner # ITOA，算法即运维 大数据 PB级数据 4V volume(大量) velocity(高速) variety(多样) value(低价值密度) 场景 物流仓储: 精细化运营，命中率 推荐 保险: 风险预测 金融: 用户特征 房产: 精准投策、营销 AI 组织部门 平台: 集群 Hadoop、Flume、Kafka、HBase、Spark等搭建 性能监控、调优 数据仓库: 写SQL ETL, 数据清洗 Hive, 数据分析、建模 数据挖掘 数据支持 算法、推荐、用户画像 报表 JavaEE hadoop Apache开源, 分布式系统基础架构 面临问题 硬盘 1块: 10TB-14TB 1PB: 102块硬盘 算 MySQL5.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/architect/strategy/block_chain/</link>
+      <link>https://example.com/docs/architect/strategy/iot/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/strategy/block_chain/</guid>
-      <description> 隐私保护计算 # Privacy-Preserving Computing 目标 数据聚合时，增强对数据的保护，降低数据泄露风险 数据最小化，可用不可见 方法 多方安全计算 联邦学习 </description>
+      <guid>https://example.com/docs/architect/strategy/iot/framework/</guid>
+      <description>ThingsBoard # # java, 社区版、企业版 文档 github.com/thingsboard/thingsboard thingsboard.io/docs localhost:8080/swagger-ui.html # 本地swagger 安装 docker docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb thingsboard/tb-postgres maven 确定ui/pom.xml中&amp;lt;nodeVersion&amp;gt; mvn install -DskipTests 配置 application zk ZOOKEEPER_ENABLED ZOOKEEPER_URL cassandra CASSANDRA_URL CASSANDRA_USERNAME CASSANDRA_PASSWORD redis REDIS_HOST REDIS_PORT REDIS_DB REDIS_PASSWORD postgresql SPRING_DATASOURCE_URL SPRING_DATASOURCE_USERNAME SPRING_DATASOURCE_PASSWORD kafka TB_KAFKA_SERVERS 运行 application server transport http demo数据 admin sysadmin@thingsboard.org sysadmin tenant tenant@thingsboard.org tenant customer customer@thingsboard.org或customerA@thingsboard.org customer customerB@thingsboard.</description>
     </item>
     
     <item>
@@ -705,14 +678,18 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     </item>
     
     <item>
-      <title>那些年我做过的技术</title>
+      <title>这些年我做过的技术</title>
       <link>https://example.com/docs/architect/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/docs/architect/summary/</guid>
-      <description>从13年毕业到今天，参加工作有8年了
-背景经历 # 这8年，大约分三个阶段
-2012年-2015年 2015年-2019年 2019年-至今 </description>
+      <description>13年毕业以来，做技术有9年了。加上大学4年学计算机，已经13年的时间做技术了。虽然没什么成就，但也想学别人写出来看一看，起码也为自己的时间做一个交代。
+背景经历 # 2009年-2013年：上学幻想期。幻想的意思是，那时技术是学来玩的，大部分时间在搞Linux，安装各种多系统和发行版，配Conky, 配各种Compiz 3D桌面，安装各种攻击工具。还买了《深入Linux内核架构》、《鸟哥的Linux私房菜》、《Linux与UNIX Shell编程指南》、《算法导论》可惜最终基础没看多少，大概与牛人的差距就是从看不完这些书体现出来的。
+2013年-2015年: 入门乱学期。毕业后在C++与Java中做了Java。从此书变成了Java系列，还去学了Java线下课。可能天生的好奇心体现了出来，Java工作不久就用刚流行的Node.js改造了公司的消息推送程序，又学起了新兴的WebGL与Three.js。还改用Dell的平板装了Linux来开发。可能做的东西太过于玄幻，成为了公司的架构师。
+2015年-2018年: 技术学习期。可能源于对各种技术的探索，走上了全栈开发的道路，用Node.js做起了Proxy和后端，全栈体系里用MongoDB做了业务库，并在前端不断寻求Web3D的应用，还扬言计算机交互必将从一维的Command和二维的Window发展到三维的3D界面，被打脸到现在。之后做了Golang的企业级微服务，自我感觉到此才算学会了负起责任,真的承担了TeamLeader的责任与架构师工作，从追求各种代码的特性和代码的优雅，转到了追求设计的优雅，并开始系统研究各种中间件。
+2018年-至今: 架构探索期。此期间的职位头衔是基础服务架构师，技术专家和架构师Manager。利益于知识的全面性和折腾的各种经验，主要做了几件事。一是从0到1的基础服务平台建设，二是解决中型SaaS系统开发维护中的各种问题，三是设计各种微服务系统并给咨询方出解决方案。技术方向一个是系统设计，另一个是折腾K8S和DevOps与测试工作的各种问题。折腾的方向似乎升级到了战略性，IoT、AI、湖仓一体、区块链、元宇宙。然后惊奇的发现技术栈竟然挺吻合，阻碍没想象中的大，大概得益于多年Linux工作的基础和什么都折腾一下的经历。
+思维方式 # 业务经验很重要，各个行业的经验要小心全面的积累下来，甚至比技术更重要一些，因为它有实用性和更长久的不变性。 技术实现方面设计是主题，可能设计能力是评价一个工程师最主要的评价方向，当然前提是有写可靠代码的能力。 基础知识是演绎的关键，凡是别人说学这个有什么用的，一定要抓紧学一学。 靠工具解决问题 大型系统的提效，完善测试是关键。可能这就是所说的抓手，也是降本增效的着力点。它前边直接对应需求，后边促进运维体系和开发体系。并本身体现出系统质量。 企业知识库是核心，体现和知识的结构化和历史变化，降低了沟通成本并提供了信息一致性保障。 持续关注业界解决方案，有渠道无遗漏的过重要信息，保持敏感性 后记 # 互联网公司陷入增长瓶颈
+但AI的应用发展日新月异 其实元宇宙的概念很好的统一了现在科技应用的增长点，创造了需求 当然马斯克代表的多行星发展的方向暂时与我没有关系 量子计算似乎也有可工业化的迹象 我首先要避免的是变成修蒸汽机的人&amp;ndash;只会解决曾经的问题。其次要成为完整的人，在技术外的场景也寻求人生的意义。 </description>
     </item>
     
   </channel>

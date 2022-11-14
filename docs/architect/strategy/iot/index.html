@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="框架 # # Internet of Things Kaa SiteWhere # tomcat, mongodb, hbase, influxdb, grafana ThingSpeak # matlab可视化 DeviceHive # 开源, docker, k8s, es, spark, cassandra, kafka Zetta Thinger.io wso2 业务 # 目的 解决可读性可操作性 模块 展示 dashboard 在线设备 消息量 规则引擎消息流转次数 运维大盘 产品品类 地区排名 指标趋势 设备在线率 设备排行 事件数 事件类型 停用时长 延迟 开发服务 studio 开发 web 移动 自动化服务 设备 产品 # 软硬分离的桥梁 设备开发 -&gt; 设备模拟(在线写c, js) -&gt; 软件开发 配置(使用移动端) 运营运维 后台 监控 插件开发 服务编排 行业服务 智能生活 os # 高性能、极简开发、云端一体、丰富组件、安全防护 项目生成 领域模板 插件选择 网络 网关 凭证 无线 车联网、智能家居、穿戴、媒体内容分发、环境监测、智慧农业 设备 节点 接入 多协议: MQTT、CoAP、HTTP 多平台(设备端代码): c、node.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="IoT" />
-<meta property="og:description" content="框架 # # Internet of Things Kaa SiteWhere # tomcat, mongodb, hbase, influxdb, grafana ThingSpeak # matlab可视化 DeviceHive # 开源, docker, k8s, es, spark, cassandra, kafka Zetta Thinger.io wso2 业务 # 目的 解决可读性可操作性 模块 展示 dashboard 在线设备 消息量 规则引擎消息流转次数 运维大盘 产品品类 地区排名 指标趋势 设备在线率 设备排行 事件数 事件类型 停用时长 延迟 开发服务 studio 开发 web 移动 自动化服务 设备 产品 # 软硬分离的桥梁 设备开发 -&gt; 设备模拟(在线写c, js) -&gt; 软件开发 配置(使用移动端) 运营运维 后台 监控 插件开发 服务编排 行业服务 智能生活 os # 高性能、极简开发、云端一体、丰富组件、安全防护 项目生成 领域模板 插件选择 网络 网关 凭证 无线 车联网、智能家居、穿戴、媒体内容分发、环境监测、智慧农业 设备 节点 接入 多协议: MQTT、CoAP、HTTP 多平台(设备端代码): c、node." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/architect/strategy/iot/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-10T16:49:27+08:00" />
-<meta property="article:modified_time" content="2022-04-23T22:18:41+08:00" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.com/docs/architect/strategy/iot/" />
 
 <title>IoT | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.17f9d631ec7296c58e1c418cd66f4e1d4e7e8927a6712bfc0621149c5d4d8fed.js" integrity="sha256-F/nWMexylsWOHEGM1m9OHU5&#43;iSemcSv8BiEUnF1Nj&#43;0=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed6df80834757b8cb562d6295a4becedda7d0424a9e83e1f4a8d1acf0868f3d8.js" integrity="sha256-7W34CDR1e4y1YtYpWkvs7dp9BCSp6D4fSo0azwho89g=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -28,6 +26,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/architect/strategy/iot/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -83,15 +82,19 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><a href="/docs/architect/strategy"><strong><strong>战略技术方案</strong></strong></a>
 <ul>
-<li><a href="/docs/architect/strategy/middle_platform">中台</a></li>
-<li><a href="/docs/architect/strategy/big_data"><strong><strong>湖仓一体</strong></strong></a>
+<li><a href="/docs/architect/strategy/middle_platform"><strong><strong>中台</strong></strong></a></li>
+<li><a href="/docs/architect/strategy/datalake"><strong><strong>湖仓一体</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/big_data/ecology">生态体系</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy/ai">人工智能</a></li>
-<li><a href="/docs/architect/strategy/iot">物联网</a></li>
-<li><a href="/docs/architect/strategy/block_chain">区块链</a></li>
+<li><a href="/docs/architect/strategy/ai"><strong><strong>人工智能</strong></strong></a></li>
+<li><a href="/docs/architect/strategy/iot"><strong><strong>物联网</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/strategy/iot/framework">框架</a></li>
+</ul>
+</li>
+<li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
 <li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
@@ -301,7 +304,6 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#框架">框架</a></li>
     <li><a href="#业务">业务</a></li>
-    <li><a href="#thingsboard">ThingsBoard</a></li>
   </ul>
 </nav>
 
@@ -433,283 +435,7 @@ wso2
                 视频算法容器
         驱动
             websocket、modbus、lightSensor、light、opcua,
-    合作
-</code></pre>
-<h1 id="thingsboard">
-  ThingsBoard
-  <a class="anchor" href="#thingsboard">#</a>
-</h1>
-<pre><code># java, 社区版、企业版
-文档
-    github.com/thingsboard/thingsboard
-    thingsboard.io/docs
-    localhost:8080/swagger-ui.html      # 本地swagger
-安装
-    docker
-        docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb thingsboard/tb-postgres
-    maven
-        确定ui/pom.xml中&lt;nodeVersion&gt;
-        mvn install -DskipTests
-    配置
-        application
-            zk
-                ZOOKEEPER_ENABLED
-                ZOOKEEPER_URL
-            cassandra
-                CASSANDRA_URL
-                CASSANDRA_USERNAME
-                CASSANDRA_PASSWORD
-            redis
-                REDIS_HOST
-                REDIS_PORT
-                REDIS_DB
-                REDIS_PASSWORD
-            postgresql
-                SPRING_DATASOURCE_URL
-                SPRING_DATASOURCE_USERNAME
-                SPRING_DATASOURCE_PASSWORD
-            kafka
-                TB_KAFKA_SERVERS
-    运行
-        application
-            server
-        transport
-            http
-    demo数据
-        admin
-            sysadmin@thingsboard.org    sysadmin
-        tenant
-            tenant@thingsboard.org  tenant
-        customer
-            customer@thingsboard.org或customerA@thingsboard.org  customer
-            customerB@thingsboard.org   customer
-            customerC@thingsboard.org   customer
-        device
-            A1, A2, A3  A1_TEST_TOKEN,...   customerA
-            B1  B1_TEST_TOKEN   customerB
-            C1  C1_TEST_TOKEN   customerC
-            'DHT11 Demo Device'     DHT11_DEMO_TOKEN
-            'Raspberry Pi Demo Device'  RASPBERRY_PI_DEMO_TOKEN
-包结构
-    application                         # 可改, 网关
-        server
-            install
-            config                      # 同源策略、swagger、websocket、消息、安全
-            exception
-            controller                  # 页面调用
-            service
-            actors
-                service
-                    DefaultActorService
-                        actorContext
-                            actorService(this)
-                            actorSystem
-                            appActor
-                            statsActor
-                        rpcManagerActor
-    common                              # 不可改, 功能代理
-        data                            # 数据结构
-        message                         # 消息类型
-        transport                       # 客户端调用
-    dao                                 # 可改, 业务, 适配db
-        model                           # 数据库对象
-        resources
-            sql                         # 表结构
-    netty-mqtt                          # 不可改, 数据通信协议
-    rule-engine                         # 不可改, 规则引擎
-    transport                           # 不可改, 设备端运行
-        http                            # 启动http传输协议
-        coap
-        mqtt
-    tools                               # 可改, 工具
-    ui                                  # 可改, 页面, angular, react, webpack
-    docker                              # 不可改, 打包
-    msa                                 # 不可改，分布式
-        black-box-tests                 # 黑盒测试
-        js-executor                     # 执行js
-    log
-    img         
-模块
-    application
-        common
-            data                        # 数据结构
-            message                     # 消息结构
-            transport                   # 接口结构，适配客户端
-    dao                                 # 交互data, 兼容不同db
-    tools
-        extensions
-            kafka
-            mqtt
-            rabbitmq
-            rest-api-call
-        extensions-api
-            action
-            filter
-            plugin
-            processor
-        extensions-core                 # 实现公用extensions-api
-    transport
-        http                            # rest
-        coap                            # californium
-        mqtt                            # netty
-    规则引擎                             # 基于actors执行
-        filters
-        processors
-        action
-    ui                                  # node.js + yarn
-表结构
-    tenant
-    customer                            # 关联tenant
-    tb_user                             # user信息、角色
-    user_credentials                    # user密码
-    admin_settings                      # admin信息, key value形式
-    audit_log                           # 登录日志
-
-    asset
-    entity_view     
-    attribute_kv                        # entity attribute
-    component_descriptor                # node类
-
-    device                              # 设备, label
-    device_credentials                  # 设备ACCESS_TOKEN
-    ts_kv                               # 设备事件
-    ts_kv_latest                        # 设备当前状态
-
-    rule_chain                          # rule root chain
-    rule_node                           # rule节点
-    relation                            # rule关系
-    event                               # rule事件
-    alarm                               # alarm事件
-
-    dashboard                           # dashboard设置
-    widget_type                         # widget, 别名
-    widgets_bundle
-api
-    host:port/api/v1/$ACCESS_TOKEN/
-        telementry                      # 上传遥测数据
-            post {&quot;key1&quot;:&quot;value1&quot;}
-            post [{&quot;key1&quot;:&quot;value1&quot;}]
-            post {&quot;ts&quot;:1451649600512, &quot;values&quot;:{&quot;key1&quot;:&quot;value1&quot;}}
-        attributes
-            post {&quot;attribute1&quot;:&quot;value1&quot;}          # 更新属性
-            get                         # 请求属性
-        attributes/updates
-            get ?timeout=20000          # 订阅属性
-        rpc
-            get ?timeout=20000          # 要求订阅，返回id, method, params
-            post {&quot;method&quot;: &quot;getTime&quot;, &quot;params&quot;:{}}     # 执行method
-        rpc/{$id}
-            post
-        claim                           # 用户认领设备
-            post
-服务架构
-产品架构
-    设备接入: MQTT、CoAP、HTTP
-    规则引擎                             # 处理设备消息
-        消息(message)
-            设备传入数据
-            设备生命周期事件
-            rest api事件
-            rpc请求
-        规则节点(node)                   # 过滤消息
-            filter
-            enrichment
-            transformation
-            action
-            external
-            rule chain
-        规则链                           # 连接节点
-    核心服务
-        设备认证: token、X.509
-        规则和插件
-        多租户(tenant)
-            客户
-                资产
-                设备
-        部件(widget)仪表盘(dashboard)
-            alarm
-            实体视图
-                设备即服务(DaaS)
-                共享资产、设备
-                传感器等权限
-        告警和事件
-    网关: rest api, websocket
-    actor模型: 用于并发
-    集群: zookeeper服务发现, 一致性哈希
-    安全: SSL
-    第三方
-        akka
-        zookeeper
-        grpc
-        cassandra
-
-    system
-        general
-        mail
-        security
-功能模块
-    admin
-    tenant
-        rule chain
-            filter
-            enrichment
-            transformation
-            action
-            *analytics
-            external
-            rule chain
-        *data converters
-        *integrations
-        *roles
-        *customers hierarchy
-        *user groups
-        customers
-        *customer groups
-        assets
-        *asset groups
-        devices
-        *device groups
-        entity views
-        *entity view groups
-        widgets library
-        dashboards
-        *dashboard groups
-        *scheduler
-            report
-            send rpc
-            update attributes
-        *white labeling
-            main server
-            mail templates
-            custom translation
-            custom menu
-            white labeling
-            login white labeling
-            self registration
-        audit logs
-    entities
-        包含
-            tenants
-            customers
-            users
-            devices
-            assets
-            alarms
-            dashboards
-            rule node
-            rule chain
-        操作
-            detail
-            assigned to customer
-            attributes
-                client
-                server
-                shared
-            telemetry
-            alarms
-            events
-            relations
-            audit logs</code></pre>
+    合作</code></pre>
 </article>
  
       
@@ -719,16 +445,16 @@ api
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/9d2ea756f7e5d3ffd8c443f52554888da5999c1a" title='Last modified by outrunJ | Apr 23, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/2f21611cabda6ad61a59703a1951538430601829" title='Last modified by outrun | Nov 14, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 23, 2022</span>
+      <span>Nov 14, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/strategy/iot.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/tree/master/content/content/docs/architect/strategy/iot/_index.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -766,7 +492,6 @@ api
   <ul>
     <li><a href="#框架">框架</a></li>
     <li><a href="#业务">业务</a></li>
-    <li><a href="#thingsboard">ThingsBoard</a></li>
   </ul>
 </nav>
 

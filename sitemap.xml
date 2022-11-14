@@ -21,7 +21,7 @@
     <lastmod>2021-11-13T20:11:09+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/</loc>
-    <lastmod>2022-11-11T15:49:15+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/tool/linux/linux_program/</loc>
     <lastmod>2022-08-01T13:53:50+08:00</lastmod>
@@ -120,16 +120,16 @@
     <lastmod>2022-09-27T16:27:03+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/strategy/ai/</loc>
-    <lastmod>2022-04-23T22:18:41+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/strategy/iot/</loc>
-    <lastmod>2022-04-23T22:18:41+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/strategy/middle_platform/</loc>
-    <lastmod>2022-04-23T22:18:41+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/method/advice_plan/</loc>
-    <lastmod>2022-11-11T15:49:15+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/strategy/</loc>
     <lastmod>2022-11-11T15:49:15+08:00</lastmod>
@@ -227,14 +227,17 @@
     <loc>https://example.com/docs/architect/method/</loc>
     <lastmod>2022-08-31T17:07:09+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/docs/architect/strategy/big_data/</loc>
-    <lastmod>2022-04-23T22:18:41+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/docs/architect/strategy/big_data/ecology/</loc>
-    <lastmod>2022-11-11T15:49:15+08:00</lastmod>
-  </url><url>
     <loc>https://example.com/docs/architect/strategy/block_chain/</loc>
-    <lastmod>2022-11-11T15:49:15+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/docs/architect/strategy/datalake/</loc>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/docs/architect/strategy/datalake/ecology/</loc>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/docs/architect/strategy/iot/framework/</loc>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/strategy/meta/</loc>
     <lastmod>2022-11-11T15:49:15+08:00</lastmod>
@@ -330,6 +333,6 @@
     <lastmod>2022-11-11T15:49:15+08:00</lastmod>
   </url><url>
     <loc>https://example.com/docs/architect/summary/</loc>
-    <lastmod>2022-11-11T15:49:15+08:00</lastmod>
+    <lastmod>2022-11-14T20:22:20+08:00</lastmod>
   </url>
 </urlset>
