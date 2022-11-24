@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content=" 愿景 # 统一 批流一体 湖仓一体计划 # 思路 分治 计算向数据移动 本地取数据	数据仓库计划 # 采集 -&gt; kafka -&gt; ETL -&gt; kafka -&gt; 存储 -&gt; OLAP 采集工具 # 业务数据 ODS原始数据快照 日志 动态数据：用户推荐数据，用户行为 第三方数据：用户征信、广告投放数据、企业信息 技术 RPC同步 ETL拉取 日志采集 爬虫 实时 trigger、日志 canel 准实时 日志 非实时 任务调度 quartz, xxl-job, 大数据 技术 Flume 日志采集 Sqoop 数据库ETL etl, sql-to-Hadoop, MapReduce程序, 支持Hive, HDFS OoZie 任务调度 Azkaban 任务调度 存储工具 # HDFS HBase Hive 数据仓库 封装的HDFS和MapReduce ClickHouse 运维工具 # Ambari 安装、部署、配置和管理 Flume cloudera开源, 日志收集 Ganglia 分布式监控系统，php页面 HUE web管理Hadoop 处理工具 # 离线计算(批处理) # MapReduce 每个task启动一个jvm Pig 数据流处理语言，类SQL, 脚本转换为MapReduce任务 Mahout 数据挖掘, 机器学 Tez 用DAG(有向无环图)组织多个MR任务 流式计算 # Impala # cloudrea开源,实时视图计算框架, 分布式查询引擎。直接从HDFS或Hbase中用select, join, 支持事务, 需要kafka S4 # 分布式流计算，允许请求丢失 Storm 只能流式计算 Spark Flink Kafka Stream 数据管理工具 # 分类 元数据管理 任务管理：管理、编排、调度、监测 数据质量、数据治理 Yarn 介绍 Yet Another Resource Negotiator, 任务管理, 调度算力资源, 在HDFS上运行计算框架(如MapReduce, Storm, Spark) 组成 ResourceManager(RM) 处理请求 监控NodeManager 启动、监控ApplicationMaster 资源分配调度 常驻 NodeManager(NM) 常驻 ApplicationMaster(AM) 数据切分 为应用程序申请资源再分配给内部任务 任务监控、容错 非常驻，job拉起 Container 运行APP 某节点上多维度的资源 由NodeManager调度 非常驻 Mesos Tachyon 分布式缓存 分析展示工具 # Mllib machine learning library, Spark机器学习库 Giraph 大规模图分布式计算 GraphX Spark分布式图处理框架 Superset Metabase Redash BIRT Kylin Davinci DBus-allinone HAWQ # Hadoop原生sql查询引擎 phoenix # OLTP, 支持Hbase和HDFS, jdbc, 更快sql查询 Shark # sql on Spark, 并行job处理比MapReduce快100倍 Presto # 分布式sql查询, facebook开源, 称比Hive快10倍 Drill # Apache, Dremel的开源版本, 对多数据库生成query plan Dremel 介绍 google的交互式数据分析系统，构建于gfs上 特点 嵌套型数据的列存储, 多层查询 减少查询的处理数据量 Kylin # OLAP, Apache, 支持Cube类查询 GridGain 网格计算框架，提供平行计算能力 ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/docs/architect/strategy/datalake/" />
+<meta property="og:url" content="https://runout.run/docs/architect/strategy/datalake/" />
 
 <title>Datalake | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/architect/strategy/datalake/index.xml" title="outrun的笔记" />
+</script><link rel="alternate" type="application/rss+xml" href="https://runout.run/docs/architect/strategy/datalake/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -95,7 +97,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -538,7 +540,7 @@ GridGain
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

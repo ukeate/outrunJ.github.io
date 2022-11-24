@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="基础 # 注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&lt;vector&lt;int&gt; &gt; # c&#43;&#43;的语法缺陷, &gt;&gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin .">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="程序语言原理" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="程序语言原理" />
 <meta property="og:description" content="基础 # 注意 比较语言，共通处(抽象的元知识)是要点 在历史上判断设计者意图 # 利于了解知道的根基 不同规则，只在特点语言中合理 # 如0在ruby为真 历史 EDSAC # 1949，纸带 FORTRAN # 1954, 中缀表达式, 运算符优先级、结合性 FORTH # 1958, 没有语法，后缀表达式，语法树 LISP # 1958, 括号，前缀表达式，语法树 语法 引入优先级和左右结合 规则不冲突是困难的 vector&lt;vector&lt;int&gt; &gt; # c&#43;&#43;的语法缺陷, &gt;&gt;是位运算，必须加空格 结构化 # 60年代 if # 汇编是判断再向后跳代码, if使可读性好 while # 可读了反复执行的if for # 可读了数值渐增的while foreach # 可读了集合遍历 函数 作用 便于理解 # 组织划分部门 便于再利用 # 再利用无代码成本 用了跳转命令和返回命令 # 从记录函数前后地址到函数记录返回地址 栈记录多级调用 # 解决多级调用返回地址被覆盖问题 递归 # 处理嵌套数据结构时，代码的嵌套结构 错误处理 历史 UNIVACI # 1950, 溢出时中断(interrupt)跳转到000 COBOL # 1959, 两种类型错误，用两关键字处理 PL/I # 1964 先定义出错处理代码。编程时引入on语句goto到处理代码, 不检查返回值 可定义新错误类型, 可用signal condition主动出错 john goodenough # 1975，论文 程序员可能忘处理异常、在不正确位置处理、处理不正确类型异常 应该声明可能抛出的异常、将可能出错结构括起来的语句结构 CLU # 1975, begin ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/pl/principle/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://runout.run/docs/pl/principle/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-10T15:13:01+08:00" />
 <meta property="article:modified_time" content="2019-09-24T08:48:46+08:00" />
 
 <title>程序语言原理 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!--
+</script><!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -96,7 +98,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -754,7 +756,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

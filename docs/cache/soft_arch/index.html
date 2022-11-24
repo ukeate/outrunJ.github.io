@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="计算机基础 # 冯诺依曼 输入、输出、存储器(中心)、运算器控制器(CPU) 硬件图 主机(运算器、控制器、主存) 存储器: 主存、辅存 I/O设备 CPU 指令: 操作码, 地址码 运算器 ALU: 算逻运算 PSW状态寄存器 ACC MQ	X 加 被加数、和	加数 减	被减数、差	减数 乘	乘积高位	乘数、乘积低位	被乘数 除	被除数、余数	商	除数 控制器 CU: 控制单元 时序部件: 时钟控制 ID: 指令译码器 IR: 指令寄存器,即将执行的指令,查MAR PC: 程序计数器,下条指令地址 存储体 MAR: 地址寄存器, 现在集成到了CPU MDR: 数据寄存器, 指令存到IR 主存 存储单元: 存1字节, 唯一地址用16进制数表示 总线 地址总线: 长度表示n位二进制数地址数 数据总线: 长度表示一次处理多少位，叫作1个字的长度 存储器 分类 位置 内存(主存) 外存(辅存) 材料 半导体 静态: 双稳态触发器 动态: 依靠电容上的电荷存储，主存 磁介质: 磁性材料的不同状态存储，外存 光: 利用光斑、晶像的变化表示信息，外存 工作方式 读/写RAM 只读 固定ROM: 用户不可写 可编程PROM: 用户写1次 可擦除可编程EPROM: 可多次编程，紫外线擦除 电擦除可编程EEPROM: 可多次编程，电擦除 闪存: 接近EEPROM 访问方式 按地址访问的 按内容访问的 寻址方式 随机RAM: 按地址访问任一单元，主存 顺序SAM: 访问时按顺序查找目标地址，磁带 直接DAM: 按照数据块所在位置访问，磁盘 相联：按照内容进行访问，Cache 校验码 类别 奇偶校验码 只能发现奇数个位出错 海明码 奇偶校验、分组校验 n为数据位个数，求校验位个数k: 2^k &gt;= n&#43;k&#43;1 CRC循环冗余校验码 码距: 任意两个码字的最小距离 检测出e个误码，要求码距d&gt;=e&#43;1 纠正t个误码，要求码距d&gt;=2t&#43;1 指令 指令周期 执行 顺序执行 重叠执行 流水线 建立时间: 第一条指令执行完毕时间 流水线周期: 部件(取指、分析、执行)执行时间最长的一段 全部执行完时间 理论公式: (t1&#43;t2&#43;.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="软考架构师" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="软考架构师" />
 <meta property="og:description" content="计算机基础 # 冯诺依曼 输入、输出、存储器(中心)、运算器控制器(CPU) 硬件图 主机(运算器、控制器、主存) 存储器: 主存、辅存 I/O设备 CPU 指令: 操作码, 地址码 运算器 ALU: 算逻运算 PSW状态寄存器 ACC MQ	X 加 被加数、和	加数 减	被减数、差	减数 乘	乘积高位	乘数、乘积低位	被乘数 除	被除数、余数	商	除数 控制器 CU: 控制单元 时序部件: 时钟控制 ID: 指令译码器 IR: 指令寄存器,即将执行的指令,查MAR PC: 程序计数器,下条指令地址 存储体 MAR: 地址寄存器, 现在集成到了CPU MDR: 数据寄存器, 指令存到IR 主存 存储单元: 存1字节, 唯一地址用16进制数表示 总线 地址总线: 长度表示n位二进制数地址数 数据总线: 长度表示一次处理多少位，叫作1个字的长度 存储器 分类 位置 内存(主存) 外存(辅存) 材料 半导体 静态: 双稳态触发器 动态: 依靠电容上的电荷存储，主存 磁介质: 磁性材料的不同状态存储，外存 光: 利用光斑、晶像的变化表示信息，外存 工作方式 读/写RAM 只读 固定ROM: 用户不可写 可编程PROM: 用户写1次 可擦除可编程EPROM: 可多次编程，紫外线擦除 电擦除可编程EEPROM: 可多次编程，电擦除 闪存: 接近EEPROM 访问方式 按地址访问的 按内容访问的 寻址方式 随机RAM: 按地址访问任一单元，主存 顺序SAM: 访问时按顺序查找目标地址，磁带 直接DAM: 按照数据块所在位置访问，磁盘 相联：按照内容进行访问，Cache 校验码 类别 奇偶校验码 只能发现奇数个位出错 海明码 奇偶校验、分组校验 n为数据位个数，求校验位个数k: 2^k &gt;= n&#43;k&#43;1 CRC循环冗余校验码 码距: 任意两个码字的最小距离 检测出e个误码，要求码距d&gt;=e&#43;1 纠正t个误码，要求码距d&gt;=2t&#43;1 指令 指令周期 执行 顺序执行 重叠执行 流水线 建立时间: 第一条指令执行完毕时间 流水线周期: 部件(取指、分析、执行)执行时间最长的一段 全部执行完时间 理论公式: (t1&#43;t2&#43;." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/cache/soft_arch/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://runout.run/docs/cache/soft_arch/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2022-11-11T15:49:15+08:00" />
 
 <title>软考架构师 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!--
+</script><!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -96,7 +98,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -2449,7 +2451,7 @@ KISS法则
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

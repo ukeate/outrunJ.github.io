@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="对象命名方式 # var $a = $(&quot;#inputID&quot;); 选择器（选择多个时形成数组） # 基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Jquery" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Jquery" />
 <meta property="og:description" content="对象命名方式 # var $a = $(&quot;#inputID&quot;); 选择器（选择多个时形成数组） # 基本选择器 $(&quot;#inputID&quot;); # id选择 $(&quot;input&quot;); // 标签名,默认获取第一个 # 标签名选择 $(&quot;.className&quot;); // 按样式名定位 # 样式名选择 $(&quot;#div1ID,.myClass,p&quot;); # 选择多个 $(&quot;*&quot;); # 所有元素 层级选择器 $(&quot;form input&quot;) # form所有后代元素中input元素的个数 $(&quot;form&gt;input&quot;) # form子元素中input元素个数，不包括下层元素 $(&quot;form&#43;input&quot;) # form同级并且下面的第一个input元素 $(&quot;form~input&quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&quot;ul li:first&quot;) # ul中第一个子元素li $(&quot;ul li:last&quot;) # ul中最后一个子元素li $(&quot;input:not(:checked)&quot;) # input标签中所有未选中的元素 $(&quot;table tr:even&quot;) # 表格的奇数行（索引号为偶数） $(&quot;table tr:odd&quot;) # 表格的偶数行（索引号为奇数） $(&quot;table tr:eq(1)&quot;) # table中索引号等于1的行 $(&quot;table tr:gt(0)&quot;) # table中索引号大于0的行（不包括0） $(&quot;table tr:lt(2)&quot;) # table中索引号小于2的行（不包括2） $(&quot;:header&quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&quot;div:contains(&#39;Join&#39;)&quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&quot;p:empty&quot;) # p 标签的html()的内容为空的元素 $(&quot;div:has(p)&quot;) # div标签中包含p标签的该div标签 $(&quot;p:parent&quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&quot;tr:hidden&quot;) # 查找隐藏的tr元素，如&lt;tr style=&quot;display:none&quot;&gt; &lt;td&gt;Value 1&lt;/td&gt; &lt;/tr&gt; $(&quot;tr:visible&quot;) # 查找可见的tr元素 属性选择器 $(&quot;div[id]&quot;) # 含有id属性的div元素 $(&quot;input[name=&#39;newsletter&#39;]&quot;) # 所有name属性是newsletter的input元素 $(&quot;input[name!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docs/middleware/library_frontend/jquery/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/jquery/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2018-10-11T07:34:03+08:00" />
 <meta property="article:modified_time" content="2021-09-22T21:45:53+08:00" />
 
 <title>Jquery | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!--
+</script><!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -96,7 +98,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -919,7 +921,7 @@ $.post(url,sendData,function(backData,textStatus,ajax){});          # 用post方
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

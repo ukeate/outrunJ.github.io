@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="名词 # graph 图 TSP traveling salesman problem 旅行商问题 graph-coloring-problem 图填色问题 combinatorial problems 组合问题 geometric algorithm 几何问题 closest-pair problem 最近对时间 convex-hull problem 凸包问题 numerical problem 数值问题 lexicographic order 字典序 on-line algorithm 联机算法 ADT abstract data type 抽象数据类型 activation record 活动记录, 递归栈所存的信息 stack frame 栈桢, 同 activation record circular array 循环数组 amoritzed 摊还 biased deletion 偏删除, 二叉树删除节点引起平衡不足问题的删除 symbol table 符号表, 编译器用 tranposition table 变换表, 游戏用 tick 滴答, 模拟的一份时间 external sorting 外部排序 comparison-based sorting 基于比较的排序 transposition table 置换表 排序 # 插入排序(insert sort) # /* 插入排序 时间 n^2, 稳定 向前插入，先找位置再移动 */ func InsertSort(arr []int) { length := len(arr) for i := 1; i &lt; length; i&#43;&#43; { j := i - 1 for j &gt;= 0 { if arr[j] &lt; arr[i] { break } j-- } if j !">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="算法" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="算法" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/docs/basic/algorithm/" />
+<meta property="og:url" content="https://runout.run/docs/basic/algorithm/" />
 
 <title>算法 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/basic/algorithm/index.xml" title="outrun的笔记" />
+</script><link rel="alternate" type="application/rss+xml" href="https://runout.run/docs/basic/algorithm/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -95,7 +97,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -2514,7 +2516,7 @@ np完全问题的某些特点    # 到处都是np完全问题, 有时与普通�
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

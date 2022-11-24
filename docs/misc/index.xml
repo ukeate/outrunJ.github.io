@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>杂项 on outrun的笔记</title>
-    <link>https://example.com/docs/misc/</link>
+    <link>https://runout.run/docs/misc/</link>
     <description>Recent content in 杂项 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://example.com/docs/misc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://runout.run/docs/misc/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

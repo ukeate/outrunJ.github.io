@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>架构 on outrun的笔记</title>
-    <link>https://example.com/docs/architect/</link>
+    <link>https://runout.run/docs/architect/</link>
     <description>Recent content in 架构 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Oct 2018 16:49:27 +0800</lastBuildDate><atom:link href="https://example.com/docs/architect/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Oct 2018 16:49:27 +0800</lastBuildDate><atom:link href="https://runout.run/docs/architect/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>这些年我做过的技术</title>
-      <link>https://example.com/docs/architect/summary/</link>
+      <link>https://runout.run/docs/architect/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/architect/summary/</guid>
+      <guid>https://runout.run/docs/architect/summary/</guid>
       <description>13年毕业以来，做技术有9年了。加上大学4年学计算机，已经13年的时间做技术了。虽然没什么成就，但也想学别人写出来看一看，起码也为自己的时间做一个交代。
 背景经历 # 2009年-2013年：上学幻想期。幻想的意思是，那时技术是学来玩的，大部分时间在搞Linux，安装各种多系统和发行版，配Conky, 配各种Compiz 3D桌面，安装各种攻击工具。还买了《深入Linux内核架构》、《鸟哥的Linux私房菜》、《Linux与UNIX Shell编程指南》、《算法导论》可惜最终基础没看多少，大概与牛人的差距就是从看不完这些书体现出来的。
 2013年-2015年: 入门乱学期。毕业后在C++与Java中做了Java。从此书变成了Java系列，还去学了Java线下课。可能天生的好奇心体现了出来，Java工作不久就用刚流行的Node.js改造了公司的消息推送程序，又学起了新兴的WebGL与Three.js。还改用Dell的平板装了Linux来开发。可能做的东西太过于玄幻，成为了公司的架构师。

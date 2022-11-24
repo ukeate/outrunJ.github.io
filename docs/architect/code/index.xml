@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>代码 on outrun的笔记</title>
-    <link>https://example.com/docs/architect/code/</link>
+    <link>https://runout.run/docs/architect/code/</link>
     <description>Recent content in 代码 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Oct 2018 17:40:53 +0800</lastBuildDate><atom:link href="https://example.com/docs/architect/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Oct 2018 17:40:53 +0800</lastBuildDate><atom:link href="https://runout.run/docs/architect/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Security</title>
-      <link>https://example.com/docs/architect/code/security/</link>
+      <link>https://runout.run/docs/architect/code/security/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/architect/code/security/</guid>
+      <guid>https://runout.run/docs/architect/code/security/</guid>
       <description>服务器 # 木马 # 自变异木马 改变自身hash或将自身大量复制到不同目录, 后台运行，躲避清理 自删除 伪装成系统程序或绑定系统程序 检查 可疑进程 定时任务 启动项 /etc/init.d或service --status-all systemctl list-unit-files | grep enabled 经验 # libudev.so # 自变异，/bin/下生成随机名称命令, 启动后可远程执行命令，在/etc/init.d下创建自启动项，在/etc/crontab中添加定时任务 chmod 0000 /lib/libudev.so &amp;amp;&amp;amp; rm -rf /lib/libudev.so &amp;amp;&amp;amp; chattr +i /lib/ /etc/init.d下随机名称文件删除, /etc/rc{0,1,2,3,4,5,6,S}.d中的软链删除 /etc/crontab/gcc.sh删除 sed &#39;/gcc.sh/d&#39; /etc/crontab &amp;amp;&amp;amp; chmod 0000 /etc/crontab &amp;amp;&amp;amp; chattr +i /etc/crontab 删除定时任务 重启 chattr -i /lib /etc/crontab 恢复可写 DDoS # 防范方法 # 漏洞扫描 # DVWA # Damn Vulnerable Web Application，PHP + MySQL模拟Web漏洞 W3af # Web应用扫描, Python实现 OpenVAS # 扫描主机漏洞 网络隔离 # 内外网分离 登录跳板机 Web安全 # XSS # # 向网页注入代码 CSRF # # Cross-Site Request Forgery, 跨站请求伪造 SQL注入 # Hash Dos # 上传大Json Object, 利用Hash算法的伪随机性，制造Value不同但Hash碰撞的数据，耗尽CPU 上传文件脚本 # 伪造Content-Type上传静态资源，再URL访问执行 防范方法 # 验证码 # 根据滑动响应时间、拖拽速度、时间、位置、轨迹、重试次数来评估风险 信息存储 # 密码非明文保存，加salt 身份证号、手机号加&amp;quot;*&amp;quot; 联系方式显示与否用户自己配置 加密 # 对称加密 DES # 56位秘钥，已被AES取代 3DES # 做3次DES AES # 128、192、256位秘钥 Blowfish # 1到448位变长秘钥 非对称加密 RSA # DSA # 性能快于RSA，只能数字签名 ECDSA # 螺旋曲线加密算法 ECC # 256位ECC秘钥相当于3072位RSA秘钥 哈希算法 MD5 # 不再安全 SHA-1 # 不再安全 SHA-256 授权、认证 # RBAC、ABAC SSO OAuth2.</description>
     </item>
     
     <item>
       <title>Java设计模式</title>
-      <link>https://example.com/docs/architect/code/design_mode/</link>
+      <link>https://runout.run/docs/architect/code/design_mode/</link>
       <pubDate>Tue, 09 Oct 2018 08:48:07 +0800</pubDate>
       
-      <guid>https://example.com/docs/architect/code/design_mode/</guid>
+      <guid>https://runout.run/docs/architect/code/design_mode/</guid>
       <description>六个原则 # 单一职责原则(SRP, Single Responsibility Principle) 一个类只做一件事，应该只有一个引起它修改的原因 开闭原则(OCP, Open-Close Principle) 对修改封闭，对扩展开放 里氏替换原则(LSP, the Liskov Substitution Principle) 子类可以完全替换父类。也就是继承只扩展新功能 依赖倒置原则(DIP, the Dependency Inversion Principle) 细节依赖于抽象,抽象不依赖于细节。抽象放在高层，并保持稳定 接口隔离原则(ISP, the Interface Segregation Principle) 客户端不依赖它不需要的接口。冗余依赖应该将接口拆分 迪米特法则（最少知道原则）(LoD, Law of Demeter) 一个类不应该知道自己操作的细节。只和朋友谈话，不和朋友的朋友谈话 构建型 # 工厂方法(Factory Method) # # 简单工厂, 根据参数创建不同的类 # 静态工厂，单例工厂 public interface Sender{ public void Send(); } public class MySender implements Sender{ @Override public void Send(){} } public SenderFactory { public static Sender produceStatic() { return new MySender(); } public Sender produce(){ return new MySender(); } public Sender produce(int i){ return new MySender(); } } # 工厂子类继承工厂接口, 不同产品对应不同工厂 public interface AbstractFactory { public MySender produce(); } public class MyFactory implements AbstractFactory { @Override public MySender produce(){ return new MySender(); } } 抽象工厂(Abstract Factory) # # 生产抽象产品 public interface AbstractFactory { public Sender produce(); } public class MyFactory implements AbstractFactory { @Override public Sender produce(){ return new MySender(); } } 单例(Singleton) # 确保只有一个实例 # 大多有资源管理器的功能 # 反射机制会使所有单例失效：私有构造方法可以被访问 应用 线程池 缓存 日志对象 对话框 打印机 显卡驱动程序 o-&amp;gt; 饿汉 public class Singleton { public static Singleton instance = new Singleton(); private Singleton(){} public static Singleton getInstance(){ return instance; } } o-&amp;gt; 懒汉式 public class Singleton { private static Singleton single=null; private Singleton() {} public synchronized static Singleton getInstance() { if (single == null) { single = new Singleton(); } return single; } } o-&amp;gt; 懒汉，双重检测(DCL) # 解决问题并发创建问题。在不同jvm或多核cpu上，有无序写入bug。 # 解决bug: 1 直接创建static属性, 2 get方法修饰synchronized public class Singleton { private static volatile Singleton singleton = null; # volatile: t1编译singleton = new Singleton()时重排序把没初始化对象赋值给singleton时, t2判断singleton为null。 private Singleton(){} public static Singleton getInstance(){ if (singleton == null) { // t1,t2并发进入 synchronized (Singleton.</description>
     </item>
     

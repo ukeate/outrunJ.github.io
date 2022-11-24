@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>前端 on outrun的笔记</title>
-    <link>https://example.com/docs/middleware/library_frontend/</link>
+    <link>https://runout.run/docs/middleware/library_frontend/</link>
     <description>Recent content in 前端 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://example.com/docs/middleware/library_frontend/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Oct 2018 14:51:24 +0800</lastBuildDate><atom:link href="https://runout.run/docs/middleware/library_frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bootstrap</title>
-      <link>https://example.com/docs/middleware/library_frontend/bootstrap/</link>
+      <link>https://runout.run/docs/middleware/library_frontend/bootstrap/</link>
       <pubDate>Thu, 11 Oct 2018 09:39:11 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/library_frontend/bootstrap/</guid>
+      <guid>https://runout.run/docs/middleware/library_frontend/bootstrap/</guid>
       <description>介绍 # 在jquery基础上的组件框架 移动 # &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&amp;quot;&amp;gt; css # 全局 container # div, 唯一包裹容器 container-fluid # 占全部视口 栅格 # 必须放在row内 col-xs-1 # 适用于大于等于分界点的屏幕 ## 大于12的最后那个col另起一行排列 # xs &amp;lt; 768px 宽度, container 最大宽度: 自动 # sm &amp;gt;= 768px, 750px # md &amp;gt;= 992px, 970px # lg &amp;gt;= 1200px, 1170px col-md-offset-4 # 向右偏移4 col-md-pull-9 # 向后推9, 改变元素的顺序 col-md-push-3 o-&amp;gt; mixin make-row 如 .wrapper {.make-row();} make-xs-column make-sm-column-offset make-sm-column-push make-sm-column-pull 样式 # muted # 文本颜色 text-warning text-error text-info text-success text-left # 文本左对齐 text-center text-right text-justify text-nowrap text-lowercase text-uppercase text-capitalize bg-primary # p bg-success bg-info bg-warning bg-danger success # 状态类 # table行颜色, control-group div error danger warning info active has-warning # div元素 # 适用class: control-label, form-control, help-block has-error has-success has-feedback # div, pull-right # 任意元素向右浮动 pull-left navbar-right # 导航条中向右浮动 navbar-left clearfix # 清除浮动 initialism # 缩略语样式, abbr标签 small # small标签的样式 lead # p标签，突出显示 blockquote-reverse # blockquote标签使用, 内容右对齐 disabled # btn, input, 只disable样式 o-&amp;gt; 适用的class radio radio-inline checkbox checkbox-inline o-&amp;gt; 适用的标签 fieldset inline # 行内ul, checkbox center-block # 任意元素, 水平居中 show # 任意元素显示 hidden .</description>
     </item>
     
     <item>
       <title>Threejs</title>
-      <link>https://example.com/docs/middleware/library_frontend/threejs/</link>
+      <link>https://runout.run/docs/middleware/library_frontend/threejs/</link>
       <pubDate>Thu, 11 Oct 2018 07:58:16 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/library_frontend/threejs/</guid>
+      <guid>https://runout.run/docs/middleware/library_frontend/threejs/</guid>
       <description>介绍 # 协调程序加载项的类库 使用 # var preload = new createjs.LoadQueue(false, &amp;quot;assets/&amp;quot;); var plugin= { getPreloadHandlers: function(){ return{ types: [&amp;quot;image&amp;quot;], callback: function(src){ var id = src.toLowerCase().split(&amp;quot;/&amp;quot;).pop().split(&amp;quot;.&amp;quot;)[0]; var img = document.getElementById(id); return {tag: img}; } } } } preload.installPlugin(plugin); preload.loadManifest([ &amp;quot;Autumn.png&amp;quot;, &amp;quot;BlueBird.png&amp;quot;, &amp;quot;Nepal.jpg&amp;quot;, &amp;quot;Texas.jpg&amp;quot; ]); api # 涉及dom # 属性 window.innerWidth window.innerHeight 事件 window.addEventListener(&#39;resize&#39;, onWindowResize, false); function onWindowResize(){ camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); controls.handleResize(); } 三大组件 场景(scene) var scene = new THREE.</description>
     </item>
     
     <item>
       <title>Angular</title>
-      <link>https://example.com/docs/middleware/library_frontend/angular/</link>
+      <link>https://runout.run/docs/middleware/library_frontend/angular/</link>
       <pubDate>Thu, 11 Oct 2018 07:47:51 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/library_frontend/angular/</guid>
+      <guid>https://runout.run/docs/middleware/library_frontend/angular/</guid>
       <description>介绍 # google发布 提倡SPA(Single Page Apps), 运行快，一次加载 mvvm 特点 # 前端mvc 双向数据绑定 指令和语义化标签 模块化工具 依赖注入 html模板 常用工具封装，如$http $cookies $location directive # 内置 ng-app # 声明app名, 在最外层 ng-submit # &amp;lt;form ng-submit=&amp;quot;submit()&amp;quot;&amp;gt; ng-controller ng-repeat # $index返回当前引用的元素序号，$first, $middle, $last 返回布尔值 ng-model # 绑定当前元素的值 ng-click ng-eventhandler=&amp;quot;expression&amp;quot;类的指令可以在所有浏览器中有相同的行为，angular将会屏蔽差异性 不会在全局命名空间中进行操作，指定的表达式只能访问元素控制器作用域范围内的函数和数据 ng-bind ng-change &amp;lt;form ng-submit=&amp;quot;aaFunc()&amp;quot;&amp;gt; # 会阻止浏览器默认的提交操作 ng-dblclick ng-show ng-hide ng-class # 可以是类名字符串，空格分隔，可以是类名数组，可以是类名到布尔值的映射 ng-class=&amp;quot;{true: &#39;active&#39;, false: &#39;inactive&#39;}[isActive]&amp;quot; ng-class=&amp;quot;{&#39;selected&#39;: isSelected, &#39;car&#39;: isCar}&amp;quot; ng-style # templete中写css不好维护 ng-src=&amp;quot;/images/cats/{{favoriteCat}}&amp;quot; # src，href属性中简单使用templete,由于浏览器优先并行加载图片和其它内容,angular没有机会拦截到数据绑定请求，所以无法运行 ng-href ng-options &amp;lt;select ng-model=&amp;quot;x&amp;quot; ng-options=&amp;quot;(m.</description>
     </item>
     
     <item>
       <title>Jquery</title>
-      <link>https://example.com/docs/middleware/library_frontend/jquery/</link>
+      <link>https://runout.run/docs/middleware/library_frontend/jquery/</link>
       <pubDate>Thu, 11 Oct 2018 07:34:03 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/library_frontend/jquery/</guid>
+      <guid>https://runout.run/docs/middleware/library_frontend/jquery/</guid>
       <description>对象命名方式 # var $a = $(&amp;quot;#inputID&amp;quot;); 选择器（选择多个时形成数组） # 基本选择器 $(&amp;quot;#inputID&amp;quot;); # id选择 $(&amp;quot;input&amp;quot;); // 标签名,默认获取第一个 # 标签名选择 $(&amp;quot;.className&amp;quot;); // 按样式名定位 # 样式名选择 $(&amp;quot;#div1ID,.myClass,p&amp;quot;); # 选择多个 $(&amp;quot;*&amp;quot;); # 所有元素 层级选择器 $(&amp;quot;form input&amp;quot;) # form所有后代元素中input元素的个数 $(&amp;quot;form&amp;gt;input&amp;quot;) # form子元素中input元素个数，不包括下层元素 $(&amp;quot;form+input&amp;quot;) # form同级并且下面的第一个input元素 $(&amp;quot;form~input&amp;quot;) # form同级并且下面的所有input元素 子元素选择器 # 只选择一个 $(&amp;quot;ul li:first&amp;quot;) # ul中第一个子元素li $(&amp;quot;ul li:last&amp;quot;) # ul中最后一个子元素li $(&amp;quot;input:not(:checked)&amp;quot;) # input标签中所有未选中的元素 $(&amp;quot;table tr:even&amp;quot;) # 表格的奇数行（索引号为偶数） $(&amp;quot;table tr:odd&amp;quot;) # 表格的偶数行（索引号为奇数） $(&amp;quot;table tr:eq(1)&amp;quot;) # table中索引号等于1的行 $(&amp;quot;table tr:gt(0)&amp;quot;) # table中索引号大于0的行（不包括0） $(&amp;quot;table tr:lt(2)&amp;quot;) # table中索引号小于2的行（不包括2） $(&amp;quot;:header&amp;quot;) # 匹配如 h1, h2, h3之类的标题元素 内容选择器 $(&amp;quot;div:contains(&#39;Join&#39;)&amp;quot;) # div 标签的html()中包含&#39;Join&#39;字符串的元素 $(&amp;quot;p:empty&amp;quot;) # p 标签的html()的内容为空的元素 $(&amp;quot;div:has(p)&amp;quot;) # div标签中包含p标签的该div标签 $(&amp;quot;p:parent&amp;quot;); # 非空的p标签元素，即p为父元素 可见性选择器 $(&amp;quot;tr:hidden&amp;quot;) # 查找隐藏的tr元素，如&amp;lt;tr style=&amp;quot;display:none&amp;quot;&amp;gt; &amp;lt;td&amp;gt;Value 1&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; $(&amp;quot;tr:visible&amp;quot;) # 查找可见的tr元素 属性选择器 $(&amp;quot;div[id]&amp;quot;) # 含有id属性的div元素 $(&amp;quot;input[name=&#39;newsletter&#39;]&amp;quot;) # 所有name属性是newsletter的input元素 $(&amp;quot;input[name!</description>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://example.com/docs/middleware/library_frontend/react/</link>
+      <link>https://runout.run/docs/middleware/library_frontend/react/</link>
       <pubDate>Thu, 11 Oct 2018 07:32:08 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/library_frontend/react/</guid>
+      <guid>https://runout.run/docs/middleware/library_frontend/react/</guid>
       <description>介绍 # facebook推出的用于build user interfaces 的类库 使用 # o-&amp;gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname + &#39;/app/main.js&#39;], output: { path: __dirname + &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname + &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.</description>
     </item>
     

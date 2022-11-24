@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>outrun的笔记</title>
-    <link>https://example.com/docs/tool/linux/</link>
+    <link>https://runout.run/docs/tool/linux/</link>
     <description>Recent content on outrun的笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/tool/linux/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://runout.run/docs/tool/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LinuxProgram</title>
-      <link>https://example.com/docs/tool/linux/linux_program/</link>
+      <link>https://runout.run/docs/tool/linux/linux_program/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/linux/linux_program/</guid>
+      <guid>https://runout.run/docs/tool/linux/linux_program/</guid>
       <description> 系统编程 # 进程通信 # 对象 ipc 种类 消息队列 共享内存 信号量 消息队列 错误处理 # curedump机制, 产生core文件 命令 ulimit 目录 /proc/[pid]/ fork # 介绍 子线程 epoll # 介绍 多路复用io接口，提高大量并发连接中只有少量活跃情况下系统cpu利用率 signals # 介绍 unix系统中出错时显示的错误码（通常是拼在最后） http://people.cs.pitt.edu/~alanjawi/cs449/code/shell/UnixSignals.htm SIGHUP	1	Exit	Hangup SIGINT	2	Exit	Interrupt SIGQUIT	3	Core	Quit SIGILL	4	Core	Illegal Instruction SIGTRAP	5	Core	Trace/Breakpoint Trap SIGABRT	6	Core	Abort SIGEMT	7	Core	Emulation Trap SIGFPE	8	Core	Arithmetic Exception SIGKILL	9	Exit	Killed SIGBUS	10	Core	Bus Error SIGSEGV	11	Core	Segmentation Fault SIGSYS	12	Core	Bad System Call SIGPIPE	13	Exit	Broken Pipe SIGALRM	14	Exit	Alarm Clock SIGTERM	15	Exit	Terminated SIGUSR1	16	Exit	User Signal 1 SIGUSR2	17	Exit	User Signal 2 SIGCHLD	18	Ignore	Child Status SIGPWR	19	Ignore	Power Fail/Restart SIGWINCH	20	Ignore	Window Size Change SIGURG	21	Ignore	Urgent Socket Condition SIGPOLL	22	Ignore	Socket I/O Possible SIGSTOP	23	Stop	Stopped (signal) SIGTSTP	24	Stop	Stopped (user) SIGCONT	25	Ignore	Continued SIGTTIN	26	Stop	Stopped (tty input) SIGTTOU	27	Stop	Stopped (tty output) SIGVTALRM	28	Exit	Virtual Timer Expired SIGPROF	29	Exit	Profiling Timer Expired SIGXCPU	30	Core	CPU time limit exceeded SIGXFSZ	31	Core	File size limit exceeded SIGWAITING	32	Ignore	All LWPs blocked SIGLWP	33	Ignore	Virtual Interprocessor Interrupt for Threads Library SIGAIO	34	Ignore	Asynchronous I/O pf-kernel # 介绍 是linux kernel 的fork, pf代表post-factum, 是作者的nickname libev # libevent 介绍 是linux kernel 的fork, pf代表post-factum, 是作者的nickname </description>
     </item>
     
     <item>
       <title>LinuxScene</title>
-      <link>https://example.com/docs/tool/linux/scene/</link>
+      <link>https://runout.run/docs/tool/linux/scene/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/linux/scene/</guid>
+      <guid>https://runout.run/docs/tool/linux/scene/</guid>
       <description>场景 # 路由 # 查路由表 ip ro route -n 改路由 route del -net 192.168.0.0 netmask 255.255.255.0 gw 10.146.81.117 转发 ip ro ad 192.168.0.0/24 via [主机ip] 主机配置 echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward # etc/sysctl.conf net.ipv4.ip_forward = 1 方案 # 高并发 # 查看当前TCP连接的状态和对应的连接数量： netstat -n | awk &#39;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#39; # TIME_WAIT占用端口会影响后继新连接 初步优化（提升服务器的负载能力之外，还能够防御小流量程度的DoS、CC和SYN攻击。） /etc/sysctl.conf net.ipv4.tcp_syncookies = 1 # 表示开启SYN Cookies。当出现SYN等待队列溢出时，启用cookies来处理，可防范少量SYN攻击，默认为0，表示关闭； net.ipv4.tcp_tw_reuse = 1 # 表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭； net.</description>
     </item>
     
     <item>
       <title>LinuxTool</title>
-      <link>https://example.com/docs/tool/linux/linux_tool/</link>
+      <link>https://runout.run/docs/tool/linux/linux_tool/</link>
       <pubDate>Thu, 11 Oct 2018 18:47:57 +0800</pubDate>
       
-      <guid>https://example.com/docs/tool/linux/linux_tool/</guid>
+      <guid>https://runout.run/docs/tool/linux/linux_tool/</guid>
       <description>辅助 # 快捷键 # ctrl alt f1/f2/... # 终端切换 帮助 # man -f # 简要介绍 -k # 通配搜索 whatis # man -f apropos # man -k 命令行 # clear pwd # 当前路径 bash -c # 执行命令字符串 set -o # 设置快捷键模式，默认emacs 快捷键 &amp;lt;Tab&amp;gt; bash补全 &amp;lt;C-c&amp;gt; 中断 &amp;lt;C-d&amp;gt; eof &amp;lt;C-tab&amp;gt; ls &amp;lt;C-l&amp;gt; clean &amp;lt;C-a&amp;gt; 移到行首 &amp;lt;C-e&amp;gt; 移到行尾 &amp;lt;C-u&amp;gt; 删除到行首 &amp;lt;C-k&amp;gt; 删除到行尾 &amp;lt;C-p&amp;gt; 上一个命令 &amp;lt;C-n&amp;gt; 下一个命令 &amp;lt;C-r&amp;gt; 查看历史 # &amp;lt;C-s&amp;gt; 向前查看历史 &amp;lt;C-s&amp;gt; 冻结 &amp;lt;C-q&amp;gt; 解冻 &amp;lt;C-t&amp;gt; 交换字符 &amp;lt;C-w&amp;gt; 删word &amp;lt;C-z&amp;gt; 暂停到后台 &amp;lt;C-\&amp;gt; 中断 &amp;lt;C-/&amp;gt; 撤消 &amp;lt;C-_&amp;gt; 删除一行 &amp;lt;M-r&amp;gt; 取消历史变更 场景 禁用&amp;lt;C-s&amp;gt;&amp;lt;C-q&amp;gt;, 以使&amp;lt;C-s&amp;gt;变为向前查看历史 stty -ixon -ixoff stty STOP ^w # 把原&amp;lt;C-s&amp;gt;改成&amp;lt;C-w&amp;gt; zsh fish tmux session window pane ~/.</description>
     </item>
     

@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="人类认知原理 # 原理 模拟执行 负担 概念量 封装粒度大 多态、运行时多态、静态多态 临时状态 用工作流, 而非队列 日志(event)搜索/集中/回放 抽出权限层 非轻量级 胶水层厚 无稳定方案, 复用困难 流程长度 最好 单线程 # 不插入行为 上下文集中 this.scene.commit()集中状态转移时间线 单一方式 软件设计原则 # 统一原则 # 观念 KISS(keep it simple stupid) YAGNI(You Ain’t Gonna Need It) 取好名字占设计一半 约定大于配置 并发的世界，并发的软件 分布式的世界，分布式的软件 不可预测的世界，容错性强的软件 复杂的世界，简单的软件 代码即数据 物体上绑定行为数据 传递代码数据(函数一等公民) 防御性编程 接口前validator 启动时自检断言 异常处理 不可过度 设计 solid原则 单一职则(single responsibility) 一个类负责一个功能 开闭(open/closed) 对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态 里氏替换原则(liskov substitution) 子类继承超类的所有 接口分离(interface segregation) 最小功能隔离 依赖反转(dependency inversion) 低层依赖高层, 具体依赖抽象 非侵入 # non-intrusion 将功能推入代码，而非代码拿到功能 代码实现接口，而非继承类 拆分 边界 正交 unix rules 模块化(modularity) # 模块由精心设计的接口连接 清晰化(clarity) # 可读性、可维护性 组合(composition) 分离(separation) 简单(simplicity) 节俭(parsimony) # 越小越好 透明(transparency) # log, tracing 鲁棒(robustness) 可展示(representation) # 逻辑简单，数据复杂 最小惊吓(least surprise) # 少打破用户预期 安静(silence) 修复(repair) # 产生足够报错 经济(economy) # 减少开发时间 生成(generation) # 避免手写, 用高阶抽象生成代码 优化(optimization) # 优化和收益平衡 分化(diversity) # 一开始设计不限制、优雅开放灵活 扩展(extensibility) # 协议可扩展 优化 需要时再优化，设计时考虑扩展性 dry(don&#39;t repeat yourself), 不可过度 找瓶颈 产出 设计清晰 选型简单 代码精炼 抽象优雅 代码风格 # 命名 包名类名为名词, 方法名为动词 参数、方法名称在上下文语义中合理 , 像写文章一样 横向代码单屏内分行 性能 避免嵌套循环，特别是数据库操作 结构 # 高内聚，低耦合 抽取方法 业务逻辑分层 框架无侵入性 技巧 注释驱动写复杂业务 自解释代码 安全 密码二次验证 离机锁屏 用户名、密码、ip、端口不提交 代码安全, 如sql注入, XSS 代码质量 # 代码 功能、结构、资源 非遗留代码 写了测试 改代码 bug 重构 # 只改结构 确定修改点 找出测试点 解依赖 伪/仿对象 接缝 全局函数 提取重写方法 宏预处理 替换连接的代码 对象 # 耦合对象不好初始化 子类化重写方法 接口提取 创建简化接口 创建简化类与对象，引用原对象 暴露静态方法 对象提取公共方法，只测公共方法 传方法参数 写测试 优化 # 只改资源 具体实现原则 # 数据结构 # 状态机解决流程问题 AST解决主义问题 面向对象(Object Oriented) # 特性 ooad # Object Oriented Analysis and Design ooa # analysis 建立针对业务问题域的清晰视图 列出核心任务 针对问题域建立公共词汇表 列出针对问题域的最佳解决方案 ood # design 细化类关系，明确可见性 增加属性 分配职责(方法) 消息驱动系统中消息传递方式 局部应用设计模式 类图时序图 oop # program 抽象: abstract 接口 无实现 可多重继承 抽象类 可以有私有方法变量 实现部分方法 封装: encapsulation # 数据和方法绑定 继承: inheritance 多态: polymorphism overload为编译时 override为运行时 关联: association # has a 双向关联 两个类互相知道对方公共属性和操作 单向关联（大多数） 一个类知道另一个类的公共属性和操作 聚合: aggregation a包含b, b可以不在a创建时创建 组合: composition 比聚合强，a包含b, b在a创建时创建 内聚与耦合: cohesion &amp; coupling # 高内聚低耦合 依赖: dependency # use a 泛化: generalization # is a 泛型 函数式 # 数组 [1, 1, 3, 5, 5].">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="代码" />
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="代码" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/docs/architect/code/" />
+<meta property="og:url" content="https://runout.run/docs/architect/code/" />
 
 <title>代码 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.46181bc93375ba932026e753b37c40e6ff8bb16a9ef770c78bcc663e4577b1ba.css" integrity="sha256-RhgbyTN1upMgJudTs3xA5v&#43;LsWqe93DHi8xmPkV3sbo=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9def807346ed076476e2de27242a6bc2aa84967096bd9c162c291236fbaafe1e.js" integrity="sha256-ne&#43;Ac0btB2R24t4nJCprwqqElnCWvZwWLCkSNvuq/h4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-154152836-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<link rel="alternate" type="application/rss+xml" href="https://example.com/docs/architect/code/index.xml" title="outrun的笔记" />
+</script><link rel="alternate" type="application/rss+xml" href="https://runout.run/docs/architect/code/index.xml" title="outrun的笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -95,7 +97,7 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="/docs/architect/strategy/block_chain"><strong><strong>区块链</strong></strong></a></li>
-<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙</strong></strong></a>
+<li><a href="/docs/architect/strategy/meta"><strong><strong>元宇宙Web3.0</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
@@ -600,7 +602,7 @@ thunk
 
 
 
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

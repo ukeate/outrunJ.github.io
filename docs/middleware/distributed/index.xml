@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>支撑-分布式 on outrun的笔记</title>
-    <link>https://example.com/docs/middleware/distributed/</link>
+    <link>https://runout.run/docs/middleware/distributed/</link>
     <description>Recent content in 支撑-分布式 on outrun的笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Oct 2018 10:33:48 +0800</lastBuildDate><atom:link href="https://example.com/docs/middleware/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Oct 2018 10:33:48 +0800</lastBuildDate><atom:link href="https://runout.run/docs/middleware/distributed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spring Cloud</title>
-      <link>https://example.com/docs/middleware/distributed/spring_cloud/</link>
+      <link>https://runout.run/docs/middleware/distributed/spring_cloud/</link>
       <pubDate>Thu, 11 Oct 2018 10:33:48 +0800</pubDate>
       
-      <guid>https://example.com/docs/middleware/distributed/spring_cloud/</guid>
+      <guid>https://runout.run/docs/middleware/distributed/spring_cloud/</guid>
       <description>亿级流量 # 流量接入层 # 二级域名 泛域名 A记录 dns解析 udp 向网关请求dns解析 httpDNS 用ip请求http服务, 返回域名解析的ip 因为用ip请求，适合app，不适合网页 lvs + keepalive # 多lvs时用dns负载 nginx openresty kong 动静分离 cdn dns动态域名解析 cdn分发服务 源服务拉取FastDFS CDN节点分发 WEB服务层 # webflux 不基于重量的servlet标准 基于netty Eureka # 使用 @EnableEurekaServer application.properties eureka.client.register-with-eureka=false # 是否注册自己 eureka.client.fetch-registry=false # 是否拉取eureka eureka.client.service-url.defaultZone=http://localhost:7900/eureka/ # 设置注册中心的URL eureka.instance.hostname=euk1.com spring.application.name=EurekeServer # eureka集群中各节点要同名 行为 register # 注册 renew # 通过心跳, 默认30s。三次失败删除实例 fetch registry # 拉注册的信息 cancel # 发取消请求，删除实例 time lag # 同步时间延迟 communication mechanism # 通讯机制，默认jersey和jackson 功能 唯一标识 # service id 主机名:application.</description>
     </item>
     

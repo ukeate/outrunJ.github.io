@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Register on outrun的笔记</title>
-    <link>https://example.com/docs/cache/</link>
-    <description>Recent content in Register on outrun的笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/docs/cache/index.xml" rel="self" type="application/rss+xml" />
+    <title>Cache on outrun的笔记</title>
+    <link>https://runout.run/docs/cache/</link>
+    <description>Recent content in Cache on outrun的笔记</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://runout.run/docs/cache/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://example.com/docs/cache/ops/</link>
+      <link>https://runout.run/docs/cache/ops/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cache/ops/</guid>
+      <guid>https://runout.run/docs/cache/ops/</guid>
       <description> java # -Dserver.port=18001 -Deureka.client.serviceUrl.defaultZone=http://localhost:19090/eureka -javaagent:/opt/svc/apache-skywalking-apm-bin/agent/skywalking-agent.jar -Dspring.profiles.active=prod -Dlogging.config=classpath:logback-spring-prod.xml mac os 改mac # sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z sudo ifconfig &amp;lt;intf&amp;gt; lladdr 00:bb:cc:dd:ee:ff </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/docs/cache/work_code/</link>
+      <link>https://runout.run/docs/cache/work_code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cache/work_code/</guid>
+      <guid>https://runout.run/docs/cache/work_code/</guid>
       <description>框架编写 # 命令 # git update-index &amp;ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
 阿里云搜索词 # 大屏 # and tag:path: &amp;ldquo;/data/app/jncloud/screen/log/info.log&amp;rdquo; and resourceMap and {7435ca87-1c8c-4c76-bcfd-6f45b9c8b167} 时长请求 # tag:path:/var/log/nginx/access.log and upstream_response_time &amp;gt; 1 | select distinct request_uri , count(request_uri) as &amp;ldquo;count&amp;rdquo;, max(upstream_response_time) as max_time, min(upstream_response_time) as min_time, avg(upstream_response_time) as avg_time from log group by request_uri order by count desc
 IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_province(remote_addr) as address group by address order by c desc limit 100 tag:path:/var/log/nginx/access.</description>
@@ -27,10 +27,10 @@ IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_prov
     
     <item>
       <title>软考架构师</title>
-      <link>https://example.com/docs/cache/soft_arch/</link>
+      <link>https://runout.run/docs/cache/soft_arch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/docs/cache/soft_arch/</guid>
+      <guid>https://runout.run/docs/cache/soft_arch/</guid>
       <description>计算机基础 # 冯诺依曼 输入、输出、存储器(中心)、运算器控制器(CPU) 硬件图 主机(运算器、控制器、主存) 存储器: 主存、辅存 I/O设备 CPU 指令: 操作码, 地址码 运算器 ALU: 算逻运算 PSW状态寄存器 ACC MQ	X 加 被加数、和	加数 减	被减数、差	减数 乘	乘积高位	乘数、乘积低位	被乘数 除	被除数、余数	商	除数 控制器 CU: 控制单元 时序部件: 时钟控制 ID: 指令译码器 IR: 指令寄存器,即将执行的指令,查MAR PC: 程序计数器,下条指令地址 存储体 MAR: 地址寄存器, 现在集成到了CPU MDR: 数据寄存器, 指令存到IR 主存 存储单元: 存1字节, 唯一地址用16进制数表示 总线 地址总线: 长度表示n位二进制数地址数 数据总线: 长度表示一次处理多少位，叫作1个字的长度 存储器 分类 位置 内存(主存) 外存(辅存) 材料 半导体 静态: 双稳态触发器 动态: 依靠电容上的电荷存储，主存 磁介质: 磁性材料的不同状态存储，外存 光: 利用光斑、晶像的变化表示信息，外存 工作方式 读/写RAM 只读 固定ROM: 用户不可写 可编程PROM: 用户写1次 可擦除可编程EPROM: 可多次编程，紫外线擦除 电擦除可编程EEPROM: 可多次编程，电擦除 闪存: 接近EEPROM 访问方式 按地址访问的 按内容访问的 寻址方式 随机RAM: 按地址访问任一单元，主存 顺序SAM: 访问时按顺序查找目标地址，磁带 直接DAM: 按照数据块所在位置访问，磁盘 相联：按照内容进行访问，Cache 校验码 类别 奇偶校验码 只能发现奇数个位出错 海明码 奇偶校验、分组校验 n为数据位个数，求校验位个数k: 2^k &amp;gt;= n+k+1 CRC循环冗余校验码 码距: 任意两个码字的最小距离 检测出e个误码，要求码距d&amp;gt;=e+1 纠正t个误码，要求码距d&amp;gt;=2t+1 指令 指令周期 执行 顺序执行 重叠执行 流水线 建立时间: 第一条指令执行完毕时间 流水线周期: 部件(取指、分析、执行)执行时间最长的一段 全部执行完时间 理论公式: (t1+t2+.</description>
     </item>
     
