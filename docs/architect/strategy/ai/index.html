@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 基础 # 模型的作用 调模型参数自动做特征工程 交互 用户数据 -&gt; 向量化 -&gt; 向量 -&gt; 模型 -&gt; 输出 算法分类 离线: 复杂模型 在线: 时间短 框架 # tensorflow # 神经网络计算 convnet.js # js深度学习 scikit-learn # python机器学习 特征工程 # 向量化, 量化才能优化, bitmap存储(位数即维数) one-hot: 太长，无序，歧义 业务导向存储 分段标识，如年龄区间[0,1,0,0] 需要经验及产品设计 模型 # 分类 传统模型 速度快 深度模型 业务复杂, 数据量大时用 模型 线性回归 逻辑回归 朴素贝叶斯 支撑向量机 用户画像 # 在Hive中存 场景 # 聊天机器人 类型 QA机器人 闲聊机器人 任务机器人: AIOps 场景机器人 实现类型 基于检索 基于生成模型 语音识别 知识图谱 生物特征识别 AIoT AITest 视频行为分析 深度学习(隐性模型) # 知识图谱(显性模型) # 与深度学习区别 场景：人脸识别；语音助手 目前进展: 在一些任务上已超过人类；知识量超过人类，推理不如人类 任务范围：面向具体任务，难以迁移；广泛适用于不同任务 可解释性：较难解释；可解释性强 数据量：海量训练数据；海量知识数据 未来趋势：深度融合 历史 # 2010年: 微软构建Satori、Probase 2012年: 谷歌X实验室识别&quot;猫&quot;, 发布Google Knowledge Graph 2013年：百度布局 2015年：阿里布局 2016年：亚马逊布局 流程 # 架构平台 知识管理系统 图存储引擎 图学习引擎 图查询引擎 多元异构数据 非结构化文档 半结构化数据 结构化知识 知识校验 数据 数据搜集、数据清洗、数据标注 交易数据/流量数据、外部数据资讯/舆情 知识获取 实体识别 概念、关系、属性抽取 标签挖掘 情感分析 知识融合：概念层融合，数据层融合 知识建模: 概念上下位关系生成、概念属性识别、规则建模、事件建模、时空建模 知识存储 知识融合 实体对齐 实体链接 知识表示 Schema构建 向量表示 后处理 先验知识库: 规则库，领域词表，模板库，黑白名单 数据集构建：人工标注 知识计算 知识补全 知识推理 知识统计与图挖掘 知识图谱金字塔 文本(text)、标签(label、tag)、表格(table)、图(graph)、模式(schema)、本体(ontology)、规则(rule) 技术 计算：Spark 中间存储：HIVE 检索：ES 应用 # 搜索 语义搜索 演化分析 场景化搜索 路径召回 知识问答 对话理解 推荐 路径推荐 知识融入推荐 广告 智能营销 画像 用户画像 产品画像 场景画像 库 概念库 语义本体库 规则库 建模分析 分词、词性标注、命名实体识别 句法分析、语义表示、概念发现 用户打标、场景打标、产品打标 语义匹配、指代消解、主题模型 商家赋能 智能化商家运营 商业大脑 商业分析 可解释性 图谱路径推荐理由 知识融入生成推荐理由 ">
+<meta name="description" content=" 基础 # 模型的作用 调模型参数自动做特征工程 交互 用户数据 -&gt; 向量化 -&gt; 向量 -&gt; 模型 -&gt; 输出 算法分类 离线: 复杂模型 在线: 时间短 框架 # tensorflow # 神经网络计算 convnet.js # js深度学习 scikit-learn # python机器学习 特征工程 # 向量化, 量化才能优化, bitmap存储(位数即维数) one-hot: 太长，无序，歧义 业务导向存储 分段标识，如年龄区间[0,1,0,0] 需要经验及产品设计 模型 # 分类 传统模型 速度快 深度模型 业务复杂, 数据量大时用 模型 线性回归 逻辑回归 朴素贝叶斯 支撑向量机 用户画像 # 在Hive中存 场景 # 聊天机器人 类型 QA机器人 闲聊机器人 任务机器人: AIOps 场景机器人 实现类型 基于检索 基于生成模型 语音识别 知识图谱 生物特征识别 AIoT AITest 视频行为分析 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="AI" />
 <meta property="og:description" content="" />
@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.784e46818d1b41815dbafa8dccd3690e3de1258309b5e95ffb6172d1b7475e68.js" integrity="sha256-eE5GgY0bQYFduvqNzNNpDj3hJYMJtelf&#43;2Fy0bdHXmg=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,7 +90,12 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/big_data/ecology">生态体系</a></li>
 </ul>
 </li>
-<li><a href="/docs/architect/strategy/ai"><strong><strong>人工智能</strong></strong></a></li>
+<li><a href="/docs/architect/strategy/ai"><strong><strong>人工智能</strong></strong></a>
+<ul>
+<li><a href="/docs/architect/strategy/ai/deep">深度学习</a></li>
+<li><a href="/docs/architect/strategy/ai/map">知识图谱</a></li>
+</ul>
+</li>
 <li><a href="/docs/architect/strategy/iot"><strong><strong>物联网</strong></strong></a>
 <ul>
 <li><a href="/docs/architect/strategy/iot/framework">框架</a></li>
@@ -102,6 +107,8 @@ https://github.com/alex-shpak/hugo-book
 <li><a href="/docs/architect/strategy/meta/media">媒体</a></li>
 </ul>
 </li>
+<li><a href="/docs/architect/strategy/cloud"><strong><strong>云原生</strong></strong></a></li>
+<li><a href="/docs/architect/strategy/edge"><strong><strong>边缘计算</strong></strong></a></li>
 </ul>
 </li>
 <li><a href="/docs/architect/project"><strong><strong>工程设计原则</strong></strong></a>
@@ -310,14 +317,6 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#模型">模型</a></li>
     <li><a href="#用户画像">用户画像</a></li>
     <li><a href="#场景">场景</a></li>
-    <li><a href="#深度学习隐性模型">深度学习(隐性模型)</a></li>
-    <li><a href="#知识图谱显性模型">知识图谱(显性模型)</a>
-      <ul>
-        <li><a href="#历史">历史</a></li>
-        <li><a href="#流程">流程</a></li>
-        <li><a href="#应用">应用</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
 
@@ -402,116 +401,7 @@ one-hot: 太长，无序，歧义
 生物特征识别
 AIoT
 AITest
-视频行为分析
-</code></pre>
-<h1 id="深度学习隐性模型">
-  深度学习(隐性模型)
-  <a class="anchor" href="#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e9%9a%90%e6%80%a7%e6%a8%a1%e5%9e%8b">#</a>
-</h1>
-<h1 id="知识图谱显性模型">
-  知识图谱(显性模型)
-  <a class="anchor" href="#%e7%9f%a5%e8%af%86%e5%9b%be%e8%b0%b1%e6%98%be%e6%80%a7%e6%a8%a1%e5%9e%8b">#</a>
-</h1>
-<pre><code>与深度学习区别
-    场景：人脸识别；语音助手
-    目前进展: 在一些任务上已超过人类；知识量超过人类，推理不如人类
-    任务范围：面向具体任务，难以迁移；广泛适用于不同任务
-    可解释性：较难解释；可解释性强
-    数据量：海量训练数据；海量知识数据
-    未来趋势：深度融合
-</code></pre>
-<h2 id="历史">
-  历史
-  <a class="anchor" href="#%e5%8e%86%e5%8f%b2">#</a>
-</h2>
-<pre><code>2010年: 微软构建Satori、Probase
-2012年: 谷歌X实验室识别&quot;猫&quot;, 发布Google Knowledge Graph
-2013年：百度布局
-2015年：阿里布局
-2016年：亚马逊布局
-</code></pre>
-<h2 id="流程">
-  流程
-  <a class="anchor" href="#%e6%b5%81%e7%a8%8b">#</a>
-</h2>
-<pre><code>架构平台
-    知识管理系统
-    图存储引擎
-    图学习引擎
-    图查询引擎
-多元异构数据
-    非结构化文档
-    半结构化数据
-    结构化知识
-知识校验
-    数据
-        数据搜集、数据清洗、数据标注
-        交易数据/流量数据、外部数据资讯/舆情
-    知识获取
-        实体识别
-        概念、关系、属性抽取
-        标签挖掘
-        情感分析
-        知识融合：概念层融合，数据层融合
-        知识建模: 概念上下位关系生成、概念属性识别、规则建模、事件建模、时空建模
-    知识存储
-        知识融合
-            实体对齐
-            实体链接
-        知识表示
-            Schema构建
-            向量表示
-        后处理
-            先验知识库: 规则库，领域词表，模板库，黑白名单
-            数据集构建：人工标注
-    
-知识计算
-    知识补全
-    知识推理
-    知识统计与图挖掘
-知识图谱金字塔
-    文本(text)、标签(label、tag)、表格(table)、图(graph)、模式(schema)、本体(ontology)、规则(rule)
-技术
-    计算：Spark
-    中间存储：HIVE
-    检索：ES
-</code></pre>
-<h2 id="应用">
-  应用
-  <a class="anchor" href="#%e5%ba%94%e7%94%a8">#</a>
-</h2>
-<pre><code>搜索
-    语义搜索
-    演化分析
-    场景化搜索
-    路径召回
-    知识问答
-    对话理解
-推荐
-    路径推荐
-    知识融入推荐
-    广告
-智能营销
-    画像
-        用户画像
-        产品画像
-        场景画像
-    库
-        概念库
-        语义本体库
-        规则库
-    建模分析
-        分词、词性标注、命名实体识别
-        句法分析、语义表示、概念发现
-        用户打标、场景打标、产品打标
-        语义匹配、指代消解、主题模型
-商家赋能
-    智能化商家运营
-    商业大脑
-        商业分析
-可解释性
-    图谱路径推荐理由
-    知识融入生成推荐理由</code></pre>
+视频行为分析</code></pre>
 </article>
  
       
@@ -521,9 +411,9 @@ AITest
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/5777c3188b8b4dea4dd002a78eeef98fd276f521" title='Last modified by outrun | Nov 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/f523e16cf1154c432e1adbef7cbe9c8de9b71caf" title='Last modified by outrun | Dec 1, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Nov 24, 2022</span>
+      <span>Dec 1, 2022</span>
     </a>
   </div>
 
@@ -572,14 +462,6 @@ AITest
     <li><a href="#模型">模型</a></li>
     <li><a href="#用户画像">用户画像</a></li>
     <li><a href="#场景">场景</a></li>
-    <li><a href="#深度学习隐性模型">深度学习(隐性模型)</a></li>
-    <li><a href="#知识图谱显性模型">知识图谱(显性模型)</a>
-      <ul>
-        <li><a href="#历史">历史</a></li>
-        <li><a href="#流程">流程</a></li>
-        <li><a href="#应用">应用</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
 
