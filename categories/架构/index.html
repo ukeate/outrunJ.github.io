@@ -53,6 +53,18 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
 
 
 
@@ -1630,18 +1642,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  
-<ul>
-  
-  <li>
-    <a href="/posts/"  >
-        Blog
-      </a>
-  </li>
-  
-</ul>
-
-
 
 
 
@@ -1709,12 +1709,17 @@ https://github.com/alex-shpak/hugo-book
       
         <li class="flex justify-between">
           <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-          <span>1</span>
+          <span>6</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-          <span>2</span>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+          <span>5</span>
         </li>
       
         <li class="flex justify-between">
@@ -1744,7 +1749,7 @@ https://github.com/alex-shpak/hugo-book
       
         <li class="flex justify-between">
           <a href="/categories/%E6%9E%B6%E6%9E%84/">架构</a>
-          <span>8</span>
+          <span>16</span>
         </li>
       
         <li class="flex justify-between">
@@ -1768,18 +1773,18 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
         <li class="flex justify-between">
-          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
           <a href="/categories/%E5%8A%9F%E8%83%BD/">功能</a>
           <span>1</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/categories/%E8%AF%AD%E8%A8%80/">语言</a>
-          <span>13</span>
+          <span>14</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
+          <span>3</span>
         </li>
       
         <li class="flex justify-between">
@@ -1876,6 +1881,275 @@ https://github.com/alex-shpak/hugo-book
 代码不挖坑
 沟通总结能力(micheal)
 工时制度管理
+</code></pre>
+    </p>
+  </article>
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/docs/architect/code/">代码</a>
+    </h2>
+    
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>Oct 10, 2018</span>
+  </div>
+
+
+
+  
+  <div class="text-small">
+    
+      <a href="/categories/%E8%AE%BE%E8%AE%A1/">设计</a>, 
+      <a href="/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+  
+
+  
+
+
+    <p><h1 id="人类认知原理">
+  人类认知原理
+  <a class="anchor" href="#%e4%ba%ba%e7%b1%bb%e8%ae%a4%e7%9f%a5%e5%8e%9f%e7%90%86">#</a>
+</h1>
+<pre><code>原理
+    模拟执行
+负担
+    概念量
+        封装粒度大
+        多态、运行时多态、静态多态
+        临时状态
+        用工作流, 而非队列
+        日志(event)搜索/集中/回放
+        抽出权限层
+        非轻量级
+            胶水层厚
+            无稳定方案, 复用困难
+    流程长度
+最好
+    单线程                  # 不插入行为
+    上下文集中
+        this.scene.commit()集中状态转移时间线
+    单一方式
+</code></pre>
+<h1 id="软件设计原则">
+  软件设计原则
+  <a class="anchor" href="#%e8%bd%af%e4%bb%b6%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99">#</a>
+</h1>
+<h2 id="统一原则">
+  统一原则
+  <a class="anchor" href="#%e7%bb%9f%e4%b8%80%e5%8e%9f%e5%88%99">#</a>
+</h2>
+<pre><code>观念
+    KISS(keep it simple stupid)
+    YAGNI(You Ain’t Gonna Need It)
+    取好名字占设计一半
+    约定大于配置
+    并发的世界，并发的软件
+        分布式的世界，分布式的软件
+        不可预测的世界，容错性强的软件
+        复杂的世界，简单的软件
+    代码即数据
+        物体上绑定行为数据
+        传递代码数据(函数一等公民)
+    防御性编程
+        接口前validator
+        启动时自检断言
+        异常处理
+        不可过度
+设计
+    solid原则
+        单一职则(single responsibility)
+            一个类负责一个功能
+        开闭(open/closed)
+            对扩展开放，对修改关闭，如接口, 如数组扩展结构体状态
+        里氏替换原则(liskov substitution)
+            子类继承超类的所有
+        接口分离(interface segregation)
+            最小功能隔离
+        依赖反转(dependency inversion)
+            低层依赖高层, 具体依赖抽象
+    非侵入     # non-intrusion
+        将功能推入代码，而非代码拿到功能
+        代码实现接口，而非继承类
+    拆分
+        边界
+        正交
+    unix rules
+        模块化(modularity)          # 模块由精心设计的接口连接
+        清晰化(clarity)             # 可读性、可维护性
+        组合(composition)
+        分离(separation)
+        简单(simplicity)
+        节俭(parsimony)             # 越小越好
+        透明(transparency)          # log, tracing
+        鲁棒(robustness)
+        可展示(representation)      # 逻辑简单，数据复杂
+        最小惊吓(least surprise)     # 少打破用户预期
+        安静(silence)
+        修复(repair)                # 产生足够报错
+        经济(economy)               # 减少开发时间
+        生成(generation)            # 避免手写, 用高阶抽象生成代码
+        优化(optimization)            # 优化和收益平衡
+        分化(diversity)             # 一开始设计不限制、优雅开放灵活
+        扩展(extensibility)         # 协议可扩展
+优化
+    需要时再优化，设计时考虑扩展性
+    dry(don't repeat yourself), 不可过度
+    找瓶颈
+产出
+    设计清晰
+    选型简单
+    代码精炼
+    抽象优雅
+</code></pre>
+<h2 id="代码风格">
+  代码风格
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e9%a3%8e%e6%a0%bc">#</a>
+</h2>
+<pre><code>命名
+    包名类名为名词, 方法名为动词
+    参数、方法名称在上下文语义中合理 , 像写文章一样
+    横向代码单屏内分行
+性能
+    避免嵌套循环，特别是数据库操作
+结构
+    # 高内聚，低耦合
+    抽取方法
+    业务逻辑分层
+    框架无侵入性
+技巧
+    注释驱动写复杂业务
+    自解释代码
+安全
+    密码二次验证
+    离机锁屏
+    用户名、密码、ip、端口不提交
+    代码安全, 如sql注入, XSS
+</code></pre>
+<h2 id="代码质量">
+  代码质量
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e8%b4%a8%e9%87%8f">#</a>
+</h2>
+<pre><code>代码
+    功能、结构、资源
+非遗留代码
+    写了测试
+改代码
+    bug
+    重构
+        # 只改结构
+    确定修改点
+        找出测试点
+        解依赖
+            伪/仿对象
+            接缝
+                全局函数
+                    提取重写方法
+                宏预处理
+                替换连接的代码
+                对象
+                    # 耦合对象不好初始化
+                    子类化重写方法
+                    接口提取
+                    创建简化接口
+                    创建简化类与对象，引用原对象
+                    暴露静态方法
+                    对象提取公共方法，只测公共方法
+                传方法参数
+        写测试
+    优化
+        # 只改资源
+</code></pre>
+<h1 id="具体实现原则">
+  具体实现原则
+  <a class="anchor" href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0%e5%8e%9f%e5%88%99">#</a>
+</h1>
+<h2 id="数据结构">
+  数据结构
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">#</a>
+</h2>
+<pre><code>状态机解决流程问题
+AST解决主义问题
+</code></pre>
+<h2 id="面向对象object-oriented">
+  面向对象(Object Oriented)
+  <a class="anchor" href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1object-oriented">#</a>
+</h2>
+<pre><code>特性
+ooad
+    # Object Oriented Analysis and Design
+    ooa     # analysis
+        建立针对业务问题域的清晰视图
+        列出核心任务
+        针对问题域建立公共词汇表
+        列出针对问题域的最佳解决方案
+    ood     # design
+        细化类关系，明确可见性
+        增加属性
+        分配职责(方法)
+        消息驱动系统中消息传递方式
+        局部应用设计模式
+        类图时序图
+    oop     # program
+        抽象: abstract
+            接口
+                无实现
+                可多重继承
+            抽象类
+                可以有私有方法变量
+                实现部分方法
+        封装: encapsulation
+            # 数据和方法绑定
+        继承: inheritance
+        多态: polymorphism
+            overload为编译时
+            override为运行时
+        关联: association
+            # has a
+            双向关联
+                两个类互相知道对方公共属性和操作
+            单向关联（大多数）
+                一个类知道另一个类的公共属性和操作
+            聚合: aggregation
+                a包含b, b可以不在a创建时创建
+            组合: composition
+                比聚合强，a包含b, b在a创建时创建
+        内聚与耦合: cohesion &amp; coupling
+            # 高内聚低耦合
+        依赖: dependency
+            # use a
+        泛化: generalization
+            # is a
+            泛型
+</code></pre>
+<h2 id="函数式">
+  函数式
+  <a class="anchor" href="#%e5%87%bd%e6%95%b0%e5%bc%8f">#</a>
+</h2>
+<pre><code>数组
+    [1, 1, 3, 5, 5].reduce(function(x, y){ return x + y;})
+    [1, 4, 9].map(function(num){return num * 2;})
+高阶函数(higher-order function)
+    操作函数的函数, 接收函数作为参数, 返回函数
+不完全函数(partial function)
+    一次调用拆成多次调用，每次调用返回一个函数，如f(1,2)(3,4)(5,6)
+        # 每次调用叫做不完全调用(partial application)
+不变式
+    循环不变式
+        用于形式化证明正确性
+        描述
+            有循环变量
+            算法初始、保持、终止时, 某特性不变, 如选择排序中, arr[0,...,j-1]一直有序
+    类(或数据类型)不变式
+        并发时, 不变的成员关系
+            如, 并发临界区(同时只能一个线程占用)
+cps(continuation passing style)
+    传入处理函数, 处理函数中传处理函数
+curry
+    f(1,2,3)改写成f(1).f(2).f(3)
+thunk
+    触发函数, 如 f(){_f(1)}
 </code></pre>
     </p>
   </article>
@@ -2453,6 +2727,133 @@ wso2
   
   <article class="markdown book-post">
     <h2>
+      <a href="/docs/architect/strategy/meta/">IoT</a>
+    </h2>
+    
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>Oct 10, 2018</span>
+  </div>
+
+
+
+  
+  <div class="text-small">
+    
+      <a href="/categories/%E5%85%83%E5%AE%87%E5%AE%99Web3.0/">元宇宙Web3.0</a>, 
+      <a href="/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+  
+
+  
+
+
+    <p><h1 id="转变">
+  转变
+  <a class="anchor" href="#%e8%bd%ac%e5%8f%98">#</a>
+</h1>
+<pre><code>网页向虚拟世界转变
+开发者创建向用户创建转变
+    游戏即服务到游戏即平台
+</code></pre>
+<h1 id="特点">
+  特点
+  <a class="anchor" href="#%e7%89%b9%e7%82%b9">#</a>
+</h1>
+<pre><code>是一个框架，代表多技术发展结合点
+    实时流媒体，VR/AR
+    UGC
+    多人社交游戏，跨平台交互
+    游戏作为社交媒体的趋势
+    硬件、网络基础设施、可视化、空间计算、人工智能
+    加密货币
+各游戏的数字化打通, 跨平台无边界
+内容变现
+    UGC增长
+    NFT数字所有权
+人与人、人与社会的关系重构
+不同世界IP融合
+数字人自定义身份
+数字世界和现实世界的融合
+虚实结合
+一体世界
+</code></pre>
+<h1 id="技术">
+  技术
+  <a class="anchor" href="#%e6%8a%80%e6%9c%af">#</a>
+</h1>
+<pre><code>扩展现实
+数字孪生
+区块链
+物联网
+VR/AR/MR/XR
+云可扩展性
+人工智能生成内容
+脑机接口
+边缘计算
+</code></pre>
+<h1 id="机构">
+  机构
+  <a class="anchor" href="#%e6%9c%ba%e6%9e%84">#</a>
+</h1>
+<pre><code>《元宇宙生态系统信息图》
+入口类
+    Roblox
+    The Sandbox
+    Decentraland
+    Hadean
+    世纪华通(打造平台): LiveTopia、强化训练号
+    中手游(打造IP): 仙剑无宇宙
+    元境(云游戏)
+技术类
+    Nvdia: Omniverse数字工厂
+    Unity: 元宇宙工厂
+钱包
+    Metamask
+    Coinbase Wallet
+    Bitski
+    WalletConnect
+    Venly
+    Fortmatic
+引擎
+    Unity
+互联网
+    Meta
+    微软: IVAS
+</code></pre>
+<h1 id="应用领域">
+  应用领域
+  <a class="anchor" href="#%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f">#</a>
+</h1>
+<pre><code>游戏
+    我的世界
+    GTA5
+    动物森友会
+    第二人生
+    Roblox
+    VRChat
+</code></pre>
+<h1 id="商业模式">
+  商业模式
+  <a class="anchor" href="#%e5%95%86%e4%b8%9a%e6%a8%a1%e5%bc%8f">#</a>
+</h1>
+<pre><code>虚拟活动：虚拟音乐会、讲座
+NFT: 非同质化代币、持久性数字物品
+Play-to-Earn
+Play-to-Collect
+Pay-to-Socialize
+</code></pre>
+<h1 id="市场营销">
+  市场营销
+  <a class="anchor" href="#%e5%b8%82%e5%9c%ba%e8%90%a5%e9%94%80">#</a>
+</h1>
+<pre><code>原生植入广告
+</code></pre>
+    </p>
+  </article>
+  
+  <article class="markdown book-post">
+    <h2>
       <a href="/docs/architect/strategy/middle_platform/">中台</a>
     </h2>
     
@@ -2948,6 +3349,26 @@ layout对象
   
 
   
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/categories/%E6%9E%B6%E6%9E%84/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/categories/%E6%9E%B6%E6%9E%84/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/categories/%E6%9E%B6%E6%9E%84/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
  
       
 
@@ -3011,12 +3432,17 @@ layout对象
       
         <li class="flex justify-between">
           <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-          <span>1</span>
+          <span>6</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-          <span>2</span>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+          <span>5</span>
         </li>
       
         <li class="flex justify-between">
@@ -3046,7 +3472,7 @@ layout对象
       
         <li class="flex justify-between">
           <a href="/categories/%E6%9E%B6%E6%9E%84/">架构</a>
-          <span>8</span>
+          <span>16</span>
         </li>
       
         <li class="flex justify-between">
@@ -3070,18 +3496,18 @@ layout对象
         </li>
       
         <li class="flex justify-between">
-          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
           <a href="/categories/%E5%8A%9F%E8%83%BD/">功能</a>
           <span>1</span>
         </li>
       
         <li class="flex justify-between">
           <a href="/categories/%E8%AF%AD%E8%A8%80/">语言</a>
-          <span>13</span>
+          <span>14</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
+          <span>3</span>
         </li>
       
         <li class="flex justify-between">
