@@ -3,34 +3,144 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="分析方向 # cpu # 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数 内存 # 对象 对象个数、空间比例 调用栈分配比例 线程/协程 # 泄露 I/O阻塞 锁阻塞 channel阻塞 GC问题 # 少建对象 Linux # time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig Java # VisualVM # JProfiler # # 收费, java perfino # # 监测jvm YourKit # # 收费, java, 有调用链 Spring Insight # # java spring Golang # go命令 go tool pprof Xx.">
+<meta name="description" content="
+  分析方向
+  #
+
+
+  cpu
+  #
+
+方法调用
+    调用栈时长比例
+    录制时间内调用栈时长
+火焰图(graph frames)
+    宽度: 方法耗时
+    高度: 调用栈深
+    排序是按字母的，颜色是随机的
+subsecond offset heat map
+    x轴: 秒
+    y轴: 一秒内各阶段
+    z轴: 颜色深度标记events采样数
+
+
+  内存
+  #
+
+对象
+    对象个数、空间比例
+    调用栈分配比例
+
+
+  线程/协程
+  #
+
+泄露
+    I/O阻塞
+    锁阻塞
+    channel阻塞
+
+
+  GC问题
+  #
+
+少建对象
+
+
+  Linux
+  #
+
+time
+ftrace
+perf_events
+eBPF
+SystemTap
+LTTng
+ktap
+dtrace4linux
+OEL DTrace
+sysdig
+
+
+  Java
+  #
+
+
+  VisualVM
+  #
+
+
+  JProfiler
+  #
+
+# 收费, java
+
+
+  perfino
+  #
+
+# 监测jvm
+
+
+  YourKit
+  #
+
+# 收费, java, 有调用链
+
+
+  Spring Insight
+  #
+
+# java spring
+
+
+  Golang
+  #
+
+go命令
+    go tool pprof Xx.bin Xx.prof
+        -inuse_space                # -inuse_space显示真正使用的内存
+        -cpuprofile=cpu.prof
+        -memprofile=mem.prof
+        -blockprofile=block.prof
+        -svg                        # 输出svg
+
+    go build
+        -toolexec=&quot;/usr/bin/time&quot;   # -toolexec在每个命令加上前缀
+        -toolexec=&quot;perf stat&quot;
+        -gcflags=&#39;-memprofile=m.p&#39;
+        -gcflags=&#39;-traceprofile=t.p&#39;
+
+    go test
+        -blockprofile=b.p net/http
+        -trace=t.p
+    go tool trace Xx.bin t.p
+    go-torch cpu.prof
+
+环境变量
+GODEBUG=gctrace=1
+# 打印gc信息
+http
+import _ &ldquo;net/http/pprof&rdquo;
+func main() {
+log.Println(http.ListenAndServe(&ldquo;localhost:3999&rdquo;, nil))
+}">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="程序调试" />
-<meta property="og:description" content="分析方向 # cpu # 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数 内存 # 对象 对象个数、空间比例 调用栈分配比例 线程/协程 # 泄露 I/O阻塞 锁阻塞 channel阻塞 GC问题 # 少建对象 Linux # time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig Java # VisualVM # JProfiler # # 收费, java perfino # # 监测jvm YourKit # # 收费, java, 有调用链 Spring Insight # # java spring Golang # go命令 go tool pprof Xx." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/tool/test/debug/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2022-04-23T22:18:41+08:00" />
-
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/tool/test/debug/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="程序调试">
+  <meta property="og:description" content="分析方向 # cpu # 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数 内存 # 对象 对象个数、空间比例 调用栈分配比例 线程/协程 # 泄露 I/O阻塞 锁阻塞 channel阻塞 GC问题 # 少建对象 Linux # time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig Java # VisualVM # JProfiler # # 收费, java perfino # # 监测jvm YourKit # # 收费, java, 有调用链 Spring Insight # # java spring Golang # go命令 go tool pprof Xx.bin Xx.prof -inuse_space # -inuse_space显示真正使用的内存 -cpuprofile=cpu.prof -memprofile=mem.prof -blockprofile=block.prof -svg # 输出svg go build -toolexec=&#34;/usr/bin/time&#34; # -toolexec在每个命令加上前缀 -toolexec=&#34;perf stat&#34; -gcflags=&#39;-memprofile=m.p&#39; -gcflags=&#39;-traceprofile=t.p&#39; go test -blockprofile=b.p net/http -trace=t.p go tool trace Xx.bin t.p go-torch cpu.prof 环境变量 GODEBUG=gctrace=1 # 打印gc信息 http import _ “net/http/pprof” func main() { log.Println(http.ListenAndServe(“localhost:3999”, nil)) }">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2022-04-23T22:18:41+08:00">
 <title>程序调试 | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->

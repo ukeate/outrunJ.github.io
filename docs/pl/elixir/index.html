@@ -3,34 +3,84 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="介绍 # 跑在erlang虚拟机上 与erlang相同，actor称作进程, 是比线程更轻量的概念 使用 # o-&gt; 元组 {:foo, &quot;this&quot;, 42} # 三元组 o-&gt; actor defmodule Talker do def loop do receive do {:greet, name, age} -&gt; IO.puts(&quot;Hello #{name}&quot;) {:shutdown} -&gt; exit(:normal) end loop end end pid = spawn(&amp;Talker.loop/0) send(pid, {:greet, &quot;Huey&quot;, 16}) sleep(1000) Process.flag(:trap_exit, true) pid = spawn_link(&amp;Takler.loop/0) send(pid, {:shutdown}) receive do {:EXIT, ^pid, reason} -&gt; IO.puts(&quot;Talker has exited (#{reason})&quot;) end o-&gt; 有状态的actor # 递归 defmodule Counter do def start(count) do spawn(__MODULE__, :loop, [count]) # 伪变量__MODULE__, 是当前模块的名字 end def next(counter) do send(counter, {:next}) end def loop(count) do receive do {:next} -&gt; IO.">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Elixir" />
-<meta property="og:description" content="介绍 # 跑在erlang虚拟机上 与erlang相同，actor称作进程, 是比线程更轻量的概念 使用 # o-&gt; 元组 {:foo, &quot;this&quot;, 42} # 三元组 o-&gt; actor defmodule Talker do def loop do receive do {:greet, name, age} -&gt; IO.puts(&quot;Hello #{name}&quot;) {:shutdown} -&gt; exit(:normal) end loop end end pid = spawn(&amp;Talker.loop/0) send(pid, {:greet, &quot;Huey&quot;, 16}) sleep(1000) Process.flag(:trap_exit, true) pid = spawn_link(&amp;Takler.loop/0) send(pid, {:shutdown}) receive do {:EXIT, ^pid, reason} -&gt; IO.puts(&quot;Talker has exited (#{reason})&quot;) end o-&gt; 有状态的actor # 递归 defmodule Counter do def start(count) do spawn(__MODULE__, :loop, [count]) # 伪变量__MODULE__, 是当前模块的名字 end def next(counter) do send(counter, {:next}) end def loop(count) do receive do {:next} -&gt; IO." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/pl/elixir/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-09T16:24:04+08:00" />
-<meta property="article:modified_time" content="2019-07-25T09:26:43+08:00" />
+<meta name="description" content="
+  介绍
+  #
 
+跑在erlang虚拟机上
+与erlang相同，actor称作进程, 是比线程更轻量的概念
+
+
+  使用
+  #
+
+o-&gt; 元组
+{:foo, &quot;this&quot;, 42}
+        # 三元组
+
+o-&gt; actor
+defmodule Talker do
+def loop do
+    receive do
+    {:greet, name, age} -&gt; IO.puts(&quot;Hello #{name}&quot;)
+    {:shutdown} -&gt; exit(:normal)
+    end
+    loop
+end
+end
+
+pid = spawn(&amp;Talker.loop/0)
+send(pid, {:greet, &quot;Huey&quot;, 16})
+sleep(1000)
+
+Process.flag(:trap_exit, true)
+pid = spawn_link(&amp;Takler.loop/0)
+send(pid, {:shutdown})
+receive do
+{:EXIT, ^pid, reason} -&gt; IO.puts(&quot;Talker has exited (#{reason})&quot;)
+end
+
+o-&gt; 有状态的actor
+        # 递归
+defmodule Counter do
+def start(count) do
+    spawn(__MODULE__, :loop, [count])
+            # 伪变量__MODULE__, 是当前模块的名字
+end
+def next(counter) do
+    send(counter, {:next})
+end
+def loop(count) do
+    receive do
+    {:next} -&gt;
+        IO.puts(&quot;Current count: #{count}&quot;)
+        loop(count &#43; 1)
+    end
+end
+end
+counter = spawn(Counter, :loop, [1])
+send(counter, {:next})
+
+counter = Countre.start(42)
+Counter.next(counter)
+">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/pl/elixir/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="Elixir">
+  <meta property="og:description" content="介绍 # 跑在erlang虚拟机上 与erlang相同，actor称作进程, 是比线程更轻量的概念 使用 # o-&gt; 元组 {:foo, &#34;this&#34;, 42} # 三元组 o-&gt; actor defmodule Talker do def loop do receive do {:greet, name, age} -&gt; IO.puts(&#34;Hello #{name}&#34;) {:shutdown} -&gt; exit(:normal) end loop end end pid = spawn(&amp;Talker.loop/0) send(pid, {:greet, &#34;Huey&#34;, 16}) sleep(1000) Process.flag(:trap_exit, true) pid = spawn_link(&amp;Takler.loop/0) send(pid, {:shutdown}) receive do {:EXIT, ^pid, reason} -&gt; IO.puts(&#34;Talker has exited (#{reason})&#34;) end o-&gt; 有状态的actor # 递归 defmodule Counter do def start(count) do spawn(__MODULE__, :loop, [count]) # 伪变量__MODULE__, 是当前模块的名字 end def next(counter) do send(counter, {:next}) end def loop(count) do receive do {:next} -&gt; IO.puts(&#34;Current count: #{count}&#34;) loop(count &#43; 1) end end end counter = spawn(Counter, :loop, [1]) send(counter, {:next}) counter = Countre.start(42) Counter.next(counter)">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2018-10-09T16:24:04+08:00">
+    <meta property="article:modified_time" content="2019-07-25T09:26:43+08:00">
 <title>Elixir | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -385,7 +435,8 @@ counter = spawn(Counter, :loop, [1])
 send(counter, {:next})
 
 counter = Countre.start(42)
-Counter.next(counter)</code></pre>
+Counter.next(counter)
+</code></pre>
 </article>
  
       
@@ -395,9 +446,9 @@ Counter.next(counter)</code></pre>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified by shenwenqing | Jul 25, 2019' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/45078a10fae17d9ddee23ac09de803192f25f295" title='Last modified by shenwenqing | Jul 24, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jul 25, 2019</span>
+      <span>Jul 24, 2019</span>
     </a>
   </div>
 

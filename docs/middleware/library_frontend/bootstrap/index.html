@@ -3,34 +3,497 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="介绍 # 在jquery基础上的组件框架 移动 # &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&gt; css # 全局 container # div, 唯一包裹容器 container-fluid # 占全部视口 栅格 # 必须放在row内 col-xs-1 # 适用于大于等于分界点的屏幕 ## 大于12的最后那个col另起一行排列 # xs &lt; 768px 宽度, container 最大宽度: 自动 # sm &gt;= 768px, 750px # md &gt;= 992px, 970px # lg &gt;= 1200px, 1170px col-md-offset-4 # 向右偏移4 col-md-pull-9 # 向后推9, 改变元素的顺序 col-md-push-3 o-&gt; mixin make-row 如 .wrapper {.make-row();} make-xs-column make-sm-column-offset make-sm-column-push make-sm-column-pull 样式 # muted # 文本颜色 text-warning text-error text-info text-success text-left # 文本左对齐 text-center text-right text-justify text-nowrap text-lowercase text-uppercase text-capitalize bg-primary # p bg-success bg-info bg-warning bg-danger success # 状态类 # table行颜色, control-group div error danger warning info active has-warning # div元素 # 适用class: control-label, form-control, help-block has-error has-success has-feedback # div, pull-right # 任意元素向右浮动 pull-left navbar-right # 导航条中向右浮动 navbar-left clearfix # 清除浮动 initialism # 缩略语样式, abbr标签 small # small标签的样式 lead # p标签，突出显示 blockquote-reverse # blockquote标签使用, 内容右对齐 disabled # btn, input, 只disable样式 o-&gt; 适用的class radio radio-inline checkbox checkbox-inline o-&gt; 适用的标签 fieldset inline # 行内ul, checkbox center-block # 任意元素, 水平居中 show # 任意元素显示 hidden .">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Bootstrap" />
-<meta property="og:description" content="介绍 # 在jquery基础上的组件框架 移动 # &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&gt; css # 全局 container # div, 唯一包裹容器 container-fluid # 占全部视口 栅格 # 必须放在row内 col-xs-1 # 适用于大于等于分界点的屏幕 ## 大于12的最后那个col另起一行排列 # xs &lt; 768px 宽度, container 最大宽度: 自动 # sm &gt;= 768px, 750px # md &gt;= 992px, 970px # lg &gt;= 1200px, 1170px col-md-offset-4 # 向右偏移4 col-md-pull-9 # 向后推9, 改变元素的顺序 col-md-push-3 o-&gt; mixin make-row 如 .wrapper {.make-row();} make-xs-column make-sm-column-offset make-sm-column-push make-sm-column-pull 样式 # muted # 文本颜色 text-warning text-error text-info text-success text-left # 文本左对齐 text-center text-right text-justify text-nowrap text-lowercase text-uppercase text-capitalize bg-primary # p bg-success bg-info bg-warning bg-danger success # 状态类 # table行颜色, control-group div error danger warning info active has-warning # div元素 # 适用class: control-label, form-control, help-block has-error has-success has-feedback # div, pull-right # 任意元素向右浮动 pull-left navbar-right # 导航条中向右浮动 navbar-left clearfix # 清除浮动 initialism # 缩略语样式, abbr标签 small # small标签的样式 lead # p标签，突出显示 blockquote-reverse # blockquote标签使用, 内容右对齐 disabled # btn, input, 只disable样式 o-&gt; 适用的class radio radio-inline checkbox checkbox-inline o-&gt; 适用的标签 fieldset inline # 行内ul, checkbox center-block # 任意元素, 水平居中 show # 任意元素显示 hidden ." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/bootstrap/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-11T09:39:11+08:00" />
-<meta property="article:modified_time" content="2021-09-22T21:45:53+08:00" />
+<meta name="description" content="
+  介绍
+  #
 
+在jquery基础上的组件框架
+
+
+  移动
+  #
+
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&gt;
+
+
+  css
+  #
+
+全局
+        container
+                # div, 唯一包裹容器
+        container-fluid
+                # 占全部视口
+栅格
+        # 必须放在row内
+        col-xs-1
+                # 适用于大于等于分界点的屏幕
+                ## 大于12的最后那个col另起一行排列
+                # xs &lt; 768px 宽度, container 最大宽度: 自动
+                # sm &gt;= 768px, 750px
+                # md &gt;= 992px, 970px
+                # lg &gt;= 1200px, 1170px
+        
+        col-md-offset-4
+                # 向右偏移4
+        col-md-pull-9
+                # 向后推9, 改变元素的顺序
+        col-md-push-3
+        
+        o-&gt; mixin
+        make-row
+                如 .wrapper {.make-row();}
+        make-xs-column
+        make-sm-column-offset
+        make-sm-column-push
+        make-sm-column-pull
+
+
+  样式
+  #
+
+muted
+        # 文本颜色
+        text-warning
+        text-error
+        text-info
+        text-success
+text-left
+        # 文本左对齐
+        text-center
+        text-right
+        text-justify
+        text-nowrap
+        text-lowercase
+        text-uppercase
+        text-capitalize
+
+bg-primary
+        # p
+        bg-success
+        bg-info
+        bg-warning
+        bg-danger
+
+success
+        # 状态类
+        # table行颜色, control-group div
+        error
+        danger
+        warning
+        info
+        active
+has-warning
+        # div元素
+        # 适用class: control-label, form-control, help-block
+        has-error
+        has-success
+has-feedback
+        # div, 
+
+pull-right
+        # 任意元素向右浮动
+        pull-left
+navbar-right
+        # 导航条中向右浮动
+        navbar-left
+clearfix
+        # 清除浮动
+
+initialism
+        # 缩略语样式, abbr标签
+small
+        # small标签的样式
+lead
+        # p标签，突出显示
+blockquote-reverse
+        # blockquote标签使用, 内容右对齐
+
+disabled
+        # btn, input, 只disable样式
+        o-&gt; 适用的class
+        radio
+        radio-inline
+        checkbox
+        checkbox-inline
+        o-&gt; 适用的标签
+        fieldset
+
+inline
+        # 行内ul, checkbox
+
+center-block
+        # 任意元素, 水平居中
+
+show
+        # 任意元素显示
+        hidden
+
+.sr-only
+        # 任意元素, 辅助技术支持的文本, 隐藏当前元素
+        sr-only-focusable
+                # 元素有焦点时显示出来
+
+visible-xs-block
+        # 只对xs屏幕可见
+        visible-xs-inline
+        visible-xs-inline-block
+hidden-xs
+        # 对xs屏隐藏
+visible-print-block
+        # 对打印机可见
+        visible-print-inline
+        visible-print-inline-block
+hidden-print
+
+
+  table
+  #
+
+table
+        # table样式
+table-responsive
+        # div元素，包裹table样式后，创建响应式表格，带有滚动条
+table-striped
+        # 斑马纹样式
+table-bordered
+        # 边框圆角
+table-hover
+        # 行悬停样式
+table-condensed
+        # 内补减半使更紧凑
+
+
+  form
+  #
+
+form-search
+        # form标签中添加，其中有input
+        search-query
+                # search中的input的样式
+form-actions
+        # div元素, 内部按钮自动缩进
+form-inline
+        # 行内表单
+form-actions
+        # div元素，按钮列表，和表单其它元素对齐
+form-horizontal
+        # 元素右对齐左浮动的表单
+form-group
+        # form中的div元素
+        form-control
+                # input, textarea, select
+                o-&gt; 支持的input类型
+                text
+                password
+                datetime
+                datetime-local
+                date
+                month
+                time
+                week
+                number
+                email
+                url        
+                search
+                tel        
+                color    
+        form-control-static
+                # p标签，用来代input显示文本  
+        control-group
+                control-label
+                controls
+        input-group
+                input-group-addon
+                        # span
+                form-control
+                        # 同外
+        glyphicon-ok
+                # input元素或input-group的div元素后的span, 添加input内的图标
+                # 联合使用 class: glyphicon, form-control-feedback; 
+                ## 属性 aria-hidden=&quot;true&quot;
+                glyphicon-warning-sign
+                glyphicon-remove
+                
+checkbox
+        # div, label
+radio
+        # div, label
+checkbox-inline
+        # div
+radio-inline
+        # div
+
+controls
+        # div元素，为input增加合适的间距, 浮动它们缩减空白，再清除浮动
+        controls-row
+                # 排一行，增加合适间距
+
+input-mini
+        input-small
+        input-medium
+        input-large
+        input-xlarge
+        input-xxlarge
+input-sm
+        # input, select, 高度
+        input-lg
+form-group-sm
+        # class为form-group的div, 高度
+        form-group-lg
+        
+input-prepend
+        # 前缀input, 可与input-append组合
+        add-on
+                # span标签
+        btn
+        span2
+                # input标签
+input-append
+
+input-block-level
+        # 块级input
+uneditable-input
+        # span元素模拟不可编辑input
+
+
+  小件
+  #
+
+btn
+        # a, button, input
+btn-group
+        # div标签 按钮下拉菜单
+        dropdown-toggle
+                # 要赋加自定义属性data-toggle=&quot;dropdown&quot;来关联执行js
+        dropdown-menu
+                # ul标签
+btn-primary
+        # 按钮样式
+        btn-info
+        btn-success
+        btn-warning
+        btn-danger
+        btn-inverse
+        btn-link
+        btn-default
+btn-lg
+        btn-sm
+        btn-xs
+btn-block
+        # 块级按钮
+
+span1
+        # input元素, select元素
+        span2
+        span3
+        span4
+        span5
+help-inline
+        # span元素，帮助文本
+help-block
+        # span元素, 块显示帮助
+
+img-rounded
+        # img, 图片样式
+        img-circle
+        img-polaroid
+img-responsive
+        # img, 图片响应式
+
+caret
+        # span标签, 下箭头
+close
+        # button, 关闭图
+
+
+list-unstyled
+        # 无样式列表
+dl-horizontal
+        # dl列表水平描述
+pre-scrollable
+        # pre标签内容滚动
+text-overflow
+        # 截断改写数据, 可能会垂直显示
+text-hide
+        # h1, 将元素的文本内容替换为背景图
+
+
+  导航
+  #
+
+&lt;div role=&quot;navigation&quot;
+        # 如果作为导航条, 父元素加属性，或者用nav标签
+        &lt;ul class=&quot;nav nav-tabs&quot;
+                # nav-pills 改成胶囊样式
+                # nav-stacked 改成垂直
+                # nav-justified 自适应宽度
+                &lt;li role=&quot;presentation&quot; class=&quot;active&quot;
+                        # disabled
+                &lt;li role=&quot;presentation&quot; class=&quot;dropdown&quot;
+                        &lt;a class=&quot;dropdown-toggle&quot; role=&quot;button&quot; 
+                                data-toggle=&quot;dropdown&quot;
+                                aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; 
+                        &lt;ul class=&quot;dropdown-menu&quot;
+
+&lt;nav class=&quot;navbar navbar-default&quot;
+        # 添加navbar-fixed-top可以冻结到顶部
+        ## 设置body{padding-top: 70px;}来使内容不被遮盖
+        ## navbar-fixed-bottom, 同样要设置padding-bottom
+        ## navbar-static-top 向下滚动就消失
+        # navbar-inverse 反色
+        &lt;div class=&quot;container-fluid&quot;
+                &lt;div class=&quot;navbar-header&quot;
+                        &lt;a class=&quot;navbar-brand&quot;
+                                &lt;img alt=&quot;Brand&quot;
+                                        # 图标
+                        &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot;
+                                data-toggle=&quot;collapse&quot; 
+                                data-target=&quot;#bs&quot;
+                                aria-expanded=&quot;false&quot;
+                                &lt;span class=&quot;icon-bar&quot;
+                                        # 放隐藏菜单的
+                                &lt;span class=&quot;icon-bar&quot;
+                                &lt;span class=&quot;icon-bar&quot;
+                        &lt;a class=&quot;navbar-brand&quot;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-default navbar-btn&quot;
+                        # navbar-btn可以上按钮垂直居中
+                &lt;p class=&quot;navbar-text&quot;
+                &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;bs&quot;
+                        &lt;ul class=&quot;nav navbar-nav&quot;
+                                &lt;li&gt;&lt;a
+                        &lt;form class=&quot;navbar-form navbar-left&quot; role=&quot;search&quot;
+                                # navbar-form自动垂直对齐，折叠
+                                # navbar-left 让正确对齐，由pull-left mixin而来
+                                &lt;div class=&quot;form-group&quot;
+                                        &lt;input class=&quot;form-control&quot;
+                                &lt;button class=&quot;btn btn-default&quot;
+                        &lt;ul class=&quot;nav navbar-nav navbar-right&quot;
+                        &lt;p class=&quot;navbar-text navbar-right&quot;
+                                # 不支持多个navbar-right
+                                &lt;a class=&quot;navbar-link&quot;
+
+&lt;ol class=&quot;breadcrumb&quot;
+        # 面包屑
+        &lt;li
+        &lt;li class=&quot;active&quot;
+
+
+  图标
+  #
+
+icon-white
+        # 反色为白色
+fa-dashboard
+        # 配合fa使用                
+        fa-fw
+                # 小左箭头
+fa-lg
+
+
+  默认渲染
+  #
+
+&lt;h1&gt; ... &lt;h6&gt;
+&lt;small&gt;
+&lt;p&gt;
+&lt;mark&gt;
+&lt;del&gt;
+&lt;s&gt;
+&lt;ins&gt;
+&lt;u&gt;
+&lt;small&gt;
+&lt;strong&gt;
+&lt;em&gt;
+&lt;abbr&gt;
+&lt;address&gt;
+&lt;blockquote&gt;
+        &lt;p&gt;
+        &lt;footer&gt;
+                &lt;cite&gt;
+&lt;ul&gt;
+        &lt;li&gt;
+&lt;ol&gt;
+        &lt;li&gt;
+&lt;dl&gt;
+        &lt;dt&gt;
+        &lt;dd&gt;
+&lt;code&gt;
+&lt;kbd&gt;
+&lt;pre&gt;
+&lt;var&gt;
+&lt;samp&gt;
+        # 程序输出
+属性
+        aria-label
+                # input元素, 替代label
+        aria-labelledby
+        title
+                # 辅助功能阅读
+        aria-describedby
+                # input 辅助阅读
+        disabled
+        readonly
+
+
+  less
+  #
+
+@baseFontSize
+        @font-size-base
+        # 全局font-size基准，计算出所有页面元素的margin, padding, line-height, 改变bootstrap默认样式
+@baseLineHeight
+        @line-height-base
+        # 同上, line-height基准
+
+
+  案例
+  #
+
+&lt;div class=&quot;table-responsive&quot;&gt;
+        &lt;table class=&quot;table table-striped table-bordered table-hover&quot;&gt;
+                # table table-condensed 紧凑型表格
+                &lt;thead&gt;
+                        &lt;tr&gt;
+                                &lt;th&gt;标题
+                &lt;tbody&gt;
+                        &lt;tr class=&quot;active&quot;&gt;
+                                # success info warning danger
+&lt;/div&gt;
+
+
+  插件
+  #
+
+scrollspy
+    介绍
+            监测滚动到目前页面锚点
+
+
+  工具
+  #
+
+bootInit
+    介绍
+            检测bootstrap标签语法，不支持扩展插件
+">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/bootstrap/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="Bootstrap">
+  <meta property="og:description" content="介绍 # 在jquery基础上的组件框架 移动 # &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&#34;&gt; css # 全局 container # div, 唯一包裹容器 container-fluid # 占全部视口 栅格 # 必须放在row内 col-xs-1 # 适用于大于等于分界点的屏幕 ## 大于12的最后那个col另起一行排列 # xs &lt; 768px 宽度, container 最大宽度: 自动 # sm &gt;= 768px, 750px # md &gt;= 992px, 970px # lg &gt;= 1200px, 1170px col-md-offset-4 # 向右偏移4 col-md-pull-9 # 向后推9, 改变元素的顺序 col-md-push-3 o-&gt; mixin make-row 如 .wrapper {.make-row();} make-xs-column make-sm-column-offset make-sm-column-push make-sm-column-pull 样式 # muted # 文本颜色 text-warning text-error text-info text-success text-left # 文本左对齐 text-center text-right text-justify text-nowrap text-lowercase text-uppercase text-capitalize bg-primary # p bg-success bg-info bg-warning bg-danger success # 状态类 # table行颜色, control-group div error danger warning info active has-warning # div元素 # 适用class: control-label, form-control, help-block has-error has-success has-feedback # div, pull-right # 任意元素向右浮动 pull-left navbar-right # 导航条中向右浮动 navbar-left clearfix # 清除浮动 initialism # 缩略语样式, abbr标签 small # small标签的样式 lead # p标签，突出显示 blockquote-reverse # blockquote标签使用, 内容右对齐 disabled # btn, input, 只disable样式 o-&gt; 适用的class radio radio-inline checkbox checkbox-inline o-&gt; 适用的标签 fieldset inline # 行内ul, checkbox center-block # 任意元素, 水平居中 show # 任意元素显示 hidden .sr-only # 任意元素, 辅助技术支持的文本, 隐藏当前元素 sr-only-focusable # 元素有焦点时显示出来 visible-xs-block # 只对xs屏幕可见 visible-xs-inline visible-xs-inline-block hidden-xs # 对xs屏隐藏 visible-print-block # 对打印机可见 visible-print-inline visible-print-inline-block hidden-print table # table # table样式 table-responsive # div元素，包裹table样式后，创建响应式表格，带有滚动条 table-striped # 斑马纹样式 table-bordered # 边框圆角 table-hover # 行悬停样式 table-condensed # 内补减半使更紧凑 form # form-search # form标签中添加，其中有input search-query # search中的input的样式 form-actions # div元素, 内部按钮自动缩进 form-inline # 行内表单 form-actions # div元素，按钮列表，和表单其它元素对齐 form-horizontal # 元素右对齐左浮动的表单 form-group # form中的div元素 form-control # input, textarea, select o-&gt; 支持的input类型 text password datetime datetime-local date month time week number email url search tel color form-control-static # p标签，用来代input显示文本 control-group control-label controls input-group input-group-addon # span form-control # 同外 glyphicon-ok # input元素或input-group的div元素后的span, 添加input内的图标 # 联合使用 class: glyphicon, form-control-feedback; ## 属性 aria-hidden=&#34;true&#34; glyphicon-warning-sign glyphicon-remove checkbox # div, label radio # div, label checkbox-inline # div radio-inline # div controls # div元素，为input增加合适的间距, 浮动它们缩减空白，再清除浮动 controls-row # 排一行，增加合适间距 input-mini input-small input-medium input-large input-xlarge input-xxlarge input-sm # input, select, 高度 input-lg form-group-sm # class为form-group的div, 高度 form-group-lg input-prepend # 前缀input, 可与input-append组合 add-on # span标签 btn span2 # input标签 input-append input-block-level # 块级input uneditable-input # span元素模拟不可编辑input 小件 # btn # a, button, input btn-group # div标签 按钮下拉菜单 dropdown-toggle # 要赋加自定义属性data-toggle=&#34;dropdown&#34;来关联执行js dropdown-menu # ul标签 btn-primary # 按钮样式 btn-info btn-success btn-warning btn-danger btn-inverse btn-link btn-default btn-lg btn-sm btn-xs btn-block # 块级按钮 span1 # input元素, select元素 span2 span3 span4 span5 help-inline # span元素，帮助文本 help-block # span元素, 块显示帮助 img-rounded # img, 图片样式 img-circle img-polaroid img-responsive # img, 图片响应式 caret # span标签, 下箭头 close # button, 关闭图 list-unstyled # 无样式列表 dl-horizontal # dl列表水平描述 pre-scrollable # pre标签内容滚动 text-overflow # 截断改写数据, 可能会垂直显示 text-hide # h1, 将元素的文本内容替换为背景图 导航 # &lt;div role=&#34;navigation&#34; # 如果作为导航条, 父元素加属性，或者用nav标签 &lt;ul class=&#34;nav nav-tabs&#34; # nav-pills 改成胶囊样式 # nav-stacked 改成垂直 # nav-justified 自适应宽度 &lt;li role=&#34;presentation&#34; class=&#34;active&#34; # disabled &lt;li role=&#34;presentation&#34; class=&#34;dropdown&#34; &lt;a class=&#34;dropdown-toggle&#34; role=&#34;button&#34; data-toggle=&#34;dropdown&#34; aria-haspopup=&#34;true&#34; aria-expanded=&#34;false&#34; &lt;ul class=&#34;dropdown-menu&#34; &lt;nav class=&#34;navbar navbar-default&#34; # 添加navbar-fixed-top可以冻结到顶部 ## 设置body{padding-top: 70px;}来使内容不被遮盖 ## navbar-fixed-bottom, 同样要设置padding-bottom ## navbar-static-top 向下滚动就消失 # navbar-inverse 反色 &lt;div class=&#34;container-fluid&#34; &lt;div class=&#34;navbar-header&#34; &lt;a class=&#34;navbar-brand&#34; &lt;img alt=&#34;Brand&#34; # 图标 &lt;button type=&#34;button&#34; class=&#34;navbar-toggle collapsed&#34; data-toggle=&#34;collapse&#34; data-target=&#34;#bs&#34; aria-expanded=&#34;false&#34; &lt;span class=&#34;icon-bar&#34; # 放隐藏菜单的 &lt;span class=&#34;icon-bar&#34; &lt;span class=&#34;icon-bar&#34; &lt;a class=&#34;navbar-brand&#34; &lt;button type=&#34;button&#34; class=&#34;btn btn-default navbar-btn&#34; # navbar-btn可以上按钮垂直居中 &lt;p class=&#34;navbar-text&#34; &lt;div class=&#34;collapse navbar-collapse&#34; id=&#34;bs&#34; &lt;ul class=&#34;nav navbar-nav&#34; &lt;li&gt;&lt;a &lt;form class=&#34;navbar-form navbar-left&#34; role=&#34;search&#34; # navbar-form自动垂直对齐，折叠 # navbar-left 让正确对齐，由pull-left mixin而来 &lt;div class=&#34;form-group&#34; &lt;input class=&#34;form-control&#34; &lt;button class=&#34;btn btn-default&#34; &lt;ul class=&#34;nav navbar-nav navbar-right&#34; &lt;p class=&#34;navbar-text navbar-right&#34; # 不支持多个navbar-right &lt;a class=&#34;navbar-link&#34; &lt;ol class=&#34;breadcrumb&#34; # 面包屑 &lt;li &lt;li class=&#34;active&#34; 图标 # icon-white # 反色为白色 fa-dashboard # 配合fa使用 fa-fw # 小左箭头 fa-lg 默认渲染 # &lt;h1&gt; ... &lt;h6&gt; &lt;small&gt; &lt;p&gt; &lt;mark&gt; &lt;del&gt; &lt;s&gt; &lt;ins&gt; &lt;u&gt; &lt;small&gt; &lt;strong&gt; &lt;em&gt; &lt;abbr&gt; &lt;address&gt; &lt;blockquote&gt; &lt;p&gt; &lt;footer&gt; &lt;cite&gt; &lt;ul&gt; &lt;li&gt; &lt;ol&gt; &lt;li&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt; &lt;code&gt; &lt;kbd&gt; &lt;pre&gt; &lt;var&gt; &lt;samp&gt; # 程序输出 属性 aria-label # input元素, 替代label aria-labelledby title # 辅助功能阅读 aria-describedby # input 辅助阅读 disabled readonly less # @baseFontSize @font-size-base # 全局font-size基准，计算出所有页面元素的margin, padding, line-height, 改变bootstrap默认样式 @baseLineHeight @line-height-base # 同上, line-height基准 案例 # &lt;div class=&#34;table-responsive&#34;&gt; &lt;table class=&#34;table table-striped table-bordered table-hover&#34;&gt; # table table-condensed 紧凑型表格 &lt;thead&gt; &lt;tr&gt; &lt;th&gt;标题 &lt;tbody&gt; &lt;tr class=&#34;active&#34;&gt; # success info warning danger &lt;/div&gt; 插件 # scrollspy 介绍 监测滚动到目前页面锚点 工具 # bootInit 介绍 检测bootstrap标签语法，不支持扩展插件">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2018-10-11T09:39:11+08:00">
+    <meta property="article:modified_time" content="2021-09-22T21:45:53+08:00">
 <title>Bootstrap | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->

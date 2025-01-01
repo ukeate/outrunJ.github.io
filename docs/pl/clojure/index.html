@@ -3,34 +3,428 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="介绍 # 是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如&#43;是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur 语法 # s-expressions (max 3 5) (&#43; 1 (* 2 3)) (def meaning-of-life 42) (if (&lt; meaning-of-life 0) &quot;negative&quot; &quot;non-negative&quot;) (def droids [&quot;Huey&quot; &quot;Dewey&quot; &quot;Louie&quot;]) (count droids) (droids 0) (def me {:name &quot;Paul&quot; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10) 并发 # o-&gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap!">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Clojure" />
-<meta property="og:description" content="介绍 # 是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如&#43;是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur 语法 # s-expressions (max 3 5) (&#43; 1 (* 2 3)) (def meaning-of-life 42) (if (&lt; meaning-of-life 0) &quot;negative&quot; &quot;non-negative&quot;) (def droids [&quot;Huey&quot; &quot;Dewey&quot; &quot;Louie&quot;]) (count droids) (droids 0) (def me {:name &quot;Paul&quot; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10) 并发 # o-&gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/pl/clojure/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-09T16:00:21+08:00" />
-<meta property="article:modified_time" content="2019-06-17T13:24:09+08:00" />
+<meta name="description" content="
+  介绍
+  #
 
+    是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程
+    操作符知道自己的特征值(identity value), 如&#43;是0, *是1
+    数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃
+    集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能
+            # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的
+    没有尾递归优化，不常用递归，要用loop.recur
+
+
+  语法
+  #
+
+    s-expressions
+            (max 3 5)
+            (&#43; 1 (* 2 3))
+            (def meaning-of-life 42)
+            (if (&lt; meaning-of-life 0) &quot;negative&quot; &quot;non-negative&quot;)
+    (def droids [&quot;Huey&quot; &quot;Dewey&quot; &quot;Louie&quot;])
+            (count droids)
+            (droids 0)
+    (def me {:name &quot;Paul&quot; :age 45 :sex :male})
+            (:age me)
+    (defn percentage [x p] (* x (/ p 100.0)))
+            (percentage 200 10)
+
+
+  并发
+  #
+
+o-&gt; 原子变量
+        # 对一个值进行同步更新
+(def my-atom (atom 42))
+(deref my-atom)
+@my-atom
+(swap! my-atom inc)
+(swap! my-atom &#43; 2)
+(reset! my-atom 0)
+
+(def session (atom {}))
+(swap! session assoc :username &quot;paul&quot;)
+
+(if (compare-and-set! a old new)
+        # 判断原子变量a的值是否是old, 是时赋成new并返回true
+new
+(recur))
+
+o-&gt; conj 添加新成员
+(def players (atom ()))
+(defn list-players []
+(response (json/encode @players)))
+(defn create-player [player-name]
+(swap! players conj player-name)
+(status (response &quot;&quot;) 201))
+(defroutes app-routes
+(GET &quot;/players&quot; [] (list-players))
+(PUT &quot;/players/:player-name&quot; [player-name] (create-player player-name)))
+(defn -main [&amp; args]
+(run-jetty (site app-routes) {:port 3000}))
+
+o-&gt; cons列表首添加元素
+(def listv2 (cons 4 listv1))
+
+o-&gt; validator
+        # 值改变之前调用
+(def non-negative (atom 0 :validator #(&gt;= % 0)))
+(reset! non-negative -1)
+
+o-&gt; 监视器
+        # 值改变之后调用　
+(def a (atom 0))
+(add-watch a :print #(println &quot;Changed from &quot; %3 &quot; to &quot; %4))
+(swap! a &#43; 2)
+        # !的命名表示函数是事务不安全的
+
+o-&gt; 代理
+        # 对一个值进行异步更新。
+        # 代理维护的数据与事务数据相同。代理具有事务性，send会在事务成功后生效
+        # 方便做内存并发日志系统
+(def my-agent (agent 0))
+@my-agent
+(send my-agent inc)
+        # send在值更新之前立即返回，不进行重试。多线程同时调用send, 调用被串行。具有副作用
+        # send使用公用线程池，send-off使用一个新线程，send-via使用由参数指定的executor
+(send my-agent #((Thread/sleep 2000) (inc %)))
+        # 设置延迟时间
+(await my-agent)
+        # 等待代理执行完成后再继续。await-for函数可以设置超时时间
+
+(def non-negative (agent 1 :validator (fn [new-val] (&gt;= new-val 0))))
+        # 代理可以使用校验器和监视器
+        # 校验器失败时抛出异常，代理进入失效状态
+        # 错误处理模式默认为 :fail, 可以置为:continue
+        # 可以设置错误处理函数
+(agent-error non-negative)
+        # 查看代理是否在失效状态
+(restart-agent non-negative 0)
+        # 重置失效状态
+
+o-&gt; 引用
+        # 只有在事务中才能修改引用的值，对多个值进行同步更新
+(def my-ref (ref 0))
+@my-ref
+
+(dosync (ref-set my-ref 42))
+        # dosync创建一个事务，事务同swap!一样，用重试机制实现
+        # clojure的事务有原子性，一致性，隔离性，没有持久性
+(dosync (alter my-ref inc))
+        # commute替换alter，可以得到不很强的隔离性，用于做优化
+(defn transfer [from to amount]
+(dosync 
+    (alter from - amount)
+    (alter to &#43; amount)))
+
+o-&gt; threed
+(defn stress-thread [from to iterations amount]
+(Thread. #(dotimes [_ iterations] (transfer from to amount))))
+(let [t1 (stress-thread checking savings 100 100)
+    t2 (stress-thread savings checking 200 100)]
+(.start t1)
+(.start t2)
+(.join t1)
+(.join t2))
+
+o-&gt; ensure确保当前返回的值不被其它事务修改
+(when (and (= (ensure left) :thinking) (= (ensure right) :thinking))
+(ref-set philosopher :eating))
+
+
+  csp
+  #
+
+介绍
+        core.async提供了channel和go块
+        引入的core.async中部分函数名与clojure核心库函数名冲突
+
+o-&gt; channel
+(def c (chan))
+(thread (println &quot;Read:&quot; (&lt;!! c) &quot;from c&quot;))
+        # thread是core.async提供的辅助宏，将其中代码运行在一个单独的线程上
+(&gt;!! c &quot;Hello thread&quot;)
+
+
+  用例
+  #
+
+o-&gt;求和
+(defn recursive-sum 
+&quot;&quot;
+        # 文档字符串
+        ## (require &#39;[philosophers.util :refer :all])
+        ## (clojure.repl/doc swap-when!) 来查看文档字符串
+[numbers &amp; args])
+        # &amp;表示可变参数
+        ## (apply f old args) 将args展开，作为附加参数传递给f
+(if (empty? numbers)
+    0
+    (&#43; (first numbers) (recursive-sum (rest numbers))))
+
+(defn reduce-sum [numbers]
+(reduce (fn [acc x] (&#43; acc x)) 0 numbers))
+
+(defn sum [numbers]
+(reduce &#43; numbers))
+
+o-&gt;并行
+(ns sum.core
+(:require [clojure.core.reducers :as r]))
+
+(defn parallel-sum [numbers]
+(r/fold &#43; numbers))
+
+(def numbers (into [] (range 0 10000)))
+(time (sum numbers))
+(time (sum numbers))
+        # 预热jim编译器
+(time (parallel-sum numbers))
+
+o-&gt; map
+(def counts {&quot;apple&quot; 2 &quot;orange&quot; 1})
+        (get counts &quot;apple&quot; 0)
+        (get counts &quot;banana&quot; 0)
+                # 没有时返回设定的默认值0
+        (assoc counts &quot;banana&quot; 1)
+        (assoc counts &quot;apple&quot; 3)
+
+o-&gt; frequencies
+(defn word-frequencies [words]
+(reduce
+(fn [counts word] (assoc counts word (inc (get counts word 0))))
+{} words))
+
+(frequencies [&quot;one&quot; &quot;potato&quot;])
+        # 标准库中已提供
+
+o-&gt; partial函数
+        # 返回一个被局部代入的函数
+(def multiply-by-2 (partial * 2))
+(multiply-by-2 3)
+
+o-&gt; 序列
+(defn get-words [text] (re-seq #&quot;\w&#43;&quot; text))
+(get-words &quot;one tow three four&quot;)
+(map get-words [&quot;one two three&quot; &quot;four five six&quot;])
+(mapcat get-words [&quot;one two three&quot; &quot;four five six&quot;])
+        # 平辅数组
+
+o-&gt; iterate
+        # 不断将函数应用到初始值，第一次返回值，第二次返回值
+(take 10 (iterate inc 0))
+(take 10 (iterate (partial &#43; 2) 0))
+(take-last 5 (range 0 10000))
+        # 头元素使用后舍弃，耗相同的内存
+
+o-&gt; pmap
+(pmap #(frequencies (get-words %)) pages)
+        # pmap在需要结果时并行计算，仅生成需要的结果，称为半懒惰(semi-lazy)
+        # #(...)是读取器宏，来快速创建匿名函数，参数通过%1, %2标识, 只有一个参数时可以是%
+        ## (fn [page] (frequencies (get-words page)))与其等价
+
+o-&gt; merge-with
+        # 标准库函数
+(merge-with f &amp; maps)
+        # 将maps中其余map合并到第一个map中，返回合并后的map
+        ## 同键名时，多个值从左向右地合并，调用传递的f(val-in-result val-in-latter)
+(def merge-counts (partial merge-with &#43;))
+(merge-counts {:x 1 :y 2} {:y 1 :z 1})
+
+o-&gt; partition-all
+        # 序列分批
+(partition-all 4 [1 2 3 4 5 6 7 8 9 10])
+        # ((1 2 3 4) (5 6 7 8) (9 10))
+
+o-&gt; reducers包
+        # 化简器，不代表函数的结果，代表如何产生结果的描述
+        ## 嵌套的函数返回化简器，比返回懒惰序列效率更高
+        ## 可以对整个嵌套链的集合操作，可以用fold进行并行化
+        # clojure.core中大部分函数都有其对应的化简器版本
+(require &#39;[clojure.core.reducers :as r]&#39;)
+(r/map (partial * 2) [1 2 3 4])
+        # 返回一个化简器(reducible)
+(reduce conj [] reducible)
+        # conj函数第一个参数为一个集合(初始值为[]), 将第二个参数合并到第一个参数中
+(into [] reducible)
+        # into函数为内置函数，同上
+
+o-&gt;协议(类似java中的接口)来定义
+(defprotocol CollReduce
+        # 化简
+(coll-reduce [coll f] [coll f init]))
+        # coll相当于this, 支持多态性分派(polymorphic dispatch)
+(coll-reduce coll f)
+
+(defn my-reduce
+([f coll] (coll-reduce coll f))
+([f init coll] (coll-reduce coll f init)))
+(my-reduce &#43; [1 2 3 4])
+(my-reduce &#43; 10 [1 2 3 4])
+
+(defn make-reducer [reducible transforms]
+(reify
+    CollReduce
+    (coll-reduce [_ f1]
+    (coll-reduce reducible (transformf f1) (f1)))
+    (coll-reduce [_ f1 init]
+    (coll-reduce reducible (transformf f1) init))))
+        # 用reify实现一个协议
+        # 调用reducible的coll-reduce方法。用transformf对f1进行转换，转换出的函数作为传给coll-reduce方法的一个参数
+        # _表示未被使用的函数参数名，可以写成(coll-reduce [this f1])
+
+(defn my-map [mapf reducible]
+(make-reducer reducible
+    (fn [reducef]
+    (fn [acc v]
+        (reducef acc (mapf v))))))
+        # acc是之前化简结果, v是集合元素。mapf对v进行转换
+
+o-&gt; fold折叠
+        # 不能适用于懒惰序列
+(defprotocol CollFold
+(coll-fold [coll n combinef reducef]))
+
+(defn my-fold
+([reducef coll]
+    (my-fold reducef reducef coll))
+([combinef reducef coll]
+    (my-fold 512 combinef reducef coll))
+([n combinef reducef coll]
+    (coll-fold coll n combinef reducef)))
+
+(defn make-reducer [reducible transformf]
+(reify
+    CollFold
+    (coll-fold [_ n combinef reducef]
+    (coll-fold reducible n combinef (transformf reducef)))
+
+    (CollReduce
+    (coll-reduce [_ f1]
+        (coll-reduce reducible (transformf f1) (f1)))
+    (coll-reduce [_ f1 init]
+        (coll-reduce reducible (transformf f1) init))))
+
+(def numbers (into [] (take 10000000 (repeatedly #(rand-int 10)))))
+(require [&#39;reducers.parallel-frequencies :refer :all&#39;])
+(time (frequencies numbers))
+(time (parallel-frequencies numbers))
+
+o-&gt; doall强迫懒惰序列对全部元素求值
+(reduce &#43; (doall (map (partial * 2) (range 10000))))
+
+o-&gt; future
+        # 单独线程中执行一段代码
+        # 典型场景是异步通信
+(def sum (future (&#43; 1 2 3 4 5)))
+sum
+        # 返回一个future对象
+(deref sum)
+@sum
+        # 运行
+(let [a (future (&#43; 1 2))
+    b (future (&#43; 3 4))]
+(&#43; @a @b))
+        # let给a赋值，阻塞当前线程直到被求值
+        # 外层加法将一直阻塞，直到所有代表的值被求值
+
+o-&gt; promise
+        # 创建promise对象后，代码并不会像future一样立即执行，等待deliver赋值后执行
+(def meaning-of-life (promise))
+(future (println &quot;The meaning of life is:&quot; @meaning-of-life))
+(deliver meaning-of-life 42)
+
+o-&gt; Compojure库的服务器
+(def snippets (repeatedly promise))
+(defn accept-snippet [n test]
+(deliver (nth snippets n) test))
+(future
+(doseq [snippet (map deref snippets)]
+    (println snippet)))
+
+(defroutes app-routes
+(PUT &quot;/snippet/:n&quot; [n :as {:keys [body]}]
+    (accept-snippet (edn/read-string n) (slurp body))
+    (response &quot;OK&quot;)))
+(defn -main [&amp; args]
+(run-jetty (site app-routes) {:port 3000}))
+
+o-&gt; re-seq正则
+(defn sentence-split [text]
+(map trim (re-seq #&quot;[^\.!\?:;]&#43;[\.!\?:;]*&quot; text)))
+        # trim是内置函数
+(defn is-sentence? [text]
+(re-matches #&quot;^.*[\.!\?:;]$&quot; text))
+
+o-&gt; reductions
+        # 同reduce, 返回中间值构成的序列
+(reductions &#43; [1 2 3 4])
+        # (1 3 6 10)
+
+o-&gt; clj-http库
+(def translator &quot;http://localhost:3001/translate&quot;)
+(defn translate [text]
+(future
+    (:body (client/post translator {:body text}))))
+
+o-&gt; delay在解引用前不求值
+(def translations
+(delay
+    (map translate (strings-&gt;sentences (map deref snippets)))))
+
+o-&gt; 系统时间
+(defn now []
+(System/currentTimeMillis))
+
+o-&gt; Schejulure库
+(def session-sweeper
+(schedule {:min (range 0 60 5)} sweep-sessions))
+        # 定期调用
+
+o-&gt; Useful库
+(defn expired? [session]
+(&lt; @(:last-referenced session) (session-expiry-time)))
+(defn sweep-sessions []
+(swap! sessions #(remove-vals % expired?)))
+        # 删除元素
+
+o-&gt; Loop/Recur
+(defn swap-when! [a pred f &amp; args]
+(loop []
+    (let [old @a]
+    (if (pred old)
+        (let [new (apply f old args)]
+        (if (compare-and-set! a old new)
+            new
+            (recur)))
+        nil))))
+
+
+  工具
+  #
+
+clojureScript
+        # 编译到js
+">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/pl/clojure/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="Clojure">
+  <meta property="og:description" content="介绍 # 是jvm上的一个lisp语言变种，比lisp更强调纯函数式编程 操作符知道自己的特征值(identity value), 如&#43;是0, *是1 数组是懒惰的，需要时求值。适用于任意层的嵌套。头元素在使用后舍弃 集合(vector, map, set)都是持久的，使用共享结构，与ruby, java中非持久结构有相似的性能 # 持久的数据结构中，其它线程对数据的修改对该线程是不可见的 没有尾递归优化，不常用递归，要用loop.recur 语法 # s-expressions (max 3 5) (&#43; 1 (* 2 3)) (def meaning-of-life 42) (if (&lt; meaning-of-life 0) &#34;negative&#34; &#34;non-negative&#34;) (def droids [&#34;Huey&#34; &#34;Dewey&#34; &#34;Louie&#34;]) (count droids) (droids 0) (def me {:name &#34;Paul&#34; :age 45 :sex :male}) (:age me) (defn percentage [x p] (* x (/ p 100.0))) (percentage 200 10) 并发 # o-&gt; 原子变量 # 对一个值进行同步更新 (def my-atom (atom 42)) (deref my-atom) @my-atom (swap! my-atom inc) (swap! my-atom &#43; 2) (reset! my-atom 0) (def session (atom {})) (swap! session assoc :username &#34;paul&#34;) (if (compare-and-set! a old new) # 判断原子变量a的值是否是old, 是时赋成new并返回true new (recur)) o-&gt; conj 添加新成员 (def players (atom ())) (defn list-players [] (response (json/encode @players))) (defn create-player [player-name] (swap! players conj player-name) (status (response &#34;&#34;) 201)) (defroutes app-routes (GET &#34;/players&#34; [] (list-players)) (PUT &#34;/players/:player-name&#34; [player-name] (create-player player-name))) (defn -main [&amp; args] (run-jetty (site app-routes) {:port 3000})) o-&gt; cons列表首添加元素 (def listv2 (cons 4 listv1)) o-&gt; validator # 值改变之前调用 (def non-negative (atom 0 :validator #(&gt;= % 0))) (reset! non-negative -1) o-&gt; 监视器 # 值改变之后调用　(def a (atom 0)) (add-watch a :print #(println &#34;Changed from &#34; %3 &#34; to &#34; %4)) (swap! a &#43; 2) # !的命名表示函数是事务不安全的 o-&gt; 代理 # 对一个值进行异步更新。 # 代理维护的数据与事务数据相同。代理具有事务性，send会在事务成功后生效 # 方便做内存并发日志系统 (def my-agent (agent 0)) @my-agent (send my-agent inc) # send在值更新之前立即返回，不进行重试。多线程同时调用send, 调用被串行。具有副作用 # send使用公用线程池，send-off使用一个新线程，send-via使用由参数指定的executor (send my-agent #((Thread/sleep 2000) (inc %))) # 设置延迟时间 (await my-agent) # 等待代理执行完成后再继续。await-for函数可以设置超时时间 (def non-negative (agent 1 :validator (fn [new-val] (&gt;= new-val 0)))) # 代理可以使用校验器和监视器 # 校验器失败时抛出异常，代理进入失效状态 # 错误处理模式默认为 :fail, 可以置为:continue # 可以设置错误处理函数 (agent-error non-negative) # 查看代理是否在失效状态 (restart-agent non-negative 0) # 重置失效状态 o-&gt; 引用 # 只有在事务中才能修改引用的值，对多个值进行同步更新 (def my-ref (ref 0)) @my-ref (dosync (ref-set my-ref 42)) # dosync创建一个事务，事务同swap!一样，用重试机制实现 # clojure的事务有原子性，一致性，隔离性，没有持久性 (dosync (alter my-ref inc)) # commute替换alter，可以得到不很强的隔离性，用于做优化 (defn transfer [from to amount] (dosync (alter from - amount) (alter to &#43; amount))) o-&gt; threed (defn stress-thread [from to iterations amount] (Thread. #(dotimes [_ iterations] (transfer from to amount)))) (let [t1 (stress-thread checking savings 100 100) t2 (stress-thread savings checking 200 100)] (.start t1) (.start t2) (.join t1) (.join t2)) o-&gt; ensure确保当前返回的值不被其它事务修改 (when (and (= (ensure left) :thinking) (= (ensure right) :thinking)) (ref-set philosopher :eating)) csp # 介绍 core.async提供了channel和go块 引入的core.async中部分函数名与clojure核心库函数名冲突 o-&gt; channel (def c (chan)) (thread (println &#34;Read:&#34; (&lt;!! c) &#34;from c&#34;)) # thread是core.async提供的辅助宏，将其中代码运行在一个单独的线程上 (&gt;!! c &#34;Hello thread&#34;) 用例 # o-&gt;求和 (defn recursive-sum &#34;&#34; # 文档字符串 ## (require &#39;[philosophers.util :refer :all]) ## (clojure.repl/doc swap-when!) 来查看文档字符串 [numbers &amp; args]) # &amp;表示可变参数 ## (apply f old args) 将args展开，作为附加参数传递给f (if (empty? numbers) 0 (&#43; (first numbers) (recursive-sum (rest numbers)))) (defn reduce-sum [numbers] (reduce (fn [acc x] (&#43; acc x)) 0 numbers)) (defn sum [numbers] (reduce &#43; numbers)) o-&gt;并行 (ns sum.core (:require [clojure.core.reducers :as r])) (defn parallel-sum [numbers] (r/fold &#43; numbers)) (def numbers (into [] (range 0 10000))) (time (sum numbers)) (time (sum numbers)) # 预热jim编译器 (time (parallel-sum numbers)) o-&gt; map (def counts {&#34;apple&#34; 2 &#34;orange&#34; 1}) (get counts &#34;apple&#34; 0) (get counts &#34;banana&#34; 0) # 没有时返回设定的默认值0 (assoc counts &#34;banana&#34; 1) (assoc counts &#34;apple&#34; 3) o-&gt; frequencies (defn word-frequencies [words] (reduce (fn [counts word] (assoc counts word (inc (get counts word 0)))) {} words)) (frequencies [&#34;one&#34; &#34;potato&#34;]) # 标准库中已提供 o-&gt; partial函数 # 返回一个被局部代入的函数 (def multiply-by-2 (partial * 2)) (multiply-by-2 3) o-&gt; 序列 (defn get-words [text] (re-seq #&#34;\w&#43;&#34; text)) (get-words &#34;one tow three four&#34;) (map get-words [&#34;one two three&#34; &#34;four five six&#34;]) (mapcat get-words [&#34;one two three&#34; &#34;four five six&#34;]) # 平辅数组 o-&gt; iterate # 不断将函数应用到初始值，第一次返回值，第二次返回值 (take 10 (iterate inc 0)) (take 10 (iterate (partial &#43; 2) 0)) (take-last 5 (range 0 10000)) # 头元素使用后舍弃，耗相同的内存 o-&gt; pmap (pmap #(frequencies (get-words %)) pages) # pmap在需要结果时并行计算，仅生成需要的结果，称为半懒惰(semi-lazy) # #(...)是读取器宏，来快速创建匿名函数，参数通过%1, %2标识, 只有一个参数时可以是% ## (fn [page] (frequencies (get-words page)))与其等价 o-&gt; merge-with # 标准库函数 (merge-with f &amp; maps) # 将maps中其余map合并到第一个map中，返回合并后的map ## 同键名时，多个值从左向右地合并，调用传递的f(val-in-result val-in-latter) (def merge-counts (partial merge-with &#43;)) (merge-counts {:x 1 :y 2} {:y 1 :z 1}) o-&gt; partition-all # 序列分批 (partition-all 4 [1 2 3 4 5 6 7 8 9 10]) # ((1 2 3 4) (5 6 7 8) (9 10)) o-&gt; reducers包 # 化简器，不代表函数的结果，代表如何产生结果的描述 ## 嵌套的函数返回化简器，比返回懒惰序列效率更高 ## 可以对整个嵌套链的集合操作，可以用fold进行并行化 # clojure.core中大部分函数都有其对应的化简器版本 (require &#39;[clojure.core.reducers :as r]&#39;) (r/map (partial * 2) [1 2 3 4]) # 返回一个化简器(reducible) (reduce conj [] reducible) # conj函数第一个参数为一个集合(初始值为[]), 将第二个参数合并到第一个参数中 (into [] reducible) # into函数为内置函数，同上 o-&gt;协议(类似java中的接口)来定义 (defprotocol CollReduce # 化简 (coll-reduce [coll f] [coll f init])) # coll相当于this, 支持多态性分派(polymorphic dispatch) (coll-reduce coll f) (defn my-reduce ([f coll] (coll-reduce coll f)) ([f init coll] (coll-reduce coll f init))) (my-reduce &#43; [1 2 3 4]) (my-reduce &#43; 10 [1 2 3 4]) (defn make-reducer [reducible transforms] (reify CollReduce (coll-reduce [_ f1] (coll-reduce reducible (transformf f1) (f1))) (coll-reduce [_ f1 init] (coll-reduce reducible (transformf f1) init)))) # 用reify实现一个协议 # 调用reducible的coll-reduce方法。用transformf对f1进行转换，转换出的函数作为传给coll-reduce方法的一个参数 # _表示未被使用的函数参数名，可以写成(coll-reduce [this f1]) (defn my-map [mapf reducible] (make-reducer reducible (fn [reducef] (fn [acc v] (reducef acc (mapf v)))))) # acc是之前化简结果, v是集合元素。mapf对v进行转换 o-&gt; fold折叠 # 不能适用于懒惰序列 (defprotocol CollFold (coll-fold [coll n combinef reducef])) (defn my-fold ([reducef coll] (my-fold reducef reducef coll)) ([combinef reducef coll] (my-fold 512 combinef reducef coll)) ([n combinef reducef coll] (coll-fold coll n combinef reducef))) (defn make-reducer [reducible transformf] (reify CollFold (coll-fold [_ n combinef reducef] (coll-fold reducible n combinef (transformf reducef))) (CollReduce (coll-reduce [_ f1] (coll-reduce reducible (transformf f1) (f1))) (coll-reduce [_ f1 init] (coll-reduce reducible (transformf f1) init)))) (def numbers (into [] (take 10000000 (repeatedly #(rand-int 10))))) (require [&#39;reducers.parallel-frequencies :refer :all&#39;]) (time (frequencies numbers)) (time (parallel-frequencies numbers)) o-&gt; doall强迫懒惰序列对全部元素求值 (reduce &#43; (doall (map (partial * 2) (range 10000)))) o-&gt; future # 单独线程中执行一段代码 # 典型场景是异步通信 (def sum (future (&#43; 1 2 3 4 5))) sum # 返回一个future对象 (deref sum) @sum # 运行 (let [a (future (&#43; 1 2)) b (future (&#43; 3 4))] (&#43; @a @b)) # let给a赋值，阻塞当前线程直到被求值 # 外层加法将一直阻塞，直到所有代表的值被求值 o-&gt; promise # 创建promise对象后，代码并不会像future一样立即执行，等待deliver赋值后执行 (def meaning-of-life (promise)) (future (println &#34;The meaning of life is:&#34; @meaning-of-life)) (deliver meaning-of-life 42) o-&gt; Compojure库的服务器 (def snippets (repeatedly promise)) (defn accept-snippet [n test] (deliver (nth snippets n) test)) (future (doseq [snippet (map deref snippets)] (println snippet))) (defroutes app-routes (PUT &#34;/snippet/:n&#34; [n :as {:keys [body]}] (accept-snippet (edn/read-string n) (slurp body)) (response &#34;OK&#34;))) (defn -main [&amp; args] (run-jetty (site app-routes) {:port 3000})) o-&gt; re-seq正则 (defn sentence-split [text] (map trim (re-seq #&#34;[^\.!\?:;]&#43;[\.!\?:;]*&#34; text))) # trim是内置函数 (defn is-sentence? [text] (re-matches #&#34;^.*[\.!\?:;]$&#34; text)) o-&gt; reductions # 同reduce, 返回中间值构成的序列 (reductions &#43; [1 2 3 4]) # (1 3 6 10) o-&gt; clj-http库 (def translator &#34;http://localhost:3001/translate&#34;) (defn translate [text] (future (:body (client/post translator {:body text})))) o-&gt; delay在解引用前不求值 (def translations (delay (map translate (strings-&gt;sentences (map deref snippets))))) o-&gt; 系统时间 (defn now [] (System/currentTimeMillis)) o-&gt; Schejulure库 (def session-sweeper (schedule {:min (range 0 60 5)} sweep-sessions)) # 定期调用 o-&gt; Useful库 (defn expired? [session] (&lt; @(:last-referenced session) (session-expiry-time))) (defn sweep-sessions [] (swap! sessions #(remove-vals % expired?))) # 删除元素 o-&gt; Loop/Recur (defn swap-when! [a pred f &amp; args] (loop [] (let [old @a] (if (pred old) (let [new (apply f old args)] (if (compare-and-set! a old new) new (recur))) nil)))) 工具 # clojureScript # 编译到js">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2018-10-09T16:00:21+08:00">
+    <meta property="article:modified_time" content="2019-06-17T13:24:09+08:00">
 <title>Clojure | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -736,7 +1130,8 @@ o-&gt; Loop/Recur
   <a class="anchor" href="#%e5%b7%a5%e5%85%b7">#</a>
 </h1>
 <pre><code>clojureScript
-        # 编译到js</code></pre>
+        # 编译到js
+</code></pre>
 </article>
  
       
@@ -746,9 +1141,9 @@ o-&gt; Loop/Recur
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 17, 2019' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/527b54f06fb1e4192f7f9c86cfded0cda859d1b3" title='Last modified by shenwenqing | Jun 16, 2019' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jun 17, 2019</span>
+      <span>Jun 16, 2019</span>
     </a>
   </div>
 

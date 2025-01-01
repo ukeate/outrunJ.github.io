@@ -3,34 +3,198 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="介绍 # facebook推出的用于build user interfaces 的类库 使用 # o-&gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname &#43; &#39;/app/main.js&#39;], output: { path: __dirname &#43; &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname &#43; &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="React" />
-<meta property="og:description" content="介绍 # facebook推出的用于build user interfaces 的类库 使用 # o-&gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname &#43; &#39;/app/main.js&#39;], output: { path: __dirname &#43; &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname &#43; &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/react/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2018-10-11T07:32:08+08:00" />
-<meta property="article:modified_time" content="2021-09-22T21:45:53+08:00" />
+<meta name="description" content="
+  介绍
+  #
 
+facebook推出的用于build user interfaces 的类库
+
+
+  使用
+  #
+
+o-&gt; webpack
+# webpack.config.js
+var webpack = require(&#39;webpack&#39;)
+module.exports = {
+        devtool: &#39;inline-source-map&#39;,
+        entry: [&#39;webpack/hot/dev-server&#39;, __dirname &#43; &#39;/app/main.js&#39;],
+        output: {
+                path: __dirname &#43; &#39;/build&#39;,
+                filename: &#39;bundle.js&#39;
+        },
+        module: {
+                loaders: [
+                        {
+                                test: /\.(js|jsx)$/,
+                                exclude: /node_modules/,
+                                loader: &#39;babel-loader&#39;,
+                        }
+                ]
+        },
+        plugins: [
+                new webpack.HotModuleReplacementPlugin(),
+                new webpack.DefinePlugin({
+                        &#39;process.env&#39;: {
+                                NODE_ENV: JSON.stringify(&#39;production&#39;)
+                        }
+                })
+        ],
+        devServer: {
+                contentBase: __dirname &#43; &#39;/build&#39;,
+                historyApiFallback: true,
+                inline: true,
+                port: 3031,
+        }
+}
+
+# index.html
+&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+
+
+o-&gt; browser
+# index.html
+&lt;script src=&quot;build/react.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;build/react-dom.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;browser.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+        &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+        &lt;script type=&quot;text/babel&quot;&gt;
+                ReactDOM.render(
+                        &lt;h1&gt;Hello&lt;/h1&gt;
+                        document.getElementById(&#39;example&#39;)
+                )
+        &lt;/script&gt;
+&lt;/body&gt;
+
+
+  api
+  #
+
+ReactDOM
+        render
+                render(
+                        &lt;h1&gt;Hello&lt;/h1&gt;
+                        document.getElementById(&#39;example&#39;)
+                )
+React
+        # createClass
+        createClass({
+                getInitialState () {return {liked: false}},
+                handleClick(event) {
+                        this.setState({liked: !this.state.liked})
+                },
+                getDefaultProps () {
+                        # 设定属性默认值
+                        return {title: &#39;Hello&#39;}
+                },
+                propTypes: {
+                        # 限定属性的类型
+                        title: React.PropTypes.string,isRequired
+                },
+                render () {return &lt;h1&gt;&lt;/h1&gt;}
+        })
+        # createElement
+        createElement(&#39;h1&#39;, {title: &#39;a&#39;}, &#39;b&#39;)
+        # Component
+        class List extends React.Component{
+                constructor() {super()}
+                render() {return ()}
+        }
+        
+this
+        # 代表当前标签
+        props
+                # 属性
+                children
+                        # 代表所有子节点的text
+                        # 没有子节点, 是undefined, 有一个子节点, 是Object, 多个子节点是array
+                        # React.Children来处理children
+        refs
+                # 获取dom
+        state
+jsx
+    介绍
+            &lt; 开头解析为html, { 开头解析为js
+    例子
+    # Profile.jsx
+    import React from &#39;react&#39;;
+    export default Class Profile extends React.Component {
+            constructor (props) {
+                    super(props)
+                    this.state = {
+                            list: [1,2,3],
+                            activeIndex: -1
+                    }
+            },
+            activate (index) {
+                    this.setState({activeIndex: index})
+            },
+            render () {
+                    const {list, activeIndex} = this.state
+                    const lis = list.map((item, index) =&gt; {
+                            const cls = index === activeIndex ? &#39;active&#39; : &#39;&#39;
+                            return (
+                                    &lt;li key={index} className={cls} onClick={() =&gt; this.activate(index)}&gt;&lt;/li&gt;
+                            )
+                    })
+                    return (&lt;ul&gt;{lis}&lt;/ul&gt;)
+            }
+    }
+
+
+    o-&gt;
+    &lt;div&gt;
+    {/*注释*/}
+    {
+            names.map((name) =&gt; {return &lt;div&gt;{name}&lt;/div&gt;})
+    }
+    &lt;/div&gt;
+
+    o-&gt; ref
+    &lt;input ref=&quot;domNam&quot;&gt;
+
+    o-&gt; 事件
+    &lt;p onClick={this.handleClick}&gt;
+
+    o-&gt; 属性
+    &lt;Profile {...props} name=&#39;a&#39;&gt;
+            # 后面的覆盖前面的
+
+
+  插件
+  #
+
+react-big-calendar
+    日历
+
+
+  工具
+  #
+
+JSXTransformer
+        # 浏览器中引入，编译jsx
+https://babeljs.io/repl/
+        # 在线编译jsx
+">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/react/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="React">
+  <meta property="og:description" content="介绍 # facebook推出的用于build user interfaces 的类库 使用 # o-&gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname &#43; &#39;/app/main.js&#39;], output: { path: __dirname &#43; &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname &#43; &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.html &lt;div id=&#34;content&#34;&gt;&lt;/div&gt; &lt;script src=&#34;bundle.js&#34;&gt;&lt;/script&gt; o-&gt; browser # index.html &lt;script src=&#34;build/react.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;build/react-dom.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;browser.min.js&#34;&gt;&lt;/script&gt; &lt;body&gt; &lt;div id=&#34;example&#34;&gt;&lt;/div&gt; &lt;script type=&#34;text/babel&#34;&gt; ReactDOM.render( &lt;h1&gt;Hello&lt;/h1&gt; document.getElementById(&#39;example&#39;) ) &lt;/script&gt; &lt;/body&gt; api # ReactDOM render render( &lt;h1&gt;Hello&lt;/h1&gt; document.getElementById(&#39;example&#39;) ) React # createClass createClass({ getInitialState () {return {liked: false}}, handleClick(event) { this.setState({liked: !this.state.liked}) }, getDefaultProps () { # 设定属性默认值 return {title: &#39;Hello&#39;} }, propTypes: { # 限定属性的类型 title: React.PropTypes.string,isRequired }, render () {return &lt;h1&gt;&lt;/h1&gt;} }) # createElement createElement(&#39;h1&#39;, {title: &#39;a&#39;}, &#39;b&#39;) # Component class List extends React.Component{ constructor() {super()} render() {return ()} } this # 代表当前标签 props # 属性 children # 代表所有子节点的text # 没有子节点, 是undefined, 有一个子节点, 是Object, 多个子节点是array # React.Children来处理children refs # 获取dom state jsx 介绍 &lt; 开头解析为html, { 开头解析为js 例子 # Profile.jsx import React from &#39;react&#39;; export default Class Profile extends React.Component { constructor (props) { super(props) this.state = { list: [1,2,3], activeIndex: -1 } }, activate (index) { this.setState({activeIndex: index}) }, render () { const {list, activeIndex} = this.state const lis = list.map((item, index) =&gt; { const cls = index === activeIndex ? &#39;active&#39; : &#39;&#39; return ( &lt;li key={index} className={cls} onClick={() =&gt; this.activate(index)}&gt;&lt;/li&gt; ) }) return (&lt;ul&gt;{lis}&lt;/ul&gt;) } } o-&gt; &lt;div&gt; {/*注释*/} { names.map((name) =&gt; {return &lt;div&gt;{name}&lt;/div&gt;}) } &lt;/div&gt; o-&gt; ref &lt;input ref=&#34;domNam&#34;&gt; o-&gt; 事件 &lt;p onClick={this.handleClick}&gt; o-&gt; 属性 &lt;Profile {...props} name=&#39;a&#39;&gt; # 后面的覆盖前面的 插件 # react-big-calendar 日历 工具 # JSXTransformer # 浏览器中引入，编译jsx https://babeljs.io/repl/ # 在线编译jsx">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2018-10-11T07:32:08+08:00">
+    <meta property="article:modified_time" content="2021-09-22T21:45:53+08:00">
 <title>React | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -502,7 +666,8 @@ jsx
 <pre><code>JSXTransformer
         # 浏览器中引入，编译jsx
 https://babeljs.io/repl/
-        # 在线编译jsx</code></pre>
+        # 在线编译jsx
+</code></pre>
 </article>
  
       

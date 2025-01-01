@@ -3,34 +3,301 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="博客框架 # cleaver # # 基于node幻灯片 hexo # 介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;&amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址 hexo deploy # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支 上github，点settings找到github pages, 找到自己发布的站点 无法访问静态资源 设置域名 申请域名 dnspod 中 绑定ip hugo # 简介 hugo由go编写，开源，特点为编译快 本文基于hugo0.">
+<meta name="description" content="
+  博客框架
+  #
+
+
+  cleaver
+  #
+
+# 基于node幻灯片
+
+
+  hexo
+  #
+
+介绍
+    简单轻量，基于node的静态博客框架
+    可以部署在自己node服务器上，也可以部署在github上
+目录结构
+    scaffolds                                        # 脚手架
+    scripts                                            # 写文件的js, 扩展hexo功能
+    source                                            # 存放博客正文内容
+            _drafts                                    # 草稿箱
+            _posts                                        # 文件箱
+    themes                                            # 皮肤
+    _config.yml                                        # 全局配置文件
+    db.json                                            # 静态常量
+使用
+    npm install -g hexo
+    hexo version
+    hexo init nodejs-hexo
+    cd nodejs-hexo &amp;&amp; hexo server
+    hexo new 新博客                            # 产生 source/_posts/新博客.md
+    hexo server                                        # 启动server
+    hexo generate                                    # 静态化处理
+    github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址
+    hexo deploy
+            # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支
+    上github，点settings找到github pages, 找到自己发布的站点
+    无法访问静态资源
+            设置域名
+                    申请域名
+                    dnspod 中 绑定ip
+
+
+  hugo
+  #
+
+简介
+    hugo由go编写，开源，特点为编译快
+    本文基于hugo0.49
+安装
+    go install --tags extended
+命令
+    hugo
+        help
+        help server    # server代表任何子命令
+场景
+    发布
+        hugo --theme=hyde --baseUrl=&quot;https://outrunJ.github.io&quot;
+    生成站点
+        hugo new site blog1 # 站点命令在blog1中执行
+    生成文章
+        hugo new about.md
+        hugo new post/first.md
+    本地服务器
+        hugo server
+            # 自带watch
+            -s /path/to/codes
+            --theme=hyde
+            --buildDrafts
+            -p 1315
+                # 默认端口1313
+ 主题
+    git clone https://github.com/spf13/hyde.git themes/hyde # 更多主题在https://themes.gohugo.io
+ 文章
+    开头
+        ---
+        用YAML写内容
+        --- # &#43;&#43;&#43;标记可写TOML
+
+        Description = &quot;&quot;
+        Categories = [&quot;a1&quot;, &quot;a2&quot;]
+        Tags = [&quot;b1&quot;,&quot;b2&quot;]
+        draft = true    # 文章隐藏
+        menu = &quot;&quot;
+        title = &quot;a&quot; # 文章标题
+ 配置
+    打开config.toml   # 可以是config.yaml、config.json
+    baseURL = &quot;&quot;
+    title = &quot;&quot;
+    theme = &quot;&quot;
+    [permalinks]
+        post = &quot;/:year/:month/:title/&quot;  # 生成list页面
+
+    [taxonomies]
+        category = &quot;categories&quot;
+        tag = &quot;tags&quot;
+
+    [params]
+        description = &quot;&quot;
+        author = &quot;&quot;
+
+    ignoreFiles = []
+
+    [blackfriday]   # 设置markdown库
+
+
+  jekyll
+  #
+
+介绍
+    ruby静态站点生成器，根据网页源码生成静态文档文件
+    提供模板、变量、插件等功能
+    生成的站点可以直接发布到github上
+使用
+    curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem
+        # 移动到ruby安装目录
+    安装devkit
+    gem install jekyll
+    git clone https://github.com/plusjade/jekyll-bootstrap.git jekyll
+        # 下载jekyll-bootstrap模版
+    cd jekyll &amp;&amp; jekyll serve
+    rake post title = &#39;Hello&#39;
+        # 生成文章
+        ## 编辑_posts下面生成的文章
+    修改convertible.rb文件编码为utf-8
+    jekyll serve
+    发布到github
+        github上创建新仓库
+        git remote set-url origin git@新仓库
+        git add .
+        git commit -m &#39;new&#39;
+        git push origin master
+        git branch gh-pages
+            # 新建一个分支，用于发布项目
+        git checkout gh-pages
+        修改_config.yml
+            production_url: http://outrun.github.io
+            BASE_PATH: /jekyll-demo
+
+
+  在线服务
+  #
+
+
+  webIDE
+  #
+
+codebox
+
+
+  游戏
+  #
+
+框架
+    pomelo
+        # node.js上网易开源的实时性好的游戏类服务器
+架构
+    MySQL
+        user_id_list
+        club_id_list
+    Redis
+    Netty
+        ProxyServer     # 交互客户端, 监听Redis Channel拿到BizServer列表， 代理请求到多个BizServer
+            channelHandlerList
+                Encoder
+                Decoder
+                内容长度限制
+                WebSocket处理
+                msgHandler
+                客户端连接时动态添加handler
+            msg带类型，区分handler, 据msg类型转发到bizServer
+            每个用户存routerTable
+        BizServer       
+    Go &#43; Protobuf &#43; WebSocket
+    Cocos Creator/白鹭/LayaBox
+    Unity(C#)
+
+
+  三方服务
+  #
+
+
+  web
+  #
+
+aws
+阿里云
+青云
+轻云
+digital ocean
+vultr
+Linode
+azure
+    # 微软开放平台
+gce
+    # google compute engine
+txCloud
+    # 云柜，数据存储和计算
+首都在线
+
+
+  paas
+  #
+
+gae
+    # google app engine
+sae
+    # sina app engine
+heroku
+
+
+  dns
+  #
+
+godaddy
+万网
+dnspod
+
+
+  cdn
+  #
+
+七牛
+
+
+  pay
+  #
+
+支付宝
+易宝
+财付通
+
+
+  idc
+  #
+
+# infomation data corporation, 互联网数据中心
+
+
+  cti
+  #
+
+天润
+云之讯
+容联
+
+
+  报表/olap
+  #
+
+palo
+
+
+  im
+  #
+
+环信
+云片
+jpush
+im
+sms.webchinese.cn
+个推
+
+
+  safe
+  #
+
+1password
+
+
+  设备
+  #
+
+京东叮咚
+    # 智能音箱
+萤石
+    # 视频设备
+">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="博客框架 # cleaver # # 基于node幻灯片 hexo # 介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;&amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址 hexo deploy # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支 上github，点settings找到github pages, 找到自己发布的站点 无法访问静态资源 设置域名 申请域名 dnspod 中 绑定ip hugo # 简介 hugo由go编写，开源，特点为编译快 本文基于hugo0." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/tool/product/framework/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2022-08-01T13:53:50+08:00" />
-
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/tool/product/framework/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="outrun的笔记">
+  <meta property="og:description" content="博客框架 # cleaver # # 基于node幻灯片 hexo # 介绍 简单轻量，基于node的静态博客框架 可以部署在自己node服务器上，也可以部署在github上 目录结构 scaffolds # 脚手架 scripts # 写文件的js, 扩展hexo功能 source # 存放博客正文内容 _drafts # 草稿箱 _posts # 文件箱 themes # 皮肤 _config.yml # 全局配置文件 db.json # 静态常量 使用 npm install -g hexo hexo version hexo init nodejs-hexo cd nodejs-hexo &amp;&amp; hexo server hexo new 新博客 # 产生 source/_posts/新博客.md hexo server # 启动server hexo generate # 静态化处理 github中创建一个项目nodejs-hexo, 在_config.yml中找到deploy部分，设置github项目地址 hexo deploy # 部署以后，分支是gh-pages, 这是github为web项目特别设置的分支 上github，点settings找到github pages, 找到自己发布的站点 无法访问静态资源 设置域名 申请域名 dnspod 中 绑定ip hugo # 简介 hugo由go编写，开源，特点为编译快 本文基于hugo0.49 安装 go install --tags extended 命令 hugo help help server # server代表任何子命令 场景 发布 hugo --theme=hyde --baseUrl=&#34;https://outrunJ.github.io&#34; 生成站点 hugo new site blog1 # 站点命令在blog1中执行 生成文章 hugo new about.md hugo new post/first.md 本地服务器 hugo server # 自带watch -s /path/to/codes --theme=hyde --buildDrafts -p 1315 # 默认端口1313 主题 git clone https://github.com/spf13/hyde.git themes/hyde # 更多主题在https://themes.gohugo.io 文章 开头 --- 用YAML写内容 --- # &#43;&#43;&#43;标记可写TOML Description = &#34;&#34; Categories = [&#34;a1&#34;, &#34;a2&#34;] Tags = [&#34;b1&#34;,&#34;b2&#34;] draft = true # 文章隐藏 menu = &#34;&#34; title = &#34;a&#34; # 文章标题 配置 打开config.toml # 可以是config.yaml、config.json baseURL = &#34;&#34; title = &#34;&#34; theme = &#34;&#34; [permalinks] post = &#34;/:year/:month/:title/&#34; # 生成list页面 [taxonomies] category = &#34;categories&#34; tag = &#34;tags&#34; [params] description = &#34;&#34; author = &#34;&#34; ignoreFiles = [] [blackfriday] # 设置markdown库 jekyll # 介绍 ruby静态站点生成器，根据网页源码生成静态文档文件 提供模板、变量、插件等功能 生成的站点可以直接发布到github上 使用 curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem # 移动到ruby安装目录 安装devkit gem install jekyll git clone https://github.com/plusjade/jekyll-bootstrap.git jekyll # 下载jekyll-bootstrap模版 cd jekyll &amp;&amp; jekyll serve rake post title = &#39;Hello&#39; # 生成文章 ## 编辑_posts下面生成的文章 修改convertible.rb文件编码为utf-8 jekyll serve 发布到github github上创建新仓库 git remote set-url origin git@新仓库 git add . git commit -m &#39;new&#39; git push origin master git branch gh-pages # 新建一个分支，用于发布项目 git checkout gh-pages 修改_config.yml production_url: http://outrun.github.io BASE_PATH: /jekyll-demo 在线服务 # webIDE # codebox 游戏 # 框架 pomelo # node.js上网易开源的实时性好的游戏类服务器 架构 MySQL user_id_list club_id_list Redis Netty ProxyServer # 交互客户端, 监听Redis Channel拿到BizServer列表， 代理请求到多个BizServer channelHandlerList Encoder Decoder 内容长度限制 WebSocket处理 msgHandler 客户端连接时动态添加handler msg带类型，区分handler, 据msg类型转发到bizServer 每个用户存routerTable BizServer Go &#43; Protobuf &#43; WebSocket Cocos Creator/白鹭/LayaBox Unity(C#) 三方服务 # web # aws 阿里云 青云 轻云 digital ocean vultr Linode azure # 微软开放平台 gce # google compute engine txCloud # 云柜，数据存储和计算 首都在线 paas # gae # google app engine sae # sina app engine heroku dns # godaddy 万网 dnspod cdn # 七牛 pay # 支付宝 易宝 财付通 idc # # infomation data corporation, 互联网数据中心 cti # 天润 云之讯 容联 报表/olap # palo im # 环信 云片 jpush im sms.webchinese.cn 个推 safe # 1password 设备 # 京东叮咚 # 智能音箱 萤石 # 视频设备">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2022-08-01T13:53:50+08:00">
 <title>Framework | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
@@ -630,7 +897,8 @@ sms.webchinese.cn
 <pre><code>京东叮咚
     # 智能音箱
 萤石
-    # 视频设备</code></pre>
+    # 视频设备
+</code></pre>
 </article>
  
       
@@ -640,9 +908,9 @@ sms.webchinese.cn
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Aug 1, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/outrunJ/hugo-blog/commit/7a0830e2309b37cfb47cba7117b4883168023ed7" title='Last modified by outrun | Jul 31, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 1, 2022</span>
+      <span>Jul 31, 2022</span>
     </a>
   </div>
 

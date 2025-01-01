@@ -3,38 +3,56 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="框架编写 # 命令 # git update-index &ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
-阿里云搜索词 # 大屏 # and tag:path: &ldquo;/data/app/jncloud/screen/log/info.log&rdquo; and resourceMap and {7435ca87-1c8c-4c76-bcfd-6f45b9c8b167} 时长请求 # tag:path:/var/log/nginx/access.log and upstream_response_time &gt; 1 | select distinct request_uri , count(request_uri) as &ldquo;count&rdquo;, max(upstream_response_time) as max_time, min(upstream_response_time) as min_time, avg(upstream_response_time) as avg_time from log group by request_uri order by count desc
-IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_province(remote_addr) as address group by address order by c desc limit 100 tag:path:/var/log/nginx/access.">
+<meta name="description" content="
+  框架编写
+  #
+
+
+  命令
+  #
+
+git update-index &ndash;assume-unchanged a
+mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
+
+  阿里云搜索词
+  #
+
+
+  大屏
+  #
+
+
+and tag:path: &ldquo;/data/app/jncloud/screen/log/info.log&rdquo;  and resourceMap and {7435ca87-1c8c-4c76-bcfd-6f45b9c8b167}
+
+
+  时长请求
+  #
+
+tag:path:/var/log/nginx/access.log and upstream_response_time &gt; 1 | select distinct request_uri , count(request_uri) as &ldquo;count&rdquo;, max(upstream_response_time) as max_time, min(upstream_response_time) as min_time, avg(upstream_response_time) as avg_time from log group by request_uri order by count desc
+
+  IP分布
+  #
+
+tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_province(remote_addr) as address group by address order by c desc limit 100
+tag:path:/var/log/nginx/access.log | select count(1) as c, remote_addr, ip_to_province(remote_addr) as address group by remote_addr order by c desc limit 100">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="框架编写 # 命令 # git update-index &ndash;assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
-阿里云搜索词 # 大屏 # and tag:path: &ldquo;/data/app/jncloud/screen/log/info.log&rdquo; and resourceMap and {7435ca87-1c8c-4c76-bcfd-6f45b9c8b167} 时长请求 # tag:path:/var/log/nginx/access.log and upstream_response_time &gt; 1 | select distinct request_uri , count(request_uri) as &ldquo;count&rdquo;, max(upstream_response_time) as max_time, min(upstream_response_time) as min_time, avg(upstream_response_time) as avg_time from log group by request_uri order by count desc
-IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_province(remote_addr) as address group by address order by c desc limit 100 tag:path:/var/log/nginx/access." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://runout.run/docs/cache/work_code/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2022-08-31T17:07:09+08:00" />
-
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/cache/work_code/">
+  <meta property="og:site_name" content="outrun的笔记">
+  <meta property="og:title" content="outrun的笔记">
+  <meta property="og:description" content="框架编写 # 命令 # git update-index –assume-unchanged a mvn clean deploy -P keruyun -pl alsc-item-solution-kryun-dish-client -DskipTests
+阿里云搜索词 # 大屏 # and tag:path: “/data/app/jncloud/screen/log/info.log” and resourceMap and {7435ca87-1c8c-4c76-bcfd-6f45b9c8b167} 时长请求 # tag:path:/var/log/nginx/access.log and upstream_response_time &gt; 1 | select distinct request_uri , count(request_uri) as “count”, max(upstream_response_time) as max_time, min(upstream_response_time) as min_time, avg(upstream_response_time) as avg_time from log group by request_uri order by count desc
+IP分布 # tag:path:/var/log/nginx/access.log | select count(1) as c, ip_to_province(remote_addr) as address group by address order by c desc limit 100 tag:path:/var/log/nginx/access.log | select count(1) as c, remote_addr, ip_to_province(remote_addr) as address group by remote_addr order by c desc limit 100">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2022-08-31T17:07:09+08:00">
 <title>Work Code | outrun的笔记</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.dc9a8161e6c374f95d1e4ce6b94723a050d02b08398745f1301dbdde08c5b9f0.js" integrity="sha256-3JqBYebDdPldHkzmuUcjoFDQKwg5h0XxMB293gjFufA=" crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-154152836-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><!--
+<!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
