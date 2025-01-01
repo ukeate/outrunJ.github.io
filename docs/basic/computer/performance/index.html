@@ -290,21 +290,21 @@ mysql
 ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/basic/computer/performance/">
-  <meta property="og:site_name" content="outrun的笔记">
-  <meta property="og:title" content="outrun的笔记">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://ukeate.com/docs/basic/computer/performance/">
+  <meta property="og:site_name" content="ukeate的笔记">
+  <meta property="og:title" content="ukeate的笔记">
   <meta property="og:description" content="基础 # 性能指标 latency throughput qps = throughput / latency 性能分析 bottle-nect(first-principle) 资源 CPU和GPU 内存 磁盘 网络 能源 逻辑资源 fds(文件描述符) sockets 内核对象: locks inodes(磁盘索引节点) transactions ip addresses ports random numbers(分布式随机数) 容量 2000前 尽量少 200~ 不到机型限制 2017 尽量把机器用满 以后 metrics分离, 单独规划 计算 # cpu gpu 存储 # 类型 时间 描述 L1 cache 0.5ns branch mispredict(分支、转移) 5ns L2 cache 7ns 14x L1 cache Mutex lock/unlock 25ns Main memory 100ns 20x L2 cache, 200x L1 cache 1k字节压缩Zippy 3,000ns = 3us 在1Gbps网络上发送1k字节 10,000ns = 10us SSD随机读4k 150,000ns = 150us 1GB/秒 内存顺序读1MB 250,000ns = 250us 同一数据中心往返 500,000ns = 500us SSD顺序读1MB 1,000,000ns = 1000us = 1ms 1GB/秒, 4x 内存 磁盘搜索 10,000,000ns = 10,000us = 10ms 20x 数据中心往返 磁盘顺序读1MB 20,000,000ns = 20,000us = 20ms 80x 内存, 20x SSD 发包: 美国 -&gt; 荷兰 -&gt; 加拿大 150,000,000ns = 150,000us = 150ms 传输 # 带宽 热门并发1.5倍到2倍购买 方式 HDD SSD ethernet 南桥、北桥芯片 并发 # 并发 jetty 2k-3k nginx 1w lvs 100w f5 &#43; lvs 400w-800w mysql 1k oracle 1.5k-2k tomcat 1k 1并发/10在线用户/100注册用户 1用户/20pv 访问时段 8点 - 23点 最大访问量为平均值1.7倍 每个html页面20k, 40k/css, 50k/js. css与js会缓存 数据库 mongodb 查询 4w&#43;&#43;/5s # aurora测 一个进程13M左右 10g内存787多并发(最早的apache) 一个线程2M内存 10g内存5120并发 cpu一级缓存取数据: 3个时钟周期(tick) cpu二级缓存取数据: 14 tick 内存取数据: 250 tick 磁盘取数据: 4100w tick 网络取数据: 24000w tick 负载均衡器 # 并发在100w - 800w 深信服 F5 性能调优 # 影响因素 内因 项目设计、实现 资源加载 配置 外因 网络 流量 架构 服务器配置 步骤 分析用户习性 # 功能路径，热点 内存瓶颈 内部 托管资源 对象分配回收 # session、缓存、对象池等 非托管资源 数据库、文件、线程 外部 进程竞争 cpu瓶颈 cpu密集业务 加密、解密，垃圾回收，解压缩，算术运算，过度编译 缓存分析 浏览器缓存 # 资源文件，过期 代理缓存 # 地域、安全、更新 内核缓存、IIS缓存 数据缓存 资源等待分析 数据库等待 线程锁定 磁盘读写 数据库瓶颈(找数据库笔记) http优化 减小页面 只传必要数据 资源加载 架构 去单点 服务化 优质业务专门机器 广播改订阅 换语言/框架重构 案例 # o-&gt; 小米论坛 pv 2000w 热门并发300 20k/页面 300k/图片(未压缩) 70k/无图帖子 500k-3M/有图帖子 动态服务器最小带宽: 48Mbps 静态服务器最小带宽: 1440Mbps 实际购买带宽: 800M 带宽费用: 8.7w/month o-&gt; 糗事百科 pv 1000w 热门并发150 10k/页面 70k/图 4图/页 90k-400k/综合页 动态服务器带宽: 12Mbps 静态服务器带宽: 336Mbps 工具数据 # nodejs 虚拟机数据 mem: 512m mem: 66.7% cpu: 1% 执行 5秒循环mongo数据: 17w条 状况 程序完全阻塞 并发: 300 qps: 140 8核全满 2-4G 内存 3000万并发 5w socket # 系统最高65535个端口，支持这么多连接 已实现成就 ruby迁移到node.js有10倍的性能提升，特定情况下20倍性能提升 5w并发/min redis 200并发, 每次3ms, 37000次/s mysql 最多3.5w写入/s">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:modified_time" content="2022-08-01T13:53:50+08:00">
-<title>Performance | outrun的笔记</title>
+<title>Performance | ukeate的笔记</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://runout.run/docs/basic/computer/performance/">
+<link rel="canonical" href="https://ukeate.com/docs/basic/computer/performance/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.34478ef63b53a2f0193907052d4eb2b9cbf40546b9e680800e50c0f94cebcc15.js" integrity="sha256-NEeO9jtTovAZOQcFLU6yucv0BUa55oCADlDA&#43;UzrzBU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0f6a4302fe56c30046fd4c5181451fa23f629020e991f9cf123032b5e26b06f9.js" integrity="sha256-D2pDAv5WwwBG/UxRgUUfoj9ikCDpkfnPEjAyteJrBvk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -321,7 +321,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>ukeate的笔记</span>
   </a>
 </h2>
 

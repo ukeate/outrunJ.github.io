@@ -180,8 +180,8 @@ https://babeljs.io/repl/
 ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/middleware/library_frontend/react/">
-  <meta property="og:site_name" content="outrun的笔记">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://ukeate.com/docs/middleware/library_frontend/react/">
+  <meta property="og:site_name" content="ukeate的笔记">
   <meta property="og:title" content="React">
   <meta property="og:description" content="介绍 # facebook推出的用于build user interfaces 的类库 使用 # o-&gt; webpack # webpack.config.js var webpack = require(&#39;webpack&#39;) module.exports = { devtool: &#39;inline-source-map&#39;, entry: [&#39;webpack/hot/dev-server&#39;, __dirname &#43; &#39;/app/main.js&#39;], output: { path: __dirname &#43; &#39;/build&#39;, filename: &#39;bundle.js&#39; }, module: { loaders: [ { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: &#39;babel-loader&#39;, } ] }, plugins: [ new webpack.HotModuleReplacementPlugin(), new webpack.DefinePlugin({ &#39;process.env&#39;: { NODE_ENV: JSON.stringify(&#39;production&#39;) } }) ], devServer: { contentBase: __dirname &#43; &#39;/build&#39;, historyApiFallback: true, inline: true, port: 3031, } } # index.html &lt;div id=&#34;content&#34;&gt;&lt;/div&gt; &lt;script src=&#34;bundle.js&#34;&gt;&lt;/script&gt; o-&gt; browser # index.html &lt;script src=&#34;build/react.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;build/react-dom.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;browser.min.js&#34;&gt;&lt;/script&gt; &lt;body&gt; &lt;div id=&#34;example&#34;&gt;&lt;/div&gt; &lt;script type=&#34;text/babel&#34;&gt; ReactDOM.render( &lt;h1&gt;Hello&lt;/h1&gt; document.getElementById(&#39;example&#39;) ) &lt;/script&gt; &lt;/body&gt; api # ReactDOM render render( &lt;h1&gt;Hello&lt;/h1&gt; document.getElementById(&#39;example&#39;) ) React # createClass createClass({ getInitialState () {return {liked: false}}, handleClick(event) { this.setState({liked: !this.state.liked}) }, getDefaultProps () { # 设定属性默认值 return {title: &#39;Hello&#39;} }, propTypes: { # 限定属性的类型 title: React.PropTypes.string,isRequired }, render () {return &lt;h1&gt;&lt;/h1&gt;} }) # createElement createElement(&#39;h1&#39;, {title: &#39;a&#39;}, &#39;b&#39;) # Component class List extends React.Component{ constructor() {super()} render() {return ()} } this # 代表当前标签 props # 属性 children # 代表所有子节点的text # 没有子节点, 是undefined, 有一个子节点, 是Object, 多个子节点是array # React.Children来处理children refs # 获取dom state jsx 介绍 &lt; 开头解析为html, { 开头解析为js 例子 # Profile.jsx import React from &#39;react&#39;; export default Class Profile extends React.Component { constructor (props) { super(props) this.state = { list: [1,2,3], activeIndex: -1 } }, activate (index) { this.setState({activeIndex: index}) }, render () { const {list, activeIndex} = this.state const lis = list.map((item, index) =&gt; { const cls = index === activeIndex ? &#39;active&#39; : &#39;&#39; return ( &lt;li key={index} className={cls} onClick={() =&gt; this.activate(index)}&gt;&lt;/li&gt; ) }) return (&lt;ul&gt;{lis}&lt;/ul&gt;) } } o-&gt; &lt;div&gt; {/*注释*/} { names.map((name) =&gt; {return &lt;div&gt;{name}&lt;/div&gt;}) } &lt;/div&gt; o-&gt; ref &lt;input ref=&#34;domNam&#34;&gt; o-&gt; 事件 &lt;p onClick={this.handleClick}&gt; o-&gt; 属性 &lt;Profile {...props} name=&#39;a&#39;&gt; # 后面的覆盖前面的 插件 # react-big-calendar 日历 工具 # JSXTransformer # 浏览器中引入，编译jsx https://babeljs.io/repl/ # 在线编译jsx">
   <meta property="og:locale" content="en">
@@ -189,13 +189,13 @@ https://babeljs.io/repl/
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2018-10-11T07:32:08+08:00">
     <meta property="article:modified_time" content="2021-09-22T21:45:53+08:00">
-<title>React | outrun的笔记</title>
+<title>React | ukeate的笔记</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://runout.run/docs/middleware/library_frontend/react/">
+<link rel="canonical" href="https://ukeate.com/docs/middleware/library_frontend/react/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.34478ef63b53a2f0193907052d4eb2b9cbf40546b9e680800e50c0f94cebcc15.js" integrity="sha256-NEeO9jtTovAZOQcFLU6yucv0BUa55oCADlDA&#43;UzrzBU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0f6a4302fe56c30046fd4c5181451fa23f629020e991f9cf123032b5e26b06f9.js" integrity="sha256-D2pDAv5WwwBG/UxRgUUfoj9ikCDpkfnPEjAyteJrBvk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -212,7 +212,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>ukeate的笔记</span>
   </a>
 </h2>
 

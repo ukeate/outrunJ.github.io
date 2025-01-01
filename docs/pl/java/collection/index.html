@@ -81,21 +81,21 @@ TransferQueue
 ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/pl/java/collection/">
-  <meta property="og:site_name" content="outrun的笔记">
-  <meta property="og:title" content="outrun的笔记">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://ukeate.com/docs/pl/java/collection/">
+  <meta property="og:site_name" content="ukeate的笔记">
+  <meta property="og:title" content="ukeate的笔记">
   <meta property="og:description" content="基础 # 物理容器 数组 链表 Java容器 Collection List ArrayList Vector # JDK1.0，所有方法加synchronized Stack LinkedList CopyOnWriteList # 写时复制整个list, 写加锁读无锁, 无fail-fast Set HashSet LinkedHashSet SortedSet TreeSet EnumSet CopyOnWriteArraySet ConcurrentSkipListSet Queue # 相比List添加线程友好API Deque # 双端队列 ArrayDeque BlockingDeque LinkedBlockingDeque BlockingQueue # LockSupport实现, channel, 生产者消费者 SynchronousQueue # 锁实现, 无缓冲区channel TransferQueue # CAS, 生产者带队列阻塞 LinkedTransferQueue ArrayBlockingQueue # 有缓冲区channel DelayQueue # 内部维护按时间排序队列 PriorityBlockingQueue LinkedBlockingQueue # 最大数量Integer.MAX_VALUE PriorityQueue # 堆排序实现 ConcurrentLinkedQueue # CAS Map HashMap LinkedHashMap # 双向链表，按插入或访问顺序遍历 Hashtable # JDK1.0，所有方法加synchronized ConcurrentHashMap # CAS, 写慢、读快 ConcurrentSkipListMap # 有序, 没有concurrentTreeMap因为CAS红黑树难实现 TreeMap # 有序，红黑树, 查找效率高。 WeakHashMap IdentityHashMap 工具类 Collections synchronizedMap(Map) # 内部mutex加synchronized Queue # 方法 add() # 满了报异常 boolean offer() # 返回是否成功 boolean offer(long, TimeUnit) # 返回是否成功 poll() peek() element() # 同peek(), 但空时报错 remove() BlockingQueue # 方法 put() # 阻塞 take() # 阻塞 TransferQueue transfer() take() getWaitingConsumerCount() # 阻塞的消费者长度">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:modified_time" content="2021-06-18T13:03:49+08:00">
-<title>Collection | outrun的笔记</title>
+<title>Collection | ukeate的笔记</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://runout.run/docs/pl/java/collection/">
+<link rel="canonical" href="https://ukeate.com/docs/pl/java/collection/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.34478ef63b53a2f0193907052d4eb2b9cbf40546b9e680800e50c0f94cebcc15.js" integrity="sha256-NEeO9jtTovAZOQcFLU6yucv0BUa55oCADlDA&#43;UzrzBU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0f6a4302fe56c30046fd4c5181451fa23f629020e991f9cf123032b5e26b06f9.js" integrity="sha256-D2pDAv5WwwBG/UxRgUUfoj9ikCDpkfnPEjAyteJrBvk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -112,7 +112,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>ukeate的笔记</span>
   </a>
 </h2>
 

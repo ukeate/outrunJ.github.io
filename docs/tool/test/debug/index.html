@@ -127,21 +127,21 @@ log.Println(http.ListenAndServe(&ldquo;localhost:3999&rdquo;, nil))
 }">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://runout.run/docs/tool/test/debug/">
-  <meta property="og:site_name" content="outrun的笔记">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://ukeate.com/docs/tool/test/debug/">
+  <meta property="og:site_name" content="ukeate的笔记">
   <meta property="og:title" content="程序调试">
   <meta property="og:description" content="分析方向 # cpu # 方法调用 调用栈时长比例 录制时间内调用栈时长 火焰图(graph frames) 宽度: 方法耗时 高度: 调用栈深 排序是按字母的，颜色是随机的 subsecond offset heat map x轴: 秒 y轴: 一秒内各阶段 z轴: 颜色深度标记events采样数 内存 # 对象 对象个数、空间比例 调用栈分配比例 线程/协程 # 泄露 I/O阻塞 锁阻塞 channel阻塞 GC问题 # 少建对象 Linux # time ftrace perf_events eBPF SystemTap LTTng ktap dtrace4linux OEL DTrace sysdig Java # VisualVM # JProfiler # # 收费, java perfino # # 监测jvm YourKit # # 收费, java, 有调用链 Spring Insight # # java spring Golang # go命令 go tool pprof Xx.bin Xx.prof -inuse_space # -inuse_space显示真正使用的内存 -cpuprofile=cpu.prof -memprofile=mem.prof -blockprofile=block.prof -svg # 输出svg go build -toolexec=&#34;/usr/bin/time&#34; # -toolexec在每个命令加上前缀 -toolexec=&#34;perf stat&#34; -gcflags=&#39;-memprofile=m.p&#39; -gcflags=&#39;-traceprofile=t.p&#39; go test -blockprofile=b.p net/http -trace=t.p go tool trace Xx.bin t.p go-torch cpu.prof 环境变量 GODEBUG=gctrace=1 # 打印gc信息 http import _ “net/http/pprof” func main() { log.Println(http.ListenAndServe(“localhost:3999”, nil)) }">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:modified_time" content="2022-04-23T22:18:41+08:00">
-<title>程序调试 | outrun的笔记</title>
+<title>程序调试 | ukeate的笔记</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://runout.run/docs/tool/test/debug/">
+<link rel="canonical" href="https://ukeate.com/docs/tool/test/debug/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.34478ef63b53a2f0193907052d4eb2b9cbf40546b9e680800e50c0f94cebcc15.js" integrity="sha256-NEeO9jtTovAZOQcFLU6yucv0BUa55oCADlDA&#43;UzrzBU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0f6a4302fe56c30046fd4c5181451fa23f629020e991f9cf123032b5e26b06f9.js" integrity="sha256-D2pDAv5WwwBG/UxRgUUfoj9ikCDpkfnPEjAyteJrBvk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -158,7 +158,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>outrun的笔记</span>
+  <a class="flex align-center" href="/"><img src="/logo.png" alt="Logo" class="book-icon" /><span>ukeate的笔记</span>
   </a>
 </h2>
 
