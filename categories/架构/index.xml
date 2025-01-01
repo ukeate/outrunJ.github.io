@@ -6,8 +6,15 @@
     <description>Recent content in 架构 on outrun的笔记</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Dec 2022 17:31:04 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2025 08:28:49 -0700</lastBuildDate>
     <atom:link href="https://runout.run/categories/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>架构</title>
+      <link>https://runout.run/docs/architect/</link>
+      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
+      <guid>https://runout.run/docs/architect/</guid>
+      <description>&lt;h1 id=&#34;要求&#34;&gt;&#xA;  要求&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%a6%81%e6%b1%82&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;quot;我这辈子收到的最好的职业建议是在日本实习时， 一位长者跟我说的：年轻人最重要的是建立好的自己名声。这里的名声不是指沽名钓誉。而是每一篇论文，每一次演讲，每份交接给同事的工作，凡是给别人看的东西，都要在能力范围内做到至善至美。慢慢养成习惯，就会越做越好。凡事糊弄人的人，是走不远的。&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;要求归纳&#34;&gt;&#xA;  要求归纳&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%a6%81%e6%b1%82%e5%bd%92%e7%ba%b3&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;个人&#xA;    责任心，抗压力&#xA;技术与产品&#xA;    专业知识，设计指导关键模块&#xA;    项目规划，架构前瞻性，风险管理，文档&#xA;人员管理&#xA;    部门结构，人员职责&#xA;    培养与考核&#xA;内部工具&#xA;    开发运维&#xA;    测试&#xA;销售目标&#xA;    营销团队组建及管理&#xA;    销售方案，品牌方案&#xA;    市场调研&#xA;    目标，考核，监督&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;招聘人员要求&#34;&gt;&#xA;  招聘人员要求&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%8b%9b%e8%81%98%e4%ba%ba%e5%91%98%e8%a6%81%e6%b1%82&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;不是我负责的，态度也要积极&#xA;项目经历是否有帮助&#xA;人员稳定性&#xA;代码不挖坑&#xA;沟通总结能力(micheal)&#xA;工时制度管理&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     <item>
       <title>工程设计</title>
       <link>https://runout.run/docs/architect/project/</link>
@@ -42,13 +49,6 @@
       <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
       <guid>https://runout.run/docs/architect/strategy/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>架构</title>
-      <link>https://runout.run/docs/architect/</link>
-      <pubDate>Wed, 10 Oct 2018 16:49:27 +0800</pubDate>
-      <guid>https://runout.run/docs/architect/</guid>
-      <description>&lt;h1 id=&#34;要求&#34;&gt;&#xA;  要求&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%a6%81%e6%b1%82&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;quot;我这辈子收到的最好的职业建议是在日本实习时， 一位长者跟我说的：年轻人最重要的是建立好的自己名声。这里的名声不是指沽名钓誉。而是每一篇论文，每一次演讲，每份交接给同事的工作，凡是给别人看的东西，都要在能力范围内做到至善至美。慢慢养成习惯，就会越做越好。凡事糊弄人的人，是走不远的。&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;要求归纳&#34;&gt;&#xA;  要求归纳&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%a6%81%e6%b1%82%e5%bd%92%e7%ba%b3&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;个人&#xA;    责任心，抗压力&#xA;技术与产品&#xA;    专业知识，设计指导关键模块&#xA;    项目规划，架构前瞻性，风险管理，文档&#xA;人员管理&#xA;    部门结构，人员职责&#xA;    培养与考核&#xA;内部工具&#xA;    开发运维&#xA;    测试&#xA;销售目标&#xA;    营销团队组建及管理&#xA;    销售方案，品牌方案&#xA;    市场调研&#xA;    目标，考核，监督&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;招聘人员要求&#34;&gt;&#xA;  招聘人员要求&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%8b%9b%e8%81%98%e4%ba%ba%e5%91%98%e8%a6%81%e6%b1%82&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;不是我负责的，态度也要积极&#xA;项目经历是否有帮助&#xA;人员稳定性&#xA;代码不挖坑&#xA;沟通总结能力(micheal)&#xA;工时制度管理&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>知识图谱</title>
